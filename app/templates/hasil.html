@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block judul %}{{ kueri }} &mdash; Pencarian Publikasi BPS{% endblock %}
+
+{% macro kartu(h) %}
+<article class="hasil">
+  <h3 class="hasil-judul">{{ h.judul|sorot(hasil.sorot) }}</h3>
+
+  <p class="lokasi">
+    <span class="tipe tipe-{{ h.tipe }}">{{ h.tipe|upper }}</span>
+    {% if h.nomor %}<span class="nomor">Nomor {{ h.nomor }}</span>
+    {% else %}<span class="nomor kosong">Nomor &mdash;</span>{% endif %}
+    {% if h.halaman %}<span class="halaman">Halaman {{ h.halaman }}</span>
+    {% else %}<span class="halaman kosong">Halaman &mdash;</span>{% endif %}
+  </p>
+
+  <p class="publikasi">
+    {{ h.judul_publikasi }}
+    {% if h.tanggal_rilis %}<span class="tahun">({{ h.tanggal_rilis.year }})</span>{% endif %}
+  </p>
+
+  <p class="baris-akhir">
+    <span class="skor">Relevansi {{ h.skor }}%</span>
+    {# Salinan lokal, bukan url_pdf: menghindari unduh ulang 3-30 MB tiap klik.
+       #page= memakai halaman_fisik (nomor halaman PDF sebenarnya), BUKAN kolom
+       `halaman` yang berisi nomor cetak - keduanya sering berbeda. Entri tanpa
+       halaman_fisik dibuka di halaman 1 seperti biasa. #}
+    <a class="tombol-pdf"
+       href="{{ url_for('pencarian.buka_pdf', pub_id=h.publikasi_id) }}{% if h.halaman_fisik %}#page={{ h.halaman_fisik }}{% endif %}"
+       target="_blank" rel="noopener">
+      {% if h.halaman_fisik %}Buka PDF hal. {{ h.halaman_fisik }}{% else %}Buka PDF{% endif %}
+    </a>
+  </p>
+</article>
+{% endmacro %}
+
+{% macro kartu_publikasi(p) %}
+<article class="hasil hasil-pub">
+  <h3 class="hasil-judul">{{ p.judul|sorot(hasil.sorot) }}</h3>
+
+  <p class="lokasi">
+    <span class="tipe tipe-publikasi">PUBLIKASI</span>
+    {% if p.tanggal_rilis %}<span class="tahun-rilis">Rilis {{ p.tanggal_rilis.year }}</span>{% endif %}
+    <span class="jumlah-entri">{{ p.jumlah_entri }} bagian terindeks</span>
+  </p>
+
+  {% if p.abstrak %}
+    <p class="cuplikan">{{ p.abstrak[:240]|sorot(hasil.sorot) }}{% if p.abstrak|length > 240 %}&hellip;{% endif %}</p>
+  {% endif %}
+
+  <p class="baris-akhir">
+    <span class="skor">Relevansi {{ p.skor }}%</span>
+    <a class="tombol-pdf" href="{{ url_for('pencarian.buka_pdf', pub_id=p.publikasi_id) }}"
+       target="_blank" rel="noopener">Buka PDF</a>
+  </p>
+</article>
+{% endmacro %}
+
+{% block konten %}
+<form action="{{ url_for('pencarian.hasil_pencarian') }}" method="get" class="kotak-cari kecil">
+  <input type="search" name="q" value="{{ kueri }}" required>
+  <button type="submit">Cari</button>
+</form>
+
+<p class="ringkas">
+  <strong>{{ hasil.publikasi|length }}</strong> publikasi &middot;
+  <strong>{{ hasil.ditemukan|length + hasil.saran|length }}</strong> bagian untuk
+  &ldquo;{{ kueri }}&rdquo; &middot; {{ '%.0f'|format(hasil.waktu_ms) }} ms
+</p>
+
+{% if hasil.publikasi %}
+  {# Tingkat publikasi menjawab "publikasi mana", tingkat entri menjawab
+     "bagian mana". Dua pertanyaan berbeda, jadi tidak dicampur. #}
+  <h2 class="kelompok kelompok-pub">Publikasi</h2>
+  {% for p in hasil.publikasi %}{{ kartu_publikasi(p) }}{% endfor %}
+{% endif %}
+
+{% if hasil.ditemukan %}
+  <h2 class="kelompok">Bagian dalam publikasi &mdash; ditemukan</h2>
+  {% for h in hasil.ditemukan %}{{ kartu(h) }}{% endfor %}
+{% endif %}
+
+{% if hasil.saran %}
+  <h2 class="kelompok kelompok-saran">Bagian dalam publikasi &mdash; mungkin yang Anda cari</h2>
+  {% for h in hasil.saran %}{{ kartu(h) }}{% endfor %}
+{% endif %}
+
+{% if not hasil.publikasi and not hasil.ditemukan and not hasil.saran %}
+  <div class="kosong-total">
+    <h2>Tidak ada hasil untuk &ldquo;{{ kueri }}&rdquo;</h2>
+    <p>Coba kata kunci yang lebih umum:</p>
+    <ul>
+      <li>Kurangi jumlah kata &mdash; cari <em>akomodasi</em> saja, bukan
+          <em>banyaknya akomodasi hotel bintang menurut kabupaten</em>.</li>
+      <li>Pakai istilah yang biasa dipakai BPS, misalnya <em>penduduk</em>
+          alih-alih <em>warga</em>.</li>
+      <li>Hilangkan tahun atau nama daerah dari kata kunci.</li>
+    </ul>
+    <p><a href="{{ url_for('pencarian.halaman_pencarian') }}">Mulai pencarian baru</a></p>
+  </div>
+{% endif %}
+{% endblock %}

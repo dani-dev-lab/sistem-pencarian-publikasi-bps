@@ -1,0 +1,210 @@
+Memproses 72 PDF dari data/publikasi_pdf/
+[ 1/72] Direktori Usaha Pertanian Lainnya (DUTL) Provinsi    38 entri  (isi=24 tab=11 gam=3 lam=0)  [daftar=38 badan=14 +fisik=0]
+[ 2/72] Tinjauan Produk Domestik Regional Bruto Kabupaten/  121 entri  (isi=50 tab=11 gam=59 lam=1)  [daftar=119 badan=57 +fisik=9]
+[ 3/72] Laporan Perekonomian Provinsi Kalimantan Selatan 2   70 entri  (isi=40 tab=24 gam=6 lam=0)  [daftar=70 badan=60 +fisik=0]
+[ 4/72] Produk Domestik Regional Bruto Kabupaten/Kota di P  104 entri  (isi=26 tab=78 gam=0 lam=0)  [daftar=104 badan=78 +fisik=0]
+[ 5/72] Ringkasan Eksekutif Luas Panen dan Produksi Padi d   24 entri  (isi=11 tab=7 gam=6 lam=0)  [daftar=24 badan=0 +fisik=0]
+[ 6/72] Statistik Potensi Desa Provinsi Kalimantan Selatan   56 entri  (isi=19 tab=34 gam=0 lam=3)  [daftar=56 badan=0 +fisik=0]
+[ 7/72] Produk Domestik Regional Bruto Provinsi Kalimantan   73 entri  (isi=51 tab=14 gam=1 lam=7)  [daftar=72 badan=37 +fisik=0]
+[ 8/72] Indeks Pembangunan Manusia Provinsi Kalimantan Sel   13 entri  (isi=6 tab=3 gam=4 lam=0)  [daftar=12 badan=1 +fisik=0]
+[ 9/72] Gambaran Ekonomi Makro Provinsi Kalimantan Selatan   82 entri  (isi=16 tab=66 gam=0 lam=0)  [daftar=34 badan=48 +fisik=0]
+[10/72] Direktori Perusahaan Pertanian (DPP) Provinsi Kali   30 entri  (isi=16 tab=11 gam=3 lam=0)  [daftar=30 badan=14 +fisik=0]
+          (disimpan sementara: 10/72)
+[11/72] Indikator Tujuan Pembangunan Berkelanjutan (TPB) P   35 entri  (isi=5 tab=0 gam=30 lam=0)  [daftar=18 badan=27 +fisik=6]
+[12/72] Direktori Perusahaan Akomodasi Provinsi Kalimantan   24 entri  (isi=24 tab=0 gam=0 lam=0)  [daftar=24 badan=0 +fisik=0]
+[13/72] Laporan Perekonomian Provinsi Kalimantan Selatan 2   73 entri  (isi=40 tab=24 gam=9 lam=0)  [daftar=73 badan=30 +fisik=4]
+[14/72] Statistik Kesejahteraan Rakyat Provinsi Kalimantan   91 entri  (isi=16 tab=75 gam=0 lam=0)  [daftar=20 badan=84 +fisik=0]
+[15/72] Statistik Pemotongan Ternak Provinsi Kalimantan Se   42 entri  (isi=16 tab=20 gam=6 lam=0)  [daftar=42 badan=26 +fisik=0]
+[16/72] Keadaan Angkatan Kerja Provinsi Kalimantan Selatan   76 entri  (isi=10 tab=32 gam=0 lam=34)  [daftar=76 badan=1 +fisik=0]
+[17/72] Analisis Hasil Survei Kebutuhan Data BPS Provinsi  Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+  85 entri  (isi=41 tab=4 gam=25 lam=15)  [daftar=85 badan=16 +fisik=27]
+[18/72] Statistik Keuangan Pemerintah Daerah Kabupaten/Kot   12 entri  (isi=8 tab=3 gam=0 lam=1)  [daftar=11 badan=2 +fisik=2]
+[19/72] Indikator Pasar Tenaga Kerja Provinsi Kalimantan S   83 entri  (isi=38 tab=6 gam=39 lam=0)  [daftar=83 badan=90 +fisik=0]
+[20/72] Luas Panen dan Produksi Padi Provinsi Kalimantan S  256 entri  (isi=26 tab=7 gam=26 lam=197)  [daftar=256 badan=63 +fisik=168]
+          (disimpan sementara: 20/72)
+[21/72] Nilai Tukar Petani Provinsi Kalimantan Selatan 202   42 entri  (isi=26 tab=2 gam=3 lam=11)  [daftar=40 badan=10 +fisik=6]
+[22/72] Gambaran Ekonomi Makro Provinsi Kalimantan Selatan   71 entri  (isi=4 tab=67 gam=0 lam=0)  [daftar=23 badan=48 +fisik=0]
+[23/72] Statistik Pemotongan Ternak Provinsi Kalimantan Se   41 entri  (isi=9 tab=25 gam=7 lam=0)  [daftar=18 badan=25 +fisik=0]
+[24/72] Statistik Politik dan Keamanan Provinsi Kalimantan Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+  47 entri  (isi=21 tab=0 gam=5 lam=21)  [daftar=47 badan=23 +fisik=3]
+[25/72] Statistik Daerah Provinsi Kalimantan Selatan 2025    51 entri  (isi=25 tab=0 gam=20 lam=6)  [daftar=25 badan=30 +fisik=0]
+[26/72] Statistik Perhubungan Provinsi Kalimantan Selatan   103 entri  (isi=32 tab=17 gam=16 lam=38)  [daftar=103 badan=31 +fisik=34]
+[27/72] Gambaran Ekonomi Makro Provinsi Kalimantan Selatan   65 entri  (isi=0 tab=65 gam=0 lam=0)  [daftar=18 badan=47 +fisik=0]
+[28/72] Statistik Harga Konsumen Komoditas Terpilih Provin   38 entri  (isi=12 tab=17 gam=0 lam=9)  [daftar=38 badan=20 +fisik=5]
+[29/72] Profil Industri Mikro dan Kecil Provinsi Kalimanta   55 entri  (isi=8 tab=40 gam=7 lam=0)  [daftar=55 badan=40 +fisik=6]
+[30/72] Master File Desa Provinsi Kalimantan Selatan Semes  336 entri  (isi=0 tab=169 gam=167 lam=0)  [daftar=0 badan=336 +fisik=0]
+          (disimpan sementara: 30/72)
+[31/72] Indeks Harga Konsumen Provinsi Kalimantan Selatan    36 entri  (isi=12 tab=0 gam=15 lam=9)  [daftar=35 badan=22 +fisik=1]
+[32/72] Indeks Pembangunan Manusia Provinsi Kalimantan Sel   39 entri  (isi=23 tab=3 gam=13 lam=0)  [daftar=39 badan=32 +fisik=0]
+[33/72] Produk Domestik Regional Bruto Kabupaten/Kota Prov   67 entri  (isi=16 tab=6 gam=5 lam=40)  [daftar=62 badan=5 +fisik=0]
+[34/72] Keadaan Angkatan Kerja Provinsi Kalimantan Selatan  177 entri  (isi=10 tab=165 gam=0 lam=2)  [daftar=74 badan=205 +fisik=0]
+[35/72] Gambaran Ekonomi Makro Provinsi Kalimantan Selatan   70 entri  (isi=4 tab=66 gam=0 lam=0)  [daftar=23 badan=47 +fisik=0]
+[36/72] Statistik Harga Konsumen Komoditas Terpilih Provin   22 entri  (isi=5 tab=17 gam=0 lam=0)  [daftar=22 badan=17 +fisik=0]
+[37/72] Gambaran Ekonomi Makro Provinsi Kalimantan Selatan   71 entri  (isi=4 tab=67 gam=0 lam=0)  [daftar=23 badan=48 +fisik=0]
+[38/72] Provinsi Kalimantan Selatan Dalam Angka 2026        342 entri  (isi=22 tab=319 gam=1 lam=0)  [daftar=335 badan=15 +fisik=0]
+[39/72] Statistik Keuangan Pemerintah Daerah Kabupaten/Kot   25 entri  (isi=8 tab=3 gam=0 lam=14)  [daftar=25 badan=17 +fisik=0]
+[40/72] Statistik Air Bersih Provinsi Kalimantan Selatan 2   45 entri  (isi=7 tab=38 gam=0 lam=0)  [daftar=11 badan=34 +fisik=0]
+          (disimpan sementara: 40/72)
+[41/72] Direktori Perusahaan Konstruksi Provinsi Kalimanta   26 entri  (isi=25 tab=1 gam=0 lam=0)  [daftar=25 badan=1 +fisik=0]
+[42/72] Analisis Isu Terkini Provinsi Kalimantan Selatan 2   50 entri  (isi=22 tab=9 gam=19 lam=0)  [daftar=50 badan=59 +fisik=0]
+[43/72] Direktori Perusahaan Industri Manufaktur Menengah    16 entri  (isi=16 tab=0 gam=0 lam=0)  [daftar=16 badan=0 +fisik=0]
+[44/72] Gambaran Ekonomi Makro Provinsi Kalimantan Selatan   69 entri  (isi=4 tab=65 gam=0 lam=0)  [daftar=22 badan=47 +fisik=0]
+[45/72] Indikator Pasar Tenaga Kerja Provinsi Kalimantan S  102 entri  (isi=57 tab=6 gam=39 lam=0)  [daftar=102 badan=0 +fisik=45]
+[46/72] Statistik Harga Produsen Gabah di Provinsi Kaliman   38 entri  (isi=20 tab=4 gam=2 lam=12)  [daftar=38 badan=1 +fisik=17]
+[47/72] Statistik Perhotelan Provinsi Kalimantan Selatan 2   54 entri  (isi=19 tab=4 gam=3 lam=28)  [daftar=54 badan=32 +fisik=3]
+[48/72] Indeks Harga Konsumen Provinsi Kalimantan Selatan    23 entri  (isi=3 tab=0 gam=14 lam=6)  [daftar=9 badan=24 +fisik=0]
+[49/72] Keadaan Angkatan Kerja Provinsi Kalimantan Selatan Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+ 224 entri  (isi=11 tab=211 gam=0 lam=2)  [daftar=85 badan=263 +fisik=0]
+[50/72] Profil Tenaga Kerja Provinsi Kalimantan Selatan Fe   46 entri  (isi=25 tab=2 gam=19 lam=0)  [daftar=44 badan=21 +fisik=0]
+          (disimpan sementara: 50/72)
+[51/72] Buklet Indikator Industri Manufaktur Menengah dan    23 entri  (isi=9 tab=5 gam=9 lam=0)  [daftar=23 badan=3 +fisik=2]
+[52/72] Indikator Kesejahteraan Rakyat Provinsi Kalimantan  132 entri  (isi=44 tab=47 gam=10 lam=31)  [daftar=132 badan=72 +fisik=16]
+[53/72] Buklet Perkembangan Industri Mikro dan Kecil Triwu Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+  23 entri  (isi=11 tab=5 gam=7 lam=0)  [daftar=20 badan=3 +fisik=7]
+[54/72] Statistik Perhotelan Provinsi Kalimantan Selatan 2   49 entri  (isi=14 tab=4 gam=3 lam=28)  [daftar=49 badan=33 +fisik=2]
+[55/72] Master File Desa Provinsi Kalimantan Selatan Semes  336 entri  (isi=0 tab=169 gam=167 lam=0)  [daftar=0 badan=336 +fisik=0]
+[56/72] Master File Desa Provinsi Kalimantan Selatan Semes  334 entri  (isi=0 tab=168 gam=166 lam=0)  [daftar=0 badan=334 +fisik=0]
+[57/72] Produk Domestik Regional Bruto Provinsi Kalimantan   73 entri  (isi=52 tab=14 gam=1 lam=6)  [daftar=73 badan=41 +fisik=0]
+[58/72] Produk Domestik Regional Bruto Kabupaten/Kota Prov  101 entri  (isi=25 tab=7 gam=4 lam=65)  [daftar=100 badan=75 +fisik=0]
+[59/72] Direktori Perusahaan Pertanian (DPP) Provinsi Kali   30 entri  (isi=16 tab=11 gam=3 lam=0)  [daftar=30 badan=14 +fisik=0]
+[60/72] Nilai Tukar Petani Provinsi Kalimantan Selatan 202   47 entri  (isi=29 tab=1 gam=6 lam=11)  [daftar=46 badan=12 +fisik=8]
+          (disimpan sementara: 60/72)
+[61/72] Buklet Statistik Industri Manufaktur Menengah dan    15 entri  (isi=7 tab=6 gam=2 lam=0)  [daftar=15 badan=3 +fisik=5]
+[62/72] Provinsi Kalimantan Selatan Dalam Angka 2025        348 entri  (isi=22 tab=326 gam=0 lam=0)  [daftar=348 badan=0 +fisik=0]
+[63/72] Statistik Perhubungan Provinsi Kalimantan Selatan    85 entri  (isi=21 tab=15 gam=14 lam=35)  [daftar=85 badan=11 +fisik=53]
+[64/72] Tinjauan Produk Domestik Regional Bruto Kabupaten/  117 entri  (isi=50 tab=11 gam=56 lam=0)  [daftar=117 badan=9 +fisik=53]
+[65/72] Statistik Konstruksi Provinsi Kalimantan Selatan 2   41 entri  (isi=15 tab=8 gam=9 lam=9)  [daftar=32 badan=24 +fisik=0]
+[66/72] Statistik Ekspor Impor Provinsi Kalimantan Selatan   66 entri  (isi=24 tab=12 gam=11 lam=19)  [daftar=66 badan=36 +fisik=4]
+[67/72] Produk Domestik Regional Bruto Provinsi Kalimantan   73 entri  (isi=37 tab=28 gam=3 lam=5)  [daftar=73 badan=0 +fisik=3]
+[68/72] Produk Domestik Regional Bruto Provinsi Kalimantan   75 entri  (isi=39 tab=27 gam=3 lam=6)  [daftar=75 badan=38 +fisik=0]
+[69/72] Produk Domestik Regional Bruto Kabupaten/Kota di P  106 entri  (isi=28 tab=78 gam=0 lam=0)  [daftar=106 badan=78 +fisik=0]
+[70/72] Indikator Tujuan Pembangunan Berkelanjutan (TPB) P   43 entri  (isi=5 tab=0 gam=38 lam=0)  [daftar=43 badan=26 +fisik=1]
+          (disimpan sementara: 70/72)
+[71/72] Statistik Ekspor Impor Provinsi Kalimantan Selatan   61 entri  (isi=18 tab=13 gam=11 lam=19)  [daftar=61 badan=30 +fisik=10]
+[72/72] Buklet Survei Angkatan Kerja Provinsi Kalimantan S   18 entri  (isi=17 tab=1 gam=0 lam=0)  [daftar=17 badan=1 +fisik=0]
+
+==========================================================================
+RINGKASAN
+==========================================================================
+Publikasi diproses : 72
+Total entri        : 5975
+Waktu              : 1900 detik
+
+Sebaran per tipe:
+  isi          1416  ( 23.7%)
+  tabel        2774  ( 46.4%)
+  gambar       1095  ( 18.3%)
+  lampiran      690  ( 11.5%)
+
+Entri tanpa nomor halaman : 1850 dari 5975 (31.0%)
+Publikasi 0 entri         : 0
+halaman_fisik dilengkapi  : 500
+
+Sebaran per sumber:
+  daftar       3063
+  badan        1522
+  keduanya     1390
+
+Publikasi memakai mode TANPA LABEL: 3
+  Provinsi Kalimantan Selatan Dalam Angka 2026         ['tabel:hal14', 'tabel:hal15', 'tabel:hal16', 'tabel:hal17', 'tabel:hal18', 'tabel:hal19', 'tabel:hal20', 'tabel:hal21', 'tabel:hal22', 'tabel:hal23', 'tabel:hal24', 'tabel:hal25', 'tabel:hal26', 'tabel:hal27', 'tabel:hal28', 'tabel:hal29', 'tabel:hal30', 'tabel:hal31', 'tabel:hal32', 'tabel:hal33', 'tabel:hal34', 'tabel:hal35', 'tabel:hal36', 'tabel:hal37', 'tabel:hal38', 'tabel:hal39', 'tabel:hal40', 'tabel:hal41', 'tabel:hal42', 'tabel:hal43', 'tabel:hal44', 'tabel:hal45', 'tabel:hal46', 'tabel:hal47']
+  Provinsi Kalimantan Selatan Dalam Angka 2025         ['tabel:hal14', 'tabel:hal15', 'tabel:hal16', 'tabel:hal17', 'tabel:hal18', 'tabel:hal19', 'tabel:hal20', 'tabel:hal21', 'tabel:hal22', 'tabel:hal23', 'tabel:hal24', 'tabel:hal25', 'tabel:hal26', 'tabel:hal27', 'tabel:hal28', 'tabel:hal29', 'tabel:hal30', 'tabel:hal31', 'tabel:hal32', 'tabel:hal33', 'tabel:hal34', 'tabel:hal35', 'tabel:hal36', 'tabel:hal37', 'tabel:hal38', 'tabel:hal39', 'tabel:hal40', 'tabel:hal41', 'tabel:hal42', 'tabel:hal43', 'tabel:hal44', 'tabel:hal45', 'tabel:hal46', 'tabel:hal47']
+  Produk Domestik Regional Bruto Provinsi Kalimantan S ['tabel:hal8', 'tabel:hal9', 'tabel:hal10', 'gambar:hal11', 'lampiran:hal12']
+
+==========================================================================
+PUBLIKASI PERLU DIPERIKSA (21)
+==========================================================================
+  1bc84df2238512203e3d0c58  Indeks Pembangunan Manusia Provinsi Kalima
+      heading=['gambar', 'isi', 'tabel'] entri=13 -> 5/13 entri tanpa nomor halaman
+  1c688dd3f6c8ca630a9a3190  Gambaran Ekonomi Makro Provinsi Kalimantan
+      heading=['isi', 'tabel'] entri=82 -> 49/82 entri tanpa nomor halaman
+  2223fbffa401ff7bf9e66bc5  Indikator Tujuan Pembangunan Berkelanjutan
+      heading=['gambar', 'isi'] entri=35 -> 17/35 entri tanpa nomor halaman
+  22aa7968d75d0389c943b79f  Direktori Perusahaan Akomodasi Provinsi Ka
+      heading=['isi'] entri=24 -> hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+  26d401fdac292ca0c7b7f32f  Statistik Kesejahteraan Rakyat Provinsi Ka
+      heading=['isi', 'tabel'] entri=91 -> 71/91 entri tanpa nomor halaman
+  49c5df1bd1381fa594485be4  Gambaran Ekonomi Makro Provinsi Kalimantan
+      heading=['isi', 'tabel'] entri=71 -> 51/71 entri tanpa nomor halaman
+  579f51463ffd01c09088822f  Statistik Pemotongan Ternak Provinsi Kalim
+      heading=['gambar', 'isi', 'tabel'] entri=41 -> 23/41 entri tanpa nomor halaman
+  6867ebfd207c3191863afa90  Statistik Daerah Provinsi Kalimantan Selat
+      heading=['isi'] entri=51 -> 26/51 entri tanpa nomor halaman
+  6fc864b9ac76aace2eb1b157  Gambaran Ekonomi Makro Provinsi Kalimantan
+      heading=['tabel'] entri=65 -> 47/65 entri tanpa nomor halaman
+  7ab5836f6a1bd847813f4cfc  Master File Desa Provinsi Kalimantan Selat
+      heading=[] entri=336 -> 336/336 entri tanpa nomor halaman
+  83fff1db70f5f0c604c0191f  Keadaan Angkatan Kerja Provinsi Kalimantan
+      heading=['isi', 'tabel'] entri=177 -> 103/177 entri tanpa nomor halaman
+  856e507e98d6b1d97343a2ea  Gambaran Ekonomi Makro Provinsi Kalimantan
+      heading=['isi', 'tabel'] entri=70 -> 51/70 entri tanpa nomor halaman
+  8b097d5899f32c7f41466de9  Gambaran Ekonomi Makro Provinsi Kalimantan
+      heading=['isi', 'tabel'] entri=71 -> 51/71 entri tanpa nomor halaman
+  9f4c3cc4e3aecabb44a56a11  Statistik Air Bersih Provinsi Kalimantan S
+      heading=['isi', 'tabel'] entri=45 -> 35/45 entri tanpa nomor halaman
+  a3adb318562176d84e75cd19  Direktori Perusahaan Industri Manufaktur M
+      heading=['isi'] entri=16 -> hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+  a44895e17f6202db16fd5cb6  Gambaran Ekonomi Makro Provinsi Kalimantan
+      heading=['isi', 'tabel'] entri=69 -> 49/69 entri tanpa nomor halaman
+  ac3255bf717fb753419c9e05  Indeks Harga Konsumen Provinsi Kalimantan 
+      heading=['isi', 'lampiran'] entri=23 -> 20/23 entri tanpa nomor halaman
+  afd64a18ea70c4de51b8b03f  Keadaan Angkatan Kerja Provinsi Kalimantan
+      heading=['isi', 'tabel'] entri=224 -> 139/224 entri tanpa nomor halaman
+  b99ddcad7bf0b9980ee3f8d3  Master File Desa Provinsi Kalimantan Selat
+      heading=[] entri=336 -> 336/336 entri tanpa nomor halaman
+  c86b68e260a7414cc21b598f  Master File Desa Provinsi Kalimantan Selat
+      heading=[] entri=334 -> 334/334 entri tanpa nomor halaman
+  e424ed581fd7820469691e79  Statistik Konstruksi Provinsi Kalimantan S
+      heading=['gambar', 'isi', 'tabel'] entri=41 -> 11/41 entri tanpa nomor halaman
+
+Hasil lengkap -> data/hasil_ekstraksi.json

@@ -1,0 +1,25 @@
+# Kredensial
+.env
+
+# Data unduhan (besar, dapat diambil ulang dari WebAPI BPS)
+data/publikasi_pdf/
+!data/publikasi_pdf/.gitkeep
+data/sampel_pdf/*.pdf
+*.db
+*.sqlite3
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block judul %}Pencarian Publikasi BPS Kalsel{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="kop">
+    <a class="kop-judul" href="{{ url_for('pencarian.halaman_pencarian') }}">
+      Pencarian Publikasi BPS
+    </a>
+    <span class="kop-sub">Provinsi Kalimantan Selatan &mdash; Pelayanan Statistik Terpadu</span>
+    {# Halaman admin SENGAJA tidak ditautkan di sini. UI ini untuk petugas PST;
+       /admin/ diakses lewat URL langsung. Lihat CLAUDE.md. #}
+  </header>
+
+  <main>
+    {% block konten %}{% endblock %}
+  </main>
+
+  <footer class="kaki">
+    <!-- WAJIB sesuai Term of Use WebAPI BPS. Teksnya tidak boleh diubah. -->
+    <p class="notice">Layanan ini menggunakan API Badan Pusat Statistik (BPS)</p>
+  </footer>
+
+  <!-- Peningkatan opsional. Kolom pencarian tetap berfungsi tanpa berkas ini. -->
+  <script src="{{ url_for('static', filename='js/saran.js') }}" defer></script>
+</body>
+</html>

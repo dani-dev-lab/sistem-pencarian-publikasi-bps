@@ -1,0 +1,3784 @@
+{
+  "ukuran_korpus": {
+    "judul_entri": 4219,
+    "judul_publikasi": 72,
+    "abstrak": 72,
+    "baris_dwibahasa": 1005
+  },
+  "akronim": {
+    "AK": [
+      {
+        "frasa": "angkatan kerja",
+        "jumlah": 1
+      }
+    ],
+    "AKB": [
+      {
+        "frasa": "angka kematian bayi",
+        "jumlah": 2
+      }
+    ],
+    "AKI": [
+      {
+        "frasa": "angka kematian ibu",
+        "jumlah": 2
+      }
+    ],
+    "AKN": [
+      {
+        "frasa": "angka kematian neonatal",
+        "jumlah": 2
+      }
+    ],
+    "ALH": [
+      {
+        "frasa": "anak lahir hidup",
+        "jumlah": 2
+      }
+    ],
+    "AMH": [
+      {
+        "frasa": "angka melek huruf",
+        "jumlah": 1
+      }
+    ],
+    "APK": [
+      {
+        "frasa": "angka partisipasi kasar",
+        "jumlah": 4
+      }
+    ],
+    "APM": [
+      {
+        "frasa": "angka partisipasi murni",
+        "jumlah": 8
+      }
+    ],
+    "APS": [
+      {
+        "frasa": "angka partisipasi sekolah",
+        "jumlah": 4
+      }
+    ],
+    "ASN": [
+      {
+        "frasa": "aparatur sipil negara",
+        "jumlah": 4
+      }
+    ],
+    "BAK": [
+      {
+        "frasa": "bukan angkatan kerja",
+        "jumlah": 1
+      }
+    ],
+    "BBLR": [
+      {
+        "frasa": "berat badan lahir rendah",
+        "jumlah": 2
+      }
+    ],
+    "BIG": [
+      {
+        "frasa": "badan informasi geospasial",
+        "jumlah": 2
+      }
+    ],
+    "BMKG": [
+      {
+        "frasa": "badan meteorologi klimatologi dan geofisika",
+        "jumlah": 2
+      }
+    ],
+    "BPP": [
+      {
+        "frasa": "bimbingan pelatihan penyuluhan",
+        "jumlah": 1
+      }
+    ],
+    "BPPT": [
+      {
+        "frasa": "badan pengkajian dan penerapan teknologi",
+        "jumlah": 2
+      }
+    ],
+    "BPS": [
+      {
+        "frasa": "badan pusat statistik",
+        "jumlah": 6
+      }
+    ],
+    "BRIN": [
+      {
+        "frasa": "badan riset dan inovasi nasional",
+        "jumlah": 2
+      }
+    ],
+    "BTS": [
+      {
+        "frasa": "base transceiver station",
+        "jumlah": 1
+      }
+    ],
+    "CBR": [
+      {
+        "frasa": "crude birth rate",
+        "jumlah": 1
+      }
+    ],
+    "DJPK": [
+      {
+        "frasa": "direktorat jenderal perimbangan keuangan",
+        "jumlah": 1
+      }
+    ],
+    "DPP": [
+      {
+        "frasa": "direktori perusahaan pertanian",
+        "jumlah": 8
+      }
+    ],
+    "EPR": [
+      {
+        "frasa": "employment to population ratio",
+        "jumlah": 3
+      }
+    ],
+    "GFCF": [
+      {
+        "frasa": "gross fixed capital formation",
+        "jumlah": 2
+      }
+    ],
+    "GRDP": [
+      {
+        "frasa": "gross regional domestic product",
+        "jumlah": 1
+      }
+    ],
+    "HK": [
+      {
+        "frasa": "harga konsumen",
+        "jumlah": 1
+      }
+    ],
+    "HLS": [
+      {
+        "frasa": "harapan lama sekolah",
+        "jumlah": 6
+      }
+    ],
+    "ICOR": [
+      {
+        "frasa": "incremental capital output ratio",
+        "jumlah": 1
+      }
+    ],
+    "IDM": [
+      {
+        "frasa": "indeks desa membangun",
+        "jumlah": 2
+      }
+    ],
+    "IHK": [
+      {
+        "frasa": "indeks harga konsumen",
+        "jumlah": 7
+      }
+    ],
+    "IKK": [
+      {
+        "frasa": "indeks kepuasan konsumen",
+        "jumlah": 4
+      },
+      {
+        "frasa": "indeks kemahalan konstruksi",
+        "jumlah": 1
+      }
+    ],
+    "ILO": [
+      {
+        "frasa": "international labour organization",
+        "jumlah": 2
+      }
+    ],
+    "IMK": [
+      {
+        "frasa": "industri mikro dan kecil",
+        "jumlah": 1
+      },
+      {
+        "frasa": "industri pengolahan skala mikro dan kecil",
+        "jumlah": 1
+      }
+    ],
+    "IMR": [
+      {
+        "frasa": "infant mortality rate",
+        "jumlah": 2
+      }
+    ],
+    "IPA": [
+      {
+        "frasa": "importance and performance analysis",
+        "jumlah": 1
+      }
+    ],
+    "IPAK": [
+      {
+        "frasa": "indeks persepsi anti korupsi",
+        "jumlah": 3
+      },
+      {
+        "frasa": "indeks perilaku anti korupsi",
+        "jumlah": 1
+      }
+    ],
+    "IPM": [
+      {
+        "frasa": "indeks pembangunan manusia",
+        "jumlah": 12
+      }
+    ],
+    "ITR": [
+      {
+        "frasa": "international trade ratio",
+        "jumlah": 2
+      }
+    ],
+    "KB": [
+      {
+        "frasa": "keluarga berencana",
+        "jumlah": 2
+      }
+    ],
+    "KBLI": [
+      {
+        "frasa": "klasifikasi baku lapangan usaha indonesia",
+        "jumlah": 1
+      }
+    ],
+    "KEK": [
+      {
+        "frasa": "kurang energi kronis",
+        "jumlah": 2
+      }
+    ],
+    "KILM": [
+      {
+        "frasa": "key indicators of the labour market",
+        "jumlah": 2
+      }
+    ],
+    "KPM": [
+      {
+        "frasa": "keluarga penerima manfaat",
+        "jumlah": 2
+      }
+    ],
+    "KPPPBC": [
+      {
+        "frasa": "kantor pengawasan dan pelayanan pabean bea dan cukai",
+        "jumlah": 2
+      }
+    ],
+    "KSA": [
+      {
+        "frasa": "kerangka sampel area",
+        "jumlah": 2
+      }
+    ],
+    "KUD": [
+      {
+        "frasa": "koperasi unit desa",
+        "jumlah": 2
+      }
+    ],
+    "LBW": [
+      {
+        "frasa": "low birth weights",
+        "jumlah": 2
+      }
+    ],
+    "LFPR": [
+      {
+        "frasa": "labor force participation rate",
+        "jumlah": 2
+      }
+    ],
+    "LKS": [
+      {
+        "frasa": "lembaga kesejahteraan sosial",
+        "jumlah": 1
+      }
+    ],
+    "MA": [
+      {
+        "frasa": "madrasah aliyah",
+        "jumlah": 4
+      }
+    ],
+    "MI": [
+      {
+        "frasa": "madrasah ibtidaiyah",
+        "jumlah": 4
+      }
+    ],
+    "MMR": [
+      {
+        "frasa": "maternal mortality rate",
+        "jumlah": 2
+      }
+    ],
+    "NIB": [
+      {
+        "frasa": "nomor induk berusaha",
+        "jumlah": 1
+      }
+    ],
+    "NMR": [
+      {
+        "frasa": "neonatal mortality rate",
+        "jumlah": 2
+      }
+    ],
+    "NTN": [
+      {
+        "frasa": "nilai tukar nelayan",
+        "jumlah": 2
+      }
+    ],
+    "NTP": [
+      {
+        "frasa": "nilai tukar petani",
+        "jumlah": 5
+      }
+    ],
+    "NTPP": [
+      {
+        "frasa": "nilai tukar petani perikanan",
+        "jumlah": 2
+      }
+    ],
+    "PDRB": [
+      {
+        "frasa": "produk domestik regional bruto",
+        "jumlah": 8
+      }
+    ],
+    "PMA": [
+      {
+        "frasa": "penanaman modal asing",
+        "jumlah": 4
+      }
+    ],
+    "PMDN": [
+      {
+        "frasa": "penanaman modal dalam negeri",
+        "jumlah": 4
+      }
+    ],
+    "PMTB": [
+      {
+        "frasa": "pembentukan modal tetap bruto",
+        "jumlah": 4
+      }
+    ],
+    "PPK": [
+      {
+        "frasa": "perempuan pernah kawin",
+        "jumlah": 2
+      }
+    ],
+    "PPKBD": [
+      {
+        "frasa": "pembantu pembina keluarga berencana desa",
+        "jumlah": 2
+      }
+    ],
+    "PT": [
+      {
+        "frasa": "perguruan tinggi",
+        "jumlah": 2
+      }
+    ],
+    "PUS": [
+      {
+        "frasa": "pasangan usia subur",
+        "jumlah": 1
+      }
+    ],
+    "RA": [
+      {
+        "frasa": "raudatul athfal",
+        "jumlah": 3
+      },
+      {
+        "frasa": "raudatul athfal2",
+        "jumlah": 1
+      }
+    ],
+    "RLM": [
+      {
+        "frasa": "rata-rata lama tamu menginap",
+        "jumlah": 4
+      }
+    ],
+    "RLS": [
+      {
+        "frasa": "rata-rata lama sekolah",
+        "jumlah": 7
+      }
+    ],
+    "RPH": [
+      {
+        "frasa": "rumah potong hewan",
+        "jumlah": 2
+      }
+    ],
+    "RPI": [
+      {
+        "frasa": "rasio perdagangan internasional",
+        "jumlah": 2
+      }
+    ],
+    "RSE": [
+      {
+        "frasa": "relative standard error",
+        "jumlah": 90
+      },
+      {
+        "frasa": "relative standard 26 appendix error",
+        "jumlah": 1
+      }
+    ],
+    "SD": [
+      {
+        "frasa": "sekolah dasar",
+        "jumlah": 2
+      }
+    ],
+    "SKD": [
+      {
+        "frasa": "survei kebutuhan data",
+        "jumlah": 1
+      }
+    ],
+    "SKM": [
+      {
+        "frasa": "survei kepuasan masyarakat",
+        "jumlah": 1
+      }
+    ],
+    "SMA": [
+      {
+        "frasa": "sekolah menengah atas1",
+        "jumlah": 1
+      }
+    ],
+    "SMK": [
+      {
+        "frasa": "sekolah menengah kejuruan",
+        "jumlah": 2
+      }
+    ],
+    "SMP": [
+      {
+        "frasa": "sekolah menengah pertama",
+        "jumlah": 2
+      }
+    ],
+    "SNA": [
+      {
+        "frasa": "system of national accounts",
+        "jumlah": 2
+      }
+    ],
+    "SPBE": [
+      {
+        "frasa": "sistem pemerintah berbasis elektronik",
+        "jumlah": 2
+      }
+    ],
+    "TFR": [
+      {
+        "frasa": "total fertility rate",
+        "jumlah": 1
+      }
+    ],
+    "TIK": [
+      {
+        "frasa": "teknologi informasi dan komunikasi",
+        "jumlah": 2
+      }
+    ],
+    "TK": [
+      {
+        "frasa": "taman kanak kanak",
+        "jumlah": 2
+      }
+    ],
+    "TKK": [
+      {
+        "frasa": "tingkat kesempatan kerja",
+        "jumlah": 4
+      }
+    ],
+    "TPAK": [
+      {
+        "frasa": "tingkat partisipasi angkatan kerja",
+        "jumlah": 18
+      }
+    ],
+    "TPB": [
+      {
+        "frasa": "tujuan pembangunan berkelanjutan",
+        "jumlah": 2
+      }
+    ],
+    "TPH": [
+      {
+        "frasa": "tempat pemotongan hewan",
+        "jumlah": 2
+      }
+    ],
+    "TPK": [
+      {
+        "frasa": "tingkat penghunian kamar",
+        "jumlah": 16
+      }
+    ],
+    "TPT": [
+      {
+        "frasa": "tingkat pengangguran terbuka",
+        "jumlah": 23
+      },
+      {
+        "frasa": "tingkat pengangguran terbuka 50",
+        "jumlah": 4
+      },
+      {
+        "frasa": "tingkat pengangguran 50 terbuka",
+        "jumlah": 1
+      }
+    ],
+    "UHH": [
+      {
+        "frasa": "umur harapan hidup",
+        "jumlah": 6
+      }
+    ],
+    "UMP": [
+      {
+        "frasa": "upah minimum provinsi",
+        "jumlah": 2
+      }
+    ]
+  },
+  "unigram": [
+    {
+      "kata": "selatan",
+      "jumlah": 2744
+    },
+    {
+      "kata": "kalimantan",
+      "jumlah": 2690
+    },
+    {
+      "kata": "dan",
+      "jumlah": 2340
+    },
+    {
+      "kata": "turut",
+      "jumlah": 2178
+    },
+    {
+      "kata": "provinsi",
+      "jumlah": 1712
+    },
+    {
+      "kata": "of",
+      "jumlah": 1654
+    },
+    {
+      "kata": "di",
+      "jumlah": 1529
+    },
+    {
+      "kata": "and",
+      "jumlah": 1396
+    },
+    {
+      "kata": "kabupaten",
+      "jumlah": 1314
+    },
+    {
+      "kata": "yang",
+      "jumlah": 1139
+    },
+    {
+      "kata": "by",
+      "jumlah": 1033
+    },
+    {
+      "kata": "kota",
+      "jumlah": 977
+    },
+    {
+      "kata": "kerja",
+      "jumlah": 896
+    },
+    {
+      "kata": "in",
+      "jumlah": 859
+    },
+    {
+      "kata": "province",
+      "jumlah": 737
+    },
+    {
+      "kata": "atas",
+      "jumlah": 687
+    },
+    {
+      "kata": "tahun",
+      "jumlah": 661
+    },
+    {
+      "kata": "duduk",
+      "jumlah": 633
+    },
+    {
+      "kata": "usaha",
+      "jumlah": 609
+    },
+    {
+      "kata": "harga",
+      "jumlah": 589
+    },
+    {
+      "kata": "regional",
+      "jumlah": 548
+    },
+    {
+      "kata": "regency",
+      "jumlah": 530
+    },
+    {
+      "kata": "jumlah",
+      "jumlah": 512
+    },
+    {
+      "kata": "agustus",
+      "jumlah": 503
+    },
+    {
+      "kata": "persen",
+      "jumlah": 467
+    },
+    {
+      "kata": "municipality",
+      "jumlah": 459
+    },
+    {
+      "kata": "jenis",
+      "jumlah": 451
+    },
+    {
+      "kata": "umur",
+      "jumlah": 445
+    },
+    {
+      "kata": "dasar",
+      "jumlah": 430
+    },
+    {
+      "kata": "age",
+      "jumlah": 413
+    },
+    {
+      "kata": "lapang",
+      "jumlah": 410
+    },
+    {
+      "kata": "domestik",
+      "jumlah": 409
+    },
+    {
+      "kata": "bruto",
+      "jumlah": 398
+    },
+    {
+      "kata": "persentase",
+      "jumlah": 381
+    },
+    {
+      "kata": "ke",
+      "jumlah": 377
+    },
+    {
+      "kata": "produk",
+      "jumlah": 376
+    },
+    {
+      "kata": "population",
+      "jumlah": 358
+    },
+    {
+      "kata": "keluar",
+      "jumlah": 313
+    },
+    {
+      "kata": "number",
+      "jumlah": 312
+    },
+    {
+      "kata": "the",
+      "jumlah": 309
+    },
+    {
+      "kata": "didik",
+      "jumlah": 301
+    },
+    {
+      "kata": "pada",
+      "jumlah": 300
+    },
+    {
+      "kata": "indeks",
+      "jumlah": 299
+    },
+    {
+      "kata": "years",
+      "jumlah": 289
+    },
+    {
+      "kata": "rupiah",
+      "jumlah": 283
+    },
+    {
+      "kata": "over",
+      "jumlah": 271
+    },
+    {
+      "kata": "who",
+      "jumlah": 267
+    },
+    {
+      "kata": "pdrb",
+      "jumlah": 266
+    },
+    {
+      "kata": "hasil",
+      "jumlah": 263
+    },
+    {
+      "kata": "kelompok",
+      "jumlah": 262
+    },
+    {
+      "kata": "tumbuh",
+      "jumlah": 257
+    },
+    {
+      "kata": "lama",
+      "jumlah": 250
+    },
+    {
+      "kata": "daftar",
+      "jumlah": 249
+    },
+    {
+      "kata": "bulan",
+      "jumlah": 249
+    },
+    {
+      "kata": "padi",
+      "jumlah": 249
+    },
+    {
+      "kata": "data",
+      "jumlah": 247
+    },
+    {
+      "kata": "utama",
+      "jumlah": 247
+    },
+    {
+      "kata": "akhir",
+      "jumlah": 228
+    },
+    {
+      "kata": "tani",
+      "jumlah": 226
+    },
+    {
+      "kata": "per",
+      "jumlah": 221
+    },
+    {
+      "kata": "tingkat",
+      "jumlah": 214
+    },
+    {
+      "kata": "tinggi",
+      "jumlah": 210
+    },
+    {
+      "kata": "ekonomi",
+      "jumlah": 207
+    },
+    {
+      "kata": "survei",
+      "jumlah": 203
+    },
+    {
+      "kata": "kembang",
+      "jumlah": 201
+    },
+    {
+      "kata": "status",
+      "jumlah": 199
+    },
+    {
+      "kata": "laku",
+      "jumlah": 198
+    },
+    {
+      "kata": "dalam",
+      "jumlah": 197
+    },
+    {
+      "kata": "februari",
+      "jumlah": 197
+    },
+    {
+      "kata": "week",
+      "jumlah": 197
+    },
+    {
+      "kata": "desa",
+      "jumlah": 196
+    },
+    {
+      "kata": "ksa",
+      "jumlah": 195
+    },
+    {
+      "kata": "tamat",
+      "jumlah": 191
+    },
+    {
+      "kata": "during",
+      "jumlah": 191
+    },
+    {
+      "kata": "minggu",
+      "jumlah": 189
+    },
+    {
+      "kata": "produksi",
+      "jumlah": 188
+    },
+    {
+      "kata": "laju",
+      "jumlah": 186
+    },
+    {
+      "kata": "daerah",
+      "jumlah": 185
+    },
+    {
+      "kata": "banyak",
+      "jumlah": 183
+    },
+    {
+      "kata": "publikasi",
+      "jumlah": 183
+    },
+    {
+      "kata": "august",
+      "jumlah": 182
+    },
+    {
+      "kata": "worked",
+      "jumlah": 182
+    },
+    {
+      "kata": "peta",
+      "jumlah": 173
+    },
+    {
+      "kata": "main",
+      "jumlah": 168
+    },
+    {
+      "kata": "sungai",
+      "jumlah": 166
+    },
+    {
+      "kata": "konstan",
+      "jumlah": 165
+    },
+    {
+      "kata": "group",
+      "jumlah": 165
+    },
+    {
+      "kata": "hulu",
+      "jumlah": 163
+    },
+    {
+      "kata": "last",
+      "jumlah": 163
+    },
+    {
+      "kata": "area",
+      "jumlah": 161
+    },
+    {
+      "kata": "educational",
+      "jumlah": 161
+    },
+    {
+      "kata": "hotel",
+      "jumlah": 159
+    },
+    {
+      "kata": "nilai",
+      "jumlah": 157
+    },
+    {
+      "kata": "anggur",
+      "jumlah": 157
+    },
+    {
+      "kata": "type",
+      "jumlah": 154
+    },
+    {
+      "kata": "attainment",
+      "jumlah": 153
+    },
+    {
+      "kata": "rumah",
+      "jumlah": 150
+    },
+    {
+      "kata": "ini",
+      "jumlah": 147
+    },
+    {
+      "kata": "industri",
+      "jumlah": 143
+    },
+    {
+      "kata": "labuh",
+      "jumlah": 142
+    },
+    {
+      "kata": "expenditure",
+      "jumlah": 141
+    },
+    {
+      "kata": "domestic",
+      "jumlah": 139
+    },
+    {
+      "kata": "gross",
+      "jumlah": 137
+    },
+    {
+      "kata": "tanah",
+      "jumlah": 132
+    },
+    {
+      "kata": "lalu",
+      "jumlah": 131
+    },
+    {
+      "kata": "rata",
+      "jumlah": 131
+    },
+    {
+      "kata": "miliar",
+      "jumlah": 130
+    },
+    {
+      "kata": "product",
+      "jumlah": 130
+    },
+    {
+      "kata": "usia",
+      "jumlah": 129
+    },
+    {
+      "kata": "luas",
+      "jumlah": 126
+    },
+    {
+      "kata": "dengan",
+      "jumlah": 125
+    },
+    {
+      "kata": "distribusi",
+      "jumlah": 125
+    },
+    {
+      "kata": "bab",
+      "jumlah": 121
+    },
+    {
+      "kata": "triwulan",
+      "jumlah": 121
+    },
+    {
+      "kata": "kelamin",
+      "jumlah": 121
+    },
+    {
+      "kata": "tangga",
+      "jumlah": 120
+    },
+    {
+      "kata": "prices",
+      "jumlah": 120
+    },
+    {
+      "kata": "hadap",
+      "jumlah": 119
+    },
+    {
+      "kata": "at",
+      "jumlah": 119
+    },
+    {
+      "kata": "ekspor",
+      "jumlah": 117
+    },
+    {
+      "kata": "tengah",
+      "jumlah": 116
+    },
+    {
+      "kata": "tempat",
+      "jumlah": 116
+    },
+    {
+      "kata": "production",
+      "jumlah": 116
+    },
+    {
+      "kata": "desember",
+      "jumlah": 114
+    },
+    {
+      "kata": "barang",
+      "jumlah": 113
+    },
+    {
+      "kata": "muat",
+      "jumlah": 112
+    },
+    {
+      "kata": "giat",
+      "jumlah": 112
+    },
+    {
+      "kata": "inflasi",
+      "jumlah": 111
+    },
+    {
+      "kata": "tanam",
+      "jumlah": 108
+    },
+    {
+      "kata": "perintah",
+      "jumlah": 107
+    },
+    {
+      "kata": "guna",
+      "jumlah": 105
+    },
+    {
+      "kata": "antar",
+      "jumlah": 104
+    },
+    {
+      "kata": "industry",
+      "jumlah": 104
+    },
+    {
+      "kata": "percentage",
+      "jumlah": 104
+    },
+    {
+      "kata": "for",
+      "jumlah": 103
+    },
+    {
+      "kata": "impor",
+      "jumlah": 101
+    },
+    {
+      "kata": "dapat",
+      "jumlah": 101
+    },
+    {
+      "kata": "ternak",
+      "jumlah": 101
+    },
+    {
+      "kata": "angkat",
+      "jumlah": 100
+    },
+    {
+      "kata": "indikator",
+      "jumlah": 100
+    },
+    {
+      "kata": "serta",
+      "jumlah": 99
+    },
+    {
+      "kata": "bangun",
+      "jumlah": 99
+    },
+    {
+      "kata": "indonesia",
+      "jumlah": 98
+    },
+    {
+      "kata": "statistik",
+      "jumlah": 98
+    },
+    {
+      "kata": "tinggal",
+      "jumlah": 98
+    },
+    {
+      "kata": "percent",
+      "jumlah": 98
+    },
+    {
+      "kata": "sektor",
+      "jumlah": 97
+    },
+    {
+      "kata": "error",
+      "jumlah": 95
+    },
+    {
+      "kata": "jam",
+      "jumlah": 94
+    },
+    {
+      "kata": "wilayah",
+      "jumlah": 94
+    },
+    {
+      "kata": "implisit",
+      "jumlah": 94
+    },
+    {
+      "kata": "komoditas",
+      "jumlah": 93
+    },
+    {
+      "kata": "unemployment",
+      "jumlah": 93
+    },
+    {
+      "kata": "relative",
+      "jumlah": 92
+    },
+    {
+      "kata": "standard",
+      "jumlah": 92
+    },
+    {
+      "kata": "klasifikasi",
+      "jumlah": 91
+    },
+    {
+      "kata": "saji",
+      "jumlah": 91
+    },
+    {
+      "kata": "rse",
+      "jumlah": 91
+    },
+    {
+      "kata": "gambar",
+      "jumlah": 89
+    },
+    {
+      "kata": "konsumsi",
+      "jumlah": 87
+    },
+    {
+      "kata": "konsumen",
+      "jumlah": 86
+    },
+    {
+      "kata": "laut",
+      "jumlah": 86
+    },
+    {
+      "kata": "bongkar",
+      "jumlah": 85
+    },
+    {
+      "kata": "i",
+      "jumlah": 85
+    },
+    {
+      "kata": "maret",
+      "jumlah": 85
+    },
+    {
+      "kata": "february",
+      "jumlah": 84
+    },
+    {
+      "kata": "miskin",
+      "jumlah": 82
+    },
+    {
+      "kata": "halaman",
+      "jumlah": 81
+    },
+    {
+      "kata": "peran",
+      "jumlah": 81
+    },
+    {
+      "kata": "kategori",
+      "jumlah": 80
+    },
+    {
+      "kata": "olah",
+      "jumlah": 79
+    },
+    {
+      "kata": "negeri",
+      "jumlah": 79
+    },
+    {
+      "kata": "dari",
+      "jumlah": 78
+    },
+    {
+      "kata": "bps",
+      "jumlah": 78
+    },
+    {
+      "kata": "kamar",
+      "jumlah": 77
+    },
+    {
+      "kata": "employment",
+      "jumlah": 77
+    },
+    {
+      "kata": "lurah",
+      "jumlah": 76
+    },
+    {
+      "kata": "ada",
+      "jumlah": 75
+    },
+    {
+      "kata": "kotabaru",
+      "jumlah": 75
+    },
+    {
+      "kata": "ton",
+      "jumlah": 75
+    },
+    {
+      "kata": "januari",
+      "jumlah": 75
+    },
+    {
+      "kata": "kecil",
+      "jumlah": 75
+    },
+    {
+      "kata": "tabel",
+      "jumlah": 74
+    },
+    {
+      "kata": "potong",
+      "jumlah": 74
+    },
+    {
+      "kata": "isi",
+      "jumlah": 73
+    },
+    {
+      "kata": "kg",
+      "jumlah": 73
+    },
+    {
+      "kata": "besar",
+      "jumlah": 73
+    },
+    {
+      "kata": "market",
+      "jumlah": 73
+    },
+    {
+      "kata": "mikro",
+      "jumlah": 73
+    },
+    {
+      "kata": "total",
+      "jumlah": 72
+    },
+    {
+      "kata": "volume",
+      "jumlah": 72
+    },
+    {
+      "kata": "lampir",
+      "jumlah": 71
+    },
+    {
+      "kata": "perempuan",
+      "jumlah": 71
+    },
+    {
+      "kata": "lain",
+      "jumlah": 71
+    },
+    {
+      "kata": "banjarmasin",
+      "jumlah": 71
+    },
+    {
+      "kata": "rate",
+      "jumlah": 71
+    },
+    {
+      "kata": "ribu",
+      "jumlah": 70
+    },
+    {
+      "kata": "untuk",
+      "jumlah": 70
+    },
+    {
+      "kata": "sehat",
+      "jumlah": 69
+    },
+    {
+      "kata": "jalan",
+      "jumlah": 69
+    },
+    {
+      "kata": "bintang",
+      "jumlah": 69
+    },
+    {
+      "kata": "arus",
+      "jumlah": 69
+    },
+    {
+      "kata": "jasa",
+      "jumlah": 69
+    },
+    {
+      "kata": "table",
+      "jumlah": 69
+    },
+    {
+      "kata": "pustaka",
+      "jumlah": 68
+    },
+    {
+      "kata": "juta",
+      "jumlah": 68
+    },
+    {
+      "kata": "umum",
+      "jumlah": 68
+    },
+    {
+      "kata": "rural",
+      "jumlah": 68
+    },
+    {
+      "kata": "kata",
+      "jumlah": 67
+    },
+    {
+      "kata": "bandara",
+      "jumlah": 67
+    },
+    {
+      "kata": "panen",
+      "jumlah": 66
+    },
+    {
+      "kata": "working",
+      "jumlah": 66
+    },
+    {
+      "kata": "masuk",
+      "jumlah": 66
+    },
+    {
+      "kata": "kilm",
+      "jumlah": 65
+    },
+    {
+      "kata": "rektor",
+      "jumlah": 65
+    },
+    {
+      "kata": "villages",
+      "jumlah": 65
+    },
+    {
+      "kata": "layan",
+      "jumlah": 64
+    },
+    {
+      "kata": "sekolah",
+      "jumlah": 64
+    },
+    {
+      "kata": "tamu",
+      "jumlah": 64
+    },
+    {
+      "kata": "tenaga",
+      "jumlah": 63
+    },
+    {
+      "kata": "urban",
+      "jumlah": 62
+    },
+    {
+      "kata": "orang",
+      "jumlah": 60
+    },
+    {
+      "kata": "rph",
+      "jumlah": 60
+    },
+    {
+      "kata": "tph",
+      "jumlah": 60
+    },
+    {
+      "kata": "tumpang",
+      "jumlah": 59
+    },
+    {
+      "kata": "trend",
+      "jumlah": 59
+    },
+    {
+      "kata": "appendix",
+      "jumlah": 59
+    },
+    {
+      "kata": "grdp",
+      "jumlah": 59
+    },
+    {
+      "kata": "rupiahs",
+      "jumlah": 59
+    },
+    {
+      "kata": "air",
+      "jumlah": 58
+    },
+    {
+      "kata": "ikan",
+      "jumlah": 58
+    },
+    {
+      "kata": "subsektor",
+      "jumlah": 58
+    },
+    {
+      "kata": "tables",
+      "jumlah": 58
+    },
+    {
+      "kata": "subdistricts",
+      "jumlah": 58
+    },
+    {
+      "kata": "jadi",
+      "jumlah": 58
+    },
+    {
+      "kata": "negara",
+      "jumlah": 57
+    },
+    {
+      "kata": "constant",
+      "jumlah": 57
+    },
+    {
+      "kata": "to",
+      "jumlah": 56
+    },
+    {
+      "kata": "ix",
+      "jumlah": 55
+    },
+    {
+      "kata": "ii",
+      "jumlah": 55
+    },
+    {
+      "kata": "xi",
+      "jumlah": 54
+    },
+    {
+      "kata": "banding",
+      "jumlah": 54
+    },
+    {
+      "kata": "struktur",
+      "jumlah": 54
+    },
+    {
+      "kata": "current",
+      "jumlah": 54
+    },
+    {
+      "kata": "distribution",
+      "jumlah": 54
+    },
+    {
+      "kata": "datang",
+      "jumlah": 53
+    },
+    {
+      "kata": "september",
+      "jumlah": 53
+    },
+    {
+      "kata": "harap",
+      "jumlah": 53
+    },
+    {
+      "kata": "oleh",
+      "jumlah": 52
+    },
+    {
+      "kata": "laki",
+      "jumlah": 52
+    },
+    {
+      "kata": "banjar",
+      "jumlah": 52
+    },
+    {
+      "kata": "tabalong",
+      "jumlah": 52
+    },
+    {
+      "kata": "bumbu",
+      "jumlah": 52
+    },
+    {
+      "kata": "banjarbaru",
+      "jumlah": 52
+    },
+    {
+      "kata": "rupa",
+      "jumlah": 52
+    },
+    {
+      "kata": "tuju",
+      "jumlah": 51
+    },
+    {
+      "kata": "asal",
+      "jumlah": 51
+    },
+    {
+      "kata": "barito",
+      "jumlah": 51
+    },
+    {
+      "kata": "kuala",
+      "jumlah": 51
+    },
+    {
+      "kata": "tapin",
+      "jumlah": 51
+    },
+    {
+      "kata": "utara",
+      "jumlah": 51
+    },
+    {
+      "kata": "balang",
+      "jumlah": 51
+    },
+    {
+      "kata": "activity",
+      "jumlah": 51
+    },
+    {
+      "kata": "us",
+      "jumlah": 50
+    },
+    {
+      "kata": "angka",
+      "jumlah": 50
+    },
+    {
+      "kata": "hours",
+      "jumlah": 50
+    },
+    {
+      "kata": "crops",
+      "jumlah": 50
+    },
+    {
+      "kata": "kapita",
+      "jumlah": 49
+    },
+    {
+      "kata": "angkut",
+      "jumlah": 49
+    },
+    {
+      "kata": "terima",
+      "jumlah": 49
+    },
+    {
+      "kata": "pages",
+      "jumlah": 49
+    },
+    {
+      "kata": "male",
+      "jumlah": 49
+    },
+    {
+      "kata": "female",
+      "jumlah": 49
+    },
+    {
+      "kata": "bagai",
+      "jumlah": 49
+    },
+    {
+      "kata": "baku",
+      "jumlah": 49
+    },
+    {
+      "kata": "dahulu",
+      "jumlah": 48
+    },
+    {
+      "kata": "jelas",
+      "jumlah": 48
+    },
+    {
+      "kata": "seluruh",
+      "jumlah": 48
+    },
+    {
+      "kata": "april",
+      "jumlah": 48
+    },
+    {
+      "kata": "milik",
+      "jumlah": 47
+    },
+    {
+      "kata": "konsep",
+      "jumlah": 47
+    },
+    {
+      "kata": "ekor",
+      "jumlah": 47
+    },
+    {
+      "kata": "oktober",
+      "jumlah": 47
+    },
+    {
+      "kata": "manusia",
+      "jumlah": 46
+    },
+    {
+      "kata": "iii",
+      "jumlah": 45
+    },
+    {
+      "kata": "konstruksi",
+      "jumlah": 45
+    },
+    {
+      "kata": "kode",
+      "jumlah": 45
+    },
+    {
+      "kata": "partisipasi",
+      "jumlah": 44
+    },
+    {
+      "kata": "ihk",
+      "jumlah": 44
+    },
+    {
+      "kata": "ubah",
+      "jumlah": 44
+    },
+    {
+      "kata": "growth",
+      "jumlah": 44
+    },
+    {
+      "kata": "previous",
+      "jumlah": 44
+    },
+    {
+      "kata": "sumber",
+      "jumlah": 43
+    },
+    {
+      "kata": "inap",
+      "jumlah": 43
+    },
+    {
+      "kata": "sedia",
+      "jumlah": 43
+    },
+    {
+      "kata": "tukar",
+      "jumlah": 43
+    },
+    {
+      "kata": "pst",
+      "jumlah": 43
+    },
+    {
+      "kata": "kondisi",
+      "jumlah": 42
+    },
+    {
+      "kata": "hal",
+      "jumlah": 42
+    },
+    {
+      "kata": "billion",
+      "jumlah": 42
+    },
+    {
+      "kata": "activities",
+      "jumlah": 42
+    },
+    {
+      "kata": "bagi",
+      "jumlah": 42
+    },
+    {
+      "kata": "buka",
+      "jumlah": 41
+    },
+    {
+      "kata": "kelas",
+      "jumlah": 41
+    },
+    {
+      "kata": "luar",
+      "jumlah": 41
+    },
+    {
+      "kata": "berangkat",
+      "jumlah": 41
+    },
+    {
+      "kata": "hutan",
+      "jumlah": 41
+    },
+    {
+      "kata": "tpt",
+      "jumlah": 41
+    },
+    {
+      "kata": "category",
+      "jumlah": 41
+    },
+    {
+      "kata": "value",
+      "jumlah": 41
+    },
+    {
+      "kata": "sex",
+      "jumlah": 41
+    },
+    {
+      "kata": "analisis",
+      "jumlah": 40
+    },
+    {
+      "kata": "force",
+      "jumlah": 40
+    },
+    {
+      "kata": "are",
+      "jumlah": 40
+    },
+    {
+      "kata": "sosial",
+      "jumlah": 40
+    },
+    {
+      "kata": "with",
+      "jumlah": 39
+    },
+    {
+      "kata": "beras",
+      "jumlah": 38
+    },
+    {
+      "kata": "alam",
+      "jumlah": 38
+    },
+    {
+      "kata": "ketenagakerjaan",
+      "jumlah": 38
+    },
+    {
+      "kata": "ipm",
+      "jumlah": 38
+    },
+    {
+      "kata": "km",
+      "jumlah": 37
+    },
+    {
+      "kata": "kind",
+      "jumlah": 37
+    },
+    {
+      "kata": "adhb",
+      "jumlah": 36
+    },
+    {
+      "kata": "asing",
+      "jumlah": 36
+    },
+    {
+      "kata": "akomodasi",
+      "jumlah": 36
+    },
+    {
+      "kata": "bayar",
+      "jumlah": 36
+    },
+    {
+      "kata": "badan",
+      "jumlah": 36
+    },
+    {
+      "kata": "village",
+      "jumlah": 36
+    },
+    {
+      "kata": "month",
+      "jumlah": 36
+    },
+    {
+      "kata": "satu",
+      "jumlah": 35
+    },
+    {
+      "kata": "cara",
+      "jumlah": 35
+    },
+    {
+      "kata": "iv",
+      "jumlah": 35
+    },
+    {
+      "kata": "dagang",
+      "jumlah": 35
+    },
+    {
+      "kata": "juni",
+      "jumlah": 35
+    },
+    {
+      "kata": "on",
+      "jumlah": 34
+    },
+    {
+      "kata": "nonbintang",
+      "jumlah": 34
+    },
+    {
+      "kata": "panjang",
+      "jumlah": 34
+    },
+    {
+      "kata": "waktu",
+      "jumlah": 34
+    },
+    {
+      "kata": "government",
+      "jumlah": 34
+    },
+    {
+      "kata": "health",
+      "jumlah": 34
+    },
+    {
+      "kata": "ha",
+      "jumlah": 34
+    },
+    {
+      "kata": "jahat",
+      "jumlah": 34
+    },
+    {
+      "kata": "informasi",
+      "jumlah": 33
+    },
+    {
+      "kata": "tidak",
+      "jumlah": 33
+    },
+    {
+      "kata": "definisi",
+      "jumlah": 33
+    },
+    {
+      "kata": "tambang",
+      "jumlah": 33
+    },
+    {
+      "kata": "household",
+      "jumlah": 33
+    },
+    {
+      "kata": "manufaktur",
+      "jumlah": 33
+    },
+    {
+      "kata": "motor",
+      "jumlah": 32
+    },
+    {
+      "kata": "ratio",
+      "jumlah": 32
+    },
+    {
+      "kata": "hektare",
+      "jumlah": 32
+    },
+    {
+      "kata": "hidup",
+      "jumlah": 31
+    },
+    {
+      "kata": "transportasi",
+      "jumlah": 31
+    },
+    {
+      "kata": "puas",
+      "jumlah": 31
+    },
+    {
+      "kata": "ntp",
+      "jumlah": 31
+    },
+    {
+      "kata": "x",
+      "jumlah": 31
+    },
+    {
+      "kata": "ib",
+      "jumlah": 31
+    },
+    {
+      "kata": "bentuk",
+      "jumlah": 31
+    },
+    {
+      "kata": "juli",
+      "jumlah": 31
+    },
+    {
+      "kata": "kawin",
+      "jumlah": 30
+    },
+    {
+      "kata": "bahan",
+      "jumlah": 30
+    },
+    {
+      "kata": "schools",
+      "jumlah": 30
+    },
+    {
+      "kata": "minum",
+      "jumlah": 29
+    },
+    {
+      "kata": "huni",
+      "jumlah": 29
+    },
+    {
+      "kata": "terna",
+      "jumlah": 29
+    },
+    {
+      "kata": "unit",
+      "jumlah": 29
+    },
+    {
+      "kata": "list",
+      "jumlah": 29
+    },
+    {
+      "kata": "categorized",
+      "jumlah": 29
+    },
+    {
+      "kata": "index",
+      "jumlah": 29
+    },
+    {
+      "kata": "juga",
+      "jumlah": 29
+    },
+    {
+      "kata": "xiii",
+      "jumlah": 28
+    },
+    {
+      "kata": "bawah",
+      "jumlah": 28
+    },
+    {
+      "kata": "dinas",
+      "jumlah": 28
+    },
+    {
+      "kata": "udara",
+      "jumlah": 28
+    },
+    {
+      "kata": "layar",
+      "jumlah": 28
+    },
+    {
+      "kata": "tpak",
+      "jumlah": 28
+    },
+    {
+      "kata": "non",
+      "jumlah": 28
+    },
+    {
+      "kata": "share",
+      "jumlah": 28
+    },
+    {
+      "kata": "modal",
+      "jumlah": 28
+    },
+    {
+      "kata": "rasio",
+      "jumlah": 27
+    },
+    {
+      "kata": "catat",
+      "jumlah": 27
+    },
+    {
+      "kata": "bidang",
+      "jumlah": 27
+    },
+    {
+      "kata": "pesawat",
+      "jumlah": 27
+    },
+    {
+      "kata": "nasional",
+      "jumlah": 27
+    },
+    {
+      "kata": "it",
+      "jumlah": 27
+    },
+    {
+      "kata": "final",
+      "jumlah": 27
+    },
+    {
+      "kata": "people",
+      "jumlah": 27
+    },
+    {
+      "kata": "menteri",
+      "jumlah": 27
+    },
+    {
+      "kata": "gabah",
+      "jumlah": 27
+    },
+    {
+      "kata": "pernah",
+      "jumlah": 26
+    },
+    {
+      "kata": "v",
+      "jumlah": 26
+    },
+    {
+      "kata": "year",
+      "jumlah": 26
+    },
+    {
+      "kata": "digit",
+      "jumlah": 26
+    },
+    {
+      "kata": "xii",
+      "jumlah": 26
+    },
+    {
+      "kata": "labour",
+      "jumlah": 26
+    },
+    {
+      "kata": "penuh",
+      "jumlah": 26
+    },
+    {
+      "kata": "consumption",
+      "jumlah": 26
+    },
+    {
+      "kata": "tetap",
+      "jumlah": 26
+    },
+    {
+      "kata": "paddy",
+      "jumlah": 26
+    },
+    {
+      "kata": "bank",
+      "jumlah": 26
+    },
+    {
+      "kata": "lembaga",
+      "jumlah": 25
+    },
+    {
+      "kata": "hewan",
+      "jumlah": 25
+    },
+    {
+      "kata": "cakup",
+      "jumlah": 25
+    },
+    {
+      "kata": "beri",
+      "jumlah": 25
+    },
+    {
+      "kata": "pasar",
+      "jumlah": 25
+    },
+    {
+      "kata": "rakyat",
+      "jumlah": 25
+    },
+    {
+      "kata": "implicit",
+      "jumlah": 25
+    },
+    {
+      "kata": "education",
+      "jumlah": 25
+    },
+    {
+      "kata": "dpp",
+      "jumlah": 25
+    },
+    {
+      "kata": "laksana",
+      "jumlah": 25
+    },
+    {
+      "kata": "m",
+      "jumlah": 25
+    },
+    {
+      "kata": "adalah",
+      "jumlah": 25
+    },
+    {
+      "kata": "ringkas",
+      "jumlah": 24
+    },
+    {
+      "kata": "guru",
+      "jumlah": 24
+    },
+    {
+      "kata": "pilih",
+      "jumlah": 24
+    },
+    {
+      "kata": "million",
+      "jumlah": 24
+    },
+    {
+      "kata": "development",
+      "jumlah": 24
+    },
+    {
+      "kata": "under",
+      "jumlah": 24
+    },
+    {
+      "kata": "kadar",
+      "jumlah": 24
+    },
+    {
+      "kata": "kait",
+      "jumlah": 24
+    },
+    {
+      "kata": "adhk",
+      "jumlah": 23
+    },
+    {
+      "kata": "metodologi",
+      "jumlah": 23
+    },
+    {
+      "kata": "makro",
+      "jumlah": 23
+    },
+    {
+      "kata": "uang",
+      "jumlah": 23
+    },
+    {
+      "kata": "paruh",
+      "jumlah": 23
+    },
+    {
+      "kata": "job",
+      "jumlah": 23
+    },
+    {
+      "kata": "workers",
+      "jumlah": 23
+    },
+    {
+      "kata": "rencana",
+      "jumlah": 23
+    },
+    {
+      "kata": "manfaat",
+      "jumlah": 23
+    },
+    {
+      "kata": "proporsi",
+      "jumlah": 22
+    },
+    {
+      "kata": "akses",
+      "jumlah": 22
+    },
+    {
+      "kata": "jenjang",
+      "jumlah": 22
+    },
+    {
+      "kata": "ecer",
+      "jumlah": 22
+    },
+    {
+      "kata": "susun",
+      "jumlah": 22
+    },
+    {
+      "kata": "kebun",
+      "jumlah": 22
+    },
+    {
+      "kata": "time",
+      "jumlah": 22
+    },
+    {
+      "kata": "commodity",
+      "jumlah": 22
+    },
+    {
+      "kata": "listrik",
+      "jumlah": 22
+    },
+    {
+      "kata": "manufacturing",
+      "jumlah": 22
+    },
+    {
+      "kata": "realisasi",
+      "jumlah": 22
+    },
+    {
+      "kata": "ministry",
+      "jumlah": 22
+    },
+    {
+      "kata": "sarana",
+      "jumlah": 22
+    },
+    {
+      "kata": "kawasan",
+      "jumlah": 22
+    },
+    {
+      "kata": "harvested",
+      "jumlah": 22
+    },
+    {
+      "kata": "potensi",
+      "jumlah": 22
+    },
+    {
+      "kata": "daging",
+      "jumlah": 21
+    },
+    {
+      "kata": "fungsi",
+      "jumlah": 21
+    },
+    {
+      "kata": "gali",
+      "jumlah": 21
+    },
+    {
+      "kata": "capai",
+      "jumlah": 21
+    },
+    {
+      "kata": "indices",
+      "jumlah": 21
+    },
+    {
+      "kata": "makan",
+      "jumlah": 21
+    },
+    {
+      "kata": "price",
+      "jumlah": 21
+    },
+    {
+      "kata": "water",
+      "jumlah": 21
+    },
+    {
+      "kata": "aged",
+      "jumlah": 21
+    },
+    {
+      "kata": "kena",
+      "jumlah": 21
+    },
+    {
+      "kata": "lahan",
+      "jumlah": 21
+    },
+    {
+      "kata": "terbit",
+      "jumlah": 21
+    },
+    {
+      "kata": "ulas",
+      "jumlah": 20
+    },
+    {
+      "kata": "fasilitas",
+      "jumlah": 20
+    },
+    {
+      "kata": "teknologi",
+      "jumlah": 20
+    },
+    {
+      "kata": "reparasi",
+      "jumlah": 20
+    },
+    {
+      "kata": "mobil",
+      "jumlah": 20
+    },
+    {
+      "kata": "sepeda",
+      "jumlah": 20
+    },
+    {
+      "kata": "occupation",
+      "jumlah": 20
+    },
+    {
+      "kata": "part",
+      "jumlah": 20
+    },
+    {
+      "kata": "foreign",
+      "jumlah": 20
+    },
+    {
+      "kata": "capita",
+      "jumlah": 20
+    },
+    {
+      "kata": "classification",
+      "jumlah": 20
+    },
+    {
+      "kata": "level",
+      "jumlah": 20
+    },
+    {
+      "kata": "swasta",
+      "jumlah": 20
+    },
+    {
+      "kata": "crime",
+      "jumlah": 20
+    },
+    {
+      "kata": "lapor",
+      "jumlah": 20
+    },
+    {
+      "kata": "monthly",
+      "jumlah": 20
+    },
+    {
+      "kata": "sehingga",
+      "jumlah": 20
+    },
+    {
+      "kata": "kppbc",
+      "jumlah": 19
+    },
+    {
+      "kata": "garis",
+      "jumlah": 19
+    },
+    {
+      "kata": "atau",
+      "jumlah": 19
+    },
+    {
+      "kata": "informal",
+      "jumlah": 19
+    },
+    {
+      "kata": "pulau",
+      "jumlah": 19
+    },
+    {
+      "kata": "lanjut",
+      "jumlah": 19
+    },
+    {
+      "kata": "sakernas",
+      "jumlah": 19
+    },
+    {
+      "kata": "se-kalimantan",
+      "jumlah": 19
+    },
+    {
+      "kata": "services",
+      "jumlah": 19
+    },
+    {
+      "kata": "state",
+      "jumlah": 19
+    },
+    {
+      "kata": "akademi",
+      "jumlah": 19
+    },
+    {
+      "kata": "penting",
+      "jumlah": 19
+    },
+    {
+      "kata": "singkat",
+      "jumlah": 18
+    },
+    {
+      "kata": "kumpul",
+      "jumlah": 18
+    },
+    {
+      "kata": "tpk",
+      "jumlah": 18
+    },
+    {
+      "kata": "terbang",
+      "jumlah": 18
+    },
+    {
+      "kata": "subkategori",
+      "jumlah": 18
+    },
+    {
+      "kata": "pangan",
+      "jumlah": 18
+    },
+    {
+      "kata": "metode",
+      "jumlah": 18
+    },
+    {
+      "kata": "net",
+      "jumlah": 18
+    },
+    {
+      "kata": "city",
+      "jumlah": 18
+    },
+    {
+      "kata": "hitung",
+      "jumlah": 18
+    },
+    {
+      "kata": "thousand",
+      "jumlah": 18
+    },
+    {
+      "kata": "labor",
+      "jumlah": 18
+    },
+    {
+      "kata": "average",
+      "jumlah": 18
+    },
+    {
+      "kata": "teachers",
+      "jumlah": 18
+    }
+  ],
+  "bigram": [
+    {
+      "frasa": "kalimantan selatan",
+      "jumlah": 2661
+    },
+    {
+      "frasa": "provinsi kalimantan",
+      "jumlah": 1639
+    },
+    {
+      "frasa": "di provinsi",
+      "jumlah": 959
+    },
+    {
+      "frasa": "kabupaten kota",
+      "jumlah": 774
+    },
+    {
+      "frasa": "selatan province",
+      "jumlah": 705
+    },
+    {
+      "frasa": "in kalimantan",
+      "jumlah": 589
+    },
+    {
+      "frasa": "turut kabupaten",
+      "jumlah": 580
+    },
+    {
+      "frasa": "regency municipality",
+      "jumlah": 453
+    },
+    {
+      "frasa": "by regency",
+      "jumlah": 444
+    },
+    {
+      "frasa": "domestik regional",
+      "jumlah": 384
+    },
+    {
+      "frasa": "regional bruto",
+      "jumlah": 382
+    },
+    {
+      "frasa": "produk domestik",
+      "jumlah": 371
+    },
+    {
+      "frasa": "tahun ke",
+      "jumlah": 356
+    },
+    {
+      "frasa": "ke atas",
+      "jumlah": 344
+    },
+    {
+      "frasa": "lapang usaha",
+      "jumlah": 338
+    },
+    {
+      "frasa": "dasar harga",
+      "jumlah": 333
+    },
+    {
+      "frasa": "atas dasar",
+      "jumlah": 326
+    },
+    {
+      "frasa": "kota di",
+      "jumlah": 304
+    },
+    {
+      "frasa": "turut lapang",
+      "jumlah": 303
+    },
+    {
+      "frasa": "number of",
+      "jumlah": 301
+    },
+    {
+      "frasa": "umur tahun",
+      "jumlah": 285
+    },
+    {
+      "frasa": "and over",
+      "jumlah": 271
+    },
+    {
+      "frasa": "kota dan",
+      "jumlah": 270
+    },
+    {
+      "frasa": "duduk umur",
+      "jumlah": 267
+    },
+    {
+      "frasa": "years of",
+      "jumlah": 266
+    },
+    {
+      "frasa": "of age",
+      "jumlah": 266
+    },
+    {
+      "frasa": "age and",
+      "jumlah": 266
+    },
+    {
+      "frasa": "population years",
+      "jumlah": 256
+    },
+    {
+      "frasa": "bruto kabupaten",
+      "jumlah": 256
+    },
+    {
+      "frasa": "atas yang",
+      "jumlah": 255
+    },
+    {
+      "frasa": "yang kerja",
+      "jumlah": 249
+    },
+    {
+      "frasa": "dan jenis",
+      "jumlah": 233
+    },
+    {
+      "frasa": "municipality and",
+      "jumlah": 226
+    },
+    {
+      "frasa": "selatan turut",
+      "jumlah": 213
+    },
+    {
+      "frasa": "over who",
+      "jumlah": 205
+    },
+    {
+      "frasa": "turut kelompok",
+      "jumlah": 199
+    },
+    {
+      "frasa": "turut jenis",
+      "jumlah": 195
+    },
+    {
+      "frasa": "kerja turut",
+      "jumlah": 195
+    },
+    {
+      "frasa": "kerja utama",
+      "jumlah": 192
+    },
+    {
+      "frasa": "during the",
+      "jumlah": 189
+    },
+    {
+      "frasa": "ksa padi",
+      "jumlah": 188
+    },
+    {
+      "frasa": "persentase duduk",
+      "jumlah": 186
+    },
+    {
+      "frasa": "yang tamat",
+      "jumlah": 183
+    },
+    {
+      "frasa": "tinggi yang",
+      "jumlah": 181
+    },
+    {
+      "frasa": "lama minggu",
+      "jumlah": 180
+    },
+    {
+      "frasa": "didik tinggi",
+      "jumlah": 180
+    },
+    {
+      "frasa": "who worked",
+      "jumlah": 179
+    },
+    {
+      "frasa": "hasil survei",
+      "jumlah": 175
+    },
+    {
+      "frasa": "harga laku",
+      "jumlah": 172
+    },
+    {
+      "frasa": "survei ksa",
+      "jumlah": 172
+    },
+    {
+      "frasa": "turut keluar",
+      "jumlah": 169
+    },
+    {
+      "frasa": "peta hasil",
+      "jumlah": 168
+    },
+    {
+      "frasa": "laju tumbuh",
+      "jumlah": 165
+    },
+    {
+      "frasa": "the last",
+      "jumlah": 163
+    },
+    {
+      "frasa": "hulu sungai",
+      "jumlah": 162
+    },
+    {
+      "frasa": "harga konstan",
+      "jumlah": 162
+    },
+    {
+      "frasa": "indeks harga",
+      "jumlah": 158
+    },
+    {
+      "frasa": "last week",
+      "jumlah": 153
+    },
+    {
+      "frasa": "worked during",
+      "jumlah": 150
+    },
+    {
+      "frasa": "week by",
+      "jumlah": 150
+    },
+    {
+      "frasa": "educational attainment",
+      "jumlah": 150
+    },
+    {
+      "frasa": "municipality in",
+      "jumlah": 147
+    },
+    {
+      "frasa": "type of",
+      "jumlah": 146
+    },
+    {
+      "frasa": "kabupaten hulu",
+      "jumlah": 144
+    },
+    {
+      "frasa": "kerja lama",
+      "jumlah": 141
+    },
+    {
+      "frasa": "minggu akhir",
+      "jumlah": 135
+    },
+    {
+      "frasa": "di kalimantan",
+      "jumlah": 132
+    },
+    {
+      "frasa": "age group",
+      "jumlah": 132
+    },
+    {
+      "frasa": "padi kabupaten",
+      "jumlah": 132
+    },
+    {
+      "frasa": "konstan turut",
+      "jumlah": 131
+    },
+    {
+      "frasa": "laku turut",
+      "jumlah": 130
+    },
+    {
+      "frasa": "gross regional",
+      "jumlah": 130
+    },
+    {
+      "frasa": "regional domestic",
+      "jumlah": 130
+    },
+    {
+      "frasa": "akhir turut",
+      "jumlah": 128
+    },
+    {
+      "frasa": "domestic product",
+      "jumlah": 128
+    },
+    {
+      "frasa": "miliar rupiah",
+      "jumlah": 127
+    },
+    {
+      "frasa": "kelompok umur",
+      "jumlah": 127
+    },
+    {
+      "frasa": "rumah tangga",
+      "jumlah": 120
+    },
+    {
+      "frasa": "usaha persen",
+      "jumlah": 120
+    },
+    {
+      "frasa": "jenis kelamin",
+      "jumlah": 119
+    },
+    {
+      "frasa": "by age",
+      "jumlah": 116
+    },
+    {
+      "frasa": "agustus agustus",
+      "jumlah": 114
+    },
+    {
+      "frasa": "selatan number",
+      "jumlah": 111
+    },
+    {
+      "frasa": "dan didik",
+      "jumlah": 108
+    },
+    {
+      "frasa": "selatan agustus",
+      "jumlah": 107
+    },
+    {
+      "frasa": "selatan persen",
+      "jumlah": 106
+    },
+    {
+      "frasa": "of kalimantan",
+      "jumlah": 105
+    },
+    {
+      "frasa": "duduk usia",
+      "jumlah": 104
+    },
+    {
+      "frasa": "by expenditure",
+      "jumlah": 103
+    },
+    {
+      "frasa": "publikasi ini",
+      "jumlah": 103
+    },
+    {
+      "frasa": "product of",
+      "jumlah": 102
+    },
+    {
+      "frasa": "prices by",
+      "jumlah": 101
+    },
+    {
+      "frasa": "kabupaten tanah",
+      "jumlah": 100
+    },
+    {
+      "frasa": "angkat kerja",
+      "jumlah": 100
+    },
+    {
+      "frasa": "group and",
+      "jumlah": 100
+    },
+    {
+      "frasa": "umur dan",
+      "jumlah": 99
+    },
+    {
+      "frasa": "and educational",
+      "jumlah": 98
+    },
+    {
+      "frasa": "selatan tahun",
+      "jumlah": 97
+    },
+    {
+      "frasa": "and type",
+      "jumlah": 95
+    },
+    {
+      "frasa": "tempat tinggal",
+      "jumlah": 94
+    },
+    {
+      "frasa": "of population",
+      "jumlah": 94
+    },
+    {
+      "frasa": "jam kerja",
+      "jumlah": 92
+    },
+    {
+      "frasa": "relative standard",
+      "jumlah": 92
+    },
+    {
+      "frasa": "status kerja",
+      "jumlah": 91
+    },
+    {
+      "frasa": "standard error",
+      "jumlah": 91
+    },
+    {
+      "frasa": "error rse",
+      "jumlah": 91
+    },
+    {
+      "frasa": "and main",
+      "jumlah": 90
+    },
+    {
+      "frasa": "implisit produk",
+      "jumlah": 90
+    },
+    {
+      "frasa": "turut bulan",
+      "jumlah": 89
+    },
+    {
+      "frasa": "percentage of",
+      "jumlah": 89
+    },
+    {
+      "frasa": "agustus population",
+      "jumlah": 88
+    },
+    {
+      "frasa": "tamat di",
+      "jumlah": 87
+    },
+    {
+      "frasa": "atas turut",
+      "jumlah": 87
+    },
+    {
+      "frasa": "august duduk",
+      "jumlah": 86
+    },
+    {
+      "frasa": "usia tahun",
+      "jumlah": 85
+    },
+    {
+      "frasa": "tumbuh ekonomi",
+      "jumlah": 84
+    },
+    {
+      "frasa": "utama di",
+      "jumlah": 83
+    },
+    {
+      "frasa": "daerah tempat",
+      "jumlah": 82
+    },
+    {
+      "frasa": "selatan atas",
+      "jumlah": 79
+    },
+    {
+      "frasa": "jumlah jam",
+      "jumlah": 79
+    },
+    {
+      "frasa": "bulan dan",
+      "jumlah": 78
+    },
+    {
+      "frasa": "pdrb provinsi",
+      "jumlah": 77
+    },
+    {
+      "frasa": "selatan dan",
+      "jumlah": 76
+    },
+    {
+      "frasa": "of gross",
+      "jumlah": 75
+    },
+    {
+      "frasa": "desa lurah",
+      "jumlah": 73
+    },
+    {
+      "frasa": "mikro dan",
+      "jumlah": 73
+    },
+    {
+      "frasa": "dan kecil",
+      "jumlah": 73
+    },
+    {
+      "frasa": "persen agustus",
+      "jumlah": 72
+    },
+    {
+      "frasa": "turut didik",
+      "jumlah": 72
+    },
+    {
+      "frasa": "utama dan",
+      "jumlah": 71
+    },
+    {
+      "frasa": "market prices",
+      "jumlah": 70
+    },
+    {
+      "frasa": "per bulan",
+      "jumlah": 69
+    },
+    {
+      "frasa": "jenis giat",
+      "jumlah": 68
+    },
+    {
+      "frasa": "kata antar",
+      "jumlah": 67
+    },
+    {
+      "frasa": "lapang kerja",
+      "jumlah": 66
+    },
+    {
+      "frasa": "over by",
+      "jumlah": 66
+    },
+    {
+      "frasa": "industri olah",
+      "jumlah": 65
+    },
+    {
+      "frasa": "usaha tani",
+      "jumlah": 65
+    },
+    {
+      "frasa": "february duduk",
+      "jumlah": 65
+    },
+    {
+      "frasa": "tanah laut",
+      "jumlah": 64
+    },
+    {
+      "frasa": "selatan februari",
+      "jumlah": 64
+    },
+    {
+      "frasa": "harga yang",
+      "jumlah": 64
+    },
+    {
+      "frasa": "main employment",
+      "jumlah": 64
+    },
+    {
+      "frasa": "keluar persen",
+      "jumlah": 63
+    },
+    {
+      "frasa": "employment status",
+      "jumlah": 63
+    },
+    {
+      "frasa": "of villages",
+      "jumlah": 63
+    },
+    {
+      "frasa": "daftar isi",
+      "jumlah": 62
+    },
+    {
+      "frasa": "sungai tengah",
+      "jumlah": 61
+    },
+    {
+      "frasa": "duduk kerja",
+      "jumlah": 61
+    },
+    {
+      "frasa": "daftar pustaka",
+      "jumlah": 60
+    },
+    {
+      "frasa": "province by",
+      "jumlah": 60
+    },
+    {
+      "frasa": "harga implisit",
+      "jumlah": 60
+    },
+    {
+      "frasa": "turut status",
+      "jumlah": 59
+    },
+    {
+      "frasa": "di kota",
+      "jumlah": 59
+    },
+    {
+      "frasa": "usaha industri",
+      "jumlah": 59
+    },
+    {
+      "frasa": "ekonomi kabupaten",
+      "jumlah": 58
+    },
+    {
+      "frasa": "by main",
+      "jumlah": 58
+    },
+    {
+      "frasa": "rph tph",
+      "jumlah": 57
+    },
+    {
+      "frasa": "usaha miliar",
+      "jumlah": 57
+    },
+    {
+      "frasa": "at constant",
+      "jumlah": 57
+    },
+    {
+      "frasa": "province and",
+      "jumlah": 57
+    },
+    {
+      "frasa": "trend of",
+      "jumlah": 56
+    },
+    {
+      "frasa": "by educational",
+      "jumlah": 56
+    },
+    {
+      "frasa": "attainment in",
+      "jumlah": 56
+    },
+    {
+      "frasa": "keluar miliar",
+      "jumlah": 56
+    },
+    {
+      "frasa": "distribusi persentase",
+      "jumlah": 56
+    },
+    {
+      "frasa": "jumlah usaha",
+      "jumlah": 56
+    },
+    {
+      "frasa": "villages subdistricts",
+      "jumlah": 56
+    },
+    {
+      "frasa": "yang masuk",
+      "jumlah": 55
+    },
+    {
+      "frasa": "at current",
+      "jumlah": 54
+    },
+    {
+      "frasa": "dan number",
+      "jumlah": 54
+    },
+    {
+      "frasa": "bongkar muat",
+      "jumlah": 53
+    },
+    {
+      "frasa": "tenaga kerja",
+      "jumlah": 53
+    },
+    {
+      "frasa": "juta rupiah",
+      "jumlah": 53
+    },
+    {
+      "frasa": "dan status",
+      "jumlah": 53
+    },
+    {
+      "frasa": "tumbuh produk",
+      "jumlah": 53
+    },
+    {
+      "frasa": "banyak desa",
+      "jumlah": 53
+    },
+    {
+      "frasa": "kota banjarmasin",
+      "jumlah": 52
+    },
+    {
+      "frasa": "barito kuala",
+      "jumlah": 51
+    },
+    {
+      "frasa": "sungai selatan",
+      "jumlah": 51
+    },
+    {
+      "frasa": "tanah bumbu",
+      "jumlah": 51
+    },
+    {
+      "frasa": "of activity",
+      "jumlah": 51
+    },
+    {
+      "frasa": "rse persentase",
+      "jumlah": 51
+    },
+    {
+      "frasa": "duduk yang",
+      "jumlah": 50
+    },
+    {
+      "frasa": "hotel bintang",
+      "jumlah": 50
+    },
+    {
+      "frasa": "turut jumlah",
+      "jumlah": 50
+    },
+    {
+      "frasa": "sungai utara",
+      "jumlah": 50
+    },
+    {
+      "frasa": "total working",
+      "jumlah": 50
+    },
+    {
+      "frasa": "working hours",
+      "jumlah": 50
+    },
+    {
+      "frasa": "distribution of",
+      "jumlah": 50
+    },
+    {
+      "frasa": "turut daerah",
+      "jumlah": 49
+    },
+    {
+      "frasa": "in urban",
+      "jumlah": 49
+    },
+    {
+      "frasa": "rural area",
+      "jumlah": 49
+    },
+    {
+      "frasa": "main industry",
+      "jumlah": 49
+    },
+    {
+      "frasa": "di labuh",
+      "jumlah": 48
+    },
+    {
+      "frasa": "muat barang",
+      "jumlah": 48
+    },
+    {
+      "frasa": "kabupaten kotabaru",
+      "jumlah": 48
+    },
+    {
+      "frasa": "current market",
+      "jumlah": 48
+    },
+    {
+      "frasa": "daftar tabel",
+      "jumlah": 47
+    },
+    {
+      "frasa": "rata lama",
+      "jumlah": 47
+    }
+  ],
+  "istilah_inggris": [
+    {
+      "kata": "of",
+      "jumlah": 1601
+    },
+    {
+      "kata": "selatan",
+      "jumlah": 1456
+    },
+    {
+      "kata": "kalimantan",
+      "jumlah": 1448
+    },
+    {
+      "kata": "and",
+      "jumlah": 1324
+    },
+    {
+      "kata": "by",
+      "jumlah": 1023
+    },
+    {
+      "kata": "menurut",
+      "jumlah": 1005
+    },
+    {
+      "kata": "dan",
+      "jumlah": 1005
+    },
+    {
+      "kata": "in",
+      "jumlah": 852
+    },
+    {
+      "kata": "province",
+      "jumlah": 735
+    },
+    {
+      "kata": "di",
+      "jumlah": 716
+    },
+    {
+      "kata": "provinsi",
+      "jumlah": 682
+    },
+    {
+      "kata": "regency",
+      "jumlah": 516
+    },
+    {
+      "kata": "kabupaten",
+      "jumlah": 510
+    },
+    {
+      "kata": "yang",
+      "jumlah": 490
+    },
+    {
+      "kata": "kota",
+      "jumlah": 466
+    },
+    {
+      "kata": "municipality",
+      "jumlah": 448
+    },
+    {
+      "kata": "age",
+      "jumlah": 410
+    },
+    {
+      "kata": "atas",
+      "jumlah": 356
+    },
+    {
+      "kata": "penduduk",
+      "jumlah": 350
+    },
+    {
+      "kata": "population",
+      "jumlah": 348
+    },
+    {
+      "kata": "number",
+      "jumlah": 312
+    },
+    {
+      "kata": "the",
+      "jumlah": 309
+    },
+    {
+      "kata": "jumlah",
+      "jumlah": 290
+    },
+    {
+      "kata": "years",
+      "jumlah": 289
+    },
+    {
+      "kata": "tahun",
+      "jumlah": 286
+    },
+    {
+      "kata": "over",
+      "jumlah": 271
+    },
+    {
+      "kata": "who",
+      "jumlah": 266
+    },
+    {
+      "kata": "berumur",
+      "jumlah": 259
+    },
+    {
+      "kata": "ke",
+      "jumlah": 258
+    },
+    {
+      "kata": "regional",
+      "jumlah": 253
+    },
+    {
+      "kata": "jenis",
+      "jumlah": 237
+    },
+    {
+      "kata": "week",
+      "jumlah": 197
+    },
+    {
+      "kata": "during",
+      "jumlah": 191
+    },
+    {
+      "kata": "worked",
+      "jumlah": 182
+    },
+    {
+      "kata": "agustus",
+      "jumlah": 182
+    },
+    {
+      "kata": "pendidikan",
+      "jumlah": 181
+    },
+    {
+      "kata": "august",
+      "jumlah": 179
+    },
+    {
+      "kata": "bekerja",
+      "jumlah": 177
+    },
+    {
+      "kata": "selama",
+      "jumlah": 176
+    },
+    {
+      "kata": "seminggu",
+      "jumlah": 176
+    },
+    {
+      "kata": "main",
+      "jumlah": 168
+    },
+    {
+      "kata": "group",
+      "jumlah": 165
+    },
+    {
+      "kata": "utama",
+      "jumlah": 163
+    },
+    {
+      "kata": "last",
+      "jumlah": 163
+    },
+    {
+      "kata": "educational",
+      "jumlah": 161
+    },
+    {
+      "kata": "area",
+      "jumlah": 156
+    },
+    {
+      "kata": "type",
+      "jumlah": 154
+    },
+    {
+      "kata": "kelompok",
+      "jumlah": 154
+    },
+    {
+      "kata": "ditamatkan",
+      "jumlah": 153
+    },
+    {
+      "kata": "attainment",
+      "jumlah": 153
+    },
+    {
+      "kata": "tertinggi",
+      "jumlah": 152
+    },
+    {
+      "kata": "status",
+      "jumlah": 151
+    },
+    {
+      "kata": "pada",
+      "jumlah": 150
+    },
+    {
+      "kata": "terakhir",
+      "jumlah": 145
+    },
+    {
+      "kata": "pekerjaan",
+      "jumlah": 144
+    },
+    {
+      "kata": "umur",
+      "jumlah": 138
+    },
+    {
+      "kata": "expenditure",
+      "jumlah": 130
+    },
+    {
+      "kata": "domestic",
+      "jumlah": 129
+    },
+    {
+      "kata": "kerja",
+      "jumlah": 124
+    },
+    {
+      "kata": "gross",
+      "jumlah": 124
+    },
+    {
+      "kata": "pengeluaran",
+      "jumlah": 124
+    },
+    {
+      "kata": "harga",
+      "jumlah": 122
+    },
+    {
+      "kata": "product",
+      "jumlah": 120
+    },
+    {
+      "kata": "domestik",
+      "jumlah": 119
+    },
+    {
+      "kata": "bruto",
+      "jumlah": 119
+    },
+    {
+      "kata": "rupiah",
+      "jumlah": 118
+    },
+    {
+      "kata": "production",
+      "jumlah": 115
+    },
+    {
+      "kata": "produksi",
+      "jumlah": 113
+    },
+    {
+      "kata": "persentase",
+      "jumlah": 112
+    },
+    {
+      "kata": "dasar",
+      "jumlah": 110
+    },
+    {
+      "kata": "at",
+      "jumlah": 110
+    },
+    {
+      "kata": "produk",
+      "jumlah": 105
+    },
+    {
+      "kata": "prices",
+      "jumlah": 104
+    },
+    {
+      "kata": "for",
+      "jumlah": 103
+    },
+    {
+      "kata": "percentage",
+      "jumlah": 102
+    },
+    {
+      "kata": "desa",
+      "jumlah": 102
+    },
+    {
+      "kata": "industry",
+      "jumlah": 101
+    },
+    {
+      "kata": "percent",
+      "jumlah": 97
+    },
+    {
+      "kata": "unemployment",
+      "jumlah": 93
+    },
+    {
+      "kata": "lapangan",
+      "jumlah": 86
+    },
+    {
+      "kata": "februari",
+      "jumlah": 85
+    },
+    {
+      "kata": "banyaknya",
+      "jumlah": 83
+    },
+    {
+      "kata": "february",
+      "jumlah": 82
+    },
+    {
+      "kata": "persen",
+      "jumlah": 81
+    },
+    {
+      "kata": "pengangguran",
+      "jumlah": 76
+    },
+    {
+      "kata": "per",
+      "jumlah": 73
+    },
+    {
+      "kata": "employment",
+      "jumlah": 71
+    },
+    {
+      "kata": "tanaman",
+      "jumlah": 68
+    },
+    {
+      "kata": "rate",
+      "jumlah": 66
+    },
+    {
+      "kata": "kelurahan",
+      "jumlah": 66
+    },
+    {
+      "kata": "halaman",
+      "jumlah": 65
+    },
+    {
+      "kata": "rural",
+      "jumlah": 65
+    },
+    {
+      "kata": "villages",
+      "jumlah": 65
+    },
+    {
+      "kata": "working",
+      "jumlah": 64
+    },
+    {
+      "kata": "market",
+      "jumlah": 64
+    },
+    {
+      "kata": "perkembangan",
+      "jumlah": 62
+    },
+    {
+      "kata": "total",
+      "jumlah": 60
+    },
+    {
+      "kata": "table",
+      "jumlah": 60
+    },
+    {
+      "kata": "kegiatan",
+      "jumlah": 59
+    },
+    {
+      "kata": "subdistricts",
+      "jumlah": 58
+    }
+  ]
+}

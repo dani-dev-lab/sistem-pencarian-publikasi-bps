@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block judul %}Kamus Sinonim &mdash; Admin{% endblock %}
+
+{% block konten %}
+<p class="tautan-balik"><a href="{{ url_for('admin.beranda') }}">&larr; Admin</a></p>
+<h1 class="judul-admin">Kamus Sinonim <span class="ringan">{{ total }} kelompok</span></h1>
+
+{% with pesan = get_flashed_messages(with_categories=true) %}
+  {% for kategori, teks in pesan %}
+    <p class="kabar kabar-{{ kategori }}">{{ teks }}</p>
+  {% endfor %}
+{% endwith %}
+
+<div class="kotak-perintah">
+  <strong>Setelah mengubah kamus</strong>, jalankan agar berlaku pada data:
+  <code>venv/Scripts/python.exe scripts/isi_normalisasi.py</code>
+  <span class="ringan">(tidak perlu memuat ulang database)</span>
+</div>
+
+<details class="lipat">
+  <summary>Tambah kelompok baru</summary>
+  <form method="post" action="{{ url_for('admin.tambah_kelompok') }}" class="form-admin">
+    <label>Bentuk kanonik
+      <input type="text" name="kanonik" placeholder="banyaknya" required></label>
+    <label>Varian <span class="ringan">(pisahkan dengan koma)</span>
+      <input type="text" name="varian" placeholder="jumlah, total, keseluruhan"></label>
+    <button type="submit">Buat kelompok</button>
+  </form>
+</details>
+
+<form method="get" class="kotak-cari kecil">
+  <input type="search" name="q" value="{{ cari }}" placeholder="Cari kata di kamus...">
+  <button type="submit">Cari</button>
+</form>
+
+{% if not kelompok %}
+  <p class="ringan">Tidak ada kelompok yang cocok.</p>
+{% endif %}
+
+{% for kanonik, varian in kelompok %}
+<article class="kelompok-sinonim">
+  <h3>{{ kanonik }} <span class="ringan">{{ varian|length }} kata</span></h3>
+  <p class="varian-daftar">
+    {% for v in varian %}
+      <span class="varian{% if v|lower == kanonik|lower %} varian-kanonik{% endif %}">
+        {{ v }}
+        {% if v|lower != kanonik|lower %}
+        <form method="post" action="{{ url_for('admin.hapus_varian') }}" class="sebaris">
+          <input type="hidden" name="kanonik" value="{{ kanonik }}">
+          <input type="hidden" name="varian" value="{{ v }}">
+          <input type="hidden" name="q" value="{{ cari }}">
+          <button type="submit" title="Hapus varian">&times;</button>
+        </form>
+        {% endif %}
+      </span>
+    {% endfor %}
+  </p>
+  <form method="post" action="{{ url_for('admin.tambah_varian') }}" class="form-sebaris">
+    <input type="hidden" name="kanonik" value="{{ kanonik }}">
+    <input type="hidden" name="q" value="{{ cari }}">
+    <input type="text" name="varian" placeholder="tambah varian" required>
+    <button type="submit">Tambah</button>
+  </form>
+</article>
+{% endfor %}
+{% endblock %}

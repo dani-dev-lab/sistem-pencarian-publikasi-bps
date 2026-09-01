@@ -1,0 +1,412 @@
+{
+  "ak": [
+    "ak",
+    "angkatan kerja"
+  ],
+  "akb": [
+    "akb",
+    "angka kematian bayi"
+  ],
+  "aki": [
+    "aki",
+    "angka kematian ibu"
+  ],
+  "akn": [
+    "akn",
+    "angka kematian neonatal"
+  ],
+  "alh": [
+    "alh",
+    "anak lahir hidup"
+  ],
+  "amh": [
+    "amh",
+    "angka melek huruf"
+  ],
+  "apk": [
+    "apk",
+    "angka partisipasi kasar"
+  ],
+  "apm": [
+    "apm",
+    "angka partisipasi murni"
+  ],
+  "aps": [
+    "aps",
+    "angka partisipasi sekolah"
+  ],
+  "asn": [
+    "asn",
+    "aparatur sipil negara"
+  ],
+  "bak": [
+    "bak",
+    "bukan angkatan kerja"
+  ],
+  "banyaknya": [
+    "banyaknya",
+    "jumlah",
+    "total",
+    "keseluruhan",
+    "banyak"
+  ],
+  "bblr": [
+    "bblr",
+    "berat badan lahir rendah"
+  ],
+  "big": [
+    "big",
+    "badan informasi geospasial"
+  ],
+  "bmkg": [
+    "bmkg",
+    "badan meteorologi klimatologi dan geofisika"
+  ],
+  "bpp": [
+    "bpp",
+    "bimbingan pelatihan penyuluhan"
+  ],
+  "bppt": [
+    "bppt",
+    "badan pengkajian dan penerapan teknologi"
+  ],
+  "bps": [
+    "bps",
+    "badan pusat statistik"
+  ],
+  "brin": [
+    "brin",
+    "badan riset dan inovasi nasional"
+  ],
+  "bts": [
+    "bts",
+    "base transceiver station"
+  ],
+  "cbr": [
+    "cbr",
+    "crude birth rate"
+  ],
+  "djpk": [
+    "djpk",
+    "direktorat jenderal perimbangan keuangan"
+  ],
+  "dpp": [
+    "dpp",
+    "direktori perusahaan pertanian"
+  ],
+  "epr": [
+    "epr",
+    "employment to population ratio"
+  ],
+  "gambar": [
+    "gambar",
+    "figure"
+  ],
+  "gfcf": [
+    "gfcf",
+    "gross fixed capital formation"
+  ],
+  "grdp": [
+    "grdp",
+    "gross regional domestic product"
+  ],
+  "hk": [
+    "hk",
+    "harga konsumen"
+  ],
+  "hls": [
+    "hls",
+    "harapan lama sekolah"
+  ],
+  "icor": [
+    "icor",
+    "incremental capital output ratio"
+  ],
+  "idm": [
+    "idm",
+    "indeks desa membangun"
+  ],
+  "ihk": [
+    "ihk",
+    "indeks harga konsumen"
+  ],
+  "ilo": [
+    "ilo",
+    "international labour organization"
+  ],
+  "imk": [
+    "imk",
+    "industri mikro dan kecil",
+    "industri pengolahan skala mikro dan kecil"
+  ],
+  "imr": [
+    "imr",
+    "infant mortality rate"
+  ],
+  "ipa": [
+    "ipa",
+    "importance and performance analysis"
+  ],
+  "ipm": [
+    "ipm",
+    "indeks pembangunan manusia"
+  ],
+  "itr": [
+    "itr",
+    "international trade ratio"
+  ],
+  "kabupaten": [
+    "kabupaten",
+    "regency"
+  ],
+  "kabupaten/kota": [
+    "kabupaten/kota",
+    "kabupaten kota",
+    "kab/kota"
+  ],
+  "kb": [
+    "kb",
+    "keluarga berencana"
+  ],
+  "kbli": [
+    "kbli",
+    "klasifikasi baku lapangan usaha indonesia"
+  ],
+  "kek": [
+    "kek",
+    "kurang energi kronis"
+  ],
+  "kilm": [
+    "kilm",
+    "key indicators of the labour market"
+  ],
+  "kota": [
+    "kota",
+    "municipality"
+  ],
+  "kpm": [
+    "kpm",
+    "keluarga penerima manfaat"
+  ],
+  "kpppbc": [
+    "kpppbc",
+    "kantor pengawasan dan pelayanan pabean bea dan cukai"
+  ],
+  "ksa": [
+    "ksa",
+    "kerangka sampel area"
+  ],
+  "kud": [
+    "kud",
+    "koperasi unit desa"
+  ],
+  "lampiran": [
+    "lampiran",
+    "appendix"
+  ],
+  "lbw": [
+    "lbw",
+    "low birth weights"
+  ],
+  "lfpr": [
+    "lfpr",
+    "labor force participation rate"
+  ],
+  "lks": [
+    "lks",
+    "lembaga kesejahteraan sosial"
+  ],
+  "ma": [
+    "ma",
+    "madrasah aliyah"
+  ],
+  "master file desa": [
+    "master file desa",
+    "mfd"
+  ],
+  "menurut": [
+    "menurut",
+    "berdasarkan",
+    "per",
+    "dirinci"
+  ],
+  "mi": [
+    "mi",
+    "madrasah ibtidaiyah"
+  ],
+  "mmr": [
+    "mmr",
+    "maternal mortality rate"
+  ],
+  "nib": [
+    "nib",
+    "nomor induk berusaha"
+  ],
+  "nmr": [
+    "nmr",
+    "neonatal mortality rate"
+  ],
+  "ntn": [
+    "ntn",
+    "nilai tukar nelayan"
+  ],
+  "ntp": [
+    "ntp",
+    "nilai tukar petani"
+  ],
+  "ntpp": [
+    "ntpp",
+    "nilai tukar petani perikanan"
+  ],
+  "pdrb": [
+    "pdrb",
+    "produk domestik regional bruto"
+  ],
+  "penduduk": [
+    "penduduk",
+    "population"
+  ],
+  "persentase": [
+    "persentase",
+    "proporsi",
+    "persen",
+    "perbandingan"
+  ],
+  "pma": [
+    "pma",
+    "penanaman modal asing"
+  ],
+  "pmdn": [
+    "pmdn",
+    "penanaman modal dalam negeri"
+  ],
+  "pmtb": [
+    "pmtb",
+    "pembentukan modal tetap bruto"
+  ],
+  "ppk": [
+    "ppk",
+    "perempuan pernah kawin"
+  ],
+  "ppkbd": [
+    "ppkbd",
+    "pembantu pembina keluarga berencana desa"
+  ],
+  "provinsi": [
+    "provinsi",
+    "province"
+  ],
+  "pt": [
+    "pt",
+    "perguruan tinggi"
+  ],
+  "pus": [
+    "pus",
+    "pasangan usia subur"
+  ],
+  "ra": [
+    "ra",
+    "raudatul athfal"
+  ],
+  "rata-rata": [
+    "rata-rata",
+    "rerata",
+    "purata"
+  ],
+  "rlm": [
+    "rlm",
+    "rata-rata lama tamu menginap"
+  ],
+  "rls": [
+    "rls",
+    "rata-rata lama sekolah"
+  ],
+  "rph": [
+    "rph",
+    "rumah potong hewan"
+  ],
+  "rpi": [
+    "rpi",
+    "rasio perdagangan internasional"
+  ],
+  "rse": [
+    "rse",
+    "relative standard error"
+  ],
+  "sd": [
+    "sd",
+    "sekolah dasar"
+  ],
+  "skd": [
+    "skd",
+    "survei kebutuhan data"
+  ],
+  "skm": [
+    "skm",
+    "survei kepuasan masyarakat"
+  ],
+  "smk": [
+    "smk",
+    "sekolah menengah kejuruan"
+  ],
+  "smp": [
+    "smp",
+    "sekolah menengah pertama"
+  ],
+  "sna": [
+    "sna",
+    "system of national accounts"
+  ],
+  "spbe": [
+    "spbe",
+    "sistem pemerintah berbasis elektronik"
+  ],
+  "tabel": [
+    "tabel",
+    "table"
+  ],
+  "tfr": [
+    "tfr",
+    "total fertility rate"
+  ],
+  "tik": [
+    "tik",
+    "teknologi informasi dan komunikasi"
+  ],
+  "tk": [
+    "tk",
+    "taman kanak kanak"
+  ],
+  "tkk": [
+    "tkk",
+    "tingkat kesempatan kerja"
+  ],
+  "tpak": [
+    "tpak",
+    "tingkat partisipasi angkatan kerja"
+  ],
+  "tpb": [
+    "tpb",
+    "tujuan pembangunan berkelanjutan"
+  ],
+  "tph": [
+    "tph",
+    "tempat pemotongan hewan"
+  ],
+  "tpk": [
+    "tpk",
+    "tingkat penghunian kamar"
+  ],
+  "tpt": [
+    "tpt",
+    "tingkat pengangguran terbuka"
+  ],
+  "uhh": [
+    "uhh",
+    "umur harapan hidup"
+  ],
+  "ump": [
+    "ump",
+    "upah minimum provinsi"
+  ]
+}

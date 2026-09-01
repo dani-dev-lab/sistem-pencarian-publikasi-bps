@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block judul %}Admin &mdash; Pencarian Publikasi BPS{% endblock %}
+
+{% block konten %}
+<h1 class="judul-admin">Administrasi</h1>
+
+<div class="kartu-admin">
+  <a href="{{ url_for('admin.kamus') }}">
+    <h2>Kamus Sinonim</h2>
+    <p class="angka">{{ jumlah_kelompok }}</p>
+    <p class="ket">kelompok kanonik &middot; {{ jumlah_varian }} kata</p>
+  </a>
+  <a href="{{ url_for('admin.log') }}">
+    <h2>Review Log Pencarian</h2>
+    <p class="angka">{{ jumlah_lemah }}</p>
+    <p class="ket">kueri lemah dari {{ jumlah_log }} pencarian</p>
+  </a>
+</div>
+
+<p class="catatan-admin">
+  Halaman ini tidak dilindungi kata sandi &mdash; aplikasi dijalankan lokal.
+</p>
+{% endblock %}

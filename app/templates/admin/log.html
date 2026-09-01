@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block judul %}Review Log Pencarian &mdash; Admin{% endblock %}
+
+{% block konten %}
+<p class="tautan-balik"><a href="{{ url_for('admin.beranda') }}">&larr; Admin</a></p>
+<h1 class="judul-admin">Review Log Pencarian</h1>
+
+<p class="keterangan">
+  Kueri yang tidak menemukan apa pun, atau skor tertingginya di bawah
+  {{ ambang }}. Diurut dari yang paling sering dicari &mdash; inilah bahan
+  untuk memperkaya kamus sinonim.
+</p>
+
+<p class="ringan">
+  {{ total_log }} pencarian tercatat &middot;
+  {% if hanya_gagal %}
+    menampilkan yang lemah saja &middot;
+    <a href="{{ url_for('admin.log', semua=1) }}">tampilkan semua</a>
+  {% else %}
+    menampilkan semua &middot;
+    <a href="{{ url_for('admin.log') }}">tampilkan yang lemah saja</a>
+  {% endif %}
+</p>
+
+{% if not baris %}
+  <p class="ringan">Belum ada kueri yang cocok.</p>
+{% else %}
+<table class="tabel-log">
+  <thead>
+    <tr>
+      <th>Kata kunci</th><th>Ternormalisasi</th>
+      <th class="ka">Frekuensi</th><th class="ka">Hasil</th>
+      <th class="ka">Skor</th><th>Terakhir</th><th></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for b in baris %}
+    <tr class="{% if b.hasil_terbaik == 0 %}baris-nol{% endif %}">
+      <td><strong>{{ b.keyword }}</strong></td>
+      <td class="ringan mono">{{ b.keyword_ternormalisasi or '—' }}</td>
+      <td class="ka">{{ b.frekuensi }}&times;</td>
+      <td class="ka">{{ b.hasil_terbaik }}</td>
+      <td class="ka">{{ '%.1f'|format(b.skor_terbaik) if b.skor_terbaik else '—' }}</td>
+      <td class="ringan">{{ b.terakhir.strftime('%d/%m %H:%M') if b.terakhir else '—' }}</td>
+      <td>
+        <a class="tautan-kecil" href="{{ url_for('pencarian.hasil_pencarian', q=b.keyword) }}"
+           target="_blank" rel="noopener">coba</a>
+        <a class="tautan-kecil" href="{{ url_for('admin.periksa', q=b.keyword) }}">periksa</a>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block judul %}Periksa Normalisasi &mdash; Admin{% endblock %}
+
+{% block konten %}
+<p class="tautan-balik"><a href="{{ url_for('admin.log') }}">&larr; Review Log</a></p>
+<h1 class="judul-admin">Periksa Normalisasi</h1>
+
+<p class="keterangan">
+  Melihat kueri setelah stemming dan substitusi sinonim. Berguna untuk menebak
+  kenapa sebuah kueri tidak menemukan apa pun &mdash; kalau hasilnya tidak
+  seperti yang diharapkan, kamusnya yang perlu ditambah.
+</p>
+
+<form method="get" class="kotak-cari kecil">
+  <input type="search" name="q" value="{{ kueri }}" placeholder="Ketik kueri..." required>
+  <button type="submit">Periksa</button>
+</form>
+
+{% if kueri %}
+<div class="hasil-periksa">
+  <p><span class="ringan">Kueri asli</span><br><strong>{{ kueri }}</strong></p>
+  <p><span class="ringan">Setelah normalisasi</span><br>
+     <code class="besar">{{ hasil or '(kosong)' }}</code></p>
+  <p><a href="{{ url_for('pencarian.hasil_pencarian', q=kueri) }}"
+        target="_blank" rel="noopener">Lihat hasil pencariannya &rarr;</a></p>
+</div>
+{% endif %}
+{% endblock %}

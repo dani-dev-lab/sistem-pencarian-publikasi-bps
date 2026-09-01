@@ -1,0 +1,2848 @@
+[
+  {
+    "file": "01_perhotelan.pdf",
+    "heading_ditemukan": {
+      "isi": 8,
+      "tabel": 10,
+      "gambar": 12,
+      "lampiran": 14
+    },
+    "heading_mentah": [
+      {
+        "halaman": 8,
+        "teks": "DAFTAR ISI"
+      },
+      {
+        "halaman": 10,
+        "teks": "DAFTAR TABEL"
+      },
+      {
+        "halaman": 12,
+        "teks": "DAFTAR GAMBAR"
+      },
+      {
+        "halaman": 14,
+        "teks": "DAFTAR LAMPIRAN"
+      }
+    ],
+    "watermark_ditemukan": 516,
+    "entri": {
+      "isi": {
+        "halaman_heading": 8,
+        "halaman_dipakai": [
+          8
+        ],
+        "jumlah": 19,
+        "jumlah_membungkus": 0,
+        "jumlah_masuk_akal": 19,
+        "daftar": [
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "KATA PENGANTAR",
+            "halaman": "v",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "DAFTAR ISI",
+            "halaman": "vii",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "DAFTAR TABEL",
+            "halaman": "ix",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "DAFTAR GAMBAR",
+            "halaman": "xi",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "DAFTAR LAMPIRAN",
+            "halaman": "xiii",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "BAB 1. PENDAHULUAN",
+            "halaman": "1",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "I. Umum",
+            "halaman": "1",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "II. Bidang Liputan",
+            "halaman": "1",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "III. Cara Pengumpulan dan Pengolahan Data",
+            "halaman": "2",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "IV. Metodologi Penelitian",
+            "halaman": "2",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "V. Konsep dan Definisi",
+            "halaman": "2",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "BAB 2. ULASAN SINGKAT",
+            "halaman": "5",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "I. Jumlah Hotel, Kamar dan Penyeb/arannya",
+            "halaman": "5",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "II. Wisatawan Asing dan Domestik yang Menginap di Akomodasi",
+            "halaman": "6",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "III. Tingkat Penghunian Kamtar (TPK)",
+            "halaman": "8",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "IV. Rata-Rata Tamu Per Kamar (GPR)",
+            "halaman": "9",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "V. Rata-Rata Lama Tamu Menginap (RLM)",
+            "halaman": "10",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "DAFTAR PUSTAKA",
+            "halaman": "13",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "LAMPIRAN",
+            "halaman": "17",
+            "membungkus": false,
+            "jumlah_baris": 1
+          }
+        ]
+      },
+      "tabel": {
+        "halaman_heading": 10,
+        "halaman_dipakai": [
+          10
+        ],
+        "jumlah": 4,
+        "jumlah_membungkus": 2,
+        "jumlah_masuk_akal": 4,
+        "daftar": [
+          {
+            "label": "tabel",
+            "nomor": "1",
+            "judul": "Jumlah Wisatawan yang Menginap Menurut Klasifikasi Akomodasi dan Jenis Wisatawan, 2025",
+            "halaman": "7",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "2",
+            "judul": "Tingkat Penghunian Kamar (TPK) Hotel Bintang dan Nonbintang, 2024 dan 2025",
+            "halaman": "8",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "tabel",
+            "nomor": "3",
+            "judul": "Rata-Rata Tamu per Kamar (GPR) pada Hotel Bintang dan Nonbintang, 2024 -2025",
+            "halaman": "10",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "tabel",
+            "nomor": "4",
+            "judul": "Rata-Rata Lama Tamu Menginap (RLM) Menurut Klasifikasi Akomodasi dan Jenis Tamu, 2025",
+            "halaman": "10",
+            "membungkus": true,
+            "jumlah_baris": 2
+          }
+        ]
+      },
+      "gambar": {
+        "halaman_heading": 12,
+        "halaman_dipakai": [
+          12
+        ],
+        "jumlah": 3,
+        "jumlah_membungkus": 2,
+        "jumlah_masuk_akal": 3,
+        "daftar": [
+          {
+            "label": "gambar",
+            "nomor": "1",
+            "judul": "Jumlah Hotel Bintang dan Nonbintang Beserta Jumlah Kamar Tersedia di Kalimantan Selatan, 2025",
+            "halaman": "5",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "gambar",
+            "nomor": "2",
+            "judul": "Persentase Banyaknya Hotel di Kalimantan Selatan Menurut Kabupaten/Kota, 2025",
+            "halaman": "6",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "gambar",
+            "nomor": "3",
+            "judul": "TPK Hotel Bintang dan Nonbintang Menurut Bulan, 2025",
+            "halaman": "9",
+            "membungkus": false,
+            "jumlah_baris": 1
+          }
+        ]
+      },
+      "lampiran": {
+        "halaman_heading": 14,
+        "halaman_dipakai": [
+          14,
+          15
+        ],
+        "jumlah": 28,
+        "jumlah_membungkus": 26,
+        "jumlah_masuk_akal": 28,
+        "daftar": [
+          {
+            "label": "lampiran",
+            "nomor": "1",
+            "judul": "Banyaknya Akomodasi Menurut Kabupaten/Kota dan Klasifikasi",
+            "halaman": "19",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "lampiran",
+            "nomor": "2",
+            "judul": "Banyaknya Akomodasi, Kamar, dan Tempat Tidur Menurut",
+            "halaman": "20",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "lampiran",
+            "nomor": "3",
+            "judul": "Banyaknya Tamu (Asing dan Domestik) yang Datang pada Hotel Bintang dan Nonbintang Menurut Bulan, 2023–2025",
+            "halaman": "21",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "4",
+            "judul": "Banyaknya Tamu (Asing dan Domestik) yang Datang pada Hotel Bintang Menurut Bulan dan Kelas Hotel, 2023–2025",
+            "halaman": "22",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "5",
+            "judul": "Banyaknya Tamu (Asing dan Domestik) yang Datang pada Hotel Nonbintang Menurut Bulan dan Kelas Kamar, 2023–2025",
+            "halaman": "23",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "6",
+            "judul": "Banyaknya Tamu Asing yang Datang pada Hotel Bintang Menurut Bulan dan Kelas Hotel, 2023–2025",
+            "halaman": "24",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "7",
+            "judul": "Banyaknya Tamu Asing yang Datang paida Hotel Nonbintang Menurut Bulan dan Kelas Kamar, 2023–2025 .g",
+            "halaman": "25",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "8",
+            "judul": "Banyaknya Tamu Domestik yang Datang pada Hotel Bintang Menurut Bulan dan Kelas Hotel, 2023–2025",
+            "halaman": "26",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "9",
+            "judul": "Banyaknya Tamu Domestik yang Datang pada Hotel Nonbintang Menurut Bulan dan Kelas Kamaar, 2023–2025",
+            "halaman": "27",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "10",
+            "judul": "Banyaknya Mala/m Kamar Tersedia Menurut Bulan dan Klasifikasi Hotel, 2023–2025",
+            "halaman": "28",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "11",
+            "judul": "Banyakhnya Malam Kamar Tersedia pada Hotel Bintang Menurut Bulan dan Kelas Hotel, 2023–2025",
+            "halaman": "29",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "12",
+            "judul": "Banyaknya Malam Kamar Tersedia pada Hotel Nonbintang Menurut Bulan dan Kelas Kamar, 2023–2025",
+            "halaman": "30",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "13",
+            "judul": "Banyaknya Malam Kamar Terjual Menurut Bulan dan Klasifikasi Hotel, 2023–2025",
+            "halaman": "31",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "14",
+            "judul": "Banyaknya Malam Kamar Terjual pada Hotel Bintang Menurut Bulan dan Kelas Hotel, 2023–2025",
+            "halaman": "32",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "15",
+            "judul": "Banyaknya Malam Kamar Terjual Pada Hotel Nonbintang Menurut Bulan dan Kelas Kamar, 2023–2025",
+            "halaman": "33",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "16",
+            "judul": "Tingkat Penghunian Kamar Hotel Menurut Bulan dan Klasifikasi Hotel, 2023–2025",
+            "halaman": "34",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "17",
+            "judul": "Tingkat Penghunian Kamar Hotel Bintang Menurut Bulan dan Kelas Hotel, 2023–2025",
+            "halaman": "35",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "18",
+            "judul": "Tingkat Penghunian Kamar Hotel Nonbintang Menurut Bulan dan Kelas Kamar, 2023–2025",
+            "halaman": "36",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "19",
+            "judul": "Rata–Rata Tamu Perkamar Menurut Bulan dan Klasifikasi Hotel, 2023– 2025",
+            "halaman": "37",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "20",
+            "judul": "Rata–Rata Tamu Perkamar Hotel Bintang Menurut Bulan dan Kelas Hotel, 2023–2025",
+            "halaman": "38",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "21",
+            "judul": "Rata–Rata Tamu Perkamar pada Hotel Nonbintang Menurut Bulan dan Kelas Kamar, 2023–2025",
+            "halaman": "39",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "22",
+            "judul": "Rata–Rata Lama Menginap Tamu (Asing dan Domestik) Menurut Bulan dan Klasifikasi Hotel, 2023–2025",
+            "halaman": "40",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "23",
+            "judul": "Rata–Rata Lama Menginap Tamu (Asing dan Dodmestik) pada Hotel Bintang Menurut Bulan dan Kelas Hotel, 2023–20o25",
+            "halaman": "41",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "24",
+            "judul": "Rata–Rata Lama Menginap Tamu (Asing d.an Domestik) pada Hotel Nonbintang Menurut Bulan dan Kelompbok Hotel, 2023–2025",
+            "halaman": "42",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "25",
+            "judul": "Rata–Rata Lama Menginap Tamu eAsing pada Hotel Bintang Menurut Bulan dan Kelas Hotel, 2023–202l5",
+            "halaman": "43",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "26",
+            "judul": "Rata–Rata Lama Menginap /Tamu Asing pada Hotel Nonbintang Menurut Bulan dan Kelompok Hotel, 2023–2025",
+            "halaman": "44",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "27",
+            "judul": "Rata–Rata Lama Mtenginap Tamu Domestik pada Hotel Bintang Menurut Bulan dan Kelas Hotel, 2023–2025",
+            "halaman": "45",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "28",
+            "judul": "Rata–Rata Lama Menginap Tamu Domestik pada Hotel Nonbintang Menurut Bulan dan Kelompok Hotel, 2023–2025",
+            "halaman": "46",
+            "membungkus": true,
+            "jumlah_baris": 2
+          }
+        ]
+      }
+    },
+    "total_halaman": 64
+  },
+  {
+    "file": "02_ekspor_impor.pdf",
+    "heading_ditemukan": {
+      "isi": 8,
+      "tabel": 10,
+      "gambar": 12,
+      "lampiran": 14
+    },
+    "heading_mentah": [
+      {
+        "halaman": 8,
+        "teks": "DAFTAR ISI"
+      },
+      {
+        "halaman": 10,
+        "teks": "DAFTAR TABEL"
+      },
+      {
+        "halaman": 12,
+        "teks": "DAFTAR GAMBAR"
+      },
+      {
+        "halaman": 14,
+        "teks": "DAFTAR LAMPIRAN"
+      }
+    ],
+    "watermark_ditemukan": 491,
+    "entri": {
+      "isi": {
+        "halaman_heading": 8,
+        "halaman_dipakai": [
+          8
+        ],
+        "jumlah": 18,
+        "jumlah_membungkus": 0,
+        "jumlah_masuk_akal": 18,
+        "daftar": [
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "KATA PENGANTAR",
+            "halaman": "v",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "DAFTAR ISI",
+            "halaman": "vii",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "DAFTAR TABEL",
+            "halaman": "ix",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "DAFTAR GAMBAR",
+            "halaman": "xi",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "DAFTAR LAMPIRAN",
+            "halaman": "xiii",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "BAB 1. PENDAHULUAN",
+            "halaman": "1",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "1. Latar Belakang",
+            "halaman": "1",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "2. Maksud dan Tujuan",
+            "halaman": "1",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3. Penjelasan Ringkas",
+            "halaman": "2",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "4. Sumber Data",
+            "halaman": "2",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "5. Ruang Lingkup Materi ...........................l",
+            "halaman": "2",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "6. Sistem Pengolahan",
+            "halaman": "4",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "BAB 2. ULASAN SINGKAT",
+            "halaman": "5",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "1. Perkembangan Ekspor Ismpor",
+            "halaman": "5",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "2. Perkembangan Eksptor",
+            "halaman": "8",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3. Perkembangan Impor",
+            "halaman": "16",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "DAFTAR PUSTAKA",
+            "halaman": "26",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "LAMPIRAN",
+            "halaman": "29",
+            "membungkus": false,
+            "jumlah_baris": 1
+          }
+        ]
+      },
+      "tabel": {
+        "halaman_heading": 10,
+        "halaman_dipakai": [
+          10
+        ],
+        "jumlah": 12,
+        "jumlah_membungkus": 6,
+        "jumlah_masuk_akal": 11,
+        "daftar": [
+          {
+            "label": "tabel",
+            "nomor": "1",
+            "judul": "Ekspor Melalui Pelabuhan Muat di Kalimantan Selatan Menurut Kelompok Barang, 2024–2025",
+            "halaman": "8",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "2",
+            "judul": "Ekspor Asal Kalimantan Selatan Menurut Kelompok Barang, 2024–2025",
+            "halaman": "9",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "tabel",
+            "nomor": "3",
+            "judul": "Ekspor Melalui Pelabuhan Muat di Kalimantan Selatan Menurut Negara Tujuan, 2024– 2025",
+            "halaman": "10",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "4",
+            "judul": "Ekspor Asal Kalimantan Selatan Menurut Negara Tujuan, 2024–2025",
+            "halaman": "11",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "tabel",
+            "nomor": "5",
+            "judul": "Ekspor Melalui Pelabuhan Muat di Kalimantan Selatan, 2025",
+            "halaman": "12",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "tabel",
+            "nomor": "6",
+            "judul": "Ekspor Kalimantan Selatan Berdasarkan Provinsi Asal, 2025",
+            "halaman": "13",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "tabel",
+            "nomor": "7",
+            "judul": "Impor Melalui Pelabuhan Bongkar di Kalimantan Selatan Menurut Kelompok Barang, 2024–2025",
+            "halaman": "18",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "8",
+            "judul": "Impor Berdasarkan KPPBC di Kalimantan Selatan Menudrut Kelompok Barang, 2024–2025",
+            "halaman": "19",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "9",
+            "judul": "Impor Melalui Pelabuhan Bongkar di Kalimasn.tan Selatan Menurut Negara Asal, 2024– 2025",
+            "halaman": "20",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "10",
+            "judul": "Impor Berdasarkan KPPBC di Kalimaentlan Selatan Menurut Negara Asal, 2024–2025",
+            "halaman": "21",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "tabel",
+            "nomor": "11",
+            "judul": "Impor Melalui Pelabuhan Bongkalr di Kalimantan Selatan, 2025",
+            "halaman": "22",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "tabel",
+            "nomor": "12",
+            "judul": "Impor Berdasarkan KPPBC di Kalimantan Selatan Menurut Pelabuhan Bongkar, 2025 23 ix",
+            "halaman": null,
+            "membungkus": true,
+            "jumlah_baris": 2
+          }
+        ]
+      },
+      "gambar": {
+        "halaman_heading": 12,
+        "halaman_dipakai": [
+          12
+        ],
+        "jumlah": 10,
+        "jumlah_membungkus": 10,
+        "jumlah_masuk_akal": 10,
+        "daftar": [
+          {
+            "label": "gambar",
+            "nomor": "1",
+            "judul": "Perkembangan Ekspor Impor Melalui Pelabuhan Muat dan Pelabuhan Bongkar di Kalimantan Selatan, 2021–2025 (US$ Juta)",
+            "halaman": "5",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "gambar",
+            "nomor": "2",
+            "judul": "Perkembangan Ekspor Melalui Pelabuhan Muat Bulanan di Kalimantan Selatan, 2024–2025 (US$ Juta)",
+            "halaman": "6",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "gambar",
+            "nomor": "3",
+            "judul": "Perkembangan Ekspor Impor Kalimantan Selatan Melalui Pelabuhan Bongkar Muat di Seluruh Indonesia, 2021-2025 (US$ Juta)",
+            "halaman": "7",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "gambar",
+            "nomor": "4",
+            "judul": "Perkembangan Ekspor Kalimantan Selatan Berdasarkan Provinsi Asal, 2024–2025 (US$ Juta)",
+            "halaman": "7",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "gambar",
+            "nomor": "5",
+            "judul": "Infografis Perkembangan Ekspor Provinsi Kalimantan Selatan 2025 Berdasatkan Pelabuhan Asal",
+            "halaman": "14",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "gambar",
+            "nomor": "6",
+            "judul": "Infografis Perkembangan Ekspor Provinsgi Kalimantan Selatan 2025 Berdasatkan Pelabuhan Muat",
+            "halaman": "15",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "gambar",
+            "nomor": "7",
+            "judul": "Perkembangan Impor Melalui Pelabuhan di Kalimantan Selatan, 2024–2025 (US$ Juta)",
+            "halaman": "16",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "gambar",
+            "nomor": "8",
+            "judul": "Perkembangan Impor aBerdasarkan KPPBC di Kalimantan Selatan, 2024–2025 (US$ Juta) / /",
+            "halaman": "17",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "gambar",
+            "nomor": "9",
+            "judul": "Infografis Perpkembangan Impor Provinsi Kalimantan Selatan 2025 Berdasarkan KPPBC",
+            "halaman": "24",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "gambar",
+            "nomor": "10",
+            "judul": "Infografis Perkembangan Impor Provinsi Kalimantan Selatan 2025 Berdasarkan Pelabuhan Bongkar",
+            "halaman": "25",
+            "membungkus": true,
+            "jumlah_baris": 2
+          }
+        ]
+      },
+      "lampiran": {
+        "halaman_heading": 14,
+        "halaman_dipakai": [
+          14
+        ],
+        "jumlah": 18,
+        "jumlah_membungkus": 10,
+        "jumlah_masuk_akal": 17,
+        "daftar": [
+          {
+            "label": "lampiran",
+            "nomor": "1",
+            "judul": "Perkembangan Ekspor Kalimantan Selatan Berdasarkan Pelabuhan Muat, 2024– 2025",
+            "halaman": "30",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "2",
+            "judul": "Perkembangan Ekspor Kalimantan Selatan Berdasarkan Provinsi Asal, 2024–2025",
+            "halaman": "31",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "3",
+            "judul": "Perkembangan Impor Kalimantan Selatan Berdasarkan Pelabuhan Bongkar, 2024– 2025",
+            "halaman": "32",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "4",
+            "judul": "Perkembangan Impor Kalimantan Selatan Berdasarkan KPPBC, 2024–2025",
+            "halaman": "33",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "lampiran",
+            "nomor": "5",
+            "judul": "Neraca Ekspor Impor Kalimantan Selatan Menurut Pelabuhan Muat dan Pelabuhan Bongkar (US$), 2024–2025",
+            "halaman": "34",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "6",
+            "judul": "Neraca Ekspor Impor Kalimantan Selatan Menurut Provinsi Asal dan KPPBC (US$), 2024–2025",
+            "halaman": "35",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "7",
+            "judul": "Ekspor Berdasarkan Pelabuhan Muat Menuorut Kelompok Barang, 2025",
+            "halaman": "36",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "lampiran",
+            "nomor": "8",
+            "judul": "Ekspor Berdasarkan Provinsi Asal Menu.rut Kelompok Barang, 2025",
+            "halaman": "39",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "lampiran",
+            "nomor": "9",
+            "judul": "Ekspor Berdasarkan Pelabuhan Muat Menurut Kelompok Barang dan Negara Tujuan, 2025",
+            "halaman": "49",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "10",
+            "judul": "Ekspor Berdasarkan Provinsi Asal Menurut Kelompok Barang dan Negara Tujuan, 2025",
+            "halaman": "51",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "11",
+            "judul": "Ekspor Menuruts Pelabuhan Muat dan Kelompok Barang, 2025",
+            "halaman": "57",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "lampiran",
+            "nomor": "12",
+            "judul": "Ekspor Berdtasarkan Provinsi Asal Menurut Pelabuhan Muat dan Kelompok Barang, 2025",
+            "halaman": "61",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "13",
+            "judul": "Impor Berdasarkan Pelabuhan Bongkar Menurut Kelompok Barang, 2025",
+            "halaman": "74",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "lampiran",
+            "nomor": "14",
+            "judul": "Impor Berdasarkan KPPBC Menurut Kelompok Barang, 2025",
+            "halaman": "109",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "lampiran",
+            "nomor": "15",
+            "judul": "Impor Berdasarkan Pelabuhan Bongkar Menurut Kelompok Barang dan Negara Asal, 2025",
+            "halaman": "142",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "16",
+            "judul": "Impor Berdasarkan KPPBC Menurut Kelompok Barang dan Negara Asal, 2025 146",
+            "halaman": null,
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "lampiran",
+            "nomor": "17",
+            "judul": "Impor Menurut Pelabuhan Bongkar dan Kelompok Barang, 2025",
+            "halaman": "150",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "lampiran",
+            "nomor": "18",
+            "judul": "Impor Berdasarkan KPPBC Menurut Pelabuhan Bongkar dan Kelompok Barang, 2025",
+            "halaman": "185",
+            "membungkus": true,
+            "jumlah_baris": 2
+          }
+        ]
+      }
+    },
+    "total_halaman": 245
+  },
+  {
+    "file": "03_perhubungan.pdf",
+    "heading_ditemukan": {
+      "isi": 8,
+      "tabel": 10,
+      "gambar": 12,
+      "lampiran": 14
+    },
+    "heading_mentah": [
+      {
+        "halaman": 8,
+        "teks": "DAFTAR ISI"
+      },
+      {
+        "halaman": 10,
+        "teks": "DAFTAR TABEL"
+      },
+      {
+        "halaman": 12,
+        "teks": "DAFTAR GAMBAR"
+      },
+      {
+        "halaman": 14,
+        "teks": "DAFTAR LAMPIRAN"
+      }
+    ],
+    "watermark_ditemukan": 528,
+    "entri": {
+      "isi": {
+        "halaman_heading": 8,
+        "halaman_dipakai": [
+          8
+        ],
+        "jumlah": 20,
+        "jumlah_membungkus": 0,
+        "jumlah_masuk_akal": 20,
+        "daftar": [
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "KATA PENGANTAR",
+            "halaman": "v",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "DAFTAR ISI",
+            "halaman": "vii",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "DAFTAR TABEL",
+            "halaman": "ix",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "DAFTAR GAMBAR",
+            "halaman": "xi",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "DAFTAR LAMPIRAN",
+            "halaman": "xiii",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "PENDAHULUAN",
+            "halaman": "1",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "SUMBER DATA",
+            "halaman": "5",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "ULASAN SINGKAT",
+            "halaman": "7",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "1. STATISTIK ANGKUTAN DARAT",
+            "halaman": "7",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "2. STATISTIK ANGKUTAN LAUT",
+            "halaman": "11",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "2.1 Pelabuhan Trisakti Balnjarmasin",
+            "halaman": "11",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "2.2 Pelabuhan Kotab/aru–Batulicin",
+            "halaman": "14",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "2.3 Pelabuhan Sungai Danau",
+            "halaman": "17",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "2.4 Pelabuhtan Kintap",
+            "halaman": "19",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3. STATISTIK ANGKUTAN UDARA",
+            "halaman": "22",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3.1 Bandara Syamsuddin Noor",
+            "halaman": "23",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3.2 Bandara Gusti Syamsir Alam",
+            "halaman": "25",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3.3 Bandara Bersujud",
+            "halaman": "27",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "DAFTAR PUSTAKA",
+            "halaman": "31",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "LAMPIRAN",
+            "halaman": "35",
+            "membungkus": false,
+            "jumlah_baris": 1
+          }
+        ]
+      },
+      "tabel": {
+        "halaman_heading": 10,
+        "halaman_dipakai": [
+          10
+        ],
+        "jumlah": 15,
+        "jumlah_membungkus": 14,
+        "jumlah_masuk_akal": 14,
+        "daftar": [
+          {
+            "label": "tabel",
+            "nomor": "1.1",
+            "judul": "Panjang Jalan Dirinci Menurut Jenis Permukaan dan Tingkat Kewenangan (km), 2025",
+            "halaman": "8",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "1.2",
+            "judul": "Panjang Jalan Dirinci Menurut Kondisi Jalan dan Tingkat Kewenangan (km), 20259",
+            "halaman": null,
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "tabel",
+            "nomor": "2.1",
+            "judul": "Banyaknya Penumpang Pelayaran Dalam Negeri yang Berangkat dan Datang di Pelabuhan Trisakti, 2024–2025",
+            "halaman": "12",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "2.2",
+            "judul": "Bongkar Muat Barang Pelayaran Dalam Negeri di Pelabuhan Trisakti (ribu ton), 2024–2025",
+            "halaman": "13",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "2.3",
+            "judul": "Bongkar Muat Barang Pelayaran Dalam Negeri di Pelabuhan Trisakti Menurut Kelompok Komoditas (ton), 2025",
+            "halaman": "14",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "2.4",
+            "judul": "Banyaknya Penumpang Pelayaran Dalam Negeri yang Berangkat dan Datang di Pelabuhan Kotabaru Batulicin. 2024–2025",
+            "halaman": "15",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "2.5",
+            "judul": "Bongkar Muat Barang Pelayaran Dalam Negegri di Pelabuhan Kotabaru Batulicin (ribu ton), 2024–2025",
+            "halaman": "16",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "2.6",
+            "judul": "Bongkar Muat Barang Pelayaran Dalam Negeri di Pelabuhan Kotabaru Batulicin Menurut Kelompok Komoditas (ton), 2025",
+            "halaman": "17",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "2.7",
+            "judul": "Bongkar Muat Barang Pelayaraan Dalam Negeri di Pelabuhan Sungai Danau (ribu ton), 2024–2025 /",
+            "halaman": "18",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "2.8",
+            "judul": "Bongkar Muat Barangp Pelayaran Dalam Negeri di Pelabuhan Sungai Danau Menurut Kelompok Komohditas (ton), 2025",
+            "halaman": "19",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "2.9",
+            "judul": "Banyaknya Penumpang Pelayaran Dalam Negeri yang Berangkat dan Datang di Pelabuhan Kintap (orang), 2024–2025",
+            "halaman": "20",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "2.10",
+            "judul": "Bongkar Muat Barang Pelayaran Dalam Negeri di Pelabuhan Kintap Tanah Laut (ribu ton), 2024–2025",
+            "halaman": "21",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "2.11",
+            "judul": "Bongkar Muat Barang Pelayaran Dalam Negeri di Pelabuhan Kintap Menurut Kelompok Komoditas (ton), 2025",
+            "halaman": "21",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "3.1",
+            "judul": "Jumlah Pesawat Dalam Negeri yang Berangkat dan Datang Menurut Bandar Udara (unit), 2024–2025",
+            "halaman": "22",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "3.2",
+            "judul": "Jumlah Penumpang Pesawat Dalam Negeri yang Berangkat dan Datang Menurut Bandar Udara (orang), 2024–2025",
+            "halaman": "23",
+            "membungkus": true,
+            "jumlah_baris": 2
+          }
+        ]
+      },
+      "gambar": {
+        "halaman_heading": 12,
+        "halaman_dipakai": [
+          12
+        ],
+        "jumlah": 14,
+        "jumlah_membungkus": 7,
+        "jumlah_masuk_akal": 13,
+        "daftar": [
+          {
+            "label": "gambar",
+            "nomor": "1.1",
+            "judul": "Distribusi Panjang Jalan Menurut Jenis Permukaan, 2025",
+            "halaman": "8",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "gambar",
+            "nomor": "1.2",
+            "judul": "Distribusi Panjang Jalan Menurut Kondisi Jalan, 2025",
+            "halaman": "9",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "gambar",
+            "nomor": "2.1",
+            "judul": "Jumlah Kapal Penumpang yang Berangkat dan Datang melalui",
+            "halaman": "11",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "gambar",
+            "nomor": "2.2",
+            "judul": "Jumlah Kapal Penumpang yang Berangkat dan Datang melalui Pelabuhan Kotabaru Batulicin (unit), 2024-2025",
+            "halaman": "15",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "gambar",
+            "nomor": "2.3",
+            "judul": "Jumlah Kapal Penumpang yang Berangkat dan Datang melalui Pelabuhan Kelas III Kintap (unit), 2024-2025",
+            "halaman": "20",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "gambar",
+            "nomor": "3.1",
+            "judul": "Jumlah Pesawat berangkat dan Datang Melalui Bandara Syamsuddin Noor (unit), 2025",
+            "halaman": "23",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "gambar",
+            "nomor": "3.2",
+            "judul": "Jumlah Penumpang berangkat dan Datang Melalui Bandara Syamsuddin Noor (orang), 2025",
+            "halaman": "24",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "gambar",
+            "nomor": "3.3",
+            "judul": "Arus Bongkar–Muat Barang Melalui Bandara Sgyamsuddin Noor (ton), 2025",
+            "halaman": "25",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "gambar",
+            "nomor": "3.4",
+            "judul": "Jumlah Pesawat berangkat dan Datang Melalui Bandara Gusti Syamsir Alam (unit), 2025",
+            "halaman": "25",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "gambar",
+            "nomor": "3.5",
+            "judul": "Jumlah Penumpang berangkat dan Datang Melalui Bandara Gusti Syamsir Alam (orang), 2025",
+            "halaman": "26",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "gambar",
+            "nomor": "3.6",
+            "judul": "Jumlah Bongkar Muat Bara/ng Melalui Bandara Gusti Syamsir Alam (kg), 2025 . 27",
+            "halaman": null,
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "gambar",
+            "nomor": "3.7",
+            "judul": "Jumlah Pesawat beranpgkat dan Datang Melalui Bandara Bersujud (unit), 2025",
+            "halaman": "27",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "gambar",
+            "nomor": "3.8",
+            "judul": "Jumlah Penumpahng berangkat dan Datang Melalui Bandara Bersujud (orang), 2025",
+            "halaman": "28",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "gambar",
+            "nomor": "3.9",
+            "judul": "Jumlah Bongkar Muat Barang Melalui Bandara Bersujud (kg), 2025",
+            "halaman": "29",
+            "membungkus": false,
+            "jumlah_baris": 1
+          }
+        ]
+      },
+      "lampiran": {
+        "halaman_heading": 14,
+        "halaman_dipakai": [
+          14,
+          15
+        ],
+        "jumlah": 35,
+        "jumlah_membungkus": 34,
+        "jumlah_masuk_akal": 33,
+        "daftar": [
+          {
+            "label": "lampiran",
+            "nomor": "1.1",
+            "judul": "Panjang Jalan di Kalimantan Selatan Menurut Tingkat Kewenangan, 2024–2025 (km)",
+            "halaman": "37",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "1.2",
+            "judul": "Panjang Jalan Negara, Provinsi dan Kabupaten/Kota di Kalimantan Selatan Menurut Jenis Permukaan, 2024-2025 (km)",
+            "halaman": "38",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "1.3",
+            "judul": "Panjang Jalan Negara, Provinsi, dan Kabupaten/Kota di Kalimantan Selatan Menurut Kondisi Jalan, 2024-2025 (km)",
+            "halaman": "39",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "1.4",
+            "judul": "Panjang Jalan Kabupaten/Kota di Kalimantan Selatan Menurut Jenis Permukaan Jalan, 2024-2025 (km)",
+            "halaman": "40",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "1.5",
+            "judul": "Panjang Jalan Kabupaten/Kota di Kalimantan Selatan Menurut Kondisi Jalan, 2024–2025 (km)",
+            "halaman": "41",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "2.1",
+            "judul": "Arus Bongkar Muat Barang Angkutan Antar Pulau Per Bulan di Pelabuhan Trisakti–Banjarmasin, 2025 (ton)",
+            "halaman": "42",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "2.2",
+            "judul": "Arus Bongkar Muat Barang Angkutan Antar Pulau Per Bulan di Pelabuhan Kotabaru–Batulicin, 2025 (ton)",
+            "halaman": "43",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "2.3",
+            "judul": "Arus Bongkar Muat Barang Angkutan Antar Pulau Per Bulan di Pelabuhan Satui, 2025 i (ton)",
+            "halaman": "44",
+            "membungkus": true,
+            "jumlah_baris": 3
+          },
+          {
+            "label": "lampiran",
+            "nomor": "2.4",
+            "judul": "Arus Bongkar Muat Barang Angkutan Antar Pulau Per Bulan di Pelabuhan Kintap, 2025 (ton)",
+            "halaman": "45",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "2.5",
+            "judul": "Arus Bongkar Muat Barbang Angkutan Antar Pulau Per Bulan pada Pelabuhan di Kaliman.tan Selatan, 2025 (ton)",
+            "halaman": "46",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "2.6",
+            "judul": "Arus Bongkar Muat Barang Menurut Jenis Komoditas di Pelabuhan Trisakti–Banjarmasinl, 2025 (ton)",
+            "halaman": "47",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "2.7",
+            "judul": "Arus Bongkar Mkuat Barang Menurut Jenis Komoditas di Pelabuhan Kotabaru–Batu/licin, 2025 (ton)",
+            "halaman": "50",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "2.8",
+            "judul": "Arus Bongkar Muat Barang Menurut Jenis Komoditas di Pelabuhan Satui, 20t25 (ton)",
+            "halaman": "52",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "2.9",
+            "judul": "Arush Bongkar Muat Barang Menurut Jenis Komoditas di Pelabuhan Kintap, 2025 (ton)",
+            "halaman": "53",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "2.10",
+            "judul": "Rekapitulasi Arus Bongkar Muat Barang Menurut Jenis Komoditas pada Pelabuhan di Kalimantan Selatan, 2025 (ton)",
+            "halaman": "54",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "2.11",
+            "judul": "Arus Penumpang Kapal Laut Per Bulan di Pelabuhan Trisakti– Banjarmasin, 2025 (orang)",
+            "halaman": "57",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "2.12",
+            "judul": "Arus Penumpang Kapal Laut Per Bulan di Pelabuhan Kotabaru– Batulicin, 2025 (orang)",
+            "halaman": "58",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "2.13",
+            "judul": "Arus Penumpang Kapal Laut Per Bulan pada Pelabuhan Kintap, 2025 (orang)",
+            "halaman": "59",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "2.14",
+            "judul": "Arus Penumpang Kapal Laut Per Bulan pada Pelabuhan di Kalimantan Selatan, 2025 (orang)",
+            "halaman": "60",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "3.1",
+            "judul": "Arus Lalu Lintas Pesawat Terbang Per Bulan di Bandara Syamsuddin Noor, 2025 (unit)",
+            "halaman": "61",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "3.2",
+            "judul": "Arus Lalu Lintas Pesawat Terbang Per Bulan di Bandara Gusti Syamsir Alam, 2025 (unit)",
+            "halaman": "62",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "3.3",
+            "judul": "Arus Lalu Lintas Pesawat Terbang Per Bulan di Bandara Bersujud, 2025 (unit)",
+            "halaman": "63",
+            "membungkus": true,
+            "jumlah_baris": 3
+          },
+          {
+            "label": "lampiran",
+            "nomor": "3.4",
+            "judul": "Rekapitulasi Arus Lalu Lintas Pesawat Terbang Per Bulan",
+            "halaman": "64",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "lampiran",
+            "nomor": "3.5",
+            "judul": "Arus Penumpang Pesawat Terbang Per Bulan di Bandara Syamsuddin Noor, 2025 (orang)",
+            "halaman": "65",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "3.6",
+            "judul": "Arus Penumpang Pesawat Terbang Per Bulan di Bandara Gusti Syamsir Alam, 2025 (orang)",
+            "halaman": "66",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "3.7",
+            "judul": "Arus Penumpang Pesawat Terbang Per Bulan di Bandara Bersujud, 2025 (orang)",
+            "halaman": "67",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "3.8",
+            "judul": "Rekapitulasi Arus Penumpang Pesawat Terbang Per Bulan pada Bandara di Kalimantan Selatan, 2025 (orang)",
+            "halaman": "68",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "3.9",
+            "judul": "Arus Bongkar–Muat Barang Per Bulan di Bandara Syamsuddin Noor, 2025 (kg)",
+            "halaman": "69",
+            "membungkus": true,
+            "jumlah_baris": 3
+          },
+          {
+            "label": "lampiran",
+            "nomor": "3.10",
+            "judul": "Arus Bongkar–Muat Barang Per Bulan di Bandara Gusti Syamsir Alam, 2025 (kg)",
+            "halaman": "70",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "3.11",
+            "judul": "Arus Bongkar–Muat Barang Per Bulan di Bandara Bersujud, 2025 (kg) 71",
+            "halaman": null,
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "3.12",
+            "judul": "Rekapitulasi Arus Bongkar–Muat Barang Per Bulan pada Bandara di Kalimantan Selatan, 2025 (kg)",
+            "halaman": "72",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "3.13",
+            "judul": "Arus Bongkar–Muat Bagasi Per Bulan di Bandara Syamsuddin Noor, 2025 (kg)",
+            "halaman": "73",
+            "membungkus": true,
+            "jumlah_baris": 3
+          },
+          {
+            "label": "lampiran",
+            "nomor": "3.14",
+            "judul": "Arus Bongkar–Muat Bagasi Per bulan di Bangdara Gusti Syamsir Alam, 2025 (kg)",
+            "halaman": "74",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "3.15",
+            "judul": "Arus Bongkar–Muat Bagasi Per bulan pdi Bandara Bersujud, 2025 (kg) 75",
+            "halaman": null,
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "lampiran",
+            "nomor": "3.16",
+            "judul": "Rekapitulasi Arus Bongkar–Muaet Bagasi Per Bulan pada Bandara di Kalimantan Selatan, 2025 (kg)",
+            "halaman": "76",
+            "membungkus": true,
+            "jumlah_baris": 2
+          }
+        ]
+      }
+    },
+    "total_halaman": 97
+  },
+  {
+    "file": "04_laporan_ekonomi.pdf",
+    "heading_ditemukan": {
+      "isi": 8,
+      "tabel": 10,
+      "gambar": 12
+    },
+    "heading_mentah": [
+      {
+        "halaman": 8,
+        "teks": "DAFTAR ISI"
+      },
+      {
+        "halaman": 10,
+        "teks": "DAFTAR TABEL"
+      },
+      {
+        "halaman": 12,
+        "teks": "DAFTAR GAMBAR"
+      }
+    ],
+    "watermark_ditemukan": 501,
+    "entri": {
+      "isi": {
+        "halaman_heading": 8,
+        "halaman_dipakai": [
+          8,
+          9
+        ],
+        "jumlah": 37,
+        "jumlah_membungkus": 0,
+        "jumlah_masuk_akal": 37,
+        "daftar": [
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "KATA PENGANTAR",
+            "halaman": "v",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "DAFTAR ISI",
+            "halaman": "vii",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "DAFTAR TABEL",
+            "halaman": "ix",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "DAFTAR GAMBAR",
+            "halaman": "xi",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "I. PENDAHULUAN",
+            "halaman": "1",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "1.1 Gambaran Umum Perekonomian",
+            "halaman": "3",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "1.2 Konsep dan Definisi",
+            "halaman": "8",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "1.2.1 Produk Domestik Regional Bruto (dPDRB)",
+            "halaman": "8",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "1.2.2 Inflasi",
+            "halaman": "9",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "1.2.3 Nilai Tukar Petani (NTP)",
+            "halaman": "10",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "1.2.4 Angkatan Kerja",
+            "halaman": "11",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "1.2.5 Pengangguran",
+            "halaman": "11",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "II. DINAMIKA PEREKONOMlIAN",
+            "halaman": "13",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "2.1 Situasi Perekonomian Dunia dan Nasional",
+            "halaman": "15",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "Usaha",
+            "halaman": "17",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "Pengeluaran",
+            "halaman": "25",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "2.5 Pertumbuhan Ekonomi Regional Kalimantan",
+            "halaman": "31",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "III. PERKEMBANGAN SEKTORAL",
+            "halaman": "33",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3.1 Pertambangan dan Penggalian",
+            "halaman": "37",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3.2 Pertanian, Kehutanan, dan Perikanan",
+            "halaman": "40",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3.3 Industri Pengolahan",
+            "halaman": "43",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "Sepeda Motor",
+            "halaman": "47",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3.5 Transportasi dan Pergudangan",
+            "halaman": "49",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "IV. PERKEMBANGAN HARGA",
+            "halaman": "53",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "4.1 Indeks Harga Konsumen",
+            "halaman": "56",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "4.4 Inflasi Regional Kalimantan",
+            "halaman": "63",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "4.5 Nilai Tukar Petani",
+            "halaman": "65",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "4.5.1 Nilai Tukar Petani menurut subsektor",
+            "halaman": "67",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "4.5.2 Nilai Tukar Petani Regional Kalimantan",
+            "halaman": "69",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "V. KETENAGAKERJAAN",
+            "halaman": "73",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "5.1 Gambaran Umum Ketenagakerjaan",
+            "halaman": "77",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "5.2 Kondisi Ketenagakerjaan di Kasbupaten/Kota",
+            "halaman": "84",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "5.3 Daya Serap Tenaga Kerja",
+            "halaman": "90",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "5.4 Status Pekerjaan Utamae",
+            "halaman": "94",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "5.5 Tingkat Pendidikana Penduduk Bekerja",
+            "halaman": "98",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "5.6 Tingkat Pendidik/an Pengangguran",
+            "halaman": "100",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "DAFTAR PUSTAKA",
+            "halaman": "105",
+            "membungkus": false,
+            "jumlah_baris": 1
+          }
+        ]
+      },
+      "tabel": {
+        "halaman_heading": 10,
+        "halaman_dipakai": [
+          10,
+          11
+        ],
+        "jumlah": 24,
+        "jumlah_membungkus": 23,
+        "jumlah_masuk_akal": 24,
+        "daftar": [
+          {
+            "label": "tabel",
+            "nomor": "2.1",
+            "judul": "Pertumbuhan Ekonomi Global Tahun 2023-2025 (Persen)",
+            "halaman": "16",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "2.2",
+            "judul": "PDRB Kalimantan Selatan Atas Dasar Harga Berlaku Menurut Lapangan Usaha Tahun 2023-2025 (Miliar Rupiah)",
+            "halaman": "19",
+            "membungkus": true,
+            "jumlah_baris": 3
+          },
+          {
+            "label": "tabel",
+            "nomor": "2.3",
+            "judul": "Struktur Ekonomi Kalimantan Selatan Tahun 2023- 2025 (Persen)",
+            "halaman": "22",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "2.4",
+            "judul": "Pertumbuhan Ekonomi Kalimantan Selatan Menurut Lapangan Usaha Tahun 2023-2025 (Persen)",
+            "halaman": "24",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "2.5",
+            "judul": "Pertumbuhan Ekonomi Kalimantan Sdelatan Menurut Pengeluaran",
+            "halaman": "26",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "2.6",
+            "judul": "PDRB Atas Dasar Harga Berlakgu Menurut Kabupaten/Kota di Kalimantsan Selatan Tahun 2023- 2025 (Miliar Rupiah)",
+            "halaman": "28",
+            "membungkus": true,
+            "jumlah_baris": 3
+          },
+          {
+            "label": "tabel",
+            "nomor": "2.7",
+            "judul": "Pertumbuhan Ekonomli Menurut Kabupaten/Kota di Kalimantan Selatan Tahun 2023-2025 (Persen)",
+            "halaman": "29",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "2.8",
+            "judul": "Pertumbuhan kEkonomi Regional Kalimantan (Persen) /",
+            "halaman": "31",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "3.1",
+            "judul": "PDRB ADHB, Pertumbuhan, dan Distribusi Lapangan Usaha Ptertambangan dan Penggalian, Tahun 2025**",
+            "halaman": "37",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "3.2",
+            "judul": "PDRB ADHB, Pertumbuhan, dan Distribusi Lapangan Usaha Pertanian, Kehutanan, dan Perikanan Kalimantan Selatan, Tahun 2025**",
+            "halaman": "41",
+            "membungkus": true,
+            "jumlah_baris": 3
+          },
+          {
+            "label": "tabel",
+            "nomor": "3.3",
+            "judul": "PDRB ADHB, Pertumbuhan, dan Distribusi Lapangan Usaha Industri Pengolahan Kalimantan Selatan, Tahun 2025**",
+            "halaman": "44",
+            "membungkus": true,
+            "jumlah_baris": 3
+          },
+          {
+            "label": "tabel",
+            "nomor": "3.4",
+            "judul": "PDRB ADHB, Pertumbuhan, dan Distribusi Lapangan Usaha Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor, Tahun 2025**",
+            "halaman": "47",
+            "membungkus": true,
+            "jumlah_baris": 3
+          },
+          {
+            "label": "tabel",
+            "nomor": "3.5",
+            "judul": "PDRB ADHB, Pertumbuhan, dan Distribusi Lapangan Usaha Transportasi dan Pergudangan, Tahun 2025**",
+            "halaman": "50",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "4.1",
+            "judul": "NTP Bulanan Kalimantan Selatan, 2025",
+            "halaman": "66",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "tabel",
+            "nomor": "4.2",
+            "judul": "Nilai Tukar Petani Menurut Subsektor dan Bulan di Kalimantan Selatan, 2025",
+            "halaman": "67",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "tabel",
+            "nomor": "5.1",
+            "judul": "Jumlah Penduduk Usia Kerja Menurut Kegiatan Utama Selama Seminggu yang Lalu dan Jenis Kelamin di Provinsi Kalimantan Selatan (orang), Agustus 2021– Agustus 2025",
+            "halaman": "78",
+            "membungkus": true,
+            "jumlah_baris": 4
+          },
+          {
+            "label": "tabel",
+            "nomor": "5.2",
+            "judul": "Indikator Ketenagakerjaan Menurut Jenis Kelamin dan Klasifikasi Daerah di Provinsi Kalimantan Selatan (persen), Agustus 2021–Agustus 2025",
+            "halaman": "82",
+            "membungkus": true,
+            "jumlah_baris": 3
+          },
+          {
+            "label": "tabel",
+            "nomor": "5.3",
+            "judul": "Tingkat Partisipasi Angkatan Kerja (TPAK) Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (persen), Agustus 2021–Agustus 2025",
+            "halaman": "86",
+            "membungkus": true,
+            "jumlah_baris": 3
+          },
+          {
+            "label": "tabel",
+            "nomor": "5.4",
+            "judul": "Tingkat Kesempatan Kerja (TKK) oMenurut Kabupaten/Kota di Provinsi Kalimantan Selatan (persen), Agustus 2021–Agpustus 2025",
+            "halaman": "87",
+            "membungkus": true,
+            "jumlah_baris": 3
+          },
+          {
+            "label": "tabel",
+            "nomor": "5.5",
+            "judul": "Tingkat Pengangguran Terbuka (TPT) Menurut Kabupaten/Kota di Perovinsi Kalimantan Selatan (persen), Agustus 2l021–Agustus 2025",
+            "halaman": "90",
+            "membungkus": true,
+            "jumlah_baris": 3
+          },
+          {
+            "label": "tabel",
+            "nomor": "5.6",
+            "judul": "Persentase Penduduk Berumur 15 Tahun Keatas yang Bekerja Sela:ma Seminggu Terakhir Menurut Lapangan Pekerjaapn Utama di Provinsi Kalimantan Selatan (pershen), Agustus 2021–Agustus 2025",
+            "halaman": "92",
+            "membungkus": true,
+            "jumlah_baris": 4
+          },
+          {
+            "label": "tabel",
+            "nomor": "5.7",
+            "judul": "Persentase Penduduk yang Bekerja Menurut Status Pekerjaan Utama di Provinsi Kalimantan Selatan (persen), Agustus 2021–Agustus 2025",
+            "halaman": "97",
+            "membungkus": true,
+            "jumlah_baris": 3
+          },
+          {
+            "label": "tabel",
+            "nomor": "5.8",
+            "judul": "Persentase Penduduk Bekerja Menurut Pendidikan Tertinggi yang Ditamatkan di Provinsi Kalimantan Selatan (persen), Agustus 2021–Agustus 2025",
+            "halaman": "99",
+            "membungkus": true,
+            "jumlah_baris": 3
+          },
+          {
+            "label": "tabel",
+            "nomor": "5.9",
+            "judul": "Tingkat Pengangguran Terbuka (TPT) Menurut Pendidikan Tertinggi yang Ditamatkan di Provinsi Kalimantan Selatan (persen), Agustus 2021–Agustus 2025",
+            "halaman": "102",
+            "membungkus": true,
+            "jumlah_baris": 4
+          }
+        ]
+      },
+      "gambar": {
+        "halaman_heading": 12,
+        "halaman_dipakai": [
+          12
+        ],
+        "jumlah": 6,
+        "jumlah_membungkus": 5,
+        "jumlah_masuk_akal": 6,
+        "daftar": [
+          {
+            "label": "gambar",
+            "nomor": "4.1",
+            "judul": "Perkembangan Inflasi Provinsi Kalimantan Selatan (persen), 2021-2025",
+            "halaman": "58",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "gambar",
+            "nomor": "4.2",
+            "judul": "Inflasi Desember (Y-to-D) Provinsi Kalimantan Selatan Menurut Kelompok Pengeluaran (persen), 2025",
+            "halaman": "60",
+            "membungkus": true,
+            "jumlah_baris": 3
+          },
+          {
+            "label": "gambar",
+            "nomor": "4.3",
+            "judul": "Inflasi Bulanan Provinsi Kalimantan Selatan (persen), 2025",
+            "halaman": "62",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "gambar",
+            "nomor": "4.4",
+            "judul": "Inflasi Desember (Y-to-D) Provinsi di Regional Kalimantan (persen), 2025",
+            "halaman": "64",
+            "membungkus": true,
+            "jumlah_baris": 2
+          },
+          {
+            "label": "gambar",
+            "nomor": "4.5",
+            "judul": "NTP Regional Kalimantan, 2025",
+            "halaman": "71",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "gambar",
+            "nomor": "5.1",
+            "judul": "Aktivitas Operasional Peker.ja Tambang Batu Bara di Pulau Kalimantan",
+            "halaman": "92",
+            "membungkus": true,
+            "jumlah_baris": 2
+          }
+        ]
+      }
+    },
+    "total_halaman": 126
+  },
+  {
+    "file": "05_pdrb.pdf",
+    "heading_ditemukan": {
+      "isi": 8,
+      "tabel": 10,
+      "gambar": 12
+    },
+    "heading_mentah": [
+      {
+        "halaman": 8,
+        "teks": "DAFTAR ISI"
+      },
+      {
+        "halaman": 10,
+        "teks": "DAFTAR TABEL"
+      },
+      {
+        "halaman": 12,
+        "teks": "DAFTAR GAMBAR"
+      }
+    ],
+    "watermark_ditemukan": 477,
+    "entri": {
+      "isi": {
+        "halaman_heading": 8,
+        "halaman_dipakai": [
+          8,
+          9
+        ],
+        "jumlah": 50,
+        "jumlah_membungkus": 0,
+        "jumlah_masuk_akal": 50,
+        "daftar": [
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "KATA PENGANTAR",
+            "halaman": "v",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "DAFTAR ISI",
+            "halaman": "vii",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "DAFTAR TABEL",
+            "halaman": "ix",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "DAFTAR GAMBAR",
+            "halaman": "xi",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "I. PENDAHULUAN",
+            "halaman": "1",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "1.1 Latar Belakang",
+            "halaman": "3",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "1.2 Maksud dan Tujuan",
+            "halaman": "9",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "1.3 Ruang Lingkup",
+            "halaman": "9",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "1.4 Sistematika Penulisan",
+            "halaman": "10",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "II. PDRB KABUPATEN/KOaTA",
+            "halaman": "11",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "2.1 Kabupaten Tana/h Laut",
+            "halaman": "16",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "2.2 Kabupaten sKotabaru",
+            "halaman": "19",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "2.3 Kabupaten Banjar",
+            "halaman": "21",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "2.4 Kabuhpaten Barito Kuala",
+            "halaman": "24",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "2.5 Kabupaten Tapin",
+            "halaman": "26",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "2.6 Kabupaten Hulu Sungai Selatan",
+            "halaman": "28",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "2.7 Kabupaten Hulu Sungai Tengah",
+            "halaman": "30",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "2.8 Kabupaten Hulu Sungai Utara",
+            "halaman": "32",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "2.9 Kabupaten Tabalong",
+            "halaman": "34",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "2.10 Kabupaten Tanah Bumbu",
+            "halaman": "36",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "2.11 Kabupaten Balangan",
+            "halaman": "38",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "2.12 Kota Banjarmasin",
+            "halaman": "40",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "2.13 Kota Banjarbaru",
+            "halaman": "42",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "III. PDRB ANTAR KABUPATEN/KOTA",
+            "halaman": "45",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3.1 Profil Kabupaten/Kota",
+            "halaman": "49",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3.2 Struktur Ekonomi",
+            "halaman": "52",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "Provinsi",
+            "halaman": "52",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "Sektor",
+            "halaman": "55",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3.2.3 Struktur Ekonomi Menurut Lapangan Usaha",
+            "halaman": "59",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3.2.3.1 Kategori Pertanian, Perikanan, dan Kehutanan",
+            "halaman": "60",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3.2.3.2 Kategori Pertambangan dan Penggalian",
+            "halaman": "62",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3.2.3.3 Kategori Industri Pengolahan",
+            "halaman": "64",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "Reparasi Mobil dan Sepeda Motor",
+            "halaman": "67",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3.3 Laju Pertumbuhan Ekonomi",
+            "halaman": "71",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3.3.1 Laju Pertumbuhan Ekonomi Kabupaten/Kota",
+            "halaman": "71",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3.3.2 Laju Pertumbuhan Ekonomsi .Menurut Kelompok Sektor",
+            "halaman": "76",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3.3.3 Laju Pertumbuhan Ekonomi Menurut Lapangan Usaha",
+            "halaman": "79",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3.3.3.1 Kategori Perlt.anian, Perikanan, dan Kehutanan",
+            "halaman": "79",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3.3.3.2 Kategorsi Pertambangan dan Penggalian",
+            "halaman": "81",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3.3.3.3 Kate a gori Industri Pengolahan",
+            "halaman": "83",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "Reparasi Mobil dan Sepeda Motor",
+            "halaman": "85",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3.4 PDRB petr Kapita Kabupaten/Kota",
+            "halaman": "88",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3.5 Analisis Lanjutan",
+            "halaman": "90",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "Tambang",
+            "halaman": "90",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "3.5.2 PDRB per Kapita dan Kenaikan Harga Barang/Jasa",
+            "halaman": "96",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "IV. KESENJANGAN WILAYAH DAN PERTUMBUHAN EKONOMI",
+            "halaman": "99",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "4.1 Pusat Pertumbuhan Kalimantan Selatan",
+            "halaman": "101",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "4.2 Analisis Kesenjangan Wilayah dengan Indeks Williamson",
+            "halaman": "104",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "DAFTAR PUSTAKA",
+            "halaman": "107",
+            "membungkus": false,
+            "jumlah_baris": 1
+          },
+          {
+            "label": "isi",
+            "nomor": null,
+            "judul": "LAMPIRAN",
+            "halaman": "111",
+            "membungkus": false,
+            "jumlah_baris": 1
+          }
+        ]
+      },
+      "tabel": {
+        "halaman_heading": 10,
+        "halaman_dipakai": [],
+        "jumlah": 0,
+        "jumlah_membungkus": 0,
+        "jumlah_masuk_akal": 0,
+        "daftar": []
+      },
+      "gambar": {
+        "halaman_heading": 12,
+        "halaman_dipakai": [],
+        "jumlah": 0,
+        "jumlah_membungkus": 0,
+        "jumlah_masuk_akal": 0,
+        "daftar": []
+      }
+    },
+    "total_halaman": 132
+  }
+]

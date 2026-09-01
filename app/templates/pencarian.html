@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block konten %}
+<div class="pusat">
+  <h1>Cari data di publikasi BPS Kalsel</h1>
+  <p class="keterangan">
+    Ketik kata kunci. Sistem menunjukkan publikasi mana <strong>dan bagian mana</strong>
+    &mdash; tabel, gambar, atau lampiran &mdash; yang memuat data tersebut.
+  </p>
+
+  {% if pesan %}<p class="peringatan">{{ pesan }}</p>{% endif %}
+
+  <form action="{{ url_for('pencarian.hasil_pencarian') }}" method="get" class="kotak-cari">
+    <input type="search" name="q" placeholder="Contoh: banyaknya akomodasi kabupaten kota"
+           autofocus required>
+    <button type="submit">Cari</button>
+  </form>
+</div>
+{% endblock %}
