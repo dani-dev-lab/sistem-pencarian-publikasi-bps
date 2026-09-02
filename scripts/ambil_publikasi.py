@@ -1,19 +1,25 @@
-"""Tarik daftar publikasi BPS Kalsel (domain 6300) dari WebAPI, filter rilis 2025-2026.
+"""Tarik daftar publikasi BPS Kalsel (domain 6300) dari WebAPI, filter tahun rilis.
+
+Jendela tahun dihitung RELATIF terhadap tanggal hari ini - N tahun terakhir,
+default 2. Jadi tahun 2027 otomatis mengambil rilis 2026-2027 tanpa mengubah
+kode. Angka mati akan diam-diam menolak publikasi baru begitu tahun berganti.
 
 Sesuai Term of Use BPS: ada jeda antar request supaya tidak membebani server.
 Semua halaman discan sampai habis - hasil API TIDAK diasumsikan terurut rl_date.
 
 Jalankan:  venv/Scripts/python.exe scripts/ambil_publikasi.py
+           venv/Scripts/python.exe scripts/ambil_publikasi.py --tahun-min 2024
 Output  :  data/publikasi_2025_2026.json
 """
 
+import argparse
 import json
 import os
 import re
 import sys
 import time
 from collections import Counter
-from datetime import datetime
+from datetime import date, datetime, timezone
 
 import requests
 from dotenv import load_dotenv
@@ -25,7 +31,22 @@ DOMAIN = os.getenv("BPS_DOMAIN", "6300").strip()
 BASE_URL = "https://webapi.bps.go.id/v1/api"
 
 FILE_HASIL = "data/publikasi_2025_2026.json"
-TAHUN_DIPAKAI = {2025, 2026}
+
+# Berapa tahun terakhir yang diambil, dihitung dari tahun berjalan.
+JUMLAH_TAHUN = 2
+
+
+def tahun_dipakai(tahun_min=None):
+    """Jendela tahun rilis yang diambil, relatif terhadap hari ini.
+
+    tahun_min diberikan hanya untuk kasus khusus (lewat --tahun-min); kalau
+    kosong, dihitung dari tahun berjalan supaya tidak perlu diubah tiap tahun.
+    """
+    sekarang = date.today().year  # noqa: DTZ011 - tahun lokal memang yang dimaksud
+    if tahun_min is None:
+        tahun_min = sekarang - (JUMLAH_TAHUN - 1)
+    return set(range(int(tahun_min), sekarang + 1))
+
 
 JEDA_DETIK = 1.0        # Term of Use: jangan membebani server BPS
 MAKS_PERCOBAAN = 3      # retry ringan per halaman
@@ -103,12 +124,20 @@ def tahun_rilis(rl_date):
     return int(cocok.group(0)) if cocok else None
 
 
-def main():
+def main(argv=None):
+    arg = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    arg.add_argument("--tahun-min", type=int, default=None,
+                     help=("Tahun rilis paling awal yang diambil (default: "
+                           f"tahun berjalan - {JUMLAH_TAHUN - 1})"))
+    opsi = arg.parse_args(argv)
+    TAHUN_DIPAKAI = tahun_dipakai(opsi.tahun_min)
+
     if not API_KEY:
         print("BPS_API_KEY kosong di .env - isi dulu sebelum menjalankan script ini.")
         sys.exit(1)
 
     print(f"Menarik publikasi domain {DOMAIN} dari WebAPI BPS")
+    print(f"Jendela tahun rilis: {sorted(TAHUN_DIPAKAI)}")
 
     semua_publikasi = []      # seluruh tahun, untuk statistik pembanding
     halaman_gagal = []
@@ -126,8 +155,13 @@ def main():
             halaman_gagal.append(page)
             # Tetap lanjut - satu halaman gagal tidak boleh menghentikan proses.
             if total_halaman is None:
-                print("  Halaman pertama gagal, total halaman tidak diketahui. Berhenti.")
-                break
+                # Halaman pertama gagal -> daftar publikasi tidak diketahui sama
+                # sekali. JANGAN menulis berkas hasil: menimpanya dengan daftar
+                # kosong akan menghapus metadata 72 publikasi yang sudah ada,
+                # dan tahap berikutnya akan menyangka semuanya terhapus.
+                print("  Halaman pertama gagal - kemungkinan besar jaringan.")
+                print(f"  {FILE_HASIL} TIDAK diubah supaya data lama tetap utuh.")
+                sys.exit(1)
             page += 1
             if page > total_halaman:
                 break
@@ -161,7 +195,7 @@ def main():
 
     # ---------- Simpan ----------
     keluaran = {
-        "diambil_pada": datetime.now().isoformat(timespec="seconds"),
+        "diambil_pada": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "domain": DOMAIN,
         "filter_tahun_rilis": sorted(TAHUN_DIPAKAI),
         "total_semua_tahun": len(semua_publikasi),
@@ -169,9 +203,18 @@ def main():
         "halaman_gagal": halaman_gagal,
         "publikasi": lolos,
     }
+    if not lolos and os.path.exists(FILE_HASIL):
+        # Nol hasil padahal berkas lama ada = hampir pasti kegagalan penarikan,
+        # bukan BPS benar-benar menghapus seluruh publikasinya.
+        print(f"  Tidak ada publikasi lolos filter, tapi {FILE_HASIL} sudah ada.")
+        print("  Berkas TIDAK ditimpa. Periksa jaringan lalu jalankan ulang.")
+        sys.exit(1)
+
     os.makedirs(os.path.dirname(FILE_HASIL), exist_ok=True)
-    with open(FILE_HASIL, "w", encoding="utf-8") as f:
+    sementara = FILE_HASIL + ".tmp"
+    with open(sementara, "w", encoding="utf-8") as f:
         json.dump(keluaran, f, ensure_ascii=False, indent=2)
+    os.replace(sementara, FILE_HASIL)
 
     # ---------- Ringkasan ----------
     print()

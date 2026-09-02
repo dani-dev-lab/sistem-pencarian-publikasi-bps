@@ -1,11 +1,18 @@
-"""Jalankan parser produksi terhadap seluruh PDF di data/publikasi_pdf/.
+"""Jalankan parser produksi terhadap PDF di data/publikasi_pdf/.
 
-Menghasilkan data/hasil_ekstraksi.json plus ringkasan mutu: publikasi yang
-gagal total, entri tanpa nomor halaman, dan publikasi dengan hasil mencurigakan.
+INKREMENTAL secara default: publikasi yang sudah punya hasil di
+data/hasil_ekstraksi.json DAN berkas PDF-nya tidak berubah akan dilewati.
+Memproses ulang 72 publikasi butuh ~30 menit; kalau yang baru cuma satu,
+tidak ada alasan mengulang semuanya.
+
+Pakai --paksa setiap kali PARSER diperbarui - hasil lama tidak lagi mewakili
+kode yang sekarang, jadi semuanya harus dihitung ulang.
 
 Jalankan:  venv/Scripts/python.exe scripts/ekstrak_semua.py
+           venv/Scripts/python.exe scripts/ekstrak_semua.py --paksa
 """
 
+import argparse
 import json
 import os
 import sys
@@ -29,6 +36,38 @@ TIPE = ("isi", "tabel", "gambar", "lampiran")
 # sesi mati) kehilangan seluruh pekerjaan TANPA JEJAK - berkas hasil lama tetap
 # utuh di tempatnya sehingga terlihat seolah run-nya berhasil.
 SIMPAN_TIAP = 10
+
+
+def sidik_pdf(path):
+    """Penanda ringkas isi berkas: (ukuran, waktu ubah).
+
+    Cukup untuk mendeteksi PDF yang diunduh ulang atau diganti, tanpa membaca
+    ratusan MB hanya untuk memutuskan apakah perlu diproses.
+    """
+    st = os.stat(path)
+    return [st.st_size, int(st.st_mtime)]
+
+
+def muat_hasil_lama(path):
+    """{pub_id: catatan} dari hasil ekstraksi sebelumnya, kalau ada.
+
+    Hasil yang ditandai BELUM selesai diabaikan seluruhnya - lebih baik
+    memproses ulang daripada memakai hasil separuh sebagai dasar.
+    """
+    if not os.path.exists(path):
+        return {}
+    try:
+        with open(path, encoding="utf-8") as f:
+            isi = json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return {}
+    if isinstance(isi, list):
+        daftar = isi
+    elif isi.get("selesai"):
+        daftar = isi.get("hasil", [])
+    else:
+        return {}
+    return {h["publikasi_id"]: h for h in daftar}
 
 
 def simpan(hasil, total, selesai):
@@ -60,21 +99,40 @@ def muat_judul():
         return {p["pub_id"]: p.get("title", "") for p in json.load(f)["publikasi"]}
 
 
-def main():
+def main(argv=None):
+    arg = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    arg.add_argument("--paksa", action="store_true",
+                     help="Proses ulang SEMUA publikasi, abaikan hasil lama. "
+                          "Pakai setiap kali parser diperbarui.")
+    opsi = arg.parse_args(argv)
+
     judul_pub = muat_judul()
     berkas = sorted(n for n in os.listdir(DIR_PDF) if n.lower().endswith(".pdf"))
     if not berkas:
         print(f"Tidak ada PDF di {DIR_PDF}/")
         return
 
-    print(f"Memproses {len(berkas)} PDF dari {DIR_PDF}/")
+    lama = {} if opsi.paksa else muat_hasil_lama(FILE_HASIL)
+    print(f"Memproses {len(berkas)} PDF dari {DIR_PDF}/"
+          f"{'  (--paksa: semua diproses ulang)' if opsi.paksa else ''}")
     mulai = time.time()
 
     hasil = []
+    dilewati = 0
     for i, nama in enumerate(berkas, start=1):
         path = os.path.join(DIR_PDF, nama)
         pub_id = nama[:-4]
         judul = judul_pub.get(pub_id, "(tidak ada di metadata)")
+
+        # Lewati kalau hasilnya sudah ada DAN berkas PDF-nya tidak berubah.
+        sidik = sidik_pdf(path)
+        sebelumnya = lama.get(pub_id)
+        if sebelumnya and sebelumnya.get("sidik_pdf") == sidik:
+            catatan = dict(sebelumnya)
+            catatan["judul"] = judul       # judul boleh berubah di metadata
+            hasil.append(catatan)
+            dilewati += 1
+            continue
 
         print(f"[{i:>2}/{len(berkas)}] {judul[:50]:<50}", end=" ", flush=True)
 
@@ -105,6 +163,7 @@ def main():
             "dari_badan": n_badan,
             "halaman_fisik_dilengkapi": n_lengkap,
             "per_sumber": dict(Counter(e["sumber"] for e in entri)),
+            "sidik_pdf": sidik,
             "galat": galat,
             "entri": entri,
         })
@@ -133,7 +192,8 @@ def main():
     print("=" * 74)
     print("RINGKASAN")
     print("=" * 74)
-    print(f"Publikasi diproses : {len(hasil)}")
+    print(f"Publikasi diproses : {len(hasil) - dilewati} "
+          f"(dilewati karena tidak berubah: {dilewati})")
     print(f"Total entri        : {total_entri}")
     print(f"Waktu              : {time.time() - mulai:.0f} detik")
     print()
