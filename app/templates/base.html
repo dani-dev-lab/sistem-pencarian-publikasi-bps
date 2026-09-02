@@ -6,7 +6,7 @@
   <title>{% block judul %}Pencarian Publikasi BPS Kalsel{% endblock %}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<body>
+<body class="{% block kelas_body %}{% endblock %}">
   <header class="kop">
     <a class="kop-judul" href="{{ url_for('pencarian.halaman_pencarian') }}">
       Pencarian Publikasi BPS

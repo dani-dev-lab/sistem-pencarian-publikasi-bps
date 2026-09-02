@@ -12,6 +12,13 @@ from app.models import db
 def _sorot(teks, kata):
     """Tandai kata kunci di dalam teks hasil pencarian.
 
+    Pencocokan hanya di AWAL KATA, dan seluruh kata ikut tersorot. Pencocokan
+    substring bebas menghasilkan sorotan yang jatuh di tengah kata dan terlihat
+    rusak: "impor" menyorot separuh "Import", "miskin" menyorot bagian tengah
+    "Kemiskinan". Menyorot dari awal kata sampai habis membuat kata utuh yang
+    memang berkaitan tetap tertandai ("Ekspor" -> "Ekspornya") tanpa pernah
+    memotong kata di tengah.
+
     Teks di-escape DULU, penanda <mark> ditambahkan sesudahnya - jadi judul
     yang memuat karakter HTML tidak bisa menyuntikkan markup.
     """
@@ -23,8 +30,10 @@ def _sorot(teks, kata):
     pola = "|".join(re.escape(k) for k in kata if k)
     if not pola:
         return Markup(aman)
+    # (?<![0-9A-Za-z]) mengunci awal kata; [0-9A-Za-z]* melahap sisa katanya.
+    lengkap = rf"(?<![0-9A-Za-z])(?:{pola})[0-9A-Za-z]*"
     return Markup(
-        re.sub(f"({pola})", lambda m: f"<mark>{m.group(1)}</mark>",
+        re.sub(lengkap, lambda m: f"<mark>{m.group(0)}</mark>",
                aman, flags=re.IGNORECASE))
 
 

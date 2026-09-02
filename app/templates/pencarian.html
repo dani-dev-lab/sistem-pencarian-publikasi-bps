@@ -1,11 +1,13 @@
 {% extends "base.html" %}
+{% block kelas_body %}beranda{% endblock %}
 
 {% block konten %}
 <div class="pusat">
   <h1>Cari data di publikasi BPS Kalsel</h1>
   <p class="keterangan">
-    Ketik kata kunci. Sistem menunjukkan publikasi mana <strong>dan bagian mana</strong>
-    &mdash; tabel, gambar, atau lampiran &mdash; yang memuat data tersebut.
+    Ketik kata kunci. Sistem menunjukkan publikasi mana
+    <strong>dan bagian mana</strong> &mdash; tabel, gambar, atau lampiran &mdash;
+    yang memuat data tersebut.
   </p>
 
   {% if pesan %}<p class="peringatan">{{ pesan }}</p>{% endif %}
@@ -15,5 +17,14 @@
            autofocus required>
     <button type="submit">Cari</button>
   </form>
+
+  {# Tautan biasa, bukan JavaScript - tetap berfungsi kalau JS mati. #}
+  <div class="contoh-kueri">
+    <span class="contoh-label">Coba:</span>
+    {% for c in ['banyaknya akomodasi', 'penduduk miskin', 'tingkat penghunian kamar',
+                 'ekspor impor', 'laju pertumbuhan ekonomi'] %}
+      <a href="{{ url_for('pencarian.hasil_pencarian', q=c) }}">{{ c }}</a>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}
