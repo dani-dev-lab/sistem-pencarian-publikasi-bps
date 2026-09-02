@@ -8,6 +8,9 @@ data/sampel_pdf/*.pdf
 *.db
 *.sqlite3
 
+# Cadangan sementara hasil ekstraksi (dibuat saat menguji perubahan parser)
+data/*_cadangan.json
+
 # Python
 __pycache__/
 *.py[cod]
