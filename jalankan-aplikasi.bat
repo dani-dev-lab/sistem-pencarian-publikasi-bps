@@ -53,14 +53,37 @@ if errorlevel 1 (
 )
 
 echo MySQL aktif.
-echo.
-echo Membuka browser ke http://localhost:%PORT%/ ...
-echo Biarkan jendela ini tetap terbuka selama aplikasi dipakai.
-echo Tekan Ctrl+C atau tutup jendela ini untuk menghentikan aplikasi.
-echo.
-start "" "http://localhost:%PORT%/"
-python run.py --port %PORT%
+
+rem Diperiksa DI SINI, sebelum apa pun dijalankan: di Windows dua server bisa
+rem mendengarkan port yang sama tanpa galat (lihat run.py). Kalau ketahuan
+rem lebih awal, browser tidak jadi dibuka ke server milik jendela lain.
+rem (exit 1 = ada yang menjawab di port itu)
+python -c "import socket,sys; s=socket.socket(); s.settimeout(1); sys.exit(0 if s.connect_ex(('127.0.0.1', %PORT%)) else 1)"
+if errorlevel 1 (
+    echo.
+    echo [GAGAL] Port %PORT% sudah dipakai.
+    echo.
+    echo   Kemungkinan aplikasi ini SUDAH BERJALAN di jendela lain - pakai saja
+    echo   yang itu ^(http://localhost:%PORT%/^), atau tutup dulu jendela itu.
+    echo   Kalau port dipakai program lain, jalankan dengan port berbeda:
+    echo     jalankan-aplikasi.bat 8080
+    echo.
+    pause
+    exit /b 1
+)
 
 echo.
-echo Aplikasi berhenti.
+echo Memuat aplikasi, biasanya 5-10 detik. Browser akan terbuka
+echo otomatis begitu aplikasi siap - tidak perlu membukanya sendiri.
+echo Biarkan jendela ini tetap terbuka selama aplikasi dipakai;
+echo tekan Ctrl+C atau tutup jendela untuk berhenti.
+echo.
+python run.py --port %PORT% --buka-browser
+
+echo.
+if errorlevel 1 (
+    echo [GAGAL] Aplikasi tidak bisa dijalankan - baca pesan di atas.
+) else (
+    echo Aplikasi berhenti.
+)
 pause

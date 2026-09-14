@@ -96,9 +96,13 @@ mengisi database, lalu `jalankan-aplikasi.bat` (bagian 3).
 Berkas ini akan:
 
 1. memeriksa bahwa `venv` dan `.env` ada,
-2. memeriksa bahwa MySQL bisa dihubungi,
-3. membuka browser ke `http://localhost:5000/`,
-4. menjalankan server aplikasi di jendela hitam (Command Prompt).
+2. memeriksa bahwa MySQL bisa dihubungi dan port 5000 belum dipakai,
+3. menjalankan server aplikasi di jendela hitam (Command Prompt) — tampil
+   "Memuat aplikasi, biasanya 5-10 detik",
+4. **membuka browser otomatis** ke `http://localhost:5000/` begitu server
+   benar-benar siap menjawab. Tidak perlu membuka browser sendiri; kalau
+   dibuka lebih dulu, yang tampil adalah halaman "tidak dapat dihubungi"
+   karena server belum selesai memuat.
 
 **Biarkan jendela hitam itu tetap terbuka** selama aplikasi dipakai.
 Menutupnya = menghentikan aplikasi.
@@ -116,6 +120,7 @@ paling umum:
 | `Access denied` | Sandi MySQL di `.env` salah | Periksa baris `DATABASE_URL` |
 | `KONFIGURASI BELUM LENGKAP` | `SECRET_KEY` / `ADMIN_PASSWORD_HASH` kosong | Ikuti petunjuk yang tampil di pesan itu |
 | `Port 5000 sudah dipakai` | Aplikasi sudah jalan di jendela lain | Pakai yang sudah jalan, atau tutup dulu jendela itu |
+| `Server belum menjawab setelah 30 detik` | Server hidup tapi tidak merespons | Tutup jendela, jalankan lagi; kalau terulang, laporkan ke pengembang |
 
 Port bawaan 5000. Kalau bentrok dengan aplikasi lain, jalankan dengan port
 lain: `jalankan-aplikasi.bat 8080`.
@@ -139,6 +144,11 @@ seminggu sekali atau setiap ada rilis.
 3. Klik dua kali `perbarui-data.bat`.
 4. Tunggu sampai muncul `PEMBARUAN SELESAI`. Jendela tetap terbuka supaya
    ringkasannya bisa dibaca; tekan sembarang tombol untuk menutup.
+
+Selama berjalan, layar terus menampilkan kemajuan: di tahap pertama baris
+`halaman 12/65 ... OK` muncul satu per satu (sekitar satu baris per detik),
+di tahap ekstraksi muncul nama publikasi yang sedang dibaca. Kalau layar
+diam lebih dari satu menit tanpa baris baru, barulah patut dicurigai.
 
 Berapa lama:
 

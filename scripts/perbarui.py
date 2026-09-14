@@ -74,19 +74,28 @@ def jalankan(nama_tahap, perintah):
     print(f"TAHAP: {nama_tahap}")
     print("=" * 74)
 
-    proses = subprocess.run(
-        [sys.executable, *perintah],
-        cwd=DIR_PROYEK, text=True, capture_output=True, check=False,
+    # Keluaran DIALIRKAN baris per baris, bukan ditahan sampai tahap selesai.
+    # Tahap 1 saja butuh ~2 menit (65+ halaman WebAPI, jeda 1 detik); kalau
+    # layar diam selama itu, orang yang menjalankan .bat menyangka macet.
+    # -u dan PYTHONUTF8 supaya anak proses tidak menahan keluarannya di
+    # buffer dan tidak tersandung encoding konsol Windows.
+    lingkungan = {**os.environ, "PYTHONUTF8": "1"}
+    proses = subprocess.Popen(
+        [sys.executable, "-u", *perintah],
+        cwd=DIR_PROYEK, env=lingkungan,
+        stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+        text=True, encoding="utf-8", errors="replace",
     )
-    keluaran = (proses.stdout or "") + (proses.stderr or "")
-
-    # Baris pdfminer tentang FontBBox membanjiri layar tanpa memberi informasi.
-    for baris in keluaran.splitlines():
+    tampung = []
+    for baris in proses.stdout:
+        tampung.append(baris)
+        # Baris pdfminer tentang FontBBox membanjiri layar tanpa memberi informasi.
         if "FontBBox" in baris or "CropBox" in baris or "MediaBox" in baris:
             continue
-        print(baris)
+        print(baris, end="", flush=True)
+    proses.wait()
 
-    return proses.returncode == 0, keluaran
+    return proses.returncode == 0, "".join(tampung)
 
 
 def gagal(nama_tahap, keluaran):

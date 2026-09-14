@@ -8,16 +8,49 @@ Dua mode:
       Server bawaan Flask dengan debugger dan auto-reload. JANGAN dipakai di
       jaringan kantor: debugger-nya bisa menjalankan kode dari browser.
 
-Alamat dan port bisa diubah lewat --host / --port.
+Alamat dan port bisa diubah lewat --host / --port. --buka-browser (dipakai
+.bat) membuka browser SETELAH server benar-benar menjawab, bukan sebelumnya.
 """
 
 import argparse
 import socket
 import sys
+import threading
+import time
+import urllib.error
+import urllib.request
+import webbrowser
 
 from app import create_app
 
 app = create_app()
+
+
+# Batas tunggu server siap sebelum menyerah membuka browser.
+BATAS_SIAP_DETIK = 30
+
+
+def _buka_browser_saat_siap(url):
+    """Poll URL sampai menjawab, baru buka browser. Dijalankan di thread.
+
+    Membuka browser SEBELUM server siap membuat halaman pertama yang dilihat
+    orang adalah "ERR_CONNECTION_REFUSED" - terlihat seperti aplikasi rusak
+    padahal hanya belum selesai memuat. Jadi tunggu jawaban HTTP dulu.
+    """
+    mulai = time.time()
+    while time.time() - mulai < BATAS_SIAP_DETIK:
+        try:
+            with urllib.request.urlopen(url, timeout=2) as r:
+                if r.status < 500:
+                    print(f"Aplikasi siap - membuka browser ke {url}")
+                    print("Tekan Ctrl+C untuk berhenti.", flush=True)
+                    webbrowser.open(url)
+                    return
+        except (urllib.error.URLError, OSError):
+            pass
+        time.sleep(0.5)
+    print(f"[PERINGATAN] Server belum menjawab setelah {BATAS_SIAP_DETIK} detik. "
+          f"Browser tidak dibuka; coba buka {url} secara manual.", flush=True)
 
 
 def _port_terpakai(host, port):
@@ -40,6 +73,8 @@ def main():
                           "komputer ini; pakai 0.0.0.0 agar bisa diakses dari "
                           "komputer lain di jaringan).")
     arg.add_argument("--port", type=int, default=5000)
+    arg.add_argument("--buka-browser", action="store_true",
+                     help="Buka browser ke alamat aplikasi begitu server siap.")
     opsi = arg.parse_args()
 
     if opsi.dev:
@@ -58,8 +93,16 @@ def main():
                  "Pakai yang sudah berjalan, tutup dulu jendela itu, atau "
                  "jalankan dengan port lain: run.py --port 8080")
 
-    print(f"Aplikasi berjalan di http://{opsi.host}:{opsi.port}/  "
-          "(tekan Ctrl+C untuk berhenti)", flush=True)
+    tujuan = "localhost" if opsi.host in ("127.0.0.1", "0.0.0.0") else opsi.host
+    url = f"http://{tujuan}:{opsi.port}/"
+    print(f"Menyiapkan aplikasi di {url} ...", flush=True)
+    if opsi.buka_browser:
+        # daemon: kalau serve() gagal dan proses keluar, thread ini ikut mati
+        # tanpa membuka browser ke halaman galat.
+        threading.Thread(target=_buka_browser_saat_siap, args=(url,),
+                         daemon=True).start()
+    else:
+        print("Tekan Ctrl+C untuk berhenti.", flush=True)
     serve(app, host=opsi.host, port=opsi.port, threads=4)
 
 

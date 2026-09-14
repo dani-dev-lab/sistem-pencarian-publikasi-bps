@@ -51,6 +51,11 @@ if errorlevel 1 (
     exit /b 1
 )
 echo MySQL aktif.
+echo.
+echo Memulai. Tahap pertama memeriksa 65+ halaman daftar publikasi di WebAPI
+echo dengan jeda 1 detik per halaman - baris "halaman N/65 ... OK" akan muncul
+echo satu per satu selama sekitar 2 menit. Itu normal, bukan macet.
+echo.
 
 python scripts\perbarui.py %*
 

@@ -396,6 +396,17 @@ sudah ada yang menjawab.
   179 detik) - jadi angka "72 publikasi / 5.975 entri" di bagian-bagian
   sebelumnya adalah angka SAAT DITULIS; data hidup dan bertambah.
 - Ditulis ASCII + CRLF (cmd.exe rewel soal encoding).
+- **Kesan pertama itu penting - dua jebakan "terlihat rusak padahal tidak":**
+  1. Browser dibuka SEBELUM server siap -> halaman pertama yang dilihat
+     penerima aplikasi adalah ERR_CONNECTION_REFUSED. Sekarang browser dibuka
+     oleh `run.py --buka-browser` dari thread yang mem-poll URL sampai
+     menjawab (batas 30 detik, lalu pesan peringatan tanpa membuka browser),
+     bukan oleh `start` di .bat. Thread-nya daemon: kalau `serve()` gagal,
+     browser tidak pernah dibuka ke halaman galat.
+  2. `perbarui.py` dulu memakai `capture_output=True` sehingga layar DIAM
+     ~2 menit di tahap 1 (dan lebih lama di ekstraksi) lalu memuntahkan
+     semuanya sekaligus - terlihat macet. Sekarang `Popen` + `-u` +
+     `PYTHONUTF8=1`, baris dialirkan begitu muncul.
 
 ### Tombol "Terapkan ke data"
 Logika `isi_normalisasi.py` dipindah ke `app/services/normalisasi_data.py`
