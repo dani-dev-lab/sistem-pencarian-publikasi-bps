@@ -13,7 +13,13 @@
     </a>
     <span class="kop-sub">Provinsi Kalimantan Selatan &mdash; Pelayanan Statistik Terpadu</span>
     {# Halaman admin SENGAJA tidak ditautkan di sini. UI ini untuk petugas PST;
-       /admin/ diakses lewat URL langsung. Lihat CLAUDE.md. #}
+       /admin/ diakses lewat URL langsung. Lihat CLAUDE.md. Tombol Keluar hanya
+       muncul di dalam /admin/ setelah login - tidak pernah di halaman pencarian. #}
+    {% if session.get('admin_masuk') and request.path.startswith('/admin') %}
+    <form method="post" action="{{ url_for('admin.logout') }}" class="kop-keluar">
+      <button type="submit">Keluar</button>
+    </form>
+    {% endif %}
   </header>
 
   <main>

@@ -5,7 +5,7 @@ import re
 from flask import Flask
 from markupsafe import Markup, escape
 
-from app.config import Config
+from app.config import Config, periksa_konfigurasi
 from app.models import db
 
 
@@ -38,6 +38,11 @@ def _sorot(teks, kata):
 
 
 def create_app(config_class: type[Config] = Config) -> Flask:
+    # Gagal di sini, bukan saat request pertama: .env yang belum lengkap
+    # harus ketahuan begitu perintah dijalankan, bukan saat petugas sudah
+    # membuka halaman.
+    periksa_konfigurasi(config_class)
+
     app = Flask(__name__)
     app.config.from_object(config_class)
 

@@ -1,8 +1,8 @@
 """Endpoint admin: kelola kamus sinonim dan review log pencarian.
 
-TANPA AUTENTIKASI - aplikasi berjalan lokal di laptop selama masa magang.
-Tercatat sebagai keterbatasan di CLAUDE.md; wajib ditambahkan sebelum deploy
-ke jaringan mana pun.
+Seluruh /admin/* dilindungi SATU kata sandi bersama (hash-nya di .env sebagai
+ADMIN_PASSWORD_HASH), bukan akun per orang - cukup untuk beberapa petugas yang
+merawat kamus. Halaman pencarian untuk petugas PST tetap terbuka tanpa login.
 """
 
 import json
@@ -15,17 +15,78 @@ from flask import (
     redirect,
     render_template,
     request,
+    session,
     url_for,
 )
+from werkzeug.security import check_password_hash
 
 from app.models import LogPencarian, db
+from app.services.normalisasi_data import jalankan as terapkan_normalisasi
 from app.services.preprocessing import muat_ulang_kamus, normalisasi
 
 bp = Blueprint("admin", __name__)
 
+# Kunci di session Flask yang menandai pengunjung sudah memasukkan sandi.
+KUNCI_SESSION = "admin_masuk"
+
 # Kueri dianggap "gagal" kalau tidak menghasilkan apa pun, atau skor
 # tertingginya masih di bawah ambang "ditemukan".
 AMBANG_KUERI_LEMAH = 75
+
+
+# --------------------------------------------------------------------------
+# Autentikasi
+# --------------------------------------------------------------------------
+
+@bp.before_request
+def wajib_login():
+    """Tolak semua /admin/* sebelum login, kecuali halaman login itu sendiri.
+
+    Dipasang di blueprint, bukan per-route, supaya route baru yang ditambah
+    nanti otomatis ikut terlindungi - tidak bergantung pada ingatan untuk
+    memasang dekorator.
+    """
+    if request.endpoint == "admin.login":
+        return None
+    if session.get(KUNCI_SESSION):
+        return None
+    return redirect(url_for("admin.login", next=request.path))
+
+
+def _tujuan_aman(next_url):
+    """Hanya izinkan kembali ke path lokal di bawah /admin/.
+
+    Parameter `next` datang dari URL dan bisa diisi siapa saja; tanpa
+    pemeriksaan ini halaman login bisa dipakai melempar orang ke situs lain.
+    """
+    if next_url and next_url.startswith("/admin") and not next_url.startswith("//"):
+        return next_url
+    return url_for("admin.beranda")
+
+
+@bp.route("/login", methods=["GET", "POST"])
+def login():
+    if session.get(KUNCI_SESSION):
+        return redirect(url_for("admin.beranda"))
+
+    salah = False
+    if request.method == "POST":
+        sandi = request.form.get("sandi") or ""
+        if sandi and check_password_hash(current_app.config["ADMIN_PASSWORD_HASH"],
+                                         sandi):
+            session.clear()
+            session[KUNCI_SESSION] = True
+            return redirect(_tujuan_aman(request.form.get("next")))
+        salah = True
+
+    return render_template("admin/login.html", salah=salah,
+                           next=request.values.get("next") or "")
+
+
+@bp.post("/logout")
+def logout():
+    session.pop(KUNCI_SESSION, None)
+    return redirect(url_for("admin.login"))
 
 
 def _file_kamus():
@@ -104,7 +165,7 @@ def tambah_varian():
         isi[kanonik].append(varian)
         _tulis_kamus(isi)
         flash(f"{varian!r} ditambahkan ke kelompok {kanonik!r}. "
-              f"Jalankan normalisasi ulang supaya berlaku pada data.", "sukses")
+              f"Klik \"Terapkan ke data\" supaya berlaku pada pencarian.", "sukses")
 
     return redirect(url_for("admin.kamus", q=request.form.get("q") or None))
 
@@ -125,7 +186,7 @@ def tambah_kelompok():
         isi[kanonik] = [kanonik] + [v for v in varian if v.lower() != kanonik.lower()]
         _tulis_kamus(isi)
         flash(f"Kelompok {kanonik!r} dibuat dengan {len(isi[kanonik])} kata. "
-              f"Jalankan normalisasi ulang supaya berlaku pada data.", "sukses")
+              f"Klik \"Terapkan ke data\" supaya berlaku pada pencarian.", "sukses")
 
     return redirect(url_for("admin.kamus"))
 
@@ -148,6 +209,34 @@ def hapus_varian():
         flash("Varian tidak ditemukan.", "gagal")
 
     return redirect(url_for("admin.kamus", q=request.form.get("q") or None))
+
+
+@bp.post("/kamus/terapkan")
+def terapkan():
+    """Tulis ulang teks_ternormalisasi seluruh data memakai kamus terbaru.
+
+    Pengganti perintah terminal `scripts/isi_normalisasi.py` - perubahan kamus
+    tidak berpengaruh pada pencarian sebelum ini dijalankan, dan petugas yang
+    merawat kamus tidak seharusnya perlu membuka terminal untuk itu.
+    Berjalan sinkron (~2 detik untuk ~6.000 entri).
+    """
+    try:
+        muat_ulang_kamus()
+        ringkasan = terapkan_normalisasi()
+    except Exception as e:  # noqa: BLE001 - tampilkan ke admin, jangan HTTP 500
+        db.session.rollback()
+        flash(f"Gagal menerapkan: {e}", "gagal")
+        return redirect(url_for("admin.kamus"))
+
+    if ringkasan is None:
+        flash("Database masih kosong - jalankan perbarui-data.bat dulu.", "gagal")
+    else:
+        flash(f"Kamus diterapkan ke data dalam {ringkasan['waktu_detik']:.1f} detik: "
+              f"{ringkasan['entri_diubah']} dari {ringkasan['entri_total']} entri "
+              f"dan {ringkasan['publikasi_diubah']} dari "
+              f"{ringkasan['publikasi_total']} publikasi diperbarui "
+              f"(sisanya sudah sesuai).", "sukses")
+    return redirect(url_for("admin.kamus"))
 
 
 # --------------------------------------------------------------------------

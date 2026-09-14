@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block judul %}Masuk Admin &mdash; Pencarian Publikasi BPS{% endblock %}
+
+{% block konten %}
+<h1 class="judul-admin">Masuk ke halaman admin</h1>
+<p class="ringan">Halaman ini untuk perawatan kamus sinonim dan review log pencarian.
+  Petugas PST tidak perlu masuk ke sini untuk mencari publikasi.</p>
+
+{% if salah %}
+  <p class="kabar kabar-gagal">Kata sandi salah.</p>
+{% endif %}
+
+<form method="post" action="{{ url_for('admin.login') }}" class="form-admin">
+  <input type="hidden" name="next" value="{{ next }}">
+  <label>Kata sandi admin
+    <input type="password" name="sandi" required autofocus autocomplete="current-password"></label>
+  <button type="submit">Masuk</button>
+</form>
+{% endblock %}

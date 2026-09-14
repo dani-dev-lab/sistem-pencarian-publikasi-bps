@@ -1,8 +1,8 @@
 {
   "selesai": true,
-  "publikasi_terproses": 72,
-  "total_publikasi": 72,
-  "diperbarui_pada": "2026-09-02T05:54:57+00:00",
+  "publikasi_terproses": 74,
+  "total_publikasi": 74,
+  "diperbarui_pada": "2026-09-14T05:45:18+00:00",
   "hasil": [
     {
       "publikasi_id": "09436841e9f939584a01daa4",
@@ -9901,6 +9901,2530 @@
       "sidik_pdf": [
         5283253,
         1787890331
+      ]
+    },
+    {
+      "publikasi_id": "335ac15d2ada36b5d2402538",
+      "judul": "Luas Panen dan Produksi Padi Provinsi Kalimantan Selatan 2025",
+      "heading_ditemukan": [
+        "gambar",
+        "isi",
+        "lampiran",
+        "tabel"
+      ],
+      "jumlah_entri": 258,
+      "per_tipe": {
+        "isi": 26,
+        "tabel": 7,
+        "gambar": 27,
+        "lampiran": 198
+      },
+      "tanpa_halaman": 3,
+      "mode_tanpa_label": [],
+      "dari_daftar": 258,
+      "dari_badan": 62,
+      "halaman_fisik_dilengkapi": 169,
+      "per_sumber": {
+        "daftar": 197,
+        "keduanya": 61
+      },
+      "sidik_pdf": [
+        20801103,
+        1789364667
+      ],
+      "galat": null,
+      "entri": [
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "KATA PENGANTAR",
+          "halaman": "v",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "ABSTRAKSI",
+          "halaman": "vii",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "DAFTAR ISI",
+          "halaman": "ix",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "DAFTAR TABEL",
+          "halaman": "xi",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "DAFTAR GAMBAR",
+          "halaman": "xiii",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "DAFTAR LAMPIRAN",
+          "halaman": "xv",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Bab 1 Pendahuluan",
+          "halaman": "3",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Bab 2 Luas Panen dan Produksi Padi",
+          "halaman": "7",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "2.1 Luas Panen Padi di Provinsi Kalimantan Selatan",
+          "halaman": "7",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "2.2 Produksi Padi di Provinsi Kalimantan Selatan",
+          "halaman": "10",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "2.3 Produksi Beras di Provinsi Kalimantan Selatan",
+          "halaman": "13",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Bab 3 Luas Fase Amatan Lainnya Hasil KSA",
+          "halaman": "17",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.1 Luas Tanaman Berdiri (Standing Crop)",
+          "halaman": "17",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.2 Luas Potensi Gagal Panen",
+          "halaman": "21",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.3 Luas Persiapan Lahan",
+          "halaman": "23",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.4 Luas Lahan Pertanian yang Diberakan",
+          "halaman": "24",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.5 Luas Lahan Pertanian yang Ditanami Tanaman Selain Padi",
+          "halaman": "25",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Bab 4 Catatan Teknis",
+          "halaman": "29",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "4.1 Tahapan Pembangunan Kerangka Sampel Area",
+          "halaman": "29",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "4.2 Fase yang Diamati dalam Survei KSA Padi",
+          "halaman": "37",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "4.3 Tahapan Pelaksanaan Lapangan",
+          "halaman": "39",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "4.4 Metode Estimasi",
+          "halaman": "40",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "4.5 Estimasi Luas Panen dan Fase Amatan KSA serta Penghitungan Produksi Padi dan Beras",
+          "halaman": "43",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "4.6 Realisasi Sampel Segmen KSA Padi 2025",
+          "halaman": "49",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "DAFTAR PUSTAKA",
+          "halaman": "51",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "LAMPIRAN",
+          "halaman": "53",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "tabel",
+          "nomor": "4.1",
+          "judul": "Kenampakan Visual dan Fase Amatan dalam Survei KSA Padi",
+          "halaman": "37",
+          "halaman_fisik": 65,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "tabel",
+          "nomor": "4.2",
+          "judul": "Rule Nilai Amatan",
+          "halaman": "44",
+          "halaman_fisik": 72,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "tabel",
+          "nomor": "4.3",
+          "judul": "menggambarkan contoh hasil amatan selama dua periode di segmen 360203003, 360203004, 360203005, dan 360203006. Hasil penghitungan dapat dilihat pada Tabel 4.4",
+          "halaman": "44",
+          "halaman_fisik": 72,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "tabel",
+          "nomor": "4.4",
+          "judul": "Contoh Hasil Penghitungan Nilai Amatan",
+          "halaman": "44",
+          "halaman_fisik": 72,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "tabel",
+          "nomor": "4.5",
+          "judul": "Contoh Penghitungan Proporsi",
+          "halaman": "45",
+          "halaman_fisik": 73,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "tabel",
+          "nomor": "4.6",
+          "judul": "Contoh Luas Lahan Menurut Strata",
+          "halaman": "46",
+          "halaman_fisik": 74,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "tabel",
+          "nomor": "4.7",
+          "judul": "Contoh Luas Fase Tumbuh Menurut Strata xi",
+          "halaman": "47",
+          "halaman_fisik": 75,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "2.1",
+          "judul": "Perkembangan Luas Panen Padi di Provinsi Kalimantan Selatan (ribu hektare), 2024–2025",
+          "halaman": "7",
+          "halaman_fisik": 35,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "2.2",
+          "judul": "Perbandingan Luas Panen Padi Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (ribu hektare), 2024–2025",
+          "halaman": "8",
+          "halaman_fisik": 36,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "2.3",
+          "judul": "Selisih Luas Panen Padi 2025 terhadap Luas Panen Padi 2024 Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (ribu hektare)",
+          "halaman": "9",
+          "halaman_fisik": 37,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "2.4",
+          "judul": "Perkembangan Produksi Padi di Provinsi Kalimantan Selatan (ribu ton GKG), 2024–2025",
+          "halaman": "10",
+          "halaman_fisik": 38,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "2.5",
+          "judul": "Produksi Padi Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (ribu ton GKG), 2025",
+          "halaman": "11",
+          "halaman_fisik": 39,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "2.6",
+          "judul": "Selisih Produksi Padi 2025 terhadap Produksi Padi 2024 Menurut Provinsi di Provinsi Kalimantan Selatan (ribu ton GKG)",
+          "halaman": "12",
+          "halaman_fisik": 40,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "2.7",
+          "judul": "Perkembangan Produksi Beras di Provinsi Kalimantan Selatan (ribu ton beras), 2024–2025",
+          "halaman": "13",
+          "halaman_fisik": 41,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "3.1",
+          "judul": "Ilustrasi Fase Pertumbuhan Padi",
+          "halaman": "17",
+          "halaman_fisik": 45,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "tengah baris (dua kolom)"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "3.2",
+          "judul": "Perkembangan Luas Tanaman Berdiri ( Standing Crop ) (ribu hektare), 2024–2025",
+          "halaman": "18",
+          "halaman_fisik": 46,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "3.3",
+          "judul": "Perkembangan Luas Fase Vegetatif Awal (ribu hektare), 2024–2025",
+          "halaman": "19",
+          "halaman_fisik": 47,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "3.4",
+          "judul": "Perkembangan Luas Fase Vegetatif Akhir (ribu hektare), 2024– 2025",
+          "halaman": "20",
+          "halaman_fisik": 48,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "3.5",
+          "judul": "Perkembangan Luas Fase Generatif (ribu hektare), 2024– 2025",
+          "halaman": "21",
+          "halaman_fisik": 49,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "3.6",
+          "judul": "Perkembangan Luas Potensi Gagal Panen (ribu hektare), 2024–2025",
+          "halaman": "22",
+          "halaman_fisik": 50,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "3.7",
+          "judul": "Perkembangan Luas Persiapan Lahan (ribu hektare), 2024– 2025",
+          "halaman": "23",
+          "halaman_fisik": 51,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "3.8",
+          "judul": "Perkembangan Luas Lahan Pertanian yang Diberakan (ribu hektare), 2024–2025",
+          "halaman": "24",
+          "halaman_fisik": 52,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "3.9",
+          "judul": "Perkembangan Luas Lahan Pertanian yang Ditanami Tanaman Selain Padi (ribu hektare), 2024–2025",
+          "halaman": null,
+          "halaman_fisik": 53,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": null,
+          "judul": "Selain Padi (ribu hektare), 2024–2025",
+          "halaman": "25",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "4.1",
+          "judul": "Tahap Penyusunan Kerangka Sampel Area",
+          "halaman": "29",
+          "halaman_fisik": 57,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "4.2",
+          "judul": "Contoh Peta Stratifikasi Lahan Provinsi Jawa Barat 3. Pembuatan grid",
+          "halaman": "32",
+          "halaman_fisik": 60,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "4.3",
+          "judul": "Ilustrasi Pembagian Wilayah dalam Blok dan Segmen 4. Pembuatan model sampling",
+          "halaman": "33",
+          "halaman_fisik": 61,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "4.4",
+          "judul": "Ekstraksi dan Penomoran Sampel Segmen",
+          "halaman": "34",
+          "halaman_fisik": 62,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "4.5",
+          "judul": "Model Random Sampling dan Blok dengan Grid 6 km x km 34",
+          "halaman": "6",
+          "halaman_fisik": 62,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "4.6",
+          "judul": "Contoh Overlay Stratified Random Sampling dan Kerangka Sawah di Provinsi Jawa Barat 7. Seleksi sampel segmen",
+          "halaman": "35",
+          "halaman_fisik": 63,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "4.7",
+          "judul": "Contoh Segmen Terpilih Hasil Seleksi di Provinsi Jawa Barat 8. Pemberian atribut",
+          "halaman": "36",
+          "halaman_fisik": 64,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "4.8",
+          "judul": "Foto Segmen dan 9 (Sembilan) Titik Pengamatan",
+          "halaman": "36",
+          "halaman_fisik": 64,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "4.9",
+          "judul": "Alur Konversi Gabah Menjadi Beras",
+          "halaman": "48",
+          "halaman_fisik": 76,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "gambar",
+          "nomor": "4.10",
+          "judul": "Realisasi Sampel Segmen Survei KSA Padi, 2025 xiv",
+          "halaman": "49",
+          "halaman_fisik": 77,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "1",
+          "judul": "Luas Panen Padi Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (hektare), 2024",
+          "halaman": "55",
+          "halaman_fisik": 83,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "2",
+          "judul": "Luas Panen Padi Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (hektare), 2025",
+          "halaman": "58",
+          "halaman_fisik": 86,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "3",
+          "judul": "Perbandingan Luas Panen Padi 2025 terhadap Luas Panen 2024 Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan",
+          "halaman": "61",
+          "halaman_fisik": 89,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "4",
+          "judul": "Produksi Padi Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (ton GKG), 2024",
+          "halaman": "62",
+          "halaman_fisik": 90,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "5",
+          "judul": "Produksi Padi Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (ton GKG), 2025",
+          "halaman": "65",
+          "halaman_fisik": 93,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "6",
+          "judul": "Perbandingan Produksi Padi 2025 terhadap Produksi Padi 2024 Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan",
+          "halaman": "68",
+          "halaman_fisik": 96,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "7",
+          "judul": "Produksi Beras Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (ton beras), 2024",
+          "halaman": "69",
+          "halaman_fisik": 97,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "8",
+          "judul": "Produksi Beras Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (ton beras), 2025",
+          "halaman": "72",
+          "halaman_fisik": 100,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "9",
+          "judul": "Perbandingan Produksi Beras 2025 terhadap Produksi Beras 2024 Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan",
+          "halaman": "75",
+          "halaman_fisik": 103,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "10",
+          "judul": "Luas Tanaman Berdiri ( Standing Crop ) Hasil Pendataan KSA Padi Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (hektare), 2024",
+          "halaman": "76",
+          "halaman_fisik": 104,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "11",
+          "judul": "Luas Tanaman Berdiri ( Standing Crop ) Hasil Pendataan KSA Padi Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (hektare), 2025",
+          "halaman": "79",
+          "halaman_fisik": 107,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "12",
+          "judul": "Luas Fase Vegetatif Awal Hasil Pendataan KSA Padi Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (hektare), 2024",
+          "halaman": "82",
+          "halaman_fisik": 110,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "13",
+          "judul": "Luas Fase Vegetatif Awal Hasil Pendataan KSA Padi Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (hektare), 2025",
+          "halaman": "85",
+          "halaman_fisik": 113,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "14",
+          "judul": "Luas Fase Vegetatif Akhir Hasil Pendataan KSA Padi Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (hektare), 2024",
+          "halaman": null,
+          "halaman_fisik": 116,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "15",
+          "judul": "Luas Fase Vegetatif Akhir Hasil Pendataan KSA Padi Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (hektare), 2025",
+          "halaman": "91",
+          "halaman_fisik": 119,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "16",
+          "judul": "Luas Fase Generatif Hasil Pendataan KSA Padi Menurut Kabupaten/ Kota di Provinsi Kalimantan Selatan (hektare), 2024",
+          "halaman": "94",
+          "halaman_fisik": 122,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "17",
+          "judul": "Luas Fase Generatif Hasil Pendataan KSA Padi Menurut Kabupaten/ Kota di Provinsi Kalimantan Selatan (hektare), 2025",
+          "halaman": "97",
+          "halaman_fisik": 125,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "18",
+          "judul": "Luas Potensi Gagal Panen Hasil Pendataan KSA Padi Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (hektare), 2024",
+          "halaman": "100",
+          "halaman_fisik": 128,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "19",
+          "judul": "Luas Potensi Gagal Panen Hasil Pendataan KSA Padi Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (hektare), 2025",
+          "halaman": "103",
+          "halaman_fisik": 131,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "20",
+          "judul": "Luas Persiapan Lahan Hasil Pendataan KSA Padi Menurut Kabupaten/ Kota di Provinsi Kalimantan Selatan (hektare), 2024",
+          "halaman": "106",
+          "halaman_fisik": 134,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "21",
+          "judul": "Luas Persiapan Lahan Hasil Pendataan KSA Padi Menurut Kabupaten/ Kota di Provinsi Kalimantan Selatan (hektare), 2025",
+          "halaman": "109",
+          "halaman_fisik": 137,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "22",
+          "judul": "Luas Lahan Pertanian yang Diberakan Hasil Pendataan KSA Padi Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (hektare), 2024",
+          "halaman": "112",
+          "halaman_fisik": 140,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "23",
+          "judul": "Luas Lahan Pertanian yang Diberakan Hasil Pendataan KSA Padi Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (hektare), 2025",
+          "halaman": "115",
+          "halaman_fisik": 143,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "24",
+          "judul": "Luas Lahan Pertanian yang Ditanami Tanaman Selain Padi Hasil Pendataan KSA Padi Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (hektare), 2024",
+          "halaman": "118",
+          "halaman_fisik": 146,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "25",
+          "judul": "Luas Lahan Pertanian yang Ditanami Tanaman Selain Padi Hasil Pendataan KSA Padi Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (hektare), 2025",
+          "halaman": "121",
+          "halaman_fisik": 149,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "26",
+          "judul": "Luas Lahan Baku Sawah 2019 dan 2024",
+          "halaman": "124",
+          "halaman_fisik": 152,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "27",
+          "judul": "Jumlah Alokasi Sampel Segmen KSA (Desember 2025)",
+          "halaman": "125",
+          "halaman_fisik": 153,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "28",
+          "judul": "Nilai Relative Standard Error (RSE) Estimasi Luas Tanaman Padi di Provinsi Kalimantan Selatan Menurut Fase Amatan, 2025 xvi",
+          "halaman": "126",
+          "halaman_fisik": 154,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "29",
+          "judul": "Nilai Relative Standard Error (RSE) Estimasi Luas Tanaman Padi Menurut Fase Amatan dan Provinsi di Indonesia, 2025",
+          "halaman": "127",
+          "halaman_fisik": 155,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "30",
+          "judul": "Peta Hasil Survei KSA Padi Provinsi Kalimantan Selatan, Januari 2025",
+          "halaman": "129",
+          "halaman_fisik": 157,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "31",
+          "judul": "Peta Hasil Survei KSA Padi Provinsi Kalimantan Selatan, Februari 2025",
+          "halaman": "129",
+          "halaman_fisik": 157,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "32",
+          "judul": "Peta Hasil Survei KSA Padi Provinsi Kalimantan Selatan, Maret 2025",
+          "halaman": "130",
+          "halaman_fisik": 158,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "33",
+          "judul": "Peta Hasil Survei KSA Padi Provinsi Kalimantan Selatan, April 2025",
+          "halaman": "130",
+          "halaman_fisik": 158,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "34",
+          "judul": "Peta Hasil Survei KSA Padi Provinsi Kalimantan Selatan, Mei 2025",
+          "halaman": "131",
+          "halaman_fisik": 159,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "35",
+          "judul": "Peta Hasil Survei KSA Padi Provinsi Kalimantan Selatan, Juni 2025",
+          "halaman": "131",
+          "halaman_fisik": 159,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "36",
+          "judul": "Peta Hasil Survei KSA Padi Provinsi Kalimantan Selatan, Juli 2025",
+          "halaman": "132",
+          "halaman_fisik": 160,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "37",
+          "judul": "Peta Hasil Survei KSA Padi Provinsi Kalimantan Selatan, Agustus 2025",
+          "halaman": "132",
+          "halaman_fisik": 160,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "38",
+          "judul": "Peta Hasil Survei KSA Padi Provinsi Kalimantan Selatan, September 2025",
+          "halaman": "133",
+          "halaman_fisik": 161,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "39",
+          "judul": "Peta Hasil Survei KSA Padi Provinsi Kalimantan Selatan, Oktober 2025",
+          "halaman": "133",
+          "halaman_fisik": 161,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "40",
+          "judul": "Peta Hasil Survei KSA Padi Provinsi Kalimantan Selatan, November 2025",
+          "halaman": "134",
+          "halaman_fisik": 162,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "41",
+          "judul": "Peta Hasil Survei KSA Padi Provinsi Kalimantan Selatan, Desember 2025",
+          "halaman": "134",
+          "halaman_fisik": 162,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "42",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Laut, Januari 2025",
+          "halaman": "135",
+          "halaman_fisik": 163,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "43",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Laut, Februari 2025",
+          "halaman": "135",
+          "halaman_fisik": 163,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "44",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Laut, Maret 2025",
+          "halaman": "136",
+          "halaman_fisik": 164,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "45",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Laut, April 2025",
+          "halaman": "136",
+          "halaman_fisik": 164,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "46",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Laut, Mei 2025",
+          "halaman": "137",
+          "halaman_fisik": 165,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "47",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Laut, Juni 2025 xvii",
+          "halaman": "137",
+          "halaman_fisik": 165,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "48",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Laut, Juli 2025",
+          "halaman": "138",
+          "halaman_fisik": 166,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "49",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Laut, Agustus 2025",
+          "halaman": "138",
+          "halaman_fisik": 166,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "50",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Laut, September 2025",
+          "halaman": "139",
+          "halaman_fisik": 167,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "51",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Laut, Oktober 2025",
+          "halaman": "139",
+          "halaman_fisik": 167,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "52",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Laut, November 2025",
+          "halaman": "140",
+          "halaman_fisik": 168,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "53",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Laut, Desember 2025",
+          "halaman": "140",
+          "halaman_fisik": 168,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "54",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Kotabaru Januari 2025",
+          "halaman": "141",
+          "halaman_fisik": 169,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "55",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Kotabaru, Februari 2025",
+          "halaman": "141",
+          "halaman_fisik": 83,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "56",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Kotabaru, Maret 2025",
+          "halaman": "142",
+          "halaman_fisik": 170,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "57",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Kotabaru, April 2025",
+          "halaman": "142",
+          "halaman_fisik": 85,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "58",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Kotabaru, Mei 2025",
+          "halaman": "143",
+          "halaman_fisik": 171,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "59",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Kotabaru, Juni 2025",
+          "halaman": "143",
+          "halaman_fisik": 87,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "60",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Kotabaru, Juli 2025",
+          "halaman": "144",
+          "halaman_fisik": 172,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "61",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Kotabaru, Agustus 2025",
+          "halaman": "144",
+          "halaman_fisik": 89,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "62",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Kotabaru, September 2025",
+          "halaman": "145",
+          "halaman_fisik": 173,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "63",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Kotabaru, Oktober 2025",
+          "halaman": "145",
+          "halaman_fisik": 91,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "64",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Kotabaru, November 2025",
+          "halaman": "146",
+          "halaman_fisik": 174,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "65",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Kotabaru, Desember 2025",
+          "halaman": "146",
+          "halaman_fisik": 93,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "66",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Banjar, Januari 2025",
+          "halaman": "147",
+          "halaman_fisik": 175,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "67",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Kotabaru, Februari 2025",
+          "halaman": "147",
+          "halaman_fisik": 95,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "68",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Banjar, Maret 2025 xviii",
+          "halaman": "148",
+          "halaman_fisik": 176,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "69",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Banjar, April 2025",
+          "halaman": "148",
+          "halaman_fisik": 97,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "70",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Banjar, Mei 2025",
+          "halaman": "149",
+          "halaman_fisik": 177,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "71",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Banjar, Juni 2025",
+          "halaman": "149",
+          "halaman_fisik": 99,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "72",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Banjar, Juli 2025",
+          "halaman": "150",
+          "halaman_fisik": 178,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "73",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Banjar, Agustus 2025",
+          "halaman": "150",
+          "halaman_fisik": 101,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "74",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Banjar, September 2025",
+          "halaman": "151",
+          "halaman_fisik": 179,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "75",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Banjar, Oktober 2025",
+          "halaman": "151",
+          "halaman_fisik": 103,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "76",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Banjar, November 2025",
+          "halaman": "152",
+          "halaman_fisik": 180,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "77",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Banjar, Desember 2025",
+          "halaman": "152",
+          "halaman_fisik": 105,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "78",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Barito Kuala, Januari 2025",
+          "halaman": "153",
+          "halaman_fisik": 181,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "79",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Barito Kuala, Februari 2025",
+          "halaman": "153",
+          "halaman_fisik": 107,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "80",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Barito Kuala, Maret 2025",
+          "halaman": "154",
+          "halaman_fisik": 182,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "81",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Barito Kuala, April 2025",
+          "halaman": "154",
+          "halaman_fisik": 109,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "82",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Barito Kuala, Mei 2025",
+          "halaman": "155",
+          "halaman_fisik": 183,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "83",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Barito Kuala, Juni 2025",
+          "halaman": "155",
+          "halaman_fisik": 111,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "84",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Barito Kuala, Juli 2025",
+          "halaman": "156",
+          "halaman_fisik": 184,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "85",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Barito Kuala, Agustus 2025",
+          "halaman": "156",
+          "halaman_fisik": 113,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "86",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Barito Kuala, September 2025",
+          "halaman": "157",
+          "halaman_fisik": 185,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "87",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Barito Kuala, Oktober 2025",
+          "halaman": "157",
+          "halaman_fisik": 115,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "88",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Barito Kuala, November 2025",
+          "halaman": "158",
+          "halaman_fisik": 186,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "89",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Barito Kuala, Desember 2025 xix",
+          "halaman": "158",
+          "halaman_fisik": 117,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "90",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tapin, Januari 2025",
+          "halaman": "159",
+          "halaman_fisik": 187,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "91",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tapin, Februari 2025",
+          "halaman": "159",
+          "halaman_fisik": 119,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "92",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tapin, Maret 2025",
+          "halaman": "160",
+          "halaman_fisik": 188,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "93",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tapin, April 2025",
+          "halaman": "160",
+          "halaman_fisik": 121,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "94",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tapin, Mei 2025",
+          "halaman": "161",
+          "halaman_fisik": 189,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "95",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tapin, Juni 2025",
+          "halaman": "161",
+          "halaman_fisik": 123,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "96",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tapin, Juli 2025",
+          "halaman": "162",
+          "halaman_fisik": 190,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "97",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tapin, Agustus 2025",
+          "halaman": "162",
+          "halaman_fisik": 125,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "98",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tapin, September 2025",
+          "halaman": "163",
+          "halaman_fisik": 191,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "99",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tapin, Oktober 2025",
+          "halaman": "163",
+          "halaman_fisik": 127,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "100",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tapin, November 2025",
+          "halaman": "164",
+          "halaman_fisik": 192,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "101",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tapin, Desember 2025",
+          "halaman": "164",
+          "halaman_fisik": 129,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "102",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Selatan, Januari 2025",
+          "halaman": "165",
+          "halaman_fisik": 193,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "103",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Selatan, Februari 2025",
+          "halaman": "165",
+          "halaman_fisik": 131,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "104",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Selatan, Maret 2025",
+          "halaman": "166",
+          "halaman_fisik": 194,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "105",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Selatan, April 2025",
+          "halaman": "166",
+          "halaman_fisik": 133,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "106",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Selatan, Mei 2025",
+          "halaman": "167",
+          "halaman_fisik": 195,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "107",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Selatan, Juni 2025",
+          "halaman": "167",
+          "halaman_fisik": 135,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "108",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Selatan, Juli 2025",
+          "halaman": "168",
+          "halaman_fisik": 196,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "109",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Selatan, Agustus 2025",
+          "halaman": "168",
+          "halaman_fisik": 137,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "110",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Selatan, September 2025",
+          "halaman": "169",
+          "halaman_fisik": 197,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "111",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Selatan, xx",
+          "halaman": null,
+          "halaman_fisik": 139,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": null,
+          "judul": "Oktober 2025",
+          "halaman": "169",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "112",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Selatan, November 2025",
+          "halaman": "170",
+          "halaman_fisik": 198,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "113",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Selatan, Desember 2025",
+          "halaman": "170",
+          "halaman_fisik": 141,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "114",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Tengah, Januari 2025",
+          "halaman": "171",
+          "halaman_fisik": 199,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "115",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Tengah, Februari 2025",
+          "halaman": "171",
+          "halaman_fisik": 143,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "116",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Tengah, Maret 2025",
+          "halaman": "172",
+          "halaman_fisik": 200,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "117",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Hulu Sungai Tengah, April 2025",
+          "halaman": "172",
+          "halaman_fisik": 145,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "118",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Tengah, Mei 2025",
+          "halaman": "173",
+          "halaman_fisik": 201,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "119",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Tengah, Juni 2025",
+          "halaman": "173",
+          "halaman_fisik": 147,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "120",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Tengah, Juli 2025",
+          "halaman": "174",
+          "halaman_fisik": 202,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "121",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Tengah, Agustus 2025",
+          "halaman": "174",
+          "halaman_fisik": 149,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "122",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Tengah, September 2025",
+          "halaman": "175",
+          "halaman_fisik": 203,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "123",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Tengah, Oktober 2025",
+          "halaman": "175",
+          "halaman_fisik": 151,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "124",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Tengah, November 2025",
+          "halaman": "176",
+          "halaman_fisik": 204,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "125",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Tengah, Desember 2025",
+          "halaman": "176",
+          "halaman_fisik": 153,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "126",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Utrara, Januari 2025",
+          "halaman": "177",
+          "halaman_fisik": 205,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "127",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Utrara, Februari 2025",
+          "halaman": "177",
+          "halaman_fisik": 205,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "128",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Utrara, Maret 2025",
+          "halaman": "178",
+          "halaman_fisik": 206,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "129",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Utrara, April 2025 xxi",
+          "halaman": "178",
+          "halaman_fisik": 157,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "130",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Utrara, Mei 2025",
+          "halaman": "179",
+          "halaman_fisik": 207,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "131",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Utrara, Juni 2025",
+          "halaman": "179",
+          "halaman_fisik": 159,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "132",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Utrara, Juli 2025",
+          "halaman": "180",
+          "halaman_fisik": 208,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "133",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Utrara, Agustus 2025",
+          "halaman": "180",
+          "halaman_fisik": 161,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "134",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Utrara, September 2025",
+          "halaman": "181",
+          "halaman_fisik": 209,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "135",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Utrara, Oktober 2025",
+          "halaman": "181",
+          "halaman_fisik": 163,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "136",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Utrara, November 2025",
+          "halaman": "182",
+          "halaman_fisik": 210,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "137",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Hulu Sungai Utrara, Desember 2025",
+          "halaman": "182",
+          "halaman_fisik": 165,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "138",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tabalong, Januari 2025",
+          "halaman": "183",
+          "halaman_fisik": 211,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "139",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tabalong, Februari 2025",
+          "halaman": "183",
+          "halaman_fisik": 167,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "140",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tabalong, Maret 2025",
+          "halaman": "184",
+          "halaman_fisik": 212,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "141",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tabalong, April 2025",
+          "halaman": "184",
+          "halaman_fisik": 169,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "142",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tabalong, Mei 2025",
+          "halaman": "185",
+          "halaman_fisik": 213,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "143",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tabalong, Juni 2025",
+          "halaman": "185",
+          "halaman_fisik": 171,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "144",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tabalong, Juli 2025",
+          "halaman": "186",
+          "halaman_fisik": 214,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "145",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tabalong, Agustus 2025",
+          "halaman": "186",
+          "halaman_fisik": 173,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "146",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tabalong, September 2025",
+          "halaman": "187",
+          "halaman_fisik": 215,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "147",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tabalong, Oktober 2025",
+          "halaman": "187",
+          "halaman_fisik": 175,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "148",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tabalong, November 2025",
+          "halaman": "188",
+          "halaman_fisik": 216,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "149",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tabalong, Desember 2025 xxii",
+          "halaman": "188",
+          "halaman_fisik": 177,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "150",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Bumbu, Januari 2025",
+          "halaman": "189",
+          "halaman_fisik": 217,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "151",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Bumbu, Februari 2025",
+          "halaman": "189",
+          "halaman_fisik": 179,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "152",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Bumbu, Maret 2025",
+          "halaman": "190",
+          "halaman_fisik": 218,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "153",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Bumbu, April 2025",
+          "halaman": "190",
+          "halaman_fisik": 181,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "154",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Bumbu, Mei 2025",
+          "halaman": "191",
+          "halaman_fisik": 219,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "155",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Bumbu, Juni 2025",
+          "halaman": "191",
+          "halaman_fisik": 183,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "156",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Bumbu, Juli 2025",
+          "halaman": "192",
+          "halaman_fisik": 220,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "157",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Bumbu, Agustus 2025",
+          "halaman": "192",
+          "halaman_fisik": 185,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "158",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Bumbu, September 2025",
+          "halaman": "193",
+          "halaman_fisik": 221,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "159",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Bumbu, Oktober 2025",
+          "halaman": "193",
+          "halaman_fisik": 187,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "160",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Bumbu, November 2025",
+          "halaman": "194",
+          "halaman_fisik": 222,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "161",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Tanah Bumbu, Desember 2025",
+          "halaman": "194",
+          "halaman_fisik": 189,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "162",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Balangan, Januari 2025",
+          "halaman": "195",
+          "halaman_fisik": 223,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "163",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Balangan, Februari 2025",
+          "halaman": "195",
+          "halaman_fisik": 191,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "164",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Balangan, Maret 2025",
+          "halaman": "196",
+          "halaman_fisik": 224,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "165",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Balangan, April 2025",
+          "halaman": "196",
+          "halaman_fisik": 193,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "166",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Balangan, Mei 2025",
+          "halaman": "197",
+          "halaman_fisik": 225,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "167",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Balangan, Juni 2025",
+          "halaman": "197",
+          "halaman_fisik": 195,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "168",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Balangan, Juli 2025",
+          "halaman": "198",
+          "halaman_fisik": 226,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "169",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Balangan, Agustus 2025 xxiii",
+          "halaman": "198",
+          "halaman_fisik": 197,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "170",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Balangan, September 2025",
+          "halaman": "199",
+          "halaman_fisik": 227,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "171",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Balangan, Oktober 2025",
+          "halaman": "199",
+          "halaman_fisik": 199,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "172",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Balangan, November 2025",
+          "halaman": "200",
+          "halaman_fisik": 228,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "173",
+          "judul": "Peta Hasil Survei KSA Padi Kabupaten Balangan, Desember 2025",
+          "halaman": "200",
+          "halaman_fisik": 201,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "174",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarmasin, Januari 2025",
+          "halaman": "201",
+          "halaman_fisik": 229,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "175",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarmasin, Februari 2025",
+          "halaman": "201",
+          "halaman_fisik": 203,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "176",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarmasin, Maret 2025",
+          "halaman": "202",
+          "halaman_fisik": 230,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "177",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarmasin, April 2025",
+          "halaman": "202",
+          "halaman_fisik": 205,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "178",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarmasin, Mei 2025",
+          "halaman": "203",
+          "halaman_fisik": 231,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "179",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarmasin, Juni 2025",
+          "halaman": "203",
+          "halaman_fisik": 207,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "180",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarmasin, Juli 2025",
+          "halaman": "204",
+          "halaman_fisik": 232,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "181",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarmasin, Agustus 2025",
+          "halaman": "204",
+          "halaman_fisik": 209,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "182",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarmasin, September 2025",
+          "halaman": "205",
+          "halaman_fisik": 233,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "183",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarmasin, Oktober 2025",
+          "halaman": "205",
+          "halaman_fisik": 211,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "184",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarmasin, November 2025",
+          "halaman": "206",
+          "halaman_fisik": 234,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "185",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarmasin, Desember 2025",
+          "halaman": "206",
+          "halaman_fisik": 213,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "186",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarbaru, Januari 2025",
+          "halaman": "207",
+          "halaman_fisik": 235,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "187",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarbaru, Februari 2025",
+          "halaman": "207",
+          "halaman_fisik": 215,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "188",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarbaru, Maret 2025",
+          "halaman": "208",
+          "halaman_fisik": 236,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "189",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarbaru, April 2025",
+          "halaman": "208",
+          "halaman_fisik": 217,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "190",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarbaru, Mei 2025",
+          "halaman": "209",
+          "halaman_fisik": 237,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "191",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarbaru, Juni 2025",
+          "halaman": "209",
+          "halaman_fisik": 219,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "192",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarbaru, Juli 2025",
+          "halaman": "210",
+          "halaman_fisik": 238,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "193",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarbaru, Agustus 2025 xxiv",
+          "halaman": "210",
+          "halaman_fisik": 221,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "194",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarbaru, September 2025",
+          "halaman": "211",
+          "halaman_fisik": 239,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "195",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarbaru, Oktober 2025",
+          "halaman": "211",
+          "halaman_fisik": 223,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "196",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarbaru, November 2025",
+          "halaman": "212",
+          "halaman_fisik": 240,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "335ac15d2ada36b5d2402538",
+          "tipe": "lampiran",
+          "nomor": "197",
+          "judul": "Peta Hasil Survei KSA Padi Kota Banjarbaru, Desember 2025 xxv",
+          "halaman": "212",
+          "halaman_fisik": 225,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        }
       ]
     },
     {
@@ -21322,6 +23846,782 @@
       "sidik_pdf": [
         28481640,
         1787892626
+      ]
+    },
+    {
+      "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+      "judul": "Gambaran Ekonomi Makro Provinsi Kalimantan Selatan Triwulan II-2026 (April-Juni)",
+      "heading_ditemukan": [
+        "isi",
+        "tabel"
+      ],
+      "jumlah_entri": 83,
+      "per_tipe": {
+        "isi": 16,
+        "tabel": 67
+      },
+      "tanpa_halaman": 50,
+      "mode_tanpa_label": [],
+      "dari_daftar": 34,
+      "dari_badan": 49,
+      "halaman_fisik_dilengkapi": 0,
+      "per_sumber": {
+        "daftar": 34,
+        "badan": 49
+      },
+      "sidik_pdf": [
+        11506133,
+        1789364656
+      ],
+      "galat": null,
+      "entri": [
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Gambaran Ekonomi Makro Provinsi Kalimantan Selatan Triwulan II-2026 (April–Juni)",
+          "halaman": "v",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Volume 14, Nomor 3, 2026 Hal. Kata Pengantar v Daftar Isi",
+          "halaman": "vii",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Daftar Tabel",
+          "halaman": "ix",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Penjelasan Umum",
+          "halaman": "xv",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "1. PDRB 1 2. Inflasi",
+          "halaman": "11",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3. Ekspor-Impor",
+          "halaman": "19",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "4. Hotel",
+          "halaman": "25",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "5. Transportasi",
+          "halaman": "29",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "6. Indeks Kemahalan Konstruksi",
+          "halaman": "33",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "7. Kependudukan",
+          "halaman": "35",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "8. Ketenagakerjaan",
+          "halaman": "37",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "9. Kemiskinan",
+          "halaman": "51",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "10. Gini Ratio",
+          "halaman": "57",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "11. Indeks Pembangunan Manusia",
+          "halaman": "61",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "12. NTP dan Inflasi Perdesaan",
+          "halaman": "67",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Daftar Pustaka",
+          "halaman": "73",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Hal. 1 PDRB Provinsi Kalimantan Selatan Atas Dasar Harga Berlaku (ADHB) Menurut Lapangan Usaha (miliar rupiah), Triwulan III-2025–Triwulan II-2026 v 2 PDRB Provinsi Kalimantan Selatan Atas Dasar Harga Konstan (ADHK) 2010 ii Menurut Lapangan Usaha (miliar rupiah), Triwulan III-2025–Triwulan II-2026 3 3 Laju Pertumbuhan y-o-y PDRB Provinsi Kalimantan Selatan Triwulanan Atas",
+          "halaman": "2",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Dasar Harga Konstan (ADHK) 2010 Menurut Lapangan Usaha (persen), Triwulan III-2025–Triwulan II-2026 4 Laju Pertumbuhan q-to-q PDRB Provinsi Kalimantan Selatan Triwulanan Menurut Lapangan Usaha (persen), Triwulan III-2025–Triwulan II-2026 5 5 Struktur PDRB Provinsi Kalimantan Selatan Triwulanan Atas Dasar Harga Berlaku (ADHB) Menurut Lapangan Usaha (persen), Triwulan III-2025–Triwulan II-2026 6 6 PDRB Provinsi Kalimantan Selatan Atas Dasar Harga Berlaku (ADHB) Menurut",
+          "halaman": "4",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Lapangan Usaha (miliar rupiah), 2022–2025 7 PDRB Provinsi Kalimantan Selatan Atas Dasar Harga Konstan (ADHK) 2010 Menurut Lapangan Usaha (miliar rupiah), 2022–2025 8 8 Laju Pertumbuhan PDRB Provinsi Kalimantan Selatan Menurut Lapangan Usaha (persen), 2022–2025 9 9 Distribusi PDRB Provinsi Kalimantan Selatan Atas Dasar Harga Berlaku (ADHB) Menurut Lapangan Usaha (persen), 2022–2025 10 10 Indeks Harga Konsumen (IHK) Gabungan 5 Kota di Provinsi Kalimantan",
+          "halaman": "7",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Selatan (2022=100), April–Juni 2026 11 Laju Inflasi Gabungan 5 Kota di Provinsi Kalimantan Selatan (2022=100), April– Juni 2026 13 12 Inflasi Tahun Kalender Gabungan 5 Kota di Provinsi Kalimantan Selatan (2022=100), April–Juni 2026 14 i x ix",
+          "halaman": "12",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Hal. 13 Inflasi Tahun ke Tahun Gabungan 5 Kota di Provinsi Kalimantan Selatan (2022=100), April–Juni 2026 14 Perbandingan IHK Antar Wilayah Cakupan IHK di Provinsi Kalimantan Selatan (2022=100), April–Juni 2026 16 15 Perbandingan Tingkat Inflasi Tahun ke Tahun Kabupaten/Kota di Kalimantan Selatan (2022=100), April–Juni 2026 17 16 Nilai Ekspor Provinsi Kalimantan Selatan Menurut HS 2 Digit (US$), April–Juni",
+          "halaman": "15",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "2026 17 Nilai Ekspor Provinsi Kalimantan Selatan Menurut Negara Tujuan (US$), April– Juni 2026 21 18 Nilai Impor Provinsi Kalimantan Selatan Menurut HS 2 Digit (US$), April–Juni 2026 22 19 Nilai Impor Provinsi Kalimantan Selatan Menurut Negara Asal (US$), April–Juni 2026 23 20 Tingkat Penghunian Kamar (TPK) dan Rata-Rata Lama Menginap (RTLM)",
+          "halaman": "20",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Tamu Hotel Bintang Provinsi Kalimantan Selatan, April–Juni 2026 21 Tingkat Penghunian Kamar (TPK) dan Rata-Rata Lama Menginap (RTLM) Tamu Hotel Non-Bintang Provinsi Kalimantan Selatan, April–Juni 2026 27 22 Jumlah Penumpang Berangkat dengan Angkutan Udara Melalui Bandara di Provinsi Kalimantan Selatan, Desember 2025–Juni 2026 30 23 Jumlah Penumpang Datang dengan Angkutan Udara Melalui Bandara di Provinsi Kalimantan Selatan, Desember 2025–Juni 2026 31 24 Jumlah Penumpang dan Barang Pelayaran Dalam Negeri Pelabuhan di Provinsi",
+          "halaman": "26",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Kalimantan Selatan, Desember 2025–Juni 2026 25 Indeks Kemahalan Konstruksi Kabupaten/Kota di Provinsi Kalimantan Selatan, 2022–2025 34 26 Jumlah Penduduk Kabupaten/Kota di Provinsi Kalimantan Selatan, 2023–2026 36 27 Penduduk Usia 15 Tahun ke Atas Menurut Jenis Kegiatan di Provinsi Kalimantan Selatan, Februari 2025–Mei 2026 38 x",
+          "halaman": "32",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Hal. 28 Penduduk Usia 15 Tahun ke Atas Menurut Jenis Kegiatan di Provinsi Kalimantan Selatan, Agustus 2023–Agustus 2025 x 29 Persentase Penduduk Usia 15 Tahun ke Atas yang Bekerja Menurut Sektor Lapangan Pekerjaan Utama di Provinsi Kalimantan Selatan, Februari–Mei 2026 40 30 Persentase Penduduk Usia 15 Tahun ke Atas yang Bekerja Menurut Sektor Lapangan Pekerjaan Utama di Provinsi Kalimantan Selatan, Agustus 2023– Agustus 2025 41",
+          "halaman": "39",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "31 Persentase Penduduk Usia 15 Tahun ke Atas yang Bekerja Menurut Status Pekerjaan Utama di Provinsi Kalimantan Selatan, Februari 2025–Mei 2026 32 Persentase Penduduk Usia 15 Tahun ke Atas yang Bekerja Menurut Status Pekerjaan Utama di Provinsi Kalimantan Selatan, Agustus 2023–Agustus 2025 43 33 Persentase Penduduk Usia 15 Tahun ke Atas yang Bekerja Menurut Jenjang Pendidikan Tertinggi yang Ditamatkan di Provinsi Kalimantan Selatan, Februari 44 2025–Mei 2026 34 Persentase Penduduk Usia 15 Tahun ke Atas yang Bekerja Menurut Jenjang",
+          "halaman": "42",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Pendidikan Tertinggi yang Ditamatkan di Provinsi Kalimantan Selatan, Agustus 2023–Agustus 2025 35 Persentase Penduduk Usia 15 Tahun ke Atas yang Bekerja Menurut Jumlah Jam Kerja per Minggu di Provinsi Kalimantan Selatan, Februari 2025–Mei 2026 46 36 Persentase Penduduk Usia 15 Tahun ke Atas yang Bekerja Menurut Jam Kerja di Provinsi Kalimantan Selatan, Agustus 2023–Agustus 2025 47 37 Tingkat Pengangguran Terbuka (TPT) Penduduk Menurut Pendidikan tertinggi yang Ditamatkan di Provinsi Kalimantan Selatan, Februari 2025–Mei 2026 48",
+          "halaman": "45",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "38 Tingkat Pengangguran Terbuka (TPT) Penduduk Menurut Pendidikan tertinggi yang Ditamatkan di Provinsi Kalimantan Selatan, Agustus 2023–Agustus 2025 39 Tingkat Partisipasi Angkatan Kerja (TPAK) dan Tingkat Pengangguran Terbuka (TPT) Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan, Agustus 2023– Agustus 2025 50 xi",
+          "halaman": "49",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Hal. 40 Garis Kemiskinan, Jumlah Penduduk Miskin, dan Tingkat Kemiskinan Menurut Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, September 2024– Maret 2026 xi 41 Indeks Kedalaman Kemiskinan (P ) dan Indeks Keparahan Kemiskinan (P ) 1 2 Menurut Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, September",
+          "halaman": "52",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "2024–Maret 2026 42 Komoditi yang Memberi Sumbangan Besar terhadap Garis Kemiskinan beserta Kontribusinya (%) di Provinsi Kalimantan Selatan, September 2025 54 43 Indikator Kemiskinan Kabupaten/Kota di Provinsi Kalimantan Selatan, 2025 55 44 Perkembangan Gini Ratio Menurut Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2013–2026 58 45 Persentase Distribusi Penduduk Menurut Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, September 2024–Maret 2026 59",
+          "halaman": "53",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "46 Umur Harapan Hidup (UHH) Kabupaten/Kota di Provinsi Kalimantan Selatan (tahun), 2022–2025 47 Harapan Lama Sekolah (HLS) Kabupaten/Kota di Provinsi Kalimantan Selatan (tahun), 2022–2025 63 48 Rata-Rata Lama Sekolah (RLS) Kabupaten/Kota di Provinsi Kalimantan Selatan (tahun), 2022–2025 64 49 Pengeluaran per Kapita Disesuaikan Kabupaten/Kota di Provinsi Kalimantan Selatan (000 rupiah), 2022–2025 65",
+          "halaman": "62",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "50 Indeks Pembangunan Manusia (IPM) Kabupaten/Kota di Provinsi Kalimantan Selatan, 2022–2025 51 Perkembangan NTP Menurut Subsektor di Provinsi Kalimantan Selatan (2018=100), April–Juni 2026 69 52 Indeks Konsumsi Rumah Tangga di Provinsi Kalimantan Selatan (2018=100), April–Juni 2026 70 53 Indeks Harga Konsumen Perdesaan di Provinsi Kalimantan Selatan (2018=100), April–Juni 2026 71",
+          "halaman": "66",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "xii ix",
+          "halaman": null,
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Hal. 54 Nilai Tukar Usaha Rumah Tangga Pertanian per Subsektor di Provinsi Kalimantan Selatan (2018=100), April–Juni 2026 xii xiii",
+          "halaman": "72",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "1",
+          "judul": "PDRB Provinsi Kalimantan Selatan Atas Dasar Harga Berlaku (ADHB) Menurut Lapangan Usaha (miliar rupiah), Triwulan III-2025 – Triwulan II-2026 Triwulan Triwulan Triwulan Triwulan Kategori Lapangan Usaha",
+          "halaman": null,
+          "halaman_fisik": 20,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "2",
+          "judul": "PDRB Provinsi Kalimantan Selatan Atas Dasar Harga Konstan (ADHK) 2010 Menurut Lapangan Usaha (miliar rupiah), Triwulan III-2025 – Triwulan II-2026 Triwulan Triwulan Triwulan Triwulan Kategori Lapangan Usaha",
+          "halaman": null,
+          "halaman_fisik": 21,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "3",
+          "judul": "Laju Pertumbuhan y-o-y PDRB Provinsi Kalimantan Selatan Triwulanan Atas Dasar Harga Konstan (ADHK) 2010 Menurut Lapangan Usaha (persen), Triwulan III-2025 – Triwulan II-2026 Triw III-2025 Triw IV-2025 Triw I-2026 Triw II-2026 Kategori Lapangan Usaha terhadap terhadap terhadap terhadap",
+          "halaman": null,
+          "halaman_fisik": 22,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "4",
+          "judul": "Laju Pertumbuhan q-to-q PDRB Provinsi Kalimantan Selatan Triwulanan Menurut Lapangan Usaha (persen) Triwulan III-2025 – Triwulan II-2026 Triw III-2025 Triw IV-2025 Triw I-2026 Triw II-2026 Kategori Lapangan Usaha terhadap terhadap terhadap terhadap",
+          "halaman": null,
+          "halaman_fisik": 23,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "5",
+          "judul": "Struktur PDRB Provinsi Kalimantan Selatan Triwulanan Atas Dasar Harga Berlaku (ADHB) Menurut Lapangan Usaha (persen), Triwulan III-2025 – Triwulan II-2026 Triwulan Triwulan Triwulan Triwulan Kategori Lapangan Usaha",
+          "halaman": null,
+          "halaman_fisik": 24,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "6",
+          "judul": "PDRB Provinsi Kalimantan Selatan Atas Dasar Harga Berlaku (ADHB) Menurut Lapangan Usaha (miliar rupiah), 2022 – 2025 Kategori Lapangan Usaha 2022 2023 2024 2025",
+          "halaman": null,
+          "halaman_fisik": 25,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "7",
+          "judul": "PDRB Provinsi Kalimantan Selatan Atas Dasar Harga Konstan (ADHK) 2010 Menurut Lapangan Usaha (miliar rupiah), 2022 – 2025 Kategori Lapangan Usaha 2022 2023 2024 2025",
+          "halaman": null,
+          "halaman_fisik": 26,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "8",
+          "judul": "Laju Pertumbuhan PDRB Provinsi Kalimantan Selatan Menurut Lapangan Usaha (persen), 2022 – 2025 Kategori Lapangan Usaha 2022 2023 2024 2025",
+          "halaman": null,
+          "halaman_fisik": 27,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "9",
+          "judul": "Distribusi PDRB Provinsi Kalimantan Selatan Atas Dasar Harga Berlaku (ADHB) Menurut Lapangan Usaha (persen), 2022 – 2025 Kategori Lapangan Usaha 2022 2023 2024 2025",
+          "halaman": null,
+          "halaman_fisik": 28,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "10",
+          "judul": "Indeks Harga Konsumen (IHK) Gabungan 5 Kota di Provinsi Kalimantan Selatan (2022=100), April – Juni 2026 No Kelompok Pengeluaran April Mei Juni",
+          "halaman": null,
+          "halaman_fisik": 30,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "11",
+          "judul": "Laju Inflasi Gabungan 5 Kota di Provinsi Kalimantan Selatan (2022=100), April – Juni 2026 April 1 Mei 2 Juni 3 No Kelompok Pengeluaran",
+          "halaman": null,
+          "halaman_fisik": 31,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "12",
+          "judul": "Inflasi Tahun Kalender Gabungan 5 Kota di Provinsi Kalimantan Selatan (2022=100), April – Juni 2026 April 1 Mei 2 Juni 3 No Kelompok Pengeluaran",
+          "halaman": null,
+          "halaman_fisik": 32,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "13",
+          "judul": "Inflasi Tahun ke Tahun Gabungan 5 Kota di Provinsi Kalimantan Selatan (2022=100), April – Juni 2026 April 1 Mei 2 Juni 3 No Kelompok Pengeluaran",
+          "halaman": null,
+          "halaman_fisik": 33,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "14",
+          "judul": "Perbandingan IHK Antar Wilayah Cakupan IHK di Provinsi Kalimantan Selatan (2022=100), April – Juni 2026 No Kota April Mei Juni",
+          "halaman": null,
+          "halaman_fisik": 34,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "15",
+          "judul": "Perbandingan Tingkat Inflasi Tahun ke Tahun Kota-Kota di Kalimantan Selatan (2022=100), April – Juni 2026 April 1 Mei 2 Juni 3 No Kota",
+          "halaman": null,
+          "halaman_fisik": 35,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "16",
+          "judul": "Nilai Ekspor Provinsi Kalimantan Selatan Menurut HS 2 Digit (US$), April – Juni 2026 Kode HS 2 Komoditas April Mei Juni Triwulan II-2026",
+          "halaman": null,
+          "halaman_fisik": 38,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "17",
+          "judul": "Nilai Ekspor Provinsi Kalimantan Selatan Menurut Negara Tujuan (US$), April – Juni 2026 Negara Tujuan April Mei Juni Triwulan II-2026",
+          "halaman": null,
+          "halaman_fisik": 39,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "18",
+          "judul": "Nilai Impor Provinsi Kalimantan Selatan Menurut HS 2 Digit (US$), April – Juni 2026 Kode HS Komoditas April Mei Juni Triwulan II-2026",
+          "halaman": null,
+          "halaman_fisik": 40,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "19",
+          "judul": "Nilai Impor Provinsi Kalimantan Selatan Menurut Negara Asal (US$), April – Juni 2026 Negara Asal April Mei Juni Triwulan II-2026",
+          "halaman": null,
+          "halaman_fisik": 41,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "22",
+          "judul": "Jumlah Penumpang Berangkat dengan Angkutan Udara Melalui Bandara di Provinsi Kalimantan Selatan, Desember 2025 – Juni 2026 Jumlah Penumpang (orang) Bulan Total",
+          "halaman": null,
+          "halaman_fisik": 48,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "23",
+          "judul": "Jumlah Penumpang Datang dengan Angkutan Udara Melalui Bandara di Provinsi Kalimantan Selatan, Desember 2025 – Juni 2026 Jumlah Penumpang (orang) Bulan Total",
+          "halaman": null,
+          "halaman_fisik": 49,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "24",
+          "judul": "Jumlah Penumpang dan Barang Pelayaran Dalam Negeri Pelabuhan di Provinsi Kalimantan Selatan, Desember 2025 – Juni 2026 Jumlah Penumpang Jumlah barang Bulan (orang) (ton)",
+          "halaman": null,
+          "halaman_fisik": 50,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "25",
+          "judul": "Indeks Kemahalan Konstruksi Kabupaten/Kota di Provinsi Kalimantan Selatan, 2022 – 2025 Kode Wilayah 2022 2023 2024 2025",
+          "halaman": null,
+          "halaman_fisik": 52,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "26",
+          "judul": "Jumlah Penduduk Kabupaten/Kota di Provinsi Kalimantan Selatan (ribu), 2023 ─ 2026 Kode Wilayah 2023 2024 2025 2026",
+          "halaman": null,
+          "halaman_fisik": 54,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "27",
+          "judul": "Penduduk Usia 15 Tahun ke Atas Menurut Jenis Kegiatan di Provinsi Kalimantan Selatan, Februari 2025 – Mei 2026 Jenis Kegiatan Februari 2025 November 2025 Februari 2026 Mei 2026",
+          "halaman": null,
+          "halaman_fisik": 56,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "28",
+          "judul": "Penduduk Usia 15 Tahun ke Atas Menurut Jenis Kegiatan di Provinsi Kalimantan Selatan, Agustus 2023 – Agustus 2025 Jenis Kegiatan Agustus 2023 Agustus 2024 Agustus 2025",
+          "halaman": null,
+          "halaman_fisik": 57,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "29",
+          "judul": "Persentase Penduduk Usia 15 Tahun ke Atas yang Bekerja Menurut Sektor Lapangan Pekerjaan Utama di Provinsi Kalimantan Selatan, Februari – Mei 2026 Lapangan Pekerjaan Utama Februari 2026 Mei 2026",
+          "halaman": null,
+          "halaman_fisik": 58,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "30",
+          "judul": "Persentase Penduduk Usia 15 Tahun ke Atas yang Bekerja Menurut Sektor Lapangan Pekerjaan Utama di Provinsi Kalimantan Selatan, Agustus 2023 – Agustus 2025 Lapangan Pekerjaan Agustus 2023 Agustus 2024 Agustus 2025",
+          "halaman": null,
+          "halaman_fisik": 59,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "31",
+          "judul": "Persentase Penduduk Usia 15 Tahun ke Atas yang Bekerja Menurut Status Pekerjaan Utama di Provinsi Kalimantan Selatan, Februari 2025 – Mei 2026 Status Pekerjaan Utama Februari 2025 November 2025 Februari 2026 Mei 2026",
+          "halaman": null,
+          "halaman_fisik": 60,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "32",
+          "judul": "Persentase Penduduk Usia 15 Tahun ke Atas yang Bekerja Menurut Status Pekerjaan Utama di Provinsi Kalimantan Selatan, Agustus 2023 – Agustus 2025 Status Pekerjaan Utama Agustus 2023 Agustus 2024 Agustus 2025",
+          "halaman": null,
+          "halaman_fisik": 61,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "35",
+          "judul": "Persentase Penduduk Usia 15 Tahun ke Atas yang Bekerja Menurut Jam Kerja Seminggu di Provinsi Kalimantan Selatan, Februari 2025 – Mei 2026 Bekerja Menurut Jam kerja per minggu Februari 2025 November 2025 Februari 2026 Mei 2026",
+          "halaman": null,
+          "halaman_fisik": 64,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "36",
+          "judul": "Persentase Penduduk Usia 15 Tahun ke Atas yang Bekerja Menurut Jam Kerja di Provinsi Kalimantan Selatan, Agustus 2023 – Agustus 2025 Bekerja Menurut Jam kerja per minggu Agustus 2023 Agustus 2024 Agustus 2025",
+          "halaman": null,
+          "halaman_fisik": 65,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "37",
+          "judul": "Tingkat Pengangguran Terbuka (TPT) Penduduk Menurut Pendidikan Tertinggi yang Ditamatkan di Provinsi Kalimantan Selatan, Februari 2025 – Mei 2026 Pendidikan Tertinggi yang Ditamatkan Februari 2025 November 2025 Februari 2026 Mei 2026",
+          "halaman": null,
+          "halaman_fisik": 66,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "39",
+          "judul": "Tingkat Partisipasi Angkatan Kerja (TPAK) dan Tingkat Pengangguran Terbuka (TPT) Menurut Kabupaten/ Kota di Provinsi Kalimantan Selatan, Agustus 2023 – Agustus 2025 TPAK TPT Kabupaten / Kota",
+          "halaman": null,
+          "halaman_fisik": 68,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "40",
+          "judul": "Garis Kemiskinan, Jumlah Penduduk Miskin, dan Tingkat Kemiskinan Menurut Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, September 2024 – Maret 2026 September Maret September Maret Indikator Tempat Tinggal",
+          "halaman": null,
+          "halaman_fisik": 70,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "41",
+          "judul": "Indeks Kedalaman Kemiskinan (P 1 ) dan Indeks Keparahan Kemiskinan (P 2 ) Menurut Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, September 2024 – Maret 2026 September Maret September Maret Indikator Tempat Tinggal",
+          "halaman": null,
+          "halaman_fisik": 71,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "42",
+          "judul": "Komoditi yang Memberi Sumbangan Besar terhadap Garis Kemiskinan beserta Kontribusinya (%) di Provinsi Kalimantan Selatan, September 2025 Jenis Komoditi Perkotaan Jenis Komoditi Perdesaan",
+          "halaman": null,
+          "halaman_fisik": 72,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "43",
+          "judul": "Indikator Kemiskinan Kabupaten/ Kota di Provinsi Kalimantan Selatan, 2025 Garis Jumlah Persentase Tingkat Tingkat Kemiskinan Penduduk Penduduk",
+          "halaman": null,
+          "halaman_fisik": 73,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "44",
+          "judul": "Perkembangan Gini Ratio Menurut Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2013 – 2026 Bulan Perkotaan Perdesaan Perkotaan+Perdesaan",
+          "halaman": null,
+          "halaman_fisik": 76,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "45",
+          "judul": "Persentase Distribusi Pengeluaran Penduduk Menurut Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, September 2024 – Maret 2026 Penduduk 40 Penduduk 40 Penduduk 20",
+          "halaman": null,
+          "halaman_fisik": 77,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "46",
+          "judul": "Umur Harapan Hidup (UHH) Kabupaten/ Kota di Provinsi Kalimantan Selatan (tahun), 2022 – 2025 Kode Wilayah 2022 2023 2024 2025",
+          "halaman": null,
+          "halaman_fisik": 80,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "47",
+          "judul": "Harapan Lama Sekolah (HLS) Kabupaten/ Kota di Provinsi Kalimantan Selatan (tahun), 2022 – 2025 Kode Wilayah 2022 2023 2024 2025",
+          "halaman": null,
+          "halaman_fisik": 81,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "48",
+          "judul": "Rata-Rata Lama Sekolah (RLS) Kabupaten/ Kota di Provinsi Kalimantan Selatan (tahun), 2022 – 2025 Kode Wilayah 2022 2023 2024 2025",
+          "halaman": null,
+          "halaman_fisik": 82,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "49",
+          "judul": "Pengeluaran per Kapita Disesuaikan Kabupaten/ Kota di Provinsi Kalimantan Selatan (000 rupiah), 2022 – 2025 Kode Wilayah 2022 2023 2024 2025",
+          "halaman": null,
+          "halaman_fisik": 83,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "50",
+          "judul": "Indeks Pembangunan Manusia (IPM) Kabupaten/ Kota di Provinsi Kalimantan Selatan, 2022 – 2025 Kode Wilayah 2022 2023 2024 2025",
+          "halaman": null,
+          "halaman_fisik": 84,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "51",
+          "judul": "Perkembangan NTP Menurut Subsektor di Provinsi Kalimantan Selatan (2018=100), Januari – Juni 2026 Tanaman Tanaman",
+          "halaman": null,
+          "halaman_fisik": 87,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "52",
+          "judul": "Indeks Konsumsi Rumah Tangga di Provinsi Kalimantan Selatan (2018=100), April – Juni 2026 No Subsektor April Mei Juni",
+          "halaman": null,
+          "halaman_fisik": 88,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "53",
+          "judul": "Indeks Harga Konsumen Perdesaan di Provinsi Kalimantan Selatan (2018=100), April – Juni 2026 No Kelompok Pengeluaran April Mei Juni",
+          "halaman": null,
+          "halaman_fisik": 89,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "7d1c21c1e8e72b51d55d64e7",
+          "tipe": "tabel",
+          "nomor": "54",
+          "judul": "Nilai Tukar Usaha Rumah Tangga Pertanian per Subsektor di Provinsi Kalimantan Selatan (2018=100), April – Juni 2026 No Kelompok Pengeluaran April Mei Juni",
+          "halaman": null,
+          "halaman_fisik": 90,
+          "sumber": "badan"
+        }
       ]
     },
     {

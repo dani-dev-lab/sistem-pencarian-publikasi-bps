@@ -1,27 +1,43 @@
-# Sistem Pencarian Publikasi BPS
+# Sistem Pencarian Publikasi BPS Kalsel
 
-Sistem pencarian entri dokumen (Daftar Isi, Daftar Tabel, Daftar Gambar, Lampiran)
-dari publikasi BPS Kalimantan Selatan, untuk membantu petugas PST menjawab
-permintaan data secara cepat.
+Mesin pencari internal untuk petugas Pelayanan Statistik Terpadu (PST) BPS
+Provinsi Kalimantan Selatan. Petugas mengetik kata kunci; sistem menunjukkan
+publikasi mana DAN bagian mana (tabel, gambar, lampiran, bab) yang memuat
+data tersebut, lengkap dengan tombol membuka PDF di halaman yang tepat.
+
+- **Panduan operasional** (menjalankan, memperbarui data, mengelola kamus,
+  mengganti sandi admin, kebutuhan deploy): [PANDUAN.md](PANDUAN.md)
+- **Konteks teknis dan riwayat keputusan** (untuk pengembang):
+  [CLAUDE.md](CLAUDE.md)
 
 ## Struktur
 
 - `app/` — aplikasi Flask (models, services, routes, templates, static)
-- `data/` — sampel PDF, PDF hasil unduhan, dan kamus sinonim
-- `scripts/` — utilitas sekali-jalan (spike, unduhan massal, analisis frekuensi)
+- `data/` — metadata publikasi, hasil ekstraksi, kamus sinonim, PDF unduhan
+- `scripts/` — pipeline data (`perbarui.py` dan tahap-tahapnya) serta utilitas
 - `tests/` — pengujian ekstraksi PDF dan mesin pencari
+- `jalankan-aplikasi.bat`, `perbarui-data.bat` — pintu masuk klik-dua-kali
 
-## Menjalankan
+## Menjalankan (ringkas)
 
-```bash
-python -m venv .venv
-.venv\Scripts\activate        # Windows
-pip install -r requirements.txt
-copy .env.example .env        # lalu isi BPS_API_KEY
-python run.py
+```
+python -m venv venv
+venv\Scripts\pip.exe install -r requirements.txt
+copy .env.example .env      # lalu isi semua nilainya - lihat PANDUAN.md bagian 2
+perbarui-data.bat           # isi database (butuh jaringan "BPS - Pegawai")
+jalankan-aplikasi.bat       # buka http://localhost:5000/
 ```
 
-## Catatan Terms of Use WebAPI BPS
+Mode pengembangan (debugger + auto-reload, jangan di jaringan kantor):
+`venv\Scripts\python.exe run.py --dev`
 
-Setiap halaman wajib mencantumkan sumber data BPS dan pernyataan bahwa aplikasi
-ini bukan produk resmi BPS — sudah dipasang di footer `app/templates/base.html`.
+Aplikasi menolak berjalan kalau `SECRET_KEY` atau `ADMIN_PASSWORD_HASH` di
+`.env` kosong. Halaman `/admin/` dilindungi satu kata sandi bersama; halaman
+pencarian terbuka tanpa login.
+
+## Catatan Term of Use WebAPI BPS
+
+Setiap halaman wajib mencantumkan "Layanan ini menggunakan API Badan Pusat
+Statistik (BPS)" — sudah dipasang di footer `app/templates/base.html` dan
+tidak boleh dihapus. API key hanya di `.env` (tidak masuk Git). Penarikan
+data memberi jeda 1 detik antar request.

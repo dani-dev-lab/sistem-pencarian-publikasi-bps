@@ -15,7 +15,8 @@ Mahasiswa Politeknik Negeri Banjarmasin.
 - **Scope data**: hanya publikasi dengan **tanggal rilis (`rl_date`) tahun 2025-2026**.
   Ini tahun RILIS, bukan tahun data yang dibahas di judul. Sudah dikonfirmasi ke mentor.
 - **Deployment**: cukup lokal di laptop selama masa magang. Keputusan deploy ke
-  infrastruktur BPS diserahkan ke instansi.
+  infrastruktur BPS diserahkan ke instansi. Bekal untuk itu (login admin,
+  server produksi, .bat, PANDUAN.md) ada di bagian "Persiapan serah terima".
 - **Platform**: web app, Python + Flask. MySQL (via Laragon) sebagai database.
 
 ## Sumber data
@@ -296,14 +297,17 @@ Aturan yang berlaku:
   | Review log pencarian | `http://localhost:5000/admin/log` |
   | Periksa normalisasi kueri | `http://localhost:5000/admin/log/periksa?q=<kueri>` |
 
+  | Masuk / keluar | `/admin/login` (GET+POST) / `/admin/logout` (POST) |
+
   Ini mekanisme perawatan kamus sinonim SETELAH masa magang selesai - jangan
-  dihapus. Setelah mengubah kamus lewat halaman ini, jalankan
-  `scripts/isi_normalisasi.py` supaya berlaku pada data.
-- **Tidak ada autentikasi.** `/admin/` terbuka tanpa login. Disengaja:
-  aplikasi berjalan lokal di laptop selama masa magang, dan tabel `petugas`
-  sengaja dilewati untuk MVP. Tidak ditautkannya halaman itu BUKAN pengamanan
-  - siapa pun yang tahu URL-nya bisa masuk. WAJIB ditambahkan autentikasi
-  sebelum deploy ke jaringan mana pun.
+  dihapus. Setelah mengubah kamus lewat halaman ini, klik tombol
+  **"Terapkan ke data"** (POST `/admin/kamus/terapkan`) supaya berlaku pada
+  pencarian - itu memanggil `app.services.normalisasi_data.jalankan()`,
+  fungsi yang sama dengan `scripts/isi_normalisasi.py`.
+- **Autentikasi admin = satu kata sandi bersama**, bukan akun per orang
+  (tabel `petugas` di ERD tetap tidak dipakai). Lihat bagian "Persiapan
+  serah terima" di bawah. Tidak ditautkannya halaman admin dari UI BUKAN
+  pengamanan - pengamanannya adalah login itu.
 - **Sekitar 2,5-2,9% entri dari jalur `badan` cacat ringan.** Pemeriksaan manual 40
   entri acak menemukan 1 yang tercampur teks badan ("...di Jawa Barat 8.
   Pemberian atribut"). Diterima apa adanya. Catatan: audit heuristik otomatis
@@ -317,9 +321,91 @@ Aturan yang berlaku:
   tabel/gambar/lampiran di dokumennya.
 - **15 dari 348 entri "Dalam Angka 2025" tanpa nomor halaman** (edisi 2026 hanya
   4 dari 335). Sisa dari daftar tiga kolom dwibahasa yang paling rumit di korpus.
+- **Tidak ada pengujian otomatis.** `tests/test_ekstraksi_pdf.py` dan
+  `tests/test_mesin_pencari.py` hanya stub berisi docstring dari scaffolding
+  awal - `pytest` mengumpulkan 0 item. Seluruh verifikasi selama project
+  dilakukan MANUAL per perubahan (regresi 72 PDF, sampel acak, test_client
+  sekali jalan), bukan lewat suite yang bisa diulang. Diputuskan tidak
+  dikerjakan sekarang; kalau ada yang mengubah parser atau scoring, jalankan
+  ulang pemeriksaan manual yang dicatat di bagian-bagian terkait.
 - Judul publikasi dwibahasa menyimpan teks Indonesia DAN Inggris apa adanya.
   Ini disengaja — petugas bisa saja mencari dengan istilah Inggris, dan fuzzy
   matching yang akan menanganinya. Jangan dibuang saat preprocessing.
+
+## Persiapan serah terima ke tim IT BPS (September 2026)
+Bukan fitur baru - pengamanan dan kemudahan operasional supaya aplikasi bisa
+dijalankan orang yang tidak pernah melihat kodenya. Dokumen operasionalnya
+untuk tim IT ada di `PANDUAN.md` (bahasa awam, tanpa asumsi tahu Python).
+Kata sandi admin dan isi `.env` DISERAHKAN TERPISAH - tidak ditulis di
+PANDUAN.md maupun di Git.
+
+### Konfigurasi wajib - aplikasi menolak jalan kalau kurang
+`app/config.py:periksa_konfigurasi()` dipanggil di awal `create_app()` dan
+`raise SystemExit(pesan)` kalau:
+- `SECRET_KEY` kosong ATAU masih `"kunci-pengembangan-lokal"` (nilai fallback
+  lama - sekarang ditolak, karena nilai yang ada di kode sumber sama saja
+  dengan tidak ada). Pesan galatnya memuat perintah pembuatan nilai acak.
+- `ADMIN_PASSWORD_HASH` kosong. Jangan pernah "diam-diam" membuka admin tanpa
+  sandi; lebih baik tidak jalan.
+
+Karena pemeriksaan ada di `create_app()`, SEMUA script yang memanggilnya
+(`muat_ke_database.py`, `isi_normalisasi.py`, `uji_pencarian.py`,
+`bangun_frekuensi_kata.py`) ikut menolak jalan kalau `.env` belum lengkap.
+Ini disengaja: satu aturan, satu `.env`.
+
+`SystemExit` (bukan `RuntimeError`) supaya pesannya tampil bersih tanpa
+traceback, baik dari `run.py`, dari script, maupun dari `.bat`.
+
+### Autentikasi admin
+- Satu sandi bersama. Hash dibuat `scripts/buat_hash_sandi.py`
+  (`werkzeug.security.generate_password_hash`, bawaan Flask - tidak ada
+  dependensi baru), disimpan di `.env` sebagai `ADMIN_PASSWORD_HASH`.
+  Hash scrypt memuat `$`, dan python-dotenv hanya mengekspansi `${VAR}` -
+  sudah diuji, hash tersimpan utuh.
+- Penjaga dipasang sebagai `@bp.before_request` di blueprint admin, bukan
+  dekorator per-route, supaya route baru otomatis ikut terlindungi.
+  Pengecualian hanya endpoint `admin.login`.
+- Session Flask, kunci `admin_masuk`. `_tujuan_aman()` hanya mengizinkan
+  `next` yang diawali `/admin` (mencegah open redirect).
+- Tombol "Keluar" dirender di `base.html` HANYA kalau session admin aktif DAN
+  path diawali `/admin` - halaman pencarian tidak pernah memperlihatkannya.
+- Halaman pencarian (`/`, `/hasil`, `/api/saran`, `/pdf/<id>`) TIDAK butuh
+  login. Diverifikasi dengan test_client dan lewat waitress sungguhan.
+
+### Server produksi
+`run.py` sekarang memakai **waitress** secara bawaan (`threads=4`);
+`--dev` untuk server Flask + debugger. `--host`/`--port` bisa diubah.
+
+**Jebakan Windows yang ditemukan saat verifikasi:** waitress memasang
+`SO_REUSEADDR`, dan di Windows itu membuat DUA proses bisa mendengarkan
+port yang sama TANPA galat - request lalu jatuh ke salah satunya secara acak.
+Terbukti terjadi: dua server di 127.0.0.1:5000 bersamaan. Kalau `.bat`
+diklik dua kali, ini pasti terjadi. `run.py` sekarang mencoba
+`socket.create_connection` ke port itu dulu dan berhenti dengan pesan kalau
+sudah ada yang menjawab.
+
+### Berkas .bat (klik dua kali, untuk tim IT)
+- `jalankan-aplikasi.bat [port]`: cek venv -> cek .env -> cek koneksi MySQL
+  (memakai `create_app()` + `SELECT 1`, jadi sekaligus memicu
+  `periksa_konfigurasi`) -> buka browser -> `run.py --port`. Pesan `[GAGAL]`
+  dibedakan menurut jenis galat (Can't connect / Access denied / KONFIGURASI
+  BELUM LENGKAP).
+- `perbarui-data.bat`: cek yang sama, lalu `scripts/perbarui.py %*`, lalu
+  `pause` supaya ringkasan terbaca. Diuji sungguhan: menemukan 2 publikasi
+  baru yang dirilis BPS (72 -> 74, entri 5.975 -> 6.316, 0 diekstrak ulang,
+  179 detik) - jadi angka "72 publikasi / 5.975 entri" di bagian-bagian
+  sebelumnya adalah angka SAAT DITULIS; data hidup dan bertambah.
+- Ditulis ASCII + CRLF (cmd.exe rewel soal encoding).
+
+### Tombol "Terapkan ke data"
+Logika `isi_normalisasi.py` dipindah ke `app/services/normalisasi_data.py`
+(`jalankan(cetak=...)` mengembalikan dict ringkasan) supaya route admin tidak
+perlu mengimpor dari folder `scripts/`. `scripts/isi_normalisasi.py` tinggal
+pembungkus yang mencetak laporan rinci; nama `jalankan` dipertahankan karena
+`muat_ke_database.py` mengimpornya. Diuji: menambah varian "hotel" ke
+kelompok "banyaknya" lalu Terapkan mengubah persis 105 entri (semua yang
+memuat token "hotel"); menghapus varian lalu Terapkan lagi mengembalikan
+database ke keadaan awal byte-per-byte.
 
 ## Catatan lingkungan
 - WebAPI BPS hanya bisa diakses dari jaringan "BPS - Pegawai".

@@ -11,11 +11,12 @@
   {% endfor %}
 {% endwith %}
 
-<div class="kotak-perintah">
-  <strong>Setelah mengubah kamus</strong>, jalankan agar berlaku pada data:
-  <code>venv/Scripts/python.exe scripts/isi_normalisasi.py</code>
-  <span class="ringan">(tidak perlu memuat ulang database)</span>
-</div>
+<form method="post" action="{{ url_for('admin.terapkan') }}" class="kotak-perintah form-terapkan">
+  <span><strong>Setelah mengubah kamus</strong>, terapkan supaya berlaku pada
+    pencarian <span class="ringan">(sekitar 2 detik, tidak perlu memuat ulang
+    database)</span></span>
+  <button type="submit">Terapkan ke data</button>
+</form>
 
 <details class="lipat">
   <summary>Tambah kelompok baru</summary>

@@ -296,10 +296,20 @@ mark { background: #fff2a8; color: inherit; padding: 0 1px; border-radius: 2px; 
   background: #f7f9fc; border: 1px solid var(--garis); border-radius: 6px;
   padding: 10px 12px; font-size: 13px; margin: 12px 0;
 }
-.kotak-perintah code {
-  display: inline-block; background: #eef2f7; padding: 2px 6px;
-  border-radius: 3px; font-size: 12px;
+.form-terapkan { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.form-terapkan span:first-child { flex: 1; min-width: 240px; }
+.form-terapkan button {
+  padding: 8px 16px; background: var(--hijau); color: #fff; white-space: nowrap;
+  border: none; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: 600;
 }
+.form-terapkan button:hover { opacity: .9; }
+.kop-keluar { float: right; margin-top: 2px; }
+.kop-keluar button {
+  padding: 5px 12px; background: transparent; color: #fff;
+  border: 1px solid rgba(255,255,255,.6); border-radius: 4px;
+  cursor: pointer; font-size: 13px;
+}
+.kop-keluar button:hover { background: rgba(255,255,255,.15); }
 
 .lipat { margin: 12px 0; }
 .lipat summary { cursor: pointer; font-weight: 600; font-size: 14px; color: var(--biru); }
