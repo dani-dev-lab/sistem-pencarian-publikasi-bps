@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% block judul %}Perbarui Data &mdash; Admin{% endblock %}
+
+{% block kepala %}
+  {# Tanpa JavaScript: halaman memuat ulang dirinya tiap 5 detik selama
+     pembaruan berjalan, jadi kemajuan dan ringkasan akhir tetap terlihat.
+     Dengan JavaScript, pembaruan.js mengalirkan keluaran secara langsung
+     dan <noscript> ini tidak berlaku. #}
+  {% if berjalan or pid_lain %}<noscript><meta http-equiv="refresh" content="5"></noscript>{% endif %}
+{% endblock %}
+
+{% macro ringkasan_hasil(r) %}
+  {% if r.status == "tidak_ada_baru" %}
+    <p class="kabar kabar-sukses">Tidak ada publikasi baru. {{ r.jumlah_publikasi }}
+      publikasi di daftar BPS semuanya sudah terindeks.
+      <span class="ringan">({{ r.durasi_detik }} detik)</span></p>
+  {% elif r.status == "sukses" %}
+    <p class="kabar kabar-sukses">Pembaruan selesai:
+      <strong>{{ r.publikasi_baru|length }} publikasi baru</strong>,
+      entri dokumen {{ r.entri_sebelum }} &rarr; {{ r.entri_sesudah }}
+      (+{{ r.entri_sesudah - r.entri_sebelum }}). Total {{ r.jumlah_publikasi }}
+      publikasi. Data baru langsung bisa dicari.
+      <span class="ringan">({{ r.durasi_detik }} detik)</span></p>
+    {% if r.publikasi_baru %}
+    <ul class="ringkasan-pembaruan">
+      {% for p in r.publikasi_baru %}
+        <li>{{ p.judul }} <span class="ringan">&mdash; {{ p.entri }} bagian terindeks</span></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  {% elif r.status == "gagal" %}
+    {% if r.jaringan %}
+      <p class="kabar kabar-gagal"><strong>Tidak bisa terhubung ke WebAPI BPS.</strong>
+        Pastikan komputer ini tersambung ke jaringan <strong>&ldquo;BPS - Pegawai&rdquo;</strong>
+        (jaringan &ldquo;BPS - Tamu&rdquo; memblokir akses), lalu coba lagi.
+        Data yang sudah ada tetap utuh.</p>
+    {% else %}
+      <p class="kabar kabar-gagal"><strong>Pembaruan gagal</strong> di tahap {{ r.tahap }}.
+        Data yang sudah ada tetap utuh dan pembaruan aman diulang. Kalau gagal lagi,
+        hubungi tim IT dan sertakan catatan proses di bawah.</p>
+    {% endif %}
+  {% endif %}
+{% endmacro %}
+
+{% block konten %}
+<p class="tautan-balik"><a href="{{ url_for('admin.beranda') }}">&larr; Admin</a></p>
+<h1 class="judul-admin">Perbarui data publikasi</h1>
+
+{% with pesan = get_flashed_messages(with_categories=true) %}
+  {% for kategori, teks in pesan %}
+    <p class="kabar kabar-{{ kategori }}">{{ teks }}</p>
+  {% endfor %}
+{% endwith %}
+
+{% if berjalan %}
+  {# ------------------------- sedang berjalan ------------------------- #}
+  <p class="kabar kabar-sukses">&#9203; <strong>Pembaruan sedang berjalan</strong>
+    sejak {{ waktu_mulai }}. Baris baru muncul di bawah selama proses berjalan.</p>
+  <p class="peringatan">Menutup halaman ini <strong>tidak</strong> menghentikan
+    pembaruan &mdash; proses tetap berjalan di server dan halaman ini bisa
+    dibuka lagi kapan saja untuk melihat kelanjutannya. Yang menghentikan
+    pembaruan hanya mematikan aplikasinya.</p>
+  <form method="post" action="{{ url_for('admin.perbarui_mulai') }}">
+    <button type="submit" class="tombol-utama" disabled>Pembaruan sedang berjalan&hellip;</button>
+  </form>
+  <pre id="log-pembaruan" class="log-pembaruan" data-berjalan="1"
+       data-dari="{{ baris|length }}"
+       data-url="{{ url_for('admin.perbarui_aliran') }}">{{ baris|join("\n") }}</pre>
+
+{% elif pid_lain %}
+  {# ------------- berjalan dari .bat / terminal, bukan dari sini ------------- #}
+  <p class="kabar kabar-sukses">&#9203; <strong>Pembaruan sedang berjalan</strong>
+    dari jendela terminal / <code>perbarui-data.bat</code> (proses {{ pid_lain }}).
+    Kemajuannya hanya terlihat di jendela itu; halaman ini akan bisa dipakai lagi
+    begitu proses itu selesai.</p>
+  <form method="post" action="{{ url_for('admin.perbarui_mulai') }}">
+    <button type="submit" class="tombol-utama" disabled>Pembaruan sedang berjalan&hellip;</button>
+  </form>
+  <div id="log-pembaruan" data-poll="5" hidden></div>
+
+{% else %}
+  {# ------------------------------ siap ------------------------------ #}
+  {# Waktu selalu ditampilkan: ringkasan bisa berasal dari run .bat yang
+     dijalankan tim IT setelah run web terakhir, dan pembaca berhak tahu itu. #}
+  {% if ringkasan %}<p class="ringan">Pembaruan terakhir selesai {{ waktu_ringkasan }}.</p>{% endif %}
+  {% if selesai_sesi_ini %}
+    {% if dari_sesi_ini %}
+      {{ ringkasan_hasil(ringkasan) }}
+    {% elif kode_keluar == 2 %}
+      <p class="kabar kabar-gagal">Pembaruan tidak dijalankan karena ada pembaruan
+        lain yang sedang berjalan saat itu. Coba lagi sekarang.</p>
+    {% else %}
+      <p class="kabar kabar-gagal">Pembaruan berhenti sebelum selesai (kode {{ kode_keluar }}).
+        Data yang sudah ada tetap utuh. Lihat catatan proses di bawah; kalau
+        terulang, hubungi tim IT.</p>
+    {% endif %}
+  {% elif ringkasan %}
+    {{ ringkasan_hasil(ringkasan) }}
+  {% endif %}
+
+  <p>Mengambil daftar publikasi terbaru dari WebAPI BPS, mengunduh PDF publikasi
+    yang belum ada, membaca strukturnya, dan memasukkannya ke database supaya
+    bisa dicari. Publikasi yang sudah ada tidak diproses ulang.</p>
+  <ul class="langkah-pembaruan">
+    <li><strong>Syarat:</strong> komputer ini harus tersambung ke jaringan
+      <strong>&ldquo;BPS - Pegawai&rdquo;</strong>. Jaringan &ldquo;BPS - Tamu&rdquo;
+      memblokir WebAPI BPS.</li>
+    <li><strong>Lama:</strong> sekitar 2 menit kalau tidak ada publikasi baru
+      (memeriksa 65+ halaman daftar, dengan jeda 1 detik per halaman sesuai
+      ketentuan BPS), ditambah 20&ndash;90 detik per publikasi baru.</li>
+    <li><strong>Aman:</strong> pencarian tetap bisa dipakai selama pembaruan.
+      Kalau gagal di tengah, data lama tetap utuh dan pembaruan bisa diulang.</li>
+  </ul>
+  <form method="post" action="{{ url_for('admin.perbarui_mulai') }}">
+    <button type="submit" class="tombol-utama">Mulai pembaruan</button>
+  </form>
+
+  {% if baris %}
+  <details class="lipat">
+    <summary>Catatan proses pembaruan terakhir ({{ baris|length }} baris)</summary>
+    <pre class="log-pembaruan">{{ baris|join("\n") }}</pre>
+  </details>
+  {% endif %}
+{% endif %}
+{% endblock %}
+
+{% block skrip %}
+{% if berjalan or pid_lain %}
+  <script src="{{ url_for('static', filename='js/pembaruan.js') }}" defer></script>
+{% endif %}
+{% endblock %}

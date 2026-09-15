@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block judul %}Pencarian Publikasi BPS Kalsel{% endblock %}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% block kepala %}{% endblock %}
 </head>
 <body class="{% block kelas_body %}{% endblock %}">
   <header class="kop">
@@ -33,5 +34,6 @@
 
   <!-- Peningkatan opsional. Kolom pencarian tetap berfungsi tanpa berkas ini. -->
   <script src="{{ url_for('static', filename='js/saran.js') }}" defer></script>
+  {% block skrip %}{% endblock %}
 </body>
 </html>

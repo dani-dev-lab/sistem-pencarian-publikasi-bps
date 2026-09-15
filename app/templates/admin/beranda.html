@@ -15,6 +15,11 @@
     <p class="angka">{{ jumlah_lemah }}</p>
     <p class="ket">kueri lemah dari {{ jumlah_log }} pencarian</p>
   </a>
+  <a href="{{ url_for('admin.perbarui') }}">
+    <h2>Perbarui Data</h2>
+    <p class="angka">{% if pembaruan_berjalan %}&#9203;{% else %}&#8635;{% endif %}</p>
+    <p class="ket">{% if pembaruan_berjalan %}sedang berjalan{% else %}ambil publikasi baru dari BPS{% endif %}</p>
+  </a>
   <a href="{{ url_for('admin.ganti_sandi') }}">
     <h2>Ganti Kata Sandi</h2>
     <p class="angka">&#128273;</p>

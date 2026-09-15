@@ -26,3 +26,7 @@ env/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Jejak pembaruan data (kunci PID + ringkasan hasil terakhir)
+data/pembaruan.lock
+data/pembaruan_terakhir.json

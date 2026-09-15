@@ -85,7 +85,8 @@ kosong, dan menampilkan pesan yang menjelaskan cara mengisinya. Ini
 disengaja: lebih baik tidak jalan daripada jalan tanpa pengaman.
 
 Setelah `.env` terisi, jalankan `perbarui-data.bat` sekali (bagian 4) untuk
-mengisi database, lalu `jalankan-aplikasi.bat` (bagian 3).
+mengisi database pertama kali, lalu `jalankan-aplikasi.bat` (bagian 3).
+Pembaruan berikutnya bisa dilakukan pengelola dari browser.
 
 ---
 
@@ -137,20 +138,47 @@ BPS Kalsel merilis publikasi baru secara berkala. Publikasi baru **tidak
 otomatis** masuk ke aplikasi; jalankan pembaruan secara manual, misalnya
 seminggu sekali atau setiap ada rilis.
 
-1. Pastikan komputer tersambung ke jaringan **"BPS - Pegawai"**. Jaringan
-   "BPS - Tamu" **memblokir** WebAPI BPS — pembaruan akan gagal dengan pesan
-   soal jaringan.
-2. Pastikan MySQL aktif (Laragon → Start All).
-3. Klik dua kali `perbarui-data.bat`.
-4. Tunggu sampai muncul `PEMBARUAN SELESAI`. Jendela tetap terbuka supaya
-   ringkasannya bisa dibaca; tekan sembarang tombol untuk menutup.
+### Cara utama: dari halaman admin di browser
 
-Selama berjalan, layar terus menampilkan kemajuan: di tahap pertama baris
-`halaman 12/65 ... OK` muncul satu per satu (sekitar satu baris per detik),
-di tahap ekstraksi muncul nama publikasi yang sedang dibaca. Kalau layar
-diam lebih dari satu menit tanpa baris baru, barulah patut dicurigai.
+1. Pastikan komputer yang menjalankan aplikasi tersambung ke jaringan
+   **"BPS - Pegawai"**. Jaringan "BPS - Tamu" **memblokir** WebAPI BPS.
+2. Buka `http://localhost:5000/admin/`, masuk, klik kartu **Perbarui Data**
+   (atau buka `/admin/perbarui`).
+3. Baca penjelasan singkatnya, lalu klik **Mulai pembaruan**.
+4. Kemajuan proses tampil langsung di halaman, baris demi baris — di tahap
+   pertama muncul `halaman 12/66 ... OK` kira-kira satu baris per detik. Itu
+   tanda proses berjalan normal.
+5. Begitu selesai, halaman menampilkan ringkasannya: berapa publikasi baru
+   dan berapa bagian terindeks, atau "Tidak ada publikasi baru".
 
-Berapa lama:
+Yang perlu diketahui:
+
+- **Menutup halaman tidak menghentikan pembaruan.** Prosesnya berjalan di
+  server, bukan di browser. Halaman bisa dibuka lagi kapan saja untuk melihat
+  kelanjutannya; kalau sudah selesai, ringkasannya yang tampil. Yang
+  menghentikan pembaruan hanya mematikan aplikasinya (menutup jendela hitam).
+- **Tidak bisa dijalankan dua kali bersamaan.** Selama pembaruan berjalan,
+  tombolnya nonaktif dan halaman menampilkan "Pembaruan sedang berjalan" —
+  termasuk kalau yang menjalankannya adalah tim IT lewat `perbarui-data.bat`
+  di komputer yang sama. Dua pembaruan bersamaan bisa saling menimpa data,
+  jadi aplikasi menolaknya di kedua arah.
+- Kalau gagal, halaman menjelaskan sebabnya dengan bahasa biasa. Yang paling
+  sering: tidak tersambung ke "BPS - Pegawai". Data lama tetap utuh, tinggal
+  coba lagi setelah jaringan beres.
+- Halaman ini tetap berfungsi tanpa JavaScript: halamannya memuat ulang
+  sendiri tiap 5 detik sampai ringkasan tampil.
+
+### Cara cadangan untuk tim IT: `perbarui-data.bat`
+
+Melakukan hal yang persis sama dari jendela Command Prompt — berguna kalau
+aplikasi sedang tidak berjalan atau halaman admin bermasalah. Pastikan MySQL
+aktif, klik dua kali `perbarui-data.bat`, tunggu `PEMBARUAN SELESAI`, tekan
+sembarang tombol untuk menutup. Kalau muncul `TIDAK DIJALANKAN: pembaruan
+lain sedang berjalan`, berarti pengelola sedang menjalankannya dari browser —
+tunggu saja. Hasil run lewat `.bat` juga tampil di halaman admin sebagai
+"Pembaruan terakhir".
+
+### Berapa lama
 
 - **Tidak ada publikasi baru:** sekitar 2 menit (memeriksa 65+ halaman
   daftar di WebAPI, dengan jeda 1 detik per halaman sesuai ketentuan BPS).
@@ -159,11 +187,11 @@ Berapa lama:
   yang lama tidak dibaca ulang.
 
 Aplikasi **tidak perlu di-restart** setelah pembaruan — data baru langsung
-bisa dicari. Aplikasi juga boleh tetap berjalan selama pembaruan.
+bisa dicari, dan pencarian tetap bisa dipakai selama pembaruan berjalan.
 
 Kalau pembaruan gagal di tengah jalan, tidak ada yang rusak: proses berhenti
 dengan pesan, data lama tetap utuh, dan bisa diulang begitu penyebabnya
-diperbaiki. Penyebab paling umum adalah jaringan.
+diperbaiki.
 
 Catatan: pembaruan mengambil publikasi yang dirilis **2 tahun terakhir**
 (tahun berjalan dan tahun sebelumnya), dihitung otomatis dari tanggal
@@ -257,7 +285,7 @@ di jaringan kantor, hal-hal berikut perlu disiapkan oleh tim IT:
 | **Firewall / pembatasan akses** | Batasi port aplikasi hanya ke subnet PST. Idealnya `/admin/` dibatasi lebih ketat lagi (mis. hanya dari alamat tertentu) di proxy. |
 | **Pencadangan database** | Database `db_pencarian_bps` bisa dibangun ulang dari WebAPI dan PDF (bagian 4), kecuali tabel `log_pencarian` (riwayat pencarian petugas) yang tidak bisa dipulihkan. Cadangkan berkala dengan `mysqldump`. Cadangkan juga `data/kamus_sinonim.json` dan `.env`. |
 | **Menjalankan sebagai layanan** | Sekarang aplikasi berjalan di jendela Command Prompt yang harus dibiarkan terbuka. Untuk berjalan otomatis saat komputer menyala, daftarkan `jalankan-aplikasi.bat` di Task Scheduler (*At startup*) atau bungkus dengan NSSM sebagai Windows Service. |
-| **Pembaruan berkala** | `perbarui-data.bat` bisa dijadwalkan lewat Task Scheduler, mis. tiap Senin pagi, di komputer yang tersambung "BPS - Pegawai". |
+| **Pembaruan berkala** | Pengelola bisa memperbarui dari halaman admin (bagian 4). Kalau ingin otomatis, `perbarui-data.bat` bisa dijadwalkan lewat Task Scheduler, mis. tiap Senin pagi, di komputer yang tersambung "BPS - Pegawai" — pengaman "satu pembaruan pada satu waktu" tetap berlaku antara jadwal dan tombol di browser. |
 | **Kerahasiaan `.env`** | Berisi API key BPS dan sandi database. Jangan disalin ke tempat bersama; batasi hak baca berkasnya. Perhatikan: halaman Ganti Kata Sandi **menulis ulang** baris `ADMIN_PASSWORD_HASH` di berkas ini, jadi akun yang menjalankan aplikasi harus punya hak tulis ke `.env`. |
 | **Pemulihan kata sandi admin** | Kalau pengelola lupa sandi, hanya bisa disetel ulang dari server: buka Command Prompt di folder proyek, jalankan `venv\Scripts\python.exe scripts\buat_hash_sandi.py`, ketik sandi baru dua kali (tidak tampil di layar, minimal 8 karakter), lalu salin baris `ADMIN_PASSWORD_HASH=...` yang dicetak ke `.env` menggantikan baris lama. Hentikan dan jalankan ulang aplikasi — jalur ini tidak membaca ulang `.env` secara otomatis. Prosedur yang sama dipakai saat pemasangan pertama (bagian 2). |
 

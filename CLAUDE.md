@@ -299,6 +299,7 @@ Aturan yang berlaku:
 
   | Masuk / keluar | `/admin/login` (GET+POST) / `/admin/logout` (POST) |
   | Ganti kata sandi | `http://localhost:5000/admin/sandi` |
+  | Perbarui data dari BPS | `http://localhost:5000/admin/perbarui` |
 
   Ini mekanisme perawatan kamus sinonim SETELAH masa magang selesai - jangan
   dihapus. Setelah mengubah kamus lewat halaman ini, klik tombol
@@ -397,6 +398,66 @@ terminal. Ikut penjaga `before_request` (tidak ada dekorator khusus).
   `.tmp` tersisa, sandi lama ditolak dan baru diterima tanpa restart.
 - `scripts/buat_hash_sandi.py` tetap ada sebagai jalur pemulihan kalau sandi
   lupa (butuh akses server) - dicatat di PANDUAN.md bagian tanggung jawab IT.
+
+### Pembaruan data dari browser (`/admin/perbarui`)
+Alasan: mentor/pengelola adalah petugas PST, tidak nyaman menjalankan .bat.
+Bedanya dengan "Terapkan ke data": 2-5 menit, bukan 2 detik - jadi TIDAK
+dijalankan di dalam request.
+
+Rancangan (`app/services/pembaruan.py`):
+- Satu thread latar (daemon) menjalankan `scripts/perbarui.py` sebagai
+  subprocess (`-u`, `PYTHONUTF8=1`) dan menampung tiap baris keluarannya di
+  memori proses server. Request hanya MEMBACA tampungan itu. Karena itu
+  menutup tab tidak menghentikan apa pun; yang menghentikan hanya mematikan
+  server - dan bahkan itu tidak membunuh subprocess-nya (Windows tidak
+  mematikan anak proses saat induknya keluar), sementara tiap tahap
+  perbarui.py menulis atomik dan aman diulang.
+- `GET /admin/perbarui/aliran?dari=N` = streaming response Flask (generator,
+  `text/plain`) yang mengeluarkan baris ke-N dan seterusnya sampai proses
+  selesai. Waitress meneruskannya tanpa menahan: diukur dengan `curl -N`,
+  satu baris tiap ~1,5 detik ("halaman 14/66 ... OK"), bukan sekaligus.
+- `pembaruan.js` menarik aliran itu dengan `fetch` + `ReadableStream` dan
+  menempelkannya ke `<pre>`; begitu aliran habis -> `location.reload()`
+  supaya ringkasan dirender SERVER (satu jalur render untuk JS dan non-JS).
+  Tanpa JS: `<noscript><meta http-equiv="refresh" content="5">` di `<head>`.
+- Ringkasan akhir dibaca dari `data/pembaruan_terakhir.json` yang DITULIS
+  perbarui.py sendiri (status sukses / tidak_ada_baru / gagal + flag
+  jaringan), bukan ditebak dari teks log. Ditulis di jalur .bat juga, jadi
+  halaman admin tahu hasil run tim IT dari terminal. Berkas ini dan kuncinya
+  di-gitignore.
+
+**Pengaman "satu pembaruan pada satu waktu" ada di perbarui.py, bukan hanya
+di aplikasi.** Berkas `data/pembaruan.lock` berisi PID; `perbarui.py`
+menolak jalan (exit 2) kalau PID di dalamnya masih hidup, kunci basi (PID
+mati - sisa proses yang dibunuh/hibernate) ditimpa. Ini yang menjaga jalur
+web DAN .bat sekaligus, di arah mana pun. Diuji dengan skenario lapangan
+paling mungkin: pengelola mengklik tombol di browser, lalu tim IT
+menjalankan `perbarui-data.bat` 6 detik kemudian -> .bat berhenti dalam
+1 detik dengan "TIDAK DIJALANKAN: pembaruan lain sedang berjalan", web-run
+tetap hidup dan selesai normal. Di dalam aplikasi ada lock kedua (in-memory)
+untuk menonaktifkan tombol dan menolak POST kedua.
+
+**Jebakan Windows: `os.kill(pid, 0)` MEMBUNUH proses.** Idiom POSIX
+"kirim sinyal 0 untuk memeriksa apakah PID hidup" di Windows diterjemahkan
+CPython menjadi `TerminateProcess` untuk sinyal apa pun selain
+CTRL_C_EVENT/CTRL_BREAK_EVENT. Memeriksa kunci dengan cara itu akan
+mematikan pembaruan yang sedang berjalan. Pemeriksaan PID memakai
+`OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION)` + `GetExitCodeProcess ==
+STILL_ACTIVE` lewat ctypes (`_proses_hidup` di perbarui.py, diduplikasi
+sebagai `_pid_hidup` di `app/services/pembaruan.py` supaya paket app tidak
+mengimpor dari `scripts/`).
+
+**Bukti pengaman #3 dari kejadian nyata, bukan uji terencana:** sesi
+pengembangan terputus (batas penggunaan) tepat setelah `POST
+/admin/perbarui/mulai` dikirim ke server uji - tidak ada tab, tidak ada
+request aliran, tidak ada yang menunggu. Saat sesi berikutnya diperiksa,
+pembaruan sudah selesai sendiri: `pembaruan_terakhir.json` berstatus
+`tidak_ada_baru` (111 detik), kunci sudah dilepas, `hasil_ekstraksi.json`
+tidak tersentuh, dan halaman merender keadaan "selesai" dengan benar.
+
+Verifikasi kesetaraan: run lewat web lalu run lewat .bat pada data yang
+sama -> himpunan pub_id, entri per publikasi, dan hitungan DB (75/6.366)
+identik di ketiga potret (sebelum / sesudah web / sesudah .bat).
 
 ### Server produksi
 `run.py` sekarang memakai **waitress** secara bawaan (`threads=4`);

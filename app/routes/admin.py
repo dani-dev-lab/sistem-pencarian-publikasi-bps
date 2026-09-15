@@ -1,4 +1,4 @@
-"""Endpoint admin: kelola kamus sinonim dan review log pencarian.
+"""Endpoint admin: kamus sinonim, review log, pembaruan data, ganti sandi.
 
 Seluruh /admin/* dilindungi SATU kata sandi bersama (hash-nya di .env sebagai
 ADMIN_PASSWORD_HASH), bukan akun per orang - cukup untuk beberapa petugas yang
@@ -10,6 +10,7 @@ import os
 
 from flask import (
     Blueprint,
+    Response,
     current_app,
     flash,
     redirect,
@@ -22,6 +23,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 from app.config import PANJANG_SANDI_MINIMAL, tulis_admin_hash
 from app.models import LogPencarian, db
+from app.services import pembaruan
 from app.services.normalisasi_data import jalankan as terapkan_normalisasi
 from app.services.preprocessing import muat_ulang_kamus, normalisasi
 
@@ -192,6 +194,7 @@ def beranda():
         jumlah_lemah=LogPencarian.query.filter(
             db.or_(LogPencarian.jumlah_hasil == 0,
                    LogPencarian.skor_tertinggi < AMBANG_KUERI_LEMAH)).count(),
+        pembaruan_berjalan=pembaruan.sedang_berjalan(),
     )
 
 
@@ -299,6 +302,68 @@ def terapkan():
               f"{ringkasan['publikasi_total']} publikasi diperbarui "
               f"(sisanya sudah sesuai).", "sukses")
     return redirect(url_for("admin.kamus"))
+
+
+# --------------------------------------------------------------------------
+# Pembaruan data dari WebAPI BPS
+# --------------------------------------------------------------------------
+
+def _waktu_lokal(dt):
+    return dt.astimezone().strftime("%d-%m-%Y %H:%M") if dt else None
+
+
+@bp.get("/perbarui")
+def perbarui():
+    """Satu halaman untuk tiga keadaan: siap dimulai / sedang berjalan / selesai.
+
+    Ringkasan hasil TIDAK ditebak dari teks log - dibaca dari
+    data/pembaruan_terakhir.json yang ditulis perbarui.py sendiri. Karena
+    berkas itu ditulis di jalur .bat juga, halaman ini tetap tahu hasil
+    pembaruan terakhir meski dijalankan tim IT dari terminal.
+    """
+    k = pembaruan.keadaan()
+    pid_lain = None if k["berjalan"] else pembaruan.pid_proses_lain()
+    ringkasan = pembaruan.ringkasan_terakhir()
+
+    # Ringkasan dianggap milik run di sesi ini hanya kalau ditulis SETELAH
+    # run itu dimulai; kalau tidak, proses berhenti sebelum sempat menulis.
+    dari_sesi_ini = bool(
+        k["selesai"] and ringkasan and ringkasan["selesai_pada"]
+        and ringkasan["selesai_pada"] >= k["mulai"])
+
+    return render_template(
+        "admin/perbarui.html",
+        berjalan=k["berjalan"], pid_lain=pid_lain,
+        baris=k["baris"], kode_keluar=k["kode_keluar"],
+        selesai_sesi_ini=bool(k["selesai"]), dari_sesi_ini=dari_sesi_ini,
+        ringkasan=ringkasan,
+        waktu_ringkasan=_waktu_lokal(ringkasan["selesai_pada"]) if ringkasan else None,
+        waktu_mulai=_waktu_lokal(k["mulai"]),
+    )
+
+
+@bp.post("/perbarui/mulai")
+def perbarui_mulai():
+    if not pembaruan.mulai():
+        flash("Pembaruan sedang berjalan. Tunggu sampai selesai - dua pembaruan "
+              "bersamaan bisa saling menimpa data.", "gagal")
+    return redirect(url_for("admin.perbarui"))
+
+
+@bp.get("/perbarui/aliran")
+def perbarui_aliran():
+    """Keluaran proses sebagai teks yang mengalir; berhenti saat proses usai.
+
+    Dipakai pembaruan.js. Tanpa JS, halaman /admin/perbarui memuat ulang
+    dirinya tiap 5 detik lewat <meta refresh> di <noscript>.
+    """
+    try:
+        dari = max(0, int(request.args.get("dari", 0)))
+    except ValueError:
+        dari = 0
+    return Response(pembaruan.aliran(dari), mimetype="text/plain",
+                    headers={"Cache-Control": "no-cache",
+                             "X-Accel-Buffering": "no"})
 
 
 # --------------------------------------------------------------------------

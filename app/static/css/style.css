@@ -278,6 +278,27 @@ mark { background: #fff2a8; color: inherit; padding: 0 1px; border-radius: 2px; 
 .catatan-admin { margin-top: 28px; font-size: 13px; color: var(--kuning); }
 .catatan-admin code { font-family: Consolas, monospace; font-size: 12px; }
 
+/* pembaruan data */
+.peringatan {
+  background: #fff8e1; border: 1px solid #f0d78c; border-left: 4px solid var(--kuning);
+  color: #5c3d00; padding: 10px 12px; border-radius: 5px; font-size: 14px; margin: 12px 0;
+}
+.tombol-utama {
+  padding: 10px 20px; background: var(--biru); color: #fff; border: none;
+  border-radius: 4px; cursor: pointer; font-size: 14px; font-weight: 600;
+}
+.tombol-utama:hover { background: var(--biru-tua); }
+.tombol-utama:disabled { background: #9aa7b8; cursor: not-allowed; }
+.log-pembaruan {
+  background: #1e2430; color: #d6dbe4; font-family: Consolas, monospace;
+  font-size: 12px; line-height: 1.4; padding: 10px 12px; border-radius: 6px;
+  max-height: 440px; overflow: auto; white-space: pre-wrap; margin: 10px 0 0;
+}
+.ringkasan-pembaruan { margin: 12px 0; padding-left: 20px; font-size: 14px; }
+.ringkasan-pembaruan li { margin: 3px 0; }
+.langkah-pembaruan { font-size: 14px; padding-left: 20px; }
+.langkah-pembaruan li { margin: 4px 0; }
+
 .kartu-admin {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 14px; margin-top: 18px;

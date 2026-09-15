@@ -60,7 +60,13 @@ echo.
 python scripts\perbarui.py %*
 
 echo.
-if errorlevel 1 (
+if errorlevel 2 (
+    echo ==========================================================
+    echo   TIDAK DIJALANKAN: pembaruan lain sedang berjalan.
+    echo ==========================================================
+    echo   Kemungkinan pengelola sedang menjalankannya dari halaman admin
+    echo   di browser. Tunggu sampai selesai, lalu coba lagi kalau perlu.
+) else if errorlevel 1 (
     echo ==========================================================
     echo   PEMBARUAN GAGAL - baca pesan di atas.
     echo ==========================================================
