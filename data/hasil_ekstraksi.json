@@ -1,8 +1,8 @@
 {
   "selesai": true,
-  "publikasi_terproses": 74,
-  "total_publikasi": 74,
-  "diperbarui_pada": "2026-09-14T05:45:18+00:00",
+  "publikasi_terproses": 75,
+  "total_publikasi": 75,
+  "diperbarui_pada": "2026-09-15T00:27:08+00:00",
   "hasil": [
     {
       "publikasi_id": "09436841e9f939584a01daa4",
@@ -40931,6 +40931,493 @@
       "sidik_pdf": [
         2579505,
         1787893394
+      ]
+    },
+    {
+      "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+      "judul": "Profil Industri Mikro dan Kecil Provinsi Kalimantan Selatan 2025",
+      "heading_ditemukan": [
+        "gambar",
+        "isi",
+        "tabel"
+      ],
+      "jumlah_entri": 50,
+      "per_tipe": {
+        "isi": 8,
+        "tabel": 35,
+        "gambar": 7
+      },
+      "tanpa_halaman": 1,
+      "mode_tanpa_label": [],
+      "dari_daftar": 50,
+      "dari_badan": 35,
+      "halaman_fisik_dilengkapi": 6,
+      "per_sumber": {
+        "daftar": 15,
+        "keduanya": 35
+      },
+      "sidik_pdf": [
+        3823661,
+        1789432018
+      ],
+      "galat": null,
+      "entri": [
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "KATA PENGANTAR",
+          "halaman": "v",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "DAFTAR ISI",
+          "halaman": "vii",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "DAFTAR TABEL",
+          "halaman": "ix",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "DAFTAR GAMBAR",
+          "halaman": "xiii",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "PENJELASAN UMUM",
+          "halaman": "1",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "GAMBARAN UMUM",
+          "halaman": "11",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "TABEL–TABEL",
+          "halaman": "19",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "DAFTAR PUSTAKA",
+          "halaman": "61",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "1",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Kelompok Pekerja, 2025 Kode Klasifikasi Baku Lapangan Kelompok Pekerja Jumlah",
+          "halaman": "21",
+          "halaman_fisik": 37,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "2",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Modal Usaha, 2025 Kode Klasifikasi Modal Usaha (Miliar Rupiah) Baku",
+          "halaman": "22",
+          "halaman_fisik": 38,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "3",
+          "judul": "Banyaknya Usaha/Perusahaan, Pekerja, Pendapatan, Pengeluaran, dan Balas Jasa Pekerja pada Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia, 2025 Kode Klasifikasi Pekerja (Orang)",
+          "halaman": "23",
+          "halaman_fisik": 39,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "4",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Bentuk Izin Usaha/Badan Usaha/Badan Hukum, 2025 Kode Klasifikasi Status Badan Hukum/Usaha",
+          "halaman": "24",
+          "halaman_fisik": 40,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "5",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil dan Rata–rata Jam Kerja per Hari menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Jumlah Hari Kerja dalam Sebulan, 2025 Jumlah Hari Kerja Dalam Sebulan Jumlah",
+          "halaman": "25",
+          "halaman_fisik": 41,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "6",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Tingkat Pendidikan yang Ditamatkan Pengusaha, 2025 Kode Tingkat Pendidikan yang Ditamatkan Pengusaha",
+          "halaman": "26",
+          "halaman_fisik": 42,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "7",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Kelompok Umur Pengusaha, 2025 Kode Klasifikasi Kelompok Umur Pengusaha Baku",
+          "halaman": "27",
+          "halaman_fisik": 43,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "8",
+          "judul": "Banyaknya Pekerja pada Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Kelompok Umur Pekerja, 2025 Kelompok Umur Pekerja Kode Klasifikasi",
+          "halaman": "28",
+          "halaman_fisik": 44,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "9",
+          "judul": "Banyaknya Pekerja pada Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Tingkat Pendidikan yang Ditamatkan Pekerja, 2025 Kode Tingkat Pendidikan yang Ditamatkan Pekerja Jumlah",
+          "halaman": "29",
+          "halaman_fisik": 45,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "10",
+          "judul": "Banyaknya Pekerja pada Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia, Jenis Pekerja, dan Jenis Kelamin, 2025 Kode Klasifikasi Jenis pekerja Jenis Kelamin Baku Lapangan",
+          "halaman": "30",
+          "halaman_fisik": 46,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "11",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Besarnya Balas Jasa per Pekerja Dibayar per Jam (Rupiah), 2025 Kode Banyaknya",
+          "halaman": "31",
+          "halaman_fisik": 47,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "12",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Besaran Pendapatan Setahun, 2025 Besaran Pendapatan Setahun (Rupiah) Kode Klasifikasi",
+          "halaman": "32",
+          "halaman_fisik": 48,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "13",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Sumber Modal, 2025 Kode Sumber Modal",
+          "halaman": "33",
+          "halaman_fisik": 49,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "14",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Sumber Modal Utama, 2025 Kode Sumber Modal Sumber Modal Utama",
+          "halaman": "34",
+          "halaman_fisik": 50,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "15",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil yang Memanfaatkan Pinjaman menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Alasan Utama Tidak Meminjam dari Bank, 2025 Kode Alasan Utama Tidak Meminjam dari Bank",
+          "halaman": "36",
+          "halaman_fisik": 52,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "16",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil yang Memanfaatkan Pinjaman menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Besarnya Pinjaman Bank, 2025 Kode Banyaknya Meminjam dari",
+          "halaman": "38",
+          "halaman_fisik": 54,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "17",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Teknologi Proses Kegiatan dan Kode Klasifikasi Baku Lapangan Usaha Indonesia, 2025 Kode Teknologi Proses Kegiatan",
+          "halaman": "39",
+          "halaman_fisik": 55,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "18",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Jenis Kesulitan, 2025 Kode Mengalami Kesulitan Jenis Kesulitan Klasifikasi",
+          "halaman": "40",
+          "halaman_fisik": 56,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "19",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil yang Menjalin Kemitraan dengan Usaha Lain menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Jenis Kemitraan yang Diterima, 2025 Kode Menjalin Kemitraan Jenis Kemitraan yang Diterima Klasifikasi",
+          "halaman": "42",
+          "halaman_fisik": 58,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "20",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia, kepemilikan Sertifikat dan Jenis Sertifikasi yang Dimiliki, 2025 Memiliki Sertifikat Hak Kode Jenis Sertifikasi yang Dimiliki",
+          "halaman": "43",
+          "halaman_fisik": 59,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "21",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Badan/Lembaga yang Memberi Bantuan, 2025 x Profil Industri Mikro dan Kecil Provinsi Kalimantan Selatan2025",
+          "halaman": "44",
+          "halaman_fisik": 60,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "22",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Jenis Bimbingan/Pelatihan/Penyuluhan (BPP), 2025 Kode Pernah Menerima Jenis BPP",
+          "halaman": "46",
+          "halaman_fisik": 61,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "23",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Asal Perolehan Bahan Baku, 2025",
+          "halaman": "47",
+          "halaman_fisik": 62,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "24",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia, dan Pemanfaatan Internet, 2025",
+          "halaman": "48",
+          "halaman_fisik": 63,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "25",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Alasan Tidak Memanfaatkan Internet, 2025 Kode Alasan Tidak Memanfaatkan Pemanfaatan Internet",
+          "halaman": "49",
+          "halaman_fisik": 64,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "26",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia, Konsumen, dan Banyaknya Hasil Produksi untuk Industri/Pelaku Komersial Lainnya, 2025 Kode Konsumen Klasifikasi",
+          "halaman": "50",
+          "halaman_fisik": 66,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "27",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Konsumen Utama, 2025 Kode Konsumen Utama Klasifikasi Baku Banyaknya Konsumen Industri/",
+          "halaman": "51",
+          "halaman_fisik": 68,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "28",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Alokasi Pemasaran, 2025 Alokasi Pemasaran Pemasaran ke Luar negeri Kode Klasifikasi",
+          "halaman": "53",
+          "halaman_fisik": 69,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "29",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia, Alokasi Utama Pemasaran, dan Pemasaran Ke Luar Negeri, 2025 Alokasi Utama Pemasaran Pemasaran ke Luar Negeri Kode",
+          "halaman": "54",
+          "halaman_fisik": 70,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "30",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia, Jenis Platform Pemasaran Produk dan Pemesanan Bahan Baku, 2025 Kode Jenis Platform Pemasaran Produk dan Pemesanan Bahan Baku",
+          "halaman": "55",
+          "halaman_fisik": 71,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "31",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Penjualan Produk dengan Metode Online, 2025 Kode Klasifikasi Penjualan Produk dengan Metode Online",
+          "halaman": "56",
+          "halaman_fisik": 72,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "32",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Pembelian Bahan Baku dengan Metode Online, 2025 Kode Klasifikasi Pembelian Bahan Baku dengan Metode Online",
+          "halaman": "57",
+          "halaman_fisik": 73,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "33",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Bentuk Inovasi, 2025 Kode Melakukan Inovasi Bentuk Inovasi Klasifikasi",
+          "halaman": "58",
+          "halaman_fisik": 74,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "34",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Pengembang Inovasi, 2025 Kode Melakukan Inovasi Pengembang Inovasi Klasifikasi",
+          "halaman": "59",
+          "halaman_fisik": 75,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "tabel",
+          "nomor": "35",
+          "judul": "Banyaknya Usaha/Perusahaan Industri Pengolahan Mikro dan Kecil menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia dan Sumber Penerangan Utama, 2025 xii Profil Industri Mikro dan Kecil Provinsi Kalimantan Selatan2025",
+          "halaman": "60",
+          "halaman_fisik": 76,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "gambar",
+          "nomor": null,
+          "judul": "URAIAN HALAMAN",
+          "halaman": null,
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "gambar",
+          "nomor": "1",
+          "judul": "Banyaknya Usaha Industri Mikro dan Kecil (IMK) Menurut KBLI 2–digit, 2025",
+          "halaman": "12",
+          "halaman_fisik": 28,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "gambar",
+          "nomor": "2",
+          "judul": "Jumlah Pekerja Industri Mikro dan Kecil Menurut Kelompok Umur, 2025",
+          "halaman": "13",
+          "halaman_fisik": 29,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "gambar",
+          "nomor": "3",
+          "judul": "Persentase Jumlah Usaha Industri Mikro dan Kecil Menurut Kelompok Balas Jasa per Jam (rupiah), 2025",
+          "halaman": "14",
+          "halaman_fisik": 30,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "gambar",
+          "nomor": "4",
+          "judul": "Jumlah Usaha Industri Mikro dan Kecil Menurut Kelompok Umur Pengusaha, 2025",
+          "halaman": "15",
+          "halaman_fisik": 31,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "gambar",
+          "nomor": "5",
+          "judul": "Jumlah Usaha Industri Mikro dan Kecil Menurut Tingkat Pendidikan yang Ditamatkan Pengusaha, 2025",
+          "halaman": "15",
+          "halaman_fisik": 32,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "b85c0a3e002f26d0e75b11d7",
+          "tipe": "gambar",
+          "nomor": "6",
+          "judul": "Jumlah Usaha Industri Mikro dan Kecil Menurut Jenis Kesulitan, 2025 xiii",
+          "halaman": "16",
+          "halaman_fisik": 33,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        }
       ]
     },
     {

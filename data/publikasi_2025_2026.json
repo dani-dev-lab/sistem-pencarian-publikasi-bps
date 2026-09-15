@@ -1,14 +1,32 @@
 {
-  "diambil_pada": "2026-09-14T08:15:44+00:00",
+  "diambil_pada": "2026-09-15T00:26:52+00:00",
   "domain": "6300",
   "filter_tahun_rilis": [
     2025,
     2026
   ],
-  "total_semua_tahun": 650,
-  "total_lolos_filter": 74,
+  "total_semua_tahun": 651,
+  "total_lolos_filter": 75,
   "halaman_gagal": [],
   "publikasi": [
+    {
+      "pub_id": "b85c0a3e002f26d0e75b11d7",
+      "title": "Profil Industri Mikro dan Kecil Provinsi Kalimantan Selatan 2025",
+      "abstract": "Industri pengolahan skala mikro dan kecil (IMK) mempunyai kontribusi cukup besar dalam menciptakan lapangan pekerjaan dan penyerapan tenaga kerja. IMK mampu bertahan hidup dari berbagai kondisi perekonomian. Namun demikian, pemerintah tetap perlu meningkatkan peranannya untuk meningkatkan kontribusi industri mikro dan kecil dalam perekonomian. Sejauh ini, pemerintah telah menjalankan sejumlah program dukungan, diantaranya bantuan insentif dan pembiayaan. Program-program tersebut membutuhkan data dan informasi sehingga bantuan yang diberikan tepat sasaran dan mampu menunjang keberhasilan pengembangan industri mikro dan kecil. Profil IMK 2025 merupakan publikasi yang datanya diperoleh dari hasil pelaksanaan Survei Industri Mikro dan Kecil 2025 (VIMK25) Tahunan. Data statistik yang disajikan dalam publikasi ini memberikan gambaran tentang keadaan IMK di Provinsi Kalimantan Selatan menurut Kode Klasifikasi Baku Lapangan Usaha Indonesia 2020 (KBLI 2020) 2-digit.",
+      "id_subject_csa": [
+        532
+      ],
+      "subject_csa": [
+        "Statistik Bisnis"
+      ],
+      "issn": "-",
+      "sch_date": "2026-09-15",
+      "rl_date": "2026-09-15",
+      "updt_date": "2026-09-10",
+      "cover": "https://webapi.bps.go.id/cover.php?f=xh4BYXzpo7rnX7s4vE5iSlZFMmJyM2FYVENYVkZWQ1Q1eWdCSzZGTGhCNzlYZUhjL1YybURjUXk0ZW5UcG5CbkhMOTRwMXVHaW5aRklEdGZINzhsQ3FwQktsdTdUZU9od0FUMUl2c0hHRzJvSWV4dlVmZU04WVFLeHpNME5LZUZ6djIyMjNuTk9FV1gzQzRW",
+      "pdf": "https://webapi.bps.go.id/download.php?f=rDpTSvOi4Dg287ONianpB2RNUWxuYTduY1dOWnhvWU9hUlBEblBTQUxYOVJGd3JaZThuRXl1ZlBwMXRRRGIxV04xLy9ROUlJMmF2clZGTzIweWxnOHUzSkw2QUJ4aUZFbFhLMXcrbmlUUVVpdTQ4Y2JoVjZwM1BrVWFLSXdoUXRNbnRwUFQzMzV2UUMyMjlDQ3R3UXg2SUxUb3pVaWlidVVTU3UxMUY1QUxDTXJVQ01EbEl6TWFLMnlMckd2SjdBN0Y2OVVwbzhkcTFuemR0ditZZFdYQTB2WDhmdFQ0a2hCL0tHMTBtSURjWEYxeE5zRlNzdXZJeS9HbGw4MFJzc0pGSGJwQ0ZQTGhGOGsrL2o0NGVDeTA4UUJ5OXRkSWhxRVAyaHpuMlpvYUZielhFRUxjRTVFYkE4eDV3PQ==",
+      "size": "3.55 MB"
+    },
     {
       "pub_id": "7d1c21c1e8e72b51d55d64e7",
       "title": "Gambaran Ekonomi Makro Provinsi Kalimantan Selatan Triwulan II-2026 (April-Juni)",
@@ -19,8 +37,8 @@
       "sch_date": "2026-09-04",
       "rl_date": "2026-09-04",
       "updt_date": "2026-09-01",
-      "cover": "https://webapi.bps.go.id/cover.php?f=TsuHohnLBWEo3goqNmaKLTVlZjB6ajJTQ0QzbkhMVzN3TURMWkNHNG5iK0pjRVFldVZqTUZBMzluZk1iaEVOL1J6a1FVbVMzNStoUHErcXFTc2Z2b3NycWw2bWFtS0tyZ3JiL1dEeGtHSUJaNUVEOGVtaDQ5TERlNFExTWJic1A4M1ZnWWdLVzVUSU9QQTRE",
-      "pdf": "https://webapi.bps.go.id/download.php?f=oH/MBch/ayiWsw/U2ICY6kRiNy80aDJwZWZLVDlRcm95KzR5bVI3UjFzcGZLcHZ6ODZjTVY3Nkt4YmdzdDFFL056dHcvZE9NUlkzVFArT05aeUtaS0ozbENZSGNCeEVkeWk4WHdNdFBGRWpjdSszUEVLZXNWZXVFaytTY3VLNzlWcFMxKzhkL3MxUEVsemZUVUNlajhORis4L2FUdk94SEx0MUM0RnoxU1pzeUIwWllyQ0U0d1lRdy9KRG80ZzM1OUFpOWRXUmZBTnZvWEZYUlhabUcwSWpWYWlVRmV2NHdEYlZiSlhtU1ZDV2NwQS92UndieG8xT21yR2pGaFU5ZXJmUW1FejVJVDMyQ2JsQ29MTzFZY2lVdXdLb2hWdkpOQnF6RnZLUTZ6ekVNditpYytBOTd2M2JXUnl4VjFBVC8vYXV1RzV2cWFDUW9pdE5i",
+      "cover": "https://webapi.bps.go.id/cover.php?f=/HcozD2kDq6/ehwnL3oQiVluQnBOU3kwVXhRWVlwbmhnejR0OFVkeDV1cVlUMVdFS053NDgrcHh2M1UzSnJ1ZFR5R3VGRUowMHJhamFRSjU4d3NNeHZQMEdlSTUxODdNcWtVaUtXeTdRMjJHeTBUMVI2S1pDQWpYaEJSb2VEcHpwUGZTS3I1VGdpblRiU3ZP",
+      "pdf": "https://webapi.bps.go.id/download.php?f=5hoB/oMbT9clC/59fTrkUjZJeC9NajBQc1JhK2s0bElueWVSdkprMVY3eHphVnI0Qlo4eUxBZ2NJM0lMZVl4QnBKRjl1SkZuMnNJaWdtWVVscUtYbGNqOG9FUEZ4Vjg4VzZxd0dRS3RrbXZpWWZCd1RaNjhpdlA4OEVmcmxSWENCTklDOHVrUStUTTdzaG1yR0hIZDBhSVI3RXFBeTZsbitXNEFvaGxwMWwxU1hqZnVOZUNwalJldDdwRUQvbzZtWTVqeDdpcGJQU0MxV09obHFvdm1hMUJmaVBENVNWV0xpZUNoODV4U05leFNtenh2YUpVSWhJQkhBTmhBbExxUVNSbEUvVUowN1FyeG9sYjZLKzZRSlMzbGdIUmJtRVVHc25ZRThjMXJkWHpDZXNnVVEwbmtaRU1TNnN2aXdYem8wWmZ5RGp1dUhicXZCaW01",
       "size": "10.97 MB"
     },
     {
@@ -37,8 +55,8 @@
       "sch_date": "2026-09-03",
       "rl_date": "2026-09-03",
       "updt_date": "2026-08-31",
-      "cover": "https://webapi.bps.go.id/cover.php?f=Ns86Zm3S3Wq/m8tAwG9VEkh2SkVLK1QvUzNkUkVsUm1CL3BMUzY0NHJlV2s5RXVCaGhJendOVitXL0crNkdrSFZtc3dUQ3U5SENvbmE1cWtNZEg2dmpWMkZYSFpNNzcxZmV4azBVa3FvUXZwaFJMYVJ4dVRtaTR0YkFIUnNoVldHeXZuOHFQTjUxL2JlRE5I",
-      "pdf": "https://webapi.bps.go.id/download.php?f=qU1LEUafyez8NxVNiczx6UNPMjVUSmlBSzlKaTZLUThkL05kUDlaY29sWlg0bHAyWjhrK2RyNmMwd0JpVWdidVJBWkFtazhNY0s5M1JvQkRyZ01NSHJCWmtGejJEM20rN3R5NVkrNTJqVzdpZlpxY1BzLzUzaEhsNUFvVzZQREMyajc2RkNMWklHbVZrTURrczVHZENQYkdwNVFrNk9jL1FsMDNOZy9oZWcwTUdXaUJIUFNSZmp1WCtGY212OXgwY2RvNnRjbnJHSFNqNk82VUhrSkJrWmcva3A3NUpWZkdvWGVpaEorOEplVndHRUpISmxMV0lKaS9QTFJIanV3VDBna3VURnhnNTFmbGh3T0taODViK3RKcHhCdDJIdGk2VVBhWWFKdVpCYTdxTHhqUzNMT2pMYnoxSlpNPQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=JZD0lAoZiGhV1DKn0276KU1YWFNwa243WGllNzMyZXUwVDdWNFpmQm9UZDFwRHlJMkduNlhxVW9hWUJBMVVUOGZmeEhNbDNzWFFhQURUNmovUlBxSkxIQ080NVVuV1RtZlBCODZkRG54WCtCaUx6ZEtHeGVFZUdJa2h2WG1pL0FlRmg2V3ZVM0dYUmxFWTdm",
+      "pdf": "https://webapi.bps.go.id/download.php?f=l+YMaHFW0zzvXMacILx6p1NpVDhHNitydjlEZkdIaVN4ektMdmpnWFV3S3ZYQm53WUtjSVkybkFUNnpXLytyMlpQNExHN0IrRGE5TEphaGlHZldoRDdNKzVLUythREhZVHpSSXErcTlSK3FaM0d0bkRjVUNVVVhJaExTQ09nOW04a0ZNNFhJS1JKS0dueExnL1AySUtNRThrbngrTmN1REpwSVYrYzdycWVIR29LR3BNTm5HNm80QkxBSjBuWEN6ZXVRc3YwOUtMRGtuNEVYVXpGY3hhS3JORWxzb1ZOWlNQOXNwNHVOK1FtbUhxb0t3b3RtUW81RHE4V05jeG42Mmh5bjJ0T21uTndkVWRvZ0ZJZEU1a3oyNDk3ejZRdjBQYU5jamRUZG9tMFJod0VHaXBxWFp3MlVKZkV3PQ==",
       "size": "19.84 MB"
     },
     {
@@ -51,8 +69,8 @@
       "sch_date": "2026-08-24",
       "rl_date": "2026-08-24",
       "updt_date": "2026-08-21",
-      "cover": "https://webapi.bps.go.id/cover.php?f=o/Dl8XDeNm507/Y6HeQeg0daY3pzbXpkeFFWaFpBc0ZKMmJHN2VQWXJock5EOGRVdURvR1hiMGVXa1EreUgzcmVNNzUvV3BzSHdaZEE3NzNPL3ZvZTAyV0VBam5XRjR1VThobVZ5ZmVhMzdRMXNVMGZYdEJsc0p3dHNESGJleDgzS2FucGpFbHhLeVhBZlAz",
-      "pdf": "https://webapi.bps.go.id/download.php?f=r6r5sXU00qGUDlGfAc6bDGNGak9sV0FpNHQ2Mk9uelByU0FHTTFoTmNtK1pFbkVhTVhRcjNyQmtnOW1tMHMyb0h4YmFBWUlnMnE5ZkZKTjJJT0laQlZ2dW92ZDNGZS9ZUy9IdjRpMkFGbW45QWptNmlHOVpXbGNtaDZUb3YvNm16aHdNM2xhOE5POGhUVEJOSG92SVlHNnpiS3RMUlVGOU5jSUJwUDFaSTEzMlRWeFRJSG5sSkJRQjRvZWhGcThROWNvczFKZ2tWM2owOFcrNjcyVm9hMW5QMjB2dUdWN1FZNTFBMjdaK245bjJKSlRMM0k0cncwbWFSUHRhL3dlT3BRT0pIVjhFNk1IV2lsY3kxRGRZOXVYMTUrd0h0VUJoTk9qUjZ1SEJGaVdWMERackI2SXJQYW81cGY4PQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=LMNN8a9Q4x9AS+zRd1csU2t5cmlLVWFDZFlqUEVVandCVXZiL2RKcUlmZjBsZEJkcXozZEQrR2lsQzV0Z1ZPNG9kazlRMGpHM2R0bGQ5eWNGSk50NWlQS1F4STZZWlhSQWU3bzlNMEtLeERpKzIxdGNNaXBJajZsUjNhaElrQlRTWUxtTFlaRHpOc0k5a2x5",
+      "pdf": "https://webapi.bps.go.id/download.php?f=joduI2+scFV8KyH0t/eELkRoNXBQQXEya3Z1WjllbERaeHI5Z1VJZTg0VG5GOHNFbkxvYm03aDJQanRSM2VMRlRoM1F5QzJ2Z0FIRUw3RXlQR3oyeGVaS3BvNTVZTnVoZUtTV3h2bUhWYURYSlJvWXMzQ1FEZ1lyNmpDbXNMLzdhWHZRQlJUMXMxWmg4dk1BSi9OU3lrMU50TWxyWDN2VXd5QWtlZURoYnZISGl5dms0R1luQWJlWVlTRnN2ZFVRa3FLY2IyY2QycEZ2VHZLeUthNDNybjI4REZ2YVR1RERMSVRsV05tMVNqMjdka0tFSFEydkprQXYvc0plZU50SHhEOEx3cXA1ejcrRkp3d3MxckxPSDNyZENwUDRlaTFXN0ZOQmJYemQzcHJDdVoxQnJKMFBXQ3FhTWc4PQ==",
       "size": "15.78 MB"
     },
     {
@@ -69,8 +87,8 @@
       "sch_date": null,
       "rl_date": "2026-07-31",
       "updt_date": "2026-08-18",
-      "cover": "https://webapi.bps.go.id/cover.php?f=nDUCkisoliywcR0A3ElifnIxVjdYenFaTnJTWVJBVStTNmErY1VwWVF5b3EyemV5Z0MxSCt0cEIrbEFCalZKSkJxSkVjQlVBb2Ixblo2clZHRTYvU1R6aCtmSHVtM0NDV1BxenNwN28yQ1oyMEx3a3VwZzlyV0JxbEVDaEt3cGhqbWkxQ1hrSkpjbWsvK01C",
-      "pdf": "https://webapi.bps.go.id/download.php?f=Ul20UD6F5OpO/20n8RrM+lpDZklmOENKbVdJRlFSQjBqZjRIRDVFWGFVZWw4TzZveVhKTTNtMXZGQjlMQmNSVDZoTTI1UEYzaDhmZkg3RG9oamNFTVd2dk41VDNMTjM1c2JocVM0T3JBYVRBdExpd1Y0bm8yUGNpM0Y2L3lTbjRNWDJzVHQ2NW1qcmxjWkFWbmVRbFkvOWNaa3lXZ0J3a0R5alpXUWY2TitCZllXdkQwZGpwUUtpZENXczM4ZzZnSGdhalI5Mlp5aUttWENwdUZtZVdpdGJDemNxNWR6UjB6TEx0eWFoRTlqVGpHSlF3VFVWZnd5MlNyeVM2RnRBbTRoK21LZmFIUkxzKzd6Qko3b2J2SlB0N3hiMFROeHhCaDMwVnBkUkpsQ0NYZ1JVRHI1ck42THVaYnk4cCsxd1lPU3AveGV0aGtKNy9LUjV1",
+      "cover": "https://webapi.bps.go.id/cover.php?f=YDdRjoEfEyU46Id5IuH6EjFnS2V3NGRKeE9FVmduOG5LTXBNc1JlWWhrZURvR3JSMEtLVlZHUlNjWVpDdTVWcVZMbDJXVWNUVlF2WVVjL2Y3Rkloc2Q4UUtaVzRTZUxNcHNyaGR6aUZ3Z0FCR2p4LzI2WkN5anJkMnZKQmQwZ1N0TTJnUWVjMVg0Z3FUUzhK",
+      "pdf": "https://webapi.bps.go.id/download.php?f=tP+e5FaENjf03GOrfEjnvXFhei9XMmYxUUpweFZEWG5jQ2grUWQ4aXVwVDV3M0lFalNBUDBITUNwQWdVdGwzL3F5ZE1PaUc1OHR0dFNEWUljYWRKcGxvTVVTVVRsZnlKVzhtOEhvVy9mVGxWVHY3emJkeUZVd1c2b3A3dUZabnE4MGloTDBCeEx0bmNlZmdwUkRWUy80cjBsS0NmdkRwK2lld0wvMVVvOEs0T21SeElFTEFDV21zWGtpMmpkajZ6OWI2RU54eHBTRFltVjB6NTJxRTRTZFZKNGhiUkozUjNuemt0RXFXUWxNZ2tvSVRLYmlrT256Mlo3cHkrWGJOZHh1OS9rK2QvN2l5UkR3SnRkNFdYZEc0d0pZQ2tYbUphU0l0SkVGRnFmSEh4MzNZRW1icE11TmQrcG5KL21UR3ExMmR6dFZjZlJNa2dZYmhT",
       "size": "1.65 MB"
     },
     {
@@ -83,8 +101,8 @@
       "sch_date": "2026-07-31",
       "rl_date": "2026-07-31",
       "updt_date": "2026-08-18",
-      "cover": "https://webapi.bps.go.id/cover.php?f=4fsI0Wilin4Z9sWrq3DNCm1xM0N1cUtZRWs0S3c3M01GQlNoRmJLTXpCcUl3TjgwQU1XSXFzckM3NDh6bkpDRlpVY3lSNitLaWxOc083TlAyYVRROEJzOWpOMGtmWnpxQkdHb0ovVTR2RTlwL1pQZXZPeHNac1pUL0pTQ0Y0N2ZndnF1dnE5TzNaVjgraGk3",
-      "pdf": "https://webapi.bps.go.id/download.php?f=S7NcW8/VhE01c7m7qG+W2mFjNm1aS05ZZSs5ZTRXdWowU0x6VVdoY0FLVVllaUgvU2RsaEx1b2RUdnN2ejAzUTFYYTMzTE10dkRtdUNEbEwvWmpyb3JjZUtMQUNsdFhhK3NtNG0yQnR5ekxqMG1zMm84Q2JadkhxT01GMnpvVlByUzBmM0lkSm9TZUNUWWF6ZTZXL3Y2UjNMKzBLeitHNVZWK1UrYkZjbytsZU1Dc3daMGpKMnV5eWF6RGpvdDA1UGtmQ2MxeWI1bVhlb0RLZjJGV0FnTWJLZEFwQWNlN0U2SHRUc0J6eFdrdXZMb2VYY0k0NkV0SG9JTXNFb24yalVSMElMUytBcTNvK25Cc0FZUERYcG9oN1ByelNsbmtjb1JYOVp5K3cxSWFPa0JLUVUxOTNHTXhvQ3EwbDlETXVycFVCRW5FazlXUXFQUlVE",
+      "cover": "https://webapi.bps.go.id/cover.php?f=V2YlUVrm2yZ5h8WLI5kg0HVoQ29mcVMvRTR4N2NQTTA1blg5ZWY5bHZXT05wNTMvWEpsV1ZKQVllbGxBK2hOWmEwZlN0Q1lUbXhPbGt2dFpKS01CVnI2cGtQd1VPTCtkQjgzQno5OE83eVF4NnI2SmlYV3FiNWRBYWdwV0JmeVNZQ004bm9BaXVwSFJVSkxs",
+      "pdf": "https://webapi.bps.go.id/download.php?f=50ahodYxMHt48UhmzYwsr1NEcjBQckNmYzl3NUJtaDk1NWJzU2RzY3drSmorWHYrMEhrVVdrRXJGOVZwODhTRDZpV2tralhJYnd5ejhpbmllQjVadXMrdHpFcExmWmJrdHpLZDZSUjFod3hEUVVWQzJhVUE2ZHNpQ2dNT1NmN1NDNC9Ra2RUUkZ4ZWs5VGpXWWVnYkQzV3pmK1pWQ1V3TlpiK3hNK0xYVkQvN0FtWS9QQUNXaGo0RnZqYlV0Sm9raEhNM1UrdERtYjBkUjZQeDg1d1Q4ak4yWUtDK093NmpaOFJ0UW1VcCsxYUFJeWkrT1UzWjNQNDdvSXdCTFpKcnpCUWoxN0N3d2JlUnRzUGIyeDdOS1dQQ1YyaThIdXk4cnlYWXRpTDFaZGowSDBEbnNBSVhRdkJuakpFT29qTkFwejhFdUFlR2VUUDFldUhv",
       "size": "1.42 MB"
     },
     {
@@ -97,8 +115,8 @@
       "sch_date": "2026-07-22",
       "rl_date": "2026-07-22",
       "updt_date": "2026-07-17",
-      "cover": "https://webapi.bps.go.id/cover.php?f=u4Cjp3AW+ap1xqju4EBnZHVJMjlRQTZiV2xKL1hjYzZ3eW0zN2NRSmk5ZU54N3Yra0x4dGcvUS9jdDQzZlV6ekp3YW1PQVZVOTl2RHg4Q0h4bkJFWTIxbUlDSFhJZTNlVHMzL3p3S0pTbDd6WGY0cEVGcHFwWXF0a3BUOTZGOStqZUxLSHpCWGM1YXV4MGhu",
-      "pdf": "https://webapi.bps.go.id/download.php?f=NRtnZvJ4jIk9uUXcsHr/XFJaMExkNEVXTG1PM1d6cG1lc1V3ME96ZG9rZ1VqUnlSdm12QVc2enJhNkcvUy9JN0tHVUhFZGwxQlBwckhBRVZPN0NjdUp2T040NTFqNW5OemE3MXFjS3dYd3BLSHNWblBSNlRZUkFiM1lycHkxckhZQU00WjYxd3FGaXU5RlRFbUxLVG0wQ3FkbW1nWUo0Q2xYS0NPRytOL1EvT0pPNmlOd2gvNVpZSk5LZ0RhOW1sbnpYQlQ2citSUjNScTBQN2RxQVV5SUU1TWpzbk9wTTRRQ1BqaEh6aU11SjB1TTh2elAydXlEN2VQbVBQT0FEMEZyT0JKNzAxbzU2cjcwSnVIN0Q3ZzBEUFpZTDM2djJEbWQ0NlN3PT0=",
+      "cover": "https://webapi.bps.go.id/cover.php?f=ZxaDpOo+b6PlyeGhJ3ze93pNR0pDMWhSVWlWZjlDbnhYaDJxVEVSMCt6Umt2QThleDgxbUJhQ2lrRnlBTG9XbEYzK2dwOGlHTTErckxZWFVMTFQ1djI2UDZhNTFGaHAxSE50VEowNkI0Y3dzaThwa1Z3SVNmMWxRandUWUtxQ3NKMU9uT0UxY3FjNFh6M0Qw",
+      "pdf": "https://webapi.bps.go.id/download.php?f=da1N66cg4H1jKBs2G7wORnhrSlpMV1pJam5yL2pkeXhNWXdSVXhtNGZwdEtwbk14MTMvTktqeDZWUlhvRndOWk93WStVallpZUJzL3lkUEJGUUpLM2pTeDlnV2I3R1B4SGdYbjJUbDFrMDFEcDc0dnhibzF4SjU2YjlTWVRKbWh4cFE4YUFJdkFPVHhydVdkS2NHcy80RFY3TkpZd1B2Z2RSQUtEc0JoT3VNRDlRcHRDcjd6Y0VSam5ZUUI0eTl0WmdBMGNoOHZvSnVQU2NqQkh3RUtFVDRmLzYrU1N6TjZoMkVFN1VkVHp3dERmdFhtL05Xb1NWTnphaUgrb2U3YThCZ3I3bk1aWDFGU3diY3FsWmtDbXgyRGFodm5odVM2amJtUDhRPT0=",
       "size": "3.02 MB"
     },
     {
@@ -115,8 +133,8 @@
       "sch_date": null,
       "rl_date": "2026-06-30",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=FJmq5gxvmKVYHcjLh+4mw0VkTXB0Z2xITzVkZm0xNDRyTG9BMUw1NmJwRXBncVNNS2RrWFZGOVQ2c2o1U2N1TU5tV1RKVWFneUJ0NUFlMmV2TnpmMWZFaWpPLzM4amRCMEVjcDFJemZPTzhNM3RuUmEzYlI4UHdGT2Y5Y1haTEdiNmN1NXR1NytkSWxSU0lK",
-      "pdf": "https://webapi.bps.go.id/download.php?f=DN8PWHjeJa6WsP7oH6reX2tWNXJ0U0pIcTFMMEd2enhWcjN4S3JTeVN1TDdpOFoxb3hDRXhwWm1ESVRBSWFwaDdhVnNHaENvZC9wdEtFRWhNbnpmcjd5ODU4Z2Z6Vk9idmtmWERFTDlRSWYrWVVKaXRtdmtoZUp1S3MzeXE1cXNsbWg4KzZId3p5dVYvYWpBaGV3VEJqNkhuUGhuRklKQW1Ic2JyWFRId0k3UzZPMGdOV2JFdUp2bkNjYzlzaDY1cWNYMDE0c3JqakNOczErSEczTUJDS3lnWStiblFpTC9aVmRaQkMyeXk2ZnkwN2l5MHZWdXdDNm9QVkl5aUgxSVVFU2NSaDZPcDc0MG54T1hmbnQxT0p1QnVVWHJyS2FwUlkxVXBEMG9kbTBieWtjZXkzNXNRSWQ0N2d3PQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=/3lc7E4Mdav4XHjMaeKnETRhWkJMR2RDZmpQbGV0TFR3UGdGdDhVLzROVkxxb1dJMzkwWDlaVXdINFZNTGI4VkhNZnNzd1RtL1paQWtUY29LeGVuZ21nQ0FRV0VaVkRGYTJBMUUzQ0hkOUc1enl5QVdDQUp2cnZ1VEx2bzlQcm16T3NIQ25ucFNxSm52S1BX",
+      "pdf": "https://webapi.bps.go.id/download.php?f=Gh+Jtlr3HNcibhwBBMlzWWdMZkt4dkNYVG04bDNGWkN5NzArdnpqNG5MdnBjUlNXQ1FQSlJoK3UwdlZVQ3VVemRnRE9MUDdoTVJMa29oN0F6akRmUEJXY05wQ0w0dW5abU5oL0VrVkdlcVhqOUJydXNVMHFjT1pkcWhZWkJWR1N2TWl6ZzNSeDdQcC9KOXhranVOVTM1NUF2eXNQeGY4aExpVVd4RmlJcTBlbUd2elFqbTdwdnpiZm5wRGxWK3ZOVUJndnRKMHBCaTVwanFmOWxzc0s4a3ZuTUx2emlZQldqclBzWmhuVStQOWk2aEl3NkxjQkJsMGxwTHdRK2E4VGdsaDFaQVhLeUc0OFpRbU5EeXZzT1Q2ZTBlR2ZLQkVPQ0hLdnI0dkZYWGEyS2lVNGJUZEQ3MTJVb09vPQ==",
       "size": "4.74 MB"
     },
     {
@@ -131,8 +149,8 @@
       "sch_date": "2026-06-26",
       "rl_date": "2026-06-26",
       "updt_date": "2026-06-23",
-      "cover": "https://webapi.bps.go.id/cover.php?f=wtoCD2EVmDGdaapNOWuFDDNTWVQvNDNrUGNyalJKWlRVU2Jpc1ZIcHBQRk54NndiTUtURklBMGN3emFRRWlyL3JkMjlCS3VaaGtHLzF3SzByVElVMmhYODVtaWcyWklsekhhd29LR25zSmo5Rzh4MWZ6QkRTWTFGdnJUYnJFY3pTWHNDYkVlbTJBNHZjcGo0",
-      "pdf": "https://webapi.bps.go.id/download.php?f=fff/u1mEwHqf+b4vQBwGbUtaZHN1OTQ2RDZreHZEbCtzYUR2cW53ZmZVaGpNckhPSlFkNzNPVHBOL09kbzFJcEpFUWo2bXNFM2hXOExsbmZPMkY5UC9PbE5yUnhXRmRLdFhyWmlhUlpxMFlWbUJtSHRsM1pCRUhrVmdVMzN2Nm5UM3p2VmIvUllhejl6cmxaQk9Fc1l5Um1CdTlrQ1hrSDF1MUxmdUF2VEhoRDduNG1YYmh6WXJMMXFxZG1xMmNEc093SStUNVFiZTU2bWRYcWdLU3BYeVNOZTgzUGhPRGxTQlR0L04rUngxRVZadDMva2RFUTBGRTNWS2I0NWtHaDdaRFJMZi9qdUhxRkZUeG9nemtnU1oyNlRpQTN0bVBkTnByZGdRPT0=",
+      "cover": "https://webapi.bps.go.id/cover.php?f=NkDnA0p/WTakl8l7XFCRMnhDdWpGRU5HMzFDK291dS9iUzNuL1dnYlRrYjBzNisvT0dXRnZWdEs3L1RwSk9BNlFrb0VUN1dSVjlGVVJvamVDby80YzlnalNFb3NncW5hYm5vZ05zTEV3YU9XL0pMUUpkYXlEcFZESThwbi9qQk10aVFOQS94TUNkS0pSeis3",
+      "pdf": "https://webapi.bps.go.id/download.php?f=CNqyiIAWiXwc1vP/qFeZ32VCa0NKUXRIdnZJSXIzd0VKcnQwT2M5dmVkRElHdis1cjhOeVlPaEVoRkpXb0svZWlDNlVpQU1NS2tiL21EMjJxUGVLNTJiWjlBNW5DM0xkeGtNRnV1ak1HeUMrTVRPMklWZitNMElYRmxPNmRYcnQ2YzNqSDFDcjMrUTRlblBOVjVpN1JraDNWTEVaVENtUGNWTkpkcUpJaHU2dkZ6TXF3VmpLTWQ3elQ2Ui9EMUNRRDVDZkRTTnl2cERPY255ei85UkJlc1VoZDJTb1ZTb0ZtQldVRXlXVjh5ZWhOSTF2eE4wVzVHT0xPNUZrd0lpT3FuR3NYMDNoWDVtTjY5MGlSRDFFUWZTTUhCdnFCL0xlaTlXOWhRPT0=",
       "size": "2.94 MB"
     },
     {
@@ -145,8 +163,8 @@
       "sch_date": "2026-06-26",
       "rl_date": "2026-06-26",
       "updt_date": "2026-06-23",
-      "cover": "https://webapi.bps.go.id/cover.php?f=sClXpDnlbctpXyxUxCe5xlJncWZ1M3hqNVdRY3BVWDNVa2FCVSs3STZaK3oyRkduZXM4aXEyZlRucDlCcUhlblY4enE2dklnYkxwa2JxNWsxVWFPTnlRUjRxMmtBcUxCNDVVUVgyajJpeTZJTVRJYzhNOFNhYXdVU2ZKanlUbXNIQmZBRVcrYzBwVW1EeWRn",
-      "pdf": "https://webapi.bps.go.id/download.php?f=0d+eUrLhZHD+RouaTCRDW1pDZ0V4R3p1NW14VHA0NEFyZW92M1hmT043N2NVUHkwQXJiamJEVnBMU2ZsSWphMklDQVo4S2ZDdkVubUw3K0EvM2JZcHJpUWxUUnVuK2RlY3ZOdDdnbTNzV0JrQWZyb1plVkhzVTVHNEtwbXM4dDk5TFJyaEZ0anhiK3ZrNndiK0Y5amdyQmM1WWtYN1RJQlZ5NGF2VmJpd0R5aVd1aGNWTlV5c3Z5TzlORExxamp2SThHTFU5WTlZV1pLTnI1Z3dRTGNLNkNHY1JKV1RNK2QrZ3k3ajdpOFVpaFZ1aFh4SHpjZklDZ1lIdWRoU0gxM3EwazI0a24yV2ZLeW55RnJEcWV1TUh0cVFOYzF2d2RaQ2d3MFgyQWVGR0JRUzdDRUk2SU42amFqajVZPQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=TZkc+bnMzxBrBrkLzK2RyngxSjhkVkxnbXpvbmU4aEZpR2pRYUlyMnErd05HbHNYMjlPQUlnSnR4U0I4WkpPUTIxUENHaTF6bTkvRGVVVjM0YjlXb3RpRTVWMlNqUHFYMFY2THYwZStORGxHSXF5Q28zblEyOE5mWXp0a08vQnl2KzRwQkJrUlBDTHcza1VD",
+      "pdf": "https://webapi.bps.go.id/download.php?f=OyEnURM+iMEfc0eC12Al+HNrM25HNE9PMThYemxRSWpPd1YxU2Fjdk1GeGVCenRaSzlVT1lXWmFDQkg5ZGxHdysvMmZWcWVmaUgrSk1kdTJ4TlR6MGJqWjNlV3NJMDl1YVJQOGxZMnJLZWFCcUkvc0d5MHVFTWVneklSZVpnVE1yb1RQaGlSTk1mKzZ4QmdLRVRvZXdQMTZYQ3paMmV0L3J4cEp0aWJpQTVDRUVXdDVqNzdYbUI2WjR6Q1ptam45c2hXOHQ3QUtoYWhZaHgvVHIvVGFFN3RpMytUSWpJYTBTYWcrWmUrZi9va29PQ2psQytHUmpSS3R5UXdsQ2VvUXVIbU4xYkNzQWxLUGpaYjN5MHpEdDJtNmErL0ZsWmVVeVVzQ2IvdG9mNkFycUpMaWlnN0YwYUhVd25RPQ==",
       "size": "25.61 MB"
     },
     {
@@ -163,8 +181,8 @@
       "sch_date": null,
       "rl_date": "2026-06-26",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=kH+pKj8W/g8enxu+01QqMmw3aDBTV2hKU1EwRkFWM1g3LzZxMk5nM0krT0NDTGNkeTVGVTBuOUk0OE0vaTFmWW9mcUp0Y3NkWkJWVUlCOHZ0V0hjNGtVNE5oaUNGZG1HdVZxZ2MvQWo1WDZEN0FlY0RlL1ZwZ2EwenVPT0RZQjFMTTV3UUJZL0g4SHZuWmpH",
-      "pdf": "https://webapi.bps.go.id/download.php?f=kxukjdF8ZHsLnBcKBzflwXFSSnI1RDdwNUErZjVqUW1rUVpSN2ZadzM0SVZtSUdZczRNUVg5TkxBK3A2VkZUeS96YjNrVG0wQnBkTmU0dDc0M084blJESVFlbnQ3RnVLSzFEbzB2QitiU3p0N2hNMWtJTWlvSEdnZk5haWVpQlFIdmd1WG4zd1RFU0JXUVVTVm9lNzZmNVVURUdwcEJMazNHRGtrK0RyTkpYYWgxek5IWUxZTmYzNFJNWUZkblpmdUdwNGM0S2xtaXhGNklZQ1JqRzR6cFQ1dDQ0ZFRDWHR2YkllMS9Dc0JwTHZKQTdoalpZeGIvN3Y5SzJHbjhXRWNZMnd3VURubnpMeDFlRFhlU0RZYkxuWHBBWXV4Tkt4Zmk4ZnFnPT0=",
+      "cover": "https://webapi.bps.go.id/cover.php?f=eIi7NK7fPELwxHWKfRWlPmhERUZZL2ZnditmVExEK2JqYnBrbWo2VysxY1FMN2VtVS90b3Jlc3JCVHEyRDc2M3JpNEdsNUE1SkVKRjd6OTJlN0t6WGRqNjViL1d3U21SU2Fhb3hmSVNzb1ZrS2pwL0FoZ2NBcm9laXgzNVdPY1NuaVU2WWR4bnZXVE5aOEVW",
+      "pdf": "https://webapi.bps.go.id/download.php?f=wItZgzIJWaBr/unIO/kKkGEvN2pDRXIxRWVxd3ZsUEdkbnJVdHVXMmdrbmN1MXo0aFMwazVCM0Z6RFZhUlErVXBnRlJQZkNUOGNBM3FpY25RY1Buci9xVFUvNXkwKzNsMDhlOURxYXZJTDljNTI0cW1oOWlPb25wQVJTWGRybHhMNysrdHNyNTVFK2pRQ2xyVmFnV0I2UnJmQjlUUUZSRnFUR3RxaXBqRDJCWGthb3M4Z1lBbUx5YUJuZnZlQ1RUdGIrRXgyWm5BVXF2Mjh6TEVCSUFmRVVheVpwMjhhWUtNUXZuTFA0RkRhaUNuNGVXL1FCangxTmFqeHNZb1dwdkU5M3R0TGEwTm0rUEVocW55bmU5SFFQbzZFY3dzQWl3MVQ1ZFZRPT0=",
       "size": "3.75 MB"
     },
     {
@@ -177,8 +195,8 @@
       "sch_date": "2026-06-05",
       "rl_date": "2026-06-05",
       "updt_date": "2026-06-02",
-      "cover": "https://webapi.bps.go.id/cover.php?f=DlVCh932X7b1jEu5sYv2TVgwODBZREpabFhZbS9hTkpRS1diRCtHVEZ0S3NwbHM4Q05EbENHckNxcGpJdjhpak50OW94UmxxOGMrSmoyZm9rKzhzSUV6aVRreW9UODAvWkVQZmNjblFCd21tdzhNSGRsdktiU0w3T2FHbjgvYkRZYVlpLytuQktiUFB6VSs4",
-      "pdf": "https://webapi.bps.go.id/download.php?f=RLY1KzRM4/N9FQ9b8DSumjI3eEdxRkxiSTdwbVRoNFI5NWZiOFlZTkJkd1J1eUhFNTdvZ2Z0cElSZkpBR0lkbUZwK2RnbDdvVjFGczNHVlY3MDVYZjRkd1pZckNDUFAyTGhsU2lrU1grb1BtU3g4R1d0OG4xV05NQ0hqWEtRMlpBZlF2ZTVGSzZsc3lMWEFTRER2VVcyVXVBNWsvWWo5SWI5Y0JreVlTbUV5UG03SUN4MnBqbVJGeDJJYkdvMFgwd0lJN3BRTXY2N3RNRHBreElQUGpkZUhiVEpMRnE4TUozTDBrVEhzZ3VPR3g3U0h3Uy8wR0ZwZDFPMnpIZm8wZmZqSlFPVllxT0J5QWc2bG1rcHhaOFczS2tJcEVjYUN4cStvbHRCZTZ0WngvdHBVS0pBWXh0NkFSeGk1YnNxTTByNmVqeWhNMnlNUEdWSnE3",
+      "cover": "https://webapi.bps.go.id/cover.php?f=AUKyECuYU/Bn+cq+ZW/hsmpwU1pOWGhPOUxuNThTT1N1VzVHblRCQlBHMENqM3JJeEhjNTBUc2VFV0pldnhsdzJBN0F2SzZnR3d1YWdRTzBWOHA4Y3N5dHhIN25DSEJ4QzhRU3VuVUZXQkEydG9pUkpSU3ZDRlIra3RFSmJIMlM5T1RvQ0FNSTZ6dzlxcWM3",
+      "pdf": "https://webapi.bps.go.id/download.php?f=c5E5smJPiYlOCmuqCM2tfytMUmdYdGRtOVR3VkFOVjc0WU1uMXp1M0NmdmVXOG5rWW1jeDYyd2Z5MlBzNkp3bkJ0OUk5S05DMzY4cnZIVFhUczkrazBGZWI4UVZycnZyVXNMMGk3cWUzdmlsR0hoaGhXM0h3eno3WkhxUW9WNmM0ZjNSTURnUVBHVmpqMEZrNm1uMFUrc3ZGNG14L0xQOWp4d3BmWE1vVDh2RTdJU1cvdG9OT2VxeTJHbHhrQmpiK21DSVhTTno2SWFCeDN3NTBRL1dSWEZ5UWZtalpPWnhzK3NVRlQ5SU5MUGFPd1dFK0FVVmxSY3JHT3NpejNvUlhSbnkydU9XVzdJeGZ3M1dPVXhMbndPczlHUlp6ZmZFcjh1M2MzbS8zYmQrRXdyeXFFSktOMjJKZUVCeHA2cUNJNktENG80cVFaS2R5dDA5",
       "size": "10.88 MB"
     },
     {
@@ -191,8 +209,8 @@
       "sch_date": "2026-06-05",
       "rl_date": "2026-06-05",
       "updt_date": "2026-06-02",
-      "cover": "https://webapi.bps.go.id/cover.php?f=DPgHntOGW1CLihPB3ep/gFVuZWhxcmErYjZIdkVhYUg0UTRtWlVVRlh6LzlsSENVVG1VcUk2QWkzNTRGUDhDS0NjOW9CeTNIYUs4K05uNTlraFRldWpuTFFPckdHcXdBWDBDMGNqSTZDK2tiQXdvelNUbkJnZHZXZlI2dGR2WGpYRnJ0L1pWM1AyMitSRGpV",
-      "pdf": "https://webapi.bps.go.id/download.php?f=x7CWidnem72WGcjkVbU9XkhNek5VR0ZCTDBwY2VZbjBRT0taMThUMyt2alVocWduV0I4WTFiRnNmWWF0RDVRZXNCZGpyeS9oUHRXL3NodjluS0p4TnF2Q1d4Nkk2bmQzWi9zUmVtOVNCbEhzUS9ITm1jRTJQSW5jWG9QTUh0RlpJMFNpdjVhaFdudnJjTUJOQ29RZTZ0V082MmIzdXFQcmRiL1FFSXNoSzYwb1VCQUFyNlQ4emdSeDR2c1M4ZUNXRks4a2tJNmVlNkdQak9PRkxkZmMvS0YrKzJpcWRNVWZLV2tDS1ZLNmpiMFNhaHJ1WlRyWFFtdDZ5L2pOMTMwbFg2aFkyRks1d2RtWVVOZzlHZllicFp1SkhsYS9LZDhqbGRQalJyWDl4N2FJL2FHcjZrbnpWcStSS0hmZjkzblo3UXVVNjhIb1VIL3Fzc0Z1R09WSm1OLytuRmd1V1BXMEJjbzkxQT09",
+      "cover": "https://webapi.bps.go.id/cover.php?f=p+80wmIgDzmGu3u07S2fc2h3M2hBUWFXaGRmZkh2endnN0FPTjAzbWdXNFRTRUJZay9ESEVjNlBuM2hXaWNKeFJqMkRIbmJraGEwTGVLaHF0Q3RaSHJEczU4RW1wbFdDcWVwc3k0Nkx4MTdNUDFLSzZFQWtGVnBSOXo0Qi9DVTlPUS9yc1hyWUhOZkNWUGZT",
+      "pdf": "https://webapi.bps.go.id/download.php?f=XouAJoFbA6Xs2CdMNAypPGpoUVJGaUZxTHdHL0w0TmJsaENOY2hrQkRHSGhRc09uUDZTSzAvNTQ0ZFNkczc2alBVaENOd3VYakRNTHhqTWo3QW5yS3NnSTdNdnlLN3ZCeVFTRlYyT2F2Zkd1VVVlVE1lelN2a1FoUEZEOEVRdFhYbENIeTV4SjhzZTFQWEF2Uk1jTkRqTElBdHB6YlRoYWxSTGsxUTBUZWhzSHltaUFEN3JYTWU3dlNuNzBiVVlmKytVTFNJZkZzWGNGUXJ0N0hwc1kycFpoY0lzTjM4aU41UXJKek9NUktWZ3RZSTlpWCtTOU83ZGJrNk9YbW9rN1JHNEV3aHdEWERyZGRwYUNFK2RUa2p0b3VROVRxZlVyUlhxV0k4cEpSWnlEZWxncVJHTy9yaXhycUNCK3pHMDg0TjQxN1B0MVNkRHBZcGE4TUVpcmNlRTR5c3VkK2xVcWg0Wlo2Zz09",
       "size": "4.25 MB"
     },
     {
@@ -209,8 +227,8 @@
       "sch_date": "2026-05-22",
       "rl_date": "2026-05-22",
       "updt_date": "2026-07-07",
-      "cover": "https://webapi.bps.go.id/cover.php?f=poKAc/wCY6FH/oI7VmvQUlpaQlVpOEkzVUVObHk1OFF1NlJjZDVKbmlHRWdwTFV5R3NYVTJ5YzkyZWdpMlVLVnd4K1l4Uk9aeDJmYmowQ0dOZVIzSWZwVCtBWlpHUm16TTArN2g1bGVIN0lFUXFWS0plQXhsU0xiaDAwUDdlbUQ2VnplNGJ0T1Z2VHhJbDNO",
-      "pdf": "https://webapi.bps.go.id/download.php?f=XMOtoUUyTJ3/YexfCyQJ/llCZlRRT0hQejRwVnhYRjQ5bHdjdWt5R3ptWHI1UUppSU1aY2RjZUI1ZCtEV2VBR2p1b1hYdjV6NUJGK0VVbTUrTkM1bFl5Y2xscjUxbjRTMFUxaTVJVVF2Qkt2THN4RU9HY1Vrd0I2YVVtZHFoaGgrTUJPeTB2cTdRcVBZWUdjSmhGK2RtR3FrY0tLeUszWWIvQzRZUUUwT1lzd01rK0UyQ2hZTGJOTnk1cm9jazEyN0pNUVU4TWROdzFsUWd3RmV4QzlxR3VpdnJzU3J4TlM2VlhIMk1vQVMzQlNsSnJJNUYrOUMxTnBiR1BReTdEeTBSMjZFQjk4N1psRHdGLy92Mk9GdjZacWJpTFkxVGVoQ2tJbld5RTdzN0JaSHNMSU5RNGs1emhnWE42U2gvZWNyWVVvNzJzbTVtUFJ5T0Z1Qyt0VjZySytqaDZBS2tHQ0RwU3dPZz09",
+      "cover": "https://webapi.bps.go.id/cover.php?f=iq5JDAoNlCjXmNQVIUA+GG1CVXB3Vkt6bHJ2NWRGa2RWcWpKSzdaZVRWMm1heEFyN2pzUUljOFhwd0RMenc3Wjg3Y1labkN6RE1FbEFxREtGZ2x4SEdqWjI1dzUxMmxsRzNEVUpHc0p0NnpTQU5YZmJOb2JKUXpuVDVvWUVTT2puV3FDMlNPMk90TjgvTjBE",
+      "pdf": "https://webapi.bps.go.id/download.php?f=HbFe04sqRPPpL5ZTEpehEk9BendYc0RCcHNFR0ZoMmlyZ1VMN09uT2hEWXNUTkd4dDBqTDlGaituODFObzhuT3gwSTFjSjJKYXd1NDZmMFYxM2lrK0gzemYwN2VGckJWa2FGOWw3YTBQdDNxck10MUoremRJSWNrZVQwZEFNMmxHNmk5aU9zZzVCOUJ3em83VlBnUHFrRFZBeTVxUEQyNjErZFJhZVBsUWR2cUFPcng5Wmpmdk9vbzlwMmE1cTlIcmcxOUU5ZXkvSlNyZjhDQnd3U3FOWnJISXBpVWdXVy9jVjRyeFUzdUYyUlVwZGphVHlFeWNHSEYwQXpjem1Ob1dSc0VGMy8yODcxa0diTlJDYXRFY1lRRk1BejRkUHg4NWpSMVlScHI5VEh4RGxidkY0NXExNU4wOXBkMzJJRzVOalBXOGp6c3FlaEJoc2dwTzdmWTZwSkVFeWV2bmFKQlNpRjRFQT09",
       "size": "2.42 MB"
     },
     {
@@ -223,8 +241,8 @@
       "sch_date": "2026-05-18",
       "rl_date": "2026-05-18",
       "updt_date": "2026-05-18",
-      "cover": "https://webapi.bps.go.id/cover.php?f=tZd2pVVMTMELMVzGYuAaSmFZWVE5RExydlR2RFlEQmZnLzdYcnJ0NGFNWSszcWwyckJBRlAvbFEzdU9WakZEbTNkU3pNVnBNMmhSV0dzUU9OTmtyVUhaYmJmY2tlZkVkblNIa3gyYWpzRmFkQXprQUI5dVFhZE15OHBpVFVSbmV0NFd4MnlId09NRmlNV3NS",
-      "pdf": "https://webapi.bps.go.id/download.php?f=FMY/YXHrOvetKjxsoF6J0HlMTEhEVmZKYzNoRjFZM08xTmpOYkQxMkVUbW5oNWJBUTZScnRKWktXZHdqWVJGM083WXNqUkpGbGh3TUpPdmdaaG5WV0FaK0IvTm5UaTE0d0tNdmU4WlNEbGhHZFFoOWhNemNsN3BDc0J2dEE0bWtPVCtUUmQwV1hEdGdSV1lyQkdoTVlFd3JGdDBPczZDQm0vd2JuVTRscUp2MEFyMlA1UU9RdHNPVU9rTndBMEQwNzlUZU1tKzBBWm5Mc1dMc3JCcnFoWjV3Y2treFFHL2VIZm5pR2ZDT2ZLd2ZCbUVRbmhDSWdIeGVEaUZ6R0hXRFZKdi9mYXRyeVhwZllpOHRYWXRnTkpNTG56RUZPMFM2ZytkSUcwM0k2dkNZMGRWVW1RRnBaODVVeUVNPQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=t2IMUB6L0AagkUQpIpGOZG50cTJBLzV0OVpXSHphU1NUa2pmeXIyZEl0dFBObzV2WHN0WVRNcjR4NjY4V01KRTJYSXUvRjlVR0h5THBYWnIrNnFlVzFYUVRIQ1RKVkw1VUZ5UlZXanRualUxckNScDNJYitYUkZGWWtIMDdSODdLcE1JTTNLVU5BLzUySUFL",
+      "pdf": "https://webapi.bps.go.id/download.php?f=XfvBQ4Klhek4E0G8RMiGiXUweEVoL3N4QlZtdE9OYjlHMTNEd2V3Nld0Y1VNT25VN284UWFVK3I2ZnRwZWNPampnOUN2R1NqbkVSSlpnOEVDdEZoV3dMblJkb2tEc25yNWt1OENhTi9mWkNyZG1haXMxTmJVdUlaalU2N3huTXM2YnZuVFZDWE1ENUpZcEwyWEUrRkxkN2lheVppM21XMVYwK3oyeWQzN25UUW82NUkxV2xGMHNPd1hIQnA3REdaNE9KNWRiVCtCK3J3SldUbW05QW1KSWxlMk80YVAxM29xQTc3SFM2QWMyYUNNSHgxNzd4eE5aalpzSnJYVTRWL2lmYkNROS95QXNpNlI0QmY5YlQvT2w1Sldabm9hQ1Y4UG1BazJxeXJ0RFVBWERFY04zRnQ3VmhNbjZzPQ==",
       "size": "5.18 MB"
     },
     {
@@ -239,8 +257,8 @@
       "sch_date": "2026-04-30",
       "rl_date": "2026-04-30",
       "updt_date": "2026-04-27",
-      "cover": "https://webapi.bps.go.id/cover.php?f=Sx5WOfnnbCY0QvPNgisaoWVwMUE4MDRWbWNwL1FTRzY1VE5UREVVbkR4OFpxYzhDRlMxZmU4WjhRWkdFR0RBNVFyRGVUYjEzeXdxNWRobHBOMWVsY0VFbVA5RDBuZm5nLzQ2QXI2RUJaNFloVVVqaUxlaEZqRnFqY3gwdndLYlNzdlNpTVIyc25zYUdnQzNT",
-      "pdf": "https://webapi.bps.go.id/download.php?f=vL8A2Y8gvIfpHkyC4kDSDndHQ0xobmExT0lLeTRXV0ZKbXlsSXpBSExidWxCOFU4bmFqNFJLcjdodUtxSUlqSG9zWjMvcU9hbVlLcFV5YmJxRFFLeHIvUkRuQWJSTWk5M1FsQkhjMzN5amxVNXVsdVpHaDlTMFNRam1Odm1Fakg2YVJyL0FPcUIyaXNIbWx6bWVjNjJzY24wSGQ1VVZJNE02aVgwZkJJcG9hNU16QnR6M3ZaV3pLSGFkdk9pTGliS0xDdzg0eDQxejFiSEVQRTk5M1JHWUtVWFl1eHQrcElnUjd6U3Q1YWY0WFhnanp4SEU3dFpnYzNSeDl2T0FnanREeVlwRnlIanY3VTArSnI3WFhtVHE4c2RVZ3RUQXlKaXRheDVnPT0=",
+      "cover": "https://webapi.bps.go.id/cover.php?f=L1zUf1w6S/h8q+kx2+xPG1QzZGVua1hrM1pFWXBTYmhlYWR4U1paMkIyTUFPOUpHNXo3ZlJwZEJDUkdpZklqVHdWRm9GdmtUYzBmVUFleXVOYzBUWVJnbHhWaTd3Tm1oeGxjQXFPL0cwaFA0V3ZZMFVGbFJZbE1xZjh6NnJCVGhzcWRzd3NzOW83K1pFdjNn",
+      "pdf": "https://webapi.bps.go.id/download.php?f=a5eX3T+K1LUVyYEmf6yew2VDakNVL2FrM01NRzQ4WnlYSkFKdEVhOUhwN1c3U2R2K3B3c3BOUEVXRC9TeFQvcDgxekllZDlsMWxUamhKWktPMUFrY1JLY1hTSm05YkdjTk1ZNjczTWxRSU5FZlJDdnZ1U0g2WGZSRzdEbzJRd3NXMmdwNTZnZ0JlMGk3ZGgzT1dHSXRBNE9NQ05RK1dkdk5mTE1Qc3lQdE1pMU5UMkZpU0pOdXVlcTRNQ2lyRUFRRHlkcXBKa1o4NGkrQnZUUTdvTHN1T3A5RFR1aEtJQjlORzlZcjJlRFE0eVhYbEF0K2ZzVGtFazBQRnJGcXAvRUJUV3ZKZldFc0hqelJEQjh5UTJXMDNpdHRVcytoVkMvUmpRU0VBPT0=",
       "size": "2.27 MB"
     },
     {
@@ -253,8 +271,8 @@
       "sch_date": "2026-04-30",
       "rl_date": "2026-04-30",
       "updt_date": "2026-07-07",
-      "cover": "https://webapi.bps.go.id/cover.php?f=kp+v1MEZIFQCLqS9ThTgUHVZQ011M2l0R2tTOFhkRUNCYnk5M0sxcHJGVVAyYmM2cmxwTkU0ZW0vWFpGWTFMWVJjNXJQL1BnMUpFMHJubTZvbE5GbVJhQ3RhODhmTWp1ajNBRGN6Ym95RkhmTlUxRm85c2FKOWx2SmJJUTQxR2pIcWYrdy9FZ3BjTStmYUZz",
-      "pdf": "https://webapi.bps.go.id/download.php?f=xMwcXG8X3UStyp+ag6gxYDduVUduWWRhT09aQ05Xb21NQUdROHgxMDJQdDhJdXRTZGdlMThxN1NOb0RINzJFMllrbTd4USt0QlB3MjBZSkpZcDJxNzlBYUhHdkNKMWF3SzBkNWpSMVpYdlI4S1pWZFhuYlE3M1QvaXY0UDZEWDIyK2MyTXhOZG1MSjlxU2tuRlpCUEhsazEzL3pOYmJkRndVODJJM2ZRRXV4SFJTY1NTTFlvanNZREFzVk5naSt5M2hKb3IvRE9mU2x1OHMzeVdHWmlKZzIzZ1I0VU5WNHJ1OUIvNnFKNzlueFlVUmYraXJrRmxESFRPWTZPZ0pQK2VDRUJPbmMyNnB4N25SYTBHSGJaVlVQZ1c2TXprelJramtyR2VZSTBkME40SXdvWjltMDdTc0o3Zi80PQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=DYcXKG6kmlYeim4yih9ddlJZcjNxdU9Nc0dEVHJ5NUliM05iQUdXQk1KamNobnJRRFFmV2NTRnFzeHc2L1VUNVp0eWpPMS9adEJwbGJRSUtEcTUvZUxCRVBmcC9wTnZ6UFZ1RzBIZEZBaUhmYTZ1d1VIemp5blNtdHA4U1FSRnU1R3k5RE1Ram1SS2RubUU0",
+      "pdf": "https://webapi.bps.go.id/download.php?f=/PkM8oUeY92qS1bEMZp7rDlYcTFFdkxlQitSam44Vm9wNFd2UW1KK2dlbkJqM0luamtkNEVSZmFWZ3NQS1B1emx2K2lmbE0vM0xhOG1JWFA0bnBlVzNVMTltV3dTYkdpMERnMWVybFplVjdpMmJwMVZaejM2d1hxMGhBS2cwN1l5K0pYWlRFVDY0MGRab3FUbyttaDMzVUpXNHJ1UGNLVmhKRnlCN2hyTUp5SmozMG0xdnhSRHZPeFNVZEpoUklnMU9kOGRGZHd5dDJ3ckZoU244Z2h3OG15KzJkZ3I1ZHg1QlpKR3RwZDRScXpNQkRKeVh1bEVqRFdhZHVLdksyT04xSE5jdmpxaHcwNFpITCtvUnVZb2xUNE1SR0NFaHk3L1ptMFBKOWFLRFlpeUU2WE54QlhMVUdEYWdjPQ==",
       "size": "21.57 MB"
     },
     {
@@ -267,8 +285,8 @@
       "sch_date": "2026-04-30",
       "rl_date": "2026-04-30",
       "updt_date": "2026-05-26",
-      "cover": "https://webapi.bps.go.id/cover.php?f=qn9Sdpr4WBjx2K80Epni8nRvejFidXBZRnkwODJ1SW9DanFJZ29pWnpjYTBxQlJOamp1YTVaOElSUm1zcURVV0t5NTk4bDdyb1VYbSsyTkJOQTdHOE40TzJmRUFTN2lralBjVjA3b0lPVkY3Sm9HQkl3ck5BSnhWMngxL0FCOUF0N3lCSVhGWGtOUEZWT29x",
-      "pdf": "https://webapi.bps.go.id/download.php?f=GCIYrBAyYcgskuOV8HfvFzZFODBLUFUydmRRbUlsMWtpd2E5RUY3eis2WnVzeVNiOGNJUXovNitOejFxWVIrYVk0dkszUEQ1UTVjSG9HRXo0YUY5ZW9YRVZPeFZHVk9nclFPWVpCdko5dVFra3REcVJHNWRSU1RVaFJabWExa0NJTWlackM3bWs3dkZCTll6VVp1VGRnTWFTL25RWWp6emtkZFdSdVNFUzVaWjg4eTk1QWxVUmxFZWNEZHV0NmhNaTN4eTAwRTJjRDFuZmJoanQ1TzBDMS9XYXpPZEJjSnlLUnRVVk0wRmR6UmVxL0xKa1JXZW9VaXgzN1U5SXRBQWVqazluTGlCMXRkb3hodGZObHh6enRkNTB6RHdlZ01OY2haRjliMU42bzRrYzh2WFN5NFU2WWNUS1Z1c3VQWnorVno1enhiZU9WSVVsbCs2bURXKzNzTTVBVzkzMmVZT0VRWTlpd3NsUFlXNVRJZG1YeUppQk96OG1hWT0=",
+      "cover": "https://webapi.bps.go.id/cover.php?f=398CWBwKOEa4hXAx1X38yzdjdFJYK29DV2ZhdjY3L2xrNGhYTUFIdUphTFptZ0MvWUtDejBxeEgzejVMeWVkV2RneFdHUCs1RDhZaEpBdU1rdTBwR0gweG1tVjc1ck9BOHJZa2xSRnVPYm9EVHQxUUtoUUgvVEJDeU5YSHNaVG41NXhWNHowMzhKU0dsbEpK",
+      "pdf": "https://webapi.bps.go.id/download.php?f=Mjv5ZQsihLxsQJpDIsrNkGlhMExQZFByU3ZFbW8zOGJpZEJIZzl5VGtMYlFwcm9XcTJqVFV5S0RIUDFOQ0paNWRSTTREdS9UQ0VFNVZMRURMcWtiRmRIV1lYckJkU25vbDFMbGlCcUZvam5WUXpnckR0czZVMUxBSWVLK2x2RmZodC8xaUdXc0d3UU1EbFh3Q3AwbWhDbDV0bXgza1FQMEpWNTdlK3VVSzdvZUtzODVtbVF5VUhWQURmMFJMdmpzbmYyb0t1SEU0NmF2K1JQT0dhUERzVlhLZSt3aVlvSGpoM2ZnK0hMQjFNNjIxRVdScEdxdGFwR2VTanJKNGwzSmJ1cWVTTG83NGtQNWMxdmxhbXFYWUtjQ3ZtTkthUmhuSEhUWmpBUVNlOFB4ZzFnMDRlcHlvMWdHZjUzNzdVU0NNRENIL2ZHTTdwVDFsSUNrZjhXSWt6TFNNTnZ5bFRkcFRYWW1XVXJUc2wvTWNZQmhEY1JYd0RqZW41MD0=",
       "size": "17.45 MB"
     },
     {
@@ -283,8 +301,8 @@
       "sch_date": "2026-04-30",
       "rl_date": "2026-04-30",
       "updt_date": "2026-04-27",
-      "cover": "https://webapi.bps.go.id/cover.php?f=S2sZ+Bkju+yAnWTxF9YT4UdLREZsMDE5OWpJRTZnUmJNSVJCaXNkcXRvUlZieXhPcTZkbk50YXRlQkxOSWpDMS8xVUlZalZWblBaTmd3SVJLZlN3QTdLdjU0ZlVlYTJGd0FIcFJSWElpNkdraHlrQm1oS0FSVm5Ed3BKVjlFSENTMk5Zd1FJaXM4UUxQOU1t",
-      "pdf": "https://webapi.bps.go.id/download.php?f=4zieBn/Fzbkg27R3j2gEB2pBSHZaL051bmRZRzRNSnVsTFJKVXhhdTBxMTlwWC96dDdWSGFaclhWOVhha2FGbjNlOUd4dUErZ29ROTdGMEREYi9ubnZ4alh0UmFaR0RjM0pGb21sRmk1T3kzbUF4aXFQUDM0anRqMjUwazlTZTllS0JKcFEzVmZ2QzRiNDBkaFZuTHFrVmF1S2pxaW1GNzI3LzBVSGtoUjEyZ29LeWJvcEMrMDJKeU0rZUFDNnJONm81aGhwT01JWmhCZ0JaR0NNSHdZYVU5cEg3L1ptWFgyTDZEcHU4N2NOVlVDRlI3MEZNbmtxT3dSdjZRb3NOdkFBdWlqaldRajZSU2h6ZEd3V1Vqa0xlTzEzUUozRDVsWEFWSSt3PT0=",
+      "cover": "https://webapi.bps.go.id/cover.php?f=H08iiz5EE+Z9UE1H/3DN8XpveGd4ZmpZV1RvSTlLOHVpNllHTGFrSWY4UERXK1lUVzlVTUI4QTZub25oOFhrQkxTSkd4MlJCZEgvVGlaeHZQSXFDTlFUcXdqZ3QyWTVTeFZxbkxiR29uZnNCd2FVQzdrY3NEak5EdG9WYWFTdXpxUjhkZThLRXh3ZTlvR3lB",
+      "pdf": "https://webapi.bps.go.id/download.php?f=Q3V9e0lD/62oxsHtDiTNAnpyLzFSL29MM3NJWmZxeFgra3A5azhGQXloMGVTRldHTUVOaWtaeURxb3p0d3U4RkJyZVZDVzJpWW1zWldxNUduOTJOdE8rWWN2Y1k5TUtheUpkYVA2SlFMVFVxUjdLRjVpQm5jTlFxMnVYcEQxbFZaQ0Y4eTA0a0s0dmNqRTgycVhpZDN3MFZCYWFNd1drUEtYeHFoSlpINStCRERMVkJXbDNKZ1NQUmg1ZTg0eWFBV3pGZWhDOXFlRHA4djlHSE1XVHYzUkhvdWlTQ1dweDBwc1RrU0t4cXFSQ3QxUGFSS1pUOEg1MXErRkN1QnRTVEJZR0IraC9EWjVDdTRMckZaeUNLYnFUY0FseHNZZnZkVVR5alFRPT0=",
       "size": "3.55 MB"
     },
     {
@@ -301,8 +319,8 @@
       "sch_date": "2026-04-24",
       "rl_date": "2026-04-24",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=/FkWeRD1RVxxb1Hn8sJPRXRFVVhFZUIyK2hDOVVJWjM5NGFoanZjVzU3OGdmbG4wUWxpRzJLVlpLcEgyVUd2R2Evb2kzbS9WdlI3aTE5UDRKMUJXVEczc1RSZFc1d2d3d0hNRGVtVkQ5U1NnZEhyS0IvbnBQd0FCVXpmNkplbEJ0TkNmbDltbDN1eW9JYnMr",
-      "pdf": "https://webapi.bps.go.id/download.php?f=Lp8tuXGaivcycVicgSRljzNLMitzZTdWSFhrRnYvNWU5MEt5cHhzMTZOV2ZsTXUyMmpFSFQrNTdCdWNGUHQ2OWZ4NTJTVG1RblRnMTNyQ004YzJOaHhuMFg1UWMyeE5KK1gwSWs3UWtxMTVseCtaUVJZUG1lUnRKTzZjRDNIVkp6dFk5YjhNSUUyL21DRFRaQS9HRVU1dHIrQnBSMGZoWUY2OVBqSmtQWmdlbW81K3J3ODJLWVUvbWU1bGdjbWtLVFRrTUpBa3kwcC80TnVWMUNOMkdBZ1ZMM1phSmxzclRMY2xJQlh2TjFKWVZjekxyUUpZbU1zS3pDamVuWTNiVTVHeko2ZGh0em9nUjUwMWxRQ0xKV0VHNThJaFR2YkhRWVpwcWJDVlZVclF2UGgzOE92V2RRKzRQLzBvPQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=IGJQTZWVD2GXgzGCnpX6MHc1bFpwSFp6RzFPRFNtbXdiWWRsS3hNb1ZhUEZ3MTN6VDF3VzhTZ25zQTlxdHdvbzBObHRPNG9FZzc5ZGZPWFc0dkdaQzlnUGlDSzVVVFNuRmtOZStrSStITDNWR2VzYkdoVkFoMU0vNEpWYm50LzVqT2g3N2ZPSGZlb2VMRjZ6",
+      "pdf": "https://webapi.bps.go.id/download.php?f=7Cp59qfi412AAJ9NW5pxknNNSndvQzVxUFppZlVKcllZUUkyQmNaM3ZJcHByK3NaVHJJTGtDb25wSSt2ZkZPaGdOUHI0a3VhOXYySXFDOC9ML2pMQlRLcE5walJFWUlZYlN2VHlyaktYNVdtL29oSzhYN3V2U3BjS1pGM2srQkdISEFkK3NSckNZZ284YTNBN3llRml6Q0lQaXZmaXBGVVlwOXhJVFg4YlIxbmRDMFRNa2h3dDdiMXAyRUNCMlRSU2JKNUtBdkFibEVGb2dIelRkclE1U1RISGR4M2Y5ZnBDVld6VjJhY2hOMGpmTytGNHF2OUlkTlg4SDZtaXVkTWZGVkZWcXdJK25sOUNlNlFyVDZzRkJsUzYzRGJDMFU4UElnTEl6eVpkaHh4ZlJHLytqUEN3MVZsdU1NPQ==",
       "size": "3.18 MB"
     },
     {
@@ -315,8 +333,8 @@
       "sch_date": "2026-04-13",
       "rl_date": "2026-04-13",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=5A31KrRg6Op3j++bTZbQjWZMeFJZc3RDVHJxTGVwUGJnaUJiL1hpb1pJM05IMFZMelFkTmZSNzA5N3d0RXpJbkErVFhlM2cvaGJkbWhTWXFObWpJNWJHbTFZd0JVejJNVDhJMlRaWm9kMFdvdHIxRGUwdThIUFhHZHF1akVaMytCUGNDYjNiNVNnazBNY3pB",
-      "pdf": "https://webapi.bps.go.id/download.php?f=ylgmyfC/hM2CL/uNKnE42080N01lS3dzYVBwTW12dUpIMnJJV3ExeHhEajFOSk9iaDVKcjZWYnJNWThZUGxYbXdkMk9jR0psU3JPSmVHbmU3RXZvYm1ERG1Ta2I1S2lYeUx5QWVOZU5YRGhNOTBoRmFwYWJTK2x4U01jRVM3aXY1UVJ5TVhFUFVIWUxwME5tcFA2WXFsKzBORmVEQVZzUVQwQjJhZkJEUXB5ekNrUUNpWlV1SWFpcDBxWHlVUE1oSEEyREg0VG8vWUNudVBPU3IyQkFpZTdXZ1RBbVQzTWh6MCt5ZjJPSFl1bVVRRFVRNlN0U0MrMVpKUUV1ZEhmWFh4aldnb0FRSkYwTFM3eFZpT2ZwV1M5ZVE5RzVXNmFUS3oxRXNZd3g5azVsOUtva2Rkb1haNko0YVlTaHpxcFY5OUpUemNLQmx2QVFIV1JMMXl0RElZcE1EVFNRamE5dTYwdHVpQT09",
+      "cover": "https://webapi.bps.go.id/cover.php?f=kJIr3luAJ01G6iaG682HYllzMVFsTzltWUtjNEdibnhKQXhzdThlQlZJS3JrdkczS0FqWVV0L01JTExxYVJnTEdScVc4ZlBJOUtXaTJqbXhOTDh0UTd2cDUrS05tcGNwVHY1MFpkWjJQeG5Cd1k3M1BOOHJiY3hOeFBIWjRYaHNlYmw5dzNOeHhGSENKWDRt",
+      "pdf": "https://webapi.bps.go.id/download.php?f=lS2GD3mR32vBw06n6Ps0wndJZ3NkNzhwVTE0QTY3SXNqeVhuMUt5RXV4YzNCVEJCUUJ4UUhsY3I5eVhpcEczOXRZUFFzTEMyZWJsUHBMRHVmSndpd3V2ZStiVy9xb0Vzbnd5OHN0M1BpU1ZsbmlqTWxZRXZ6OVFLSUg0WmtmTTkrZ1JNOTlmalBCcnZTcGEzeTEvWVNVcVNsZnB2NVN1MUFKU1d2MDdNUkNTcURLRHgrMGF2RGd4c1IrYnMwVWJDdnZrZ1c0QWVoczJSMnBBWTBoWmNzelYrb2hyMFd1Vzd5L1R6WmUrQ2Jpb2Fnc1o0bllvMzVtTzZPWENPS3BKQ3lCM0ZvQUxXdEZ4VUMzMUNobmFCSEJBZi9vMzIzeTJNbVFtOHZrNmhxQ3BNdGp5OHJic3d6czkzSURXc2ZLbFZxZll1Y3BtZitPc2ZkQ1FYUEllMWhYVlFGSmdEVHFEeFlqQno5Zz09",
       "size": "6.63 MB"
     },
     {
@@ -333,8 +351,8 @@
       "sch_date": "2026-04-06",
       "rl_date": "2026-04-06",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=uiWMr8lW/GvjBMJGXTCCmTBzY3FXbkowSG40K3Iwdi8xbnQxbVh4T1RxWGlmc1pyZXl6NWJUTHp2eGMxNklzSWtEUHQwSGExeVg4YVlqZldHMTZTT1JYT1krcnVlTFZ6ZTA2TEVjQVRqY0kzS05UM2RoSWpqZ3hmQUNkdlUvNGdzVTFoVlJwaXNlb0RxNkc3",
-      "pdf": "https://webapi.bps.go.id/download.php?f=R4LYFdJQxdYjjq0Sx+2G40xia1ZXK0xwTDRvTlNHZCtlTklWLzl6NzNoRy9LcnB5R3g2MmN5L2Jua1h4eG5BNUF1SU5wV3F0RXpvZ3VpbzZlSE5HcVR4OWVUc1B6b2YxdTBGRndEd1ZJdS9RUEViVlNlUkNOYmEyK0Q0T3ZBWnFUQ2RkNFdCcGRnK1g0aHV6YzVPYUFxNUYwR3JJMlJUMXRKMW9ybXp6a2x1MDhpUkFCaTN4ajMwZm42VTZnRkwvRmxqcFJkR05EOUVEMnRkS0tzRGZnZndZV3g1YzZVTmx0S1hHanp6dnlORzNPWXlEQUc2UzlUNFF4M3k2Qk9QQTJQN3VNbUhFQW9XaW1udWtWcnl1Z085KytyZkViZTZGMHN6MVJzYUMvNmVSNnVjU3FKKzVKOWNUM0w5dUxldTJ6MW54c3dHVXJLMWlUSjI0eER2bFRnSlRad0dOeWc2WEkxc3RqUS9WOFR6RGlhYUJOV0o4SFRKNlRlQT0=",
+      "cover": "https://webapi.bps.go.id/cover.php?f=daAIcSPGyA8knO26WP2DgDNRZ3pZWmxSVG1tZmpSRkRmUy9KZ1kzcjZZU1VmQWtuQjRNYmRpV0FXSEN2enZpMTMzYXMxalR6QjFpZjFxMGNBS3N2K0FWV1Q2ZWpwdXEvSm9kRmdNdjJjT1cwRktvVlVjK0hYb1RBK3NJTWdoVWRYdEZBSFIyU0d0cXJSOHBq",
+      "pdf": "https://webapi.bps.go.id/download.php?f=hraQJPWqQIQn/A1aqXbJB2I3T0RRbVlFdklLMWtMS3M4RkR6dENBamR4SFN5WkJRWE5uUFNkbkxNU3BmNGo1WjRMbmE4YUNIa0o5eVhna09BQ3hSbHhLczc4bVNDZTN6aWRieXIrTDFXd1FOQzd0cEcxSGhiUWw1Z25HSk9yZkRUTFdGZk9zU1AxaXoxWFJxTDNCVUl6ekxKWXhKTU1WbWZsek9GL252WmczSVU2S1NVK3dRNDJWU2d4MHRsb2swblQxUmlnNldhdzFVSmlDbXA3NksrWXN6UGwzQjA5Z3k2dTZXa0hpL210UE5YNE9KTDMxSVZYdUlORHVUSkVNaWs2NHkvR3ZWeE1FczFXYm5qMHkxNHo4M1djSUZrTTEyUC9FRVFIdk1MMGRYZzBMbGN3L1VLbDBKbW9MQ0o4TTNPN1FoQWJINlRWU09TWjRUSGRpUG9iQ29vT1Vjb2dEZ3M2cG1ZUkR1VVVqUkMrVkNYR29IVHNHVXRIST0=",
       "size": "5.33 MB"
     },
     {
@@ -347,8 +365,8 @@
       "sch_date": "2026-04-06",
       "rl_date": "2026-04-06",
       "updt_date": "2026-08-18",
-      "cover": "https://webapi.bps.go.id/cover.php?f=TirLGFbSSWKVti4dyDX1YTFNUnRGckFxWVpiZ3VJQmJWRGdMRVdnRjFnM3NNaVBvUDZaNjJrNTVkK2JPTklEMHZRN0dRWDc1M2ovUm5JTitYcWVlRXcvQlJSNGR2RWlDaTYwSDBjSlhSMThEcktzN2NzVWViQXRDNk1BUWtYMm9haUZRRUVRckhyZTdRd2Q0",
-      "pdf": "https://webapi.bps.go.id/download.php?f=znYRenGChE7XTWoEcai/VmNaRUZjc1RpK1pKa25RZVVZTkpMT3RuMkVXOHJWak9tMHhmNk9LcEVqUHhYQ0lwUU4vYzFUZkc4UzdvZG1nS25iSGdrd2lEZk5GUjJWVmQ0bkEwdTZnT0VvVldYODhlNTZDamxOTkJCK1FqZnpNWHo5TkUyRndWSXJyYXdTTTdHSzB0REZZRU1UN3o0bzdOSGw5L2ZqTkowMUZDUHhuT3RVVXRYczU5VCtvdDFGaUxPQ2N6dkw1aS9mRC9zS2pwVU5DdHlTUmV4NFk4Szd0Slc4b3p2bmdROFlYS0liTFFNMG9GYnIzbzU2MVIvV3ZqOFlMUDVKeFN6bHN6VHNpaHpqbUZlMWhwam91VXpYOGNudVdMa0l0TTlDMUk5V2l4Yys2VVROM1BINlRieWRBMURmS0Noak1Eanp4Q3o2R2FLVEVzdWRGaGFWTm9pZVFNcTBUT3VVZz09",
+      "cover": "https://webapi.bps.go.id/cover.php?f=PbtuRi9jkkAxcSBXsWCcUVhMRjRMSVZidmo1bm93bmFIZ0FHb2lISEJuKzQ1SDZpMVJsa1FLQUwyRXhPczA3c3JoblpGdEZCYkltZEI2ZHdoN0svKzVQNGFQcG5Zc0tpYlVocnhtcUxRZElPZWhQUXo2T2dBZWdCSEpaYWxYNGtpN3BaeGpHWmRjUkNGb3E5",
+      "pdf": "https://webapi.bps.go.id/download.php?f=G3bY9oztn5q79tMsOFzUwmR5cDd0MStCNStYSHlGb1VrWUxFSEFBOXBmcDFkVXBUajhISC9DN1RVak5BeUw4TzFjM1U3VW5PZFJvaGREaWJJSjhGVTErWVFZdkJ5UUE2WXZBUzlrZ0dWSmJlTWRWTzhRdHYxbmhBcEVKQi9HbnlaanJSc3UrQndYQTlJRC9ZYmJValVNOW5taGdnSTVCMkw4YlVtN21EeFBsZXRyY29Ga0I2OS9aaHZndDJaOE9wOWZyY0h3aGpYQVZ4NnNwSGM4UzdReUo5VWs5SHR0L29jWG5mUmQ2RExiRE1ZVEFGUzVoa0RoTUR1NEVybkVlbGdWQkV3WkpYMGRvU2lkbW9MYlNvS1d4b3BpUFkxRE1uRlFLcVMycEV5YWh5aVE2bUhyL3ZQdGczdWYyamtJeUcvdkFNbE9vUG9mV2l5VTFmTndWNzRnTGhQY1ROZUNObkxmbng4Zz09",
       "size": "8.22 MB"
     },
     {
@@ -365,8 +383,8 @@
       "sch_date": null,
       "rl_date": "2026-03-09",
       "updt_date": "2026-03-04",
-      "cover": "https://webapi.bps.go.id/cover.php?f=i2d3uZ6sWsTDd9f+z1GBn2h6bnIyV0dYT3o4eWxobFc5aXlwdVpOeXZjWVQ0cERUckZyVjRybU9jQkl5dXJ0aXVtVDBUUTRJS0FVVmdjQzJ5bzJXZFpNOGpKRmI2UTFpeS94cWl5anlHbWl0ZVZyK2tRczZESGFsTHhWeER5cno0ZFVQUE5KdVZzMVNMRUpp",
-      "pdf": "https://webapi.bps.go.id/download.php?f=S7tGyjWmLFrGZA13ZjFzDHdKR0p2R1NLd05QZmJYSE1sTnMzK2tuYXJtdjhhNHdTdU1UclVuOFYrQUJ6NlZwVnMyUVRDNXJTNWZFclJBaVVjTjkrdjBLLzhwMmdZSzRPNXo2akdJc0k5emhFQkNML3BiVjRpdjdmOCtaTXdzMFFvRytyZm83cytMV3NEek1jYzhWM20vK3hnRnlpb0Z5MmpHeWs0US9DeHJiV0cwU01sNzBab0VndHI5bnRXTDdBMkxrckVMM0RDaFdHYllPY1kzaTZFZWRsaVRvbk9GYytMSkdDL3A5NnBDazYvNDU1eTJ1NjJhNWJLVWVobmdHNlhOalZvVEE3N0t2MzN1RzZoZTJhVzVCcTRkaW9NN1IzazFnTG5PMVQ2R0hOZ0lTYTlpT25Ucmd2Yi9ZPQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=ajdy/epB+wkFMiivV/fnTExHeVRJaktNYko0S0pDRmp1eS85ODhkNW9PU0t5NGdSSFZNR0hwUS81OGZvQ3YzZ3RjYUxaK0hHNVcvd0dhQUhRcnUyTnB5SUZaRk1YL1FNUUxUZnBZb0VENFZRSWpaOCs0U3FyUTg2dTNzdGRYOHRKdnJ5SE5CRUl4YVFGNS9h",
+      "pdf": "https://webapi.bps.go.id/download.php?f=HiLMVTltmp03rDTnzJL1LTV4ODU3azVPcUx1VGJqTUF6NWRQK25MbkF6VUt6UzlncnVxbnIzWmhhNTFnQVcxNU5Qb2ZsZGhGeThEVjNXVHcwaVJlQXJJL2xISFg5SXVaMWlaQllSclA0Rld0NHRYU2xPZXpqSFg1c0hmYlRQVmtxMDB2UDllbU9tSWxKWWQ4R3YwSVVOdWZONk9pQkJaeTlSdUdNRFdQSmJmbHJNbnJyemY3QlRNT1RWb2lsVnU4NXJ1ZHRNMW9TUVFCanNTRFRQWFNxUTl5OXBqeTZqN2pTYVJMcktkRjYzZGhqaVVCK2gxK3NhT1YzU1p3UEcwZ2NpWVBBNUpkWkFIUnhBVlJ4R1IwTVd2bHFCVmRCRWQ2aFpaQWs5Q2UxL01wZEM3RGdGSUViS0VNY0NvPQ==",
       "size": "21.64 MB"
     },
     {
@@ -379,8 +397,8 @@
       "sch_date": "2026-03-06",
       "rl_date": "2026-03-06",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=9DxmtXTtQ7mPHXmbqiJhFEMxakYwWnlUOEg2S05ZQXVtaWtJbXl2enlnTHJsVDlyV1ErdlFWTU00cGgrbnBudTNJYWJaRmFUbVUyOVhZRkZOTFo2MkJLY0h6bVRlTEFub2ZQcXBidzV4QWhZUHA0ODdHbDBDUUtZUjRTR05ibWJqalNoeklEWTFnVGo0dThX",
-      "pdf": "https://webapi.bps.go.id/download.php?f=2I1/mYrI4KZC4ysf0s7LVGprOXpZYmkvQnQvVUVTUDNrMTJ5S2tBZ2lIMlVxV0VoR0lFNjkzN0puN0dUUXhyZUNYZm5kNWg0NGF5YWpiemF4NUJSNTdaWEsvK3F0a0FQbnhwR01QbnFlZHZSNUEyS0NtRVpOa1YrM3RXQjJBY2NJTjdiblBwdGxUL2hoOW1Lb1NxY3AzbytBaE1VcVJUUzFiVXNsSnBDa253TUxOSEJ4bGJwSGw3U1g3bTlOa3BDL1M5Rk5nOStoa1NZZy9FQ3lYMFB3QnlHU2RkUExlQlgyZjUwZkZDZVBzeTdKL2RWeEJpN0prbGsrbzU1eCtndFk0c2VDV1gxeGh2OUduQmxqbVRnRXhjM01ZQ3AwYUo1Q1VHQk9kMjF4Qyt4K1pXYitOV2pyaGdYeDBhTWVpV1pGRjhyZWF6M3pwdjRJdmh5MENOY282ejZYc1FxL0dCYytnbjRVQT09",
+      "cover": "https://webapi.bps.go.id/cover.php?f=246MIbcGpfUBfGFHPbJ2bThTQWJLdFFFK3FOUHk2Q1ZTbzdKYllKMnVyUlE3RndpV21IRXJRZDd4YWpic3ZqSS9vMHR1b3haN2hkeFRUU0hSWDNROTdhcDM0bmtlVzdLSk4xRURsU1NOK0tsd2pObUpFQ3dib1Z6cklvZ2pSblJsWTFWcTBISGhISEJWK3o1",
+      "pdf": "https://webapi.bps.go.id/download.php?f=P90OkOFj9lYGyad05aDWNmdibDJoVm5OY2crcEVsMmk2cDlTWnBGSGovT2JrZUJJMk1nNWdlSDk0ditBd2pNcU9BVEt2K1RXd3dnc0xMT04xK1YzQUhyYnp4aTVGY0FrektaT0RrUFV5WHJxR1U2elhYSXhaQ0IvbFBwK29DWHd2bG1LQ0E1RGRRV0xlbG5lQmpzalZjcmtuanc1VnI3YW9CN0JxQ05qRDFWZjA1Mk4xM1E4cnhnN3dXbVBjVFdHUHlzQVhZZmtZK2plQms3Y1IvSkx5VlByUjliWStvb1J0aHBNSm5teTVxbTZOblN1VUdReDhmN01mTFlTLzVjVDdHbDJoK0syRW84L1FnZXZjUXRKRzI4QU5sM3R2NmRzQTltQ3lXRkFZdjVXcFhtTTViSTIxZlV1OFBwYmpIdmNCMUNsWGY2TWJFaU9KVEh2NzRJK0pXODRUQSttSW5kTkpoTERCdz09",
       "size": "7.62 MB"
     },
     {
@@ -393,8 +411,8 @@
       "sch_date": "2026-02-27",
       "rl_date": "2026-02-27",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=GckRIRoM0U6FwW21xcXL5GNBVzBKWTN0bERNSHk5azJSL1U1YUpaQVF1QVlmTEhtT2xqSUQ5UFhGOVlxdFRCS1E1YlRXcGgzSHdLYXlhajBJUWYraDd2dlBXYjdLV2syNjB0OWM5eDF4MFZRZHFqOW5zRTZ2RWhNVks1L1Z5Y2lNUjRCNzBJL2ZINzRCNDFF",
-      "pdf": "https://webapi.bps.go.id/download.php?f=X/+Dei2q0WF0avl5mUgqg1dxeXVwS1B6MzFmZ095eDVBS2tPVS82aGhLU0tLVkFveExzRllZWlI1V0ZPcWlMekNiVUhRdUUvVXc0OFp5WVR3NXpqaENEaHlPQzQwdWFCSVRSN2s2SnZ6MjZ0QUNMN2IzOS9ZRUpzWFpmWGtTdXlvakJQbDJxSHcyR2lwZW9PK3lhdFRTYjIva1FiQTYyYnp6KzVYVE9ud1FMMGljU3RWM0RZYVA3V1A5dXJsVlZPbHVCaGtvUDJDQnZrZGMzNXJtZ0psUEJ1Ly9GMWxkT0RnZ2VObWxidUJLUjRKUVoya2puS0t0aklYR3ZyZFB0NnpnSmFpQVhiOCtTanl5R0lhT0FPcEFJRTFwZEEvaEVrbU82RElRPT0=",
+      "cover": "https://webapi.bps.go.id/cover.php?f=9ROCEe8QVnQRr4jzQQKu+0dST1Nsb25PNElBNllwaFBOM3FVT09tU0N5Q3EyUE9IUGl1NEUyMEoyNzlQekoweFlHc2hzQUdacDUyM3A4TFdaUXFMNG0vVTZRNi9vTjVkQkVCZ0lRTksvQytGYlZjVzRIS2FRV0M5YkpWOXFlcmV1Zm1XSTNkRmNtVGx2bXg1",
+      "pdf": "https://webapi.bps.go.id/download.php?f=V5CJRDuWs8hhNZZaozSGznJJYzFjN0FlY1g3U25iNS9POGpsZXk2c3o0SDAzcG8rN3gxNlQyMDVRVUcrb3Znd3p5OUJyZnEvMHpXSU5JQnlpREVCVENNMFVmQmMvVXREKy9mVVJsS0E1MnpVbXpNYllRRUk3VGdncEdSUXpISXh1T1R0ZHk1a3RnTGQzZEJyWGVWdDJod25nbVNDV0JPNVBtSTJYVGs4c0lIUGQrdExWWDFiMXZKbWYxNUw5QTQxT2QySk5sNFExUk5hY2pRd2FpcVVndm1RZFpSTnprYkdRV3FrK3IvTWpEYSs3TVNPd2N2Z3p4YVRlU3FkZTBYajhwWndPQmN6QVg4c0NQWEthK2ZycEtoUkRqM1BweWZVRHU1UUpnPT0=",
       "size": "16.33 MB"
     },
     {
@@ -411,8 +429,8 @@
       "sch_date": "2026-01-30",
       "rl_date": "2026-01-30",
       "updt_date": "2026-01-30",
-      "cover": "https://webapi.bps.go.id/cover.php?f=ys7IQNtWwpP/iGXkYNe1HmZ0cm0vZWNDSEFJTS9SS0p2TDNyRW1EUzltYnI3Wnora25UQ0Z6czliSDZTR3dVMzhMSVFsR25vL3J5ZDZBQzVkRWVIc3pXcHdDd2pHUDl1RkpXYnBwaGMwYlJYcXlELzNERTdVUnRYcG4zNCt6VUhGcjFmUVBBQWhKT2pzUWVC",
-      "pdf": "https://webapi.bps.go.id/download.php?f=9+KX0w4OLhZSqDtEA/SQ03ZCNFBPRHJXTUNLTWUxRXJrOEkrWE41LzJIV2FPQm1FM0pTM1FOS3lYSUZJMEZkV3NUVUhZY0NrZnlQUUhpWFVPcnlaaSs3UENYdzEzVFBvUWN6YTZrWTFUTHlhY3JacjE1aGM1SERsWXZHZ2NlWmtSRUM5MU5lb3R2a2NrL2c5a3VMZXhiZGdXMC9rbzJuS1VEbzJRWmVJaVBrR2xwS0xIeFluREJMTGhEcXJVbmo4QkZlazRJYjVRdk1TaFl2djhqQ1ZaOFVoaTd0WjBMbnBGdGlvZHlHeXJ2SldrRGxacllUU2R2T1NvcXhENHo0Sk1qbTRyTWJEZU5jejhJVm9VZWI4Tml2ODc2Wkx3eDNGcXZUZ09wbnBIZ2ZzblgrcS91aGJUWGJnR1FIV0pDY0loMTh3NHI1Mk91R2FBTWtr",
+      "cover": "https://webapi.bps.go.id/cover.php?f=ffCg72T6Ur1ecidXoqJEPm1zRytZSDFQcGJ6Q1hYWnpVRjFicFBvdWdyMjNvb3hFanhmRTljKy91Q2NKN0J2OCtKWTY3SnprSDNRei9CU3VVbVhUOEdJNHZWZFVCZjFrUXNsNlkycnAyYzZqOWo2TTBSV0Ntd2dIVmtOaW1BcEh0Nm8rblVtUTlDbFZTcXNn",
+      "pdf": "https://webapi.bps.go.id/download.php?f=mF0+JIxsmf0sWMxl7OhOu1FzSjBSZCt0eWFGcHl5Tm5pUk9yQ3R3NGJURjFTWjdvdUkzMzJKSHFZWXRRdEhaTlR0YUkydjJJeXdwTFBxUlpSSXc4SSsyeGdNUUtoT3dOL2htYWlmbXQ0cGx6RCtuVU1XdU5uSCtoNFRDYlVNUlF3SlJYUUJya29kOWg4RzhnbXBsOFpmRDlia1ArbXB6ZTJWaFBrQW13b3k3cHA4K0xnNWYraGVsQ1Y1SjRrN2hVUVdmcVhTTG44OWdQdlo2cGxwNUsvT0pmSnVrWWRzd3UzaERMTVVLR3JyaGJOZHppNGRDUmkwU3hyUVl3VW96QnFqSlZzOFpYeGUrUENTZ292M2pLaVdtSzZHeVcwUEN6ZVBRRXNsbFlyeHZlZmE2cjR6WEJmalM1L1Zlam55ZmRUWEFLTmtrUnRiUUdTN0xY",
       "size": "3.9 MB"
     },
     {
@@ -429,8 +447,8 @@
       "sch_date": "2025-12-30",
       "rl_date": "2025-12-30",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=J9CsZx3hGcTfVM0LQuh/KU81WDRETWFTSkNVRjJiaU93QnVFYzZKMloyK25jbW1uY1pRL2NtTmRIM0VFR0o5Qmg0V1FNUkpOVmxZU3hLRXJLYVUyb0NJWGxMUVRIcytlYTNxTFhlMkRPZk1FRk13NnhnYnRFb3ZhV3RsSEhLZkJIV1IwdzV6MGFDZEkzL2wz",
-      "pdf": "https://webapi.bps.go.id/download.php?f=SObQhNeTcXoYXBIFKK+uNW9sMVBUUDRyRkNzWWFmYmxEc0VvNnNtRjlTRHl2Q28wa1VJaDZONXNra0MrTUVyZUFvREV3SWRxNWRGT1g1dktybTFEWDhXVmt5RmVSWitodk1Jd05nbGwvcGdHbGRRdm9GQ1FHQjRvNUo5TzJOTVl1anpWRHRUR2pqbE9ZekFkOGtUa3lOQXRnZVZOUmRBZzk0bC9RaGk5eWFTUDNRTTUrdlpNZG1NeVhDY0w4anVHN0czWW42OXFtZ3hoTGxPNnNpWFlnRCtzWm9kV1FzNlFpYnRrcWd5TTFTcVVJZDZSOW5Yd2lkZXphNytvbjN3aGIwOG1nMVRvNnQ5U0tzRG1EQnJqZVBua0UybmpNTjJuVmRtclZBPT0=",
+      "cover": "https://webapi.bps.go.id/cover.php?f=6YVEqiCakf62z47trmiabHIrVFVva25JK2ZMcEZ6cFhmTTBXdWM5VWdMNHh1eUVvV2oxWWtOK0d6WWdYSXVrVDd4TmxPWC9pRkp4d1VHOFlpbjFYM0l3N1l5Q05kWDM3MElOUlFpSU1YT21ZYTA4THBOVVFaUHlOemo0ZGRXRCtEc04xVjVFakhzZlpERjRk",
+      "pdf": "https://webapi.bps.go.id/download.php?f=64tsWqUBiWXKsvn3beZbBVkrdEtjOEZQZ3RKMllvVWl3MzFvVnZVV0lVbkVWMnlwUmhOaUFnMDFtZ1lTcHhkcTBLNXpmaGpyQW1ja3JxSlo0TVVYa0xlNnpGUDEwV3UxVXAzSjdqNitmYVdtZWVhWnpERnF5blg5WGVnSEo3RDE2STU3RG9TUEd5N2tQa0RWM3FMT0E0SHdtckt4M0ZvUTFwVnVic2lsY24xUG1jNDdBUzlTUUhnSTJ1OEI5MXNUZWxoWWFIRmR1cFVROFVrVys2bDR4cU1qbXBQU2ZqZGFaR21TMWxIZnZrQTJlU2U0dGpWcEwxcUEvZk9OaXM2SURsRkM2OHh6K2Znc1E1UXpxM0NyTStoN3RYVzJQZUY1T1ZadDJRPT0=",
       "size": "3.05 MB"
     },
     {
@@ -447,8 +465,8 @@
       "sch_date": "2025-12-30",
       "rl_date": "2025-12-30",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=5UaL39jpYcAB1qUG5rzkyVhJNGZxNzJ4M2ltUjJZU05rZEFabnNVYnRMMU1lQUlKZXo3WnJ1UWZOYThsUjBKVEtGdHdKQ0JoZjAxUDFVWTN5dVJpeUxFbE1PUWlnaTMweC93VUE2UTljRFlSOEgzZnBkbWdzQW82NWwzY1I2MW55a1lveHp4Z3dWdFFISnlG",
-      "pdf": "https://webapi.bps.go.id/download.php?f=7bsYqlNAmSWPVXb61fT3vzBHUnZDdDlTMXRjYS83ZkhQUlZ0U3hYdFdmT1VHY2FYVS9ZQXBPM21tWkpvWTczNWRjTDFKTnVzUk8rUE1QQUxBcnoyMDBoOGRNUUlRQXpIYmxBTVczTmsyR01ZRlNwcWlDc2NGYnFXQ25aMjJ4R0Q3clRXMU9laWZDUTlZSmVTZFpvR2t3M2QvWXo3QXM4MEY1K0FvTTRtbkVrWGo2cU5acno0M0NBYTlzMGs4MEJiNGhBTzFvK3U2TUtjb2ZwaVhXOHo2NEZnWFdwMDh4cHUxU21kSlhIMm9XUHRjMDc2bStwbE1oUnlWMlJxQ0t5c2xESWpGbStmdEh5SVo2RXo3WS84c3owbU8vUFZka21Uc28vQmdjWUZNMEd2U2xmUDI3TU9NSnR2ZUtCNXFVOGhoL0tRaTlqWHRSamlMZThWSU44aXhvcTM5cVYvdTlOcnRQbWVaUT09",
+      "cover": "https://webapi.bps.go.id/cover.php?f=Vf+fAl1vfgla6FqSuxm07U1adXp2N0ZiZVBYZmUzZGlHa245V1FSVkZLZ0szeUZFSWlEbktjRmE4NUgxWWRlWVRhNXNvTTRaVUM4Ty9JV0pudHBlWGRHMVVUdTI0Q29DalBDU0lkeFFnL044V1RoV015U0lxU0d3YUVsbEhlV29oQkhQbFE0Zmw1Ly9TcmZ6",
+      "pdf": "https://webapi.bps.go.id/download.php?f=fzZ5/RIlxJw+YCtrLeFF1VA0MnhNY3JDUWdpK0VqeHZHd3RaekVwRTVKU0JNRFdibnR0REhJc01KKzl2Ynhyb0UreEFUMUxrSUFXditNZnlQcnBiT3EveWg4NHYvRzFnMVdJbDVLcGVvU2Vxc1gxOWtzYUF0YmgzazFaL0pmdWUrTi9XRHh4VUxJRG03aThKeFlaMzlzUUJETjE1MEdBVWtyTFlpQzYzT3liOTNkUlBOdnRwRkhtRzlmMjRPeHJtWW4wR0FpV1MrZVB1YUN3WnRQUE44MUpYeEVuM3BzdkIrYndEKzlFM2xTTGVrVjZaR0F0bG5hRjJFdEFSRDFnb0lqMDJjT2oxSGQwK2YzZml1TG1VNzJQcFcxcDBWTUMwbUNJWDZmSVF2bWdqVkllZWFydUphckd3cW5MSXh2R05UNG1weDVteXB3dk0zZnBaYTNvcENlOTBmdDFtd0NHbzhoUDMyQT09",
       "size": "1.33 MB"
     },
     {
@@ -465,8 +483,8 @@
       "sch_date": null,
       "rl_date": "2025-12-30",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=ZZvzJjOLMvHaB4G6nQ9WK21SNC9Ka05XVmFYclVrZE8rTjg4VWxzb2RxdXQzWldzQ0hQSTZDdjI1c3ErdCt1Y3VsamZ4MFhrRk1SMjYwMTBwVFNtN1dJOW8zQTN5SU1VMFdwMGVGUlhzNFBWUGxoL2NhajhobTFRcDVSN0RYajViaW4yM2R0TUtMbXM2cjZt",
-      "pdf": "https://webapi.bps.go.id/download.php?f=d+F7+jQXqVNsRaLRCjvLwHhtZVZOdW5yUzQ1RndsbzdlWEZnMDNqU3A5a2FRL3oweDNyUGdWejNsbVdXR20rU1RidFMyNnl5WTdrMW9HZEhUSVoyN2VkeGx6QTY3bFhQSDVaaVVkL0dCQ09tQTR1NkU4d1orSDVyb3Z2UG5FbHk4MnNucHQwZzZIT1dDRTZ3R2ZCU0dxc2w0YmJNaVhhVlo0N2RkTDJDV1hGb2lMck03RHB0OHYyRzRpa2VEVjAzMHliZkJYM3kxcjhvMHdRbjBVczluVVpjUlVxZzFiamIzOGhZSEtPWCt1ZU1mTXl0TGUxUDBnZDlLNnVHMkMxQXhSWlY5amRVbnA3Tnp2eTN3NGk2Z0FPMnh1QWx2M1FsK2tad0xiZW56L0tBOWVtaXVsWWFIN0M4cjBJPQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=BuUJv7ogbSunR45V1FxUw21qTm8rWElYN2tvVjltc3dZMGJNVVZXbEUzMENydXlROUduNmpaMUJDTzJiSi9kNUVFeXloZ2pVdHhQNTl5VkdTbmc0SE4yWGJjbHhZQ00rTE5lKzRmY2o3RDdRZHpuVlUrbm1qTW4wbFBXNTYxOFdHR1hmbnZZbHJrdWEvb2ZH",
+      "pdf": "https://webapi.bps.go.id/download.php?f=IJKv+C0S0z9av7CE3pGLeXJLZ25rVkJCWW9XQjFoRGVJQ2ZVTVI1WG5uSXBzNHNvc3RWTDBZbVhOVlFHdzdTRVprQmF3L20zMjR0MjBkenVPRkR5Y2VPRUFITmliUzg0UHQ0UGoxTUJDRzIrU0dEaGswRHR4ZFFUOTRaa0NpOXErMEhsTnJ3aEcrK1ZTTC9MYkdkNGxERVAydDFtbjEyOGpuQjNyZG5MRjNxbmNkNkszZlU0dmp2dlhEYmI4V1JEdXhPWi9aWDEvUjNZR3dlSVNDcEZERlF3OGduU0xRSVAvcDlIekhQT2VXT01BRkczd0V4SkxVaUxiVkRCTWI5eWVHREs4K0NXc3VKYXFBQ3VRbUpJZEZIaWZSS2lnSUNueUk3V0ZXMkFhbFYyZ3BpTlRVazRBL0krNzVRPQ==",
       "size": "10.55 MB"
     },
     {
@@ -483,8 +501,8 @@
       "sch_date": "2025-12-30",
       "rl_date": "2025-12-30",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=Dqs/6CPnz1ume7mclxMxBTZGQyt5TWFMUGdweE5PNGR6ZS90L2tiN3JQTGt3U09scEhFTmZYOWNsN1BFcHlLY2dNSmNQUmhjQW1tQmlHU2dqNnV0Q0IvblRCdG1lYVZzWGhkb1hId3hwaWtENGg0RmlXOFV4MG9pc2JxT2R1YjRSSmtOSlZwV3pJUDJkdUpm",
-      "pdf": "https://webapi.bps.go.id/download.php?f=afMWoYogtufOU66OLN2e+VFnWGxBaWc5YWwxUXdpaHJpSGU1bkVUY1RUWE9CUldkUDk4MEZ5bitWUWFhbENBVk9DMnlBYUtKUHVVcDdKUmhHejNEbDBrdFRiYWJyUktmOXFsNW95UXhDMmc5bXFsQnZTUDgyYWIweGdxSkN3dTl5Vko0MDdxZjJ5L2M0U3MveGhVWWt1b3VGZUQ0Rk03aUJQUThpNEhtRjBvY0pkekVqOW1QL2hLbkFhQmQyV3pIcHl0WXpwR2RiQnU1Z0ZpWnd0REdtYWIvbUlRZ0QxczhxVWt4eWlCRy9pQWVLWE52RFQwMlE1QkQ0aTQ3d0pvWWdzNHh3UDl4ellYUm9oMUNodVN3YWVJRmg4NWhZTVRwZXFpVWs3YXpaVkdreFh3TkI4ak93b3MvYjEzOW9uUmlTU3VCQUFVZVh1QlJCVkRoSzRoNGVueHNVRjhMbDNGOGFzb2hEUT09",
+      "cover": "https://webapi.bps.go.id/cover.php?f=UThQHj7nGnNjff2mr/bDyU9kd3l5ZkdXTFJvZEZXODVBZGFQZGRSdnZSMjNPNDl4dGp2S2lIbEFTVU1VY1FhL3RaL2lJOENrUnRFS04za2d1Tjc3Ti9HOVpjemtkd0xwdEJKZlRJcE1HNG1BT0RQN2NGb21KVit3WkNGalJkaEs0RmN5SmpBekFEWTRWaFU3",
+      "pdf": "https://webapi.bps.go.id/download.php?f=6nVefAkgRdpqiNWH5G7js2Z3cnZNOEpYdlpvM0V2ejd4aDl6anRBQytnWnp1NTVvVjIwMVBnVjdmUk03MXVnYjRUZFVKcVlheWxoUW5CR2lwdmVwNWVxeXErWXBFNzEyTHlaMTUvT3U3MjFrUHNwNTRGTU1IdFFlaXFZTU16emFPRTdsTDd3Q3F6dGlMSXg2VzQ1ajdBMDAybURFMmhneDQ0NjkycFZYT0VMQWRxckNkSkVGZit6eDVkUTNIcmNyL01tamFwcmZ6eFQxdzcyRklETWJqRE91TmZRVDgvMFNtMHVVTWYvRGRYRDlxTWN2WmhhZEZKMzcrdmwwZURFcHhlNERDMkZJSUlGMGZhVXZxWHM0NENaQVVpdm5IM1ZkRytQV3ZsQ0NSRmw0a1IxVEpFNmgzSEMxTHF6bUU1YVRCQzY3MHZSSFhMTFZVc0xTWFpSaTFoeXhTZDk2VGN5REcrWXQ4UT09",
       "size": "0.99 MB"
     },
     {
@@ -497,8 +515,8 @@
       "sch_date": "2025-12-30",
       "rl_date": "2025-12-30",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=zcxc82WDanFisXJhlHvlYnE0QXFZeDgrYWg0YmNJcTF0Zlg0S3hLS01tUnk0cnd0TWpCOVJXU1VyKzg1dms0dWVvREtnK2lUM1duV3ZoUi9xUWRxZGw3UFk4UW13dUMxMFRYMk94ZThKazFQRVVwWHlBKzdOb0p2VnVKOXlySGNtL2xadDQ3bkpLSytWUDI5",
-      "pdf": "https://webapi.bps.go.id/download.php?f=8cEguRAswy88KoaNo45lEjRvYi9IS2VKbHM1TDRSd2pOcGIwZ01LOEhyOGlzMDdwNGw1dTlKYk1tdGRSY2RDZTBVOEZqUG5vVDgwb09xaHFLVjhSOG1UTGVSS2RPV2JJcnNSTEFhUk5saTZXMCtxSTJDZHpuU2JqSEZHbWxEVDRVUkFWZS93QWFMQ00zT1ZNbTc5aWlWc09nODNhaHpIZytGa1p5TVZUNTNwM1kyeUU3TWtDK2JUbFBDWThLNkNocDdKWjFVeko2QWRxNm0vVVFNNktIME5mamVkU2JUazU4akJUaCtha0JhejByTWp3aW5sYnR3bWdjdGxGdEM0RmpKQWtLOHhZZEdKNjFYZjllcU9MUVhkeVNUazFxMnozQUh1c1pxOElQMGtCL01SMnduLzRNd2s4S084PQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=F+zA8ROT8z1xG46Q6fn7f2NOa0IwekNRR3V3WEtXaml1RUorbGRTUHREVVNqdkRjcVFVanRabFdza3BKekwybkVXV1FQdUJXa2JDNU5HSVRSRUdicGRXSXBBMnhVM3ZLMlhRdWoyaWNtRUNjc2U1K2E4VnJXb3MxR0QwNXg5M3F4QjBMZ1pOU25TMnVRenNK",
+      "pdf": "https://webapi.bps.go.id/download.php?f=Vc3OYdtNE/6EkpPhIzwPw290RzNacEZaSXRhcm91M0FmSU5kNEN5bVpDQmNrUmFnbmwzeXlsVytxNmNsdzF0R1B2K3FrL1ZLTk1ES2pLU0RkU3E1ZEdTRFpGd3c1d2tDbjhsMGNaZ3lEWnpzdjIxVXhuVTNhVmFFTHJib2gxeGQ4MFU0ME1peFkxTjVUZUpxbE43S0lYM01RMmxCY296QXlqTThnR1ByUjJIMGNnek41S2duWmN3QWx4VTEzZS9IWFduSklWdGVGU3VkZFdrejYyQjhaS1BTb0YwOUM3OHp1VDZYM0orZU9WaGtDNDdmK0FXeTNFSlV2NUtHNEI3WnNUMmY4V054cW91SUxEMGRXZzJ6T3cwZ3VaU1huSkJYWXBiNUJEcGNqMVM3ZzRWUVR0WFo1aXFpeG13PQ==",
       "size": "16.63 MB"
     },
     {
@@ -513,8 +531,8 @@
       "sch_date": "2025-12-30",
       "rl_date": "2025-12-30",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=rCHPLL1ZSYzP2h7I1dNKkWovL3VEalA1a0lhQkxRdG9ldnBuVm9qeHUvYy9FWXlLTU1pZEJsMG5HZDBHb1pUbG5sMjVUTHFZd2ZCNDJyQTZlbzVETmRQb3FQSUVXTGZ1enpDTnBnUUlOellhUkdod2k2cGRRTmdTTU9NTkRZMlRLb2VhS2NsSUJxUGhXRzdm",
-      "pdf": "https://webapi.bps.go.id/download.php?f=Fr8M4caOJhH/Ne9wsgASekxYcUIxLzV4VTdsNXF4N2tLOFFGekRmNTlyRmVUOGNPWjlhNFQ3YS9OYUM1c1luRVBET3AybmtKYTVKY1BXc0tIVVB5QnVxSkt3Y1RIQ29ZekQrVTB0anUxczVscDhSVFJ0S3J2cWYwV2p4aHdTQUEraTJlVUJ3WmFYUTAvWDQ1Sk9JTUpjdVBRSXF3R0FJdjRVc21QditvaDM3bitUT2tjMFNJRVBBWnZOZjNzNG4zbnRTY1JuVCtTcEEweGt6KzlzVmY5b0FYZmE5V1NWdTNzRnRFY2tjSWJabXgvMmxsaHF0blhNUDNhT2k1UlZ5OFdqL1Y3WW5RNkRNekJxRlVTM3hPbFVjUGx1SEYzb3NiNHRRN2lBPT0=",
+      "cover": "https://webapi.bps.go.id/cover.php?f=SLD2AN0+LbbgXyKLrxi5pDljVjEvM0lDTXhxcHNhK0d4WVRFTEQwS2tPWThpUTUvODJ0TkROZkRMUWN5SXZVWHpaVmhZVkNOQS85dGVRNXR2YXpUNkEzWEdkOVRQWU5HcjZaRmIrbC9YR1YzUHFvTzhKZFZKODdycmNmMm44azg1NXMwRGZNcHQ0bDNKRFF5",
+      "pdf": "https://webapi.bps.go.id/download.php?f=Gkny5Jr2V+tFQ3u69JUw0WRBUDlxOThNUE5JRlVGek5PdHNSTitWNEVaM2R5elB3Vy83RzBiakZ0b3dRSG9RZ0FnTW9zMXJLenY2N050ZE1uazZnMkx4UjMxNFF0azZlK0oyeWdSYkxmMjVnQXFrUStSOVVTWG5VQ1VkTHJ1MWdpaXp3WnhlVElHTnJDNFJxOVdkbDBJUysxNFRzL0lMZ1VLdXI2dFdNK0FWV2R5dXpoME1vTlFzMnBTbCtodFNtTENKaVpmeTYvSnZZMjZOUzA4ZWQ0L1g4NXNPRWZqcGY4RElPbHpxTnVSc1ZQUyswY1RWTzlpR1d2WXdPLytMNDR6WndGYnFDdkNXWlNDZHJDUDQva25KcVA5TTFuZ2ZUOEJWQzl3PT0=",
       "size": "2.1 MB"
     },
     {
@@ -531,8 +549,8 @@
       "sch_date": null,
       "rl_date": "2025-12-30",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=s3U+v3a7qPAoP3dz+nDDMVhxbStwdHRhdDRMRWRKdllySXM1bFAyVE9FbWR1ZkJTUGcxNXlKZ28rRFNMZ2kwWWZsRE03SGEwY0RZV25LT01JWXhBSHRZeUp2MnVUc3RTRmhGVnM4aVN6RU9BZEpJcG45Znk5R2dwQkZnMlBjZE1keFBBM2ozLyt0UmdDTmpM",
-      "pdf": "https://webapi.bps.go.id/download.php?f=ZbCrB26c7XKMtz4+q4flzDl3QldySTN2enlXQTlPS3M1RXBvY2xSM2lMYTErSjNHV0MzaExJUGZ4NDF5M0E2cFNhRzg2RlpYU0U2S2lZdk1vMU9MMUI4YVkza2s1SmZ5VFBERU1NODNCRytqZ0lNZ2pkUGd5eU1Cd2xTS1NMVkZrb3R5TU0xcmczVkNUcFhjT0t1OGd1U1gvY01kYTAwSEtjZFlkSlRTVmF2d2xmNk9XSm52STVjeUh3S1hxaVN3L2xUWWJzMFlhd1VlMTFwSjVlY1NJTzh6QXdEeHZ0K1JtWVRVY241akdjZTVxVjQ3K01ldnBkSWg5NkgwUFRmUXU0QkU0cDRuVlV6RW9FVWNZY3F6UHhZVFNsV2NzTGZib1FhdU9seHVvZHVSYkRHR2p2Q1JIZ3ZtbXkwPQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=j7l7LyK1A3Vt69W7UdUqP0dLTkh6Nzc3akJ4KzJPUFhiN0hWQ1hTSzh2dnBidnBrSWNudUI5dFBwN0lMcEkyTGNoNHB2ZjRCRU45YzhWNWUyVk1PZFJ3eWpFTENiT3hFNjZOZFdOMUFGSEtKYlVvWDMzSnVmRFRZK3pTaVRNVlAxMEpyVHZ2Y1pxSmU4aUEx",
+      "pdf": "https://webapi.bps.go.id/download.php?f=PIbqTFm2MqR2oN7SOGQOCVNhZFFRYVp3RlUyTUUrUlI4S1dic0o2TU9YVUZRT29vNnRPa3phM3pQeFY2V3FYSW91K3JtcGRtSVFYL211cjlaM1gxb1VPZ1luSDNwTkhYTEkxMTlKL0xVams4NWFxMlVOcmtHQm02TFduM0d4NjQzVU5Sem43VnFlb3JQTHprNGMyMUhianMwMTVaL2lPbVVjMXo0MWw2M3JpRnR0RlFmcHgwUWVQQUtDV0trNXk2RFZmcFNxdVJxQzVKcVhIWCsxN0dzbGxySVh0UFU1QVBwSEZjdXUxY29OWDY5cWxNSVdjVWhuSVFVem5OQldXYTc1VTNCdTJIOWdmdkNvZ2g0SGtDcWltNHUycU1iOU1yaUFCVXB3Rk93eXhLZE8vV21abVFoK3JqUFhzPQ==",
       "size": "1.79 MB"
     },
     {
@@ -549,8 +567,8 @@
       "sch_date": null,
       "rl_date": "2025-12-29",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=PhbSdFC5akTOkU/74pUAUDFCOGdOQ2o1UVdsSUZuN0ptS2JVRFdnNEJDRjlkbXE5U1AvK1lqL2RnTGJOWlJIN1M3VzNOaGU2RmNQclVVVjZzOUtXOVdCLzRLMnVRQ25ZQ1hPakRGaHZWVExFajFzajcyRmFHVEEvVi82SittWjI2Q1V1d2lvY1pSa3BVOVB3",
-      "pdf": "https://webapi.bps.go.id/download.php?f=zfVmaGjkI3YHKPFE3/PGeCtnQjY4V2RYbWN4RnlWcHFmUTkxZml1dWdPSU8wUGxUWnp4azVid3UrZ2Y1WUp0ZWlkZVh0bmtsYmM4QTc2L1VCK0dyV1EvUlBwUHlaMUZJWDdldHdjc3RTckxYbUo0bzhrVXplN2cvc2ZPeUJ2OVRQYjhtSmFvc0dveVc0Qmk1U2VWc3B2cXkrSXlJYmFpN0JHdzRsbDhzbnZ4RGxNYjA0c3NBVE93YVFob1M0c0FjSUZadGgvZzlqNmp1clFobURvMmxza05SNjhZZ0E3bHJIN2VSK0dvVjdEdEV1RGRPa2QyRFFEV1QxaEQxY1JZeE8zR1pldE9Eb3pSN0ljcG4xTERKZXFzVFlFaEtCNVhSWkM4UFllaDBiVER0M2NhVHpxVjMyQnEyd2VVPQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=vIhT634EUtOc3Fqs3gTLL25zMVR5ZlV2UkllajE1RUFNeEp4dExKZCtjQnhNcmVWMVJpbzIxNEtwQzJFb001K2llSjQza1pyS3BRbWtMUStoQUdxYXprL2Y5dS9pendLQWNuWWNDcXN0d3lRS2xCV05rbWQwc2NLT0dlZCtiQkFOcDRCNlhKREk3YUdjcENW",
+      "pdf": "https://webapi.bps.go.id/download.php?f=lyW5mjAtZI3hYPXkOE138XBTc1BuTEx2UkV1TXBkQ1RJdzBNSmhSaVVDUUxWWHdKU1JkZXE4blNsYVZ0UmpFVWJwcWc1Z0NoSEF6VUhXWnc4dDZCaU02Uk9GMzVpcE5ONW54MnBiT0JVME91Rjk4Uk5hYytWcFlqejNYcmdXeFl5dFh1SlJVTGNpek9aT1MrbDJ3NGdIdDBZWDBoZGRnOUJ6eUZ3WE5wUDJZRGVjMGlrYlpPaUhOYmZKaENaSmI1SFlhYm5hNVQydVNEcUx1ZFhPZUVDTGlHMkYzcEVPWmFTdzVuNDJhNnJhZDJwVHBCdjQ0YnJrcWxjdWZ3Zm1hZDNNWlAvVUh5QmF6cmpnQXZCNXptbWZLREVtcVRwa21tZ0JxQUNMeFhPZXhibm9QdmVKNHVzNWYwRGxBPQ==",
       "size": "4.14 MB"
     },
     {
@@ -558,19 +576,19 @@
       "title": "Statistik Politik dan Keamanan Provinsi Kalimantan Selatan 2024",
       "abstract": "Statistik Politik dan Keamanan Provinsi Kalimantan Selatan Tahun 2024 ini menyajikan gambaran umum tentang keadaan politik dan keamanan kabupaten/kota di wilayah Provinsi Kalimantan Selatan. Data yang disajikan antara lain data terkait pemilihan umum, keanggotaan DPRD, dan peristiwa tindak kejahatan, pelaku dan korban kejahatan. Data tentang sarana prasarana keamanan di wilayah Provinsi Kalimantan Selatan juga dihadirkan dalam publikasi ini. Sumber data adalah data sekunder yang diperoleh dari instansi-instansi yang terkait seperti Kepolisian Daerah, Kepolisian Resor, KPUD, Sekretariat DPRD, Badan Kesatuan Bangsa, Politik serta hasil Pendataan Potensi Desa 2024",
       "id_subject_csa": [
-        528,
-        526
+        526,
+        528
       ],
       "subject_csa": [
-        "Aktivitas Politik dan Komunitas Lainnya",
-        "Hukum dan Kriminal"
+        "Hukum dan Kriminal",
+        "Aktivitas Politik dan Komunitas Lainnya"
       ],
       "issn": "2745-9160",
       "sch_date": "2025-12-24",
       "rl_date": "2025-12-24",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=LYzdligeCFvK6CcJGZReYWRnK25PMnRrSHFBUkx4Y1BRalhYNUtlVTdUN05IeFFTeERPR1dTaFNTMnhZSnpaMW9NbmtBMk9xd2FzQUdQNFUySHYyVFVvZ2k4bXl3SGdUOGRONUs5dlhVWm82RDVTWnV2S2JieHg4SUZPNytTRlJKSjV2NTBEaEFzZFdTaFRS",
-      "pdf": "https://webapi.bps.go.id/download.php?f=b4H+6yPJe5whNO+CdGHNvHg4dVJhM3BaY1FFSEdrTElKWWRlOXViUG1jWllEZHpEZGZxVy81Wm9qcjZQbFVRUm5XUFdENXJTYTdXVkp2dkdJa2tSUGpEL1QweGFXT0s3cUJYL1NIbGZMN3VTcjFrMEgwK1hFOUd1QVJHTnpjWTdxd3JTU3N4QURpOGlNNXQ1QnlDbDdkb3JlYWRRc3dzZUhMcW91OU5reGpXWWRxSTl3L1BwRUhCVDRIZmlwMUIvOWdUMEtHbDZzSG9LVy93UmNablJyZ20zMU9IdHQ0SDdYZ2d0OGwyY2xmTURDakxnVEJLelJqRGIzSHpkM2lJVkkrVjQzUWhLbkg4dm1EZ0tzSUNzYzNTSktiYWxZVS9RZ2poVFV2aTNVMS9IV0g5MlZFTHQ1M0FQL2MwPQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=F8wcZbxnJQek62fPudIqiU1FaVhMYmE3UDN1Z2NSTy9iUHVNdit1N1hBYXJpZDNTOVZrQW5lMmhBNWZQdGVSMUNxaWx2SnN2aUZ0dlhmNGpUTUtLazVDMTlubVFGZ3BMNk41RVljN3ZqdWVTZnJja2QzRkFyMHBBR2UxUDVLd1FkL0NsVlZoRDZ4WGRVUEpC",
+      "pdf": "https://webapi.bps.go.id/download.php?f=C7JypSdOpjMQv4zrLPwRW2t6bmJuVDYrdGNVbERSL2pHMWpWV2thUDI1Rm1qK1FTRUc4WnloNDc1YjM2K0lvaFdDcWo5OEl2TEJVYW15RjFqcnM5L0JDbWpTUHhHcjllWTNsdnRLaG1NUlR3QkR3VkN3MndGamRVVFk1RG54ZG9WMlFDUDJEVXJuaEtQRXh5aG1ubEtXSW5JcWorbng3OFM4MHRCa0pnWlJmVHFIMU5vTUZBckF0ZUJiZ3RZVFlsbHRnaWhGeU4xdVdwM2YxS094Q0N5amZrWnJnWDJaMVdXallWUXA0czNVVDJtWU5vTlJSYUg1cDcxMGFzWG15d2tScXZpdzVLUFo0K2ZHQ0VBKzJqNUl1UFBrenFDNUVKOVNtdWgwWXhabXRlMHJ1YTVxRjNvK1E1SlZJPQ==",
       "size": "16.29 MB"
     },
     {
@@ -583,8 +601,8 @@
       "sch_date": "2025-12-23",
       "rl_date": "2025-12-23",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=uhWXN8tZ+Kr6/TUmGc59EGVvZXc5SCs3bmkzM2hSaHhNaWMySmY0YmRwdmFiZ3RaZndPQ1g1bTl5NW93bE9UZ0sybnR0ZkMxZ1NiUWlyMDJkYjJOd25wSUJKWk9JaWZOVlZRVFFINW1wTEc1RjN1SEl0QndNVWx5eUFiSm94YUpGa01KMUdCYU04Vjk4dGZs",
-      "pdf": "https://webapi.bps.go.id/download.php?f=j7OEU+mHeR7y0o93tRjtK2tMR0dLZWZ4Wkh0Z28vcUJXVmF5UUFEbUVWcE9Xc2c0bHJSRXlVQjgvUUhUY0pXOHEwbkJuK1g4VmxoNWx1ZXBGLzBoNDUzWHVnZ2IrTTQzcVljUFZmUGhvb2cxb1FmT29VVjdhMzdFL3U4MDRhY2cyMlRpVXdSbjUvQkcrWEtPR09KQ2lYelVJdkpYaXVHekhaRzhBdUh0K3AwcldrN0dOaUZmOHRsdmQ1U1psZUM0U2FJZEEwM2VKTy9qNWhQUGw0bmp0NG9GRnZKWFNrc1U5elhhaVhPaUdXcmlydjA4L2haY2VOVXRBOWxwaDBLWStycmtncnJraEhUZjNIUzNNc25CQkNDUVVGdHFwWldxbTFPdERuMklBcmw1Y0pxYjlvUGdCQlN0cmg0PQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=W36/v7ryYoPRSsF0UKg+CVpNUnhMS3o1M3hMcVVMVCtKVFduby80ZzlDdjAwaERSTUJ4cHlocENwMXA2bU1YMHFOb0FoWmFPeXBkYks3UWJaVngycGlDbTdJZUFtOGNla3dEQy83T1N6UGpJNTAzTkd3dEVBMWhkV3hia1FkRDBOTGFZVkV1ZVhKdjB5TzBt",
+      "pdf": "https://webapi.bps.go.id/download.php?f=n3BRqZQKlN4MgMqYVr4t00JmNmlFVVJNVTl0V012Y1NldXNQa0ZWdUpzM0gwTUpTYjBuU2VKVjRxMmZoSXZkQTNBeWVjNk1DRlJvbGFJZ2g5d3BMYkdhRFlvL1JBM2VwcDlrVVZqZGQ3Rkg5a3FZWmUvVlpONmo0Q1BaeVdNUEFTT0p2eUtiREJHWnhKY3EvYVhUWmtBcTFDelRDWUVNdWxEcE5xVXZYVDRMSWJJTVZOL2FHckpOY0lJZ0tpU2IvaHFhL1U3cTM4Ujlrc3FEaGs0cTZBNGNvQVlmM1BHdTFoR3BscVlhdDVIQzdmdmRKZ3ZiVmNnWFBxU2NVUFIyU3dlVjZ0OFdrSFBNU1BnaVpaZlR5SjRBT1NCdFJraWRHOEZmTWwybm5oZVF3ZFZMZXI2UlRTNzdRcG5FPQ==",
       "size": "27.16 MB"
     },
     {
@@ -601,8 +619,8 @@
       "sch_date": "2025-12-19",
       "rl_date": "2025-12-19",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=8lWZfYe7ffMyjcZ4KkW3Hkl1bHBkbGdPc1IzOWtrclJoSnNodUtNcXlTa0l2OVpFU3lnN211clJtRHdQQnI5YmxvMmg1UGxSNWF0WGd6NU01K1hHeGI0eTYzQkd0aXRQQS92ZzJpWVVTS3RiQ2laem1nanRWcXNwcWdWL1FMdGg5M00wcVczeCtPSGZxZVFK",
-      "pdf": "https://webapi.bps.go.id/download.php?f=pidugaITOcKV1LIpB7hw+Fl2NE90bHQ4QURuT1ZnRllJbzNVdnBSQ2xoU0NXKzBBSVJBSUpQM1BYUUVzNU9iRmZBem9VUEtVUmVnVXBYOUN5dXhXbFVuTXhhNXhFU0xnTTFvZFUxL3BxTTRCWk53V2NDZkE2UjVrWDRucnJFUW1GYjd1Z21lQnBrdWdrWVJESGN6MjdRRDVrakJuY3VZa2V6SG8wMGRuMUZQclQ4SmR6MTBZZzl1ZVI4aStMcVUvWTB6SW84Y2hobWhUK050L05XalBDWkRIYUNybzNjMldWenllRW1wc25rZ1NSOHBEZi82TmdHTjk1QVV1Wkxab25NK0tWRFh2YW5YMVY1dVVqRC9OWlZRcmhrTHdoaStEOExRSlJBPT0=",
+      "cover": "https://webapi.bps.go.id/cover.php?f=OtK6lIavrFh6tbgEgwsD1TBPTmJYMnVSUFlkYU1zSGNKenRHbW0rSWREdWJBcS8yOUJhaFdTVnhkb3VBQkZkcUYxMG1TZjRvUnZGdzVteExsaDVPV1pwcHUxb2J1Z3Y4QUNEekQvVGVKQVFhelhCNWtrUE9wQUpKcnZUTkRoRXhDdFdaTFJGcjV2UlE1L1hh",
+      "pdf": "https://webapi.bps.go.id/download.php?f=qgIueBuLvkkBacASfUOKgFFTTjlzUEVDOGkyQ1JuVHpDdXVvSjFXcXBPaXE2c2RaZWZRbmRCcmc4YnNnQ1VDWnVvRDRmS1cyb1BpcTRVY3d1ZXNHMkU3NEw1VzZHdzVVUy9Gb3ZRZlFIY241cUViMmQ0MHhEdzkyRXlpb0JvODFDRlpESnBIblMrSXBLUHpFMGd6ZU5HMER6OU1GVTdYS3FJaU15dGdlTHlHK2VvcEMrYkRsaWZseUd2dFArZW5LMHRWdEdZeDZFL2w4L0pVV1BicjlZSzk4TEY3ODEycWVVR0x3OEc4RlI2R1VveTlycmhxTHFhb2RudnJLQXVMK0orVVp5aG5YZzFVMTBpT3BzcTM1SHA3QUFNQ0FTTlQzWWJQeitnPT0=",
       "size": "5.59 MB"
     },
     {
@@ -619,8 +637,8 @@
       "sch_date": "2025-12-08",
       "rl_date": "2025-12-08",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=RT4J6sm4BWrXApCxBNIG+mY3NnVEdjh3ckhRVm5lMmhzb09xTWxwenZaai9tUEQzV1JKeVB3UjNuemh0QnF5N2RILzFXdmFJbWhkQTVBMTVYUzJSTWdpMFdaRXlhWFV5MlpSVkZVWXhFdjNQWC9SaTVHWTZXYldpbDEzZllCZ0ZJY3MzOWI1Q0l3SHA5UFhC",
-      "pdf": "https://webapi.bps.go.id/download.php?f=C4pQPhfviYC+/lvUIfwNNDRCUE9UclNmcTJvRHBJNGQvTytweFFHVEtGV2tsY2hMcWRoZktHakNxc3FJL0l0OGpqbUY0SnBGSW1HWTF0V2ZWdDZTc1JkbFpFbms1OFNiYUQ1K2dpTVhGbnc3NlJmY0hHc3IrMjJ6Qkt0MUlBZEUwamxBdGlHQXQ0YnlYVlVSUEh1UVpENUh2WVkxRWpDMXZ2TzloVUE1TjE3cU16eTYrenB5K0F5eHpveGd6dld1K3E2RThlVUtSTHZXRFhLUXpJNllqUGxWMXpyYnVTVi8zaU0zY2d5eHB5R2JrL3NKZ2NTbTJDUzJ1Tlh1SWM1VUVOQ2FLRm14eEFTL3lEMWkxN0ZwUGpUZUFDbUlVNVlIcktwYU9sYVZhbHNBUkpqZ1FMNFpmZEFCeDAwPQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=WikI7ueobbbTohdEyVc0ZUhRNzRhamF0SUR2SUdtR2c3TTNPekdIclVXVzBHVTdySnJwQUdoTkZBSkFaRjdPMlN2WHZudGpuNFltL3c5dS9hSzBJMnE2MnJuMTlIR05XUXBOa3QzRHk1Qmo0YTYxL011Y09yY3g3Q3pxRHlZOVhvSlBMQ3E4dE5RU3V1V3pQ",
+      "pdf": "https://webapi.bps.go.id/download.php?f=1kapT07Y8gWexFaHZskikm8rUWNKeUNxWFFNbWp0Vmd1R3hQdEFqbzRUUHg1ZnZJV25ZZ0hvdWh3eTgzVnd0UzlVTjRtZHVPbldiSnhqWkQ4Mzgwc25nZ0VUSzJXeFBoM08rWjFxQ29IMjMvUlZRN3A4ejRmNTJWMytNeFNhQ0VDWW40SUpha0tCME9wRElQN01saTBvcnRrUm9JMDJiNm9IVklGamREMG95Rlo3K1dyb1pabkxrUHk4ZUtyc0owTGJwVFR6akNScGRUYTJGdE8vcElPVG1OdVVBT0N4ZFpSb1RVUlRTcVE5Yk1BSC9mTUxJWE9oWVpwdGRmT043K3h2K040UnpDZXJSQlhoWmJxUnp6SWN1QUpYeXQ3QjA3ODV2NlZ2a0xkcTBGRWxKOThQZHVFZDl4VllnPQ==",
       "size": "1.89 MB"
     },
     {
@@ -633,8 +651,8 @@
       "sch_date": "2025-12-05",
       "rl_date": "2025-12-05",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=2Y9GFTl88AhJGO6405FXxnBpL3AzTyszR1FTQ1B2WUlBZnNBd08vSnIrZWREbmJWMnZNRVBBQTFtQk15N1daRjFIY2h6VkxtS3paMmxhM1l6WDdhZjlRZnpwd2xOT291S3R2citIZ1VxK2xGeW9QQWg2dURoMXM0VTFrSkVuRUdtSVBFNGFxU2xvQ3BlT0dL",
-      "pdf": "https://webapi.bps.go.id/download.php?f=JqpMEZ2aHy8Bqy8Hfy+fZU1vWHlwOGZnY1RCc1RYMllQbnBvSEptVGhzYnMza3hGSVJ5S2lVSVk5V1RyN1RoaUQ2aWcxMXFKTUlPdlJqUkdpWHEwd3FHSmUvT1hEcDhjODM3TFRuWnA3dG1aYjFKaUZpWVNDWk00RStKR1dPNkJrdG55WXhoZ2kyd2hlR2VlYW9IN28xa3p6ZnhJMUY5c2NoYlRsNFJacFZuRFUveEV1c2FPVVJJNEljQ0VEMmJMZ3hwSTNDNXgvRkxud0JvQ1F2UlpHaDBYMW5ZRWVwK0RUT01mU1Nibm9maW5tRndBQVBYUzFtOVpOQ0VrcWRRQkR4V1VqbU95Mnh0N1dPdUphZk4wWUl3Qzh6SmJGZll3RGp0aFh0OTNtUUlsRVRKdGZseElydGZzN3lPZ2grRVpRM3pHZWJuWWFIUnlweFIv",
+      "cover": "https://webapi.bps.go.id/cover.php?f=tKCz9al0GN/HNARDRxQHrEVyU3N4MGF1cDBvZy9XcmEzNVVURHZTcGxMZXNQd1N4aEpyNnNNTjliTmg4S0JZakRjRlR1UC9PN1dmdk5sbVU5a2NkMzRJbnFmaG9HVWdOcWdBSFY0ZFMyaGEydGpOWjkrY2JLcEwrMEk0ZWNpRGtEVVp1dmlEUzJGWVVUbm4x",
+      "pdf": "https://webapi.bps.go.id/download.php?f=ayVuo+aE4PSpsTKPBoj6YEwvOGp3OUhhR3lyS1FyZkY0TmxEQURsc0lpYzEwb05jc29PdmxIbHk1bDdLNWR6Y2t3Q1VBNEtmM2g2RGltU0V2MTNqZyt3RW5CMTV0c3NvS2xMbVRUZWJoV1Qvc3FLdXR0QmdTdEp5M09md1lqS1pPMUxlOHRsK1NQUU5ZcDYrT1VMNnZLbjA0aVFlTEJLVjdLZ0MyMUMyOFBISW95YnpJNDBlODFXTll1b09CMnlCMnlxY2tYTUdpWEZVVmRnUVpVemthMjhiU21ZTG84eDZ6clhQNmtSSVlxNnUzeVMrYXlQUUpYTWpZbnZYaVFxVjVkbll2SVZERWdzaEdXc0VxYmZXSnBBU3ZibmROV1Z5bDlRNUM5MlNXNDY0aDIzdElmRDZiZzgxN0htVzBYL0EvRGRadnJiRUw1L0ZzNisx",
       "size": "3.6 MB"
     },
     {
@@ -651,8 +669,8 @@
       "sch_date": "2025-11-28",
       "rl_date": "2025-11-28",
       "updt_date": "2025-12-16",
-      "cover": "https://webapi.bps.go.id/cover.php?f=bJuObBOAEfoYWF1xE1tJQysyQWxQNTRyeEVuamxQblpCdDFkcEROWUs2eFAxdll4WmpSWkRjSVhVK3J5MkUxQyt6ZlZIRHlycHhHV0s4SzFxbHBLQTNaRWREYXRJTUt5bmhiS1ZOOHFjMWRKMytOcXVyVzdLM0VXSkRGTFJvb2RJOVZOTnVyRXNpWC9RSHFD",
-      "pdf": "https://webapi.bps.go.id/download.php?f=pdXDezKSk9xgzqZ4V5CqA3RYc1Vnb2hoMk1XaGI1NEhFeUZHeHp5dHhvalpCVnYzSi8vTGcwU1QzTEZQY1dDQTJ4WUw5QU9QNitjQ0ZNc0Q0MTM0cDQrTzM0bGhvUnJGNmRGdEFDeTN2a21HSnJkdG12Z3d2c3E5N0tvMnRMeW1DMnFNUGh6dTh5c0x0Z0doTkFnUFpXNmF3VC81L2RCWWNmOVgxZUdsRnBrVXFvVkFvTEEvbnl6aXkzSnJacW5VYWR5L0NNTFdMZm9HblZxN0xKM1N2RnFiWUF0c1Nkd3IzTnNZYVZqVWhMdDkvTk5RZ0JsQmV3dVR4ZHoxTDRIRHplaWdHSTY5S3lpK1BwM0Y3ZUtWNk05TnUyanpDT2RIb21QUmdNQU1rSytJN2RNTFhLanJjNTJqQTk4PQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=cPu9oxQ5F7Pee1dIohyNm25NN2lmNkNCZTI3c0JJWm5GbEJPMExmdTdQV21wL3lLcVhGUXFyZE9EWXgzK2F6K0lzc0hpNlo4QzNSa2luSzVUNWhxMisya3JqK05mcmlFQ0szZG5JeEN5QWRpb1Y5cnBNdnREUFhaTy9DWktFU21yRmhIaU1xUEFucFJMc1Bx",
+      "pdf": "https://webapi.bps.go.id/download.php?f=JH5G3NPkqBRPK7Lngn/Lnkl0WUxPN0NpWXN3Ri9CRjQ0QVBWNy9PWUtzemt0ZUZ2enVld3hmYUdFeVpYRmREazU1Y3l6eC9aSWY5VEovaUFVbkU0a2VqbGlNNXN2Z2p0WVV5RnRFOVJjY3R6aHpZRS9RZTQxZE9LSEYzMERvU2RlTmlqQmFCakpkd2pGMm5lenN2b1JZMWpaeTJySWhOS1ZDaFlyY0xNcGtaaWI1MTR1Vk41cEhUWTU1aDNSOThWenRuVFdONkljWjJyMVhIcVNuK1FkbHJ2THpTZXZQaDBTNitrZnFXTEVQT21kQ2tqY0pRMEZDNG5NMlErRFhpKytUSldRUzdOa2JOOXZxSXhDRFZsS3IxUmdzeFloRkZaSlFMQ09xdS9Gc093U0RHZkJRNmlCRTFzQmZjPQ==",
       "size": "19.12 MB"
     },
     {
@@ -665,8 +683,8 @@
       "sch_date": "2025-11-25",
       "rl_date": "2025-11-25",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=3r33Rv5GduSvqKVnhWs/b1hzTFVvOXZPQ1RmOVQxWkI2YkwvbElicW1kQkkrcEVJYzVpL0srMnhqb2RJR3dsSkl6SGxINDdWQVNnL2JyWStpenNRWEFxdnB3TXl3ZzRVeElkQWlBTFViUmtzcS9vRUVFdFVvUDhWWE9sRHEvdEtIWnlFNjFycysvWnNzT0Fz",
-      "pdf": "https://webapi.bps.go.id/download.php?f=mSsw0CX4GZLQY2nsgbRawjcrdmVROTFJMlRtaEdsLzZTTEVIMkxnRExuMFlvYmw3dVVqcW50anVvZDNzWGIxOWNrdDFqZHBpQ3ZaeG4raFBrZUJnOHZYaFM5ZXRHT29TeVg1Tng1UlJSVDYvRURsVE11RWlUbHNtbFJNUnl6ZFNpVW52VXN2TDR2cjhxc2Izd005NWRHdjhlbklvaXp5Q0xVRGs2bmwwWlRmWFZEcmFoa1JHODNkM01FMDdzZ21QNGsxRkRCQU15NjV0UUJWczJlSzNyWXpLdnZLVCs5RmxnQjFqZmM2a0F4b3NuR3NocFlUcCtSdFVHdm5SUTVRcEN0M2hKaFJkRmFoZytJL08xRU1xc29JeHNveGY4MHIvcFlUbVM0Y2J3UkI4VnFwSU5vV3orTUNGL3ljPQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=cRezjjNVWzZA8wP5Sh377nY5TXBXWGl5UytpSWtpSUJqOFFkN3RBTkdaSGlyWHoxRmZNVVhWYndBV0FydHFSSjB0STVveFhlNVUvdkpyc2piWldRZHZOMkRza0FiUFUyYnhhT253akFScXZrY0ZRcHlIV0Vjem41VGtad1RCaE44aXhpZGNJQXlnZkVTSC9y",
+      "pdf": "https://webapi.bps.go.id/download.php?f=WdA4Tdi3bDLf6SWbMXQ/IEJlWHArSWc1aFBRVkpmMm5WRnc3R2VISUJqNnNkUHpycmVWNkgrRGkrNThJdmZ1aEg2bEh1SUZickVPbGZRaW1heXV0WmY2YlVkb2oyVzNKN2tSblR6UHQ1K2cxSGhqSkFyOU9xcVBKZ1AvWmFKOGFQdHpSS0JqVU5uZ0pyb0JWdGFOZlBHOFJsUHFNaUltV3ZzR2ErSHU5aDdmWXp5U3lWYWlyYWs0N1kxMlVrc3JkeGIwdmVINXdDelJQOW1JZGRwNVQ1NHJWdW1ac2RONXdYcE00Uks1dVB3UE5oZXJWcE5Fejg4R3p6Y3ppRmZiMEZUWkk3OVdDV2dTelRpUDNvL0tFbXBzblA1TnpTeU03UXp1OHNJYkdQKzFBUUEyalNGbmJsMmcrM3RnPQ==",
       "size": "27.06 MB"
     },
     {
@@ -679,8 +697,8 @@
       "sch_date": "2025-10-31",
       "rl_date": "2025-10-31",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=Gu5+oRFWfN+nMuXY9W01qnRjRGttaXVCNmRUOVVlb2FpOXV6M1FzeHRpSzdTWUpQakM5TzZFQ2dvUEFlWlFvL3U1MHlZOVBGeHpabkZLV2dmSmh5Z3NtQXd3bXVyZGxyQUtoYnBhMmgyanY2czZITFlYNWRoSVlCUmIwVHV3TTRUeDRqM3lVNyt6YTN4SkFk",
-      "pdf": "https://webapi.bps.go.id/download.php?f=UdLhfS8/THHohoY2yRaWDFNQaE1ZWTZZdXg3SFJkNXIzTFRyeC9ycXdpRGdhMXArMHBNNGNwWkhubG9Yb2FrRlVNVEYxaHFubEcvNXdaOXErNzNBQkt4dmFjWENMcFdTQm1qZTVMRnhMNDF6NzR0eXYvS3VtSVVhVU9xS1M5V3ZkUWkzUTNhR1VWajk3bk8rTWhwK3hIVkdSYkdRK0dlVEpITDFUc1VGekkwQXMrQzJTMEczWmx3TkhSRWswcHhFUFlSWkRoL3pwOEtLT01nZlVrcitaUXFqRXRMZ1g0bmVMRW1WOUs1UXE1RThrMnJRZHJGZTRQcGFRNTJoMWtRZTZCdjVxeGp1SFZoM2ppRW5xc0dmb29Pby80SlhQaldnZGJYVzNjdzJKMWRzQ0JHVFV1T2RiSEQxSDRjPQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=0Tc9rDbGl4a83Be9qLXlZHpOMEpBenpTZ0srSnY3UUZuMjhkWkFLcTJQUDRjRXZUbUV6cTg1U082L2ZFZERYdXVsa1VxNGx6VDNXenErZkhMZ1hqVVRpRFovNlBQRW1ndWhxYnZQWmpvSW55dVlLTWQ2eVRuVGRHeHZhQVlUR3FuVjRsamt5VFNwc0xzUGxy",
+      "pdf": "https://webapi.bps.go.id/download.php?f=iHb8yne+N75Fe+Jut8PSWXordHNRVkpXellmUEhEb3M2Mjh0Q01pQThmTzV4dHR2REdlcTVGZFllUm5iYkFuZ2VucGkxL2Fhck9hNDBtcXJ5OGhLcEU2UkFhbUs5TTVTdVdlQnRvZXlkL05mbllpelRZYUdCdXVTZjhBYUZiczZqSkpLQXBUMENPb1JWVmhkTFNNVU5BY214MHcyV0hvYVVOdVZOMVd1N0U5aXYzTkl6NjB6eWlIQUtkTzNwWjJxM2RsSmZBWlM0WGovbE13ODRQckpKNTRSc3lleG1ndzJ6b2NPMHM0M09PVkl3dHljdFREQkJjWkwzVTQ2d3FjMHdCcGZhakV6NlJLMXY3eUZ0enBBREFTclVTd1ZyRVpYMUpZN3o1UEFpbGxSVHBOWGZaUjlVbHhlSjhzPQ==",
       "size": "3.76 MB"
     },
     {
@@ -693,8 +711,8 @@
       "sch_date": "2025-10-31",
       "rl_date": "2025-10-31",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=S/g3iykg6mgQXnJfUOsMFEtpMFg1SjB4YmQxaEpDQm9hQ21MSWRTRThZQ05rNHQ2c2FkOGhoYzdUQzUvZitmVGZkd1llUlRPM0FJT3E4MFpUUk1DRXZ3NjdNVVJRMzZvVmxSMkQ3aXBPZkI1d3ZrSVVJT29mMXk1Z29kZWhJR1dTdGdYeXNkb3NmNGpNM3pY",
-      "pdf": "https://webapi.bps.go.id/download.php?f=D4GIplDpQAhPapClrLO4jkxJdENSc2svWTY3SUZoUnREY3ZXd2ZibnBuWGtzQzRGNXU1QmFOSlJIdXNqWmR6ZFp0c21COXpXa0JZMEF5YnkySnR0UkJEWk1MTHRBZWliVjFwQkRPYnFlSTNsUUtPV3RwTXVTcDVwSEN4QWJFQjllM21CY1VheGdXRnFqNVdlRVFtbEpzcUxrbktUTzJNdC93MEZlclVwRG9zelpjSitNclJZYmxTYWpKNWsxcDZXR2xaK3B6VzVHZ29zUGNFKys1N1JkV0ZHbjZJclNEN2dSNWZaWVhtMWJuK2FGMXhVU1FDYWJXZSswZVU2VnV0VWRSNjNmWUhMUER4MTUvNFZRSmVod3l4aHV3UHlTT0hEZ002UFFQV0J1SjloRzU4S1JQcHRNM2RqMHNvPQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=WgXm34LFOjNOfxKrEgN4d0N1KzZNajN1dDVZMlhNTEZjazJsRU0wcytaZ0J6SEN1a3NvN2c5YldqM1BoNGdEQTJIUjM5WVFRU3JUREp3NTlPdVZXc01RaDE5dEZsY3hCZWFVTlE3eVFQNTd2WXZHZytXa0VwMjNkY2RSMitDNytnSFVaaWtyemMvWFlVUjY1",
+      "pdf": "https://webapi.bps.go.id/download.php?f=3f5vJ2r/mtyXQcq3fGbNmjhiTXdRTVdUcGE0RVhqeEN2S0luVHJKeTVzODF6NUpiZ0NWOHJmcWFjSGJEMVJlbGJQVWZxRWpHSmRTMUVPMWZOcmJNMlRBclpNcDU4cklFbUl1RmZybUdGdUhGYk42M1hNVk1lV292MjRHOHM3VHR1QktSRXdoZHpVZG5HUXVORHd3dEkxQTVOa2RrR3A4SDRSSnpMQ0xkZVFuUW5BOHE5QlpjVkFSS3JYZjFOTW1tTG4yWVAwbjJHTFBha0hmZWo5Z1dSamxjUlBIdkZ4M05UK3k5WW5RL3A4QjNKeHVEZ2l6NFlGekU3Q2llSHBnUUNldzNkL24xVVBNeUJjOHlTd0VKc3QvTTYrcHpnRDJqVzNYVHFTdlEveTgxcnZ0T2NidlZ3d21UdGFVPQ==",
       "size": "8.81 MB"
     },
     {
@@ -711,8 +729,8 @@
       "sch_date": "2025-10-30",
       "rl_date": "2025-10-30",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=ndMLYdqC46KP23QOcTEUmVFadFA2Z0RVSXU5NVgrNWZlWW5ac01Jd1E4djdWN0o5ZGdsemFUcnJOOVdMclZFbHdjdnZOU2JjOVM5amdkOXlGdTU4L2F5TzNkdlpOdS9naTB3MlBuMDlFVkdhclZwV3pTdmRMYWNuMmpxUktVRXBIYnVXWFNnRHYyT0ZqNjcv",
-      "pdf": "https://webapi.bps.go.id/download.php?f=Dch3qGBAg7sKg1eMlDzukE9WeHBiRTJacm5qZ2xZTzR5NHdTMXQrU0h4NjhXNWZWMzNyQ1dIZlJqL01Ic2tVWHhFWFIreENFd0FJWEh5TGpzNDNrUjlZbmZTTTd3V3ZMLzB2ZHk3OVg5N0VyOEp2V0lGTUJ3UTUyUW5EMHFVdXVUU3MwOVZuZC81UDhiU2pybHNzanRPSmVwYzVjZkY1ajB1Z3VpbW5mTGU4M240RnhXakR5RHRRbTI3RFQ3ZVpremZ3RUZmWFhRQ3JmV2NkbHIyTklUQmlKNFFvdzFqZEJuNzZDSlJuNTY1ZjFaeUhYdm5XdTVjQm1rcHZDMDh3SEFyczI4YjU4NVUxTFB3ajNZMkFTcVpvYjI3RXluQUlDelk4UGcwWVY1QXZVZFc2K2NEREZjc0ZIcnI0dFJpSGc4Vzg2aGxEUThjTWR3K0pIcGJQKzVJNlh2Qi9TaW45Vk5Fc3FEdz09",
+      "cover": "https://webapi.bps.go.id/cover.php?f=jLIwEO+4XqpiZw3XYPDFcnpmaUtobXRrY0JPVmRRQVhMTGFQOXVlbWdFdzFJM3h5c0w5TXNvQnhMZHlkcnVINlcyVWd5YUZGWThxZWpVdDk5S0M3OGtsc2NlMVV4bVdHVm1kcThsM2FITW5Jd2R3TFQ5ZHEvcWJFTDJrZnNlQjhURVhBWUxvREsrTll6c1NX",
+      "pdf": "https://webapi.bps.go.id/download.php?f=hu/DWFSIdRGPGE4jTuMIokFZY2xmVkpBYmZYS2J0UXA5WEp3Ny81d3pCSGhLRUdkdlpvWHQvV2ZFVk1lN3ZhUGNZckdKSmllOU1RNndLU1pHY0UvVnNVbUxYdFp1dHpJYXdQdXRGejkyL2prVS9vREZPWDhWWU8xbjNiaTl3V1l5Nm9TZmNaN2NMamdLMkhhMmVTU3pnU3IvcUV4TUNqVnFHcDRJRFphK21qZXZCcmFQK3IzVzhYQzBCQTN5bnNuTDA2TXAwL25LZFpDanNkaHRlV2MzQko1YjQzN2lPV3Vld1ZRdDhiRkNEdkJ0WHF5Q2ZnMHBmdGpGYUdkQWwyNStUN0NjTTdSaVplbnZpTkovNmlVck56ZnFBenZpWjY5MmNEU1YxbXRPVWhjWk9lTGJucHd2N1c1M1lkOXFuZHlPYmZ2THVBMTFNWGdNdnBPeG9OMVRsZDFXVjN4ZCsvZFFIZTBSUT09",
       "size": "1.99 MB"
     },
     {
@@ -725,8 +743,8 @@
       "sch_date": "2025-07-30",
       "rl_date": "2025-09-30",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=VxI5rq1yDq7eek7scfgq/21NdE0weGZrZlNuSlF3QWRaMmdiUnNVR09uSERBeFp6bG92RlFPWWFlVkNIN0VBbGFYRjN1MWRiNnJGZVBNYmpld3BGYnNXWUtNS1V0R1dHWk9VOVFmMDIwbnQrejN0N0ZrdGJ4RnJkVVRaMGVXVEl0RUNSTDJ4YmNZZHo4MkNO",
-      "pdf": "https://webapi.bps.go.id/download.php?f=O2M8UVDFzCPZBMQXquvvPGVPaDFEelRMeVIvdU9MVkNaYnB2ZXVoMXgwdEFvcHRkV1lka3ZDMFRRMEFZcVVDSmp3cUhQbGhpS1NKdmZoWWFWWXpiYjk5U1pQRjVPUlhUQThhMXlVU3NWemt2WFJjclJLYi9QNFB1c1QyODFqY05nZGNUTGMvWWdxZXV2RUZNOEhOQ2QwbWM4S0dmdG42V0RHNzJDWlpKM3EwVUlKdmlOd0dxMzFST1VqcEZ3ZlZtaUw2WWM3QzJTOGthTU1hUlFGTjBLazZ5VWZjNmFZM3JyYjAzaVJ6YkM0RUYxd2JUdkh6SXZiTEJLY3VnbmVVcWRGM05DZ2w5YVJ1Vzg3M1FEaERoVFBQU0Q4TG1UMVBFNDMvRHRTZnNPY2h1aTZOWEVERnYxK1FFSy9MNURxZFF6QXE1WVl2TFh3S1dTUldS",
+      "cover": "https://webapi.bps.go.id/cover.php?f=5cZz4jWJx3wX8PFc8S9uzXNiUkVZeThUbXVXVHdIcFRXWGx5QkMvS0l6aXpQZGFhKzBYUHFqZnFMUGs0eXJwYTh0eUJzbTFuSEJjK3pQTHlHTDE0U0lhZDdxZVFJQ0xPaGFIQUtVK29ZYmxmRXIvekI2VTFMNHlGdGtCZW9PdGxrRStCUkFYSVZsZnpLSmdz",
+      "pdf": "https://webapi.bps.go.id/download.php?f=aHguHdrhaw4FKZg+qgN2+nF1YUQ0QWN1RlhISXRJb0JacWhpUjVnYk1KMWpUY05aa1R1dlc0eDBoaVRPbjUybkdNZDRkeHkyRFdMek1KTXplQmNweVNYbGppWmpKM2I4Z0YrRDMvMkNIa0xqTklZQyt3TDdIdmMxZmJuVGM5cktZYTJuVlhodlNucjhwU3NQTzRLUldNVUd4c3dmRlFYbmdBelhFb2tNeENROWN2ZUNiNHVPQXFROEIxNFY5c1luWFRrWTFBR0FPMEFtUTlQVktOUkNBVDJabEhjd1FHTnZQdit6Z0Ryc2o4ZVY0VTUzcGl4aDRKcUdMd0h5ZGluNE9qYVZkeWRiVWZBUXZ5bjJ1c3lmaDJmbnNpS2Z6QnZubzZIc0hRelRmZDlxZmphL1ZUcGU5MHVSVldyZ1pvZlFBZ05mcFgvVGJ6N2EzS2FN",
       "size": "2.91 MB"
     },
     {
@@ -739,8 +757,8 @@
       "sch_date": "2025-09-26",
       "rl_date": "2025-09-26",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=t4ihWp4RPysqJ/1uzOa3r2N4SlZMYXIzLzc3TmdwLzg1cTBzVnovak1lMnpEbHFSM1FzVVNJQ3V0Mk84N1ZnTUQyMG5OVFR5QTE2bHNtSWZ0YXNJZFh0MDJWR2N2bG51aWlXSFlEVm5ZZmhUZW9Cb3doSWNNZ1FKcjFjNzVZdlBOTzJXblplWXNaUFN4cmJD",
-      "pdf": "https://webapi.bps.go.id/download.php?f=C8i/b0RRX2R4+owjkjon3DRBa0NCSHR3SDNmTTRieklaRS9UaVl5YjErSERBTzNhTXErMUxSQzk0K0RaeWwzQ3FrM1ROVkNzR2RwZHVSblZiWi85SFY5WlNIYVlBekRXMGVkMzhiYkw3TGRDWVJHakpoUm1lcUhRY0NnaUlUd283eU10bmhyeGM4bE4xVEhZRzZpK1diZndOOTExTVhKbDB6bkEwWVU3b25kNGRJZDB1MzZnUFNYbGpsaHkvSi9Bck5lMjlDS1haS2ZtK0lhRUlOazd3MVBxMGE3RG9xVllTZ2ZNWXN2N0pmaHd0dWJqS2IvbWlMQWE1MHlJK2o0dTNmNmI4WVd0RlcyZWtGc2VmemNZUU1HVjhNYnBRY1J0RmZOaE9nPT0=",
+      "cover": "https://webapi.bps.go.id/cover.php?f=VX4qUvIZTLbno87+Blnfzi81UHE4aHBVdUF6MDJoMG1NYlVDL3lScjB6eEJCbHRrdW9xVXlRdnYxejlvak0xTldscVE5WGJKSkxlb3phNVBQWldpaTFZMG9CWkUvM2lCOWhiUGxVa3EwWk93Y3RGc3ZuVDh6Nno5eHBabVJPVWt6eEduL084MnBuWlB6bnp5",
+      "pdf": "https://webapi.bps.go.id/download.php?f=c+eYJY3RP9ALUg1l3hn0hlMvd2dIZ3ZHRHVIdnRaTHFRbDNuVVFpT1pzNjl6bk1hRUhTTTlhZFdsRUhWU3lRZDh4S0VvQm1lNW5FaFl1NVpQUDVhRlA3MHUyOFU1TU5rNVhCbG5mMGd3cjlBbUZEYzIvYUh2Z1ZsWFhtYlF3QStHbFZ3aU1tRnZlT2xmc0RkSDMrdVh4UXZwR21BY2FBaE9PYmtPSVlSV3FqKzBUT1VGdVhua0thd005RTBacDFNOWI4NkwrUnVvdEJVRkx5RERvRTJkME5FM09YOG1oeEg3RDNWUW5xUzl6NFhCTUdZOGFVUFpnZ1JGSnpaRG5WcVZXRWZkQlQzUFViSWlnYXBkQXJSSW02c1BtZUg1WlV6eE5BeWpRPT0=",
       "size": "19.52 MB"
     },
     {
@@ -757,8 +775,8 @@
       "sch_date": "2025-09-16",
       "rl_date": "2025-09-16",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=z/zoCQP5ofgFpUqrrXhBM2FaWi94bGpGem1MMllxWUxVSmN0a1VYQW9RUDYwdWJ3ZEZ3QkNYUDJGM3FOUkJWM3o2NFVsZkJHdkZVZkNINVBPeTBqVGdQc0hJbHRCV0UxaWdiemdWSUNpZG5WblJKcmQ0MGFKaEdyb3lYKzRDNG9lMVhaVy9PbnNEUTNIQm96",
-      "pdf": "https://webapi.bps.go.id/download.php?f=vjeMryp5LTsT7VM4s7GS5WRJOTlQU1BBU3BmelBEVW1POWVhaXFFamVnM3Boai9Ud2loY1RLK1F5YUsrTExuMGhSYWFMYVRNd2ZCcE05YW1qZDJwS3MrMDNaTkl1azFoaEdhbGQzYkoxSW1sK0ExNTlaUmFZTEpPaWdhRndvL3ljNG1jSlNySFJZdFVYT0RBT2ZIM01FVUUxQkpJYlBaNVBOdWc4Z09XRFpQQ1lLWnBkTEo2K2hNbVhnR2F4Mm8reENmb1QrTXZFV0lPczhLcDlveVg1Tk5meUpPMVhNaFJERXBhR1kva2JrSGxSa2tkOVJyYS85NnVxNVdoNGlldDN3bkQydDhkbGRRZ2NNWVRrMURQZUtRY2x2UU1QRGJNOVh5aWxIL0ZPaTJPc3pQUHZ4aFJjL25XUEZzPQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=DPgkUe9WRQLeFdNDcj4UOTkwOU10WU9CNDRyQWYzT3JWWVRNcy9hcjNhbmVIdlRUUTJjNHc5RkxkY2VUeGxscE55bGFaQklsVjlKem5JN1NSdklyVnBXaWhXclY3OHJzUmZmQmJIbXNyRGJkMlR3UFhYZmtLdjdPZk92a1VnUmQ4ZVkvcURXU0w4M1EvaFRU",
+      "pdf": "https://webapi.bps.go.id/download.php?f=9N27uzypxNWIBcc6had3aXA5ZEJ2RGZFc2dFRGd6TGNjSDBMQkNxRWw4RTU2OXY3OEYyZnFIOVU0dld3ejFOOSt0OUg4N3JjcnJ6VC9DdEYySTc2Ukl0VVRVQjI2UGQ5RU9aTG8zMG4wMkhNb2dkQlN6Wk1MblBRZ09ReXNUa2Z6cmZRVW43YUwvUkxyVU80Ym0zVmRpZjRTQ09iZ25HOFIxVHFCaXVJb1l5ZmJoSEg5RFMzSEhWL3hDTE5ndGdCbjh1U1VJckcxOGJMQXRnZU9mT1d4VFd0TnZXRUYva1c3OUo1c1Vmdi9aRjZSdGlLTyt0RStXdng0MHY5OWQ4enk1WHcrbnZvck1FKzhBMG94bWU0K0kxRkIrbUl0QWJQQVFVR3VhSFI5OHN6MXdxVTg2dmM0ZUFCUmRFPQ==",
       "size": "31.07 MB"
     },
     {
@@ -771,8 +789,8 @@
       "sch_date": "2025-09-04",
       "rl_date": "2025-09-04",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=3oJ5zbmqPJQpHNkuqvpSfXhJWFZNWmdZdnV1aUZLRGtCOHJxbkFtNmZlakpMeVZncUlveW9KSDJpdUF5QmRZMU1qQy90cmEwZW9OczRHcUgxWFFTRjBVNkl3R1ZnaEtBaWR6WjNFN0Z2aDF0MTVZUzVNcUllbWNGRnRPaTh5VmYzRFhHN1Nwb2U0TmVKeWd0",
-      "pdf": "https://webapi.bps.go.id/download.php?f=449n1fe2OS6qSuQd2dO/2HNWbUc4enVZTUJqbXBBbjRxdHNNcmYyWUJOVGhQSjZBOCtoYXlOVzhFVklLWUFiZHRlUG9id0VWM3VsTjlNUG83QWlTUVdFNm53aDFWNXBMbHIrWkxXaldWZVRGOWRPN01PMWg0a3pBRlg1dlN4WXRMQkt1YURBOURKVzc2U2ZleEJ2dEJwYmxweTBOYWpyTkpDWjhNdlhOMG1OVmdKRGRWYkR6WHRFWi9XRTFmVmFRa0lyNkpScFlZNG5adFM3SElWalZCQ1lDVW5OMHc1MFVRNUNPMnk2RTUySmQ5Y1ppSkQ5Q09UWG4xR3JEZWI2QXVmSWVKd2YvU1ZQRkR2ZHdPSXp6WGNMTzBZeTRpUFM1K1gvNW52OXIrZFE1ZzZ3VEFBMUtUT2UyYm10NXZyUW5FamVETlRRNmJ3djNqSzNP",
+      "cover": "https://webapi.bps.go.id/cover.php?f=+Mv3PWToTqF+xu0F2qbOunZZQ1JTeTZkS1liaS9sdjVJeERtdjhYNFpLbUlmcncraXRjQWR3NUc5MUxZenJ6TUtONUF1N3ljbXdrY2cxWEovR0JMZ1B3U1RtM3ByM0RNY0RjNUVSSllCNDBmWm1yOHpQQm9YV0ZvTzNLdDR6d043enRXSk5jbVVkTEVXUGNj",
+      "pdf": "https://webapi.bps.go.id/download.php?f=oRfkuhDER3K0u4BgmJxvhTF1cm45UmtYakVnM05mV2NTYU1LN2ZLd1JtaDFwdWt2dWlMdld4RkNxTTRpcmN1QjRORkwzL2MreFNhMDlJZjlkaXlNb3FhQkxNeTl1Vjk5NlRSWlQvNnBKNDVrczFrcXYzMmRrVGZrM291Q1FkNnNMSTZmblZRbnZHVlF2bEc3dGx6bGwvQmcvb25mQ2FtT0srSjdiZTR6Q0dYYzNnOWtjWnJmZHlGMUM3dDlOS3dPbm5xMjBTVjZOTG02ZUdpQlZFdGdybTMxeVhiZEVYdWkxbkxXbU9jeWJjQTJ2b29oNWlURHpkaGN5OEs5aG5qUFp1QUZIM3JqNVlZUGR1SjVxOFdlaFBmbHV6TFBiRTlFbENXQ2czRmluWHpuNitiaC9ZSDdEZi9CZEdyUFErRkdJaitQSGZ2YWYzSnRPdENn",
       "size": "4.63 MB"
     },
     {
@@ -785,8 +803,8 @@
       "sch_date": "2025-08-22",
       "rl_date": "2025-08-22",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=hX8kWH4YZGaVW9kSBYyVS2I1SjNqaG9MdWgwMGYrWWdDaFhsdnRmbExpRUZVd0xLbTJ0TnZDM0JoZGdBWktqa1pjazduMGlSSlRBQU5kbC9VcjVGWE5xNGlZMjFmekZ6T3RsWVlKK2R0YUlNem5ZSDQxRnBJdkkydld3SUVSUmxjdm83UlgzOE1YalBUUUJN",
-      "pdf": "https://webapi.bps.go.id/download.php?f=5kTDEqsgC4ens404Osliw1hhMDh3dlVoVkdkUW53Tk5PeGhLSThDR3paTS9Ld2JBQktBVmlPamJMS3IyYkExaWN2U1dHV3ZPSk9PaEM0bzBsaUh3Vm4vN0x2b0hra3pReVAwSUpYUE55U0YvVi8wcG1rWGJmbmVEVE5KcXNnVnM4czBtclZZTS9xemhSVU9rRUtwZjR5cGlUenh1MjNIY05LZ256TjhaN2tvWFZwdHV2UDVpOUdmcS9EdzhrZHJsLzVxb1hwOFZKK3poQ3dXcnNvQnNFUHhMVTA5UXpiNUVPR2EzNm1iTnBxNXNHcVhQMk5yN3JFalh4d3dOWVdsVmRQR2ozTWw4amgvYXM5dTNOWTZ1YjRpenNPMzNqdG02UHhjbzNBeVk1Q2pYTjFEVktsZUdObjNnQ0NBPQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=joIbhO+hSkCeq6xEBYOL22ZucHVRRWlwcUkrUnkwWkdPRDA0VGN5U1Z4ODBRbk05VDUwRmlCNUliRW1ESThDVmtVd2YrVHVOZS9OcTE0K0wwNW9FeFo4L2F4OU84NE9GM0ZzekJ0dVR1S055UWpOd3NQcFR5dHkwL2NtSGNsVUprcTBjZkkwOTMyQStvWFdk",
+      "pdf": "https://webapi.bps.go.id/download.php?f=o1C7OF+gI6krU9knet69/3pTSE9iSFl5c0N1dTFXMjBaZnJRckFlMnBzMjlpSnVINTJIeG15OGdYcVA4UTZoWlBhTDFMMlk0WkhDRU82cC9HYWhQUGlidGVwVVZ0WU84bmR5Y2I2RHlyejdxMmtGdGQ2ZHArVFc2VHNhNyswdnhWVnZjOExDT0FsNWJIdDZwUE9JWGJPZlIzNHl1MkV1K3BzcUM5L2tQU1BWeFp3aFlPRGd4WFFFOVlnV3N3VXFmaXJVTWZwcUVnUlg3bWlWNzBoN0Z1QjdvWUJENCtKZkg3c2FJQWFyQzlWRjkvdWkvc2s4eHJsZmw4WStPM0FEQW13QlMxOEorK0VLaThSOGRvOFh4YnlZNHFKdVRPSzRyc0hkZmJyQ1huMVZITlpUdE1pNFl4Q2p4N3JNPQ==",
       "size": "6.12 MB"
     },
     {
@@ -803,8 +821,8 @@
       "sch_date": null,
       "rl_date": "2025-07-31",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=ruIi12IB93Fd4qdu1w232jRHMXRLVkFZelk3cjNUKzlSWitEZmlPMDExZlVNZ2w5bDBzSzJBdXZ0OVNHdnE4b084SjVzMk1oZXFpQm8wa1hDZllmZDR6MURDZ1ZXb21YMFNBMy92VFJRYWpBQ0cxNzVjRjJhYmdNRFhMWkZrTm5LZUd4SlRqa0pOZU5yZkFM",
-      "pdf": "https://webapi.bps.go.id/download.php?f=7YzdoQ5ALPNhDbSPL3AstXhpL0xTTkJwdkx0bHVYL2d3ZEV5MDlTdjVSQXRiMEp1ZnRBSnlqY3Z1K0RvRHh4NjdTbFVvOTA5Vy94THBDejlKVDV2MEdKaWVYRVN1QURhTGRkT2dpZlhjaThwQldycHBJRmg5RlVFMG9sZlRRV01aSEZ0cW4xOGxSSzRYZHlySW9zOXV1NTY3OHNZNHdObDNJWnNwN1NBejd1T1BvZ1VuOFZHRllnZ1VDbHJBYjRrVDE5bVZMZG1PMDlwTWxkNm8wN0tMb1E1aXhLc1ptSGVIYk5BYWd0dDhHQ1ZKcVlpMUFsV0lMOG5iUjBveTNFLzJndVFuSWtlY0hmaU1jOEd2WlYzK1J2RHpQVHdIRHhJYndTR0JObjg1M3JsTkRncktFR1VQZUprQmFwRFpRV1UzTVdIWU9RUmVnYktHMUJj",
+      "cover": "https://webapi.bps.go.id/cover.php?f=Z6ntKYFhwMmmR7rxjYuuITlqNFhtZ0RMbmdMdDBDOTE5VEpwUzNWQ3phS293RzBTcGZDQkdoRlRraTlOWFlHYW1sb2MrUEU3RkVxNDlQOHZlMVQ3cHh1NGN0YXladEZHakdpcVdHTnc4SEZTSlN6ZmxQajc4aGYyMERHdXRFQ0U3VGJGTUFkSzNEMEdHMEZu",
+      "pdf": "https://webapi.bps.go.id/download.php?f=DhG+GzE2ef5Rv2KDMW3DwGlTWS9qRXdnd3U4bUVWNXI0MFpYbWtVeUlSbUE3c2NOYXJEMTdwbnZKT2FDdU0wVGJybHRxcHRaSlI3WFV4UjBiMHc2b3FNOFhJYjRWZTVWNnNHV05WKzQwS1NnWmhUZ2JVemc0WFFhYXFTRHVMUTdzR2lieUhJTXA0OGJuMXNPdmtwbTJmb2kySEIvRGQrZmMxeTJ0UkNJZ3p1S3RGQlNITktRSnJLQ1dMb3hkTHBvRHBMNm52UmtIZDNWcVVnWDRQSHdVV3BpUmd0UXFYWDVFWTR6T1BUTWZnN1RiNWxxaGU5elF0UGVSOFNZUHY3TXd6SUlBMVFWNmFBUVArQzhZRTY4QTlMUUF4cmFleFRwUDRKWStYSCtuZThjNE9uM2g4WGU3YS9pMDlNem1UWG5jSlgxZjNvbHRWMnlVYTVn",
       "size": "1.75 MB"
     },
     {
@@ -821,8 +839,8 @@
       "sch_date": null,
       "rl_date": "2025-07-30",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=8HUAy8cFRSZaV0Zg/CsNAlB3UEIwSFFKL0oyTVFXOXZEQW96SHVOSG9zR3JCcE5QV0lSUEk4VGlHZzRCcjN6TDZEVTE5bkFGcjFKODF5cGJiTkUreVhBT3laUXlvQWJCY1FQVkJlZFR6MUFlMmhnWk1Cek1tZ3NTek45aDhDQ2hoN0VjQy9qd1hibmozc1RK",
-      "pdf": "https://webapi.bps.go.id/download.php?f=2fJMtzpde6dCrmQId+k1qy9XeEMzYmhWVXdHUmtKNjg5aEptQ053d0gzTXplZ2VlcVRnZUsxS05VZXA5RGlwMS8xQlQ5SllGcUJlcHNNYUJjNGt2aFdpNDRNU0hGOFYyRy9QdnlRbHN2WGl5V1R6UzJaMGxNYU5UbnVyTWVvTVMxeU5FMDdjVmF1anRFcHhidEpXc21reWhDdzhDUDFjM2dObVFPV2FONkx3N0x5TmhhcFUzVXF6Ui9BdlJmTzNvREovUG8xbm1Hbk5LYlpsQkdVUW1XWUQ4dXV1bmtZckxSaXpUbko4cW1oL1Y3Z2tDdkxiYUY2WlVOTFVtMmZ3cURXZXQvak9mS1dXZloxYkE3NGU5ZVIvM3RBeG1IdkVkWFA3MCthbFA3OUtiWUJYZUFrUVpicUxsN2R4V3lRdzY5b0hhTmxtdW9PMk1NcEZJTzUwMGErNnE1dGpoaklVUzhpa3pNZz09",
+      "cover": "https://webapi.bps.go.id/cover.php?f=H33qqV1UrSinXkBLAElWG0Jia1lrVTg3OGVtcjVDYmViL0hwQkhWMFdZS2Zlc0VRQUJoS01ZQzFZK1l0cUlON00rR0xDVVhCSjlMYjNFb1A3akppMGZ1L3dkZnQxVHhxYXd1b1dvMC95UlRJelUrcTV3SXRtczRkcWs1RFdqQVJlMTRKRkRDdlpFeUgzaTYv",
+      "pdf": "https://webapi.bps.go.id/download.php?f=U1hb2dUnTf8sHBs9fpsNY3Yzcjg4OHEvZko5WDIrbDJ6Z3pNZlk1cHNHTWY5clJZc09xWVI3TXpMbGphUFl4TGZ1OUp4YlNvT2UzMXZCVnpFZEJHTk5oT1lDV1EzbDk3Q25NK0pMdHYvV0FJVFc3eTIyRXV4Q3lPNlpDZG1oQ2tyQUdkK1hPdGpTaHg4RTI2ZjJIeEpVNmsrTVlYVDNPdk9nSDVNQ2Rjc1dncWVjRGQxMnJqZC82VXZ0cTRvb0xwS2g4c2t5aFFSd1RZOVVXb2dKTnFzb0FWdDhkT0NEUllhT2Y4VW0yNU5OeWFTNi9kME03ZldmOS9EY3hKYUZqOFM1YnMvMFU2MWlzenY1N3NwMFQ5emlXeGQ2RjYvS2wybG9XTXU2NGlHeTdpVHl1SjJyNi9MU3hpTmtpY29sS3dtWjBkK0dFSzk2cEdYVk1TSVpWUUF3bktxTm1ETVZPL21CaVgxQT09",
       "size": "2.46 MB"
     },
     {
@@ -835,8 +853,8 @@
       "sch_date": "2025-07-22",
       "rl_date": "2025-07-22",
       "updt_date": "2025-08-26",
-      "cover": "https://webapi.bps.go.id/cover.php?f=dHZdOTirVaFMqKkhf9XU5080b3cwbjVBc2V3SHh1Rk04NTQ5ZmFOUUhGbVJQcGRXZ29vMFZUWVMwblhIeGx4Yng2dXd0QzJSWWFPRG9jdFRENGd3SWttQ1hacitvSWNFNmVxNFE5MWNLYmhEQkFxMHFxbGJzbFFOVkJ5Q1p0WW9xdzhyMXNsNmdWSDdtcndu",
-      "pdf": "https://webapi.bps.go.id/download.php?f=eMHalzMXgWigO9H0EVrtiXZ5aXJ2WjhXdy9oZENOeldOclhDcWtHSUZMSmozS0V2SHFvV0t1MHhvTG9nUUpVVm1sMDJ4bmhpMENQWUZ2RXg3ZnhvZ2JvZlF0OGNCeEkrb1hvVGswMC95QXF3NXo5UlhRenJjSytVV25GeG9vRVhFdEx6c1haVWVWZktLMmNjMXdrVnIwNFBzZkZhR0p2RjM0ZjNaQ2pXM1pyVUFKK2RZWDE2dGZOT00zL3dRSTByV2FVbmI1RDFSbXM0TTdaYVJrRVVJWGlpZ05hOU1ydjJITWgwUXIvdERXOURpSUtmTHBTRy9RdjNaL0dRSEd1MlpTZWZVRERGTDlreGVHTTlKK0NwYXNUam1lSlBsRUN3ejQyVmVnPT0=",
+      "cover": "https://webapi.bps.go.id/cover.php?f=/reOmqaO2VjGipPEO9cI62w5SEpWK01VV3lFelpJeVc5MFFiZWtodjk4bkh5cW1LZnByMzR1VzUvdnpjZStxSEEydFA0VlU0L3ZWRG5hMFNVUGdCWXZValRZZllGclArbjNJS1M2ekM3amw5aGliL2VXdWxOeVlCMHgxc2w3RUFPWFlyeDJqbzlLVDBzK1ox",
+      "pdf": "https://webapi.bps.go.id/download.php?f=lP+PQ/bQfEgC2p7+7xncxE1INHFkSmFPVk1OTG5xY0twUWlJZ3ZHL2RsVjV0aTJzbm9DckFzL3JWbTNNTmRjL0M5WnlKV1lWR1VNZEN5SzdHaUhucVRtdWhNM1FDZUdTSVpmTXpad1lBaElTRkpiRENsMG0zempoNTdybEVOU0Q3L2pnYlRpZnYvUWJNSkJpZDBmS1hQWk95QnBYMWRiZUcwenczdlNRelZwdWRSQmZSNXNHR2hheW5Hb1lBQVZ0R0xCRVd2YjhadVRXSUpYb01Ya1VIdENmUm4yMWxXSUtTdkMvMTY1ZVhpQXk4aVA4MWZpL3dlOXVoMGxIK05yeXVTbnM2WmJLZXM0aE1FTWVqdVN0WlBtWW02enpiamdkNlhLYldRPT0=",
       "size": "2.83 MB"
     },
     {
@@ -853,8 +871,8 @@
       "sch_date": null,
       "rl_date": "2025-06-30",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=9AQRbQQ03zjSQM6THU0umE96MTFGckNNYjJLbFQvdjJSN1R5aVliMFFoUnBZZW8wZVlsb1V4WStnVGtPQkVvMHh5ZVRrMW5mZDBjdDk2OEsvaDFFMy95Tm1yaGpudEE4KzJOcjVISklyMXlvU1gvaml4bHJEZSt4d09BYk5oUUVQTzZQNEhNQWtEb2VtOW5R",
-      "pdf": "https://webapi.bps.go.id/download.php?f=6fKdRKNODKrsiDOJch5xnGVzQ0FQQmx3VHhDeEsvSTJqWldEdHk5Snl1eEFOV2RIQkdhTzBBc1Z6SkY1Q1d6UEdHblJraHNISXB2Sk55SE0wZnJtZENTbU5Wck9mNWpaMmtxSU9ib3dnenI5ZEhqSE5kOG43SHNDRlJlU0R1NU55dFB3NmtkSi9WM2taOXNybndaSXJlckVXZU5oMldEUFVTd1pNcy9BZWdjVWFJTDRsT0pJTHlreTdyQ25TR05DUVBST0xNZGUraVRtc3JzL3FBWkZGS1MrbGRmdnkxVEI2cnM2OElMMUZsMFQrL3dsQVMvYTc0b0NSQmZobTBGSDdsQ1NKcEFMQzZPbmFDd3Z1cU1xRngyQkFXWTZUNzl0ZnI5SktXTGxXaHY5UC9pY3YzZURZYytUU3U0PQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=cbFPMOzJJkGN4MXNw211n3Iyak9nOGxKeGxtbGJhUHJCOXkwRkhKZjV1NG5xWndlc0RiMzhtYVNDc1o3UVhYUHVIOHVkbGozRjdKbUpkdEJab05rWEJnNjkraHRWQi9vQTZ4bzFjbENKQzlaTVI3bnBlK0lOODIwUVFCeEtibTNSMytiMGl2amJnVUtySXBk",
+      "pdf": "https://webapi.bps.go.id/download.php?f=2kifDHmIlBRJHQbVZwjO6k1DWEtYaXJGbldORTliWVp2NWpUZ0hOZmdzak16bkpCNEpIelhRblVSWE5RdDV1Qk04cXBUdGJwZGFKUlgzcTdybmdmaGtmSjRIVGZqTkJ4cHhqOG1IMGttTjFCTTdUSjN1bEErSzlzNFdQT1FxNmhoOGdsbDA0RElrd2dCM1A0c1pwUHFMckxmN1lBandNVTM2c2tkeEVzSFAxcVB0NXN0RE1tT3JVS1Z6NjZ2bHdlRDl5MkJ5UVZvVHFLUjhQUnZjWTJXM2pFWExGS3gwRjBmVEJCTVNpYVdOdVRycTQ3Vm1CdmJDZG55WFZFNVVRMUxyd0REUlVWOGhVMjR1WHZWVVIrVWp3Y2xOcExic1liZUZsSVdIZ09ZazNLbTNDQlZPYzBjNUdwQ1hVPQ==",
       "size": "4.33 MB"
     },
     {
@@ -869,8 +887,8 @@
       "sch_date": "2025-06-26",
       "rl_date": "2025-06-26",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=gdt5bLhoknK8lrH1U8J88Dl1SHp0WlVpQms2ZEd0M09YUjhUOGtEMDA2T083TC9yUWdpYncyN0U1dG1QWlVyc1B1ME9TZGFPSkxoamI2VW9hQmx3STBDYlpWaGV6VVpZcEFRcElHRWo4QmVLeG5XMVl4cUVlYzF5OUFnVUdYRTRnK3hlTVVLczlKNmlmQ3NE",
-      "pdf": "https://webapi.bps.go.id/download.php?f=cm7ItTgMXOpKAjsLDUnjdTZETm1jS3FvbmRvTlVZZFcyak5QdnEvbFhMUnptOERqU3NqalhoQ0VTSGVXTXpZRmdZQkRSZW5CQ3gwU3dlYzcwMWh3MUVXU2p3cGliYW5yUGhuZXhHV0FMU1FkaG9BRE9pU1VUK0lmeWJoMWdDYkNvalhLaGhYWEt4TERhUTZxZmRaeDZ5ZUxJNTBaUHJLaFlNOGxrZjdrbTlDRUZqRXNqYk9ZMGtReG8vZkNlK1dhUmM2YVVBSkkrK1ltQXN2Z2RPMEN6WE1pSVZlTUt2N3RSeTZrZGxlOXE4QVZJOHdSVjk5RXQ0TU1RbU81Y0tydnU2VFllRkk3Qktxd3pJU2Zway9tMUN5aVluNU1JdW9pa3VoNE9BPT0=",
+      "cover": "https://webapi.bps.go.id/cover.php?f=CAqZfDbU8kQO8JjJvRHI3jAzM1JQZ2E5Yi9SS085dFhJbUZudHYraDFzT2FGQmRoS2JzNllRKytMVFJmc0ZCS1BydU9wdHJCRlFpUGRIL0RIakNyR2NqN3ZHY1ppTVNlUEI3aWlSemJ0dDlVK3ZqNWxkQlJIVE5ZVFp5NStlczNWbGJBR0I2MjBPS3lWZkRR",
+      "pdf": "https://webapi.bps.go.id/download.php?f=HUp8MkP5HQAxwyhMtzhu5mhFcXN4K0REdUJ0Y1JmWlN1d014VWljcnYwbTVkaXFZeWxxcUZSbExNUExmN3dtSk1uQXV1TTNxNTBsM2FsU0xpMmlTeGZIWU9CeVk1cTBjUDZRMjArUGd4aTI3dzVML1orRllXelVMakx5TFlubk1lbCs4QzRuNVZQcEZENUFmNXQ0WE1yOXZkcWNoMlk5bTVNd3lRT2VtcFh1SnVHUmg2MXpIQ3M3WWovLzhQbmlwMXRZcndnbkVHL1hkdXdBY0RFMm9NR2IzNmJYT2tOZDBSWVJ0RDB1RGxrRnZyK2d0aWJyL1VIVm5rbDlOWHZ1OGZTalZQemZva3hhdDZxZ3FSajk3eGhuNk1GWkgvTzNsWHduamFnPT0=",
       "size": "2.91 MB"
     },
     {
@@ -887,8 +905,8 @@
       "sch_date": null,
       "rl_date": "2025-06-26",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=rG+9cbn+ecrgAlj4L5Ai9kNMNE00UU9HejZKZ2dhTG5FQXQ2eVY0dE9tdkxYeG5QL1kzbEtGY0lEWVpLNGNUSUltWEFUZVgwU05RUWRVcFEyMWxWL21vTnpYNXRES21ocWNOT2VlVUcyY1Z5L0xia04xekxra3ZBanRmM1h6U3gvOGRDUGZ1VGVIbVFqUjJU",
-      "pdf": "https://webapi.bps.go.id/download.php?f=BRN67cTaqGv5j3C5hOkhoUJNOGV3R0hOcWp1SDEvMXFtZGFlcy9VcENTUm9TZ0xIb1ZHR3NXL3I4aStZQlRQb1ZzTnZ5SFlOZ3Yzb01TeWxJYmpYQlg1dWRJZS9OZ0lZemZRUTVNUDFsNUJzQkVsZHBQUnZ2WTdya00xSHFPcldaNGZmOXRWN3EwUDZMYU44WFFmNTJXVFFENGRGbDU3d0lZS214N0JPUVJFMXZSTVN4S1krYngvT3pDbldsV3ZUSTlQVnJ4K0paWjk4aDBmR2hOZmFPQmhnQmJsK0VZNmdId3ZGYlhhL0Vxbk9MWnNCOWNRL29OUlpwVlYyUVJTSnNLVE5Ld240UXNSbUl5K1VSZm1LS0QvT2orKzk3ZEI2cWRPM1dRPT0=",
+      "cover": "https://webapi.bps.go.id/cover.php?f=20JjBTkclcw9j/2hFJDACXczT0ZwbmVEOGQ4a2pTRy9EeUs1bmpLMXVZeXhjRWFJVGZpb0VtRnFOWXVIL3NWVlF4KzdmRDlGNFVXamxPSHJvbXh6UFlvT0htNFAxTkptSzBWOXgybkFhWml6Uy9NUXpvUkh1OXVDaW9maDRhUzVMUUJ0MWJ0Z211dkJFWTd3",
+      "pdf": "https://webapi.bps.go.id/download.php?f=oRCW6dVZTXvwrLgBCWdm621HeC9zUnFwN2p1Q0Z6dCs5dVQrNktiblplY3RrTVpnV3FtNTZWcVJJbFR1UjNwNk04am1vOU96WUllaXlhOVFMdUdNVVJTNXVJNVFINFRGU05UbjN5WEs1TVRqUkxSZFlCbU05SmJsZTYwYWpRZzVKZzU1cFJZVGZwZmI4MWJ0c3I1Rk02TStybnU0ckM0SkRZa1dxeTY2MWdOQ3hybGR3RkpqT3pBeTJFS05NWlRyQ2pDcFpxNzdDRTQ5MVYvTE9wTU1ZV3FnZ3NCS3JGeUpZcFJRY1BKWkU0R0hhMXNGZzZLVmE1SUpSK24vK0Mra1dhdis1U2piMTVnZFJpWDFsVURKUWxaMkl6c2UwaTZIOXgwbWtRPT0=",
       "size": "14.07 MB"
     },
     {
@@ -901,8 +919,8 @@
       "sch_date": "2025-06-24",
       "rl_date": "2025-06-24",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=3+5TndbPTlU4HzOqaOiW6m5YT3lPVDFPdjBqUUhtZlRNdXhFYXU0eGd5QUc4K1Qra1p5YXFnOWF3ODc2VmphcXRGZkhnZExLZmd2cjdXbWZ1aHZJcHNxYjZyMExTelMwdDNib3ZlSHdmazdHeFB6YzZvTmFBRkd6TThKQmx5QXFVUWlOaTdLUERHSDcwZ3VK",
-      "pdf": "https://webapi.bps.go.id/download.php?f=htmD9IbKy4JVM3bGepVsLlpaWnE0T1l6OUNvaVFNczVBRjUwT3c0U05CaFhUMjN3c2V0T3Zib1lidkhwcDhtYkdEelFDVUtBNDRHWGlBQSt6QTJBSUhlOThxTktxelE3MmU3dWZYYWtMTm9VVjJzaWZxUWdtamhQTy91UUV5SjJMZ21TZ3dNWVJwZk10aUdSSUorKy9OQmd0akkwdkQwaTJyMmxwSlQ0SDJoWU5KTUxVUFJQNHplU2dLNXBRblNLYUE1M3Q0WnlMUngzNktxaXJ3eno1aU1Uc2J5QllOZEZDQmNNRzRaMXhOMGxpN3lZQlRkQ1RFL05SUEJreEhsSU9IbkNLQUR4dDQ2L3EzUTBtQXdjeUg2cllCUUZJSHVWb2MxTWZWdUM5QTRQQ2d5RzlNdnhSUzVrS0g4PQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=b3abNpNegWtzFMpfnkTf7TZVRVRzWG9YUnZ3bHpYc3daNXpLeWhRVnJ0ZTFpNUd4bHBhM0JURjkyODk0WEhaY3l3VzFpS2Q4OTB3dXpjZlJBNGkvUUZNWXpjZVpPNDRjcG42dFBqbUR6WXFQSXpWK0VtTXRqUTFTY0lSK2pmRUplNEl6eWRGbFh5UVdvdWYy",
+      "pdf": "https://webapi.bps.go.id/download.php?f=wJZhDW5WcFpA3BgKttTpBFhhZ3pZUUxVa2lHK1J4Vi9FQWhrazVHUXhGOXJlTUR5bWZXaXluakJZRTlSV1dkRHZtWUdwZXBENitkb1I4SncwSndQZ2NzRWFKTjJaSzkrdHprdXVMNVZxUjFGdloyUnA4VkFFUGp1N0VNSUEwbUJnOGNMNEdnZ2oxK2FqZ2tDT3hVMFlkWFdyd0dXVDNvREd6eDBFZ1JRYUgrZ3RLT1QraDBHQmRaTUxMUHNVcXhRcHNSSnd5T2VvQ0NiMnNBcmZkWm51dFlsN1Y2RHROc0tsR3VocTdLWWIxU1llZXBGRzBsZ1lpWWtvTm9sQzk3NW5iR1ZpbnRyWGZOMnhvbUgyek5XRXlLbFc0ZG91WVZVUllxR3FUeVNFMlVQZFpEekxOL2xZeFBQaHRJPQ==",
       "size": "27.28 MB"
     },
     {
@@ -915,8 +933,8 @@
       "sch_date": "2025-06-05",
       "rl_date": "2025-06-05",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=3aF8lE3OwLMOGG5OdUUSkTBwWXdkN3Zwb0pPSml6VG1RcytaeXZlL3FvR2RWWlYwMlZsVjVWTXIwaEhaRUxLV1VXQWViaUd1aFpPaEpxRnFzZzRhaldWc3o1ZWhFN04xS1VsSjZtbkZqV0llMTN1WWlsb2dlUmhEYWI1UGZ5d0VZeTZTeFduRThvYUdaTDNQ",
-      "pdf": "https://webapi.bps.go.id/download.php?f=jdR7Pflg4M8LMhxisq21Ykp2TUhkWjhpR2dFY0FKSHhpK2hZWDRYNTZZRVAvYUd4NGpKRHBockZPaVFjVTVDc2wvdVBzNGNTTlFPYVFUbHRhVkRQRThNa2RnaTVGendEUm9mMU5IeWNEOHlwV1NCOENNYmJVRXpVM0oxQXhOT0V6VVpObGczQjJ3di9rY3BsaTFRdHB3MUZGREJFN0tOQzlLYmRSZW40TWZrOXpQOUZSSndSWnBuK25Nbk0zTUdZbS9tVk9nUDVKVEs4NjZVUm5HQXlvaENrNjFZUHY5NExqSHFCdjQvWE5VUVB0OGdXOFBTeFhGSGFOS09yb2tlb2gvWVJhUldxRC9QeS8yTGNMdHl6aE1lWTRielpmakFSRUg4VVh1ZjdiWTJENFRMOENxbFg1c1BoT213SVNzOGVLNTVTTSt1c2p2bG54VFcyMll2TGZsL0VPLytaMXY2TE9CdnhCUT09",
+      "cover": "https://webapi.bps.go.id/cover.php?f=BaGCFytN6aOd+eP3R2wacWlYUWtEdm8zOUNWN0REREJ5ZStpZWk0ZjRpN3NuU28zc3o4TjJJbUc2Q2UwUGx4eEFlZ2MrM2ZQK0hUWXh3QyttVTVmNmU1WVM0ajhLeWd4WTYyc21hd1ZLTUE2U3BVUkpvUVhVS2FFSzA1NnI2azRPZnpvZW94WlNDNW5JL0x6",
+      "pdf": "https://webapi.bps.go.id/download.php?f=wBEi/yjSToUuETsGM12aAE9FVXVnQngrZ21WSktUTVMvREwrbktFM0g1NlYydjBkU251OC83ZjBiN1pQMG4vSzdQMm1UTzhWMXVGdjlGdmI5Q3VsekxpT2pMZ1p0RXRtanpSZEpGZnpXd2lnV29xWHgza3NBR0Z4UUthbzZaVDZyM3B0V2VxSEpEemNUdTRXU0dCUk1RNWlGamVydzZvdlZ0L0NaN1hLcnNWaUgvbEk4amVZcXg2WHJCb1NSdEVSWEd2S2RySGVubjRCNVNmSjJwaHhheklXYW5xUEZSVlVXRTExaUxQRlIySzU0RktjeGtITlFpbVhCNnF4VU43d0tza2N6TGNDWUtEWU9GOS9jaVkyclVlUC93dGV3ckJuK25EZUVPREExTUNKdjZmd2FVR0tiVWNrVXprcStDbC82WDl0eHZKUDVodVlsZ3FLVEYzT0lDam02bDkxMkVDeU9mTW4wQT09",
       "size": "4.02 MB"
     },
     {
@@ -929,8 +947,8 @@
       "sch_date": "2025-06-05",
       "rl_date": "2025-06-05",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=NXtDOjDhAXhjT3RkiMI4ZG81L1piZ0lENEpWZzUySmg4UWFrdEV2ZnJiVURObTZnV1ZFNUg5ajhNdjJYTmlDVGZFdDJEQ0lKM0ZRQ2hJd044WUNyZ3ZEZ0FnaWFLa0gyRXBaTXdkaWoreXdnbWExY2taLzBFa3ZURnBiOUlOSk83bTBrRjIydHI4MVkvNFB1",
-      "pdf": "https://webapi.bps.go.id/download.php?f=JvozoHeWOfQmWQJj5XtpgzlIV1EzdDZlREpnaGZFd0dZZXVJclRoSDQ0aTJOQ3IzamRrRnRiTjdIRFM1TnM4ODdZb3ZRWkFFaEpnMmRNZDR2Z0lVc0wrUEpXYVFJS293NFlmNTh3QWVoOHlpM3E4QTFoMGFvZXZrQWZSMVJWMktZWVkxclpSY2ZyenNXWU5pcUZXbDdlejUxWlRRUURwTnNYQlFSMTZjU3FWK1dxakNSNGlxbSsvM0dXOG5VeUJueVBhaVZsNEo2VDZFSXZORXVVUWdiMXVZNllNSlRDZm0yWTl1VlNxYU9XYXM0MFZjVHRNa29tWE9jVWNaMW9HQldZWXVQb0hCSWp4ZDNhcGVjSExreHQ0OFZucXdJYUFnUHBrVGQ5MEhiVXRGSXJUd01GYXJPT1lsWHFPM2g4clJCekJOS2J0bGlmU21KK0Ja",
+      "cover": "https://webapi.bps.go.id/cover.php?f=tpTyILKNdzLRFuJfy5F+eFJEL3FvZG0yZzg0Z21mRXRlSlJ1ekZnaVhkdGkrcGhPMEtua2NYb2gzRUg2OHNtQ1E5RnF2MUFyWmtReE1zYUN6YXFHMHJrMmV0VVpIUEFwY3ZRSFdQK01lZTZDTE9rL3l5VFdJaUdnb1I5cmg4SHhxbVVnV3ErTUdmTzJlUFJR",
+      "pdf": "https://webapi.bps.go.id/download.php?f=1sw1ZN1hd7VD5HGUwZV+ZytwUGRuc1d0YksxQ0hFNTBrNWdmUjJzY3JrVWNuQ2ErSThnTTVxUTVDbkUwc3JzcTArRUdNSHdxNnZndE45aTN4dTN2cE5LSHJXK1pNR205OU1WTFh0Zldzb2trZlE0OEtjVVp6Y2hwNzFvL3NSYTUyMDZRM25BQ2VvQ3pPMGViTFdISGZNTjlYVzJpL0xZUTdVbW5tbFhFNHovWW0vZ1ZjS2pXU09oK3o1bTB1aW5DcDhlakUzd1BqNHFkOUluV01oV1BXb3VFcVFUcWswaFdmRWw1RThOOWFoVWlpdzZmN2NyTEdENjRjR0J0blRSdXRuek5CNnFZVlZlTERiemZsbGFvOEFwelBIZ285OGtZTzRSNkpLWkpQY0NuNUxFTDlCTm1UbEl6SzF4RFdvUGM2K0RwcjdSd2dkU21rOU9k",
       "size": "3.34 MB"
     },
     {
@@ -943,8 +961,8 @@
       "sch_date": "2025-06-05",
       "rl_date": "2025-06-05",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=kwst9Q7O5bKUSXxipyd/ZHEzSnJLYXBFeWszNnV2N0grZkNjSXFONzdGelJxSERpb0dhRVQzZnVBMVFpZktFZzRMY0NQWU4vQjB3cy8zQzA5M3RFN0V3bmdBa1FGcDkyb1VGeGhxeld6Kyt0aGdjRUNEN1gxcXZDaVJFRjllZFgvSFg2OUlVSFl4ZlMrL3I2",
-      "pdf": "https://webapi.bps.go.id/download.php?f=1G6GQNzNlfuyDldqrb7+dElXSDBnczZzYS9rRHdoZCtZTkhOQVE2c3pDa2NhOHhLbUVtQmhkajRGelJmUkh5NTR5ay9IRGo4UmtlLy8vbk04SHYyc3N4d3hHazhzaVR4eTdXRkNqd3Y3MVJrL1VNcXdNSldGMEZWeTFXWkpVMElLTTMwY1hxV0J6NEV0QWFuaTcxNG51M1d6N255K2ZkUUU4RDJ0RnNKTXpTRjhRMW0zNWg4dWp3M3h5b3k0d011UmphUm0yaldtd3NkR1h4Z0xKdDAvNnk2c1p0dWp5OVRGUDd5NysxaWtpWkdHWTl0WXdVc1hLK0lTVlhKUW0yL2xkTklxVlFoenI2T25nUjVackVKbnh5NUw0OHFaenhFNTM2VXBxWVo1RWNvcmY3OEF0MFA4c2xoWDdFWE40UXUvenZvR1dmZkUydGZSVCtNdjBjQmlWSmlkK2tjTWtCdWE3TVp0Zz09",
+      "cover": "https://webapi.bps.go.id/cover.php?f=YFwvbcseSUK3WTAA1/fwtm9pS05JTmZaYkNKSkRuNnN2RFplVEdFbmhtQmZGalpweDE3TnJHbUNobzBvcllHM3VBOHBJWGIvS3FkekRKZXN2Q0hhNzhrWDAwa3BxUGRIdm41RVNnaDA4QXlJMXZjWWV3Wk9LWWlXeHhwT3hpVmRkQ0NHVXZGeUdRSGNNRElY",
+      "pdf": "https://webapi.bps.go.id/download.php?f=+sNsfz+k/rk6nupk7gnqxklkd0ZmRXlDNGJNbHpZTFlDZDUxajUrSHVvSGVuWnh6Uk0rSHdWV2o5eFlSSk9maHJEajE5dDNYbWt3QzkzU1hRd3lxY0l3MHVmQzFyTHJ1aFRDeEhtVjlnb2VZdkJ6Zi9VY1RxbjVZMmpQYyt5RHdCSzNqSzg0R2JhcnhINjZpbGNvOU10UWthaWFsUWJYZVprc3dQNHNoSTE4MFc2VGxqM2JXOGl0dHprWS95bExFRFVkaDY1VE50dkpuRVpRMlNKcUxQdmZobkd0YXN5SWhOZzl3MWhybDNRVXZHZHRNV2I0TGZIc0hleE81d3V1NGQyNDBWZ2RiWnljRWl4SnhEaU91M3RvZlZvK29DZnZ6TU9wWC9YckxqODZZNWRCUUh3ZEZrWXpCcjErYi9DREtxcGRNbG1Wc0piQXBNdmoxNHNhVEplcXRMR1NiNG5uRzg5Und3Zz09",
       "size": "25.13 MB"
     },
     {
@@ -959,8 +977,8 @@
       "sch_date": "2025-05-28",
       "rl_date": "2025-05-28",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=qEEWfIbOFDrGTyVn7Y/AZm5RRHVxb29nVTM1Vjh0OHNlNjZnVVFES29pZk8wU3dHc2FvOFNGdkFzTGhHbVdrV1NTdkxLRVVWWWVWZmNPa3FHdkZadzhGSGpuUFVrMURMVTkraFRVQTZyNW1NVTBERFdpQlc4WWdWS2VldVNhYnROdzF1K0lXRERNVnJjbFIx",
-      "pdf": "https://webapi.bps.go.id/download.php?f=ZOHPoOMm+XTY1xtRIqjdClk0R2xEM0dWM3RBVERYL0NrYWNvTmdacnVrK1BoaVViaFZENHlKa2hmYVJBWHZEb21jWStCUWRqTUxCbWVGd0pUeE4wNFZGZlR0ci9SK2R1bGpxdEpvS3NoTTk2Sy9ZVGZTZkdEcW1NaC9sd0gwdEh2NlkxbDRRN05JR1RUZG55RmRtS2JWMWRWYk5EU1VULzA3S01XOUk3Q1ZIeWR1UXMyUVl1NzJkVmlEQjI4NkU0RFhFWVRiZ0MwQ0RuUGRDajc4cE50OW9oUnE2TjNHVmJPT0crNUxHOXJUSWU3TTE3bk5EUEthb0o0MGl6ZXhnRVBuSFdrdjRWaWVTbzhkSGhnUlAzck5haEVTc3FSZGdHbm8rTmlVUU93Q2lUSStSYU1vQnlkR0lrbkRZPQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=HfiTrfwMlVszK2fW3Zy1tHRRQ3BjRHZyb0Vzd1I1WXFQR0g0dkc3MjVEZjBsOTNRUUFTUjZZZHJScW5lMnhqOFhnOU53K05CS0txNjY2V3pEbWNBQTVvb21LbnF2VDBsWWFPdGFPeElkUmZKK1dXVEkvSFJQMDRDVkdOQ2tjc2JJcmhPUE9CcmYzMUZDWVZ2",
+      "pdf": "https://webapi.bps.go.id/download.php?f=nc/RnbzRUxGPZ5YbalIK9Fk0cWJURnQyY0tabmZPbzNZckhSc2Z0TTFjZEl3QWlCODVaRVp4dEdNajNDd0lXaTZ5ZmNKTzNmanhIc092cjBMRG5xN2xvcWF1cXRNVUNjV2dtUnQzSjFMcnZwSkJLdkgya2VYM3RHUEZ1aW9lL292cHlvZW5CVlhuVHJRcVVZV3prcjhCbzFUVFMyS21UaGNKNDIvYlNFS1ZoSEFPcyt2ak5CS1BKdGt3cXRFSklUM0VucjFkT2UyOXRSZkNVc3JjdFVHdDVKYXZybWtDem0yUkxCUDRkdVQwcmFtT1dxWnZHTDJKRGsyQUdMaVFrTGp0MFlGczA0Y25oTlhxM3loOGlPRDVOZWRMNm0rZmE1aC9KRCtNZmpYTXptNDVvSytoVXhVOUhiMmQ4PQ==",
       "size": "1.85 MB"
     },
     {
@@ -977,8 +995,8 @@
       "sch_date": null,
       "rl_date": "2025-05-28",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=YdDM1jKNNdpf3PIRGSogay91YTBDRWwxWldyNEsxT0lDbmdiS0k1WWZhODg1Rk11cS9aMjI5em1JN3lxTTFpNjkxa3FhMEVtQi8rY0gwL3NTYjhvTUZBRFR1eEx1ZXgzTXZFZVJPZGhpSCtiQ2V6NmIxYUthYWtmY2hGQ2ZpVzFlNjcrQnd1UVZzSlI3MGxz",
-      "pdf": "https://webapi.bps.go.id/download.php?f=B04umxC+mURTFfPKBYj3vFEwYm10S0dscTR0bGYrcnBlbTMwdnJySmpudCt0ZzRVdkI0UEl6RnEvQ3c4WWRGU3J4elBwTGxrQ1N0ZjB0NlJYampwWExha056WWloUzFTOW9mNDJyOXNGSmlYOGZtTXNpUzU3YUh1VXhiVStlV00vdnpjbGZZWUxtZDhIRy8yandhZmFBd2JiOUtTcWFWbGhPWjNleitsZ3ZlbkRpZ1dzemcyZU5pVHZSTThWdE00L3BzVWxBT1l3WG4xUEFZd3J0MlMyVGFyUTl0WW5mRWhrbzRWL1VrSXIzNUM0UGZFaWZaU0tJcEc0RktNcVI4ZVZGQ1BLRWNJOXRGcWVSUHVrUVlLd0daM3kzUVQ3cDVpeFlQalNIcUE0KzcwbVhNZ29RTC9ERzg2RkQ4PQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=J9SQqlw1p7pURSDO+6TWwTJ2QlduZnNEWkRTVVBwd1hDUDRxUTlXMndIV1ZGRnlZOTFXenRkNG5sWXpyNzRZVDJYSUs5YTRsWXVBNDBlVVF3ejVYVEFudWFkL000eVhRZmp2RmR6NTEyYk9FbEFybWt1QjlZV2hIUGllaVl1VUZqQzhIVGNWR1RaYTVkSlpC",
+      "pdf": "https://webapi.bps.go.id/download.php?f=5yfMIE4Ula9sX70084ua61FTdWtXWGtETlByUk1jdHN0MlN5Q1ZKcWhPQkswUUxsaUJRN1N5NUQwTWpqb0hCS1ordHhUS2I4cXBqeXBabU1MREdtTSsxOHcwVWNqb1lwSDlqNnlxWkZmQTg2dnB1Ym5EYTlTbXlqVVdFN3JKUFpXWkZIdkFHaThxejMrT0Vqd1o3VVhvZExsbjJVMXdhYUlHUHhVeHIwUys1ZlJWQW1ZYnJxRmlOc1pJd1BTWmdoSGl2cVhZVkpoaXdldjQ3cHNqNlRyRWtqSHZQVFNHclB0SmQyR0JoQzBhWCsza3NzQWhVWmpnVktxUDhjK0U3elZDamw1NGZ3ZWpYZ0dkajM4SkxlWTZlZ0lqcWQ2bllUTVpWZnJrMTBMekhjU0FXK2trSjBZdys5aDdFPQ==",
       "size": "2.51 MB"
     },
     {
@@ -995,8 +1013,8 @@
       "sch_date": "2025-05-22",
       "rl_date": "2025-05-22",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=jmRjbDb5/hw943X5UyMl8Fc5cXl1ZU1iK0dqdjh1aTNMbkw0Q0RQY016OXhQbm9EY2RCZ3Yvc29vTitnN3JIN0FHanIrVDRWTXdFV2d3UkFZNytwWS9jMWpkZ0FtcnliWUFYUkNQeXVNSU1KRE9vVnNKMncySStJVHcvUUFVS2RpQW1zYVg0TXpJbGZCeDVy",
-      "pdf": "https://webapi.bps.go.id/download.php?f=Uq34uSOT+5tD+GsR96Vrx3RnRHcxMW4xcHc3Y2E5Z0Z0N1Qzd0hxTHB6N3M1Q0U4aHNPRkxYWnB2SzgyUGwxS0R0bWZrOUpVb2g2TGlCQVl4bGVoRzhYb3VyVldXUXIwRzJwRFowNlZTSHpVQXEzcFJyRXp5elREaE54ZVV0clA5U0l0NlRleHRrWXlDR2JVbnJlTHpxdEhJNE0xaTdxT0VCN1JYS3hjdVVaNTJMQXpUYXI5OGFMLzdGK3RKc3NTWnZIbmVHY2o1UXZTYkFjdzRrd2lnQUZSQ3NIcnRYWVN6UVRHTGRCTzlvaWVkeUg0OXdnbG9uT3dHSmt1dUNYa1dLc2tHVWkwV2plOHVtNzRJUk91QWljS1J4ZDR2Y0lLU3p3WURWN3R1TzI0OENZaHpZQVhCbHVFOGVCT0pvMEhaeUU5cFBQQVQ2d2JQOGpTNlFLU0hiajh4Y2lKTGpieENwUGJCZz09",
+      "cover": "https://webapi.bps.go.id/cover.php?f=M5JkgHPyb5fR8IBhGFzdkm1zNUNDUXdXNFBZTlc5aTNhaWVuRUlEL2dncm8yTHA1a3FSQ3cyZkVaVWZ4RVFBREl1RVlCUVNhWVNCUFNRSmQ2d1Z0QW5zd2FsSVJ4OFNZeTllY1FTRU1zUmRKZjg5ekRaMFdFZHA3V01ZLzdUb1ovUUI1dWsxbGJRc3VDa2M0",
+      "pdf": "https://webapi.bps.go.id/download.php?f=75MPM86O/m+t/iHc9g8oiXE1STBDdnVjeGhGUm5rOUFyb3hhNGNvdUNMUXd5SXJFa2M5aU4yK0pXWWtjUWNsZkRUTXFIZ1ZuVWxCNDBCM2dkalR0ZGVYT0E4Z0dMYlp5cUxhRVhHMDBXZm4rWFVwcHVNbGVGWkpkVlhQdVU0OVgzRGIzQ3hjVWNEVXBBYUgzQSs4dE5XOXIyWFhSdVprK0s4WEVheWx1Znh5OWUveW5nbWdnQS9RbFN1OW1MbzFvcEE2cVRVdTE0N08zVS9aeC9pazgzUWUrQ3l2K3FVQ0NmWkdJa1JCRlRsTHhRN1UvaGNiVHhGQnZ6VmxBNDVMd2gxQ3p3UE0xbTRhQkYyZWFaYnBvQ2V4QW9WSFRCaUFjdGJTZlV3eHp2eEVWUWIzY1drT3diWDZ1Sk1tbG8wTVN5ejFJYnV5czhJQjZYVEowSWUrNW10cWJYSmp4aVV3UmJZVU1ZQT09",
       "size": "1.81 MB"
     },
     {
@@ -1009,8 +1027,8 @@
       "sch_date": "2025-04-30",
       "rl_date": "2025-04-30",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=uHaVlVfBJAAZ/PhGvp/vBm1BUy9ZVi96TXJtdDYyM1hSNVp5UGlDT3NrajgvOWVKZ3U3NjZkb2hKTm96M0NIMU0wY0xHTFZxZmhQYURMcW9TTE1SWm04L3BwNHIrZDVPUzVlWDZnQk8yeWxZL2IxY2JBTEp6RGhMSVRyWlBGVWI2RGRlUnViRmhKOGl6MnBp",
-      "pdf": "https://webapi.bps.go.id/download.php?f=U8405uYIp+H5mxSRNQOu3202UDBWOWQ2KzIyb0Z0U21JVzdPOENCS0s4TFZ5VWVPbFRRZHA4NHVuaS9JUUJyVExveVFvTnpudjR5Q0JKcXlOeGp3SHk1TUkybHM5dkNWVHlIUm44anQyZW5GamVyQ010aXNHN2NtanNwdHJ2Ry9ZUTNFc0xCSS9aQUdpeUZaYVhIQ2VFcEU4R3Y1OEljNTU3aHZDcWYxZEY0aUVsSTZaTGJCQXZ4dHJtN3dad3pxbVJGajRsSmZ0elhFOWx0Y2lMQTRTbVdjTlZraDV6RFUxazFMcGZVVWlaUkNZUkdtM1JSb1BNbDRIbmlpdnhHdWtsTHVjWGIxd2pKMzdVNDl5aDJjWnRwejloS2ZoTjJBNWFZditnZnJ5NDE5WHAvd2g1S1NqUWx2RGFmeTlRT25oSWNMdjNaV2JtMHA0ZCtPMytzK3dwMGlib3dBWlp4d0h5WitaZkNoUmJ5N1dRRkgxSlByazFSMS90ND0=",
+      "cover": "https://webapi.bps.go.id/cover.php?f=2AxyOCOzsZEOdc4/an+7gWhyVTJwYStvbGJidTkvRzVmMGdzbEVmYzZMYmpYZkltYmdyM3lDRjdDQ0FFQVRLMENnekdhNHRHRVhoM096Y21CMXJGb3ExUUhaQjhTYXlyenZyMEh3aE91OEVQL056dDVmOC83cm91dEFlRnlpaHZnaFFEQ3NEb0hDTU5WN2ZW",
+      "pdf": "https://webapi.bps.go.id/download.php?f=jVGVVDfkjmhmbwqcIAFPRFRGQjR1WmtJL0VMMUhvNHBTYTZyL1NKYmhrS3VvQmtlalBrTS92aG5rcVBEY2FLS2laTWdXdzluTS91U1h0MnpLaU53Z3ZWc3FmNU9OcjdJYVpMSmhmR2k3V09WK212SEsreVowSlErV0gzcHZ5ZlROcUhXVmcyaUFLM2QrRitQY1djeXRjdXVsMDZnNmd1U1JjdE04Y2FrZ0gzVTJNVnRRQXJacXF5dWs1Y1RldmYyTTBITmpzVDg1Y2o0YjlyNzAzdE5qc3ducGlibUxOT3lFVnBVaTJ6RWhDVUFtSFVMOHVUSXVNdU5LeUR0Mm5weW4va2cxS0NlZkVMdkhCVlRQcmZrLzJ1WkhhaTY1WVB1STdvR0Nydm5RRmtHNG1FaWJhWDR4WldVWUlRa3RuMmtsbWdURDdWUytmSXN4VDJQNU1yRjBSclVxcVRsTG5hT0ZpeDZZOWREVkJYTm4wR216T1JKbWlhendSdz0=",
       "size": "4.94 MB"
     },
     {
@@ -1025,8 +1043,8 @@
       "sch_date": "2025-04-30",
       "rl_date": "2025-04-30",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=ijEnP3dBisB8eN2FaowP2ktzL2syZ2YyU2ZybVJUZGhJaVVqSHVudU5SRXVkQ3ZNckVQc1lMNlp5b0ZkYy94Q3NkWFE5eUp0UDdEVExkcmZRQVlQbGcvT3kzbkJBeUhxNklGMUxlbFlpOXFVM2dhaWc3QXRUcVcyZWRUeGkxR2lqeXo5bCtrNFJYQkVDVHlk",
-      "pdf": "https://webapi.bps.go.id/download.php?f=wazQ5o2ax89QNAhxgXDmFForemQ1d3JTQVVUR0ZvbEZ1S3NXdklicTN3ZWI2dUdGVVFjbFNnNnB3T1p0b1MvRjFiRFh6cEdLOWhFQlVQMW9KdGE1RHFjSUtuMFpoeWw5bllGNllwbGxDUEtUWlZwM2JsdGovQlJqWFd6alNpRGd4WUJWaVlTWGdIbkppL2E3SFFsS2tNNHlNVzA4ZjhJNDNrQjExQ3o5ckRKMnd1STFTU0FTVlZZdFpKNE5IcVFlaFcxR2gzeEZNRlpud0puUnA5Q3k3aE94bW1idUVVSlJhL3V0VVRENDJ0RHUzSkxrM1gvUWltZE5KcEE0cUNjQWtjeGhtSU14TUs5Q0lNM0JqbGl6TmhNTkxnc1JCMU9BNjhYS0FRPT0=",
+      "cover": "https://webapi.bps.go.id/cover.php?f=eo2XO4aEehnAAJL0jzB+wnJnd3pqVTRKcTJNdSsxaUZpN3R4N3ExMXVwdUd3bVFSNFIxbXlmcUNkYkVzd3lXczM4V1NQWGVsQVBac1FHb2tZTFpQL2VGOWJjdXpWZm50TW9IcXp0MUJrYmRCZDdLbk9UQ1R0REc5VlA2dzNYVFBqWDFkR1pjN1NXQVIycTRP",
+      "pdf": "https://webapi.bps.go.id/download.php?f=81WMJxbChBVWNC/vfroPJklMOW1OeFdYUnZNbVRiUkxYdnpodW0wc1l5TlZacE1RaHN5SFk3cXpVK0FpQ3M0alBQb3oyMndHTklaOThNdXBYd2FvcU5uMlZXd2NuQ0ticnpTVlV6VEZVcHo3NWlhN0d3REhrZGJ1dFlET2JDRmhuaGFxSkFoTldSRTFVNFN2N1A1L3lRbGtxa1YwSjZZbW9NNURuZEY0L2M2ZDk5RWtERFZMVXo0bkN2TER4KzV0ZjdHelJzR09NbmRCQ0VSWWVlMlpGb0pCSDJZS2w5RDlpTHJYWmxUTW9IaDFqUzBGeWNjQkhqKzJMSVVUUkhLeGtMQVNoenYxSDhOZjlhVTVpckVrT2E1aENTOExseGprc0FHekpBPT0=",
       "size": "1.95 MB"
     },
     {
@@ -1039,8 +1057,8 @@
       "sch_date": "2025-04-30",
       "rl_date": "2025-04-30",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=583zsq7EFQw7M77dTyYB0XFhNm0zTWtLVllBQnh6MlhKa0ZXaUFwY2daaUtxRmxGb3RnQnIxMnA0UkpCSEVvRlQ2SFFLZTRkK0tpQ1U1SnNrYldId2xlRGFEalVYRFZLYzUzWTJJeDcwOENEOVJ5ZE1weG1ZUzh4YTVOay9qVWlwR3Y0V1dqSTdNdXlJdGda",
-      "pdf": "https://webapi.bps.go.id/download.php?f=lj1tH8e/ir+LUz1mksixmC9Helcxd1Y1RWk1WC91NC9JTDFPQ3BIejlsS3F5NHFWT3RLZkM5cVZQakl2eFJDYjdaUXBVdTNRWHJYM2EzRUtKR3RTckI5RWJ5dmhnakczdXJVT3ZhS2dKMWUxU2FEVkoxN3VOMmxQNXYwTVJyY2Z6SzJoWWFZTXUwa2pxeTNIM3VRdEJHejE1NGllWS9wU3F2TVAyUXlsc2JYeUJuUGFhTk1NSUNmbHNWM1hKVW9CTGdlNVUyRG9hUXczZVdtN1BoeFFaR2UvaU53clhERldlcTFFVkNteVA4dzNibFltZld2bDZOV3RQNnI4cE1lck1PWERqYlZGL0Y3TmdjQTR5Uk5rNld5MGV6bXIrazBSYllrZEtaZzI5QVVwUjgzQUkwM2pKV1F3aklzPQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=lMc0pNaZsj9kt2u2JShcNHBiNlpnRnJ1MXlVY0NuZkdKN1VaYUYyQjliU2xGd2YxeWxnSGg1cC81WnpoMmdUWlk1UzJHNllvMmN3VGlkYUVxa3YyOURpMlZLTDV0MmdTOFR1UTg5SkxzZXRIbGl0NXl5czlvdCtmZXJ1dXJqL0ZmNTFtT3RrT29yMjc4Vkg1",
+      "pdf": "https://webapi.bps.go.id/download.php?f=fJN3C7rj98Td7ZHCFUGJiHY2S0Z3T2JyejZQV3NIS0lmaVZVRXhGSmE3OE9zK1VoMUJTc1BvVFc4ZGIzKys4Qm85ZXIzT3VKRzJ4VlprNXZWUFR5dy9RYUt4ekd2VVpqQ3FzM3pNTG1Cd0szeG1BQmhBaTJRc0NZN3pKQ1YvUTRNSEJMZ2hHWm5XaktLcE1PR2RYeEpKZGZVN0pNQW9Ya1NwWDd4cTVIVmRRbWVZVXNUVzVFTjFTYnBXVWxSNlVkZmhXUzhpWkxaMTQxU2I0OUNZWHlPRjhpbjdualdqQnpnenM4clpjWno0bHZUcHE0c3ptK0JPblJVTzQrVFcyQ01GNjlhdEJ2UWl4dHFWMUU4b3VaWEp5eHJKSnkwaERDTVIzOTVFYk44SjFvQUdQTzZ5OTJHcFMzcnhNPQ==",
       "size": "4.12 MB"
     },
     {
@@ -1053,8 +1071,8 @@
       "sch_date": "2025-04-30",
       "rl_date": "2025-04-30",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=fsOUpKLjaOPfIY1hJgoGBFZmM3Zhd1JCRmFwa3djUmlSWTBKM1RhcnQ5YndDV3Z4c2pPaW1ibGFPRlV6SERlMFJ2aEppSmRUZFkzUGdWTDY5emlLM0JORnkvYW1mMy9ULzBqNVdnS25MRWhKMkdJbWJlaWlvTjRnQWYvODFIV2QybldwSVh3QkQ5Z3dxY3F5",
-      "pdf": "https://webapi.bps.go.id/download.php?f=wzYEXo5D2eYcKaegc+NhuEZCUHp1aE5iMXFxVG9QYXdzK1UyN0VXQk1HcThGR3dPSllLNW5MY0tQMFNYa2RKdW83R1lUNnpSM1BmVjNxWG9tLzBNYzBDMnEwMXY3ZHZ1WDRNSlZxRVFPdDFNbldlamxJMU1IV016U1R5SW5HS1dYTCtnRnFvYlUvbHlFQUpHN0NTRXFsUXJpS3A4TVBZdkVDVEN1MnkyWm5mQUhCNzUyVmFYUmNpcUNmY3FHYittUEZoQVJWYUhOMXhnOFFMaVM3SDBDcENpd0pOTFRlVnphdnZ1Sk1OVkplMzRJUk9qUmcxZlVHRDI5Z25ETVQ2amVsYVpNc3dQMUovUXkrdU8wVmpUVkR5K09YMkVYUTJxQlZNaG00SUFFbUVsOW5Ka040aDVadVM0U2ZNPQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=lm2AEbWjZ+eGZOX2nSjatFJxZEFROVM3YThhVXh1WFFHMkhIQTliMUtsbWVLU1VYc1F4TC9FL3hXT1Nwb2YxNUhkWnlOMVZUOE5vb2srTDFlMnlFVURWR3JQQ1ROeSt2bzdvMWdRUE5ZV2lNN2dNRFJ2VWM3bml2NGNtdm1QRkFacS9lY0psR1p5Ym9GTlVQ",
+      "pdf": "https://webapi.bps.go.id/download.php?f=ysAk2Q+XSuo/vZUFgmcVOnZFdWdKTHJBcGhiWDhmV0Vvd2pvaWU5MEdyT1lKNmpGZE54c0Q1bkxVVDZSY00zTDNZNHVLUTdVazhyMVBlNVRlL0NEZ0RoY21QQkxPbWpjeUdoSE5UVnRNdXNOTEIweEttTEwySU1RSGxaMlc3YzRGTkttTkRxd1NuSitMVnZXclVMV00rbUNBc0g3WjUrQ2NiL3Zua3VXek8reE54OWdheUFpQlltUjYvZFFnOWNGUHU1a3BpdGFMeUd2R3poSnhncTk0M3NVS2pyOS9WbHNPZ2RuKzRsWWVSMFZMSlp5SVdyWUR6QzZVZ2RmSzhrZFRNWk9WNmpZdGc3YlB3RTdRRC9BR0dXWEZnZnA3TDZmYks3SDVTeG50cnRKWjd5cGV4alFpYmpIRU1vPQ==",
       "size": "5.69 MB"
     },
     {
@@ -1069,8 +1087,8 @@
       "sch_date": "2025-04-29",
       "rl_date": "2025-04-29",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=Bj4Dt3V1S5CxhNRjV0o8o2dTMGFWT1JCcG1PYmdqcnhGb0hFLzhVeGZBdDZEZlFWQlFrV3pQOGs3bFUzbUpuQkdUWGJkZWQ0b1p0QkxOT0NwOVNlbkcxYnBrSWp1VU1zM1RvNHY1azhmeVFGNWxIVUJpMEtudmFta1ZzV3hGQnFoOWxrc1ByQ00xcWV2NmlP",
-      "pdf": "https://webapi.bps.go.id/download.php?f=vypPRudyeoa1OcS4vhGiRW5BUVlySENtbGtFd0lpdXVPQ1A5OE9aVXVDbllBOFRQZDl3Rk1oLzV5V2FPZVRMMTNZM1NCaGtIZW9LZE1wVzhkN2lSQWI2OHJOVi9md2ZISjdlRHdtRUllSmRrazhhMjRuWC90RzlYSVVHWExDd1VZWlljemM2YnovUklGOWV6aUU3aVIwRmdnQmJncWw4blJlRnVMWkxKS3oyUkhNRGhTOEtnUjNYQmJSczFNUGw3WGE4bXFBc3R3SHFYVS80YWNmbkNUK0xlVlV5YkY4SDRramxudkxVV09nQ0tlekJTMTdtQVp5SlVsSFU2NGxkYThHU1AxZEswcEZhMlVZVEN3UDljUzh4ZXlyNWJmK3RBNkh1MXZ3PT0=",
+      "cover": "https://webapi.bps.go.id/cover.php?f=3CpQGKLcW+iWDr+Iow30C1hXSlV6SndWMXlHbkxkTlJsRFhsWWY1VDBXZXlwcmpXRmVkMHJZVWdDZ1pjSGdRaG94Zi9nZHZqOE5BbDh1dWxSV2ZSWkNIZkYyR21TenNxUDJwbVZTYi9tNG55dUNXTUNramNYU0dzYWlkZVc5WUpjVUNrZytkNHFJU285RWNW",
+      "pdf": "https://webapi.bps.go.id/download.php?f=CZZ+5yPWyZ/5I74WvPEngVlNU0FybU4weWo2aXpOakpMc09TSmo0SEVqODhNUTNqMmVKRmZncjc1NVdDbVJvVEJ3eG90TGErS2owR0pxVmx2Y1Q0YkRuc3hNZTFOUmowdUdzTTBUME5zUllvcGlTNlJuaGY0dExpRGQ0R21IMG5STm52TTF1M1pUKy95OGtNYzQvU1I4SWhoRDliOG1YVDRQRG9iUmFpVGkzcDcvSCsxbnJVK3FvZnQ4d2FQYTdFeW80ZGphZWZDN3V1S1dCN1lWZk9oa05mWWRzMmlOQklpQ1EzNnkxT3BZd2U0M3BHMHd4cGNjVmUzNTArejRzMjY4eHIvT1Z1bHVGUDZ5V2pqUHlLb1paaGNKZElyZW8zc2N0anlBPT0=",
       "size": "10.3 MB"
     },
     {
@@ -1083,8 +1101,8 @@
       "sch_date": "2025-04-11",
       "rl_date": "2025-04-11",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=BS3J+HZ/GR1Yvk/ep/vI2lgxdktMME43c1MzQlR0ekk2ZWZOWEd1OWM4bDRraTBycklVMGE2SW05eWh4V0VSWDNSRVNzWjFKc1VQMWRxaVR6ck4vYTZlUGM4VzlhNjd0c3daS3d1czJHbldzN3FjOG9lOStGWmpsV1l3ZDUybDZ4VkdRWXBLa3BEeUsxOVBz",
-      "pdf": "https://webapi.bps.go.id/download.php?f=KhdHTHsRWTjdMPy+vI/GFzJiWWZjUHFERVlXbWQzSmcrdVhOVmRGZ3BwNVVRR0RBbzYwQ1FXaGNvRXllQmhGaFFoRHV5Q09Tc25pRW1zNmE3cU53K3lVajlFS2xtSncwMkJ2bmdZd3g4ODBwcHE1WlRiLzlpY2k5N1RTTGY0c1RwdC9tN0JyQmV6SDEzV3U5L0VCTFpwUFIxNkIvTUFFdEpwMm8wTTRwQXdIQ25GdEkwOEtCT21DelNFTTFtaWRreFZGR2xnd2t2SmZ6dlZ1VzFWbTEraUR6dllCTzBPV3FxOHJnU0VoWk1zcGFndjFyQStsSW94WGRUdXExZFY2azMyWG1hLzNGRlluYy9iWFhOdkFkbHNWREJTRE0vc3FodGxzektQTENocWp4eFFVcjc5elpUNHhoNkRMQ1VTZGtrZ2t6ZmwzR0RMRUhFVThoS0RjM1lGYzkxK0V1SERXeGNEakZDUT09",
+      "cover": "https://webapi.bps.go.id/cover.php?f=0oBYam1orblPKmBmbeaO+ndZQlJHVkNLSVd5WEdDbXh6TGVocXhlTzkzRUZ4RnZoRHFreE9OcG5QWlR5YTUwTHhvNTlZVjUrK3p2Ukx0R2wzbjRmUDBhUURjbzdSdmFQMEkzNmVuQmU0TFQ0SFNYZlh4Szk5YXVSLy8waGYrbXIya1Z3YlZNSklveTlUNDFY",
+      "pdf": "https://webapi.bps.go.id/download.php?f=ahZICikbMxIn7HA3y4pSYWVUOFpuM2hwc3lVcHFqa0pVQkNnRHgzOSs4VUg4WFJPOEpiNmZyemdVR3VWVUZla0M2Z014SFpiK21MeDRiQWsrUzNiVUE1WXRDWE9JcS9LWC9BekZDaDJ4RnUwNlY2VnEyeU5rNy9SUHlEUlJ0ZWVDYWJHQzF2MWdRWE01QTNoVjhBOHZhRjA1bHkrMHpna1hValUrR0NoNWptalZxaVBxOHIrZWFmRnkxWCtFZU5SRzAzdFJhWFcyK2FrSnhqYWh6cXByMEluNHpQN1dnUE5CNUZNemdmdndXQ2s4d0dTQUpPQUtQVHJnTGNWa3Z4RTJGNEQwcFpHTFJKVkZsZEUrUmlLdGFLNkRZa2t0T3U5K3djdG9pNC9SQVlZTVRmZ2duMFk1czdmTDZKeXFGVFNkREpsNE1oSUdrWVVOOHdIdy9oWmY2NWJIRHV3c1F4ckRYNE4zQT09",
       "size": "6.72 MB"
     },
     {
@@ -1097,8 +1115,8 @@
       "sch_date": "2025-04-11",
       "rl_date": "2025-04-11",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=KDShW0V2SOSjKriiO8xrQDBPVVQ4L0FuRjBQVHdyK1pOVmRMd2NpSGNrTkNBSlhtaVN3UVpseXlJcWdWT2czRDlRN2ExU1FnY1NacEgzbXZGUlppNW03VWtoZFlYYjFRYWZFTHJFdWpYM0NOK0RNZFNBMUlMTWxPZVcxWjVjSy8rRHBkRitZVCtJcHNydXAw",
-      "pdf": "https://webapi.bps.go.id/download.php?f=n/7Rlva/mXAH/QEynlPg0DBqVFluVDdXc0ViU2RFczRVT2dPQzVabGoyZGtqYjlkZ3RqNWZDUncxa2VydWxBQnhSdUtJZGVlVzMxOFVZQTNhSTNCeFlJenM1dk50ZlREYjFCYms5OXRIbDJjSTdnQTJNOExBb2JZSktSb0ZSWVNIeTNYdFpEVUlCOVRVOG10WTBFaTVMcGVQbWNhblAyZG9mWjFCMFV2TFFIcG1Vd0Z0djNVT2Q2S3BHSlE5OTBoWVpoSm55cnYyb1dLditmQUpFZWxyTEFFTmJhdU04VEJKeFpOYWsxdkdTaWtnQXFqT3ltTHNIYmFXajhpcWtWY3c1c1JXeEZqcTlWdnZHNkRzRUZiMkN4VGNtT2g1Mi9CMFdNMGZLNjMxQ01tV2hacEVDS2RlanRhTW1GUSs3ZjB1VGdvaFJUTzdCRDZGYm5LY0lmU1NEbDBaMU1CWWdIc25TNnFEZz09",
+      "cover": "https://webapi.bps.go.id/cover.php?f=PFK1HB+HGG/LzlmRHu0EvzJWUlJVRi9Fa1p3SzJpVVdLdGNJeGJZWjRiZ3Z3UklabWtvN2UxVlV4ZUNkZjZVS2hlb1JYcVVRUGdjZi94Um9iZ3Z4djFTU1ZoM1pOd0FlNFI3bDVGWUtnWG5xWlRsRzJraGdlaktMeE9zem1RblpaZWxBZkV0Sjd3SmhMQnph",
+      "pdf": "https://webapi.bps.go.id/download.php?f=y8UQzXUE6qe6X2xt3/xQuEJoQTFCM1ZzTjhaeVpUMEoyZG96Y3VoTFJ4M0Y3cjZDQ1hzUkFWTnBUQTJXekd5UWJsTk9XcHVEVDNYWHluYlNUVm5lQzI4T0pwUHVOU0JDdk1WdGJ0ekxQazhBNTZ0bGhVaDZCRWFULzliSFVnT2Rpd2ZsSW9HZ01YVFUxWGxTUXFYdXBYYWVmTTlIRXl0Mi9ORGE1Tms2V0pVL2QyanpwTU5iWFYwTmRaZi91dnJJa0hiWFdnT2c0NzZJa1FpZnl2UTQydTQ1dGJ0dkNmZDJuM3RrT05kNGN4RHkvZXN3VDMzUDhzNEQxaDZra3dxNkZPY0JmTng3WWpsekd0T2dCcXpoWEN2U3kyTEdsYUo2UEd1Zi92bHFYTjNLWlNvclVNUzlPZVFKS3krMDA2RmVRYTl5VStsRnB4OUZURkNCQXNYMlNsdlZMQVBqSzlnbEFaa1RjZz09",
       "size": "14.33 MB"
     },
     {
@@ -1115,8 +1133,8 @@
       "sch_date": "2025-04-11",
       "rl_date": "2025-04-11",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=8oIM7UPdoVF3mVJrf6gss2dzNnNIMVl6R0hYRDdsbSthUk1pZm5ZREN0ZURGS3FrZ0l1aEk5VlRxclZnTGdCcS95S1M1aGdKZjlkSytSTGI0L2dvS2pUaXdoN1E1Wk1BMUJ0d0QyclVqL1dSOHRJWnExSVFlaDJwcENMNThjUEFlS0xjaGdseFZQSkpJMUh6",
-      "pdf": "https://webapi.bps.go.id/download.php?f=SMPJk0165sDjgqWErCudQERENTB1Q2EzL2dSL2pFc0lEbjRKaWVsZGRIZC9LeTNBSW55bFZtYnRDeWh5c1JWTlJNMlhvL3hHdmJwelB6WkJEQ2l3WjdQbkdRaEZxRlAzaERrbDQyOWtqWkNkQjdnMFR3YzE0OGRCMjlhMzZ6OXpwWXJRb2VTNStzcGV6S2t6VXlla0hHUU1mejZFblUwTkovSGRuYVMwOFZNdW1ISGdhSVJHeG9paXQ5MDZDZGtUMDNXUGdUdXF3S1RuSkJKU005WnFkYVU2WExFcG9ud1A5OHhLckJJQjdJd09iWTRjdmRobU1sa3NDMzJrWmRsdGkvbnhPTzhsK2IzQ1ZSb09NTEUyZEM5ckVCYVhLNEIxMmVlOWFVa1B6MGNwNUFIdDd3SXRBR2szVFd3QXduZklTbDVOcjBRT3hSUHR4UFM4YW1SMVV3YkhKNVRmZ3dJOHFjOElVVUNPVnpadFBabGxQekdXNGdRSUtnRT0=",
+      "cover": "https://webapi.bps.go.id/cover.php?f=gySeN29iI27bIn4HsIgiY0E5cVh4R2RNckhyd25NSmJkU0xIbmczamFhVFNtUGkwc1BDdmNwdmY1ZHNZU0hvRUhZTEovdk9yT1JrWlduVWRZenlEQlBxNXV6V2o5ZGVNNmtHVjVNdUxMZFViNURqbU5OOWhuVlBIVnV2aTI5NkViSnlVWVVZcXh1V3pXUWh2",
+      "pdf": "https://webapi.bps.go.id/download.php?f=GjzEVniqAwuX+1kOxTKxxGlxTCtsbGNPallla0VlZGNVeGFBbDZBMW92YnFndmMxSGkraHd4SHdKMjBoT0FoeG9VVURvRTA3RTY0Y2tOSU92c0NHREwxd2V4UUhSZjR5a3VYaENvdzNaMk9ncDdSa1JWR1l5OTV3YVJDZ0NiN3FsTStFWlNPU0JXREFLZlU4M1E1VDArK0VpaDQwYlpYZzJKNWtrVzZtWmF4d1FmcEFxNnRYMUEzU1RFUm9XSlZhRVFRakZKQmlvTVovM09nWTNtcTVhVDdmN1ZHMWtjVndYNjFNTkZXZWVmRVpXTHhaUVh2UytCNEh0YjlqT2VxbE1CeVhvOVlxNEZSTjRoUVNPOGNkRWFFS2gvMjF1T0dMbDV6bU1ObnlpWmg2YWN5KzV0UFM3eXU2YWV4VmhNc1RCK01MWXZYVFRYVVd1MjBhR0xHelBEeWxsTDFWTy9kak1LQ3B4UGhEL3JKU2psUkVtbnRFM2tna0FyMD0=",
       "size": "5.4 MB"
     },
     {
@@ -1133,8 +1151,8 @@
       "sch_date": null,
       "rl_date": "2025-03-17",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=s8URLXLNcGrqJ7hTFP24/0kwVy9RM1NTZGcxVU9meEQ2RE52RkZkSDRQYk1CM1habDBWTDdES1NYa3NSM292OXR2WEVoNVlQUE02TXJwRDNBQWhWZGN6VWlDMTR5M1NlM2J5ODN2L2pqV1hKNTdyQlRFWHIveUdHM040RUVsMC9kcVcwenJRdzh0VjRVVmhU",
-      "pdf": "https://webapi.bps.go.id/download.php?f=ZSyxvpe2g/50yKET7CYfl1JXeVJxbmt3TE15amdibFRtdjVFaTl2ZmZPcENCcXB4WVg5cS9ZSjhtQytpN0lhVXBMQVgxZnU0aU1mS3NXTFVTekZ6ZHVDUnYwUVRDT0tMLzFpNTJmZGp0bi9CeFhuM3RTdUxYQ3M5M1RrSmxjU0VyblNYMllJd0J4VHU3K0ptN0tvY25EZzB4Snl2NGF6MjA1cGRYWXFCSWhRSHBOZUlaYXh3RE1DMXI3UGtjTld6WlpKY1ZqUEhJalYrdkdkUWNsWUNFcEo2dG9RS1hoSW5TS3NOUUhzYzVKNE5Rd082Vk03SEhyaFkxNThWRGVjTGl6RElvNVlFbVJEUkVWTU5kNk1IM0NDNVBBL2liZHYzRnJON1lPcW9GQ29qVkN5QitGdXhQZGRGeWprPQ==",
+      "cover": "https://webapi.bps.go.id/cover.php?f=nN5lHQBANwjjS9idIPUwbkdTc1NDRG5aY2FkbFVjUTVhSGRpdDdLanRHMis3bUIyMXRKOS9tbkNJVDdRV2YrRy8yWGk3djU0ZWZNaUtXaGpyU25GYXJrZ2I2N3VpK3BSVHd1MHdTSnJBbmw4azEvMTdlRVZoQ0g2ZXQ1TEJmY3M5NTA0MFJteUM5aEZPbkVB",
+      "pdf": "https://webapi.bps.go.id/download.php?f=gnoFarBDMhqS7AMRxCfplVA4V09BYVR0UjlYZ0JwZWZOcktyZ2UxUkxiL3JoK3NobVJLazkvU3IxazU4aHY3TTZUbGM3VGZzQWtETzl5OUJtN3JoS3F6ck14ZjhzYmppcWZmT1lRdUMzaWZtK1dvMzlaSFhVNURYYTBqemg4VXFMUC85cFZLbG1VQ1RqdWJnUENvQ2pPOXVmWk1GZDNqVTBzS2JzNDhtMUdxVUJMc0lkR2hkMEwrZmpqWGlJelJONDNEWGIvVEZxbngwSS9vWTRqeFNGZ1RMbFhqS1pDQVd6c2lzazlXcW5vRzduZDBQNFhOdHU5QnUyU0wzZG9hMFRpTlJyQmVPM1J3bzBGbVZteGpsWmc1a3RGc05GbVBlaFpscDRDNy9nL1BmZ2lKQzNjS1lJSjE1NGJBPQ==",
       "size": "7.3 MB"
     },
     {
@@ -1151,8 +1169,8 @@
       "sch_date": null,
       "rl_date": "2025-03-17",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=YSTvc9gQjCw6t3Jz5xLo63Zjb0JCQlgxeVdtL1g4VVhYVGo5YTRhWmJabEtSZ3dKcFg2aFBvZnpNSngyYTJrWVRpbDBaamlpTlFKQkl4b2V3QU5hdHBZeTlzeHJPNlNyQWxJUms0bzJQdEVpY0JwOFBnbUo2STNBaGR6c29LWTc0R3ovZnBrVXE3ZkRlSElH",
-      "pdf": "https://webapi.bps.go.id/download.php?f=aiUtuCDSw0zEi1FCBCbOFkgvZlp0VUphWFMzUFFEZnF6UWNKR3E3ZG1GdTZGSmcwWVF1MDFmTFJ6c3pLOG1Pd3NjSHNBZWU3NnJzQmUrQ1dyL0dwWUZPYmUxa2sxMnh4Y0FxWFFwYmxvK2lrSVpieFQ4cDREL0JsNGJkUjJ0UytLWXFiTDZaTDV0d1g2bjJXVGQ1K0NNZlM3ZDNSRHFscjFKNElEOWFOVm1maGtnVW9XS1Z0MExKY2ZPdWJYZGhoNkx3QWJndUFEa2szN0tKa1AzYkdvQkIwRmRYVWJSRXJqbXUzajlTbFkvVkkvV3hnYVRsK3pFM1owaWFSRlM3OWlXRjQvQzR3dmRYR0RNVzREdzI3Ymc3ZmlnSmQxeHBDbkNaZHNBeUl2RUcra2VQamp2a28yUmlUVGwwckRMOXZabjREdlVlcmY5QmNLWmhP",
+      "cover": "https://webapi.bps.go.id/cover.php?f=1A6ORIPrHntrtQi63YmHfnRNSHg0R2QwL21MWm01ZTI0V245MUpxZ2JrWE9oWmNCZ01WRUIwYVJqajRJdG9Kbm5waktZQ1pBci9aNWFXK1prWWpOeUQzWklodFFCZ0hHVzlscWkzcW84OEw5Zjh2U1Rvb2pUaUFOdHBpcVBmL2prSUUwaytKQ0lOaDBWOVZN",
+      "pdf": "https://webapi.bps.go.id/download.php?f=BWKAJXodd2aKc0F1YCbf5UxmRk9NV21yTmNWVjEreDdZTTg1ZFVwZkNXcTgydVJTZFNpRjI4emhCdG91U0Z4OTFZNm5xWnBobmw3UWNOU08yTFBUdTRpMndPTExwdEhscG92S0J4c3QwMWxkd0Zad3VBNmovb3o3WW96WXFMWHpWczJZb1p5ZG5ibXlJZ2VzOHdtaTJvZTJPb2NFVkQrb01zSGRsUEdGSERjNkZIU1FRY1FQWDhBMW92QkxGcFZLYzZDT0lZN0hmN1JvS29nMm5qcnJWWWU4WHBLdk1MNm04blBIWnRPN3ZjR0pNKzV3MCtXZytxcjJRYklrdFVUanc4bytGVjQ2dXMzVi9xNHB1R1U2d1FGUkx5VVRXOWl5aUNiMWdzT2FMbWZhUjBpcG9US0pRQnduWGYzS3IvMk5NdFhaRTArN2IrWTJCUWhi",
       "size": "24.74 MB"
     },
     {
@@ -1165,8 +1183,8 @@
       "sch_date": "2025-03-07",
       "rl_date": "2025-03-07",
       "updt_date": null,
-      "cover": "https://webapi.bps.go.id/cover.php?f=+jmbq1eDaJ1SjG3pAbHSEDNSaElyWTdhK3lzRnhDM2NENDd3dUhlZjhndDkwZW9kbEszYzhtVUIxcXNTeWV4MnFFdk9VZml2NUFXOTlvYVF1Uk9IZlk5dmdWZTYzRU1HS3Vja0czZ3dXM25aMEdwZU9Lekh4WHBNLytUVjJQNnVUa1JmcUR0Z2lJQzRkRCto",
-      "pdf": "https://webapi.bps.go.id/download.php?f=sDXdYX6FkMrMx2xoiHcFfTZGUnc0Q3JuY2NjTFNPMlZ6MFN0bjJQaEE4NmVOeWh1NndzYjUxOENSeC9yK3VDc2pkb2drMWF0bEZ0RFFwS09qRTc0cnExQk1IeXl0TE0vY1lUM2VRbDVwWDU4Z2c4WFpWT3Z0aXoxZTZjaExWL3hkZUhheE5hNTJvM3lUT1dTQ2RPOExSOG8vMi9ScEYvTUR6UHIrTVE0WnMxSkhZMHBqM3FyU1pEcGNpNWNucUdmZkxWWjV6WjQ4M0g4V0ErbTQ1WW5QL0pQcnlUazR3N0lGTjlpZEM4VVZWUVNheC9QYjIzS0Z3SHZ3KzNCQytGdUd3dVdqY01EZ1Y4a2JpUHRaREVacGFyVjZqQmtoQnZBTVM3VE1uMjdTQkpHRWFPQW5CRUhyWnYzaUMwc0pLZGFZQ1BUaS9PVzVrMVF6ellhMUhtKy9BRXI4emMxc3R1ek5qY3Uxdz09",
+      "cover": "https://webapi.bps.go.id/cover.php?f=CTbbQdORPo5hnKMom/SisFlmNDU1aGNpenRWaWN2Sk80aFJOVDdxRmF6YVdybmhRUVlQSll4UkdVbnh6TmliZklYWlEvOHVNa1VCUUxnZ05lV3kwY2h1c3hpem9tL2RLRnRsMWRLVzh1MTR1a0o4U0xlRDNvYk9tVWZIRVF4USttc1Q5MGk3TWZEeFZLeGZh",
+      "pdf": "https://webapi.bps.go.id/download.php?f=j9O8s4uW/uUwZfzE1PI2TlY4RnB5V2Q3aWk4TFJMYURBRTU1QTl1VHk2NFNGaFJEZzVpamtBR3dVZFhTbU00b3hQZGpOWVZKTDBRRlZveDRlTHFTS014TzFBREZqd05wVGM4T2p5VjNlM1M4bEJrcDlnTEx0RkoxV09TUjBqeU51bFJPekJTNGJjdmlzREZkVHpIY2VnY2ZNYkVvS0QzUWlDUWlRQVcwcEQ4bitPSVJNNENKWnZDODhNaWVDWlloVktlUW5XZXdVdnpVRTczTStTWFFkRG9YbWZON0orTTFOWTRFeGxMeGUwQ0dSek9iZDl6bXdQV3RiUE9xZUtxVnhDRXNzMlRZUEcwcU03dUNxMnM1dytxYXQwWS9iVHBteGE2WElQWm5xZll1d3NrRXdJTGQrVGN1d2x1NmNQMGtBSjB2bnJjNlQrV3d2b2tnMnQ2aFdNd2pkSGNEbnFMaUNrV2ZIUT09",
       "size": "5.79 MB"
     },
     {
@@ -1179,8 +1197,8 @@
       "sch_date": "2025-02-28",
       "rl_date": "2025-02-28",
       "updt_date": "2025-04-22",
-      "cover": "https://webapi.bps.go.id/cover.php?f=a33Hmvc2s28QelE7+weRx2VUSnpaMExYanpEOWZPcTZ4dncycThjK3dtVzdrRWV2NE40M203Nm13NCt2L01YaW5xVzlkekE4V1lLVUNEY1AxZFZBaDlpNUlFeGtrZTdwMlhkYVh1RXJnVzJDUmlzQ0h3VlJxOVVhd0h3S05XaDViZnpkN1lER2dxYm9uY0Rj",
-      "pdf": "https://webapi.bps.go.id/download.php?f=EYdYwCwR9ObX8qALvi9iFnlJYmVrQXl5cE4ya2V5UEpmT1IrQUZsbmhMM2JoZ2cxTlczaFNvQW8xaC9ZL05lN1JCNDFwZDZKeVVsdU11LzVXd1lVZFRtRUJoY1dZUkV3NEoxTGZyeDU3Z2N0enBsTWV5RFFCTmFpSWc5emdmZjQxZ3p0WFRVQjl6SUxSYXd2cEZuc3g5VGhYbTJ3Vyt6VlBoVVpIWUliQUVUbHk1YndnNVdWZnZvNGhiNHBmdm01WmUvbDg1eFdBY0V3N2x1SnNtSzNDK2VUZ0NsUUpnU3RDRVNySWQra1hMaElvOVVmNHlwMWtNTWsrVjYxcnZYa2tZZ3Nia2dWVXhCeXZtNncxV1NldVdsR0RTZ1U3RkEwLzE2Qk1BPT0=",
+      "cover": "https://webapi.bps.go.id/cover.php?f=r2mM0271FPYDUpj4cennrHJsMHhsSHRNbjJScGVOUFlWTUdOQnFvOFBPQXllRmN0bTd0VGsybzlLU0xnZnVsV3IyV3dFcUNKanRzdlhEb0hxZHJLSWVPSklqRjAySDFwdHh0Ulo1Ykdkd1R1MTRHT0ltbWMrL1lLVXZLQkRRZDZjM1RQMVpnY1hsd2p1Mk9S",
+      "pdf": "https://webapi.bps.go.id/download.php?f=PitTdbqP4HkzmjSkv87IS0JYQlErSmxqdEIwaXBhb0pHcmdUODJySTVZdUpnZU5sc0F4cGsybWdGQmtjeFovYllZY29PYWxwdmlIWklUSE1lZnNWZURBV2pDbEF0bnZBUGk1OWtmdit4NDhlUFl5OTh5c1AvYSs0eVFHcEcrZ3lHOXlVOE43MHR2QVJFZ0FxNXN3ZG5jbDh3ZUk1MkJmWnN5cFVxWnkva1g0a2xwelZIZlNIZkRERmVOQ1UyMVAxeWUxZUtEekNmdjA2ODNMYTZBQkZRa3QzaUFJK0lFSGFwdExVSCtsekVuKzVEMDhZeXJmQmlVdmIvYUxxQ0h1eDltcld6SVBWZUswQ3RjUUFzT29GTm1mUzlBNWNZdVdQY0Y1NnlnPT0=",
       "size": "24.07 MB"
     }
   ]
