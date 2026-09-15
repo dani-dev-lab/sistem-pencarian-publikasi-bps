@@ -6,6 +6,11 @@
 <p class="ringan">Halaman ini untuk perawatan kamus sinonim dan review log pencarian.
   Petugas PST tidak perlu masuk ke sini untuk mencari publikasi.</p>
 
+{% with pesan = get_flashed_messages(with_categories=true) %}
+  {% for kategori, teks in pesan %}
+    <p class="kabar kabar-{{ kategori }}">{{ teks }}</p>
+  {% endfor %}
+{% endwith %}
 {% if salah %}
   <p class="kabar kabar-gagal">Kata sandi salah.</p>
 {% endif %}

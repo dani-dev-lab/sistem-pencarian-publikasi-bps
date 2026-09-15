@@ -15,9 +15,10 @@
     <p class="angka">{{ jumlah_lemah }}</p>
     <p class="ket">kueri lemah dari {{ jumlah_log }} pencarian</p>
   </a>
+  <a href="{{ url_for('admin.ganti_sandi') }}">
+    <h2>Ganti Kata Sandi</h2>
+    <p class="angka">&#128273;</p>
+    <p class="ket">satu sandi bersama untuk semua pengelola</p>
+  </a>
 </div>
-
-<p class="catatan-admin">
-  Halaman ini memakai satu kata sandi bersama. Cara menggantinya ada di PANDUAN.md.
-</p>
 {% endblock %}

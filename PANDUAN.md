@@ -76,7 +76,7 @@ diserahkan terpisah oleh pengembang; kalau harus membuat dari awal:
 | Variabel | Isi |
 |---|---|
 | `SECRET_KEY` | Teks acak. Buat dengan `venv\Scripts\python.exe -c "import secrets; print(secrets.token_hex(32))"` |
-| `ADMIN_PASSWORD_HASH` | Hash kata sandi admin. Buat dengan `venv\Scripts\python.exe scripts\buat_hash_sandi.py` (lihat bagian 6) |
+| `ADMIN_PASSWORD_HASH` | Hash kata sandi admin. Buat dengan `venv\Scripts\python.exe scripts\buat_hash_sandi.py` (rincian di bagian 7, "Pemulihan kata sandi admin"). Setelah itu sandi bisa diganti dari browser (bagian 6). |
 | `BPS_API_KEY` | API key WebAPI BPS, dari https://webapi.bps.go.id/developer/ |
 | `DATABASE_URL` | `mysql+pymysql://root:SANDI@localhost:3306/db_pencarian_bps` — ganti `SANDI` dengan sandi root MySQL |
 
@@ -212,27 +212,33 @@ Kamus tersimpan di `data/kamus_sinonim.json`. Berkas ini ikut di Git, jadi
 sebaiknya di-*commit* setelah diubah supaya tidak hilang.
 
 Halaman admin juga bisa dipakai lebih dari satu orang bergantian —
-sandinya satu untuk bersama. Tombol **Keluar** ada di pojok kanan atas.
+sandinya satu untuk bersama, dan bisa diganti dari kartu **Ganti Kata Sandi**
+(bagian 6). Tombol **Keluar** ada di pojok kanan atas.
 
 ---
 
 ## 6. Mengganti kata sandi admin
 
-Sandi tidak disimpan di mana pun dalam bentuk asli — yang disimpan di `.env`
-hanya **hash**-nya. Mengganti sandi berarti membuat hash baru:
+Cukup lewat browser, tidak perlu akses ke server:
 
-1. Buka Command Prompt di folder proyek.
-2. Jalankan `venv\Scripts\python.exe scripts\buat_hash_sandi.py`.
-3. Ketik sandi baru dua kali (tidak tampil di layar; minimal 8 karakter).
-4. Script mencetak satu baris `ADMIN_PASSWORD_HASH=...`. Salin baris itu ke
-   `.env`, menggantikan baris lama.
-5. Hentikan dan jalankan ulang aplikasi (`.env` hanya dibaca saat mulai).
+1. Masuk ke `http://localhost:5000/admin/` dengan kata sandi yang berlaku.
+2. Klik kartu **Ganti Kata Sandi** (atau buka `/admin/sandi`).
+3. Isi kata sandi lama, kata sandi baru (minimal 8 karakter), dan ulangi
+   kata sandi baru. Klik **Ganti kata sandi**.
+4. Anda langsung dikeluarkan dan diminta masuk lagi. Masuk dengan sandi
+   **baru** — kalau berhasil, berarti sandi baru sudah benar-benar berlaku.
 
-Semua yang sedang login otomatis diminta masuk lagi begitu aplikasi
-dijalankan ulang.
+Sandi baru berlaku seketika untuk semua orang; aplikasi **tidak perlu**
+dijalankan ulang. Yang disimpan di `.env` hanya **hash**-nya, bukan sandi
+aslinya, jadi tidak ada yang bisa "membaca" sandi dari berkas mana pun.
 
-Kalau sandi lupa, tidak ada cara memulihkannya — langsung buat yang baru
-dengan langkah di atas.
+Kalau ditolak, pesannya menyebut sebabnya: sandi lama salah, kedua isian
+sandi baru tidak sama, terlalu pendek, atau sama dengan sandi lama. Dalam
+semua kasus itu tidak ada yang berubah.
+
+**Kalau sandi lama lupa**, halaman ini tidak bisa dipakai (ia mensyaratkan
+sandi lama). Jalur pemulihannya butuh akses ke server — lihat butir
+"Pemulihan kata sandi admin" di bagian 7.
 
 ---
 
@@ -252,7 +258,8 @@ di jaringan kantor, hal-hal berikut perlu disiapkan oleh tim IT:
 | **Pencadangan database** | Database `db_pencarian_bps` bisa dibangun ulang dari WebAPI dan PDF (bagian 4), kecuali tabel `log_pencarian` (riwayat pencarian petugas) yang tidak bisa dipulihkan. Cadangkan berkala dengan `mysqldump`. Cadangkan juga `data/kamus_sinonim.json` dan `.env`. |
 | **Menjalankan sebagai layanan** | Sekarang aplikasi berjalan di jendela Command Prompt yang harus dibiarkan terbuka. Untuk berjalan otomatis saat komputer menyala, daftarkan `jalankan-aplikasi.bat` di Task Scheduler (*At startup*) atau bungkus dengan NSSM sebagai Windows Service. |
 | **Pembaruan berkala** | `perbarui-data.bat` bisa dijadwalkan lewat Task Scheduler, mis. tiap Senin pagi, di komputer yang tersambung "BPS - Pegawai". |
-| **Kerahasiaan `.env`** | Berisi API key BPS dan sandi database. Jangan disalin ke tempat bersama; batasi hak baca berkasnya. |
+| **Kerahasiaan `.env`** | Berisi API key BPS dan sandi database. Jangan disalin ke tempat bersama; batasi hak baca berkasnya. Perhatikan: halaman Ganti Kata Sandi **menulis ulang** baris `ADMIN_PASSWORD_HASH` di berkas ini, jadi akun yang menjalankan aplikasi harus punya hak tulis ke `.env`. |
+| **Pemulihan kata sandi admin** | Kalau pengelola lupa sandi, hanya bisa disetel ulang dari server: buka Command Prompt di folder proyek, jalankan `venv\Scripts\python.exe scripts\buat_hash_sandi.py`, ketik sandi baru dua kali (tidak tampil di layar, minimal 8 karakter), lalu salin baris `ADMIN_PASSWORD_HASH=...` yang dicetak ke `.env` menggantikan baris lama. Hentikan dan jalankan ulang aplikasi — jalur ini tidak membaca ulang `.env` secara otomatis. Prosedur yang sama dipakai saat pemasangan pertama (bagian 2). |
 
 ---
 

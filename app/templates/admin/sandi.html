@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block judul %}Ganti Kata Sandi &mdash; Admin{% endblock %}
+
+{% block konten %}
+<p class="tautan-balik"><a href="{{ url_for('admin.beranda') }}">&larr; Admin</a></p>
+<h1 class="judul-admin">Ganti kata sandi admin</h1>
+<p class="ringan">Kata sandi ini dipakai bersama oleh semua pengelola. Setelah
+  diganti, Anda diminta masuk lagi dengan kata sandi baru &mdash; itu sekaligus
+  memastikan sandi barunya benar-benar berlaku. Tidak perlu menjalankan ulang
+  aplikasi.</p>
+
+{% if galat %}
+  <p class="kabar kabar-gagal">{{ galat }}</p>
+{% endif %}
+
+<form method="post" action="{{ url_for('admin.ganti_sandi') }}" class="form-admin">
+  <label>Kata sandi lama
+    <input type="password" name="sandi_lama" required autofocus autocomplete="current-password"></label>
+  <label>Kata sandi baru <span class="ringan">(minimal {{ panjang_minimal }} karakter)</span>
+    <input type="password" name="sandi_baru" required minlength="{{ panjang_minimal }}" autocomplete="new-password"></label>
+  <label>Ulangi kata sandi baru
+    <input type="password" name="sandi_ulang" required minlength="{{ panjang_minimal }}" autocomplete="new-password"></label>
+  <button type="submit">Ganti kata sandi</button>
+</form>
+
+<p class="catatan-admin">
+  Lupa kata sandi lama? Tim IT bisa menyetel ulang dari server dengan
+  <code>scripts/buat_hash_sandi.py</code> &mdash; lihat PANDUAN.md.
+</p>
+{% endblock %}

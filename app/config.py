@@ -34,6 +34,9 @@ class Config:
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+    # Berkas .env yang ditulis ulang saat sandi admin diganti lewat browser.
+    FILE_ENV = BASE_DIR / ".env"
+
     # Path data
     DIR_PUBLIKASI_PDF = BASE_DIR / "data" / "publikasi_pdf"
     DIR_SAMPEL_PDF = BASE_DIR / "data" / "sampel_pdf"
@@ -84,3 +87,42 @@ def periksa_konfigurasi(config_class=Config):
             f"{garis}\n\n" + "\n".join(masalah)
             + f"\nContoh isian lengkap ada di .env.example.\n{garis}"
         )
+
+
+# Berlaku untuk halaman /admin/sandi maupun scripts/buat_hash_sandi.py.
+PANJANG_SANDI_MINIMAL = 8
+
+
+def tulis_admin_hash(path_env, hash_baru):
+    """Ganti HANYA baris ADMIN_PASSWORD_HASH di .env, sisanya utuh byte demi byte.
+
+    Berkas dibaca dan ditulis dengan newline="" supaya gaya akhir baris (LF
+    atau CRLF) tidak diubah. Ditulis ke berkas sementara dulu lalu os.replace,
+    jadi proses yang terputus di tengah tidak pernah meninggalkan .env yang
+    separuh tertulis - .env rusak berarti aplikasi tidak bisa dijalankan
+    sama sekali.
+
+    Return True kalau baris lama ditemukan dan diganti, False kalau baris
+    ditambahkan di akhir karena belum ada.
+    """
+    path_env = str(path_env)
+    with open(path_env, encoding="utf-8", newline="") as f:
+        baris_semua = f.readlines()
+
+    diganti = False
+    for i, baris in enumerate(baris_semua):
+        if baris.startswith("ADMIN_PASSWORD_HASH="):
+            akhir = baris[len(baris.rstrip("\r\n")):]   # pertahankan LF/CRLF
+            baris_semua[i] = f"ADMIN_PASSWORD_HASH={hash_baru}{akhir}"
+            diganti = True
+            break
+    if not diganti:
+        if baris_semua and not baris_semua[-1].endswith("\n"):
+            baris_semua[-1] += "\n"
+        baris_semua.append(f"ADMIN_PASSWORD_HASH={hash_baru}\n")
+
+    sementara = path_env + ".tmp"
+    with open(sementara, "w", encoding="utf-8", newline="") as f:
+        f.writelines(baris_semua)
+    os.replace(sementara, path_env)
+    return diganti

@@ -276,9 +276,12 @@ mark { background: #fff2a8; color: inherit; padding: 0 1px; border-radius: 2px; 
 .mono { font-family: Consolas, monospace; font-size: 12px; }
 .tautan-balik { margin: 0 0 8px; font-size: 13px; }
 .catatan-admin { margin-top: 28px; font-size: 13px; color: var(--kuning); }
+.catatan-admin code { font-family: Consolas, monospace; font-size: 12px; }
 
-.kartu-admin { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
-@media (max-width: 700px) { .kartu-admin { grid-template-columns: 1fr; } }
+.kartu-admin {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px; margin-top: 18px;
+}
 .kartu-admin a {
   display: block; padding: 18px; text-decoration: none; color: inherit;
   border: 1px solid var(--garis); border-left: 4px solid var(--biru); border-radius: 6px;

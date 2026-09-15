@@ -18,8 +18,9 @@ from flask import (
     session,
     url_for,
 )
-from werkzeug.security import check_password_hash
+from werkzeug.security import check_password_hash, generate_password_hash
 
+from app.config import PANJANG_SANDI_MINIMAL, tulis_admin_hash
 from app.models import LogPencarian, db
 from app.services.normalisasi_data import jalankan as terapkan_normalisasi
 from app.services.preprocessing import muat_ulang_kamus, normalisasi
@@ -86,6 +87,67 @@ def login():
 @bp.post("/logout")
 def logout():
     session.pop(KUNCI_SESSION, None)
+    return redirect(url_for("admin.login"))
+
+
+@bp.route("/sandi", methods=["GET", "POST"])
+def ganti_sandi():
+    """Ganti kata sandi admin dari browser, tanpa terminal.
+
+    Pengelola harian (yang merawat kamus) belum tentu orang yang memegang
+    akses server. Hash baru ditulis ke .env (hanya baris itu, atomik) DAN
+    dipasang ke config aplikasi yang sedang berjalan, jadi tidak perlu
+    restart. Sesi saat ini dikeluarkan supaya sandi baru langsung terbukti
+    berlaku saat login ulang.
+    """
+    if request.method == "GET":
+        return render_template("admin/sandi.html",
+                               panjang_minimal=PANJANG_SANDI_MINIMAL)
+
+    lama = request.form.get("sandi_lama") or ""
+    baru = request.form.get("sandi_baru") or ""
+    ulang = request.form.get("sandi_ulang") or ""
+
+    if not lama or not check_password_hash(current_app.config["ADMIN_PASSWORD_HASH"],
+                                           lama):
+        galat = "Kata sandi lama salah. Tidak ada yang diubah."
+    elif len(baru) < PANJANG_SANDI_MINIMAL:
+        galat = f"Kata sandi baru minimal {PANJANG_SANDI_MINIMAL} karakter."
+    elif baru != ulang:
+        galat = "Kata sandi baru dan ulangannya tidak sama."
+    elif baru == lama:
+        galat = "Kata sandi baru harus berbeda dari yang lama."
+    else:
+        galat = None
+
+    if galat:
+        return render_template("admin/sandi.html", galat=galat,
+                               panjang_minimal=PANJANG_SANDI_MINIMAL)
+
+    path_env = current_app.config["FILE_ENV"]
+    if not os.path.exists(path_env):
+        # Hash datang dari variabel lingkungan sistem, bukan berkas - tidak
+        # ada yang bisa ditulis dari sini.
+        return render_template(
+            "admin/sandi.html", panjang_minimal=PANJANG_SANDI_MINIMAL,
+            galat="Berkas .env tidak ditemukan di server, jadi sandi tidak bisa "
+                  "diganti dari sini. Minta tim IT mengganti ADMIN_PASSWORD_HASH "
+                  "di konfigurasi server.")
+
+    hash_baru = generate_password_hash(baru)
+    try:
+        tulis_admin_hash(path_env, hash_baru)
+    except OSError as e:
+        return render_template(
+            "admin/sandi.html", panjang_minimal=PANJANG_SANDI_MINIMAL,
+            galat=f"Gagal menulis .env: {e}. Sandi TIDAK berubah.")
+
+    # Berlaku seketika untuk proses ini; .env sudah berisi hash baru untuk
+    # kali berikutnya aplikasi dijalankan.
+    current_app.config["ADMIN_PASSWORD_HASH"] = hash_baru
+    session.clear()
+    flash("Kata sandi berhasil diganti. Masuk lagi dengan kata sandi baru.",
+          "sukses")
     return redirect(url_for("admin.login"))
 
 

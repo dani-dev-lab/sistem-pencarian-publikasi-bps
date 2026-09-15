@@ -298,6 +298,7 @@ Aturan yang berlaku:
   | Periksa normalisasi kueri | `http://localhost:5000/admin/log/periksa?q=<kueri>` |
 
   | Masuk / keluar | `/admin/login` (GET+POST) / `/admin/logout` (POST) |
+  | Ganti kata sandi | `http://localhost:5000/admin/sandi` |
 
   Ini mekanisme perawatan kamus sinonim SETELAH masa magang selesai - jangan
   dihapus. Setelah mengubah kamus lewat halaman ini, klik tombol
@@ -371,6 +372,31 @@ traceback, baik dari `run.py`, dari script, maupun dari `.bat`.
   path diawali `/admin` - halaman pencarian tidak pernah memperlihatkannya.
 - Halaman pencarian (`/`, `/hasil`, `/api/saran`, `/pdf/<id>`) TIDAK butuh
   login. Diverifikasi dengan test_client dan lewat waitress sungguhan.
+
+### Ganti kata sandi dari browser (`/admin/sandi`)
+Alasan: server hanya bisa diakses tim IT, sedangkan pengelola kamus
+sehari-hari belum tentu orang yang sama - ganti sandi tidak boleh menuntut
+terminal. Ikut penjaga `before_request` (tidak ada dekorator khusus).
+- Validasi berurutan: sandi lama cocok hash -> panjang >= 8
+  (`PANJANG_SANDI_MINIMAL` di `app/config.py`, dipakai juga oleh
+  `buat_hash_sandi.py` supaya satu aturan) -> ulangan sama -> berbeda dari
+  yang lama. Ditolak = tidak ada yang ditulis.
+- `config.tulis_admin_hash()` mengganti HANYA baris `ADMIN_PASSWORD_HASH=`
+  di `.env`; baris lain dibiarkan byte demi byte, gaya akhir baris (LF/CRLF)
+  dipertahankan lewat `newline=""`, ditulis ke `.env.tmp` lalu `os.replace`.
+  Kalau `.env` tidak ada (hash dari variabel lingkungan sistem), halaman
+  menolak dengan pesan - bukan membuat berkas baru.
+- Tanpa restart: `current_app.config["ADMIN_PASSWORD_HASH"]` langsung
+  diganti; `login()` membaca dari config, bukan dari modul. `.env` baru
+  dipakai kali berikutnya aplikasi mulai.
+- Sesudah sukses `session.clear()` + redirect ke login dengan flash - login
+  ulang dengan sandi baru adalah konfirmasi bahwa sandinya berlaku.
+- Diuji pada SALINAN `.env` bergaya LF dan CRLF (sandi asli tidak diketahui
+  pengembang, `.env` asli tidak disentuh): semua penolakan tidak mengubah
+  berkas; sukses mengubah hanya baris hash, baris lain identik, tidak ada
+  `.tmp` tersisa, sandi lama ditolak dan baru diterima tanpa restart.
+- `scripts/buat_hash_sandi.py` tetap ada sebagai jalur pemulihan kalau sandi
+  lupa (butuh akses server) - dicatat di PANDUAN.md bagian tanggung jawab IT.
 
 ### Server produksi
 `run.py` sekarang memakai **waitress** secara bawaan (`threads=4`);

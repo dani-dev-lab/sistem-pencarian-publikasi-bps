@@ -4,18 +4,22 @@ Sandi diketik dua kali tanpa tampil di layar, lalu hash-nya dicetak. Yang
 disimpan di .env hanya hash - sandi aslinya tidak pernah ditulis ke berkas
 mana pun, jadi kalau .env bocor sandi tetap tidak ketahuan.
 
-Dipakai juga untuk MENGGANTI sandi: jalankan lagi, ganti baris
-ADMIN_PASSWORD_HASH di .env, lalu jalankan ulang aplikasi.
+Dipakai saat pemasangan pertama dan sebagai JALUR PEMULIHAN kalau sandi
+lupa (butuh akses ke server). Penggantian sandi sehari-hari dilakukan lewat
+browser di /admin/sandi, tanpa terminal.
 
 Jalankan:  venv/Scripts/python.exe scripts/buat_hash_sandi.py
 """
 
 import getpass
+import os
 import sys
 
 from werkzeug.security import generate_password_hash
 
-PANJANG_MINIMAL = 8
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from app.config import PANJANG_SANDI_MINIMAL as PANJANG_MINIMAL  # satu aturan
 
 
 def main():
