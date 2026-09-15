@@ -3,8 +3,15 @@ setlocal
 title Pencarian Publikasi BPS Kalsel
 cd /d "%~dp0"
 
-rem Port bisa diganti lewat argumen, misalnya:  jalankan-aplikasi.bat 8080
+rem Port: argumen baris perintah > baris PORT=... di .env > 5000.
+rem   contoh sekali jalan :  jalankan-aplikasi.bat 8080
+rem   contoh permanen     :  tulis PORT=8080 di .env
 set PORT=%1
+if "%PORT%"=="" if exist ".env" (
+    for /f "usebackq eol=# tokens=1,* delims==" %%a in (".env") do (
+        if /i "%%a"=="PORT" set PORT=%%b
+    )
+)
 if "%PORT%"=="" set PORT=5000
 
 echo ==========================================================

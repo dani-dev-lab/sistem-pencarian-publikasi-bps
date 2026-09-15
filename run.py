@@ -8,8 +8,9 @@ Dua mode:
       Server bawaan Flask dengan debugger dan auto-reload. JANGAN dipakai di
       jaringan kantor: debugger-nya bisa menjalankan kode dari browser.
 
-Alamat dan port bisa diubah lewat --host / --port. --buka-browser (dipakai
-.bat) membuka browser SETELAH server benar-benar menjawab, bukan sebelumnya.
+Alamat dan port bisa diubah lewat --host / --port. Port juga bisa ditetapkan
+permanen lewat PORT di .env (argumen --port tetap menimpanya). --buka-browser
+(dipakai .bat) membuka browser SETELAH server benar-benar menjawab.
 """
 
 import argparse
@@ -72,10 +73,16 @@ def main():
                      help="Alamat yang didengarkan (default 127.0.0.1 = hanya "
                           "komputer ini; pakai 0.0.0.0 agar bisa diakses dari "
                           "komputer lain di jaringan).")
-    arg.add_argument("--port", type=int, default=5000)
+    arg.add_argument("--port", type=int, default=None,
+                     help="Port yang didengarkan. Kalau tidak diberi, memakai "
+                          "PORT di .env; kalau itu pun kosong, 5000.")
     arg.add_argument("--buka-browser", action="store_true",
                      help="Buka browser ke alamat aplikasi begitu server siap.")
     opsi = arg.parse_args()
+    # Urutan: argumen baris perintah > PORT di .env > 5000. PORT di .env sudah
+    # divalidasi oleh periksa_konfigurasi() saat create_app().
+    if opsi.port is None:
+        opsi.port = int(app.config["PORT"])
 
     if opsi.dev:
         app.run(host=opsi.host, port=opsi.port, debug=True)

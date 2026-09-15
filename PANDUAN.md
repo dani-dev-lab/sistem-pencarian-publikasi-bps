@@ -45,6 +45,10 @@ Ada dua jenis halaman:
 Halaman admin sengaja **tidak ditautkan** dari halaman pencarian. Alamatnya
 diketik langsung di browser.
 
+Angka `5000` di alamat itu adalah **port** bawaan. Kalau port diganti (bagian
+3 dan 7), semua alamat di panduan ini ikut berubah — misalnya port 8080
+berarti `http://localhost:8080/` dan `http://localhost:8080/admin/`.
+
 ---
 
 ## 2. Yang harus tersedia di komputer
@@ -79,6 +83,7 @@ diserahkan terpisah oleh pengembang; kalau harus membuat dari awal:
 | `ADMIN_PASSWORD_HASH` | Hash kata sandi admin. Buat dengan `venv\Scripts\python.exe scripts\buat_hash_sandi.py` (rincian di bagian 7, "Pemulihan kata sandi admin"). Setelah itu sandi bisa diganti dari browser (bagian 6). |
 | `BPS_API_KEY` | API key WebAPI BPS, dari https://webapi.bps.go.id/developer/ |
 | `DATABASE_URL` | `mysql+pymysql://root:SANDI@localhost:3306/db_pencarian_bps` — ganti `SANDI` dengan sandi root MySQL |
+| `PORT` | Opsional. Port server; kosong = 5000. Isi kalau 5000 sudah dipakai program lain (bagian 3). |
 
 Aplikasi **menolak berjalan** kalau `SECRET_KEY` atau `ADMIN_PASSWORD_HASH`
 kosong, dan menampilkan pesan yang menjelaskan cara mengisinya. Ini
@@ -120,11 +125,26 @@ paling umum:
 | `Can't connect` / `Connection refused` | MySQL belum jalan | Buka Laragon, klik **Start All**, coba lagi |
 | `Access denied` | Sandi MySQL di `.env` salah | Periksa baris `DATABASE_URL` |
 | `KONFIGURASI BELUM LENGKAP` | `SECRET_KEY` / `ADMIN_PASSWORD_HASH` kosong | Ikuti petunjuk yang tampil di pesan itu |
-| `Port 5000 sudah dipakai` | Aplikasi sudah jalan di jendela lain | Pakai yang sudah jalan, atau tutup dulu jendela itu |
+| `Port 5000 sudah dipakai` | Ada yang sudah memakai port itu — aplikasi ini di jendela lain, atau program lain | Pakai yang sudah jalan / tutup dulu jendela itu; kalau program lain, ganti port (di bawah) |
+| `PORT di .env tidak valid` | Baris `PORT=` di `.env` bukan angka 1-65535 | Perbaiki atau kosongkan baris itu |
 | `Server belum menjawab setelah 30 detik` | Server hidup tapi tidak merespons | Tutup jendela, jalankan lagi; kalau terulang, laporkan ke pengembang |
 
-Port bawaan 5000. Kalau bentrok dengan aplikasi lain, jalankan dengan port
-lain: `jalankan-aplikasi.bat 8080`.
+### Mengganti port
+
+Port bawaan **5000**. Kalau port itu sudah dipakai program lain, ada dua
+cara — keduanya sudah diuji:
+
+- **Sekali jalan:** buka Command Prompt di folder proyek, ketik
+  `jalankan-aplikasi.bat 8080` (ganti 8080 dengan port yang diinginkan).
+- **Permanen:** tulis baris `PORT=8080` di berkas `.env`. Setelah itu klik
+  dua kali `jalankan-aplikasi.bat` seperti biasa — tidak perlu argumen lagi.
+  Argumen di baris perintah tetap menang kalau keduanya ada.
+
+Setelah port diganti, **alamat di browser ikut berubah**: pencarian di
+`http://localhost:8080/`, admin di `http://localhost:8080/admin/`. Browser
+yang dibuka otomatis sudah mengarah ke alamat yang benar; yang perlu
+diperbarui adalah bookmark atau alamat yang sudah dibagikan ke petugas.
+Rincian untuk pemasangan di server ada di bagian 7.
 
 Server yang dipakai adalah **waitress** (server produksi). Jangan
 menjalankan `run.py --dev` di jaringan kantor — mode itu menyalakan debugger
@@ -281,6 +301,7 @@ di jaringan kantor, hal-hal berikut perlu disiapkan oleh tim IT:
 | Kebutuhan | Keterangan |
 |---|---|
 | **Mendengarkan di jaringan** | Bawaan hanya `127.0.0.1`. Untuk diakses komputer lain, jalankan `venv\Scripts\python.exe run.py --host 0.0.0.0` (atau ubah `.bat`). Lakukan **hanya** setelah butir di bawah terpenuhi. |
+| **Port** | Lihat "Mengganti port di server" di bawah tabel ini. |
 | **HTTPS** | Aplikasi melayani HTTP polos. Kata sandi admin dikirim saat login, jadi di jaringan bersama harus lewat HTTPS — pasang *reverse proxy* (IIS, nginx, Caddy) di depannya dengan sertifikat internal. |
 | **Firewall / pembatasan akses** | Batasi port aplikasi hanya ke subnet PST. Idealnya `/admin/` dibatasi lebih ketat lagi (mis. hanya dari alamat tertentu) di proxy. |
 | **Pencadangan database** | Database `db_pencarian_bps` bisa dibangun ulang dari WebAPI dan PDF (bagian 4), kecuali tabel `log_pencarian` (riwayat pencarian petugas) yang tidak bisa dipulihkan. Cadangkan berkala dengan `mysqldump`. Cadangkan juga `data/kamus_sinonim.json` dan `.env`. |
@@ -288,6 +309,39 @@ di jaringan kantor, hal-hal berikut perlu disiapkan oleh tim IT:
 | **Pembaruan berkala** | Pengelola bisa memperbarui dari halaman admin (bagian 4). Kalau ingin otomatis, `perbarui-data.bat` bisa dijadwalkan lewat Task Scheduler, mis. tiap Senin pagi, di komputer yang tersambung "BPS - Pegawai" — pengaman "satu pembaruan pada satu waktu" tetap berlaku antara jadwal dan tombol di browser. |
 | **Kerahasiaan `.env`** | Berisi API key BPS dan sandi database. Jangan disalin ke tempat bersama; batasi hak baca berkasnya. Perhatikan: halaman Ganti Kata Sandi **menulis ulang** baris `ADMIN_PASSWORD_HASH` di berkas ini, jadi akun yang menjalankan aplikasi harus punya hak tulis ke `.env`. |
 | **Pemulihan kata sandi admin** | Kalau pengelola lupa sandi, hanya bisa disetel ulang dari server: buka Command Prompt di folder proyek, jalankan `venv\Scripts\python.exe scripts\buat_hash_sandi.py`, ketik sandi baru dua kali (tidak tampil di layar, minimal 8 karakter), lalu salin baris `ADMIN_PASSWORD_HASH=...` yang dicetak ke `.env` menggantikan baris lama. Hentikan dan jalankan ulang aplikasi — jalur ini tidak membaca ulang `.env` secara otomatis. Prosedur yang sama dipakai saat pemasangan pertama (bagian 2). |
+
+### Mengganti port di server
+
+Urutan prioritas port, dari yang paling kuat:
+
+1. **Argumen baris perintah** — `run.py --port 8080` atau
+   `jalankan-aplikasi.bat 8080`. Berlaku untuk sekali jalan itu saja.
+2. **Baris `PORT=8080` di `.env`** — berlaku permanen, dibaca oleh `run.py`
+   maupun `jalankan-aplikasi.bat`. Cocok untuk pemasangan di server: sekali
+   ditulis, `.bat` dan Task Scheduler tidak perlu argumen.
+3. **5000** kalau keduanya kosong.
+
+Yang diperiksa sebelum server dinyalakan: kalau port sudah ada yang memakai,
+aplikasi berhenti dengan pesan `Port 8080 sudah dipakai - kemungkinan
+aplikasi ini sudah berjalan di jendela lain` (dan `[GAGAL] Port 8080 sudah
+dipakai` dari `.bat`). Ini disengaja: di Windows dua server bisa mendengarkan
+port yang sama tanpa galat, lalu permintaan jatuh ke salah satunya secara
+acak — jadi aplikasi menolak berbagi port, dengan aplikasi lain maupun dengan
+salinan dirinya sendiri. Nilai `PORT` yang bukan angka 1-65535 juga ditolak
+saat mulai, dengan pesan `PORT di .env tidak valid`.
+
+Setelah port diganti:
+
+- Alamat di browser berubah menjadi `http://localhost:<port>/` — perbarui
+  bookmark/alamat yang dibagikan ke petugas. `jalankan-aplikasi.bat` membuka
+  browser ke alamat yang benar secara otomatis.
+- Sesuaikan aturan firewall dan konfigurasi *reverse proxy* (butir HTTPS di
+  atas) ke port yang baru.
+- `perbarui-data.bat` tidak terpengaruh — ia tidak memakai port.
+
+Diuji: port 5006-5009 lewat argumen `run.py`, argumen `.bat`, `PORT` di
+`.env` untuk keduanya, dan argumen yang menimpa `.env`; serta penolakan
+`PORT=abc` dan port yang sedang dipakai.
 
 ---
 

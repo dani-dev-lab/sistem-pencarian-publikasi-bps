@@ -23,6 +23,11 @@ class Config:
     # Satu sandi bersama, bukan akun per orang.
     ADMIN_PASSWORD_HASH = os.getenv("ADMIN_PASSWORD_HASH") or ""
 
+    # Port bawaan server. Opsional; --port di baris perintah menimpanya.
+    # Disimpan sebagai teks dan divalidasi di periksa_konfigurasi() supaya
+    # salah ketik ("80800", "lima ribu") ditolak dengan pesan, bukan traceback.
+    PORT = (os.getenv("PORT") or "5000").strip()
+
     # WebAPI BPS
     BPS_API_KEY = os.getenv("BPS_API_KEY", "")
     BPS_API_BASE_URL = os.getenv("BPS_API_BASE_URL", "https://webapi.bps.go.id/v1/api")
@@ -80,6 +85,11 @@ def periksa_konfigurasi(config_class=Config):
         masalah.append(PESAN_SECRET_KEY)
     if not config_class.ADMIN_PASSWORD_HASH:
         masalah.append(PESAN_ADMIN_HASH)
+    if not (config_class.PORT.isdigit() and 1 <= int(config_class.PORT) <= 65535):
+        masalah.append(
+            f"PORT di .env tidak valid: {config_class.PORT!r}.\n\n"
+            "  Isi dengan angka 1-65535 (misalnya PORT=8080), atau kosongkan\n"
+            "  supaya memakai 5000.\n")
     if masalah:
         garis = "=" * 72
         raise SystemExit(

@@ -463,6 +463,19 @@ identik di ketiga potret (sebelum / sesudah web / sesudah .bat).
 `run.py` sekarang memakai **waitress** secara bawaan (`threads=4`);
 `--dev` untuk server Flask + debugger. `--host`/`--port` bisa diubah.
 
+**Port: argumen > `PORT` di .env > 5000.** Ditambahkan atas pertanyaan tim
+IT BPS (port 5000 mungkin sudah dipakai di server). `Config.PORT` disimpan
+sebagai TEKS dan divalidasi di `periksa_konfigurasi()` (angka 1-65535, else
+SystemExit dengan pesan) - supaya `PORT=abc` ditolak rapi, bukan traceback
+`int()`. `run.py --port` default `None` lalu diisi dari `app.config["PORT"]`.
+`jalankan-aplikasi.bat` membaca baris `PORT=` dari `.env` sendiri lewat
+`for /f "eol=# tokens=1,* delims=="` - harus tahu portnya SEBELUM memanggil
+python, karena pemeriksaan port-sibuk dan URL browser ada di .bat. Kedua
+pembaca harus sepakat: format yang didukung hanya `PORT=angka` tanpa spasi
+di sekitar `=` (python-dotenv menerima lebih longgar, .bat tidak).
+Diuji sungguhan di port 5006-5009: argumen run.py, argumen .bat, .env untuk
+keduanya, argumen menimpa .env, `PORT=abc` ditolak, port sibuk ditolak.
+
 **Jebakan Windows yang ditemukan saat verifikasi:** waitress memasang
 `SO_REUSEADDR`, dan di Windows itu membuat DUA proses bisa mendengarkan
 port yang sama TANPA galat - request lalu jatuh ke salah satunya secara acak.
