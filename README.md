@@ -1,4 +1,7 @@
 # Sistem Pencarian Publikasi BPS Kalsel
+Aplikasi ini dikembangkan sebagai bagian dari project magang di BPS Provinsi
+Kalimantan Selatan. Kode dipublikasikan sebagai portofolio. Data publikasi,
+berkas PDF, dan seluruh kredensial tidak disertakan.
 
 Mesin pencari internal untuk petugas Pelayanan Statistik Terpadu (PST) BPS
 Provinsi Kalimantan Selatan. Petugas mengetik kata kunci; sistem menunjukkan
