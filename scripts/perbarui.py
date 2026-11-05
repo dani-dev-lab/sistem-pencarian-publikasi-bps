@@ -249,7 +249,13 @@ def _jalankan_semua(opsi):
 
     meta_baru = baca_json(FILE_META)
     id_baru = {p["pub_id"] for p in daftar_pub(meta_baru)}
-    publikasi_baru = id_baru - id_lama
+    # "Baru" = ada di daftar tapi BELUM PUNYA hasil ekstraksi - bukan "tidak
+    # ada di metadata lama". Bedanya penting: kalau run sebelumnya sempat
+    # menulis metadata lalu gagal di unduh/ekstraksi/muat, publikasinya sudah
+    # tercatat di metadata. Membandingkan metadata lama-vs-baru akan
+    # menganggapnya "sudah diproses" dan publikasi itu TIDAK PERNAH
+    # diekstrak. Terjadi sungguhan: 4 publikasi (Nov 2026) tertinggal begini.
+    publikasi_baru = id_baru - set(entri_lama)
 
     # Halaman yang gagal ditarik berarti daftar publikasinya belum utuh.
     # Melanjutkan bisa membuat publikasi yang ada terlihat seperti terhapus.
