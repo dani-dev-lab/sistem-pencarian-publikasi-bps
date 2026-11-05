@@ -42,16 +42,21 @@ def _catat_log(hasil):
     Dipakai untuk closed-loop improvement: kueri berskor rendah direview
     berkala untuk memperkaya kamus sinonim dan mengkalibrasi ambang.
 
+    Hasil tingkat publikasi ikut dihitung, sama seperti halaman hasil: kueri
+    yang hanya cocok ke judul/abstrak publikasi bukan kueri gagal. Skor memakai
+    max() karena tiga daftar itu masing-masing terurut sendiri, jadi elemen
+    pertama gabungannya belum tentu yang tertinggi.
+
     Kegagalan pencatatan TIDAK boleh menggagalkan pencarian - petugas tetap
     harus dapat hasilnya.
     """
-    semua = hasil["ditemukan"] + hasil["saran"]
+    semua = hasil["publikasi"] + hasil["ditemukan"] + hasil["saran"]
     try:
         db.session.add(LogPencarian(
             keyword=hasil["kueri"][:255],
             keyword_ternormalisasi=hasil["kueri_ternormalisasi"][:255] or None,
             jumlah_hasil=len(semua),
-            skor_tertinggi=semua[0]["skor"] if semua else None,
+            skor_tertinggi=max((h["skor"] for h in semua), default=None),
         ))
         db.session.commit()
     except Exception:  # noqa: BLE001 - log gagal bukan alasan menolak hasil
