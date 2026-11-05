@@ -251,12 +251,12 @@ def jalankan_pemeriksaan():
     tabrakan = [{"pub_id": pid, "pemilik": [{"domain": k, "judul": j} for k, j in daftar]}
                 for pid, daftar in pemilik.items() if len(daftar) > 1]
 
-    # Bandingkan juga dengan yang sudah ada di database: domainnya harus sama.
+    # Bandingkan juga dengan database: publikasi yang di API hanya dimiliki satu
+    # domain tetap bertabrakan kalau tersimpan sebagai milik domain lain.
     tersimpan = dict(db.session.query(Publikasi.id, Publikasi.domain).all())
     db.session.commit()
     for pid, daftar in pemilik.items():
-        lain = {k for k, _ in daftar} - {tersimpan.get(pid, daftar[0][0])}
-        if lain:
+        if len(daftar) == 1 and tersimpan.get(pid, daftar[0][0]) != daftar[0][0]:
             tabrakan.append({"pub_id": pid, "domain_tersimpan": tersimpan[pid],
                              "pemilik": [{"domain": k, "judul": j} for k, j in daftar]})
 
@@ -307,10 +307,12 @@ def proses_tugas(t, durasi, hasil):
         if not t["url_pdf"]:
             gagal("unduh", "publikasi tidak punya URL PDF")
             return
+        # Jeda SEBELUM unduhan: unduhan pertama datang tepat setelah halaman
+        # daftar terakhir, dan jeda sesudah unduhan tidak menjaga celah itu.
+        time.sleep(sumber_bps.JEDA_DETIK)   # jeda sesuai Term of Use
         mulai = time.perf_counter()
         pesan = sumber_bps.unduh_pdf(t["url_pdf"], t["path"])
         durasi["unduh"] += time.perf_counter() - mulai
-        time.sleep(sumber_bps.JEDA_DETIK)   # jeda sesuai Term of Use
         if pesan:
             gagal("unduh", pesan)
             return
