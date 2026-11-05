@@ -1,0 +1,181 @@
+Keadaan asli di awal: ('79\t6812\t2026-11-05 03:06:44\t70450\t10', 'abc7d50163df791ccde2c4c5d296b66a', 79)
+
+=== M. MIGRASI ===
+  [LULUS] M1 PDF hilang: migrasi berhenti, tak ada baris terisi separuh  -- exit 1, domain kosong 79/79
+    | 2. Isi publikasi lama
+    |   79 publikasi diisi
+    | 3. Kunci kolom wajib
+    | 4. Pindahkan PDF ke subfolder domain
+    |   79 berkas dipindahkan
+    | PDF kemungkinan usang (7), diunduh ulang saat pembaruan online pertama:
+    |   b99ddcad7bf0b9980ee3f8d3  updt_date 2026-10-12, diunduh 2026-08-28  Master File Desa Provinsi Kalimantan Selatan Semes
+    |   ff0ff482f84e322c69615f75  updt_date 2026-10-12, diunduh 2026-08-28  Statistik Ekspor Impor Provinsi Kalimantan Selatan
+    |   aabde6155c348a763129c8e4  updt_date 2026-10-08, diunduh 2026-08-28  Statistik Perhotelan Provinsi Kalimantan Selatan 2
+    |   1148726345a0364ee0ed9211  updt_date 2026-09-10, diunduh 2026-08-28  Tinjauan Produk Domestik Regional Bruto Kabupaten/
+    |   1c688dd3f6c8ca630a9a3190  updt_date 2026-09-10, diunduh 2026-08-28  Gambaran Ekonomi Makro Provinsi Kalimantan Selatan
+    |   9ab3d434a11c3831284d7688  updt_date 2026-09-10, diunduh 2026-08-28  Statistik Keuangan Pemerintah Daerah Kabupaten/Kot
+    |   dcb62e21ef8c01d535f4f9dd  updt_date 2026-09-10, diunduh 2026-08-28  Statistik Perhubungan Provinsi Kalimantan Selatan 
+    | Migrasi selesai.
+  [LULUS] M2 migrasi berhasil  -- exit 0
+  [LULUS] M2 seluruh baris domain 6300
+  [LULUS] M2 tepat 7 PDF usang dikosongkan  -- 7
+  [LULUS] M2 18 tanpa updt_date, 54 sudah cocok  -- tanpa 18, cocok 54
+  [LULUS] M2 sidik & diekstrak_pada & catatan terisi
+  [LULUS] M2 PDF pindah ke 6300/, folder induk bersih
+  [LULUS] M2 domain NOT NULL + berindeks
+  [LULUS] M3 dijalankan ulang: aman dan tak berubah  -- exit 0
+  [LULUS] M4 potret sesudah migrasi IDENTIK baseline  -- IDENTIK
+
+=== P. EKSTRAKSI PENUH 79 PDF LEWAT JALUR BARU (--lokal --paksa) ===
+    |     6300 Statistik Air Bersih Provinsi Kalimantan S 35/45 entri tanpa nomor halaman
+    |     6300 Direktori Perusahaan Industri Manufaktur M hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+    |     6300 Gambaran Ekonomi Makro Provinsi Kalimantan 49/69 entri tanpa nomor halaman
+    |     6300 Indeks Harga Konsumen Provinsi Kalimantan  20/23 entri tanpa nomor halaman
+    |     6300 Keadaan Angkatan Kerja Provinsi Kalimantan 139/224 entri tanpa nomor halaman
+    |     6300 Master File Desa Provinsi Kalimantan Selat 336/336 entri tanpa nomor halaman
+    |     6300 Master File Desa Provinsi Kalimantan Selat 334/334 entri tanpa nomor halaman
+    |     6300 Statistik Konstruksi Provinsi Kalimantan S 11/41 entri tanpa nomor halaman
+  [LULUS] P1 79 diproses, 0 gagal, exit 0  -- exit 0, proses 79, unduh 0, 1685 d, tahap {'ambil_metadata': 0.0, 'unduh': 0.0, 'ekstraksi': 1679.7, 'muat': 4.2}
+  [LULUS] P2 potret sesudah ekstraksi penuh IDENTIK baseline  -- IDENTIK
+  [LULUS] P3 --lokal --paksa TIDAK memajukan 7 PDF usang
+  [LULUS] P4 tanpa entri NULL normalisasi
+
+=== L. MODE LOKAL (tanpa jaringan) ===
+    |   7 publikasi punya versi lebih baru di BPS, menunggu pembaruan online
+    | ==========================================================================
+    | RINGKASAN PEMBARUAN
+    | ==========================================================================
+    |   Status       : tidak_ada_baru
+    |   Entri dokumen: 6812 -> 6812 (+0)
+    |   Waktu        : 0 detik
+    |   Per tahap    : ambil_metadata 0.0 d, unduh 0.0 d, ekstraksi 0.0 d, muat 0.0 d
+    |   domain                            status          publikasi  diunduh diproses  gagal
+    |   6300 Provinsi Kalimantan Selatan  tidak_ada_baru         79        0        0      0
+  [LULUS] L1 --lokal: tak ada kerja, 7 'menunggu pembaruan online'  -- exit 0, tidak_ada_baru, menunggu 7
+  [LULUS] L1 --lokal: nol permintaan ke API  -- 0
+
+=== O. ONLINE PERTAMA: 7 PDF usang diunduh ulang ===
+    |   Statistik Keuangan Pemerintah Daerah Kabupaten/Kota  [updt_date berubah]
+    |       25 entri
+    |   Statistik Perhotelan Provinsi Kalimantan Selatan 202 [updt_date berubah]
+    |       54 entri
+    |   Master File Desa Provinsi Kalimantan Selatan Semeste [updt_date berubah]
+    |       336 entri
+    |   Statistik Perhubungan Provinsi Kalimantan Selatan 20 [updt_date berubah]
+    |       85 entri
+    |   Statistik Ekspor Impor Provinsi Kalimantan Selatan 2 [updt_date berubah]
+    |       61 entri
+    | ==========================================================================
+    | RINGKASAN PEMBARUAN
+    | ==========================================================================
+    |   Status       : sukses
+    |   Entri dokumen: 6812 -> 6812 (+0)
+    |   Waktu        : 98 detik
+    |   Per tahap    : ambil_metadata 7.1 d, unduh 0.4 d, ekstraksi 83.0 d, muat 0.6 d
+    |   domain                            status          publikasi  diunduh diproses  gagal
+    |   6300 Provinsi Kalimantan Selatan  sukses                 79        7        7      0
+    |   Perlu diperiksa manual (2):
+    |     6300 Gambaran Ekonomi Makro Provinsi Kalimantan 49/82 entri tanpa nomor halaman
+    |     6300 Master File Desa Provinsi Kalimantan Selat 336/336 entri tanpa nomor halaman
+  [LULUS] O1 tepat 7 diunduh + diproses, status sukses, exit 0  -- exit 0, sukses, unduh 7, proses 7, 101 d
+  [LULUS] O1 updt_date_diproses kini cocok semua
+  [LULUS] O1 durasi 4 tahap tercatat  -- {'ambil_metadata': 7.1, 'unduh': 0.4, 'ekstraksi': 83.0, 'muat': 0.6}
+  [LULUS] O1 jeda antar request >= ~1 detik  -- minimum 1.01 d dari 15 permintaan
+  [LULUS] O1 isi sama persis (PDF tiruan = PDF lama)  -- IDENTIK
+  [LULUS] O2 run kedua: tidak ada yang dikerjakan  -- tidak_ada_baru, proses 0
+
+=== B. PUBLIKASI BARU & updt_date BERUBAH ===
+  [LULUS] B1 publikasi baru: masuk, entri terisi, teks ternormalisasi terisi  -- entri 23
+  [LULUS] B1 tanpa entri NULL normalisasi
+  [LULUS] B2 updt_date berubah: diunduh ulang + diproses  -- diunduh 2, diproses 2026-11-04
+  [LULUS] B3 updt_date kosong dari API: bukan perubahan, nilai dipertahankan  -- proses 0, api 2026-11-04
+
+=== G. UNDUHAN GAGAL (kelas bug 4 publikasi tertinggal) ===
+  [LULUS] G1 unduh '500': exit 3, sebagian, data+PDF lama utuh, api tersimpan, diproses tak maju  -- exit 3, sebagian, pesan: 500 Server Error: Internal Server Error for url: http://127.
+  [LULUS] G1 unduh 'html': exit 3, sebagian, data+PDF lama utuh, api tersimpan, diproses tak maju  -- exit 3, sebagian, pesan: bukan PDF utuh (3600 byte)
+  [LULUS] G1 unduh 'potong': exit 3, sebagian, data+PDF lama utuh, api tersimpan, diproses tak maju  -- exit 3, sebagian, pesan: bukan PDF utuh (50000 byte)
+  [LULUS] G2 run berikutnya memprosesnya sendiri setelah pulih  -- exit 0, sukses, diunduh 1
+
+=== E. PDF RUSAK DAN PDF 0 ENTRI ===
+  [LULUS] E1 PDF tak terbaca: entri lama utuh, galat tercatat, publikasi lain jalan, exit 3  -- exit 3, entri 38/38, galat: No /Root object! - Is this really a PDF?
+  [LULUS] E2 pulih: galat terhapus, dicoba lagi otomatis  -- exit 0, galat NULL
+  [LULUS] E3 PDF sah 0 entri: tercatat diekstrak  -- exit 0, entri 0, diekstrak 2026-11-05 07:41:21; perlu diperiksa: ['0 entri sama sekali']
+  [LULUS] E4 run berikutnya TIDAK mengekstrak ulang publikasi 0 entri  -- proses 0
+  [LULUS] E5 PDF hilang: diunduh ulang + diekstrak  -- exit 0, diunduh 1
+  [LULUS] E6 PDF diganti di disk: diekstrak tanpa unduh  -- proses 1, unduh 0
+  [LULUS] E7 --lokal: updt_date_diproses tak maju, tercatat menunggu  -- diproses NULL
+
+=== T. TRANSAKSI ===
+  [LULUS] T1 gagal di tengah transaksi: entri lama utuh  -- GAGAL-SEPERTI-DIHARAPKAN | jumlah 41 41
+  [LULUS] T2 proses dibunuh: kunci basi tertinggal  -- setelah 10.5 d
+  [LULUS] T2 proses dibunuh: entri & diproses belum berubah  -- 2026-11-05
+  [LULUS] T3 run berikutnya menimpa kunci basi dan menyelesaikan  -- exit 0, sukses
+  [LULUS] T4 pembaruan kedua ditolak exit 2, yang pertama tetap hidup  -- exit 2: PEMBARUAN SUDAH BERJALAN di proses lain (PID 7432). Tunggu sampai sele
+  [LULUS] T4 pertama selesai normal  -- 0
+
+=== D. MULTI-DOMAIN ===
+  [LULUS] D1 domain baru tanpa --hanya-periksa: DILEWATI, 6300 tetap jalan  -- exit 3, 6301: Dilewati: belum lolos scripts/perbarui.py --hanya-
+  [LULUS] D1 tak ada baris 6301 masuk  -- 0
+    | HASIL PEMERIKSAAN
+    | ==========================================================================
+    |   Domain berhasil diperiksa : 14 dari 14
+    |   pub_id diperiksa          : 82
+    |   Tabrakan antar-domain     : 0
+    |   Waktu                     : 21 detik
+    |   Laporan                   : data/pemeriksaan_domain.json
+    |   Database tidak diubah dan tidak ada PDF yang diunduh.
+  [LULUS] D2 --hanya-periksa bersih: 14 domain, 0 tabrakan, exit 0  -- exit 0, 14 domain, 82 pub_id, 23 d
+  [LULUS] D2 --hanya-periksa tidak menulis DB / PDF
+  [LULUS] D3 setelah lolos: 6301 dimuat ke subfolder + wilayah benar  -- sukses, Kab. Tanah Laut
+  [LULUS] D4 domain putus jaringan: domain lain tetap diproses, exit 3  -- exit 3, sebagian, 6300 sukses
+  [LULUS] D4 data domain yang gagal tidak disentuh
+  [LULUS] D5 halaman ke-3 gagal: domain gagal, metadata tak tersentuh  -- gagal: halaman 3: 500 Server Error: Internal Server Error for url: 
+  [LULUS] D6 0 publikasi padahal DB berisi: ditolak, data utuh  -- 0 publikasi lolos filter padahal database berisi 1 publikasi domain in
+  [LULUS] D7 --hanya-periksa: 1 pub_id = TEPAT 1 tabrakan, exit 1  -- exit 1, 1 tabrakan
+  [LULUS] D7b tabrakan API-vs-DB terdeteksi, tepat 1  -- exit 1, 1 tabrakan
+  [LULUS] D8 pengaman: baris domain lain TIDAK ditimpa, dilaporkan, exit 3  -- exit 3, sebagian, judul tetap
+  [LULUS] D9 publikasi hilang dari daftar API: dilaporkan, tidak dihapus  -- 1
+
+=== K. API KEY TIDAK BOCOR ===
+  [LULUS] K0 alat uji sah: pesan galat mentah memang memuat key
+  [LULUS] K1 jaringan putus: gagal dengan pesan, key tersamar  -- exit 1
+  [LULUS] K1 periksa putus: gagal dengan pesan, key tersamar  -- exit 1
+  [LULUS] K1 key tidak ada di keluaran/ringkasan/laporan  -- []
+
+=== R. ROUTE PDF & HALAMAN ADMIN (test_client) ===
+PDF_LOKAL 82 buruk []
+TOMBOL 40 ok 40 contoh ['/pdf/ff0ff482f84e322c69615f75', '/pdf/e78fe914f8766a7a09000a47']
+HILANG 302 True
+TAK_ADA 404 404
+ADMIN sebagian 200 kurang []
+ADMIN sukses 200 kurang []
+ADMIN tidak_ada_baru 200 kurang []
+ADMIN gagal_jaringan 200 kurang []
+ADMIN gagal_lain 200 kurang []
+ADMIN lama_sukses 200 kurang []
+ADMIN lama_tidak_ada 200 kurang []
+ADMIN tanpa_berkas 200 kurang []
+ 
+  [LULUS] R1 /pdf/<id> menyajikan berkas lokal untuk semua publikasi  -- PDF_LOKAL 82 buruk []
+  [LULUS] R2 tombol Buka PDF di /hasil -> berkas lokal, tanpa redirect  -- TOMBOL 40 ok 40
+  [LULUS] R3 berkas hilang -> cadangan redirect ke url_pdf
+  [LULUS] R4 id tak dikenal -> 404
+  [LULUS] R5 /admin/perbarui merender semua status + format lama  -- [('sebagian', '200', '[]'), ('sukses', '200', '[]'), ('tidak_ada_baru', '200', '[]'), ('gagal_jaringan', '200', '[]'), ('gagal_lain', '200', '[]'), ('lama_sukses', '200', '[]'), ('lama_tidak_ada', '200', '[]'), ('tanpa_berkas', '200', '[]')]
+
+=== W. TOMBOL WEB + .BAT SUNGGUHAN ===
+    | MULAI 302
+    | KEDUA_NONAKTIF True
+    | SEBAGIAN_TAMPIL True JUDUL_GAGAL True LOG True 
+  [LULUS] W1 tombol web: berjalan, POST kedua ditolak, ringkasan 'sebagian' + judul gagal + log tampil
+  [LULUS] W2 .bat tetap ASCII + CRLF
+  [LULUS] W3 .bat exit 3 -> SELESAI SEBAGIAN  -- ['RINGKASAN PEMBARUAN', 'PEMBARUAN SELESAI SEBAGIAN - sebagian wilayah/publikasi gagal.']
+  [LULUS] W4 .bat exit 0 -> PEMBARUAN SELESAI.  -- ['RINGKASAN PEMBARUAN', 'PEMBARUAN SELESAI.']
+  [LULUS] W5 .bat exit 1 -> PEMBARUAN GAGAL + pesan jaringan  -- ['RINGKASAN PEMBARUAN', 'PEMBARUAN GAGAL - baca pesan di atas.']
+  [LULUS] W6 .bat saat terkunci -> TIDAK DIJALANKAN  -- ['TIDAK DIJALANKAN: pembaruan lain sedang berjalan.']
+
+=== TOTAL: 71 lulus, 0 gagal ===
+Keadaan asli di akhir: ('79\t6812\t2026-11-05 03:06:44\t70450\t10', 'abc7d50163df791ccde2c4c5d296b66a', 79) | SAMA: True
+folder dihapus: uji True
+folder dihapus: uji_sumber_pdf True
+Sesudah pembersihan, keadaan asli: True
+DB uji dihapus: True
