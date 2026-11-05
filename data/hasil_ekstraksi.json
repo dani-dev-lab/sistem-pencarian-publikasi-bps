@@ -1,8 +1,8 @@
 {
   "selesai": true,
-  "publikasi_terproses": 75,
-  "total_publikasi": 75,
-  "diperbarui_pada": "2026-09-15T00:27:08+00:00",
+  "publikasi_terproses": 79,
+  "total_publikasi": 79,
+  "diperbarui_pada": "2026-11-05T03:06:30+00:00",
   "hasil": [
     {
       "publikasi_id": "09436841e9f939584a01daa4",
@@ -3378,6 +3378,1512 @@
       "sidik_pdf": [
         26346099,
         1787895744
+      ]
+    },
+    {
+      "publikasi_id": "193ca99319f4d2103c5bd444",
+      "judul": "Keadaan Angkatan Kerja Provinsi Kalimantan Selatan Februari 2026",
+      "heading_ditemukan": [
+        "isi",
+        "tabel"
+      ],
+      "jumlah_entri": 164,
+      "per_tipe": {
+        "isi": 9,
+        "tabel": 155
+      },
+      "tanpa_halaman": 101,
+      "mode_tanpa_label": [],
+      "dari_daftar": 63,
+      "dari_badan": 194,
+      "halaman_fisik_dilengkapi": 0,
+      "per_sumber": {
+        "daftar": 63,
+        "keduanya": 93,
+        "badan": 8
+      },
+      "sidik_pdf": [
+        10891958,
+        1793687599
+      ],
+      "galat": null,
+      "entri": [
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Kata Pengantar/Preface",
+          "halaman": "v",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Ringkasan Eksekutif/Executive Summary",
+          "halaman": "vii",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Daftar Isi/Contents",
+          "halaman": "ix",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Daftar Tabel/List of Tables",
+          "halaman": "xi",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Penjelasan Teknis/Explanatory Notes",
+          "halaman": "xxv",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Bab I Pendahuluan/Introduction",
+          "halaman": "1",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Bab II Perkembangan Penduduk Usia Kerja 2023–2026/Trend of The Working-Age Population 2023–2026",
+          "halaman": "7",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Bab III Keadaan Angkatan Kerja Februari 2026/Labour Force Situation February 2026",
+          "halaman": "31",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Daftar Pustaka/Bibliography",
+          "halaman": "129",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Halaman Tables Pages 1 Perkembangan Penduduk Berumur 15 Tahun ke Atas Menurut Jenis Kegiatan di Provinsi Kalimantan Selatan, 2023–2026 Trend of Population 15 Years of Age and Over by Type of Activity In Kalimantan Selatan Province, 2023–2026 2 Perkembangan Penduduk Berumur 15 Tahun ke Atas Menurut Jenis Kegiatan di Perkotaan, 2023–2026 Trend of Population 15 Years of Age and Over by Type of Activity In Urban Area, 2023–2026 10 3 Perkembangan Penduduk Berumur 15 Tahun ke Atas Menurut Jenis Kegiatan di Perdesaan, 2023–2026 Trend of Population 15 Years of Age and Over by Type of Activity in Rural Area, 2023–2026 11",
+          "halaman": "9",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "4 Perkembangan Penduduk Berumur 15 Tahun ke Atas Menurut Jenis Kegiatan pada Laki-Laki, 2023–2026 Trend of Population 15 Years of Age and Over by Type of Activity for Male, 2023–2026 5 Perkembangan Penduduk Berumur 15 Tahun ke Atas Menurut Jenis Kegiatan pada Perempuan, 2023–2026 Trend of Population 15 Years of Age and Over by Type of Activity for Female, 2023–2026 13 6 Perembangan Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Lapangan Pekerjaan Utama di Provinsi Kalimantan Selatan, 2023–2026 Trend of Population 15 Years of Age and Over Who Worked During The Last Week by Main Industry in Kalimantan Selatan Province, 2023–2026 14 7 Perkembangan Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Lapangan Pekerjaan Utama pada",
+          "halaman": "12",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Laki-laki, 2023–2026 Trend of Population 15 Years of Age and Over Who Worked During The Last Week by Main Industry for Male, 2023–2026 8 Perkembangan Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Lapangan Pekerjaan Utama pada Perempuan, 2023–2026 Trend of Population 15 Years of Age and Over Who Worked During The Last Week by Main Industry for Female, 2023–2026 18 xi",
+          "halaman": "16",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Halaman Tables Pages 9 Perkembangan Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Kelompok Umur di Provinsi Kalimantan Selatan, 2023–2026 Trend of Population 15 Years of Age and Over Who are in Unemployment by Age Group in Kalimantan Selatan Province, 2023–2026 10 Perkembangan Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Kelompok Umur di Perkotaan, 2023–2026 Trend of Population 15 Years of Age and Over Who are in Unemployment by Age Group in Urban Area, 2023–2026 21 11 Perkembangan Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Kelompok Umur di Perdesaan, 2023–2026",
+          "halaman": "20",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Trend of Population 15 Years of Age and Over Who are in Unemployment by Age Group in Rural Area, 2023–2026 12 Perkembangan Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Kelompok Umur pada Laki-laki, 2023–2026 Trend of Population 15 Years of Age and Over Who are in Unemployment by Age Group for Male, 2023–2026 23 13 Perkembangan Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Kelompok Umur pada Perempuan, 2023–2026 Trend of Population 15 Years of Age and Over Who are in Unemployment by Age Group for Female, 2023–2026 24 14 Perkembangan Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Pendidikan Tertinggi yang Ditamatkan di Provinsi Kalimantan Selatan, 2023–2026 Trend of Population 15 Years of Age and Over Who are in Unemployment by Educational Attainment In Kalimantan Selatan Province,",
+          "halaman": "22",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "2023–2026 15 Perkembangan Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Pendidikan Tertinggi yang Ditamatkan di Perkotaan, 2023–2026 Trend of Population 15 Years of Age and Over Who are in Unemployment by Educational Attainment In Urban Area, 2023–2026 26 16 Perkembangan Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Pendidikan Tertinggi yang Ditamatkan di Perdesaan, 2023–2026 Trend of Population 15 Years of Age and Over Who are in Unemployment by Educational Attainment In Rural Area, 2023–2026 27 17 Perkembangan Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Pendidikan Tertinggi yang Ditamatkan",
+          "halaman": "25",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "pada Laki-laki, 2023–2026 Trend of Population 15 Years of Age and Over Who are in Unemployment by Educational Attainment for Male, 2023–2026 xii",
+          "halaman": "28",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Halaman Tables Pages 18 Perkembangan Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Pendidikan Tertinggi yang Ditamatkan pada Perempuan, 2023–2026 Trend of Population 15 Years of Age and Over Who are in Unemployment by Educational Attainment for Female, 2023–2026 19 Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur dan Jenis Kegiatan Selama Seminggu Terakhir di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over by Age Group and Type of Activity During The Last Week in Kalimantan Selatan Province, February 2026 33",
+          "halaman": "29",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "20 Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur dan Jenis Kegiatan Selama Seminggu Terakhir di Perkotaan, Februari 2026 Population 15 Years of Age and Over by Age Group and Type of Activity During The Last Week in Urban Area, February 2026 21 Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur dan Jenis Kegiatan Selama Seminggu Terakhir di Perdesaan, Februari 2026 Population 15 Years of Age and Over by Age Group and Type of Activity During The Last Week in Rural Area, February 2026 35 22 Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur dan Jenis Kegiatan Selama Seminggu Terakhir pada Laki-Laki, Februari 2026 Population 15 Years of Age and Over by Age Group and Type of Activity During The Last Week for Male, February 2026 36 23 Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur dan Jenis Kegiatan Selama Seminggu Terakhir pada Perempuan, Februari 2026 Population 15 Years of Age and Over by Age Group and Type of Activity During The Last Week for Female, February 2026 37",
+          "halaman": "34",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "24 Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan dan Jenis Kegiatan Selama Seminggu Terakhir di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over by Educational Attainment and Type of Activity During The Last Week in Kalimantan Selatan Province, February 2026 25 Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan dan Jenis Kegiatan Selama Seminggu Terakhir di Perkotaan, Februari 2026 Population 15 Years of Age and Over by Educational Attainment and Type of Activity During The Last Week in Urban Area, February 2026 39 26 Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan dan Jenis Kegiatan Selama Seminggu Terakhir di",
+          "halaman": "38",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Perdesaan, Februari 2026 Population 15 Years of Age and Over by Educational Attainment and Type of Activity During The Last Week in Rural Area, February 2026 xiii",
+          "halaman": "40",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Halaman Tables Pages 27 Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan dan Jenis Kegiatan Selama Seminggu Terakhir pada Laki-Laki, Februari 2026 Population 15 Years of Age and Over by Educational Attainment and Type of Activity During The Last Week for Male, February 2026 28 Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan dan Jenis Kegiatan Selama Seminggu Terakhir pada Perempuan, Februari 2026 Population 15 Years of Age and Over by Educational Attainment and Type of Activity During The Last Week for Female, February 2026 42",
+          "halaman": "41",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "29 Penduduk Berumur 15 Tahun ke Atas yang Termasuk Angkatan Kerja Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Are in Labour Force by Age Group and Educational Attainment in Kalimantan Selatan Province, February 2026 30 Penduduk Berumur 15 Tahun ke Atas yang Termasuk Angkatan Kerja Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan di Perkotaan, Februari 2026 Population 15 Years of Age and Over Who Are in Labour Force by Age Group and Educational Attainment in Urban Area, February 2026 44 31 Penduduk Berumur 15 Tahun ke Atas yang Termasuk Angkatan Kerja Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan",
+          "halaman": "43",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "di Perdesaan, Februari 2026 Population 15 Years of Age and Over Who Are in Labour Force by Age Group and Educational Attainment in Rural Area, February 2026 32 Penduduk Berumur 15 Tahun ke Atas yang Termasuk Angkatan Kerja Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan pada Laki-Laki, Februari 2026 Population 15 Years of Age and Over Who Are in Labour Force by Age Group and Educational Attainment for Male, February 2026 46 33 Penduduk Berumur 15 Tahun ke Atas yang Termasuk Angkatan Kerja Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan pada Perempuan, Februari 2026 Population 15 Years of Age and Over Who Are in Labour Force by Age Group and Educational Attainment For Female, February 2026 47",
+          "halaman": "45",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "34 Penduduk Bekerja Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Worked during The Last Week by Age Group and Educational Attainment in Kalimantan Selatan Province, February 2026 xiv",
+          "halaman": "48",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Halaman Tables Pages 35 Penduduk Bekerja Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan di Perkotaan, Februari 2026 Population 15 Years of Age and Over Who Worked during The Last Week by Age Group and Educational Attainment in Urban Area, February 2026 36 Penduduk Bekerja Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan di Perdesaan, Februari 2026 Population 15 Years of Age and Over Who Worked during The Last Week by Age Group and Educational Attainment in Rural Area, February 2026 50",
+          "halaman": "49",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "37 Penduduk Bekerja Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan pada Laki-Laki, Februari 2026 Population 15 Years of Age and Over Who Worked during The Last Week by Age Group and Educational Attainment for Male, February 2026 38 Penduduk Bekerja Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan pada Perempuan, Februari 2026 Population 15 Years of Age and Over Who Worked during The Last Week by Age Group and Educational Attainment for Female, February 2026 52 39 Penduduk Bekerja Menurut Kelompok Umur dan Jumlah Jam Kerja Seluruhnya di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Worked during The Last Week by Age Group and Total Working Hours in Kalimantan Selatan Province, February 2026 53 40 Penduduk Bekerja Menurut Kelompok Umur dan Jumlah Jam Kerja Seluruhnya di Perkotaan, Februari 2026",
+          "halaman": "51",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Population 15 Years of Age and Over Who Worked during The Last Week by Age Group and Total Working Hours in Rural Area, February 2026 41 Penduduk Bekerja Menurut Kelompok Umur dan Jumlah Jam Kerja Seluruhnya di Perdesaan, Februari 2026 Population 15 Years of Age and Over Who Worked during The Last Week by Age Group and Total Working Hours in Urban Area, February 2026 55 42 Penduduk Bekerja Menurut Kelompok Umur dan Jumlah Jam Kerja Seluruhnya pada Laki-Laki, Februari 2026 Population 15 Years of Age and Over Who Worked during The Last Week by Age Group and Total Working Hours for Male, February 2026 56 43 Penduduk Bekerja Menurut Kelompok Umur dan Jumlah Jam Kerja Seluruhnya pada Perempuan, Februari 2026 Population 15 Years of Age and Over Who Worked during The Last Week by Age Group and Total Working Hours for Female, February 2026 57 44 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Kelompok Umur dan Lapangan Pekerjaan Utama",
+          "halaman": "54",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Age Group and Main Industry in Kalimantan Selatan Province, February 2026 xv",
+          "halaman": "58",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Halaman Tables Pages 45 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Kelompok Umur dan Lapangan Pekerjaan Utama di Perkotaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Age Group and Main Industry in Urban Area, February 2026 46 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Kelompok Umur dan Lapangan Pekerjaan Utama di Perdesaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Age Group and Main Industry in Rural Area, February 2026 62",
+          "halaman": "60",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "47 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Kelompok Umur dan Lapangan Pekerjaan Utama pada Laki-Laki, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Age Group and Main Industry for Male, February 2026 48 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Kelompok Umur dan Lapangan Pekerjaan Utama pada perempuan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Age Group and Main Industry for Female, February 2026 66 49 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Kelompok Umur dan Status Pekerjaan Utama di Provinsi Kalimantan Selatan, Februari 2026",
+          "halaman": "64",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Population 15 Years of Age and Over Who Worked During the Last Week by Age Group and Main Employment Status in Kalimantan Selatan Province, February 2026 50 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Kelompok Umur dan Status Pekerjaan Utama di Perkotaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Age Group and Main Employment Status in Urban Area, February 2026 69 51 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Kelompok Umur dan Status Pekerjaan Utama di Perdesaan, Februari 2026",
+          "halaman": "68",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Population 15 Years of Age and Over Who Worked During the Last Week by Age Group and Main Employment Status in Rural Area, February 2026 Error! Bookmark not defined. xvi",
+          "halaman": "70",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Halaman Tables Pages 52 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Kelompok Umur dan Status Pekerjaan Utama pada Laki-Laki, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Age Group and Main Employment Status for Male, February 2026 53 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Kelompok Umur dan Status Pekerjaan Utama pada Perempuan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Age Group and Main Employment Status for Female, February 2026 72",
+          "halaman": "71",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "54 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Lapangan Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Industry and Educational Attainment in Kalimantan Selatan Province, February 2026 55 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Lapangan Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan di Perkotaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Industry and Educational Attainment in Urban Area, February 2026 75",
+          "halaman": "73",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "56 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Lapangan Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan di Perdesaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Industry and Educational Attainment in Rural Area, February 2026 57 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Lapangan Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan pada Laki-Laki, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Industry and Educational Attainment for Male, February 2026 79 58 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Lapangan Pekerjaan Utama dan Pendidikan",
+          "halaman": "77",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Tertinggi yang Ditamatkan pada Perempuan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Industry and Educational Attainment for Female, February 2026 xvii",
+          "halaman": "81",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Halaman Tables Pages 59 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Status Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Employment Status and Educational Attainment in Kalimantan Selatan Province, February 2026 60 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Status Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan di Perkotaan, Februari 2026",
+          "halaman": "83",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Population 15 Years of Age and Over Who Worked During the Last Week by Main Employment Status and Educational Attainment in Urban Area, February 2026 61 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Status Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan di Perdesaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Employment Status and Educational Attainment in Rural Area, February 2026 85 62 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Status Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan pada Laki-Laki, Februari 2026",
+          "halaman": "84",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Population 15 Years of Age and Over Who Worked During the Last Week by Main Employment Status and Educational Attainment for Male, February 2026 63 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Status Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan pada Perempuan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Employment Status and Educational Attainment for Female, February 2026 87 64 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Pendidikan Tertinggi yang Ditamatkan dan Jumlah Jam Kerja Seluruhnya di Provinsi Kalimantan Selatan, Februari 2026",
+          "halaman": "86",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Population 15 Years of Age and Over Who Worked During the Last Week by Educational Attainment and Total Working Hours in Kalimantan Selatan Province, February 2026 xviii",
+          "halaman": "88",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Halaman Tables Pages 65 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Pendidikan Tertinggi yang Ditamatkan dan Jumlah Jam Kerja Seluruhnya di Perkotaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Educational Attainment and Total Working Hours in Urban Area, February 2026 66 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Pendidikan Tertinggi yang Ditamatkan dan Jumlah Jam Kerja Seluruhnya di Perdesaan, Februari 2026",
+          "halaman": "89",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Population 15 Years of Age and Over Who Worked During the Last Week by Educational Attainment and Total Working Hours in Rural Area, February 2026 67 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Pendidikan Tertinggi yang Ditamatkan dan Jumlah Jam Kerja Seluruhnya pada Laki-Laki, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Educational Attainment and Total Working Hours for Male, February 2026 91 68 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Pendidikan Tertinggi yang Ditamatkan dan Jumlah Jam Kerja Seluruhnya pada Perempuan, Februari 2026",
+          "halaman": "90",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Population 15 Years of Age and Over Who Worked During the Last Week by Educational Attainment and Total Working Hours for Female, February 2026 69 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja Seluruhnya dan Status Pekerjaan Utama di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Total Working Hours and Main Employment Status in Kalimantan Selatan Province, February 2026 93 70 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja Seluruhnya dan Status Pekerjaan Utama di Perkotaan, Februari 2026",
+          "halaman": "92",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Population 15 Years of Age and Over Who Worked During the Last Week by Total Working Hours and Main Employment Status in Urban Area, February 2026 Error! Bookmark not defined. xix",
+          "halaman": "94",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Halaman Tables Pages 71 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja Seluruhnya dan Status Pekerjaan Utama di Perdesaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Total Working Hours and Main Employment Status in Rural Area, February 2026 72 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja Seluruhnya dan Status Pekerjaan Utama pada Laki-Laki, Februari 2026",
+          "halaman": "95",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Population 15 Years of Age and Over Who Worked During the Last Week by Total Working Hours and Main Employment Status for Male, February 2026 73 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja Seluruhnya dan Status Pekerjaan Utama pada Perempuan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Total Working Hours and Main Employment Status for Female, February 2026 97 74 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Status Pekerjaan Utama dan Lapangan Pekerjaan Utama di Provinsi Kalimantan Selatan, Februari 2026",
+          "halaman": "96",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Population 15 Years of Age and Over Who Worked During the Last Week by Main Employment Status and Main Industry in Kalimantan Selatan Province, February 2026 75 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jenis Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Occupation and Educational Attainment in Kalimantan Selatan Province, February 2026 100 76 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jenis Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan di Perkotaan, Februari 2026",
+          "halaman": "98",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Population 15 Years of Age and Over Who Worked During the Last Week by Main Occupation and Educational Attainment in Urban Area, February 2026 xx",
+          "halaman": "101",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Halaman Tables Pages 77 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jenis Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan di Perdesaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Occupation and Educational Attainment in Rural Area, February 2026 78 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jenis Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan pada Laki-Laki, Februari 2026",
+          "halaman": "102",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Population 15 Years of Age and Over Who Worked During the Last Week by Main Occupation and Educational Attainment for Male, February 2026 79 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jenis Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan pada Perempuan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Occupation and Educational Attainment for Female, February 2026 104 80 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Status Pekerjaan Utama dan Jenis Pekerjaan Utama di Provinsi Kalimantan Selatan, Februari 2026",
+          "halaman": "103",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Population 15 Years of Age and Over Who Worked During the Last Week by Main Employment Status and Main Occupation in Kalimantan Selatan Province, February 2026 81 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja pada Pekerjaan Utama dan Lapangan Pekerjaan Utama di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Total Working Hours on Main Job and Main Industry in Kalimantan Selatan Province, February 2026 106 82 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja pada Pekerjaan Utama dan Status Pekerjaan Utama di Provinsi Kalimantan Selatan, Februari 2026",
+          "halaman": "105",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Population 15 Years of Age and Over Who Worked During the Last Week by Total Working Hours on Main Job and Main Employment Status in Kalimantan Selatan Province, February 2026 xxi",
+          "halaman": "108",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Halaman Tables Pages 83 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja pada Pekerjaan Utama dan Status Pekerjaan Utama di Perkotaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Total Working Hours on Main Job and Main Employment Status in Urban Area, February 2026 84 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja pada Pekerjaan Utama dan Status Pekerjaan Utama di Perdesaan, Februari 2026",
+          "halaman": "109",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Population 15 Years of Age and Over Who Worked During the Last Week by Total Working Hours on Main Job and Main Employment Status in Rural Area, February 2026 85 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja pada Pekerjaan Utama dan Status Pekerjaan Utama Pada Laki-Laki, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Total Working Hours on Main Job and Main Employment Status for Male, February 2026 111 86 Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja pada Pekerjaan Utama dan Status Pekerjaan Utama Pada Perempuan, Februari 2026",
+          "halaman": "110",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Population 15 Years of Age and Over Who Worked During the Last Week by Total Working Hours on Main Job and Main Employment Status for Female, February 2026 87 Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Were Categorized Unemployment by Age Group and Educational Attainment in Kalimantan Selatan Province, February 2026 113 88 Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan di Perkotaan, Februari 2026",
+          "halaman": "112",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Population 15 Years of Age and Over Who Were Categorized Unemployment by Age Group and Educational Attainment in Urban Area, February 2026 xxii",
+          "halaman": "114",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Halaman Tables Pages 89 Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan di Perdesaan, Februari 2026 Population 15 Years of Age and Over Who Were Categorized Unemployment by Age Group and Educational Attainment in Rural Area, February 2026 90 Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan pada Laki-laki, Februari 2026",
+          "halaman": "115",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Population 15 Years of Age and Over Who Were Categorized Unemployment by Age Group and Educational Attainment for Male, February 2026 91 Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan pada Perempuan, Februari 2026 Population 15 Years of Age and Over Who Were Categorized Unemployment by Age Group and Educational Attainment for Female, February 2026 117 92 Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan, Pengangguran, dan Kategori Pekerja Tidak Penuh di Provinsi Kalimantan Selatan, Februari 2026",
+          "halaman": "116",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Population 15 Years of Age and Over by Educational Attainment, Unemployment, and Part Time Unemployment Category in Kalimantan Selatan Province, February 2026 93 Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan, Pengangguran, dan Kategori Pekerja Tidak Penuh di Perkotaan, Februari 2026 Population 15 Years of Age and Over by Educational Attainment, Unemployment, and Part Time Unemployment Category in Urban Area, February 2026 119 94 Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan, Pengangguran, dan Kategori Pekerja Tidak Penuh di Perdesaan, Februari 2026",
+          "halaman": "118",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Population 15 Years of Age and Over by Educational Attainment, Unemployment, and Part Time Unemployment Category in Rural Area, February 2026 xxiii",
+          "halaman": "120",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Halaman Tables Pages 95 Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Laki-laki, Februari 2026 Population 15 Years of Age and Over by Educational Attainment, Unemployment, and Part Time Unemployment Category for Male, February 2026 96 Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Perempuan, Februari 2026",
+          "halaman": "121",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Population 15 Years of Age and Over by Educational Attainment, Unemployment, and Part Time Unemployment Category for Female, February 2026 97 Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over by Age Group, Unemployment, and Part Time Unemployment Category in Kalimantan Selatan Province, February 2026 123 98 Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh di Perkotaan, Februari 2026 Population 15 Years of Age and Over by Age Group, Unemployment, and Part Time Unemployment Category in Urban Area, February 2026 124",
+          "halaman": "122",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "99 Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh di Perdesaan, Februari 2026 Population 15 Years of Age and Over by Age Group, Unemployment, and Part Time Unemployment Category in Rural Area, February 2026 100 Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Laki-laki, Februari 2026 Population 15 Years of Age and Over by Age Group, Unemployment, and Part Time Unemployment Category for Male, February 2026 126 101 Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Perempuan, Februari 2026 Population 15 Years of Age and Over by Age Group, Unemployment, and Part Time Unemployment Category for Female, February 2026 127 xxiv",
+          "halaman": "125",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "1",
+          "judul": "Perkembangan Penduduk Berumur 15 Tahun ke Atas Menurut Jenis Kegiatan di Provinsi Kalimantan Selatan, 2023–2026 Trend of Population 15 Years of Age and Over by Type of Activity In Kalimantan Selatan Province, 2023–2026",
+          "halaman": null,
+          "halaman_fisik": 61,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "2",
+          "judul": "Perkembangan Penduduk Berumur 15 Tahun ke Atas Menurut Jenis Kegiatan di Perkotaan, 2023–2026 Trend of Population 15 Years of Age and Over by Type of Activity In Urban Area, 2023–2026",
+          "halaman": null,
+          "halaman_fisik": 62,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "3",
+          "judul": "Perkembangan Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Lapangan Pekerjaan Utama pada Perempuan, 2023–2026 Trend of Population 15 Years of Age and Over Who Worked During The Last Week by Main Industry for Female, 2023–2026",
+          "halaman": null,
+          "halaman_fisik": 70,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "4",
+          "judul": "Perkembangan Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Kelompok Umur di Perkotaan, 2023–2026 Trend of Population 15 Years of Age and Over Who are in Unemployment by Age Group in Urban Area, 2023–2026",
+          "halaman": null,
+          "halaman_fisik": 73,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "5",
+          "judul": "Perkembangan Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Kelompok Umur di Perdesaan, 2023–2026 Trend of Population 15 Years of Age and Over Who are in Unemployment by Age Group in Rural Area, 2023–2026",
+          "halaman": null,
+          "halaman_fisik": 74,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "6",
+          "judul": "Perkembangan Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Kelompok Umur Pada Laki-laki, 2023–2026 Trend of Population 15 Years of Age and Over Who are in Unemployment by Age Group for Male, 2023–2026",
+          "halaman": null,
+          "halaman_fisik": 75,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "7",
+          "judul": "Perkembangan Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Kelompok Umur pada Perempuan, 2023–2026 Trend of Population 15 Years of Age and Over Who are in Unemployment by Age Group for Female, 2023–2026",
+          "halaman": null,
+          "halaman_fisik": 76,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "8",
+          "judul": "Perkembangan Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Pendidikan Tertinggi yang Ditamatkan di Provinsi Kalimantan Selatan, 2023–2026 Trend of Population 15 Years of Age and Over Who are in Unemployment by Educational Attainment In Kalimantan Selatan Province, 2023–",
+          "halaman": null,
+          "halaman_fisik": 77,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "9",
+          "judul": "Perkembangan Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Pendidikan Tertinggi yang Ditamatkan di Perkotaan, 2023–2026 Trend of Population 15 Years of Age and Over Who are in Unemployment by Educational Attainment In Urban Area, 2023–2026",
+          "halaman": null,
+          "halaman_fisik": 78,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "10",
+          "judul": "Perkembangan Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Pendidikan Tertinggi yang Ditamatkan di Perdesaan, 2023–2026 Trend of Population 15 Years of Age and Over Who are in Unemployment by Educational Attainment In Rural Area, 2023–2026",
+          "halaman": null,
+          "halaman_fisik": 79,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "11",
+          "judul": "Perkembangan Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Pendidikan Tertinggi yang Ditamatkan pada Laki-laki, 2023–2026 Trend of Population 15 Years of Age and Over Who are in Unemployment by Educational Attainment for Male, 2023–2026",
+          "halaman": null,
+          "halaman_fisik": 80,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "12",
+          "judul": "Perkembangan Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Pendidikan Tertinggi yang Ditamatkan pada Perempuan, 2023–2026 Trend of Population 15 Years of Age and Over Who are in Unemployment by Educational Attainment for Female, 2023–2026",
+          "halaman": null,
+          "halaman_fisik": 81,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "13",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur dan Jenis Kegiatan Selama Seminggu Terakhir di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over by Age Group and Type of Activity During The Last Week in Kalimantan Selatan Province, February 2026",
+          "halaman": null,
+          "halaman_fisik": 85,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "14",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur dan Jenis Kegiatan Selama Seminggu Terakhir di Perkotaan, Februari 2026 Population 15 Years of Age and Over by Age Group and Type of Activity During The Last Week in Urban Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 86,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "15",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur dan Jenis Kegiatan Selama Seminggu Terakhir di Perdesaan, Februari 2026 Population 15 Years of Age and Over by Age Group and Type of Activity During The Last Week in Rural Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 87,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "16",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur dan Jenis Kegiatan Selama Seminggu Terakhir pada Laki-Laki, Februari 2026 Population 15 Years of Age and Over by Age Group and Type of Activity During The Last Week for Male, February 2026",
+          "halaman": null,
+          "halaman_fisik": 88,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "17",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur dan Jenis Kegiatan Selama Seminggu Terakhir pada Perempuan, Februari 2026 Population 15 Years of Age and Over by Age Group and Type of Activity During The Last Week for Female, February 2026",
+          "halaman": null,
+          "halaman_fisik": 89,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "18",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan dan Jenis Kegiatan Selama Seminggu Terakhir di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over by Educational Attainment and Type of Activity During The Last Week in Kalimantan Selatan Province, February 2026",
+          "halaman": null,
+          "halaman_fisik": 90,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "19",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan dan Jenis Kegiatan Selama Seminggu Terakhir di Perkotaan, Februari 2026 Population 15 Years of Age and Over by Educational Attainment and Type of Activity During The Last Week in Urban Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 91,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "20",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan dan Jenis Kegiatan Selama Seminggu Terakhir di Perdesaan, Februari 2026 Population 15 Years of Age and Over by Educational Attainment and Type of Activity During The Last Week in Rural Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 92,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "21",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan dan Jenis Kegiatan Selama Seminggu Terakhir pada Laki-Laki, Februari 2026 Population 15 Years of Age and Over by Educational Attainment and Type of Activity During The Last Week for Male, February 2026",
+          "halaman": null,
+          "halaman_fisik": 93,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "22",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan dan Jenis Kegiatan Selama Seminggu Terakhir pada Perempuan, Februari 2026 Population 15 Years of Age and Over by Educational Attainment and Type of Activity During The Last Week for Female, February 2026",
+          "halaman": null,
+          "halaman_fisik": 94,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "23",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Termasuk Angkatan Kerja Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Are in Labour Force by Age Group and Educational Attainment in Kalimantan Selatan Province, February 2026",
+          "halaman": null,
+          "halaman_fisik": 95,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "24",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Termasuk Angkatan Kerja Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan di Perkotaan, Februari 2026 Population 15 Years of Age and Over Who Are in Labour Force by Age Group and Educational Attainment in Urban Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 96,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "25",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Termasuk Angkatan Kerja Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan di Perdesaan, Februari 2026 Population 15 Years of Age and Over Who Are in Labour Force by Age Group and Educational Attainment in Rural Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 97,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "26",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Termasuk Angkatan Kerja Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan pada Laki-Laki, Februari 2026 Population 15 Years of Age and Over Who Are in Labour Force by Age Group and Educational Attainment for Male, February 2026",
+          "halaman": null,
+          "halaman_fisik": 98,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "27",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Termasuk Angkatan Kerja Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan pada Perempuan, Februari 2026 Population 15 Years of Age and Over Who Are in Labour Force by Age Group and Educational Attainment For Female, February 2026",
+          "halaman": null,
+          "halaman_fisik": 99,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "28",
+          "judul": "Penduduk Bekerja Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Worked during The Last Week by Age Group and Educational Attainment in Kalimantan Selatan Province, February 2026",
+          "halaman": null,
+          "halaman_fisik": 100,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "29",
+          "judul": "Penduduk Bekerja Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan di Perkotaan, Februari 2026 Population 15 Years of Age and Over Who Worked during The Last Week by Age Group and Educational Attainment in Urban Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 101,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "30",
+          "judul": "Penduduk Bekerja Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan di Perdesaan, Februari 2026 Population 15 Years of Age and Over Who Worked during The Last Week by Age Group and Educational Attainment in Rural Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 102,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "31",
+          "judul": "Penduduk Bekerja Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan pada Laki-Laki, Februari 2026 Population 15 Years of Age and Over Who Worked during The Last Week by Age Group and Educational Attainment for Male, February 2026",
+          "halaman": null,
+          "halaman_fisik": 103,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "32",
+          "judul": "Penduduk Bekerja Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan pada Perempuan, Februari 2026 Population 15 Years of Age and Over Who Worked during The Last Week by Age Group and Educational Attainment for Female, February 2026",
+          "halaman": null,
+          "halaman_fisik": 104,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "33",
+          "judul": "Penduduk Bekerja Menurut Kelompok Umur dan Jumlah Jam Kerja Seluruhnya di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Worked during The Last Week by Age Group and Total Working Hours in Kalimantan Selatan Province, February 2026",
+          "halaman": null,
+          "halaman_fisik": 105,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "34",
+          "judul": "Penduduk Bekerja Menurut Kelompok Umur dan Jumlah Jam Kerja Seluruhnya di Perkotaan, Februari 2026 Population 15 Years of Age and Over Who Worked during The Last Week by Age Group and Total Working Hours in Urban Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 106,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "35",
+          "judul": "Penduduk Bekerja Menurut Kelompok Umur dan Jumlah Jam Kerja Seluruhnya di Perdesaan, Februari 2026 Population 15 Years of Age and Over Who Worked during The Last Week by Age Group and Total Working Hours in Urban Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 107,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "36",
+          "judul": "Penduduk Bekerja Menurut Kelompok Umur dan Jumlah Jam Kerja Seluruhnya pada Perempuan, Februari 2026 Population 15 Years of Age and Over Who Worked during The Last Week by Age Group and Total Working Hours for Female, February 2026",
+          "halaman": null,
+          "halaman_fisik": 109,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "37",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Kelompok Umur dan Lapangan Pekerjaan Utama di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Age Group and Main Industry in Kalimantan Selatan Province, February 2026",
+          "halaman": null,
+          "halaman_fisik": 110,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "38",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Kelompok Umur dan Lapangan Pekerjaan Utama di Perkotaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Age Group and Main Industry in Urban Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 112,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "39",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Kelompok Umur dan Lapangan Pekerjaan Utama di Perdesaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Age Group and Main Industry in Rural Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 114,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "40",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Kelompok Umur dan Lapangan Pekerjaan Utama pada Laki-Laki, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Age Group and Main Industry for Male, February 2026",
+          "halaman": null,
+          "halaman_fisik": 116,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "41",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Kelompok Umur dan Lapangan Pekerjaan Utama pada perempuan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Age Group and Main Industry for Female, February 2026",
+          "halaman": null,
+          "halaman_fisik": 118,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "42",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Kelompok Umur dan Status Pekerjaan Utama di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Age Group and Main Employment Status in Kalimantan Selatan Province, February 2026",
+          "halaman": null,
+          "halaman_fisik": 120,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "43",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Kelompok Umur dan Status Pekerjaan Utama di Perkotaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Age Group and Main Employment Status in Urban Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 121,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "44",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Kelompok Umur dan Status Pekerjaan Utama di Perdesaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Age Group and Main Employment Status in Rural Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 122,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "45",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Kelompok Umur dan Status Pekerjaan Utama pada Laki-Laki, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Age Group and Main Employment Status for Male, February 2026",
+          "halaman": null,
+          "halaman_fisik": 123,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "46",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Kelompok Umur dan Status Pekerjaan Utama pada Perempuan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Age Group and Main Employment Status for Female, February 2026",
+          "halaman": null,
+          "halaman_fisik": 124,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "47",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Lapangan Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Industry and Educational Attainment in Kalimantan Selatan Province, February 2026",
+          "halaman": null,
+          "halaman_fisik": 125,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "48",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Lapangan Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan di Perkotaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Industry and Educational Attainment in Urban Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 127,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "49",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Lapangan Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan di Perdesaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Industry and Educational Attainment in Rural Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 129,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "50",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Lapangan Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan pada Laki-Laki, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Industry and Educational Attainment for Male, February 2026",
+          "halaman": null,
+          "halaman_fisik": 131,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "51",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Lapangan Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan pada Perempuan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Industry and Educational Attainment for Female, February 2026",
+          "halaman": null,
+          "halaman_fisik": 133,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "52",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Status Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Employment Status and Educational Attainment in Kalimantan Selatan Province, February 2026",
+          "halaman": null,
+          "halaman_fisik": 135,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "53",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Status Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan di Perkotaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main E mployment Status and Educational Attainment in Urban Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 136,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "54",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Status Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan di Perdesaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Employment Status and Educational Attainment in Rural Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 137,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "55",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Status Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan pada Laki-Laki, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Employment Status and Educational Attainment for Male, February 2026",
+          "halaman": null,
+          "halaman_fisik": 138,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "56",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Status Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan pada Perempuan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Employment Status and Educational Attainment",
+          "halaman": null,
+          "halaman_fisik": 139,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "57",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Lapangan Pekerjaan",
+          "halaman": null,
+          "halaman_fisik": 131,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "58",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Pendidikan Tertinggi yang Ditamatkan dan Jumlah Jam Kerja Seluruhnya di Perkotaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Educational Attainment and Total Working Hours in Urban Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 141,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "59",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Pendidikan Tertinggi yang Ditamatkan dan Jumlah Jam Kerja Seluruhnya di Perdesaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Educational Attainment and Total Working Hours in Rural Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 142,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "60",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Pendidikan Tertinggi yang Ditamatkan dan Jumlah Jam Kerja Seluruhnya pada Laki-Laki, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Educational Attainment and Total Working Hours for Male, February 2026",
+          "halaman": null,
+          "halaman_fisik": 143,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "61",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Pendidikan Tertinggi yang Ditamatkan dan Jumlah Jam Kerja Seluruhnya pada Perempuan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Educational Attainment and Total Working Hours for Female, February 2026",
+          "halaman": null,
+          "halaman_fisik": 144,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "62",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja Seluruhnya dan Status Pekerjaan Utama di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Total Working Hours and Main Employment Status in Kalimantan Selatan Province, February 2026",
+          "halaman": null,
+          "halaman_fisik": 145,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "63",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja Seluruhnya dan Status Pekerjaan Utama di Perkotaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Total Working Hours and Main Employment Status in Urban Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 146,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "64",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja Seluruhnya dan Status Pekerjaan Utama di Perdesaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Total Working Hours and Main Employment Status in Rural Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 147,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "65",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja Seluruhnya dan Status Pekerjaan Utama pada Laki-Laki, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Total Working Hours and Main Employment Status for Male, February 2026",
+          "halaman": null,
+          "halaman_fisik": 148,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "66",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja Seluruhnya dan Status Pekerjaan Utama pada Perempuan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Total Working Hours and Main Employment Status for Female, February 2026",
+          "halaman": null,
+          "halaman_fisik": 149,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "67",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Status Pekerjaan Utama dan Lapangan Pekerjaan Utama di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Employment Status and Main Industry in Kalimantan Selatan Province, February 2026",
+          "halaman": null,
+          "halaman_fisik": 150,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "68",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jenis Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Occupation and Educational Attainment in Kalimantan Selatan Province, February 2026",
+          "halaman": null,
+          "halaman_fisik": 152,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "69",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jenis Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan di Perkotaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Occupation and Educational Attainment in Urban Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 153,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "70",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jenis Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan di Perdesaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Occupation and Educational Attainment in Rural Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 154,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "71",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jenis Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan pada Laki-Laki, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Occupation and Educational Attainment for Male, February 2026",
+          "halaman": null,
+          "halaman_fisik": 155,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "72",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jenis Pekerjaan Utama dan Pendidikan Tertinggi yang Ditamatkan pada Perempuan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Occupation and Educational Attainment for Female, February 2026",
+          "halaman": null,
+          "halaman_fisik": 156,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "73",
+          "judul": "Bekerja Selama Seminggu Terakhir Menurut Status Pekerjaan Utama dan Jenis Pekerjaan Utama di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Main Employment Status and Main Occupation in Kalimantan Selatan Province, February 2026",
+          "halaman": null,
+          "halaman_fisik": 157,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "74",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja pada Pekerjaan Utama dan Lapangan Pekerjaan Utama di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Total Working Hours on Main Job and Main Industry in Kalimantan Selatan Province, February 2026",
+          "halaman": null,
+          "halaman_fisik": 158,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "75",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja pada Pekerjaan Utama dan Status Pekerjaan Utama di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Total Working Hours on Main Job and Main Employment Status in Kalimantan Selatan Province, February 2026",
+          "halaman": null,
+          "halaman_fisik": 160,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "76",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja pada Pekerjaan Utama dan Status Pekerjaan Utama di Perkotaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Total Working Hours on Main Job and Main Employment Status in Urban Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 161,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "77",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja pada Pekerjaan Utama dan Status Pekerjaan Utama di Perdesaan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Total Working Hours on Main Job and Main Employment Status in Rural Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 162,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "78",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja pada Pekerjaan Utama dan Status Pekerjaan Utama Pada Laki-Laki, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Total Working Hours on Main Job and Main Employment Status for Male, February 2026",
+          "halaman": null,
+          "halaman_fisik": 163,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "79",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja pada Pekerjaan Utama dan Status Pekerjaan Utama Pada Perempuan, Februari 2026 Population 15 Years of Age and Over Who Worked During the Last Week by Total Working Hours on Main Job and Main Employment Status for Female, February 2026",
+          "halaman": null,
+          "halaman_fisik": 164,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "80",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Kelompok Umur dan Pdidikan Tertinggi yang Ditamatkan di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over Who Were Categorized Unemployment by Age Group and Educational Attavince, F ebruary 2026",
+          "halaman": null,
+          "halaman_fisik": 165,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "81",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan di Perkotaan, Februari 2026 Population 15 Years of Age and Over Who Were Categorized Unemployment by Age Group and Educational 2026",
+          "halaman": null,
+          "halaman_fisik": 166,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "82",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan di Perdesaan, Februari 2026 Population 15 Years of Age and Over Who Were Categorized Unemployment by Age Group and Educational Attainment in Rural Area AreaArea, February 2026",
+          "halaman": null,
+          "halaman_fisik": 167,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "83",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan pada Laki-laki, Februari 2026 Population 15 Years of Age and Over Who Were Categorized Unemployment by Age Group and Educational Attainment for Male, February 2026",
+          "halaman": null,
+          "halaman_fisik": 168,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "84",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas yang Termasuk Pengangguran Menurut Kelompok Umur dan Pendidikan Tertinggi yang Ditamatkan pada Perempuan, Februari 2026 Population 15 Years of Age and Over Who Were Categorized Unemployment by Age Group and Educational Attainment for Female, February 2026",
+          "halaman": null,
+          "halaman_fisik": 169,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "85",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan, Pengangguran, dan Kategori Pekerja Tidak Penuh di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over by Educational Attainment, Unemployment, and Part Time Unemployment Category in Kalimantan Selatan Province, February 2026",
+          "halaman": null,
+          "halaman_fisik": 170,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "86",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan, Pengangguran, dan Kategori Pekerja Tidak Penuh di Perkotaan, Februari 2026 Population 15 Years of Age and Over by Educational Attainment, Unemployment, and Part Time Unemployment Category 2026",
+          "halaman": null,
+          "halaman_fisik": 171,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "87",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan, Pengangguran, dan Kategori Pekerja Tidak Penuh di Perdesaan, Februari 2026 Population 15 Years of Age and Over by Educational Attainment, Unemployment, and Part Time Unemployment Category in Rural Area AreaArea, February 2026",
+          "halaman": null,
+          "halaman_fisik": 172,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "88",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Laki-laki, Februari 2026 Population 15 Years of Age and Over by Educational Attainment, Unemployment, and Part Time Unemployment Category for Male, February 2026",
+          "halaman": null,
+          "halaman_fisik": 173,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "89",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Perempuan, Februari 2026 Population 15 Years of Age and Over by Educational Attainment, Unemployment, and Part Time Unemployment Category for Female, February 2026",
+          "halaman": null,
+          "halaman_fisik": 174,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "90",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh di Provinsi Kalimantan Selatan, Februari 2026 Population 15 Years of Age and Over by Age Group, Unemployment, and Part Time Unemployment Category in Kalimantan Selatan Province, February 2026",
+          "halaman": null,
+          "halaman_fisik": 175,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "91",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh di Perkotaan, Februari 2026 Population 15 Years of Age and Over by Age Group, Unemployment, and Part Time Unemployment Category in Urban Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 176,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "92",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh di Perdesaan, Februari 2026 Population 15 Years of Age and Over by Age Group, Unemployment, and Part Time Unemployment Category in Rural Area, February 2026",
+          "halaman": null,
+          "halaman_fisik": 177,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "93",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Laki-laki, Februari 2026 Population 15 Years of Age and Over by Age Group, Unemployment, and Part Time Unemployment Category for Male, February 2026",
+          "halaman": null,
+          "halaman_fisik": 178,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "94",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Perempuan, Februari 2026 Population 15 Years of Age and Over by Age Group, Unemployment, and Part Time Unemployment Category for Female, February 2026",
+          "halaman": null,
+          "halaman_fisik": 179,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "95",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan, Pengangguran, dan",
+          "halaman": null,
+          "halaman_fisik": 173,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "96",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan, Pengangguran, dan",
+          "halaman": null,
+          "halaman_fisik": 174,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "97",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak",
+          "halaman": null,
+          "halaman_fisik": 175,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "98",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak",
+          "halaman": null,
+          "halaman_fisik": 176,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "99",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak",
+          "halaman": null,
+          "halaman_fisik": 177,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "100",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak",
+          "halaman": null,
+          "halaman_fisik": 178,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "193ca99319f4d2103c5bd444",
+          "tipe": "tabel",
+          "nomor": "101",
+          "judul": "Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak",
+          "halaman": null,
+          "halaman_fisik": 179,
+          "sumber": "badan"
+        }
       ]
     },
     {
@@ -35568,6 +37074,1911 @@
       ]
     },
     {
+      "publikasi_id": "a7356ab4d641213220fac759",
+      "judul": "Indikator Pekerjaan Layak Provinsi Kalimantan Selatan 2025",
+      "heading_ditemukan": [
+        "gambar",
+        "isi",
+        "lampiran",
+        "tabel"
+      ],
+      "jumlah_entri": 208,
+      "per_tipe": {
+        "isi": 51,
+        "tabel": 18,
+        "gambar": 47,
+        "lampiran": 92
+      },
+      "tanpa_halaman": 12,
+      "mode_tanpa_label": [],
+      "dari_daftar": 208,
+      "dari_badan": 146,
+      "halaman_fisik_dilengkapi": 0,
+      "per_sumber": {
+        "daftar": 62,
+        "keduanya": 146
+      },
+      "sidik_pdf": [
+        28814886,
+        1793687635
+      ],
+      "galat": null,
+      "entri": [
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "KATA PENGANTAR",
+          "halaman": "v",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "RINGKASAN EKSEKUTIF",
+          "halaman": "vii",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "DAFTAR ISI",
+          "halaman": "xi",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "DAFTAR TABEL",
+          "halaman": "xv",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "DAFTAR GAMBAR",
+          "halaman": "xvii",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "DAFTAR LAMPIRAN",
+          "halaman": "xxi",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "BAB I PENDAHULUAN",
+          "halaman": "1",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "1.1 Latar Belakang",
+          "halaman": "1",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "1.2 Tujuan",
+          "halaman": "2",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "1.3 Ruang Lingkup",
+          "halaman": "2",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "1.4 Sistematika Penulisan",
+          "halaman": "2",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "BAB II PEMAHAMAN TENTANG PEKERJAAN YANG LAYAK",
+          "halaman": "3",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "2.1 Sakernas dan Pemanfaatannya",
+          "halaman": "3",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "2.2 Konsep dan Definisi Pekerjaan Layak",
+          "halaman": "4",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "2.3 Peran Profil Pekerjaan yang Layak di Bidang Ketenagakerjaan",
+          "halaman": "12",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "2.4 Penggunaan Profl Pekerjaan Layak",
+          "halaman": "14",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "BAB III INDIKATOR-INDIKATOR PEKERJAAN LAYAK",
+          "halaman": "15",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.1 Kesempatan Kerja",
+          "halaman": "15",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.1.1 Employment to Population Ratio (EPR)",
+          "halaman": "15",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.1.2 Tingkat Pengangguran Terbuka (TPT)",
+          "halaman": "17",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.1.3 Youth Not in Employment, Education, and Training",
+          "halaman": "18",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "(Youth NEET) 3.1.4 Penduduk yang Bekerja pada Kegiatan Informal",
+          "halaman": "21",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.1.5 Tingkat Partisipasi Angkatan Kerja (TPAK)",
+          "halaman": "26",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.1.6 Tingkat Pengangguran Terbuka (TPT) Usia Muda",
+          "halaman": "28",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.1.7 Tingkat Pengangguran Terbuka (TPT) Berdasarkan Tingkat",
+          "halaman": "30",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Pendidikan 3.1.8 Penduduk Bekerja Menurut Status Pekerjaan Utama",
+          "halaman": "31",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.1.9 Proporsi Penduduk Bekerja dengan Status 1, 2, dan 7",
+          "halaman": "37",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.1.10 Proporsi (Share) dari Pekerja yang Mendapat Upah",
+          "halaman": "40",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "(Wage Employment) di Sektor Nonpertanian 3.2 Pendapatan yang Setara dan Pekerjaan yang Produktif",
+          "halaman": "42",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.2.1 Low Pay Rate (LPR)",
+          "halaman": "43",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.2.2 Rata-Rata Upah Buruh/Karyawan/Pegawai",
+          "halaman": "44",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.2.3 Rata-Rata Upah pada Jenis Pekerjaan",
+          "halaman": "47",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.3 Jam Kerja yang Layak",
+          "halaman": "49",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.3.1 Pekerjaan dengan Jam Kerja Berlebih (Employment in",
+          "halaman": "50",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Excessive Working Time/EEWT) 3.3.2 Pekerjaan dengan Jam Kerja Mingguan (Employment by",
+          "halaman": "51",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Weekly Hours Worked/EWHW) xii",
+          "halaman": null,
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.3.3 Rata-Rata Jam Kerja Tahunan per Pekerja (Average Annual",
+          "halaman": "55",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Working Time per Employed Person/AAWTE) 3.3.4 Tingkat Setengah Pengangguran (Time-Related",
+          "halaman": "57",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Underemployment Rate) 3.4 Pekerjaan yang Harus Dihapuskan",
+          "halaman": "59",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.4.1 Angka Pekerja Anak (Child Labour Rate)",
+          "halaman": "60",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.5 Stabilitas dan Jaminan Pekerjaan",
+          "halaman": "62",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.5.1 Precarious Employment Rate (PER)",
+          "halaman": "62",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.5.2 Job Tenure",
+          "halaman": "64",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.5.3 Angka Pekerja Subsisten (Subsistence Worker Rate)",
+          "halaman": "67",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.6 Kesempatan dan Perlakuan yang Setara dalam Pekerjaan",
+          "halaman": "67",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.6.1 Segregasi Jenis Pekerjaan Berdasarkan Jenis Kelamin",
+          "halaman": "68",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.6.2 Proporsi Perempuan yang Bekerja pada Posisi Manajerial",
+          "halaman": "74",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "3.6.3 Kesenjangan Upah Berdasarkan Jenis Kelamin (Gender",
+          "halaman": "75",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Wage Gap) BAB IV PENUTUP",
+          "halaman": "79",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "DAFTAR PUSTAKA",
+          "halaman": "81",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "LAMPIRAN",
+          "halaman": "82",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "tabel",
+          "nomor": "2.1",
+          "judul": "Utama Youth NEET Menurut Tingkat Pendidikan dan Jenis Kelamin di",
+          "halaman": "6",
+          "halaman_fisik": 36,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "tabel",
+          "nomor": "3.1",
+          "judul": "Provinsi Kalimantan Selatan (Persen), 2024 dan 2025 Distribusi Penduduk Bekerja pada Kegiatan Informal Menurut",
+          "halaman": "20",
+          "halaman_fisik": 50,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "tabel",
+          "nomor": "3.2",
+          "judul": "Lapangan Usaha (persen), 2024 dan 2025 Tingkat Partisipasi Angkatan Kerja (TPAK) Menurut Kelompok",
+          "halaman": "25",
+          "halaman_fisik": 55,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "tabel",
+          "nomor": "3.3",
+          "judul": "Umur (persen), 2024 dan 2025 Distribusi Penduduk yang Bekerja Menurut Status Pekerjaan,",
+          "halaman": "27",
+          "halaman_fisik": 57,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "tabel",
+          "nomor": "3.4",
+          "judul": "Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan (persen), 2024 dan 2025 Distribusi Penduduk yang Bekerja Menurut Status Pekerjaan dan",
+          "halaman": "34",
+          "halaman_fisik": 64,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "tabel",
+          "nomor": "3.5",
+          "judul": "Kelompok Umur di Provinsi Kalimantan Selatan (persen), 2024 dan 2025 Rata-Rata Upah Buruh/Karyawan/Pegawai per Bulan Menurut",
+          "halaman": "35",
+          "halaman_fisik": 65,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "tabel",
+          "nomor": "3.6",
+          "judul": "Lapangan Usaha di Provinsi Kalimantan Selatan, 2024 dan 2025 Rata-Rata Upah Buruh/Karyawan/Pegawai per Bulan Menurut",
+          "halaman": "46",
+          "halaman_fisik": 76,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "tabel",
+          "nomor": "3.7",
+          "judul": "Jenis Pekerjaan/Jabatan di Provinsi Kalimantan Selatan, 2024 dan 2025 Rata-Rata Upah Buruh/Karyawan/Pegawai per Bulan Menurut",
+          "halaman": "47",
+          "halaman_fisik": 77,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "tabel",
+          "nomor": "3.8",
+          "judul": "Jenis Pekerjaan/Jabatan dan Jenis Kelamin di Provinsi Kalimantan Selatan, 2024 dan 2025 Rata-Rata Upah Buruh/Karyawan/Pegawai per Bulan Menurut",
+          "halaman": "48",
+          "halaman_fisik": 78,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "tabel",
+          "nomor": "3.9",
+          "judul": "Jenis Pekerjaan/Jabatan dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025 Distribusi EWHW Berdasarkan Lamanya Jam Kerja per Minggu",
+          "halaman": "49",
+          "halaman_fisik": 79,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "tabel",
+          "nomor": "3.10",
+          "judul": "Distribusi EWHW Berdasarkan Lamanya Jam Kerja per Minggu di Provinsi",
+          "halaman": "52",
+          "halaman_fisik": 82,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Distribusi EWHW Berdasarkan Lamanya Jam Kerja per Minggu",
+          "halaman": null,
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "tabel",
+          "nomor": "3.11",
+          "judul": "Menurut Jenis Kelamin di Provinsi Kalimantan Selatan, 2024 dan 2025 Distribusi EWHW Berdasarkan Lamanya Jam Kerja per Minggu",
+          "halaman": "53",
+          "halaman_fisik": 83,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "tabel",
+          "nomor": "3.12",
+          "judul": "Menurut Jenis Kelamin di Provinsi Kalimantan Selatan, 2024 dan 2025 Proporsi Pekerja Perempuan pada Setiap Jenis Pekerjaan",
+          "halaman": "54",
+          "halaman_fisik": 84,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "tabel",
+          "nomor": "3.13",
+          "judul": "menurut Daerah Tempat Tinggal di Provinsi Kalimantan Selatan (persen), 2024 dan 2025 Proporsi Pekerja pada Setiap Jenis Pekerjaan Menurut Jenis",
+          "halaman": "70",
+          "halaman_fisik": 100,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "tabel",
+          "nomor": "3.14",
+          "judul": "Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan (persen), 2024 dan 2025 Persentase Gender Wage Gap menurut Tingkat Pendidikan di",
+          "halaman": "73",
+          "halaman_fisik": 103,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "tabel",
+          "nomor": "3.15",
+          "judul": "Provinsi Kalimantan Selatan, 2024 dan 2025 Persentase Gender Wage Gap menurut Tingkat Pendidikan di",
+          "halaman": "77",
+          "halaman_fisik": 107,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "tabel",
+          "nomor": "3.16",
+          "judul": "Persentase Gender Wage Gap menurut Jenis Pekerjaan di Provinsi",
+          "halaman": "78",
+          "halaman_fisik": 108,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.1",
+          "judul": "dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025 Tingkat Pengangguran Terbuka (TPT) Menurut Jenis Kelamin di",
+          "halaman": "16",
+          "halaman_fisik": 46,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.2",
+          "judul": "Provinsi Kalimantan Selatan (persen), 2024 dan 2025 Tingkat Pengangguran Terbuka (TPT) Menurut Daerah Tempat",
+          "halaman": "17",
+          "halaman_fisik": 47,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.3",
+          "judul": "Tingkat Pengangguran Terbuka (TPT) Menurut Daerah Tempat Tinggal di",
+          "halaman": "18",
+          "halaman_fisik": 48,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.4",
+          "judul": "Youth NEET Menurut Jenis Kelamin (persen), 2024 dan 2025 Youth NEET Menurut Daerah Tempat Tinggal (persen), 2024",
+          "halaman": "19",
+          "halaman_fisik": 49,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.5",
+          "judul": "dan 2025 Persentase Penduduk Bekerja pada Kegiatan Informal Menurut",
+          "halaman": "20",
+          "halaman_fisik": 50,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.6",
+          "judul": "Jenis Kelamin, 2024 dan 2025 Persentase Penduduk Bekerja pada Kegiatan Informal Menurut",
+          "halaman": "22",
+          "halaman_fisik": 52,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.7",
+          "judul": "Daerah Tempat Tinggal, 2024 dan 2025 Persentase Penduduk Bekerja pada Kegiatan Informal Menurut",
+          "halaman": "23",
+          "halaman_fisik": 53,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.8",
+          "judul": "Kelompok Umur, 2024 dan 2025 Persentase Penduduk Bekerja pada Kegiatan Informal Menurut",
+          "halaman": "24",
+          "halaman_fisik": 54,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.9",
+          "judul": "Pendidikan Terakhir yang Ditamatkan, 2024 dan 2025 Tingkat Partisipasi Angkatan Kerja (TPAK) Menurut Jenis",
+          "halaman": "25",
+          "halaman_fisik": 55,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.10",
+          "judul": "Kelamin dan Daerah Tempat Tinggal (persen), 2024 dan 2025 Tingkat Partisipasi Angkatan Kerja (TPAK) Menurut Pendidikan",
+          "halaman": "26",
+          "halaman_fisik": 56,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.11",
+          "judul": "Terakhir yang Ditamatkan (persen), 2024 dan 2025 Tingkat Pengangguran Terbuka (TPT) Usia Muda Menurut Jenis",
+          "halaman": "28",
+          "halaman_fisik": 58,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.12",
+          "judul": "Kelamin (persen), 2024 dan 2025 Tingkat Pengangguran Terbuka (TPT) Usia Muda Menurut",
+          "halaman": "29",
+          "halaman_fisik": 59,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.13",
+          "judul": "Tingkat Pengangguran Terbuka (TPT) Usia Muda Menurut Daerah Tempat",
+          "halaman": "30",
+          "halaman_fisik": 60,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": null,
+          "judul": "Tingkat Pengangguran Terbuka (TPT) Menurut Pendidikan",
+          "halaman": null,
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.14",
+          "judul": "(persen), 2024 dan 2025 Distribusi Penduduk yang Bekerja Menurut Status Pekerjaan di",
+          "halaman": "31",
+          "halaman_fisik": 61,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.15",
+          "judul": "Provinsi Kalimantan Selatan (persen), 2024 dan 2025 Proporsi Penduduk yang Bekerja dengan Status 1, 2, dan 7",
+          "halaman": "33",
+          "halaman_fisik": 63,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.16",
+          "judul": "Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan (persen), 2024 dan 2025 Proporsi Penduduk yang Bekerja dengan Status 1, 2, dan 7",
+          "halaman": "37",
+          "halaman_fisik": 67,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.17",
+          "judul": "Menurut Kelompok Umur di Provinsi Kalimantan Selatan (persen), 2024 dan 2025 Proporsi Penduduk yang Bekerja dengan Status 1, 2, dan 7",
+          "halaman": "38",
+          "halaman_fisik": 68,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.18",
+          "judul": "Menurut Pendidikan Terakhir yang Ditamatkan di Provinsi Kalimantan Selatan (persen), 2024 dan 2025 Proporsi Pekerja pada Wage Employment Sektor Nonpertanian",
+          "halaman": "39",
+          "halaman_fisik": 69,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.19",
+          "judul": "Menurut Daerah Tempat Tinggal di Provinsi Kalimantan Selatan (persen), 2025 Proporsi Pekerja pada Wage Employment Sektor Nonpertanian",
+          "halaman": "40",
+          "halaman_fisik": 70,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.20",
+          "judul": "Menurut Kelompok Umur di Provinsi Kalimantan Selatan (persen), 2025 Proporsi Pekerja pada Wage Employment Sektor Nonpertanian",
+          "halaman": "41",
+          "halaman_fisik": 71,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.21",
+          "judul": "Menurut Tingkat Pendidikan di Provinsi Kalimantan Selatan (persen), 2024 dan 2025 Persentase Buruh/Karyawan/Pegawai dengan Upah Rendah di",
+          "halaman": "42",
+          "halaman_fisik": 72,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.22",
+          "judul": "Provinsi Kalimantan Selatan, 2024 dan 2025 Rata-Rata Upah Buruh/Karyawan/Pegawai per Bulan Menurut",
+          "halaman": "44",
+          "halaman_fisik": 74,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.23",
+          "judul": "Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025 Rata-Rata Upah Buruh/Karyawan/Pegawai per Bulan Menurut",
+          "halaman": "45",
+          "halaman_fisik": 75,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.24",
+          "judul": "Tingkat Pendidikan di Provinsi Kalimantan Selatan, 2024 dan 2025 Penduduk Bekerja Excessive Hours dan Persentase EEWT di",
+          "halaman": "46",
+          "halaman_fisik": 76,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.25",
+          "judul": "Penduduk Bekerja Excessive Hours dan Persentase EEWT di Provinsi",
+          "halaman": "50",
+          "halaman_fisik": 80,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": null,
+          "judul": "Persentase EEWT Menurut Jenis Kelamin dan Daerah Tempat",
+          "halaman": null,
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.26",
+          "judul": "Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025 Rata-Rata Jam Kerja Mingguaan di Provinsi Kalimantan Selatan",
+          "halaman": "51",
+          "halaman_fisik": 81,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.27",
+          "judul": "(jam), 2024 dan 2025 Rata-Rata Jam Kerja Mingguan Menurut Jenis Kelamin di",
+          "halaman": "52",
+          "halaman_fisik": 82,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.28",
+          "judul": "Provinsi Kalimantan Selatan (jam), 2024 dan 2025 Rata-Rata Jam Kerja Mingguan Menurut Daerah Tempat Tinggal",
+          "halaman": "53",
+          "halaman_fisik": 83,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.29",
+          "judul": "di Provinsi Kalimantan Selatan (jam), 2024 dan 2025 Rata-Rata Jam Kerja Tahunan per Pekerja di Provinsi",
+          "halaman": "54",
+          "halaman_fisik": 84,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.30",
+          "judul": "Kalimantan Selatan (jam), 2024 dan 2025 Rata-Rata Jam Kerja Tahunan per Pekerja Menurut Jenis",
+          "halaman": "56",
+          "halaman_fisik": 86,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.31",
+          "judul": "Kelamin di Provinsi Kalimantan Selatan (jam), 2024 dan 2025 Rata-Rata Jam Kerja Tahunan per Pekerja Menurut Daerah",
+          "halaman": "56",
+          "halaman_fisik": 86,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.32",
+          "judul": "Tempat Tinggal di Provinsi Kalimantan Selatan (jam), 2024 dan 2025 Jumlah Pekerja Setengah Pengangguran dan Persentase",
+          "halaman": "57",
+          "halaman_fisik": 87,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.33",
+          "judul": "Tingkat Setengah Pengangguran di Provinsi Kalimantan Selatan (jam), 2024 dan 2025 Persentase Tingkat Setengah Pengangguran Menurut Jenis",
+          "halaman": "58",
+          "halaman_fisik": 88,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.34",
+          "judul": "Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025 Precarious Employment di Provinsi Kalimantan Selatan (persen),",
+          "halaman": "59",
+          "halaman_fisik": 89,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.35",
+          "judul": "2024 dan 2025 Precarious Employment Rate (PER) menurut Jenis Kelamin dan",
+          "halaman": "63",
+          "halaman_fisik": 93,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.36",
+          "judul": "Daerah Tempat Tinggal di Provinsi Kalimantan Selatan (persen), 2024 dan 2025 Rata-rata Job Tenure di Provinsi Kalimantan Selatan (tahun),",
+          "halaman": "64",
+          "halaman_fisik": 94,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.37",
+          "judul": "2024 dan 2025 Rata-rata Job Tenure menurut Jenis Kelamin dan Daerah Tempat",
+          "halaman": "65",
+          "halaman_fisik": 95,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.38",
+          "judul": "Rata-rata Job Tenure menurut Jenis Kelamin dan Daerah Tempat Tinggal di",
+          "halaman": "65",
+          "halaman_fisik": 95,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": null,
+          "judul": "Rata-rata Job Tenure menurut Pendidikan Terakhir di Provinsi",
+          "halaman": null,
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.39",
+          "judul": "Kalimantan Selatan (tahun), 2024 dan 2025 Proporsi Pekerja Perempuan pada Setiap Jenis Pekerjaan di",
+          "halaman": "66",
+          "halaman_fisik": 96,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.40",
+          "judul": "Provinsi Kalimantan Selatan (persen), 2025 Distribusi Persentase Pekerja Perempuan menurut Jenis",
+          "halaman": "69",
+          "halaman_fisik": 99,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.41",
+          "judul": "Pekerjaan di Provinsi Kalimantan Selatan, 2024 dan 2025 Distribusi Persentase Pekerja Laki-Laki menurut Jenis Pekerjaan",
+          "halaman": "71",
+          "halaman_fisik": 101,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.42",
+          "judul": "di Provinsi Kalimantan Selatan, 2024 dan 2025 Proporsi Perempuan yang Bekerja pada Posisi Manajerial",
+          "halaman": "72",
+          "halaman_fisik": 102,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.43",
+          "judul": "Menurut Daerah Tempat Tinggal di Provinsi Kalimantan Selatan (persen), 2024 dan 2025 Rata-Rata Upah Buruh (juta rupiah) dan Persentase Gender",
+          "halaman": "75",
+          "halaman_fisik": 105,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "gambar",
+          "nomor": "3.44",
+          "judul": "Wage Gap menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025 xx",
+          "halaman": "76",
+          "halaman_fisik": 106,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "1",
+          "judul": "Provinsi Kalimantan Selatan, 2024 dan 2025 TPT Menurut Jenis Kelamin dan Daerah Tempat Tinggal di",
+          "halaman": "83",
+          "halaman_fisik": 113,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "2",
+          "judul": "Provinsi Kalimantan Selatan, 2024 dan 2025 NEET Menurut Jenis Kelamin dan Daerah Tempat Tinggal di",
+          "halaman": "84",
+          "halaman_fisik": 114,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "3",
+          "judul": "NEET Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025",
+          "halaman": "85",
+          "halaman_fisik": 115,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "4",
+          "judul": "Provinsi Kalimantan Selatan, 2024 dan 2025 Persentase Penduduk Bekerja pada Kegiatan Informal Menurut",
+          "halaman": "86",
+          "halaman_fisik": 116,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "5",
+          "judul": "Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025 Persentase Penduduk Bekerja pada Kegiatan Informal Menurut",
+          "halaman": "88",
+          "halaman_fisik": 118,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "6",
+          "judul": "Kelompok Umur di Provinsi Kalimantan Selatan, 2024 dan 2025 Persentase Penduduk Bekerja pada Kegiatan Informal Menurut",
+          "halaman": "89",
+          "halaman_fisik": 119,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "7",
+          "judul": "Tingkat Pendidikan di Provinsi Kalimantan Selatan, 2024 dan 2025 Distribusi Penduduk Bekerja pada Kegiatan Informal Menurut",
+          "halaman": "90",
+          "halaman_fisik": 120,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "8",
+          "judul": "Distribusi Penduduk Bekerja pada Kegiatan Informal Menurut Lapangan Usaha di Provinsi Kalimantan Selatan, 2024 dan 2025",
+          "halaman": "91",
+          "halaman_fisik": 121,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "9",
+          "judul": "Provinsi Kalimantan Selatan, 2024 dan 2025 Persentase Penduduk Bekerja pada Kegiatan Informal Menurut",
+          "halaman": "92",
+          "halaman_fisik": 122,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "10",
+          "judul": "Kelompok Umur di Provinsi Kalimantan Selatan, 2024 dan 2025 Persentase Penduduk Bekerja pada Kegiatan Informal Menurut",
+          "halaman": "93",
+          "halaman_fisik": 123,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "11",
+          "judul": "Tingkat Pendidikan di Provinsi Kalimantan Selatan, 2024 dan 2025 TPT Usia Muda Menurut Jenis Kelamin dan Daerah Tempat",
+          "halaman": "94",
+          "halaman_fisik": 124,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "12",
+          "judul": "TPT Usia Muda Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025",
+          "halaman": "95",
+          "halaman_fisik": 125,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": null,
+          "judul": "Persentase Penduduk Bekerja pada Kegiatan Informal Menurut",
+          "halaman": null,
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "13",
+          "judul": "Tingkat Pendidikan di Provinsi Kalimantan Selatan, 2024 dan 2025 Distribusi Penduduk Bekerja Berdasarkan Status Pekerjaan",
+          "halaman": "96",
+          "halaman_fisik": 126,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "14",
+          "judul": "Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025 Distribusi Penduduk Bekerja Berdasarkan Status Pekerjaan",
+          "halaman": "97",
+          "halaman_fisik": 127,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "15",
+          "judul": "Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025 Proporsi Penduduk yang Bekerja dengan Status Pekerjaan",
+          "halaman": "101",
+          "halaman_fisik": 131,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "16",
+          "judul": "Kode 1, 2, dan 7 Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025 Proporsi Penduduk yang Bekerja dengan Status Pekerjaan",
+          "halaman": "104",
+          "halaman_fisik": 134,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "17",
+          "judul": "Kode 1, 2, dan 7 Menurut Kelompok Umur di Provinsi Kalimantan Selatan, 2024 dan 2025 Proporsi Penduduk yang Bekerja dengan Status Pekerjaan",
+          "halaman": "106",
+          "halaman_fisik": 136,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "18",
+          "judul": "Kode 1, 2, dan 7 Menurut Tingkat Pendidikan di Provinsi Kalimantan Selatan, 2024 dan 2025 Indikator Pekerja pada Wage Employment Sektor Nonpertanian",
+          "halaman": "107",
+          "halaman_fisik": 137,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "19",
+          "judul": "Menurut Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025 Indikator Pekerja pada Wage Employment Sektor Nonpertanian",
+          "halaman": "109",
+          "halaman_fisik": 139,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "20",
+          "judul": "Menurut Kelompok Umur di Provinsi Kalimantan Selatan, 2024 dan 2025 Indikator Pekerja pada Wage Employment Sektor Nonpertanian",
+          "halaman": "110",
+          "halaman_fisik": 140,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "21",
+          "judul": "Indikator Pekerja pada Wage Employment Sektor Nonpertanian Menurut Tingkat Pendidikan di Provinsi Kalimantan Selatan, 2024 dan 2025vinsi Kalimantan Selatan, 2024 dan 2025",
+          "halaman": "111",
+          "halaman_fisik": 141,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "22",
+          "judul": "Indikator Buruh/Karyawan/Pegawai dengan Upah Rendah di Provinsi Kalimantan Selatan, 2024 dan 2025",
+          "halaman": "112",
+          "halaman_fisik": 142,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "23",
+          "judul": "Rata-Rata Upah Buruh/Karyawan/Pegawai Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025",
+          "halaman": "113",
+          "halaman_fisik": 143,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": null,
+          "judul": "Rata-Rata Upah Buruh/Karyawan/Pegawai Menurut Tingkat",
+          "halaman": null,
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "24",
+          "judul": "Pendidikan di Provinsi Kalimantan Selatan, 2024 dan 2025 Rata-Rata Upah Buruh/Karyawan/Pegawai Menurut Lapangan",
+          "halaman": "114",
+          "halaman_fisik": 144,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "25",
+          "judul": "Rata-Rata Upah Buruh/Karyawan/Pegawai Menurut Lapangan Usaha di Provinsi Kalimantan Selatan, 2024 dan 2025",
+          "halaman": "115",
+          "halaman_fisik": 145,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "26",
+          "judul": "Pekerjaan/Jabatan di Provinsi Kalimantan Selatan, 2024 dan 2025 Rata-Rata Upah Buruh/Karyawan/Pegawai Menurut Jenis",
+          "halaman": "116",
+          "halaman_fisik": 146,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "27",
+          "judul": "Pekerjaan/Jabatan dan Jenis Kelamin di Provinsi Kalimantan Selatan, 2024 dan 2025 Rata-Rata Upah Buruh/Karyawan/Pegawai Menurut Jenis",
+          "halaman": "117",
+          "halaman_fisik": 147,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "28",
+          "judul": "Pekerjaan/Jabatan dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025 EEWT Menurut Jenis Kelamin dan Daerah Tempat Tinggal di",
+          "halaman": "118",
+          "halaman_fisik": 148,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "29",
+          "judul": "EEWT Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025",
+          "halaman": "119",
+          "halaman_fisik": 149,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "30",
+          "judul": "Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025 Distribusi EWHW Berdasarkan Jam Kerja per Minggu Menurut",
+          "halaman": "120",
+          "halaman_fisik": 150,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "31",
+          "judul": "Distribusi EWHW Berdasarkan Jam Kerja per Minggu Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025",
+          "halaman": "121",
+          "halaman_fisik": 151,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "32",
+          "judul": "Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025 Tingkat Setengah Pengangguran Menurut Jenis Kelamin dan",
+          "halaman": "123",
+          "halaman_fisik": 153,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "33",
+          "judul": "Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025 Precarious Employment Rate (PER) Menurut Jenis Kelamin dan",
+          "halaman": "124",
+          "halaman_fisik": 154,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "34",
+          "judul": "Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025 Job Tenure Menurut Jenis Kelamin dan Daerah Tempat Tinggal",
+          "halaman": "125",
+          "halaman_fisik": 155,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "35",
+          "judul": "Job Tenure Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025",
+          "halaman": "126",
+          "halaman_fisik": 156,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": null,
+          "judul": "Job Tenure Menurut Tingkat Pendidikan di Provinsi Kalimantan",
+          "halaman": null,
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "36",
+          "judul": "Job Tenure Menurut Tingkat Pendidikan di Provinsi Kalimantan Selatan, 2024 dan 2025",
+          "halaman": "127",
+          "halaman_fisik": 157,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "37",
+          "judul": "Kalimantan Selatan, 2024 dan 2025 Proporsi Menurut Jenis Pekerjaan dan Daerah Tempat Tinggal",
+          "halaman": "128",
+          "halaman_fisik": 158,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "38",
+          "judul": "di Provinsi Kalimantan Selatan, 2024 dan 2025 Proporsi Menurut Jenis Pekerjaan dan Daerah Tempat Tinggal",
+          "halaman": "129",
+          "halaman_fisik": 159,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "39",
+          "judul": "di Provinsi Kalimantan Selatan (persen), 2024 dan 2025 Distribusi Pekerja Menurut Jenis Pekerjaan dan Jenis Kelamin di",
+          "halaman": "131",
+          "halaman_fisik": 161,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "40",
+          "judul": "Distribusi Pekerja Menurut Jenis Pekerjaan dan Jenis Kelamin di Provinsi Kalimantan Selatan (persen), 2024 dan 2025",
+          "halaman": "133",
+          "halaman_fisik": 163,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "41",
+          "judul": "Proporsi Perempuan yang Bekerja pada Posisi Manajerial Menurut Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025",
+          "halaman": "134",
+          "halaman_fisik": 164,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "42",
+          "judul": "Menurut Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2024 dan 2025 Rata-Rata Upah Buruh (rupiah) dan Gender Wage Gap",
+          "halaman": "135",
+          "halaman_fisik": 165,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "43",
+          "judul": "Menurut Tingkat Pendidikan di Provinsi Kalimantan Selatan, 2024 dan 2025 Rata-Rata Upah Buruh (rupiah) dan Gender Wage Gap",
+          "halaman": "136",
+          "halaman_fisik": 166,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "44",
+          "judul": "Menurut Jenis Pekerjaan di Provinsi Kalimantan Selatan, 2024 dan 2025 Kesalahan Baku Relatif (Relative Standar Error-RSE) EPR",
+          "halaman": "137",
+          "halaman_fisik": 167,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "45",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) EPR Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "139",
+          "halaman_fisik": 169,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "46",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) TPT Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "141",
+          "halaman_fisik": 171,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "47",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) NEET Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "142",
+          "halaman_fisik": 172,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": null,
+          "judul": "Kesalahan Baku Relatif (Relative Standar Error-RSE) NEET",
+          "halaman": null,
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "48",
+          "judul": "Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025 Kesalahan Baku Relatif (Relative Standar Error-RSE) Persentase Penduduk Bekerja pada Kegiatan Informal Menurut",
+          "halaman": "144",
+          "halaman_fisik": 174,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "49",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) Persentase Penduduk Bekerja pada Kegiatan Informal Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "146",
+          "halaman_fisik": 176,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "50",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) Persentase Penduduk Bekerja pada Kegiatan Informal Menurut Kelompok Umur di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "148",
+          "halaman_fisik": 178,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "51",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) Persentase Penduduk Bekerja pada Kegiatan Informal Menurut Tingkat Pendidikan di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "149",
+          "halaman_fisik": 179,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "52",
+          "judul": "Persentase Penduduk Bekerja pada Kegiatan Informal Menurut Lapangan Usaha di Provinsi Kalimantan Selatan, 2025 Kesalahan Baku Relatif (Relative Standar Error-RSE) TPAK",
+          "halaman": "151",
+          "halaman_fisik": 181,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "53",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) TPAK Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "152",
+          "halaman_fisik": 182,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "54",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) TPAK Menurut Kelompok Umur di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "154",
+          "halaman_fisik": 184,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "55",
+          "judul": "Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025 Kesalahan Baku Relatif (Relative Standar Error-RSE) TPT Usia",
+          "halaman": "155",
+          "halaman_fisik": 185,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "56",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) TPT Usia Muda Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "157",
+          "halaman_fisik": 187,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "57",
+          "judul": "Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025 Kesalahan Baku Relatif (Relative Standar Error-RSE) Distribusi Penduduk Bekerja Berdasarkan Status Pekerjaan Menurut",
+          "halaman": "158",
+          "halaman_fisik": 188,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "58",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) Distribusi Penduduk Bekerja Berdasarkan Status Pekerjaan Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "159",
+          "halaman_fisik": 189,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": null,
+          "judul": "Kesalahan Baku Relatif (Relative Standar Error-RSE) Distribusi",
+          "halaman": null,
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "59",
+          "judul": "Penduduk Bekerja Berdasarkan Status Pekerjaan Menurut Kelompok Umur di Provinsi Kalimantan Selatan, 2025 Kesalahan Baku Relatif (Relative Standar Error-RSE) Proporsi Penduduk yang Bekerja dengan Status Pekerjaan Kode 1, 2,",
+          "halaman": "162",
+          "halaman_fisik": 192,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "60",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) Proporsi Penduduk yang Bekerja dengan Status Pekerjaan Kode 1, 2, dan 7 Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "164",
+          "halaman_fisik": 194,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "61",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) Proporsi Penduduk yang Bekerja dengan Status Pekerjaan Kode 1, 2, dan 7 Menurut Kelompok Umur di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "166",
+          "halaman_fisik": 196,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "62",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) Proporsi Penduduk yang Bekerja dengan Status Pekerjaan Kode 1, 2, dan 7 Menurut Tingkat Pendidikan di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "167",
+          "halaman_fisik": 197,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "63",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) Indikator Pekerja pada Wage Employment Sektor Nonpertanian Menurut Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "169",
+          "halaman_fisik": 199,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "64",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) Indikator Pekerja pada Wage Employmen t Sektor Nonpertanian Menurut Kelompok Umur di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "170",
+          "halaman_fisik": 200,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "65",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) Indikator Pekerja pada Wage Employment Sektor Nonpertanian Menurut Tingkat Pendidikan di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "171",
+          "halaman_fisik": 201,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "66",
+          "judul": "Buruh/Karyawan/Pegawai di Provinsi Kalimantan Selatan, 2025 Kesalahan Baku Relatif (Relative Standar Error-RSE) Rata- Rata Upah Buruh/Karyawan/Pegawai Menurut Jenis Kelamin",
+          "halaman": "172",
+          "halaman_fisik": 202,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "67",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) Rata-Rata Upah Buruh/Karyawan/Pegawai Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "173",
+          "halaman_fisik": 203,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "68",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) Rata-Rata Upah Buruh/Karyawan/Pegawai Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "174",
+          "halaman_fisik": 204,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": null,
+          "judul": "Kesalahan Baku Relatif (Relative Standar Error-RSE) Rata-",
+          "halaman": null,
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "69",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error- RSE) Rata-Rata Upah Buruh/Karyawan/Pegawai Menurut Tingkat Pendidikan di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "175",
+          "halaman_fisik": 205,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "70",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) Rata-Rata Upah Buruh/Karyawan/Pegawai Menurut Lapangan Usaha di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "176",
+          "halaman_fisik": 206,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "71",
+          "judul": "Rata Upah Buruh/Karyawan/Pegawai Menurut Jenis Pekerjaan/Jabatan di Provinsi Kalimantan Selatan, 2025 Kesalahan Baku Relatif (Relative Standar Error-RSE) Rata- Rata Upah Buruh/Karyawan/Pegawai Menurut Jenis",
+          "halaman": "177",
+          "halaman_fisik": 207,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "72",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) Rata-Rata Upah Buruh/Karyawan/Pegawai Menurut Jenis Pekerjaan/Jabatan dan Jenis Kelamin di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "178",
+          "halaman_fisik": 208,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "73",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) Rata-Rata Upah Buruh/Karyawan/Pegawai Menurut Jenis Pekerjaan/Jabatan dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "180",
+          "halaman_fisik": 210,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "74",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) EEWT Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "182",
+          "halaman_fisik": 212,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "75",
+          "judul": "Rata Jam Kerja Mingguan Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025 Kesalahan Baku Relatif (Relative Standar Error-RSE) Distribusi EWHW Berdasarkan Jam Kerja per Minggu Menurut Jenis",
+          "halaman": "184",
+          "halaman_fisik": 214,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "76",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) Distribusi EWHW Berdasarkan Jam Kerja per Minggu Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "185",
+          "halaman_fisik": 215,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "77",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) Rata-Rata Jam Kerja Tahunan Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "187",
+          "halaman_fisik": 217,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "78",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) Rata-Rata Jam Kerja Tahunan Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "189",
+          "halaman_fisik": 219,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": null,
+          "judul": "Kesalahan Baku Relatif (Relative Standar Error-RSE)",
+          "halaman": null,
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "79",
+          "judul": "Precarious Employment Rate (PER) Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025 Kesalahan Baku Relatif (Relative Standar Error-RSE) Job",
+          "halaman": "191",
+          "halaman_fisik": 221,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "80",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) Job Tenure Menurut Jenis Kelamin dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "193",
+          "halaman_fisik": 223,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "81",
+          "judul": "Tenure Menurut Tingkat Pendidikan di Provinsi Kalimantan Selatan, 2025 Kesalahan Baku Relatif (Relative Standar Error-RSE) Proporsi",
+          "halaman": "194",
+          "halaman_fisik": 224,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "82",
+          "judul": "Pekerja Menurut Jenis Pekerjaan di Provinsi Kalimantan Selatan, 2025 Kesalahan Baku Relatif (Relative Standar Error-RSE) Proporsi",
+          "halaman": "195",
+          "halaman_fisik": 225,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "83",
+          "judul": "Pekerja Menurut Jenis Pekerjaan dan Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025 Kesalahan Baku Relatif (Relative Standar Error-RSE) Proporsi",
+          "halaman": "197",
+          "halaman_fisik": 227,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "84",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) Proporsi Pekerja Menurut Jenis Pekerjaan dan Jenis Kelamin di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "200",
+          "halaman_fisik": 230,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "a7356ab4d641213220fac759",
+          "tipe": "lampiran",
+          "nomor": "85",
+          "judul": "Kesalahan Baku Relatif ( Relative Standar Error -RSE) Proporsi Perempuan yang Bekerja pada Posisi Manajerial Menurut Daerah Tempat Tinggal di Provinsi Kalimantan Selatan, 2025",
+          "halaman": "202",
+          "halaman_fisik": 232,
+          "sumber": "keduanya"
+        }
+      ]
+    },
+    {
       "publikasi_id": "a8667ba0385aecd150f2de92",
       "judul": "Statistik Harga Produsen Gabah di Provinsi Kalimantan Selatan 2024",
       "heading_ditemukan": [
@@ -44943,6 +48354,498 @@
       "sidik_pdf": [
         26854812,
         1787887625
+      ]
+    },
+    {
+      "publikasi_id": "c35054ac95c0c71da7234092",
+      "judul": "Statistik Daerah Provinsi Kalimantan Selatan 2026",
+      "heading_ditemukan": [
+        "gambar",
+        "isi",
+        "lampiran"
+      ],
+      "jumlah_entri": 51,
+      "per_tipe": {
+        "isi": 25,
+        "gambar": 20,
+        "lampiran": 6
+      },
+      "tanpa_halaman": 7,
+      "mode_tanpa_label": [],
+      "dari_daftar": 44,
+      "dari_badan": 25,
+      "halaman_fisik_dilengkapi": 1,
+      "per_sumber": {
+        "daftar": 26,
+        "keduanya": 18,
+        "badan": 7
+      },
+      "sidik_pdf": [
+        12760245,
+        1793687653
+      ],
+      "galat": null,
+      "entri": [
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "KATA PENGANTAR",
+          "halaman": "iv",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "DAFTAR ISI",
+          "halaman": "vi",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "DAFTAR GAMBAR",
+          "halaman": "viii",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "DAFTAR LAMPIRAN",
+          "halaman": "x",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "BAB 1 GEOGRAFI DAN IKLIM",
+          "halaman": "1",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "BAB 2 PEMERINTAHAN",
+          "halaman": "5",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "BAB 3 PENDUDUK",
+          "halaman": "7",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "BAB 4 KETENAGAKERJAAN",
+          "halaman": "9",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "BAB 5 PENDIDIKAN",
+          "halaman": "11",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "BAB 6 KESEHATAN",
+          "halaman": "13",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "BAB 7 PERUMAHAN",
+          "halaman": "15",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "BAB 8 PEMBANGUNAN MANUSIA",
+          "halaman": "17",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "BAB 9 PERTANIAN",
+          "halaman": "19",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "BAB 10 PERTAMBANGAN",
+          "halaman": "21",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "BAB 11 INDSUTRI",
+          "halaman": "23",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "BAB 12 KONSTRUKSI",
+          "halaman": "25",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "BAB 13 HOTEL DAN PARIWISATA",
+          "halaman": "27",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "BAB 14 TRANSPORTASI DAN KOMUNIKASI",
+          "halaman": "29",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "BAB 15 PERBANKAN DAN INVESTASI",
+          "halaman": "31",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "BAB 16 HARGA-HARGA",
+          "halaman": "33",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "BAB 17 PERDAGANGAN",
+          "halaman": "35",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "BAB 18 PENGELUARAN PENDUDUK",
+          "halaman": "37",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "BAB 19 PRODUK DOMESTIK REGIONAL BRUTO",
+          "halaman": "39",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "BAB 20 PERBANDINGAN REGIONAL",
+          "halaman": "41",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "DAFTAR PUSTAKA",
+          "halaman": "43",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "gambar",
+          "nomor": "1.1",
+          "judul": "Kondisi Geografis, Iklim, dan Cuaca Kalimantan Selatan, 2025 Wilayah Administrasi dan Komposisi ASN Kalimantan Selatan,",
+          "halaman": "1",
+          "halaman_fisik": 13,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "gambar",
+          "nomor": "3.1",
+          "judul": "Demografi Penduduk Kalimantan Selatan, 2025",
+          "halaman": "7",
+          "halaman_fisik": 19,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "gambar",
+          "nomor": "4.1",
+          "judul": "Kondisi Ketenagekerjaan Kalimantan Selatan, 2025",
+          "halaman": "9",
+          "halaman_fisik": 21,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "gambar",
+          "nomor": "5.1",
+          "judul": "Kondisi Pendidikan Kalimantan Selatan, 2025 Infrastruktur dan Tenaga Kesehatan di Kalimantan Selatan,",
+          "halaman": "11",
+          "halaman_fisik": 23,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "gambar",
+          "nomor": "6.1",
+          "judul": "2025 Kepemilikan dan Akses Perumahan di Kalimantan Selatan,",
+          "halaman": "13",
+          "halaman_fisik": 25,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "gambar",
+          "nomor": "8.1",
+          "judul": "IPM Kalimantan Selatan, 2024 dan 2025 Produksi Padi GKG Menurut Kabupaten/Kota Provinsi",
+          "halaman": "17",
+          "halaman_fisik": 29,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "gambar",
+          "nomor": "9.1",
+          "judul": "Kalimantan Selatan, 2024-2025 (ton) Share PDRB Lapangan Usaha Pertanian Provinsi Kalimantan",
+          "halaman": "19",
+          "halaman_fisik": 31,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "gambar",
+          "nomor": "9.2",
+          "judul": "Selatan 2020-2025 Share PDRB Kategori Pertambangan Kalimantan Selatan,",
+          "halaman": "19",
+          "halaman_fisik": 31,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "tengah baris (dua kolom)"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "gambar",
+          "nomor": "10.1",
+          "judul": "Share PDRB Kategori Pertambangan",
+          "halaman": "21",
+          "halaman_fisik": 33,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "gambar",
+          "nomor": "10.2",
+          "judul": "Harga Acuan Batubara Dunia 2024-2025 (USD/ton) Pertumbuhan dan Share PDRB Industri Kalimantan Selatan,",
+          "halaman": "21",
+          "halaman_fisik": 33,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "gambar",
+          "nomor": "11.1",
+          "judul": "Pertumbuhan dan Share PDRB Industri",
+          "halaman": "23",
+          "halaman_fisik": 35,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "gambar",
+          "nomor": "11.2",
+          "judul": "Pertumbuhan Subsektor Industri Pengolahan, 2025 (%) Perkembangan Pangsa Sektor Konstruksi dalam PDRB",
+          "halaman": "23",
+          "halaman_fisik": 35,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "gambar",
+          "nomor": "12.1",
+          "judul": "Perkembangan Pangsa Sektor Konstruksi dalam PDRB Kalimantan Selatan, 2021-2025 (%)",
+          "halaman": "24",
+          "halaman_fisik": 37,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "lampiran",
+          "nomor": "1",
+          "judul": "Luas Wilayah Menurut Kabupaten/Kota di Kalimantan Selatan 2025",
+          "halaman": "46",
+          "halaman_fisik": 58,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "lampiran",
+          "nomor": "2",
+          "judul": "di Provinsi Kalimantan Selatan 2025 Tambahan Investasi Penanaman Modal Dalam Negeri (PMDN)",
+          "halaman": "47",
+          "halaman_fisik": 59,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "lampiran",
+          "nomor": "3",
+          "judul": "Tambahan Investasi Penanaman Modal Dalam Negeri (PMDN) dan Penanaman Modal Asing (PMA) Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan Tahun 2025 (Juta Rupiah)",
+          "halaman": "48",
+          "halaman_fisik": 60,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "lampiran",
+          "nomor": "4",
+          "judul": "Harga Konstan 2010 Menurut Lapangan Usaha Tahun 2025 (Miliar Rupiah) PDRB Provinsi Kalimantan Selatan Atas Dasar Harga Berlaku",
+          "halaman": "49",
+          "halaman_fisik": 61,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "lampiran",
+          "nomor": "5",
+          "judul": "PDRB Provinsi Kalimantan Selatan Atas Dasar Harga Berlaku dan Harga Konstan 2010 Menurut Pengeluaran Tahun 2025 (Miliar Rupiah)",
+          "halaman": "51",
+          "halaman_fisik": 63,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "lampiran",
+          "nomor": "6",
+          "judul": "Indikator Kemiskinan Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan Tahun 2025",
+          "halaman": "52",
+          "halaman_fisik": 64,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "gambar",
+          "nomor": "2.1",
+          "judul": "Wilayah Administrasi dan Komposisi ASN Aparatur Sipil Negara (ASN) pada Desember",
+          "halaman": null,
+          "halaman_fisik": 17,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "gambar",
+          "nomor": "7.1",
+          "judul": "Kepemilikan dan Akses Perumahan di",
+          "halaman": null,
+          "halaman_fisik": 27,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "gambar",
+          "nomor": "13.1",
+          "judul": "Bendungan Riam Kanan",
+          "halaman": null,
+          "halaman_fisik": 39,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "gambar",
+          "nomor": "14.1",
+          "judul": "Kondisi Jalan di Kalimantan Selatan, 2025",
+          "halaman": null,
+          "halaman_fisik": 41,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "gambar",
+          "nomor": "16.1",
+          "judul": "Perkembangan Inflasi Kalimantan",
+          "halaman": null,
+          "halaman_fisik": 45,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "gambar",
+          "nomor": "18.1",
+          "judul": "Pengeluaran per Kapita Kalimantan terbesar adalah untuk perumahan sebesar",
+          "halaman": null,
+          "halaman_fisik": 49,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "c35054ac95c0c71da7234092",
+          "tipe": "gambar",
+          "nomor": "20.1",
+          "judul": "Perbandingan Regional Kalimantan, 2025 fluktuasi harga energi global",
+          "halaman": null,
+          "halaman_fisik": 53,
+          "sumber": "badan"
+        }
       ]
     },
     {
@@ -59148,6 +63051,251 @@
       "sidik_pdf": [
         6759868,
         1787888701
+      ]
+    },
+    {
+      "publikasi_id": "faf617cbeea57a472be6cd1b",
+      "judul": "Buklet Perkembangan Industri Mikro dan Kecil Triwulanan Provinsi Kalimantan Selatan 2024–2026",
+      "heading_ditemukan": [
+        "gambar",
+        "isi",
+        "tabel"
+      ],
+      "jumlah_entri": 23,
+      "per_tipe": {
+        "isi": 11,
+        "tabel": 5,
+        "gambar": 7
+      },
+      "tanpa_halaman": 4,
+      "mode_tanpa_label": [],
+      "dari_daftar": 20,
+      "dari_badan": 4,
+      "halaman_fisik_dilengkapi": 6,
+      "per_sumber": {
+        "daftar": 19,
+        "keduanya": 1,
+        "badan": 3
+      },
+      "sidik_pdf": [
+        2001476,
+        1793687637
+      ],
+      "galat": null,
+      "entri": [
+        {
+          "publikasi_id": "faf617cbeea57a472be6cd1b",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "KATA PENGANTAR",
+          "halaman": "5",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "faf617cbeea57a472be6cd1b",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "DAFTAR ISI",
+          "halaman": "6",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "faf617cbeea57a472be6cd1b",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "DAFTAR TABEL",
+          "halaman": "7",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "faf617cbeea57a472be6cd1b",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "DAFTAR GAMBAR",
+          "halaman": "8",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "faf617cbeea57a472be6cd1b",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "PENDAHULUAN",
+          "halaman": "9",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "faf617cbeea57a472be6cd1b",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Latar Belakang",
+          "halaman": "9",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "faf617cbeea57a472be6cd1b",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Cakupan",
+          "halaman": "11",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "faf617cbeea57a472be6cd1b",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "GAMBARAN UMUM",
+          "halaman": "14",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "faf617cbeea57a472be6cd1b",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "Pertumbuhan Produksi Industri Mikro dan Kecil Triwulanan (y-on-y)",
+          "halaman": "15",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "faf617cbeea57a472be6cd1b",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "menurut KBLI 2-digit Tahun 2024 – Triwulan II-2026 Pertumbuhan Produksi Industri Mikro dan Kecil Triwulanan (q-to-q)",
+          "halaman": "22",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "faf617cbeea57a472be6cd1b",
+          "tipe": "isi",
+          "nomor": null,
+          "judul": "menurut KBLI 2-digit Tahun 2024 – Triwulan II-2026 Lampiran",
+          "halaman": "27",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "faf617cbeea57a472be6cd1b",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Table 1. Pertumbuhan Produksi Triwulanan Industri mikro dan kecil menurut KBLI 2-digit Provinsi Kalimantan Selatan (persen), 2024 Table 2. Pertumbuhan Produksi Triwulanan Industri mikro dan kecil 29 menurut KBLI 2-digit Provinsi Kalimantan Selatan (persen), 2025 Table 3. Pertumbuhan Produksi Triwulanan Industri mikro dan kecil menurut KBLI 2-digit Provinsi Kalimantan Selatan (persen), 3 0",
+          "halaman": "28",
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "faf617cbeea57a472be6cd1b",
+          "tipe": "tabel",
+          "nomor": null,
+          "judul": "Triwulan I-II 2026 7",
+          "halaman": null,
+          "halaman_fisik": null,
+          "sumber": "daftar"
+        },
+        {
+          "publikasi_id": "faf617cbeea57a472be6cd1b",
+          "tipe": "gambar",
+          "nomor": "1",
+          "judul": "Angka Indeks Produksi Triwulanan Industri Mikro dan Kecil (Persen), 2024 – Triwulan II-2026",
+          "halaman": "15",
+          "halaman_fisik": 15,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "faf617cbeea57a472be6cd1b",
+          "tipe": "gambar",
+          "nomor": "2",
+          "judul": "Pertumbuhan Produksi Industri Manufaktur Mikro dan Kecil (y-on-y) Menurut KBLI 2-digit Tahun 2024 (Persen)",
+          "halaman": "16",
+          "halaman_fisik": 16,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "faf617cbeea57a472be6cd1b",
+          "tipe": "gambar",
+          "nomor": "3",
+          "judul": "Pertumbuhan Produksi Industri Manufaktur Mikro dan Kecil (y-on-y) Triwulan I-IV 2025 Menurut KBLI 2-digit (Persen)",
+          "halaman": "20",
+          "halaman_fisik": 20,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "faf617cbeea57a472be6cd1b",
+          "tipe": "gambar",
+          "nomor": "4",
+          "judul": "Pertumbuhan Produksi Industri Manufaktur Mikro dan Kecil (y-on-y) Triwulan I-II 2026 Menurut KBLI 2-digit (Persen)",
+          "halaman": "21",
+          "halaman_fisik": 21,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "faf617cbeea57a472be6cd1b",
+          "tipe": "gambar",
+          "nomor": "5",
+          "judul": "Pertumbuhan Produksi Industri Manufaktur Mikro dan Kecil (q-to-q) Triwulan II-III Tahun 2024 Menurut KBLI 2-digit (Persen)",
+          "halaman": "23",
+          "halaman_fisik": 23,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "faf617cbeea57a472be6cd1b",
+          "tipe": "gambar",
+          "nomor": "6",
+          "judul": "Pertumbuhan Produksi Industri Manufaktur Mikro dan Kecil (q-to-q) Triwulan IV Tahun 2025 Menurut KBLI 2-digit (Persen)",
+          "halaman": "24",
+          "halaman_fisik": 24,
+          "sumber": "daftar",
+          "cara_halaman_fisik": "awal baris"
+        },
+        {
+          "publikasi_id": "faf617cbeea57a472be6cd1b",
+          "tipe": "gambar",
+          "nomor": "7",
+          "judul": "Pertumbuhan Produksi Industri Manufaktur Mikro dan Kecil (q-to-q) Triwulan I-II Tahun 2026 Menurut KBLI 2-digit (Persen) 8",
+          "halaman": "26",
+          "halaman_fisik": 26,
+          "sumber": "keduanya"
+        },
+        {
+          "publikasi_id": "faf617cbeea57a472be6cd1b",
+          "tipe": "tabel",
+          "nomor": "1",
+          "judul": "Pertumbuhan Produksi Triwulanan Industri Mikro dan Kecil Menurut KBLI 2-digit Provinsi Kalimantan Selatan (persen), 2024 Triwulan I Triwulan II Triwulan III Triwulan IV Rerata KBLI",
+          "halaman": null,
+          "halaman_fisik": 28,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "faf617cbeea57a472be6cd1b",
+          "tipe": "tabel",
+          "nomor": "2",
+          "judul": "Pertumbuhan Produksi Triwulanan Industri Mikro dan Kecil Menurut KBLI 2-digit Provinsi Kalimantan Selatan (persen), 2025 Triwulan I Triwulan II Triwulan III Triwulan IV Rerata KBLI",
+          "halaman": null,
+          "halaman_fisik": 29,
+          "sumber": "badan"
+        },
+        {
+          "publikasi_id": "faf617cbeea57a472be6cd1b",
+          "tipe": "tabel",
+          "nomor": "3",
+          "judul": "Pertumbuhan Produksi Triwulanan Industri Mikro dan Kecil Menurut KBLI 2-digit Provinsi Kalimantan Selatan (persen), Triwulan I-II 2026 Triwulan I Triwulan I Triwulan I KBLI KBLI KBLI q-to-q y-on-y q-to-q y-on-y q-to-q y-on-y",
+          "halaman": null,
+          "halaman_fisik": 30,
+          "sumber": "badan"
+        }
       ]
     },
     {
