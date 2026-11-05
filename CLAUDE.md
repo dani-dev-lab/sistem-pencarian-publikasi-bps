@@ -323,6 +323,12 @@ Aturan yang berlaku:
   tabel/gambar/lampiran di dokumennya.
 - **15 dari 348 entri "Dalam Angka 2025" tanpa nomor halaman** (edisi 2026 hanya
   4 dari 335). Sisa dari daftar tiga kolom dwibahasa yang paling rumit di korpus.
+- **`subject_csa` dari API kini selalu `[]` (sejak ~Nov 2026).** Tarikan 5 Nov
+  2026: 0 dari 79 publikasi terisi (tarikan Sep 2026: 31 dari 75). Akibatnya
+  `publikasi_kategori` kosong dan 14 baris `kategori` tidak punya kaitan.
+  Diputuskan DIBIARKAN KOSONG, tidak dipulihkan dari riwayat Git - aplikasi
+  tidak memakai kategori sama sekali. Baris "kaitan kategori ... OK" di laporan
+  `muat_ke_database.py` hanya berarti 0 = 0, bukan bukti datanya utuh.
 - **Tidak ada pengujian otomatis.** `tests/test_ekstraksi_pdf.py` dan
   `tests/test_mesin_pencari.py` hanya stub berisi docstring dari scaffolding
   awal - `pytest` mengumpulkan 0 item. Seluruh verifikasi selama project
