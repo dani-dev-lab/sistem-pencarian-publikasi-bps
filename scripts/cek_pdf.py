@@ -1,62 +1,48 @@
-"""Diagnosis PDF di data/publikasi_pdf/ sebelum masuk tahap ekstraksi.
+"""Diagnosis PDF di data/publikasi_pdf/<domain>/.
 
-Script sekali pakai. Menjawab: mana yang tidak bisa dibuka, mana yang tidak punya
-layer teks (kandidat hasil scan), dan mana yang ukurannya jauh meleset dari API.
+Menjawab: mana yang tidak bisa dibuka, mana yang tidak punya layer teks (kandidat
+hasil scan), dan apakah isi folder cocok dengan tabel publikasi. Hanya membaca.
 
 Jalankan:  venv/Scripts/python.exe scripts/cek_pdf.py
 """
 
-import json
 import os
-import re
+import sys
 
 import pdfplumber
 
-FILE_SUMBER = "data/publikasi_2025_2026.json"
-DIR_PDF = "data/publikasi_pdf"
-AMBANG_SELISIH = 0.20   # tandai kalau selisih ukuran > 20%
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-
-def ukuran_ke_byte(teks):
-    """'15.78 MB' -> 16546529. Return None kalau tidak terbaca."""
-    if not teks:
-        return None
-    cocok = re.match(r"\s*([0-9]+(?:[.][0-9]+)?)\s*(KB|MB|GB)\s*$", str(teks), re.IGNORECASE)
-    if not cocok:
-        return None
-    pengali = {"kb": 1024, "mb": 1024 ** 2, "gb": 1024 ** 3}[cocok.group(2).lower()]
-    return int(float(cocok.group(1)) * pengali)
+from app import create_app
+from app.config import Config
+from app.models import Publikasi
 
 
 def mb(n):
-    return "?" if n is None else f"{n / 1024 / 1024:.2f} MB"
+    return f"{n / 1024 / 1024:.2f} MB"
 
 
 def main():
-    with open(FILE_SUMBER, encoding="utf-8") as f:
-        daftar = json.load(f)["publikasi"]
+    app = create_app()
+    with app.app_context():
+        judul_pub = {p.id: (p.judul, p.domain) for p in Publikasi.query.all()}
 
-    meta = {p["pub_id"]: p for p in daftar}
-    berkas = sorted(n for n in os.listdir(DIR_PDF) if n.lower().endswith(".pdf"))
+    akar_pdf = str(Config.DIR_PUBLIKASI_PDF)
+    berkas = sorted(os.path.join(akar, n)
+                    for akar, _, nama in os.walk(akar_pdf)
+                    for n in nama if n.lower().endswith(".pdf"))
 
-    print(f"{len(berkas)} file PDF di {DIR_PDF}/")
+    print(f"{len(berkas)} berkas PDF di {akar_pdf}")
     print()
 
     gagal_buka = []
     tanpa_teks = []
-    selisih_besar = []
     total_halaman = 0
 
-    for i, nama in enumerate(berkas, start=1):
-        path = os.path.join(DIR_PDF, nama)
-        pub_id = nama[:-4]
-        p = meta.get(pub_id, {})
-        judul = (p.get("title") or "(tidak ada di JSON)").replace("\n", " ")
-
-        ukuran_nyata = os.path.getsize(path)
-        ukuran_api = ukuran_ke_byte(p.get("size"))
-
-        print(f"[{i:>2}/{len(berkas)}] {judul[:48]:<48}", end=" ")
+    for i, path in enumerate(berkas, start=1):
+        pub_id = os.path.basename(path)[:-4]
+        judul = judul_pub.get(pub_id, ("(tidak ada di database)", None))[0].replace("\n", " ")
+        print(f"[{i:>3}/{len(berkas)}] {judul[:48]:<48}", end=" ", flush=True)
 
         try:
             with pdfplumber.open(path) as pdf:
@@ -64,26 +50,16 @@ def main():
                 teks_hal1 = pdf.pages[0].extract_text() if jml_halaman else None
         except Exception as e:  # noqa: BLE001 - script diagnosis, cukup catat pesannya
             print(f"GAGAL DIBUKA: {e}")
-            gagal_buka.append((nama, str(e)))
+            gagal_buka.append((pub_id, str(e)))
             continue
 
         total_halaman += jml_halaman
         ada_teks = bool(teks_hal1 and teks_hal1.strip())
         if not ada_teks:
-            tanpa_teks.append((nama, judul))
+            tanpa_teks.append((pub_id, judul))
+        print(f"{jml_halaman:>4} hal  {mb(os.path.getsize(path)):>9}  "
+              f"{'teks OK' if ada_teks else 'TANPA TEKS'}")
 
-        # Bandingkan ukuran file nyata dengan field size dari API.
-        tanda_ukuran = ""
-        if ukuran_api:
-            selisih = abs(ukuran_nyata - ukuran_api) / ukuran_api
-            if selisih > AMBANG_SELISIH:
-                tanda_ukuran = f"  ukuran beda {selisih * 100:.0f}%"
-                selisih_besar.append((nama, ukuran_nyata, ukuran_api, selisih, judul))
-
-        print(f"{jml_halaman:>4} hal  {mb(ukuran_nyata):>9}  "
-              f"{'teks OK' if ada_teks else 'TANPA TEKS'}{tanda_ukuran}")
-
-    # ---------- Ringkasan ----------
     print()
     print("=" * 74)
     print("RINGKASAN")
@@ -91,42 +67,31 @@ def main():
     print(f"Bisa dibuka       : {len(berkas) - len(gagal_buka)}/{len(berkas)}")
     print(f"Gagal dibuka      : {len(gagal_buka)}")
     print(f"Tanpa teks hal. 1 : {len(tanpa_teks)}  (kandidat PDF hasil scan)")
-    print(f"Selisih ukuran    : {len(selisih_besar)} file (> {AMBANG_SELISIH * 100:.0f}%)")
     print(f"Total halaman     : {total_halaman}")
 
     if gagal_buka:
         print()
-        print("File yang gagal dibuka:")
-        for nama, pesan in gagal_buka:
-            print(f"  {nama}  -  {pesan}")
+        print("Berkas yang gagal dibuka:")
+        for pub_id, pesan in gagal_buka:
+            print(f"  {pub_id}  -  {pesan}")
 
     if tanpa_teks:
         print()
-        print("File tanpa layer teks (perlu OCR atau dikeluarkan dari scope):")
-        for nama, judul in tanpa_teks:
-            print(f"  {nama}  -  {judul[:60]}")
+        print("Berkas tanpa layer teks (perlu OCR atau dikeluarkan dari scope):")
+        for pub_id, judul in tanpa_teks:
+            print(f"  {pub_id}  -  {judul[:60]}")
 
-    if selisih_besar:
+    # Cek silang isi folder vs tabel publikasi.
+    id_berkas = {os.path.basename(p)[:-4] for p in berkas}
+    if set(judul_pub) - id_berkas:
         print()
-        print("File dengan selisih ukuran mencolok (nyata vs field size API):")
-        for nama, nyata, api, selisih, judul in sorted(
-                selisih_besar, key=lambda x: -x[3]):
-            arah = "lebih besar" if nyata > api else "lebih kecil"
-            print(f"  {nama}  {mb(nyata):>9} vs {mb(api):>9}  "
-                  f"({selisih * 100:>5.0f}% {arah})  {judul[:38]}")
-
-    # Cek silang isi folder vs daftar di JSON.
-    id_berkas = {n[:-4] for n in berkas}
-    id_json = set(meta)
-    if id_json - id_berkas:
+        print(f"Ada di database tapi berkasnya tidak ada: {len(set(judul_pub) - id_berkas)}")
+        for pid in sorted(set(judul_pub) - id_berkas):
+            print(f"  {pid}  -  {judul_pub[pid][0][:60]}")
+    if id_berkas - set(judul_pub):
         print()
-        print(f"Ada di JSON tapi filenya belum ada: {len(id_json - id_berkas)}")
-        for pid in sorted(id_json - id_berkas):
-            print(f"  {pid}  -  {(meta[pid].get('title') or '')[:60]}")
-    if id_berkas - id_json:
-        print()
-        print(f"Ada file tapi tidak terdaftar di JSON: {len(id_berkas - id_json)}")
-        for pid in sorted(id_berkas - id_json):
+        print(f"Ada berkas tapi tidak terdaftar di database: {len(id_berkas - set(judul_pub))}")
+        for pid in sorted(id_berkas - set(judul_pub)):
             print(f"  {pid}.pdf")
 
 

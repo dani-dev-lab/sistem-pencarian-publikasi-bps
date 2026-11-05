@@ -71,15 +71,15 @@ def buka_pdf(pub_id):
     Semua 72 PDF sudah ada lokal, jadi tidak ada alasan membebani server BPS -
     sejalan dengan Term of Use yang melarang membebani layanan mereka.
 
-    pub_id DIVALIDASI ke database lebih dulu; nama berkas disusun dari kolom
-    `id` hasil query, bukan dari input mentah. Jadi tidak ada jalan bagi input
-    untuk menyusun path sendiri.
+    pub_id DIVALIDASI ke database lebih dulu; subfolder dan nama berkas disusun
+    dari kolom `domain` dan `id` hasil query, bukan dari input mentah. Jadi
+    tidak ada jalan bagi input untuk menyusun path sendiri.
     """
     pub = db.session.get(Publikasi, pub_id)
     if pub is None:
         abort(404)
 
-    folder = str(current_app.config["DIR_PUBLIKASI_PDF"])
+    folder = str(current_app.config["DIR_PUBLIKASI_PDF"] / pub.domain)
     nama = f"{pub.id}.pdf"
 
     if not os.path.isfile(os.path.join(folder, nama)):

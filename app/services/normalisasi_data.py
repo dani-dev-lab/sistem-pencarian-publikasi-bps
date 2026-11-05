@@ -43,18 +43,24 @@ def _pastikan_kolom():
     return False
 
 
-def _isi_publikasi():
-    """Normalkan judul + abstrak tiap publikasi.
+def teks_publikasi(judul, abstrak):
+    """Teks ternormalisasi satu publikasi: judul + abstrak.
 
     Keduanya digabung supaya istilah yang HANYA muncul di abstrak (misalnya
-    nama instansi sumber data) tetap bisa dicari.
+    nama instansi sumber data) tetap bisa dicari. Satu fungsi untuk pipeline
+    pembaruan maupun tombol "Terapkan ke data", supaya hasilnya tidak berbeda.
     """
+    return normalisasi(f"{judul or ''} {abstrak or ''}")
+
+
+def _isi_publikasi():
+    """Normalkan judul + abstrak seluruh publikasi."""
     diubah = 0
     tanpa_abstrak = 0
     for p in Publikasi.query.all():
         if not p.abstrak:
             tanpa_abstrak += 1
-        baru = normalisasi(f"{p.judul or ''} {p.abstrak or ''}")
+        baru = teks_publikasi(p.judul, p.abstrak)
         if p.teks_ternormalisasi != baru:
             p.teks_ternormalisasi = baru
             diubah += 1
@@ -82,7 +88,7 @@ def jalankan(cetak=_diam):
     kamus = kamus_default()
     total = EntriDokumen.query.count()
     if not total:
-        cetak("Tabel entri_dokumen kosong - jalankan muat_ke_database.py dulu.")
+        cetak("Tabel entri_dokumen kosong - jalankan perbarui-data.bat dulu.")
         return None
 
     cetak(f"Menormalkan {total} entri (kamus: {len(kamus)} pemetaan varian)")

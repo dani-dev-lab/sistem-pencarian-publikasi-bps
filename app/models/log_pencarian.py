@@ -18,6 +18,11 @@ class LogPencarian(db.Model):
     keyword_ternormalisasi = db.Column(db.String(255))
     jumlah_hasil = db.Column(db.Integer, nullable=False, default=0)
     skor_tertinggi = db.Column(db.Float)
+
+    # Waktu pencarian per kueri nyata petugas. ukur_kinerja.py hanya mengukur
+    # kueri uji; kolom ini menjawab apakah pencarian melambat di pemakaian
+    # sebenarnya setelah data 13 kabupaten/kota masuk. Baris lama kosong.
+    durasi_ms = db.Column(db.Float)
     waktu_pencarian = db.Column(
         db.DateTime,
         nullable=False,

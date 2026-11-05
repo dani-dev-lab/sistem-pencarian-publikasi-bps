@@ -31,7 +31,6 @@ class Config:
     # WebAPI BPS
     BPS_API_KEY = os.getenv("BPS_API_KEY", "")
     BPS_API_BASE_URL = os.getenv("BPS_API_BASE_URL", "https://webapi.bps.go.id/v1/api")
-    BPS_DOMAIN = os.getenv("BPS_DOMAIN", "6300")  # Kalimantan Selatan
 
     # Database
     SQLALCHEMY_DATABASE_URI = os.getenv(
@@ -46,6 +45,7 @@ class Config:
     DIR_PUBLIKASI_PDF = BASE_DIR / "data" / "publikasi_pdf"
     DIR_SAMPEL_PDF = BASE_DIR / "data" / "sampel_pdf"
     FILE_KAMUS_SINONIM = BASE_DIR / "data" / "kamus_sinonim.json"
+    FILE_WILAYAH = BASE_DIR / "data" / "wilayah.json"
 
 
 PESAN_SECRET_KEY = """\

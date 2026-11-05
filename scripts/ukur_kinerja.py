@@ -92,9 +92,10 @@ def ukuran_berkas():
     json_ = {n: os.path.getsize(os.path.join(data, n))
              for n in sorted(os.listdir(data)) if n.endswith(".json")}
     dir_pdf = os.path.join(data, "publikasi_pdf")
-    pdf = [os.path.getsize(os.path.join(dir_pdf, n))
-           for n in os.listdir(dir_pdf) if n.lower().endswith(".pdf")] \
-        if os.path.isdir(dir_pdf) else []
+    # os.walk: PDF tersimpan per domain di subfolder.
+    pdf = [os.path.getsize(os.path.join(akar, n))
+           for akar, _, nama in os.walk(dir_pdf)
+           for n in nama if n.lower().endswith(".pdf")]
     return {
         "json_bytes": json_,
         "json_total_bytes": sum(json_.values()),

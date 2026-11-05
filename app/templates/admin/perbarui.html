@@ -9,25 +9,91 @@
   {% if berjalan or pid_lain %}<noscript><meta http-equiv="refresh" content="5"></noscript>{% endif %}
 {% endblock %}
 
+{% macro rincian_pembaruan(r) %}
+  {# Ringkasan lama (sebelum multi-domain) tidak punya r.domain dan r.durasi_tahap. #}
+  {% if r.publikasi_baru %}
+  <ul class="ringkasan-pembaruan">
+    {% for p in r.publikasi_baru %}
+      <li>{{ p.judul }} <span class="ringan">&mdash; {% if p.wilayah %}{{ p.wilayah }}, {% endif %}{{ p.entri }} bagian terindeks</span></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% if r.domain %}
+  <table class="tabel-log">
+    <thead>
+      <tr><th>Wilayah</th><th>Hasil</th><th class="ka">Publikasi</th>
+          <th class="ka">Diunduh</th><th class="ka">Diproses</th><th class="ka">Gagal</th></tr>
+    </thead>
+    <tbody>
+    {% for d in r.domain %}
+      <tr class="{% if d.status == 'gagal' or d.gagal %}baris-nol{% endif %}">
+        <td><strong>{{ d.wilayah }}</strong> <span class="ringan mono">{{ d.kode }}</span></td>
+        <td>{{ {"sukses": "Diperbarui", "tidak_ada_baru": "Tidak ada yang baru",
+                "sebagian": "Sebagian gagal", "gagal": "Gagal"}.get(d.status, d.status) }}</td>
+        <td class="ka">{{ d.jumlah_publikasi }}</td>
+        <td class="ka">{{ d.diunduh }}</td>
+        <td class="ka">{{ d.diproses }}</td>
+        <td class="ka">{{ d.gagal|length }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+  {% for d in r.domain %}
+    {% if d.pesan %}<p class="kabar kabar-gagal"><strong>{{ d.wilayah }}:</strong> {{ d.pesan }}</p>{% endif %}
+    {% if d.gagal %}
+    <p class="ringan"><strong>{{ d.wilayah }}</strong> &mdash; publikasi yang gagal (data lamanya
+      tetap dipakai, dicoba lagi pada pembaruan berikutnya):</p>
+    <ul class="ringkasan-pembaruan">
+      {% for g in d.gagal %}<li>{{ g.judul }} <span class="ringan">&mdash; {{ g.tahap }}: {{ g.pesan }}</span></li>{% endfor %}
+    </ul>
+    {% endif %}
+    {% if d.tabrakan %}
+    <p class="ringan"><strong>{{ d.wilayah }}</strong> &mdash; publikasi yang sudah tercatat milik
+      wilayah lain, tidak ditimpa. Hubungi tim IT:</p>
+    <ul class="ringkasan-pembaruan">
+      {% for t in d.tabrakan %}<li>{{ t.judul_api }} <span class="ringan mono">{{ t.pub_id }}, milik {{ t.domain_lain }}</span></li>{% endfor %}
+    </ul>
+    {% endif %}
+    {% if d.tidak_di_daftar %}
+    <p class="ringan"><strong>{{ d.wilayah }}</strong> &mdash; {{ d.tidak_di_daftar|length }} publikasi
+      tidak lagi ada di daftar BPS. Tetap bisa dicari, tidak dihapus.</p>
+    {% endif %}
+    {% if d.menunggu_unduhan %}
+    <p class="ringan"><strong>{{ d.wilayah }}</strong> &mdash; {{ d.menunggu_unduhan|length }} publikasi
+      punya versi lebih baru di BPS dan menunggu pembaruan online.</p>
+    {% endif %}
+  {% endfor %}
+  {% endif %}
+
+  {% if r.durasi_tahap %}
+  <p class="ringan">Waktu per tahap: ambil daftar {{ r.durasi_tahap.ambil_metadata }} detik,
+    unduh {{ r.durasi_tahap.unduh }} detik, baca PDF {{ r.durasi_tahap.ekstraksi }} detik,
+    simpan {{ r.durasi_tahap.muat }} detik.</p>
+  {% endif %}
+{% endmacro %}
+
 {% macro ringkasan_hasil(r) %}
   {% if r.status == "tidak_ada_baru" %}
     <p class="kabar kabar-sukses">Tidak ada publikasi baru. {{ r.jumlah_publikasi }}
       publikasi di daftar BPS semuanya sudah terindeks.
       <span class="ringan">({{ r.durasi_detik }} detik)</span></p>
+    {{ rincian_pembaruan(r) }}
   {% elif r.status == "sukses" %}
     <p class="kabar kabar-sukses">Pembaruan selesai:
       <strong>{{ r.publikasi_baru|length }} publikasi baru</strong>,
-      entri dokumen {{ r.entri_sebelum }} &rarr; {{ r.entri_sesudah }}
-      (+{{ r.entri_sesudah - r.entri_sebelum }}). Total {{ r.jumlah_publikasi }}
-      publikasi. Data baru langsung bisa dicari.
+      entri dokumen {{ r.entri_sebelum }} &rarr; {{ r.entri_sesudah }}.
+      Total {{ r.jumlah_publikasi }} publikasi. Data baru langsung bisa dicari.
       <span class="ringan">({{ r.durasi_detik }} detik)</span></p>
-    {% if r.publikasi_baru %}
-    <ul class="ringkasan-pembaruan">
-      {% for p in r.publikasi_baru %}
-        <li>{{ p.judul }} <span class="ringan">&mdash; {{ p.entri }} bagian terindeks</span></li>
-      {% endfor %}
-    </ul>
-    {% endif %}
+    {{ rincian_pembaruan(r) }}
+  {% elif r.status == "sebagian" %}
+    <p class="kabar kabar-gagal"><strong>Pembaruan selesai sebagian.</strong>
+      Wilayah atau publikasi yang berhasil sudah bisa dicari; yang gagal tetap
+      memakai data lamanya dan akan dicoba lagi pada pembaruan berikutnya.
+      Entri dokumen {{ r.entri_sebelum }} &rarr; {{ r.entri_sesudah }}.
+      <span class="ringan">({{ r.durasi_detik }} detik)</span></p>
+    {{ rincian_pembaruan(r) }}
   {% elif r.status == "gagal" %}
     {% if r.jaringan %}
       <p class="kabar kabar-gagal"><strong>Tidak bisa terhubung ke WebAPI BPS.</strong>
@@ -35,10 +101,11 @@
         (jaringan &ldquo;BPS - Tamu&rdquo; memblokir akses), lalu coba lagi.
         Data yang sudah ada tetap utuh.</p>
     {% else %}
-      <p class="kabar kabar-gagal"><strong>Pembaruan gagal</strong> di tahap {{ r.tahap }}.
+      <p class="kabar kabar-gagal"><strong>Pembaruan gagal</strong>{% if r.tahap %} di tahap {{ r.tahap }}{% endif %}.
         Data yang sudah ada tetap utuh dan pembaruan aman diulang. Kalau gagal lagi,
         hubungi tim IT dan sertakan catatan proses di bawah.</p>
     {% endif %}
+    {{ rincian_pembaruan(r) }}
   {% endif %}
 {% endmacro %}
 
@@ -98,18 +165,20 @@
     {{ ringkasan_hasil(ringkasan) }}
   {% endif %}
 
-  <p>Mengambil daftar publikasi terbaru dari WebAPI BPS, mengunduh PDF publikasi
-    yang belum ada, membaca strukturnya, dan memasukkannya ke database supaya
-    bisa dicari. Publikasi yang sudah ada tidak diproses ulang.</p>
+  <p>Mengambil daftar publikasi terbaru dari WebAPI BPS untuk tiap wilayah aktif,
+    mengunduh PDF publikasi yang belum ada atau yang diperbarui BPS, membaca
+    strukturnya, dan memasukkannya ke database supaya bisa dicari. Publikasi yang
+    tidak berubah tidak diproses ulang.</p>
   <ul class="langkah-pembaruan">
     <li><strong>Syarat:</strong> komputer ini harus tersambung ke jaringan
       <strong>&ldquo;BPS - Pegawai&rdquo;</strong>. Jaringan &ldquo;BPS - Tamu&rdquo;
       memblokir WebAPI BPS.</li>
-    <li><strong>Lama:</strong> sekitar 2 menit kalau tidak ada publikasi baru
-      (memeriksa 65+ halaman daftar, dengan jeda 1 detik per halaman sesuai
-      ketentuan BPS), ditambah 20&ndash;90 detik per publikasi baru.</li>
+    <li><strong>Lama:</strong> sekitar 2 menit per wilayah kalau tidak ada publikasi
+      baru (memeriksa seluruh halaman daftar, dengan jeda 1 detik per halaman sesuai
+      ketentuan BPS), ditambah 20&ndash;90 detik per publikasi yang diproses.</li>
     <li><strong>Aman:</strong> pencarian tetap bisa dipakai selama pembaruan.
-      Kalau gagal di tengah, data lama tetap utuh dan pembaruan bisa diulang.</li>
+      Kalau satu wilayah atau publikasi gagal, yang lain tetap diproses, data lamanya
+      tetap utuh, dan pembaruan bisa diulang.</li>
   </ul>
   <form method="post" action="{{ url_for('admin.perbarui_mulai') }}">
     <button type="submit" class="tombol-utama">Mulai pembaruan</button>

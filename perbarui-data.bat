@@ -10,8 +10,8 @@ echo.
 echo   Butuh koneksi ke jaringan "BPS - Pegawai".
 echo   Jaringan "BPS - Tamu" memblokir WebAPI BPS.
 echo.
-echo   Kalau tidak ada publikasi baru, proses selesai dalam ~2 menit.
-echo   Kalau ada publikasi baru, tiap publikasi butuh ~20-60 detik
+echo   Kalau tidak ada publikasi baru, proses selesai dalam ~2 menit per wilayah.
+echo   Tiap publikasi yang perlu diproses butuh ~20-90 detik
 echo   (unduh PDF + membaca strukturnya).
 echo.
 
@@ -52,15 +52,21 @@ if errorlevel 1 (
 )
 echo MySQL aktif.
 echo.
-echo Memulai. Tahap pertama memeriksa 65+ halaman daftar publikasi di WebAPI
-echo dengan jeda 1 detik per halaman - baris "halaman N/65 ... OK" akan muncul
-echo satu per satu selama sekitar 2 menit. Itu normal, bukan macet.
+echo Memulai. Tiap wilayah diawali pemeriksaan seluruh halaman daftar publikasi
+echo di WebAPI dengan jeda 1 detik per halaman - baris "halaman N/65 ... OK"
+echo muncul satu per satu. Itu normal, bukan macet.
 echo.
 
 python scripts\perbarui.py %*
 
 echo.
-if errorlevel 2 (
+if errorlevel 3 (
+    echo ==========================================================
+    echo   PEMBARUAN SELESAI SEBAGIAN - sebagian wilayah/publikasi gagal.
+    echo ==========================================================
+    echo   Yang berhasil sudah bisa dicari. Yang gagal tetap memakai data
+    echo   lamanya dan dicoba lagi pada pembaruan berikutnya. Baca rincian di atas.
+) else if errorlevel 2 (
     echo ==========================================================
     echo   TIDAK DIJALANKAN: pembaruan lain sedang berjalan.
     echo ==========================================================
