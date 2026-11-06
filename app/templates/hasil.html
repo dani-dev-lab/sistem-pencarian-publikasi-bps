@@ -29,9 +29,15 @@
 
   <p class="lokasi">
     <span class="tipe tipe-{{ h.tipe }}">{{ h.tipe|upper }}</span>
+    {# Entri Daftar Isi memang tidak bernomor (isinya bab, bukan tabel), jadi
+       "Nomor —" di situ bukan data hilang dan tidak perlu ditampilkan. #}
     {% if h.nomor %}<span class="meta">Nomor {{ h.nomor }}</span>
-    {% else %}<span class="meta kosong">Nomor &mdash;</span>{% endif %}
+    {% elif h.tipe != 'isi' %}<span class="meta kosong">Nomor &mdash;</span>{% endif %}
+    {# Tanpa nomor cetak tapi halaman fisiknya diketahui (dari jalur badan):
+       tampilkan halaman fisik dengan label berbeda, karena nomor cetak dan
+       nomor halaman PDF sering tidak sama. #}
     {% if h.halaman %}<span class="meta">Halaman {{ h.halaman }}</span>
+    {% elif h.halaman_fisik %}<span class="meta">Halaman PDF {{ h.halaman_fisik }}</span>
     {% else %}<span class="meta kosong">Halaman &mdash;</span>{% endif %}
   </p>
 
