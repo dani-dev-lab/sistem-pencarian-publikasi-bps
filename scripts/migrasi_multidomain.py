@@ -72,7 +72,9 @@ def tambah_kolom(c):
 def _baca_json(path):
     if not os.path.exists(path):
         raise SystemExit(f"{path} tidak ada, padahal masih ada publikasi yang "
-                         "perlu diisi. Pulihkan dari riwayat Git lalu ulangi.")
+                         "perlu diisi. Ambil dari tag Git arsip-sebelum-rombakan:\n"
+                         f"    git show arsip-sebelum-rombakan:{os.path.relpath(path, DIR_PROYEK).replace(os.sep, '/')} > {os.path.relpath(path, DIR_PROYEK)}\n"
+                         "lalu ulangi.")
     with open(path, encoding="utf-8") as f:
         return json.load(f)
 

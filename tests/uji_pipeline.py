@@ -10,8 +10,10 @@ suite pytest, dan kode keluarnya tetap 0 meskipun ada yang gagal.
 Syarat:
 - HANYA untuk keadaan SEBELUM migrasi multi-domain: PDF masih di
   data/publikasi_pdf/ tanpa subfolder, dan data/publikasi_2025_2026.json serta
-  data/hasil_ekstraksi.json masih ada. Sesudah migrasi, jalankan dari commit
-  sebelum migrasi. Hasil terakhirnya ada di data/regresi/laporan-uji-20261105.md.
+  data/hasil_ekstraksi.json masih ada. Sejak migrasi 6 November 2026 keadaan itu
+  hanya ada di tag Git arsip-sebelum-rombakan (git worktree add ../arsip
+  arsip-sebelum-rombakan). Hasil terakhirnya ada di
+  data/regresi/laporan-uji-20261105.md.
 - Cadangan mysqldump (tanpa --databases) di ~/cadangan-bps/. Yang dipakai adalah
   cadangan terlama.
 - MySQL Laragon di path BIN di bawah, dan .env berisi DATABASE_URL. Folder
