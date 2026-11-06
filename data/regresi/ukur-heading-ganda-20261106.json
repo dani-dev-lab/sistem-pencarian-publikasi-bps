@@ -1,0 +1,649 @@
+{
+ "ringkas": {
+  "pdf": 79,
+  "A_lama_detik": 1836.1,
+  "B_baru_detik": 1561.6,
+  "A_cpu": 1825.6,
+  "B_cpu": 1552.0,
+  "hemat_detik": 274.5,
+  "hemat_persen": 14.9,
+  "hemat_persen_median_per_pdf": 16.1,
+  "B_lebih_lambat_pada_pdf": 2,
+  "keluaran_A_vs_B_berbeda": [],
+  "detik_sesi": 3398
+ },
+ "baris": [
+  {
+   "pub_id": "09436841e9f939584a01daa4",
+   "urutan": "AB",
+   "A": 6.6,
+   "A_cpu": 6.5,
+   "B": 6.3,
+   "B_cpu": 6.27
+  },
+  {
+   "pub_id": "1148726345a0364ee0ed9211",
+   "urutan": "BA",
+   "B": 8.49,
+   "B_cpu": 8.39,
+   "A": 10.12,
+   "A_cpu": 10.08
+  },
+  {
+   "pub_id": "11487a617225d1ef21344169",
+   "urutan": "AB",
+   "A": 10.62,
+   "A_cpu": 10.55,
+   "B": 8.92,
+   "B_cpu": 8.91
+  },
+  {
+   "pub_id": "172b31dadf396597e64afd5c",
+   "urutan": "BA",
+   "B": 21.17,
+   "B_cpu": 20.94,
+   "A": 22.81,
+   "A_cpu": 22.75
+  },
+  {
+   "pub_id": "18e4b6e4fc187b3e23c165f3",
+   "urutan": "AB",
+   "A": 30.23,
+   "A_cpu": 30.12,
+   "B": 25.37,
+   "B_cpu": 25.31
+  },
+  {
+   "pub_id": "193ca99319f4d2103c5bd444",
+   "urutan": "BA",
+   "B": 27.8,
+   "B_cpu": 27.52,
+   "A": 31.33,
+   "A_cpu": 31.2
+  },
+  {
+   "pub_id": "19b4856cba230b2b46985fba",
+   "urutan": "AB",
+   "A": 15.86,
+   "A_cpu": 15.7,
+   "B": 13.23,
+   "B_cpu": 13.19
+  },
+  {
+   "pub_id": "1a254bc901b30cfcd747f392",
+   "urutan": "BA",
+   "B": 25.1,
+   "B_cpu": 24.75,
+   "A": 27.77,
+   "A_cpu": 27.69
+  },
+  {
+   "pub_id": "1bc84df2238512203e3d0c58",
+   "urutan": "AB",
+   "A": 6.32,
+   "A_cpu": 6.25,
+   "B": 4.4,
+   "B_cpu": 4.41
+  },
+  {
+   "pub_id": "1c688dd3f6c8ca630a9a3190",
+   "urutan": "BA",
+   "B": 7.71,
+   "B_cpu": 7.62,
+   "A": 9.56,
+   "A_cpu": 9.48
+  },
+  {
+   "pub_id": "1e41ba978de03819efbc9516",
+   "urutan": "AB",
+   "A": 18.25,
+   "A_cpu": 17.98,
+   "B": 13.35,
+   "B_cpu": 13.25
+  },
+  {
+   "pub_id": "2223fbffa401ff7bf9e66bc5",
+   "urutan": "BA",
+   "B": 6.11,
+   "B_cpu": 5.98,
+   "A": 9.54,
+   "A_cpu": 9.52
+  },
+  {
+   "pub_id": "22aa7968d75d0389c943b79f",
+   "urutan": "AB",
+   "A": 19.19,
+   "A_cpu": 19.06,
+   "B": 18.48,
+   "B_cpu": 18.45
+  },
+  {
+   "pub_id": "267958a59929b37cf3c98ec4",
+   "urutan": "BA",
+   "B": 7.64,
+   "B_cpu": 7.53,
+   "A": 8.21,
+   "A_cpu": 8.16
+  },
+  {
+   "pub_id": "26d401fdac292ca0c7b7f32f",
+   "urutan": "AB",
+   "A": 68.63,
+   "A_cpu": 67.72,
+   "B": 66.41,
+   "B_cpu": 66.2
+  },
+  {
+   "pub_id": "27202412b044e59fad475794",
+   "urutan": "BA",
+   "B": 4.19,
+   "B_cpu": 4.19,
+   "A": 7.94,
+   "A_cpu": 7.94
+  },
+  {
+   "pub_id": "2ddab8a817f162547f27c505",
+   "urutan": "AB",
+   "A": 22.8,
+   "A_cpu": 22.7,
+   "B": 21.17,
+   "B_cpu": 21.14
+  },
+  {
+   "pub_id": "3212257d2614f09cdae469b9",
+   "urutan": "BA",
+   "B": 9.07,
+   "B_cpu": 8.95,
+   "A": 10.59,
+   "A_cpu": 10.55
+  },
+  {
+   "pub_id": "335ac15d2ada36b5d2402538",
+   "urutan": "AB",
+   "A": 36.57,
+   "A_cpu": 36.25,
+   "B": 33.56,
+   "B_cpu": 33.44
+  },
+  {
+   "pub_id": "3619db352b3ebc2f360a4d60",
+   "urutan": "BA",
+   "B": 4.05,
+   "B_cpu": 4.03,
+   "A": 6.95,
+   "A_cpu": 6.95
+  },
+  {
+   "pub_id": "38778154d51012af9aa474be",
+   "urutan": "AB",
+   "A": 15.7,
+   "A_cpu": 15.5,
+   "B": 13.56,
+   "B_cpu": 13.56
+  },
+  {
+   "pub_id": "3d61cea5651555d51e43f6ed",
+   "urutan": "BA",
+   "B": 32.66,
+   "B_cpu": 32.25,
+   "A": 34.77,
+   "A_cpu": 34.69
+  },
+  {
+   "pub_id": "40fe4a27d56d9d5e7a4a73c5",
+   "urutan": "AB",
+   "A": 5.48,
+   "A_cpu": 5.47,
+   "B": 3.54,
+   "B_cpu": 3.52
+  },
+  {
+   "pub_id": "49c5df1bd1381fa594485be4",
+   "urutan": "BA",
+   "B": 7.26,
+   "B_cpu": 7.12,
+   "A": 9.16,
+   "A_cpu": 9.14
+  },
+  {
+   "pub_id": "579f51463ffd01c09088822f",
+   "urutan": "AB",
+   "A": 3.06,
+   "A_cpu": 3.03,
+   "B": 1.98,
+   "B_cpu": 1.97
+  },
+  {
+   "pub_id": "6062f26c3be97a311651cc58",
+   "urutan": "BA",
+   "B": 10.88,
+   "B_cpu": 10.8,
+   "A": 15.04,
+   "A_cpu": 15.02
+  },
+  {
+   "pub_id": "6867ebfd207c3191863afa90",
+   "urutan": "AB",
+   "A": 11.33,
+   "A_cpu": 11.12,
+   "B": 8.25,
+   "B_cpu": 8.25
+  },
+  {
+   "pub_id": "6a0ad2d41da81a43156ee6b5",
+   "urutan": "BA",
+   "B": 7.57,
+   "B_cpu": 7.47,
+   "A": 8.64,
+   "A_cpu": 8.61
+  },
+  {
+   "pub_id": "6fc864b9ac76aace2eb1b157",
+   "urutan": "AB",
+   "A": 9.44,
+   "A_cpu": 9.31,
+   "B": 7.19,
+   "B_cpu": 7.12
+  },
+  {
+   "pub_id": "70d54ffed4ab46df969baefd",
+   "urutan": "BA",
+   "B": 6.85,
+   "B_cpu": 6.8,
+   "A": 8.45,
+   "A_cpu": 8.42
+  },
+  {
+   "pub_id": "760824eff5bee26dcbcd2b05",
+   "urutan": "AB",
+   "A": 13.53,
+   "A_cpu": 13.39,
+   "B": 11.64,
+   "B_cpu": 11.56
+  },
+  {
+   "pub_id": "7ab5836f6a1bd847813f4cfc",
+   "urutan": "BA",
+   "B": 13.27,
+   "B_cpu": 13.08,
+   "A": 14.82,
+   "A_cpu": 14.75
+  },
+  {
+   "pub_id": "7d1c21c1e8e72b51d55d64e7",
+   "urutan": "AB",
+   "A": 10.99,
+   "A_cpu": 10.83,
+   "B": 8.2,
+   "B_cpu": 8.19
+  },
+  {
+   "pub_id": "7ec81cb73d378471b4383b70",
+   "urutan": "BA",
+   "B": 5.73,
+   "B_cpu": 5.67,
+   "A": 6.97,
+   "A_cpu": 6.94
+  },
+  {
+   "pub_id": "8367dad5dd6fc6310d9e991c",
+   "urutan": "AB",
+   "A": 6.14,
+   "A_cpu": 6.06,
+   "B": 4.53,
+   "B_cpu": 4.52
+  },
+  {
+   "pub_id": "83f521a7942397dd088450a7",
+   "urutan": "BA",
+   "B": 13.98,
+   "B_cpu": 13.88,
+   "A": 16.2,
+   "A_cpu": 16.19
+  },
+  {
+   "pub_id": "83fff1db70f5f0c604c0191f",
+   "urutan": "AB",
+   "A": 27.56,
+   "A_cpu": 27.41,
+   "B": 25.23,
+   "B_cpu": 25.19
+  },
+  {
+   "pub_id": "856e507e98d6b1d97343a2ea",
+   "urutan": "BA",
+   "B": 7.91,
+   "B_cpu": 7.77,
+   "A": 8.75,
+   "A_cpu": 8.72
+  },
+  {
+   "pub_id": "87781992ddac71fced7f984c",
+   "urutan": "AB",
+   "A": 4.49,
+   "A_cpu": 4.44,
+   "B": 2.66,
+   "B_cpu": 2.67
+  },
+  {
+   "pub_id": "8b097d5899f32c7f41466de9",
+   "urutan": "BA",
+   "B": 6.79,
+   "B_cpu": 6.69,
+   "A": 8.59,
+   "A_cpu": 8.52
+  },
+  {
+   "pub_id": "959d9fd419f6605686913df8",
+   "urutan": "AB",
+   "A": 196.57,
+   "A_cpu": 194.95,
+   "B": 192.42,
+   "B_cpu": 191.73
+  },
+  {
+   "pub_id": "9ab3d434a11c3831284d7688",
+   "urutan": "BA",
+   "B": 3.74,
+   "B_cpu": 3.67,
+   "A": 5.26,
+   "A_cpu": 5.25
+  },
+  {
+   "pub_id": "9f4c3cc4e3aecabb44a56a11",
+   "urutan": "AB",
+   "A": 10.34,
+   "A_cpu": 10.23,
+   "B": 5.09,
+   "B_cpu": 5.09
+  },
+  {
+   "pub_id": "a0c08b4ab774b111f29de6a2",
+   "urutan": "BA",
+   "B": 2.69,
+   "B_cpu": 2.69,
+   "A": 3.65,
+   "A_cpu": 3.66
+  },
+  {
+   "pub_id": "a378694152b3182da042d887",
+   "urutan": "AB",
+   "A": 9.11,
+   "A_cpu": 9.05,
+   "B": 7.31,
+   "B_cpu": 7.28
+  },
+  {
+   "pub_id": "a3adb318562176d84e75cd19",
+   "urutan": "BA",
+   "B": 5.48,
+   "B_cpu": 5.42,
+   "A": 6.59,
+   "A_cpu": 6.55
+  },
+  {
+   "pub_id": "a44895e17f6202db16fd5cb6",
+   "urutan": "AB",
+   "A": 5.14,
+   "A_cpu": 5.12,
+   "B": 4.08,
+   "B_cpu": 4.03
+  },
+  {
+   "pub_id": "a461e81232da10c37c6ee40a",
+   "urutan": "BA",
+   "B": 14.66,
+   "B_cpu": 14.61,
+   "A": 16.74,
+   "A_cpu": 16.67
+  },
+  {
+   "pub_id": "a7356ab4d641213220fac759",
+   "urutan": "AB",
+   "A": 36.91,
+   "A_cpu": 36.52,
+   "B": 34.23,
+   "B_cpu": 34.17
+  },
+  {
+   "pub_id": "a8667ba0385aecd150f2de92",
+   "urutan": "BA",
+   "B": 3.98,
+   "B_cpu": 3.92,
+   "A": 4.44,
+   "A_cpu": 4.42
+  },
+  {
+   "pub_id": "aabde6155c348a763129c8e4",
+   "urutan": "AB",
+   "A": 11.71,
+   "A_cpu": 11.55,
+   "B": 10.16,
+   "B_cpu": 10.12
+  },
+  {
+   "pub_id": "ac3255bf717fb753419c9e05",
+   "urutan": "BA",
+   "B": 3.81,
+   "B_cpu": 3.8,
+   "A": 4.62,
+   "A_cpu": 4.59
+  },
+  {
+   "pub_id": "afd64a18ea70c4de51b8b03f",
+   "urutan": "AB",
+   "A": 40.91,
+   "A_cpu": 40.58,
+   "B": 39.2,
+   "B_cpu": 39.16
+  },
+  {
+   "pub_id": "b0b8c7ea69d496329b06e86c",
+   "urutan": "BA",
+   "B": 5.25,
+   "B_cpu": 5.17,
+   "A": 8.19,
+   "A_cpu": 8.19
+  },
+  {
+   "pub_id": "b28314d9b49b5d9a6e0b8f96",
+   "urutan": "AB",
+   "A": 3.2,
+   "A_cpu": 3.17,
+   "B": 1.59,
+   "B_cpu": 1.59
+  },
+  {
+   "pub_id": "b4541a05ad8f1d373131fb1b",
+   "urutan": "BA",
+   "B": 7.56,
+   "B_cpu": 7.47,
+   "A": 8.95,
+   "A_cpu": 8.92
+  },
+  {
+   "pub_id": "b6748302ae22aa8013a83752",
+   "urutan": "AB",
+   "A": 5.04,
+   "A_cpu": 5.03,
+   "B": 2.96,
+   "B_cpu": 2.92
+  },
+  {
+   "pub_id": "b85c0a3e002f26d0e75b11d7",
+   "urutan": "BA",
+   "B": 9.63,
+   "B_cpu": 9.56,
+   "A": 11.23,
+   "A_cpu": 11.22
+  },
+  {
+   "pub_id": "b97b3009ed848f57fc3a1649",
+   "urutan": "AB",
+   "A": 8.96,
+   "A_cpu": 8.86,
+   "B": 7.51,
+   "B_cpu": 7.48
+  },
+  {
+   "pub_id": "b99ddcad7bf0b9980ee3f8d3",
+   "urutan": "BA",
+   "B": 11.85,
+   "B_cpu": 11.7,
+   "A": 13.39,
+   "A_cpu": 13.34
+  },
+  {
+   "pub_id": "c35054ac95c0c71da7234092",
+   "urutan": "AB",
+   "A": 10.82,
+   "A_cpu": 10.7,
+   "B": 7.61,
+   "B_cpu": 7.62
+  },
+  {
+   "pub_id": "c86b68e260a7414cc21b598f",
+   "urutan": "BA",
+   "B": 13.34,
+   "B_cpu": 13.2,
+   "A": 15.12,
+   "A_cpu": 15.05
+  },
+  {
+   "pub_id": "c9e912d1ac34fd3b64fcd2c4",
+   "urutan": "AB",
+   "A": 32.04,
+   "A_cpu": 31.77,
+   "B": 28.72,
+   "B_cpu": 28.67
+  },
+  {
+   "pub_id": "ca75dfe672b187275d918694",
+   "urutan": "BA",
+   "B": 9.95,
+   "B_cpu": 9.78,
+   "A": 10.54,
+   "A_cpu": 10.55
+  },
+  {
+   "pub_id": "ceddeca5e981ecbd7b367a0a",
+   "urutan": "AB",
+   "A": 344.96,
+   "A_cpu": 343.73,
+   "B": 274.59,
+   "B_cpu": 273.61
+  },
+  {
+   "pub_id": "d8082cb1dd596aa99d65aedb",
+   "urutan": "BA",
+   "B": 11.7,
+   "B_cpu": 11.66,
+   "A": 7.03,
+   "A_cpu": 6.98
+  },
+  {
+   "pub_id": "d890fb32c5f0071799b08b60",
+   "urutan": "AB",
+   "A": 3.88,
+   "A_cpu": 3.88,
+   "B": 2.0,
+   "B_cpu": 2.0
+  },
+  {
+   "pub_id": "dc342b31a1e2000c0b099c56",
+   "urutan": "BA",
+   "B": 73.04,
+   "B_cpu": 72.16,
+   "A": 77.83,
+   "A_cpu": 77.56
+  },
+  {
+   "pub_id": "dcb62e21ef8c01d535f4f9dd",
+   "urutan": "AB",
+   "A": 9.85,
+   "A_cpu": 9.84,
+   "B": 12.35,
+   "B_cpu": 12.33
+  },
+  {
+   "pub_id": "e1c7c0e46993748e88cfee5e",
+   "urutan": "BA",
+   "B": 8.02,
+   "B_cpu": 7.97,
+   "A": 9.92,
+   "A_cpu": 9.89
+  },
+  {
+   "pub_id": "e424ed581fd7820469691e79",
+   "urutan": "AB",
+   "A": 7.82,
+   "A_cpu": 7.77,
+   "B": 5.91,
+   "B_cpu": 5.86
+  },
+  {
+   "pub_id": "e78fe914f8766a7a09000a47",
+   "urutan": "BA",
+   "B": 51.91,
+   "B_cpu": 51.16,
+   "A": 54.92,
+   "A_cpu": 54.81
+  },
+  {
+   "pub_id": "f11b837fbb40e656df4f77a2",
+   "urutan": "AB",
+   "A": 118.98,
+   "A_cpu": 118.48,
+   "B": 66.87,
+   "B_cpu": 66.64
+  },
+  {
+   "pub_id": "f413fcd9394cd3fabd8f0b19",
+   "urutan": "BA",
+   "B": 8.41,
+   "B_cpu": 8.28,
+   "A": 9.12,
+   "A_cpu": 9.11
+  },
+  {
+   "pub_id": "f510ed37bf28fc99031880e8",
+   "urutan": "AB",
+   "A": 24.73,
+   "A_cpu": 24.59,
+   "B": 23.16,
+   "B_cpu": 23.05
+  },
+  {
+   "pub_id": "faf617cbeea57a472be6cd1b",
+   "urutan": "BA",
+   "B": 2.59,
+   "B_cpu": 2.58,
+   "A": 5.46,
+   "A_cpu": 5.44
+  },
+  {
+   "pub_id": "fed52821349d4d674ad75769",
+   "urutan": "AB",
+   "A": 6.79,
+   "A_cpu": 6.75,
+   "B": 4.19,
+   "B_cpu": 4.19
+  },
+  {
+   "pub_id": "ff0ff482f84e322c69615f75",
+   "urutan": "BA",
+   "B": 50.47,
+   "B_cpu": 49.75,
+   "A": 53.91,
+   "A_cpu": 53.69
+  },
+  {
+   "pub_id": "ffe587bf34a60a325909d460",
+   "urutan": "AB",
+   "A": 2.47,
+   "A_cpu": 2.42,
+   "B": 1.41,
+   "B_cpu": 1.41
+  }
+ ]
+}
