@@ -931,16 +931,23 @@ def lengkapi_halaman_fisik(pdf, entri):
 # API modul
 # --------------------------------------------------------------------------
 
-def ekstrak_lengkap(path_pdf, publikasi_id, jejak=None):
+def ekstrak_lengkap(path_pdf, publikasi_id, jejak=None, heading_keluar=None):
     """Ekstraksi DUA jalur: halaman daftar + badan dokumen, lalu digabung.
 
     Jalur daftar memberi nomor halaman CETAK; jalur badan memberi halaman
     FISIK PDF. Entri yang ditemukan keduanya disatukan sehingga punya
     dua-duanya, dengan kolom `sumber` menandai asalnya.
+
+    `heading_keluar` opsional, sama polanya dengan `jejak`: kalau diberi dict,
+    diisi heading DAFTAR yang ditemukan {tipe: indeks halaman}. Pemanggil yang
+    perlu mencatat heading tidak usah memanggil cari_heading() sendiri - itu
+    memakan sekitar 16% waktu ekstraksi karena seluruh halaman depan dibaca dua kali.
     """
     with pdfplumber.open(path_pdf) as pdf:
         dari_daftar = []
         heading = cari_heading(pdf)
+        if heading_keluar is not None:
+            heading_keluar.update(heading)
         for tipe, halaman in sorted(heading.items(), key=lambda x: x[1]):
             dari_daftar.extend(_baca_daftar(pdf, halaman, tipe, publikasi_id, jejak))
         for e in dari_daftar:

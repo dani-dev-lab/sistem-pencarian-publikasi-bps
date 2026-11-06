@@ -15,10 +15,8 @@ import re
 from collections import Counter
 from datetime import date, datetime, timezone
 
-import pdfplumber
-
 from app.models import EntriDokumen, Kategori, Publikasi, db
-from app.services.ekstraksi_pdf import cari_heading, ekstrak_lengkap
+from app.services.ekstraksi_pdf import ekstrak_lengkap
 from app.services.normalisasi_data import teks_publikasi
 from app.services.preprocessing import normalisasi
 from app.services.sumber_bps import berkas_pdf_valid, path_pdf, samarkan, sidik_pdf
@@ -196,12 +194,13 @@ def susun_rencana(kode, di_daftar=None, paksa=False):
 
 def ekstrak_berkas(path, pub_id):
     """Jalankan parser. Tidak menyentuh database. Return (entri, catatan)."""
-    # Heading dicatat terpisah supaya bisa membedakan "daftarnya memang tidak
-    # ada" dari "daftarnya ada tapi gagal dibaca".
-    with pdfplumber.open(path) as pdf:
-        heading = cari_heading(pdf)
+    # Heading dicatat supaya bisa membedakan "daftarnya memang tidak ada" dari
+    # "daftarnya ada tapi gagal dibaca". Diambil dari dalam ekstrak_lengkap(),
+    # bukan dicari ulang: mencarinya dua kali menambah sekitar 16% waktu.
+    heading = {}
     jejak = []
-    entri, n_daftar, n_badan, n_lengkap = ekstrak_lengkap(path, pub_id, jejak)
+    entri, n_daftar, n_badan, n_lengkap = ekstrak_lengkap(
+        path, pub_id, jejak, heading_keluar=heading)
 
     catatan = {
         "heading_ditemukan": sorted(heading),
