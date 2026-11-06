@@ -47,6 +47,21 @@ class Config:
     FILE_KAMUS_SINONIM = BASE_DIR / "data" / "kamus_sinonim.json"
     FILE_WILAYAH = BASE_DIR / "data" / "wilayah.json"
 
+    # Rekam tiap pencarian di /hasil ke log_pencarian. Sengaja TIDAK dibaca
+    # dari .env: log ini bahan perbaikan kamus sinonim, dan satu baris salah di
+    # .env server akan mematikannya tanpa ada yang sadar. Yang mematikannya
+    # hanya KonfigurasiUji di bawah, supaya pemeriksaan route /hasil terhadap
+    # data asli tidak mencemari log dengan kueri buatan.
+    CATAT_LOG_PENCARIAN = True
+
+
+class KonfigurasiUji(Config):
+    """Konfigurasi untuk pengujian: semuanya sama, kecuali log tidak ditulis.
+
+    Pakai: create_app(KonfigurasiUji).
+    """
+    CATAT_LOG_PENCARIAN = False
+
 
 PESAN_SECRET_KEY = """\
 SECRET_KEY di .env kosong atau masih memakai nilai bawaan pengembangan.

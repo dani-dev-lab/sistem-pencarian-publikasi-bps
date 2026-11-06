@@ -49,7 +49,12 @@ def _catat_log(hasil):
 
     Kegagalan pencatatan TIDAK boleh menggagalkan pencarian - petugas tetap
     harus dapat hasilnya.
+
+    Tidak mencatat apa pun kalau CATAT_LOG_PENCARIAN mati, yaitu hanya di
+    KonfigurasiUji (lihat app/config.py).
     """
+    if not current_app.config.get("CATAT_LOG_PENCARIAN", True):
+        return
     semua = hasil["publikasi"] + hasil["ditemukan"] + hasil["saran"]
     try:
         db.session.add(LogPencarian(
