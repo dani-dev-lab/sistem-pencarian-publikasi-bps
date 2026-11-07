@@ -545,8 +545,16 @@ memuat token "hotel"); menghapus varian lalu Terapkan lagi mengembalikan
 database ke keadaan awal byte-per-byte.
 
 ## Catatan lingkungan
-- WebAPI BPS hanya bisa diakses dari jaringan "BPS - Pegawai".
-  Jaringan "BPS - Tamu" memblokir (DNS mengarah ke 10.0.11.232, koneksi ditolak).
+- Akses WebAPI BPS gagal dari Wi-Fi kantor karena **DNS internal kantor**,
+  bukan karena WebAPI-nya diblokir. DNS kantor mengarahkan webapi.bps.go.id
+  ke vs.bps.go.id → 10.0.11.232, dan koneksi ke alamat itu ditolak. IP publik
+  yang benar adalah 203.123.60.70.
+- Bukti (7 Nov 2026): dari Wi-Fi rumah dengan DNS publik, curl biasa ke
+  WebAPI langsung HTTP 200 dalam 0,49 detik, tanpa hosts file.
+- Catatan lama: dulu tercatat bahwa jaringan "BPS - Pegawai" bisa mengakses
+  WebAPI dan "BPS - Tamu" tidak. Sejak Nov 2026 Wi-Fi kantor gagal karena DNS
+  di atas.
+- Jangan ubah hosts file tanpa izin pemilik project.
 
 ## Skema database (ERD rancangan sendiri — bebas disesuaikan dengan temuan data)
 - **publikasi**: id (pub_id dari BPS), judul, abstrak, tahun_terbit, tanggal_rilis, url_pdf, url_cover, updated_at
