@@ -199,7 +199,7 @@ def ekstrak_berkas(path, pub_id):
     # bukan dicari ulang: mencarinya dua kali menambah sekitar 16% waktu.
     heading = {}
     jejak = []
-    entri, n_daftar, n_badan, n_lengkap = ekstrak_lengkap(
+    entri, n_daftar, n_badan, n_lengkap, n_isi = ekstrak_lengkap(
         path, pub_id, jejak, heading_keluar=heading)
 
     catatan = {
@@ -212,6 +212,7 @@ def ekstrak_berkas(path, pub_id):
         "dari_daftar": n_daftar,
         "dari_badan": n_badan,
         "halaman_fisik_dilengkapi": n_lengkap,
+        "halaman_fisik_isi": n_isi,
     }
     return entri, catatan
 

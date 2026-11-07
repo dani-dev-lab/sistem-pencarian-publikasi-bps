@@ -678,12 +678,20 @@ def _x_awal_judul(baris, label, nomor):
     return None
 
 
-def _halaman_daftar(teks_baris):
+def _halaman_daftar(teks_baris, lanjutan_daftar=False):
     """Apakah ini halaman DAFTAR (isi/tabel/gambar/lampiran), bukan badan?
 
     `teks_baris`: teks tiap baris halaman, berurutan dari atas.
+    `lanjutan_daftar`: apakah halaman fisik SEBELUMNYA halaman Daftar. Pemanggil
+    memindai halaman berurutan dan meneruskan hasil halaman sebelumnya; halaman
+    tanpa teks memutus rangkaian.
+
     Dua tanda: heading DAFTAR di 6 baris teratas, atau dot leader lebih dari
-    tiga - halaman lanjutan daftar tidak selalu mengulang headingnya.
+    tiga PADA HALAMAN LANJUTAN langsung dari halaman Daftar - halaman lanjutan
+    daftar tidak selalu mengulang headingnya. Dot leader saja tidak cukup:
+    halaman pembuka bab Dalam Angka memuat daftar isi mini ber-dot-leader,
+    dan kalau dianggap halaman Daftar, keterangan dan judul bab di halaman itu
+    tidak pernah terbaca (7 Nov 2026).
 
     Dipakai dua tahap yang sama-sama mencari keterangan di BADAN dokumen:
     ekstrak_badan() dan lengkapi_halaman_fisik(). Baris daftar memuat label
@@ -692,14 +700,27 @@ def _halaman_daftar(teks_baris):
     Tanpa pemeriksaan ini halaman daftar terbaca sebagai halaman keterangan:
     tombol PDF membuka halaman daftar, dan nomor halaman di ujung baris daftar
     ikut masuk ke judul ("... 2021-2024 26").
+
+    Heading yang terbelah dua baris ("DAFTAR" / "GAMBAR", Statistik Daerah
+    2025) juga dihitung sebagai heading. Tanpa itu halaman Daftar tersebut
+    hanya tertangkap lewat dot leader, padahal rangkaiannya diputus halaman
+    kosong sebelumnya.
     """
-    if any(RE_HEADING.match(b) for b in teks_baris[:6]):
+    atas = teks_baris[:6]
+    if any(RE_HEADING.match(b) for b in atas):
         return True
-    return " ".join(teks_baris).lower().count(".....") > 3
+    if any(RE_HEADING.match(f"{a} {b}") for a, b in zip(atas, atas[1:])):
+        return True
+    return lanjutan_daftar and " ".join(teks_baris).lower().count(".....") > 3
 
 
-def ekstrak_badan(pdf, publikasi_id):
+def ekstrak_badan(pdf, publikasi_id, baris_halaman=None):
     """Ambil keterangan tabel/gambar dari BADAN dokumen, seluruh halaman.
+
+    `baris_halaman` opsional, sama polanya dengan `jejak`: kalau diberi dict,
+    diisi {indeks halaman: [(teks baris, gaya beda dari badan?), ...]} untuk
+    setiap halaman badan (halaman Daftar tidak ikut). Dipakai
+    lengkapi_halaman_isi() supaya PDF tidak perlu dibaca ulang.
 
     Diperlukan karena publikasi yang tidak punya halaman DAFTAR TABEL sama
     sekali tidak terindeks - contoh nyata: Master File Desa, yang tabelnya
@@ -719,18 +740,26 @@ def ekstrak_badan(pdf, publikasi_id):
     dijaga adalah keterangan ASLI, dan baris daftar bukan keterangan asli.
     """
     hasil = []
+    sebelumnya_daftar = False
 
     for indeks, halaman in enumerate(pdf.pages):
         kata = halaman.filter(_bukan_watermark).extract_words(
             extra_attrs=["size", "fontname", "non_stroking_color"])
         if not kata:
+            sebelumnya_daftar = False
             continue
 
         baris = _kelompokkan_baris(kata)
-        if _halaman_daftar([_teks_baris(b).strip() for b in baris]):
+        sebelumnya_daftar = _halaman_daftar(
+            [_teks_baris(b).strip() for b in baris], sebelumnya_daftar)
+        if sebelumnya_daftar:
             continue
 
         dominan = _gaya_dominan(kata)
+        if baris_halaman is not None:
+            baris_halaman[indeks] = [
+                (_teks_baris(b).strip(), _beda_dari_badan(_gaya(b[0]), dominan))
+                for b in baris]
         terpakai = set()      # baris yang sudah diserap keterangan lain
 
         for i, b in enumerate(baris):
@@ -929,16 +958,19 @@ def lengkapi_halaman_fisik(pdf, entri):
     # ada yang lebih baik.
     cadangan = {}
     belum = list(tugas)
+    sebelumnya_daftar = False
 
     for i, halaman in enumerate(pdf.pages):
         if not belum:
             break
         kata = halaman.filter(_bukan_watermark).extract_words()
         if not kata:
+            sebelumnya_daftar = False
             continue
 
         baris = [_teks_baris(b).strip() for b in _kelompokkan_baris(kata)]
-        if _halaman_daftar(baris):
+        sebelumnya_daftar = _halaman_daftar(baris, sebelumnya_daftar)
+        if sebelumnya_daftar:
             continue                    # halaman DAFTAR, bukan badan
 
         baris_kecil = [b.lower() for b in baris]
@@ -966,6 +998,91 @@ def lengkapi_halaman_fisik(pdf, entri):
 
 
 # --------------------------------------------------------------------------
+# Lapisan 8: halaman fisik untuk entri Daftar Isi
+# --------------------------------------------------------------------------
+
+MAKS_BARIS_JUDUL_ISI = 3    # judul bab di badan bisa membungkus sampai 3 baris
+
+
+def _norm_judul(teks):
+    """Huruf kecil, selain huruf/angka jadi spasi - untuk membandingkan judul."""
+    return re.sub(r"[^0-9a-z]+", " ", teks.lower()).strip()
+
+
+def _tanpa_nomor_bab(teks):
+    """'bab 7 kemiskinan' / '7 1 perkembangan' -> sisa judulnya.
+
+    Badan dokumen kadang menulis judul bab tanpa nomornya ("BAB 7" ditaruh
+    di baris sendiri atau dihilangkan sama sekali).
+    """
+    return re.sub(r"^(bab\s+[ivxlcdm0-9]+|[0-9]+(\s[0-9]+)*)\s+", "", teks)
+
+
+def lengkapi_halaman_isi(entri, baris_halaman):
+    """Isi halaman_fisik untuk entri Daftar Isi dari judul bab di badan.
+
+    `baris_halaman`: keluaran ekstrak_badan(); halaman Daftar sudah dibuang.
+
+    Judul bab/subbab dicari sebagai baris (atau gabungan sampai
+    MAKS_BARIS_JUDUL_ISI baris berurutan) yang teksnya SAMA dengan judul
+    entri setelah dinormalisasi, dan baris pertamanya bergaya BEDA dari badan
+    halaman itu - aturan gaya yang sama dengan jalur badan. Kesamaan teks
+    harus utuh, bukan sebagian, supaya kalimat yang kebetulan menyebut judul
+    bab tidak ikut terhitung. Cadangan: judul tanpa nomor bab, asalkan
+    sisanya minimal dua kata.
+
+    Judul bab sering muncul berulang sebagai kop halaman berjalan. Karena
+    Daftar Isi terurut menurut halaman, yang dipilih adalah kecocokan PERTAMA
+    di atau sesudah halaman entri isi sebelumnya.
+
+    Seperti lengkapi_halaman_fisik(): hanya mengisi kolom yang kosong, tidak
+    menambah atau menghapus entri.
+    """
+    isi = [e for e in entri if e["tipe"] == "isi" and not e.get("halaman_fisik")]
+    if not isi:
+        return 0
+
+    kunci = set()
+    for e in isi:
+        n = _norm_judul(e["judul"])
+        kunci.add(n)
+        s = _tanpa_nomor_bab(n)
+        if s != n and len(s.split()) >= 2:
+            kunci.add(s)
+
+    cocok = {}      # judul ternormalisasi -> [halaman fisik, ...] terurut
+    for indeks in sorted(baris_halaman):
+        baris = baris_halaman[indeks]
+        for j, (_, beda) in enumerate(baris):
+            if not beda:
+                continue
+            for k in range(1, MAKS_BARIS_JUDUL_ISI + 1):
+                if j + k > len(baris):
+                    break
+                gabung = _norm_judul(" ".join(t for t, _ in baris[j:j + k]))
+                if gabung in kunci:
+                    cocok.setdefault(gabung, []).append(indeks + 1)
+                    break
+
+    terakhir = 0
+    terisi = 0
+    for e in entri:
+        if e["tipe"] != "isi":
+            continue
+        if e.get("halaman_fisik"):
+            terakhir = max(terakhir, e["halaman_fisik"])
+            continue
+        n = _norm_judul(e["judul"])
+        calon = cocok.get(n) or cocok.get(_tanpa_nomor_bab(n)) or []
+        lanjut = [h for h in calon if h >= terakhir]
+        if lanjut:
+            e["halaman_fisik"] = lanjut[0]
+            terakhir = lanjut[0]
+            terisi += 1
+    return terisi
+
+
+# --------------------------------------------------------------------------
 # API modul
 # --------------------------------------------------------------------------
 
@@ -980,6 +1097,9 @@ def ekstrak_lengkap(path_pdf, publikasi_id, jejak=None, heading_keluar=None):
     diisi heading DAFTAR yang ditemukan {tipe: indeks halaman}. Pemanggil yang
     perlu mencatat heading tidak usah memanggil cari_heading() sendiri - itu
     memakan sekitar 16% waktu ekstraksi karena seluruh halaman depan dibaca dua kali.
+
+    Return (entri, jumlah dari daftar, jumlah dari badan, halaman_fisik
+    tabel/gambar/lampiran yang dilengkapi, halaman_fisik isi yang diisi).
     """
     with pdfplumber.open(path_pdf) as pdf:
         dari_daftar = []
@@ -992,11 +1112,13 @@ def ekstrak_lengkap(path_pdf, publikasi_id, jejak=None, heading_keluar=None):
             e.setdefault("halaman_fisik", None)
             e.setdefault("sumber", "daftar")
 
-        dari_badan = ekstrak_badan(pdf, publikasi_id)
+        baris_halaman = {}
+        dari_badan = ekstrak_badan(pdf, publikasi_id, baris_halaman)
         gabungan = _gabung(dari_daftar, dari_badan)
         n_dilengkapi = lengkapi_halaman_fisik(pdf, gabungan)
+        n_isi = lengkapi_halaman_isi(gabungan, baris_halaman)
 
-    return gabungan, len(dari_daftar), len(dari_badan), n_dilengkapi
+    return gabungan, len(dari_daftar), len(dari_badan), n_dilengkapi, n_isi
 
 
 def ekstrak_struktur(path_pdf, publikasi_id, jejak=None):

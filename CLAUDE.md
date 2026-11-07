@@ -260,6 +260,60 @@ dipasangkan dengan perbaikan `_baca_daftar` (heading yang sama yang diulang
 di halaman lanjutan tidak lagi mengakhiri daftar). Dengan begitu entri yang
 dulu hanya didapat dari halaman Daftar kembali lewat jalur daftar.
 
+### Halaman Daftar = heading DAFTAR atau lanjutan langsungnya (7 Nov 2026)
+`_halaman_daftar(teks_baris, lanjutan_daftar)` dipakai `ekstrak_badan` dan
+`lengkapi_halaman_fisik`. Halaman dianggap halaman Daftar kalau:
+- punya heading DAFTAR di 6 baris teratas, termasuk heading yang terbelah
+  dua baris ("DAFTAR" / "GAMBAR", hanya di Statistik Daerah 2025), ATAU
+- dot leader > 3 DAN halaman fisik sebelumnya juga halaman Daftar.
+  Halaman tanpa teks memutus rangkaian. Ambang ">3" tidak diubah.
+
+Dulu dot leader > 3 di mana saja sudah cukup. Akibatnya halaman pembuka bab
+Dalam Angka (daftar isi mini ber-dot-leader) ikut dilewati, sehingga judul
+babnya tidak pernah terbaca. Di 79 publikasi, 76 halaman berganti status:
+- pembuka bab Dalam Angka 2025/2026, Kata Pengantar, Statistik Kunci;
+- halaman konsep Sakernas;
+- kuesioner lampiran Podes.
+
+Regresi: **0 entri berubah** (halaman-halaman itu tidak memuat keterangan
+"Tabel N"); dampaknya baru muncul lewat halaman fisik entri isi.
+
+Yang diketahui TIDAK tertangani:
+- Daftar Isi tanpa heading sama sekali (Gambaran Ekonomi Makro, `6fc864b9`
+  hal. 9) tidak dianggap halaman Daftar. Saat ini tidak berdampak, karena
+  halaman itu tidak memuat label "Tabel N" dan publikasinya tidak punya
+  entri isi.
+- `cari_heading` (jalur daftar) BELUM mengenali heading terbelah, sehingga
+  Daftar Gambar/Lampiran Statistik Daerah 2025 tidak dibaca jalur daftar
+  (gambarnya tetap masuk lewat jalur badan).
+- Lanjutan Daftar ber-leader "……" (elipsis U+2026, KAK) tidak terhitung
+  sebagai dot leader. Ini sudah begitu sejak dulu.
+
+### Halaman fisik entri `isi` (7 Nov 2026)
+`lengkapi_halaman_isi()` mencari judul bab/subbab di badan dokumen. Kondisinya:
+- teksnya SAMA UTUH dengan judul entri setelah dinormalisasi, boleh gabungan
+  1-3 baris;
+- baris pertamanya bergaya beda dari badan, memakai aturan `_beda_dari_badan`
+  yang sama dengan jalur badan;
+- cadangan: judul tanpa nomor bab.
+
+Kalau kecocokannya lebih dari satu (kop berjalan), yang dipilih adalah yang
+pertama di atau sesudah halaman entri isi sebelumnya. Baris halaman diambil
+dari pemindaian `ekstrak_badan` (parameter `baris_halaman`), jadi PDF tidak
+dibaca ulang; waktu ekstraksi tidak bertambah terukur.
+
+Hasil di 79 publikasi:
+- **916 dari 1.562 entri isi (59%)** terisi.
+- Regresi: hanya `halaman_fisik` entri isi yang berubah; 0 kunci hilang,
+  0 sumber berubah.
+- Sampel acak 40 (seed 20261107) dibaca satu per satu: **39 benar,
+  1 meleset 2 halaman**. Pada yang meleset, terpilih sampul bab, sedangkan
+  Daftar Isi menunjuk halaman isi pertama sesudahnya.
+- Penyebab utama tidak terisi:
+  - judul dwibahasa "Indonesia/ Inggris" di Daftar Isi yang di badan
+    tercetak di dua kolom terpisah (PDRB Lapangan Usaha: 0/52 dan 2/51);
+  - entri halaman depan yang ada di halaman Daftar sendiri.
+
 Dedup memakai kunci `(tipe, nomor)` per publikasi. Kalau judulnya berbeda,
 yang dipakai judul yang LEBIH PANJANG (`_gabung`: versi badan menggantikan
 versi daftar hanya bila lebih panjang), bukan selalu versi badan. Alasan
@@ -275,9 +329,9 @@ dilewati karena selisih halaman cetak vs fisik terbukti tidak konsisten (5 dari
 publikasi). Sekarang akurat tanpa tebakan karena halaman fisik dicatat langsung
 saat ekstraksi.
 
-## Prinsip verifikasi (dipelajari dari dua kesalahan nyata)
+## Prinsip verifikasi (dipelajari dari tiga kesalahan nyata)
 **Alat verifikasi juga bisa salah, dan salahnya LEBIH BERBAHAYA daripada bug
-biasa - karena kita mempercayainya dan berhenti memeriksa.** Sudah dua kali
+biasa - karena kita mempercayainya dan berhenti memeriksa.** Sudah tiga kali
 hampir menyesatkan kesimpulan di project ini:
 
 1. **Audit heuristik melaporkan 0% deteksi palsu, padahal 2,5%.** Heuristiknya
@@ -290,6 +344,13 @@ hampir menyesatkan kesimpulan di project ini:
    benar-benar memicu kecocokan, yaitu keterangan di awal baris pada halaman
    yang sama. Hasilnya ~30% sampel tampak salah padahal semuanya benar; nyaris
    membatalkan perbaikan yang sudah bekerja.
+3. **Pembanding menurut POSISI melaporkan 260 entri berubah, padahal 33**
+   (simulasi pembuangan kepala seksi Dalam Angka, 7 Nov 2026). Satu entri
+   sampah tanpa nomor hilang, lalu semua pasangan sesudahnya bergeser.
+   Dibandingkan menurut kunci `(tipe, nomor)`: 0 kunci hilang, 31 awalan
+   dibuang. Pembanding hasil ekstraksi harus memasangkan entri menurut kunci,
+   bukan urutan - `scripts/potret_db.py banding` juga membandingkan menurut
+   posisi, jadi selisihnya setelah penyisipan entri bukan hitungan perubahan.
 
 Aturan yang berlaku:
 - **Verifikasi harus menampilkan bukti yang BENAR-BENAR DIPAKAI mengambil
@@ -300,6 +361,20 @@ Aturan yang berlaku:
   curigai alatnya dulu sebelum menyimpulkan tentang kodenya.
 
 ## Keterbatasan yang diketahui (sudah diverifikasi, bukan bug)
+- **4 judul tercemar sisa perbaikan daftar (7 Nov 2026), DITUNDA.** Rincian
+  di `data/regresi/perbaikan-daftar-20261107.md`:
+  - Pasar Tenaga Kerja Agt 2024 Gambar 8 ("... 2024 38"): tahun dan nomor
+    halaman menempel ke dot leader dalam satu kata.
+  - TPB 2024 Gambar 26 ("... 6") dan Gambar 38 ("... 7"): folio halaman
+    Daftar terserap ke entri terakhir halaman itu.
+  - Statistik Daerah 2026 Gambar 14.1: menyerap judul Gambar 15.1 yang
+    tercetak sebelum labelnya.
+
+  Dua di antaranya (Gambar 8 dan 14.1) punya versi badan yang BERSIH, tapi
+  kalah oleh **aturan judul terpanjang** di `_gabung` (lihat catatan dedup di
+  bagian "Ekstraksi badan dokumen"). Aturan itu sengaja tidak diubah:
+  mengubahnya menyentuh semua entri 'keduanya', jadi perlu regresi penuh
+  tersendiri.
 - **8 kelompok `(publikasi, tipe, nomor)` kembar** di `entri_dokumen`. SEMUANYA
   berasal dari jalur `daftar` - nomor tabel yang bertabrakan di sumbernya atau
   salah baca parser pada daftar. Jumlahnya persis sama (8) sebelum maupun
