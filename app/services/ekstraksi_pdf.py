@@ -517,6 +517,7 @@ def _baca_daftar(pdf, halaman_awal, tipe, publikasi_id, jejak=None):
     entri = []
     h = halaman_awal
     lompat = 0
+    heading_daftar = None     # tipe heading milik daftar ini, dari halaman awalnya
 
     def boleh_lompat():
         # Hanya berlaku di awal; tidak pernah menyentuh daftar yang sudah jalan.
@@ -552,13 +553,25 @@ def _baca_daftar(pdf, halaman_awal, tipe, publikasi_id, jejak=None):
             # heading terdeteksi satu halaman terlalu awal.
             if heading_tipe and tipe not in heading_tipe:
                 break
+            if heading_tipe:
+                heading_daftar = heading_tipe
             idx = _indeks_mulai(baris, tipe, batas_kanan)
             if idx is not None:
                 baris = baris[idx:]
         else:
-            # Halaman lanjutan yang ternyata heading DAFTAR lain -> daftar habis.
             if heading_tipe:
-                break
+                # Heading DAFTAR lain -> daftar habis. Tapi heading yang SAMA
+                # PERSIS bisa diulang di tiap halaman lanjutan (TPB 2024
+                # mencetak "DAFTAR GAMBAR" di ketiga halaman daftarnya). Dulu
+                # itu juga dianggap akhir daftar, sehingga Gambar 14-38 hilang
+                # dari jalur daftar. Syaratnya kesamaan seluruh tipe, bukan
+                # sekadar memuat tipe ini: "DAFTAR GAMBAR" sesudah "DAFTAR
+                # TABEL DAN GAMBAR" tetap mengakhiri daftar tabelnya.
+                if heading_tipe != heading_daftar:
+                    break
+                idx = _indeks_mulai(baris, tipe, batas_kanan)
+                if idx is not None:
+                    baris = baris[idx:]
             if not _lanjutan_masuk_akal(baris, tipe, batas_kanan):
                 break
 
@@ -665,6 +678,26 @@ def _x_awal_judul(baris, label, nomor):
     return None
 
 
+def _halaman_daftar(teks_baris):
+    """Apakah ini halaman DAFTAR (isi/tabel/gambar/lampiran), bukan badan?
+
+    `teks_baris`: teks tiap baris halaman, berurutan dari atas.
+    Dua tanda: heading DAFTAR di 6 baris teratas, atau dot leader lebih dari
+    tiga - halaman lanjutan daftar tidak selalu mengulang headingnya.
+
+    Dipakai dua tahap yang sama-sama mencari keterangan di BADAN dokumen:
+    ekstrak_badan() dan lengkapi_halaman_fisik(). Baris daftar memuat label
+    dan nomor yang persis sama dengan keterangan aslinya, dan sebagian
+    publikasi mencetaknya tebal atau berwarna sehingga lolos aturan gaya.
+    Tanpa pemeriksaan ini halaman daftar terbaca sebagai halaman keterangan:
+    tombol PDF membuka halaman daftar, dan nomor halaman di ujung baris daftar
+    ikut masuk ke judul ("... 2021-2024 26").
+    """
+    if any(RE_HEADING.match(b) for b in teks_baris[:6]):
+        return True
+    return " ".join(teks_baris).lower().count(".....") > 3
+
+
 def ekstrak_badan(pdf, publikasi_id):
     """Ambil keterangan tabel/gambar dari BADAN dokumen, seluruh halaman.
 
@@ -680,6 +713,10 @@ def ekstrak_badan(pdf, publikasi_id):
 
     Nomor halaman yang dicatat adalah halaman FISIK PDF (indeks + 1), karena
     itu yang berguna untuk membuka PDF langsung di halaman tersebut.
+
+    Halaman DAFTAR dilewati (lihat _halaman_daftar). Ini satu-satunya
+    pengecualian terhadap aturan superset gaya - lihat CLAUDE.md: yang
+    dijaga adalah keterangan ASLI, dan baris daftar bukan keterangan asli.
     """
     hasil = []
 
@@ -689,8 +726,11 @@ def ekstrak_badan(pdf, publikasi_id):
         if not kata:
             continue
 
-        dominan = _gaya_dominan(kata)
         baris = _kelompokkan_baris(kata)
+        if _halaman_daftar([_teks_baris(b).strip() for b in baris]):
+            continue
+
+        dominan = _gaya_dominan(kata)
         terpakai = set()      # baris yang sudah diserap keterangan lain
 
         for i, b in enumerate(baris):
@@ -898,13 +938,11 @@ def lengkapi_halaman_fisik(pdf, entri):
             continue
 
         baris = [_teks_baris(b).strip() for b in _kelompokkan_baris(kata)]
-        if any(RE_HEADING.match(b) for b in baris[:6]):
+        if _halaman_daftar(baris):
             continue                    # halaman DAFTAR, bukan badan
 
         baris_kecil = [b.lower() for b in baris]
         teks = " ".join(baris_kecil)
-        if teks.count(".....") > 3:
-            continue                    # masih halaman berisi dot leader
 
         tersisa = []
         for e, penanda, kunci in belum:

@@ -241,11 +241,31 @@ warna secara TERPISAH, lalu terima keterangan kalau **font/ukuran berbeda ATAU
 warna berbeda** dari teks badan. Karena syarat ini superset dari aturan lama
 (yang hanya memeriksa font/ukuran), tidak ada keterangan yang tadinya diterima
 bisa jadi tertolak. Itulah sebabnya penambahan lampiran + warna menghasilkan
-**0 publikasi berkurang**. Pertahankan sifat superset ini kalau jalur badan
-diubah lagi.
+**0 publikasi berkurang**.
 
-Dedup memakai kunci `(tipe, nomor)` per publikasi; kalau judulnya berbeda,
-versi dari BADAN yang dipakai karena versi daftar kadang terpotong.
+**Bunyi aturan sejak 7 Nov 2026: superset terhadap KETERANGAN ASLI;
+tangkapan dari halaman Daftar boleh dibuang asalkan tidak ada
+`(publikasi, tipe, nomor)` yang hilang.** Pertahankan sifat ini kalau jalur
+badan diubah lagi. Pengecualian ini diputuskan pemilik project setelah
+penyelidikan B (`data/regresi/penyelidikan-B-20261106.md`). Alasannya:
+aturan superset ada supaya keterangan asli tidak hilang, sedangkan baris di
+halaman DAFTAR bukan keterangan asli. Baris daftar yang dicetak tebal atau
+berwarna lolos aturan gaya, dan akibatnya:
+- 13 `halaman_fisik` menunjuk halaman Daftar;
+- 43 judul membawa nomor halaman daftar ("... 2021−2024 26").
+
+Halaman Daftar kini dilewati `ekstrak_badan` lewat `_halaman_daftar()`,
+pemeriksaan yang sama dengan `lengkapi_halaman_fisik`. Perubahan ini
+dipasangkan dengan perbaikan `_baca_daftar` (heading yang sama yang diulang
+di halaman lanjutan tidak lagi mengakhiri daftar). Dengan begitu entri yang
+dulu hanya didapat dari halaman Daftar kembali lewat jalur daftar.
+
+Dedup memakai kunci `(tipe, nomor)` per publikasi. Kalau judulnya berbeda,
+yang dipakai judul yang LEBIH PANJANG (`_gabung`: versi badan menggantikan
+versi daftar hanya bila lebih panjang), bukan selalu versi badan. Alasan
+awalnya: versi daftar kadang terpotong. Efek sampingnya: versi yang membawa
+sampah (nomor halaman, kop tabel) juga lebih panjang, jadi aturan ini ikut
+memenangkannya.
 
 Kolom `sumber` bernilai 'daftar' | 'badan' | 'keduanya'.
 
