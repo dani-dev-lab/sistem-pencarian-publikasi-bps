@@ -62,6 +62,9 @@ def _catat_log(hasil):
             keyword_ternormalisasi=hasil["kueri_ternormalisasi"][:255] or None,
             jumlah_hasil=len(semua),
             skor_tertinggi=max((h["skor"] for h in semua), default=None),
+            # Waktu cari() saja - angka yang sama dengan "... ms" di halaman
+            # hasil. Penulisan log dan render halaman tidak ikut terhitung.
+            durasi_ms=round(hasil["waktu_ms"], 1),
         ))
         db.session.commit()
     except Exception:  # noqa: BLE001 - log gagal bukan alasan menolak hasil
