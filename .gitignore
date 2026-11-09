@@ -30,3 +30,5 @@ Thumbs.db
 # Jejak pembaruan data (kunci PID + ringkasan hasil terakhir)
 data/pembaruan.lock
 data/pembaruan_terakhir.json
+data/log_pembaruan/
+data/pemeriksaan_domain.json

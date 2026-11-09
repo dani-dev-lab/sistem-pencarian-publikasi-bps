@@ -13,18 +13,18 @@
   ],
   "wilayah": [
     {"kode": "6300", "nama": "Provinsi Kalimantan Selatan", "aktif": true, "singkatan": [], "singkatan_status": null},
-    {"kode": "6301", "nama": "Kab. Tanah Laut", "aktif": false, "singkatan": ["tala"], "singkatan_status": "belum dikonfirmasi"},
-    {"kode": "6302", "nama": "Kab. Kotabaru", "aktif": false, "singkatan": [], "singkatan_status": null, "catatan": "API menulis 'Kota Baru', tetapi ini KABUPATEN (kotabarukab.bps.go.id)."},
-    {"kode": "6303", "nama": "Kab. Banjar", "aktif": false, "singkatan": [], "singkatan_status": null},
-    {"kode": "6304", "nama": "Kab. Barito Kuala", "aktif": false, "singkatan": ["batola"], "singkatan_status": "belum dikonfirmasi"},
-    {"kode": "6305", "nama": "Kab. Tapin", "aktif": false, "singkatan": [], "singkatan_status": null},
-    {"kode": "6306", "nama": "Kab. Hulu Sungai Selatan", "aktif": false, "singkatan": ["hss"], "singkatan_status": "belum dikonfirmasi"},
-    {"kode": "6307", "nama": "Kab. Hulu Sungai Tengah", "aktif": false, "singkatan": ["hst"], "singkatan_status": "belum dikonfirmasi"},
-    {"kode": "6308", "nama": "Kab. Hulu Sungai Utara", "aktif": false, "singkatan": ["hsu"], "singkatan_status": "belum dikonfirmasi"},
-    {"kode": "6309", "nama": "Kab. Tabalong", "aktif": false, "singkatan": [], "singkatan_status": null},
-    {"kode": "6310", "nama": "Kab. Tanah Bumbu", "aktif": false, "singkatan": ["tanbu"], "singkatan_status": "belum dikonfirmasi"},
-    {"kode": "6311", "nama": "Kab. Balangan", "aktif": false, "singkatan": [], "singkatan_status": null},
-    {"kode": "6371", "nama": "Kota Banjarmasin", "aktif": false, "singkatan": ["bjm"], "singkatan_status": "belum dikonfirmasi"},
-    {"kode": "6372", "nama": "Kota Banjarbaru", "aktif": false, "singkatan": ["bjb"], "singkatan_status": "belum dikonfirmasi", "catatan": "API menulis 'Banjar Baru'."}
+    {"kode": "6301", "nama": "Kab. Tanah Laut", "aktif": true, "singkatan": ["tala"], "singkatan_status": "belum dikonfirmasi"},
+    {"kode": "6302", "nama": "Kab. Kotabaru", "aktif": true, "singkatan": [], "singkatan_status": null, "catatan": "API menulis 'Kota Baru', tetapi ini KABUPATEN (kotabarukab.bps.go.id)."},
+    {"kode": "6303", "nama": "Kab. Banjar", "aktif": true, "singkatan": [], "singkatan_status": null},
+    {"kode": "6304", "nama": "Kab. Barito Kuala", "aktif": true, "singkatan": ["batola"], "singkatan_status": "belum dikonfirmasi"},
+    {"kode": "6305", "nama": "Kab. Tapin", "aktif": true, "singkatan": [], "singkatan_status": null},
+    {"kode": "6306", "nama": "Kab. Hulu Sungai Selatan", "aktif": true, "singkatan": ["hss"], "singkatan_status": "belum dikonfirmasi"},
+    {"kode": "6307", "nama": "Kab. Hulu Sungai Tengah", "aktif": true, "singkatan": ["hst"], "singkatan_status": "belum dikonfirmasi"},
+    {"kode": "6308", "nama": "Kab. Hulu Sungai Utara", "aktif": true, "singkatan": ["hsu"], "singkatan_status": "belum dikonfirmasi"},
+    {"kode": "6309", "nama": "Kab. Tabalong", "aktif": true, "singkatan": [], "singkatan_status": null},
+    {"kode": "6310", "nama": "Kab. Tanah Bumbu", "aktif": true, "singkatan": ["tanbu"], "singkatan_status": "belum dikonfirmasi"},
+    {"kode": "6311", "nama": "Kab. Balangan", "aktif": true, "singkatan": [], "singkatan_status": null},
+    {"kode": "6371", "nama": "Kota Banjarmasin", "aktif": true, "singkatan": ["bjm"], "singkatan_status": "belum dikonfirmasi"},
+    {"kode": "6372", "nama": "Kota Banjarbaru", "aktif": true, "singkatan": ["bjb"], "singkatan_status": "belum dikonfirmasi", "catatan": "API menulis 'Banjar Baru'."}
   ]
 }

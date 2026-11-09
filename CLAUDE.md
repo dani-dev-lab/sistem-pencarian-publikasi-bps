@@ -37,6 +37,40 @@ Mahasiswa Politeknik Negeri Banjarmasin.
 - Field penting: `pub_id`, `title`, `abstract`, `rl_date`, `pdf` (link unduh), `cover`, `subject_csa`.
 - PDF publikasi diunduh dari field `pdf`, lalu diekstrak strukturnya.
 
+### Perilaku unduhan dan daftar WebAPI (diuji 9 Nov 2026)
+- **Daftar API terurut dari rl_date terbaru.** Dibuktikan di 14 domain dan
+  5.246 publikasi: 0 rl_date naik dalam urutan API, 0 publikasi jendela yang
+  terlewat. Pemeriksanya (`sumber_bps.cek_urutan`) diuji dengan urutan yang
+  diacak dan menangkapnya.
+  - Karena itu pembaruan berhenti begitu satu halaman penuh di luar jendela
+    tahun (`DAFTAR_TERURUT_TERBARU = True`): ±82 dari ±530 halaman.
+  - `--hanya-periksa` tetap menarik SEMUA halaman dan mencetak buktinya
+    setiap kali. Kalau "terlewat" > 0, matikan.
+- **URL PDF bertoken dan berganti.** URL dari metadata 5 Nov ditolak HTTP 400
+  pada 9 Nov, sedangkan URL segar diterima. Jangan memakai `url_pdf` lama dari
+  database untuk mengunduh.
+- **Server PDF tidak mendukung Range.** Permintaan sebagian dijawab 200
+  berkas penuh, tanpa `Accept-Ranges` maupun `Content-Length` (chunked).
+  Unduhan yang putus tidak bisa dilanjutkan.
+- **Unduhan putus acak** ("Response ended prematurely"), juga dari Wi-Fi
+  rumah: 1 dari 2 percobaan pada uji 9 Nov. Kecepatan yang berhasil
+  ±5.360 KB/detik (14,75 MB dalam 3 detik). Pengamannya:
+  - `unduh_pdf`: 4 percobaan, jeda 5/15/45 detik, selalu dari nol. HTTP 4xx
+    langsung berhenti karena URL kedaluwarsa.
+  - `perbarui.putaran_ulang`: di akhir tiap domain, yang tetap gagal dicoba
+    sekali lagi dengan URL segar (daftar domain ditarik ulang).
+- **Ringkasan pembaruan** (`data/pembaruan_terakhir.json`, untuk revisi 3)
+  kini memuat:
+  - durasi per tahap;
+  - statistik unduhan per domain dan total: byte, detik transfer, KB/detik,
+    putus, percobaan ulang, putaran ulang, pulih;
+  - `jaringan_dipakai`: SSID dan IP webapi.bps.go.id.
+- **Keluaran tiap run disalin ke `data/log_pembaruan/<waktu>.log`**
+  (di-gitignore).
+- **Selama `perbarui.py` berjalan, Windows dicegah tidur**
+  (`SetThreadExecutionState`). Ini tidak mencegah tidur karena layar laptop
+  ditutup.
+
 ## Kewajiban dari Term of Use BPS (WAJIB dipatuhi)
 1. UI harus menampilkan notice: **"Layanan ini menggunakan API Badan Pusat Statistik (BPS)"**
    (taruh di footer `base.html`).

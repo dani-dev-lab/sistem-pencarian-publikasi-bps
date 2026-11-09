@@ -7,12 +7,16 @@ echo ==========================================================
 echo   Perbarui data publikasi dari WebAPI BPS
 echo ==========================================================
 echo.
-echo   Butuh koneksi ke jaringan "BPS - Pegawai".
-echo   Jaringan "BPS - Tamu" memblokir WebAPI BPS.
+echo   Butuh koneksi internet ke webapi.bps.go.id.
 echo.
 echo   Kalau tidak ada publikasi baru, proses selesai dalam ~2 menit per wilayah.
 echo   Tiap publikasi yang perlu diproses butuh ~20-90 detik
-echo   (unduh PDF + membaca strukturnya).
+echo   (unduh PDF + membaca strukturnya). Penarikan wilayah baru bisa
+echo   berjam-jam: biarkan jendela ini terbuka, laptop tersambung listrik,
+echo   dan layar laptop jangan ditutup.
+echo.
+echo   Seluruh keluaran juga disimpan ke data\log_pembaruan\ (nama berkas
+echo   tercetak di baris pertama), dan ringkasannya ke data\pembaruan_terakhir.json.
 echo.
 
 if not exist "venv\Scripts\python.exe" (
