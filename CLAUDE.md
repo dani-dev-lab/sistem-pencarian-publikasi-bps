@@ -18,6 +18,17 @@ Mahasiswa Politeknik Negeri Banjarmasin.
   infrastruktur BPS diserahkan ke instansi. Bekal untuk itu (login admin,
   server produksi, .bat, PANDUAN.md) ada di bagian "Persiapan serah terima".
 - **Platform**: web app, Python + Flask. MySQL (via Laragon) sebagai database.
+- **Cakupan kab/kota (keputusan 9 Nov 2026)**: publikasi "Kecamatan ... Dalam
+  Angka" TIDAK ditarik. Alasannya permintaan tim PST: cakupannya 13
+  kabupaten/kota, tidak sampai data per kecamatan/desa.
+  - Ini PENGATURAN, bukan aturan di kode: daftar pola regex
+    `kecualikan_judul` di `data/wilayah.json`, dibaca
+    `wilayah.pola_judul_dikecualikan()` dan diterapkan di `perbarui.py`
+    sesudah filter tahun.
+  - Untuk menarik lagi, ubah `aktif` menjadi false; tidak perlu mengubah kode.
+  - Publikasi yang sudah ada di database tidak dihapus oleh pengecualian ini.
+  - Format daftar Kecamatan Dalam Angka ("nomor sebaris", C2) tetap
+    diperbaiki, karena format yang sama ada di 6 publikasi provinsi.
 
 ## Sumber data
 - **BPS WebAPI**: `https://webapi.bps.go.id/v1/api/list/model/publication/lang/ind/domain/6300/page/{page}/key/{key}/`
@@ -620,16 +631,26 @@ memuat token "hotel"); menghapus varian lalu Terapkan lagi mengembalikan
 database ke keadaan awal byte-per-byte.
 
 ## Catatan lingkungan
-- Akses WebAPI BPS gagal dari Wi-Fi kantor karena **DNS internal kantor**,
-  bukan karena WebAPI-nya diblokir. DNS kantor mengarahkan webapi.bps.go.id
-  ke vs.bps.go.id → 10.0.11.232, dan koneksi ke alamat itu ditolak. IP publik
-  yang benar adalah 203.123.60.70.
-- Bukti (7 Nov 2026): dari Wi-Fi rumah dengan DNS publik, curl biasa ke
-  WebAPI langsung HTTP 200 dalam 0,49 detik, tanpa hosts file.
+- **Masalah DNS kantor (awal Nov 2026, TERATASI 9 Nov 2026).**
+  - Gejala: pembaruan data gagal dengan "connection reset" ke WebAPI, padahal
+    situs BPS terbuka di browser.
+  - Penyebab: DNS internal kantor mengarahkan webapi.bps.go.id ke
+    vs.bps.go.id → 10.0.11.232, dan koneksi ke alamat itu ditolak. IP publik
+    yang benar 203.123.60.70. WebAPI-nya sendiri tidak diblokir: 7 Nov 2026,
+    dari Wi-Fi rumah dengan DNS publik, curl langsung HTTP 200 dalam 0,49
+    detik tanpa hosts file.
+  - Teratasi: 9 Nov 2026, dari Wi-Fi "BPS - Pegawai", webapi.bps.go.id
+    mengarah ke 203.123.60.70; curl dan Python requests sama-sama HTTP 200.
+    Kemungkinan diperbaiki tim IT (belum dikonfirmasi). Hosts file tidak
+    pernah dipakai.
+- Penarikan 13 domain nanti boleh dari jaringan kantor.
+- Kalau gejalanya muncul lagi: cek dengan `Resolve-DnsName webapi.bps.go.id`
+  (PowerShell). Kalau hasilnya 10.0.11.232, masalah DNS-nya kambuh. Solusi
+  sementara: baris hosts file `203.123.60.70 webapi.bps.go.id`. **Jangan ubah
+  hosts file tanpa izin pemilik project.** Cara ini dijadwalkan masuk
+  `PANDUAN.md` bagian pemecahan masalah (tahap dokumentasi, belum ditulis).
 - Catatan lama: dulu tercatat bahwa jaringan "BPS - Pegawai" bisa mengakses
-  WebAPI dan "BPS - Tamu" tidak. Sejak Nov 2026 Wi-Fi kantor gagal karena DNS
-  di atas.
-- Jangan ubah hosts file tanpa izin pemilik project.
+  WebAPI dan "BPS - Tamu" tidak.
 
 ## Skema database (ERD rancangan sendiri — bebas disesuaikan dengan temuan data)
 - **publikasi**: id (pub_id dari BPS), judul, abstrak, tahun_terbit, tanggal_rilis, url_pdf, url_cover, updated_at

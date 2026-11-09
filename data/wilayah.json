@@ -4,7 +4,12 @@
     "nama = nama tampil, disusun sendiri karena domain_name dari API tanpa awalan Kab./Kota. Awalan diambil dari subdomain (...kab / ...kota).",
     "Hanya domain dengan aktif=true yang diproses pipeline. Sebelum domain baru pertama kali dimuat, jalankan: scripts/perbarui.py --hanya-periksa",
     "singkatan BELUM DIKONFIRMASI tim PST - lihat singkatan_status tiap wilayah. Jangan perlakukan sebagai final.",
-    "Deteksi wilayah dari kueri harus mencocokkan KATA UTUH: 'banjar' bertumpuk dengan 'banjarmasin' dan 'banjarbaru'."
+    "Deteksi wilayah dari kueri harus mencocokkan KATA UTUH: 'banjar' bertumpuk dengan 'banjarmasin' dan 'banjarbaru'.",
+    "kecualikan_judul: publikasi yang judulnya cocok dengan salah satu pola (regex, tanpa membedakan huruf besar/kecil) TIDAK ditarik, di domain mana pun. Untuk menarik lagi, ubah aktif menjadi false - tidak perlu mengubah kode. Publikasi yang sudah ada di database tidak dihapus."
+  ],
+  "kecualikan_judul": [
+    {"pola": "^Kecamatan\\b.*\\bDalam Angka\\b", "aktif": true,
+     "alasan": "Permintaan tim PST (9 Nov 2026): cakupan 13 kabupaten/kota, tidak sampai data per kecamatan/desa."}
   ],
   "wilayah": [
     {"kode": "6300", "nama": "Provinsi Kalimantan Selatan", "aktif": true, "singkatan": [], "singkatan_status": null},

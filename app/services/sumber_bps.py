@@ -71,6 +71,18 @@ def saring_tahun(daftar, tahun):
     return [p for p in daftar if tahun_rilis(p.get("rl_date")) in tahun]
 
 
+def saring_judul(daftar, pola):
+    """Buang publikasi yang judulnya cocok salah satu pola pengecualian.
+
+    `pola`: keluaran wilayah.pola_judul_dikecualikan(). Return (lolos, dikecualikan).
+    """
+    lolos, dikecualikan = [], []
+    for p in daftar:
+        judul = (p.get("title") or "").strip()
+        (dikecualikan if any(r.search(judul) for r, _ in pola) else lolos).append(p)
+    return lolos, dikecualikan
+
+
 def _url_halaman(domain, halaman):
     dasar = Config.BPS_API_BASE_URL.rstrip("/")
     kunci = (Config.BPS_API_KEY or "").strip()

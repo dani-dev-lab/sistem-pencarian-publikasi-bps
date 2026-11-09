@@ -39,3 +39,31 @@ def muat_wilayah(path=None):
 
 def wilayah_aktif(path=None):
     return [w for w in muat_wilayah(path) if w.get("aktif")]
+
+
+def pola_judul_dikecualikan(path=None):
+    """Pola judul publikasi yang TIDAK ditarik, dari `kecualikan_judul`.
+
+    Pengaturan, bukan aturan di kode: cakupan publikasi diputuskan tim PST
+    dan bisa berubah. Return list (regex terkompilasi, teks pola), hanya yang
+    aktif. Pola yang tidak valid ditolak dengan pesan - pola rusak yang
+    diam-diam diabaikan berarti publikasi yang seharusnya dikecualikan ikut
+    ditarik.
+    """
+    path = path or Config.FILE_WILAYAH
+    try:
+        with open(path, encoding="utf-8") as f:
+            daftar = json.load(f).get("kecualikan_judul", [])
+    except (OSError, ValueError) as e:
+        raise SystemExit(f"{path} tidak bisa dibaca: {e}") from None
+
+    hasil = []
+    for p in daftar:
+        if not p.get("aktif"):
+            continue
+        teks = p.get("pola") or ""
+        try:
+            hasil.append((re.compile(teks, re.IGNORECASE), teks))
+        except re.error as e:
+            raise SystemExit(f"{path}: pola kecualikan_judul tidak valid {teks!r}: {e}") from None
+    return hasil

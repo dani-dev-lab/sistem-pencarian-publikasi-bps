@@ -40,7 +40,7 @@ from app import create_app
 from app.models import EntriDokumen, Publikasi, db
 from app.services import pipeline_data, sumber_bps
 from app.services.sumber_bps import GagalAmbil, samarkan
-from app.services.wilayah import muat_wilayah, wilayah_aktif
+from app.services.wilayah import muat_wilayah, pola_judul_dikecualikan, wilayah_aktif
 
 FILE_RINGKASAN = "data/pembaruan_terakhir.json"   # dibaca /admin/perbarui
 FILE_KUNCI = "data/pembaruan.lock"                # berisi PID yang sedang jalan
@@ -239,12 +239,15 @@ def jalankan_pemeriksaan():
                                "pesan": str(e), "jaringan": e.jaringan})
             continue
         lolos = sumber_bps.saring_tahun(daftar, sumber_bps.tahun_dipakai())
+        lolos, dikecualikan = sumber_bps.saring_judul(lolos, pola_judul_dikecualikan())
         for p in daftar:
             pemilik.setdefault(p["pub_id"], []).append((kode, (p.get("title") or "").strip()))
         per_domain.append({"kode": kode, "nama": w["nama"], "status": "berhasil",
                            "publikasi_semua_tahun": len(daftar),
-                           "publikasi_lolos_filter": len(lolos)})
-        print(f"  {len(daftar)} publikasi semua tahun, {len(lolos)} lolos filter tahun")
+                           "publikasi_lolos_filter": len(lolos),
+                           "publikasi_dikecualikan_judul": len(dikecualikan)})
+        print(f"  {len(daftar)} publikasi semua tahun, {len(lolos)} lolos filter tahun"
+              f" dan judul ({len(dikecualikan)} dikecualikan menurut judul)")
         if i < len(wilayah) - 1:
             time.sleep(sumber_bps.JEDA_DETIK)
 
@@ -382,7 +385,11 @@ def proses_domain(w, opsi, terhalang):
             durasi["ambil_metadata"] = time.perf_counter() - mulai
             lolos = sumber_bps.saring_tahun(
                 semua, sumber_bps.tahun_dipakai(opsi.tahun_min))
-            print(f"  {len(semua)} publikasi semua tahun, {len(lolos)} lolos filter tahun")
+            # Pengecualian judul (data/wilayah.json, kecualikan_judul) - misalnya
+            # "Kecamatan ... Dalam Angka", di luar cakupan atas permintaan tim PST.
+            lolos, dikecualikan = sumber_bps.saring_judul(lolos, pola_judul_dikecualikan())
+            print(f"  {len(semua)} publikasi semua tahun, {len(lolos)} lolos filter tahun"
+                  f" dan judul ({len(dikecualikan)} dikecualikan menurut judul)")
 
             # Nol hasil padahal data lama ada hampir pasti kegagalan penarikan,
             # bukan BPS menghapus seluruh publikasinya.
