@@ -1,9 +1,13 @@
-# C2: varian "nomor sebaris" di mode tanpa-label (9 Nov 2026), BELUM DIMUAT
+# C2: varian "nomor sebaris" di mode tanpa-label (9 Nov 2026)
 
-Kode ada di `C2-nomor-sebaris-20261109.patch` (diuji, `git apply --check`
-lolos terhadap HEAD `5904220` (sesudah perbaikan awalan)). Parser di working tree
-dan database TIDAK diubah: dua KAK menunjukkan efek yang butuh keputusan
-pemilik project (lihat "Temuan yang menahan pemuatan").
+**Status akhir: DIMUAT sesudah pilihan (b)** (lihat "Uji ulang dan
+pemuatan" di akhir). Bagian di bawahnya adalah laporan uji pertama, ditulis
+saat pemuatan ditahan, dan dibiarkan apa adanya sebagai riwayat keputusan.
+
+Uji pertama: kode di `C2-nomor-sebaris-20261109.patch` (`git apply --check`
+lolos terhadap HEAD `5904220`). Parser dan database tidak diubah, karena dua
+KAK menunjukkan efek yang butuh keputusan pemilik project (lihat "Temuan
+yang menahan pemuatan").
 
 ## Perubahan dalam patch
 - `_mode_nomor_sebaris`: aktif bila tidak ada baris berlabel (kop kolom dan
@@ -132,3 +136,47 @@ hilang; 42 entri badan kini juga ditemukan jalur daftar (badan → keduanya,
 judul lebih lengkap, halaman cetak didapat); gambar 1 dan 3 bertambah; 1
 judul seksi akhir halaman ("6.2 Transportasi/Transportation") ikut
 bertambah. Lima berkas lain: 0 perubahan.
+
+## Uji ulang dan pemuatan (sesudah pilihan b)
+Pemilik project memilih (b). Penolakan keterangan tak terlihat dimuat lebih
+dulu sebagai langkah sendiri (`tak-terlihat-20261109.md`, baseline
+`potret-79-sesudah-tak-terlihat.json`). Sesudah itu C2 (patch yang sama
+persis) diuji ulang di atasnya.
+
+| Syarat (uji kering vs database = `potret-79-sesudah-tak-terlihat.json`) | Hasil |
+|---|---|
+| `(publikasi, tipe, nomor)` BERNOMOR hilang | **0** |
+| Entri kehilangan `halaman_fisik` / berpindah | 0 / 0 |
+| Sumber turun | 0 (yang ada hanya badan → keduanya: 790) |
+| Entri tanpa nomor hilang | 424 blok gabungan jalur daftar lama (sama dengan uji pertama) |
+| Entri bernomor bertambah | 341, semuanya berhalaman cetak (sama) |
+| Entri berubah | 810 (halaman cetak 781, sumber 790, judul 442) |
+
+Temuan 1 (KAK) teratasi:
+- Semua entri berhalaman fisik di ketiga KAK kini menunjuk halaman yang
+  memuat keterangan TERLIHAT bernomor persis (101/101, 139/139, 103/103).
+- Selisih fisik−cetak konstan tanpa penurunan: +52 (101/101), +64 (125/125),
+  +50 (100/100).
+- 6 sampel KAK acak: 6 benar (judul = keterangan terlihat, folio = halaman
+  cetak).
+
+Temuan 2 (KAK Agt 2024, judul terpotong di depan, 5 entri) DITUNDA atas
+keputusan pemilik project; dicatat di CLAUDE.md.
+
+Kab/kota: hanya Kecamatan 6301 yang berubah, sama dengan uji pertama.
+
+Pemuatan dan baseline:
+- Cadangan: `~/cadangan-bps/db_pencarian_bps-20261109-1241-sebelum-C2.sql`,
+  terbukti bisa dipulihkan.
+- Dimuat dengan `perbarui.py --lokal --paksa` (log `C2_muat_log.txt`, exit 0,
+  tanpa kunci API).
+- Database = uji kering di 79/79 publikasi, medan dan urutan sama;
+  `teks_ternormalisasi` kosong: 0.
+- **Baseline:** `potret-79-sesudah-C2.json`, 79 publikasi, **6.738 entri**,
+  SHA-256 `0fccc412da120e77c0aafd2f38ba7485d313cc21fbd1bb69ca655e070d33efad`.
+- **Daftar perubahan disengaja:** `C2-perubahan-20261109.tsv` (341
+  bertambah, 424 hilang = blok sampah tanpa nomor, 810 entri berubah dengan
+  satu baris per medan).
+- Cek UI (test_client, `KonfigurasiUji`): kueri "desa memiliki sarana
+  kesehatan" menampilkan Podes "Tabel 3.2 ... Sarana Kesehatan ..., Halaman
+  42" dengan judul utuh; dulu bagian dari blok gabungan tanpa nomor.

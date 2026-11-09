@@ -131,11 +131,14 @@ Parser ada di `app/services/ekstraksi_pdf.py`, berbasis KOORDINAT KATA
   dihitung sebagai kegagalan.
 - Waktu proses ~400 detik untuk seluruh korpus.
 
-Empat format daftar yang ditangani satu parser (jangan dipecah jadi parser terpisah):
+Format daftar yang ditangani satu parser (jangan dipecah jadi parser terpisah):
 1. label + nomor satu baris ("Tabel 1 Judul ..... 7")
 2. dua kolom, label dan nomor beda baris (PDRB)
 3. nomor halaman di baris pertama, judul menyambung ke bawah
 4. tanpa kata label, nomor berdiri sendiri di kolom kiri ("Dalam Angka")
+5. tanpa kata label, nomor SEBARIS dengan judul ("1.1 Luas Daerah ... 10";
+   Podes, Kesra, IPM, KAK, Gambaran Ekonomi Makro, dll.) - ditambahkan
+   9 Nov 2026 (C2, `_mode_nomor_sebaris`)
 
 Watermark dibuang lewat **matriks transformasi karakter** (miring 45 derajat),
 bukan regex teks — itu sebabnya "Pertaniano" tidak lagi muncul.
@@ -371,6 +374,23 @@ Masing-masing langkah punya laporan, baseline, dan TSV perubahan sendiri.
     entri kosong.
   - Hasil: 62 awalan dibuang di Dalam Angka 2025/2026, 0 kunci bernomor
     hilang, publikasi lain identik.
+- **C2 format daftar kelima "nomor sebaris"** (`_mode_nomor_sebaris`,
+  `_parse_baris_nomor_sebaris`).
+  - Dikurung seketat mode tanpa-label: tidak boleh ada baris berlabel,
+    minimal 3 baris bernomor sejajar kolom judul, minimal 3 baris berakhir
+    nomor halaman. Syarat terakhir mencegah halaman badan berisi daftar
+    prosa bernomor ikut terbaca.
+  - Entri dibuka dan ditutup oleh baris bernomor, bukan oleh nomor halaman,
+    karena sebagian publikasi mencetak nomor halaman dua kali.
+  - Hasil: 18 publikasi; 424 blok gabungan diganti 341 entri bernomor
+    berhalaman; 781 halaman cetak didapat; 0 kunci bernomor hilang.
+  - Dimuat SESUDAH penolakan keterangan tak terlihat. Tanpa itu, di dua KAK
+    halaman fisik akan menempel ke judul yang salah.
+  - Laporan: `data/regresi/C2-nomor-sebaris-20261109.md`.
+  - Cacat kecil yang diketahui:
+    - angka indeks di ujung judul terbaca sebagai halaman (GEM tabel 41);
+    - nomor "13" yang terbelah di Daftar Air Bersih;
+    - judul seksi di akhir halaman (Kecamatan Dalam Angka).
 - **C1(b), keterangan bertumpuk sebagai entri BARU di jalur badan:
   DITUNDA (keputusan 9 Nov 2026), saran pengembangan.** Rinciannya di
   `data/regresi/C1b-perkiraan-20261109.md`.
