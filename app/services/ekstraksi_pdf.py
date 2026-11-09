@@ -203,6 +203,64 @@ def _mode_tanpa_label(daftar_baris, tipe, batas_kanan):
     return True, x_judul
 
 
+KATA_KOP = {"tabel", "table", "tables", "gambar", "figure", "figures", "grafik",
+            "lampiran", "appendix", "halaman", "hal", "page", "pages"}
+
+
+def _kop_kolom(baris):
+    """Baris yang seluruh katanya kata kop: "Tabel Hal.", "Tabel/tables Halaman/pages"."""
+    kata = [w for k in baris for w in k["text"].lower().split("/")]
+    return all(w.strip(".:") in KATA_KOP for w in kata if w.strip(".:"))
+
+
+def _mode_nomor_sebaris(daftar_baris, tipe, batas_kanan):
+    """Daftar bernomor tanpa label, nomor SEBARIS dengan judul -> (aktif, x_judul).
+
+    Format kelima ("1.1 Luas Daerah Menurut ... 10"): nomor di kolom kiri
+    langsung diikuti judul pada baris yang sama, baris lanjutan sejajar
+    dengan awal judul. Ada di Podes, IPM, Kesra, Pemotongan Ternak, PDRB
+    Kab/Kota, Air Bersih, dan Kecamatan Dalam Angka. Dulu jatuh ke jalur
+    berlabel: tanpa label, entri dipotong per MAKS_BARIS_PER_ENTRI baris dan
+    halaman lanjutan ditolak.
+
+    Dikurung seketat _mode_tanpa_label - SEMUA harus terpenuhi:
+    1. bukan Daftar Isi
+    2. tidak ada baris berlabel; kop kolom ("Tabel Halaman") dan kata label
+       yang berdiri sendiri (kop "TABEL" Statistik Air Bersih) tidak dihitung
+    3. minimal MIN_NOMOR_KOLOM baris diawali token nomor yang langsung
+       diikuti huruf, dengan awal judul pada kolom yang sama (x_judul)
+    4. minimal MIN_NOMOR_KOLOM baris diakhiri nomor halaman di margin kanan -
+       tanpa ini halaman BADAN berisi daftar prosa bernomor ("1 Mengumpulkan
+       data ...", Statistik Air Bersih) ikut terbaca sebagai lanjutan daftar
+    """
+    if tipe == "isi":
+        return False, None
+
+    for b in daftar_baris:
+        if _kop_kolom(b):
+            continue
+        if _label_baris(b):
+            return False, None
+
+    berhalaman = sum(1 for b in daftar_baris
+                     if _cari_halaman_di_baris(b, batas_kanan, tipe)[1])
+    if berhalaman < MIN_NOMOR_KOLOM:
+        return False, None
+
+    awal = [b for b in daftar_baris
+            if len(b) > 1 and RE_NOMOR.match(b[0]["text"])
+            and b[1]["text"][:1].isalpha()]
+    if len(awal) < MIN_NOMOR_KOLOM:
+        return False, None
+    x_judul = Counter(round(b[1]["x0"]) for b in awal).most_common(1)[0][0]
+    sejajar = sum(1 for b in awal
+                  if abs(b[1]["x0"] - x_judul) <= TOLERANSI_KOLOM
+                  and b[0]["x0"] < x_judul - TOLERANSI_KOLOM)
+    if sejajar < MIN_NOMOR_KOLOM:
+        return False, None
+    return True, x_judul
+
+
 def _lanjutan_masuk_akal(baris, tipe, batas_kanan):
     """Apakah halaman ini benar lanjutan daftar, bukan sudah masuk isi buku?
 
@@ -222,6 +280,9 @@ def _lanjutan_masuk_akal(baris, tipe, batas_kanan):
 
     # Daftar tanpa kata label punya kriteria sendiri.
     aktif, _ = _mode_tanpa_label(baris, tipe, batas_kanan)
+    if aktif:
+        return True
+    aktif, _ = _mode_nomor_sebaris(baris, tipe, batas_kanan)
     if aktif:
         return True
 
@@ -456,6 +517,72 @@ def _parse_baris_tanpa_label(daftar_baris, tipe, publikasi_id, batas_kanan,
     return entri
 
 
+def _parse_baris_nomor_sebaris(daftar_baris, tipe, publikasi_id, batas_kanan,
+                               x_judul):
+    """Jalur khusus format kelima (lihat _mode_nomor_sebaris).
+
+    Entri DIBUKA oleh baris bernomor dan ditutup oleh baris bernomor
+    berikutnya - bukan oleh nomor halaman, karena sebagian publikasi
+    mencetak nomor halaman dua kali (ujung judul Indonesia DAN Inggris).
+    Yang dibuang:
+      - baris di kolom kiri yang tidak diawali nomor ("II KEPENDUDUKAN",
+        kop "Tabel Halaman"), sekaligus menutup entri sebelumnya;
+      - kepala bab/seksi: judulnya kapital semua ("1. KETERANGAN UMUM DESA");
+      - judul seksi: tanpa nomor halaman DAN disusul sub-nomornya
+        ("2.1 Wilayah Administratif" lalu "2.1.1 ...");
+      - baris lanjutan di awal halaman yang belum punya entri (sisa entri
+        terakhir halaman sebelumnya).
+    """
+    entri = []
+    buffer = []
+
+    def tutup(nomor_berikut=None):
+        if not buffer:
+            return
+        nomor = buffer[0][0]["text"].rstrip(".")
+        sisa = [buffer[0][1:]] + buffer[1:]
+        hasil = _rakit_entri(sisa, tipe, publikasi_id, batas_kanan)
+        if not hasil or _kapital_semua(hasil["judul"]):
+            return
+        if (hasil["halaman"] is None and nomor_berikut
+                and nomor_berikut.startswith(nomor + ".")):
+            return
+        # Nomor halaman yang dicetak dua kali (ujung judul Indonesia DAN
+        # Inggris): yang pertama sudah jadi `halaman`, yang kedua ikut judul.
+        if hasil["halaman"]:
+            hasil["judul"] = re.sub(rf"\s+{re.escape(hasil['halaman'])}$", "",
+                                    hasil["judul"])
+        hasil["nomor"] = nomor
+        entri.append(hasil)
+
+    for baris in daftar_baris:
+        teks = _teks_baris(baris).strip()
+        if not teks or RE_HEADING.match(teks) or _kop_kolom(baris):
+            continue
+        # Kop kolom yang tercetak sebaris dengan entri pertama ("Hal. 2.1 ...").
+        if len(baris) > 2 and _kop_kolom(baris[:1]) and RE_NOMOR.match(baris[1]["text"]):
+            baris = baris[1:]
+        # Folio halaman Daftar ("ix") di kolom judul bukan bagian judul.
+        if len(baris) == 1 and (RE_ROMAWI.match(teks) or RE_ANGKA.match(teks)):
+            continue
+        di_kiri = baris[0]["x0"] < x_judul - TOLERANSI_KOLOM
+        bernomor = (len(baris) > 1 and RE_NOMOR.match(baris[0]["text"])
+                    and baris[1]["text"][:1].isalpha())
+        if di_kiri and bernomor:
+            tutup(baris[0]["text"].rstrip("."))
+            buffer = [baris]
+            continue
+        if di_kiri:
+            tutup()
+            buffer = []
+            continue
+        if buffer and len(buffer) < MAKS_BARIS_PER_ENTRI:
+            buffer.append(baris)
+
+    tutup()
+    return entri
+
+
 def _parse_baris(daftar_baris, tipe, publikasi_id, batas_kanan):
     """Rakit entri dari baris-baris satu halaman daftar.
 
@@ -475,6 +602,10 @@ def _parse_baris(daftar_baris, tipe, publikasi_id, batas_kanan):
     aktif, x_judul = _mode_tanpa_label(daftar_baris, tipe, batas_kanan)
     if aktif:
         return _parse_baris_tanpa_label(
+            daftar_baris, tipe, publikasi_id, batas_kanan, x_judul)
+    aktif, x_judul = _mode_nomor_sebaris(daftar_baris, tipe, batas_kanan)
+    if aktif:
+        return _parse_baris_nomor_sebaris(
             daftar_baris, tipe, publikasi_id, batas_kanan, x_judul)
 
     entri = []
@@ -595,6 +726,8 @@ def _baca_daftar(pdf, halaman_awal, tipe, publikasi_id, jejak=None):
             aktif, _ = _mode_tanpa_label(baris, tipe, batas_kanan)
             if aktif:
                 jejak.append(f"{tipe}:hal{h}")
+            elif _mode_nomor_sebaris(baris, tipe, batas_kanan)[0]:
+                jejak.append(f"{tipe}:hal{h}:sebaris")
 
         hasil = _parse_baris(baris, tipe, publikasi_id, batas_kanan)
         if not hasil:
