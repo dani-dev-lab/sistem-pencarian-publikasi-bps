@@ -896,15 +896,58 @@ def _kata_isi(judul):
             re.findall(rf"[A-Za-z]{{{PANJANG_KATA_ISI},}}", judul)][:MAKS_KATA_DIPAKAI]
 
 
-def _cocokkan_di_halaman(baris, teks, penanda, kunci):
-    """Cek satu halaman untuk satu entri. Return 'awal baris' | 'tengah' | None.
+MAKS_JARAK_NOMOR_TUMPUK = 2    # nomor ada di 1-2 baris sesudah baris label
+
+
+def _penanda_bertumpuk(kelompok):
+    """Penanda "label nomor" dari keterangan berlabel BERTUMPUK. Return set.
+
+    Pola Dalam Angka: label, nomor, dan label Inggris ditumpuk di kolom kiri,
+    sedangkan judul berada di kolom kanan yang sejajar:
+
+        Tabel  Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota
+        1.1.1                                       <- sendirian di barisnya
+        Table  di Provinsi Kalimantan Selatan, 2025
+
+    Karena "Tabel" dan "1.1.1" berlainan baris, penanda "tabel 1.1.1" tidak
+    pernah muncul dalam satu baris. Syaratnya ketat:
+      - baris diawali label tanpa nomor DAN memuat teks judul (label yang
+        berdiri sendiri, misalnya kop "LAMPIRAN" di atas nomor halaman
+        berjalan, ditolak);
+      - dalam MAKS_JARAK_NOMOR_TUMPUK baris berikutnya ada baris berisi SATU
+        token nomor, letaknya di antara x label dan x awal judul.
+    `kelompok`: keluaran _kelompokkan_baris (list baris, tiap baris list kata).
+    """
+    penanda = set()
+    for j, b in enumerate(kelompok):
+        label = b[0]["text"].lower().strip(".:")
+        if label not in LABEL_ENTRI or len(b) < 2 or RE_NOMOR.match(b[1]["text"]):
+            continue
+        x_label, x_judul = b[0]["x0"], b[1]["x0"]
+        for c in kelompok[j + 1:j + 1 + MAKS_JARAK_NOMOR_TUMPUK]:
+            if (len(c) == 1 and RE_NOMOR.match(c[0]["text"])
+                    and x_label - TOLERANSI_KOLOM <= c[0]["x0"] < x_judul - TOLERANSI_KOLOM):
+                nomor = c[0]["text"].rstrip(".")
+                if not RE_TAHUN.fullmatch(nomor):
+                    penanda.add(f"{label} {nomor}")
+                break
+    return penanda
+
+
+def _cocokkan_di_halaman(baris, teks, penanda, kunci, tumpuk=frozenset()):
+    """Cek satu halaman untuk satu entri.
+
+    Return 'awal baris' | 'label bertumpuk' | 'tengah baris (dua kolom)' | None.
 
     Keterangan dibedakan dari kalimat prosa yang menyebutnya:
       - "Gambar 2.1 Persentase Konsumen..." di AWAL baris  -> keterangan
+      - label dan nomor bertumpuk di kolom kiri (_penanda_bertumpuk)
+        -> keterangan Dalam Angka
       - "...penggerak Gambar 2.7 Struktur..." tengah baris tapi langsung
         diikuti kata judul -> keterangan yang tergabung dengan kolom sebelah
       - "Berdasarkan Gambar 2.1, sebesar 60 persen" diikuti koma/angka
         -> PROSA, ditolak
+    Syarat kata judul berlaku untuk semuanya.
     """
     if sum(1 for k in kunci if k in teks) < MIN_KATA_JUDUL:
         return None
@@ -920,6 +963,8 @@ def _cocokkan_di_halaman(baris, teks, penanda, kunci):
         if sisa[:1].isalpha() and any(
                 sisa.startswith(k[:AWALAN_COCOK]) for k in kunci):
             tengah = "tengah baris (dua kolom)"
+    if penanda in tumpuk:
+        return "label bertumpuk"
     return tengah
 
 
@@ -968,18 +1013,20 @@ def lengkapi_halaman_fisik(pdf, entri):
             sebelumnya_daftar = False
             continue
 
-        baris = [_teks_baris(b).strip() for b in _kelompokkan_baris(kata)]
+        kelompok = _kelompokkan_baris(kata)
+        baris = [_teks_baris(b).strip() for b in kelompok]
         sebelumnya_daftar = _halaman_daftar(baris, sebelumnya_daftar)
         if sebelumnya_daftar:
             continue                    # halaman DAFTAR, bukan badan
 
         baris_kecil = [b.lower() for b in baris]
         teks = " ".join(baris_kecil)
+        tumpuk = _penanda_bertumpuk(kelompok)
 
         tersisa = []
         for e, penanda, kunci in belum:
-            cara = _cocokkan_di_halaman(baris_kecil, teks, penanda, kunci)
-            if cara == "awal baris":
+            cara = _cocokkan_di_halaman(baris_kecil, teks, penanda, kunci, tumpuk)
+            if cara in ("awal baris", "label bertumpuk"):
                 e["halaman_fisik"] = i + 1
                 e["cara_halaman_fisik"] = cara
                 cadangan.pop(id(e), None)
