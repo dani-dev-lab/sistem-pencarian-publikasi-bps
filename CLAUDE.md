@@ -325,6 +325,26 @@ Hasil di 79 publikasi:
     tercetak di dua kolom terpisah (PDRB Lapangan Usaha: 0/52 dan 2/51);
   - entri halaman depan yang ada di halaman Daftar sendiri.
 
+### Dalam Angka: label bertumpuk dan kepala seksi (9 Nov 2026)
+Penyelidikan lengkapnya ada di `data/regresi/penyelidikan-C-20261107.md`.
+Masing-masing langkah punya laporan, baseline, dan TSV perubahan sendiri.
+- **C1(a) label bertumpuk.** Keterangan Dalam Angka menumpuk "Tabel" /
+  "1.1.1" / "Table" di kolom kiri, sejajar dengan judul. Penanda
+  "tabel 1.1.1" karena itu tidak pernah satu baris.
+  - `_penanda_bertumpuk` di `lengkapi_halaman_fisik` mengenalinya.
+  - Hasil: +637 `halaman_fisik` (Dalam Angka 2025/2026 hampir semua
+    tabelnya); sampel 30: 30 benar.
+  - Inilah penyebab "631 Dalam Angka tanpa halaman_fisik" yang lama,
+    BUKAN halaman pembuka bab.
+- **C3 kepala seksi.** Padanan Inggris kepala seksi tercetak di kolom judul
+  Daftar Tabel lalu menempel ke entri pertama seksi.
+  - Sekarang dibuang di mode tanpa-label: baris kapital semua saat buffer
+    entri kosong.
+  - Hasil: 62 awalan dibuang di Dalam Angka 2025/2026, 0 kunci bernomor
+    hilang, publikasi lain identik.
+- **C1(b), keterangan bertumpuk sebagai entri baru di jalur badan:**
+  menunggu keputusan pemilik project.
+
 Dedup memakai kunci `(tipe, nomor)` per publikasi. Kalau judulnya berbeda,
 yang dipakai judul yang LEBIH PANJANG (`_gabung`: versi badan menggantikan
 versi daftar hanya bila lebih panjang), bukan selalu versi badan. Alasan
@@ -386,6 +406,24 @@ Aturan yang berlaku:
   bagian "Ekstraksi badan dokumen"). Aturan itu sengaja tidak diubah:
   mengubahnya menyentuh semua entri 'keduanya', jadi perlu regresi penuh
   tersendiri.
+- **Dicatat 9 Nov 2026, belum dikejar:**
+  - **Potongan baris Inggris tanpa nomor** menjadi entri sendiri di
+    Dalam Angka (misalnya "Government-Approved Foreign Investment by
+    Regency/Municipality ..."). Penyebabnya entri yang kehilangan nomor
+    halamannya. C3 membuang sebagian (4 prov, 5 sampel kab/kota), sisanya
+    tetap ada. Keputusan pemilik project: dicatat saja.
+  - **Bug awalan penanda di `lengkapi_halaman_fisik`:** penanda "tabel 3.1"
+    dicocokkan dengan `startswith`, sehingga ikut cocok dengan "Tabel 3.12".
+    Satu korban sudah terkoreksi lewat C1(a) (PDRB Pengeluaran tabel 3.1:
+    74 → 57). Ada 4 calon korban lain yang belum dibuktikan (lihat
+    `data/regresi/C1a-label-bertumpuk-20261109.md`). Perbaikannya, batas
+    kata pada penanda, akan jadi perubahan tersendiri.
+  - **Halaman cetak jalur daftar 6302 (Kotabaru Dalam Angka) meleset mulai
+    bab 7**, misalnya tabel 7.1-7.6 semuanya "182" padahal foliony 210-215.
+    `halaman_fisik`-nya benar. Penyebabnya di jalur daftar atau di sumbernya,
+    belum diselidiki.
+  - **Dalam Angka 2026 tabel 10.3.1** menyerap judul 10.3.2 (sudah
+    sebelum C3).
 - **8 kelompok `(publikasi, tipe, nomor)` kembar** di `entri_dokumen`. SEMUANYA
   berasal dari jalur `daftar` - nomor tabel yang bertabrakan di sumbernya atau
   salah baca parser pada daftar. Jumlahnya persis sama (8) sebelum maupun
