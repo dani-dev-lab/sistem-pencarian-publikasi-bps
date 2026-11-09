@@ -265,6 +265,35 @@ berwarna lolos aturan gaya, dan akibatnya:
 - 13 `halaman_fisik` menunjuk halaman Daftar;
 - 43 judul membawa nomor halaman daftar ("... 2021−2024 26").
 
+**Pengecualian kedua, sejak 9 Nov 2026: teks yang TIDAK TERLIHAT pembaca
+bukan keterangan asli.** Diputuskan pemilik project setelah C2
+(`data/regresi/C2-nomor-sebaris-20261109.md`, `tak-terlihat-20261109.md`).
+- Kasusnya: tiga KAK (Feb 2025, Feb 2026, Agt 2025) menyimpan salinan
+  keterangan 5 pt berwarna PUTIH di bawah judul tabel. Di dua di antaranya
+  nomornya beda dari yang terlihat (sisa edisi sebelumnya). Jalur badan
+  dulu menerimanya, sehingga entri menunjuk tabel yang salah.
+- Aturannya: `ekstrak_badan` menolak keterangan bila ukuran labelnya
+  **< 0,7 × ukuran teks badan halaman** (ukuran gaya dominan), hanya kalau
+  halaman itu punya minimal 20 kata berukuran dominan.
+- Ambangnya RELATIF, bukan angka mati, atas syarat pemilik project:
+  - Lampiran IHK yang dicetak 6 pt di halaman berbadan 6 pt (rasio 1,0)
+    adalah keterangan asli dan terlihat;
+  - publikasi kab/kota berhuruf kecil tidak boleh terpotong.
+- Angka 0,7 jatuh di celah data: keterangan asli terkecil berasio 0,772,
+  salinan tersembunyi paling besar 0,63.
+- Syarat 20 kata ada karena halaman pembatas Lampiran yang berisi 5 kata
+  dekoratif 37 pt tidak punya "ukuran badan". Folio 7 pt di halaman itu
+  (rasio 0,19) tidak ikut terbuang.
+- Bukti 9 Nov 2026: semua yang terbuang (322, di 79 PDF + 6 sampel kab/kota)
+  diperiksa satu per satu. Hasilnya: semuanya berwarna putih, tidak ada yang
+  digambar di atas bidang berwarna, dan render pikselnya kosong. **0
+  keterangan terlihat terbuang.**
+- Jebakan alat yang terjadi saat pembuktian, dan jangan diulang: salinan
+  tersembunyi di KAK Feb 2025 berteks PERSIS sama dengan keterangan
+  terlihatnya. Pemeriksa yang mencari baris menurut teks saja menemukan
+  baris 12 pt di atasnya dan melaporkan 108 "terlihat". Cocokkan menurut
+  teks DAN ukuran.
+
 Halaman Daftar kini dilewati `ekstrak_badan` lewat `_halaman_daftar()`,
 pemeriksaan yang sama dengan `lengkapi_halaman_fisik`. Perubahan ini
 dipasangkan dengan perbaikan `_baca_daftar` (heading yang sama yang diulang
@@ -342,8 +371,19 @@ Masing-masing langkah punya laporan, baseline, dan TSV perubahan sendiri.
     entri kosong.
   - Hasil: 62 awalan dibuang di Dalam Angka 2025/2026, 0 kunci bernomor
     hilang, publikasi lain identik.
-- **C1(b), keterangan bertumpuk sebagai entri baru di jalur badan:**
-  menunggu keputusan pemilik project.
+- **C1(b), keterangan bertumpuk sebagai entri BARU di jalur badan:
+  DITUNDA (keputusan 9 Nov 2026), saran pengembangan.** Rinciannya di
+  `data/regresi/C1b-perkiraan-20261109.md`.
+  - Manfaat: sekitar 55 grafik Dalam Angka provinsi ("Gambar" / "1.1" /
+    "Figure" di halaman infografis bab) ditambah sekitar 5 per Dalam Angka
+    kab/kota. Semuanya kini tidak terindeks, karena Dalam Angka tidak punya
+    Daftar Gambar.
+  - Risiko sedang-tinggi: aturan judul terpanjang bisa mengganti ratusan
+    judul tabel Dalam Angka yang kini bersih dengan rekonstruksi badan.
+  - Perkiraan waktu: 4-5 jam.
+  - Cara meredam bila dikerjakan: versi "hanya menambah kunci yang belum
+    ada", tanpa menyentuh entri yang sudah dikenal Daftar. Paling hemat
+    dikerjakan bersamaan dengan ekstraksi ulang sesudah penarikan 13 domain.
 
 Dedup memakai kunci `(tipe, nomor)` per publikasi. Kalau judulnya berbeda,
 yang dipakai judul yang LEBIH PANJANG (`_gabung`: versi badan menggantikan
@@ -425,6 +465,13 @@ Aturan yang berlaku:
     `halaman_fisik` dari C1(a) tetap benar.
   - **Dalam Angka 2026 tabel 10.3.1** menyerap judul 10.3.2 (sudah
     sebelum C3).
+  - **KAK Agt 2024 (`2ddab8a8`): judul Daftar Tabel terpotong di depan,
+    DITUNDA (9 Nov 2026).** Di Daftar-nya, baris pertama judul tercetak DI
+    ATAS baris nomor ("Persentase Penduduk Usia Kerja ..." / "Tabel" /
+    "15 Jumlah Jam Kerja ..."). Akibatnya, dengan jalur nomor-sebaris (C2),
+    baris itu menempel ke entri SEBELUMNYA dan entri ini kehilangan awal
+    judulnya (5 entri). Usulan perbaikan: baris kolom judul sebelum baris
+    "Tabel" tunggal dianggap awal entri berikutnya.
 - **8 kelompok `(publikasi, tipe, nomor)` kembar** di `entri_dokumen`. SEMUANYA
   berasal dari jalur `daftar` - nomor tabel yang bertabrakan di sumbernya atau
   salah baca parser pada daftar. Jumlahnya persis sama (8) sebelum maupun

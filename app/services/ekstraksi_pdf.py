@@ -625,6 +625,10 @@ RE_KETERANGAN = re.compile(
 MAKS_BARIS_KETERANGAN = 4   # judul keterangan jarang lebih dari 4 baris
 MIN_PANJANG_JUDUL = 8
 
+# Teks yang tidak terlihat pembaca bukan keterangan (lihat ekstrak_badan).
+RASIO_UKURAN_MIN = 0.7      # ukuran label < 0,7 x ukuran teks badan -> dibuang
+MIN_KATA_BADAN = 20         # ...hanya kalau halaman memang punya teks badan
+
 
 def _warna(kata):
     """Warna teks sebagai tuple yang bisa dijadikan kunci dict."""
@@ -776,6 +780,13 @@ def ekstrak_badan(pdf, publikasi_id, baris_halaman=None):
                 for b in baris]
         terpakai = set()      # baris yang sudah diserap keterangan lain
 
+        # Ukuran teks badan, untuk menolak keterangan TAK TERLIHAT. Hanya
+        # berlaku kalau halaman memang punya teks badan: halaman pembatas
+        # berisi lima kata dekoratif 37 pt tidak punya "ukuran badan".
+        ukuran_badan = dominan[0][1]
+        ada_badan = sum(1 for k in kata if (str(k.get("fontname")),
+                        round(float(k.get("size") or 0), 1)) == dominan[0]) >= MIN_KATA_BADAN
+
         for i, b in enumerate(baris):
             teks = _teks_baris(b).strip()
             cocok = RE_KETERANGAN.match(teks)
@@ -785,6 +796,16 @@ def ekstrak_badan(pdf, publikasi_id, baris_halaman=None):
             gaya_keterangan = _gaya(b[0])
             if not _beda_dari_badan(gaya_keterangan, dominan):
                 continue        # gaya sama dengan teks badan -> kalimat prosa
+
+            # Pengecualian aturan superset (9 Nov 2026, lihat CLAUDE.md): teks
+            # yang tidak terlihat pembaca bukan keterangan asli. Tiga KAK
+            # menyimpan salinan keterangan 5 pt berwarna PUTIH di bawah judul
+            # tabel, sebagian bernomor lain (sisa edisi sebelumnya), sehingga
+            # entrinya menunjuk tabel yang salah. Ambangnya relatif terhadap
+            # teks badan halaman, bukan angka mati: Lampiran IHK yang dicetak
+            # 6 pt di halaman berbadan 6 pt adalah keterangan asli.
+            if ada_badan and gaya_keterangan[1] < RASIO_UKURAN_MIN * ukuran_badan:
+                continue
 
             label, nomor, sisa = cocok.groups()
             nomor = nomor.rstrip(".")
