@@ -400,6 +400,12 @@ def _rakit_entri(kumpulan, tipe, publikasi_id, batas_kanan, tanpa_label=False):
     }
 
 
+def _kapital_semua(teks):
+    """Semua hurufnya kapital (minimal 3 huruf): ciri kepala seksi."""
+    huruf = re.sub(r"[^A-Za-z]", "", teks)
+    return len(huruf) >= 3 and huruf.isupper()
+
+
 def _parse_baris_tanpa_label(daftar_baris, tipe, publikasi_id, batas_kanan,
                              x_judul):
     """Jalur khusus daftar bernomor TANPA kata label ("Kalsel Dalam Angka").
@@ -427,6 +433,14 @@ def _parse_baris_tanpa_label(daftar_baris, tipe, publikasi_id, batas_kanan,
         sendirian = len(baris) == 1 and bool(RE_NOMOR.match(baris[0]["text"]))
         di_kiri = baris[0]["x0"] < x_judul - TOLERANSI_KOLOM
         if di_kiri and not sendirian:
+            continue
+
+        # Kepala seksi dwibahasa: padanan Indonesia ("1.1 KEADAAN GEOGRAFI")
+        # ada di kolom kiri dan sudah dibuang di atas, tapi padanan Inggrisnya
+        # ("GEOGRAPHY CONDITION") tercetak di kolom JUDUL lalu menempel ke
+        # entri pertama seksi itu. Dikenali dari huruf kapital semua, dan
+        # hanya di awal entri - judul entri sendiri tidak ditulis kapital.
+        if not buffer and not sendirian and _kapital_semua(teks):
             continue
 
         buffer.append(baris)
