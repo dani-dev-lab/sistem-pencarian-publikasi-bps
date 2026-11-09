@@ -412,16 +412,17 @@ Aturan yang berlaku:
     Regency/Municipality ..."). Penyebabnya entri yang kehilangan nomor
     halamannya. C3 membuang sebagian (4 prov, 5 sampel kab/kota), sisanya
     tetap ada. Keputusan pemilik project: dicatat saja.
-  - **Bug awalan penanda di `lengkapi_halaman_fisik`:** penanda "tabel 3.1"
-    dicocokkan dengan `startswith`, sehingga ikut cocok dengan "Tabel 3.12".
-    Satu korban sudah terkoreksi lewat C1(a) (PDRB Pengeluaran tabel 3.1:
-    74 → 57). Ada 4 calon korban lain yang belum dibuktikan (lihat
-    `data/regresi/C1a-label-bertumpuk-20261109.md`). Perbaikannya, batas
-    kata pada penanda, akan jadi perubahan tersendiri.
-  - **Halaman cetak jalur daftar 6302 (Kotabaru Dalam Angka) meleset mulai
-    bab 7**, misalnya tabel 7.1-7.6 semuanya "182" padahal foliony 210-215.
-    `halaman_fisik`-nya benar. Penyebabnya di jalur daftar atau di sumbernya,
-    belum diselidiki.
+  - **Bug awalan penanda, DIPERBAIKI 9 Nov 2026.** Penanda "tabel 3.1" dulu
+    ikut cocok dengan "Tabel 3.12", "Gambar 23", dan folio berjalan
+    "Lampiran 137". Sekarang `_pola_penanda` berhenti di batas nomor.
+    Hasilnya 8 `halaman_fisik` berubah dan semuanya dibuktikan per entri
+    (`data/regresi/awalan-penanda-20261109.md`).
+  - **Halaman cetak Daftar Tabel 6302 (Kotabaru Dalam Angka 2026) =
+    KESALAHAN SUMBER, tidak dikejar.** Diperiksa sampai tingkat karakter
+    PDF: nomor halaman yang tercetak di Daftar tidak monoton. Bab 6 tertulis
+    198-201, bab 7 mundur ke 182 (semua tabelnya), bab 8 ke 191-193, bab 12
+    240-251 sesudah 11.1 = 260. Folio sebenarnya naik terus (7.1 = 210).
+    `halaman_fisik` dari C1(a) tetap benar.
   - **Dalam Angka 2026 tabel 10.3.1** menyerap judul 10.3.2 (sudah
     sebelum C3).
 - **8 kelompok `(publikasi, tipe, nomor)` kembar** di `entri_dokumen`. SEMUANYA
