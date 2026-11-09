@@ -948,7 +948,18 @@ def _penanda_bertumpuk(kelompok):
     return penanda
 
 
-def _cocokkan_di_halaman(baris, teks, penanda, kunci, tumpuk=frozenset()):
+def _pola_penanda(penanda):
+    """Regex penanda yang berhenti di BATAS NOMOR.
+
+    "tabel 3.1" tidak boleh cocok dengan "tabel 3.12" maupun "tabel 3.1.2" -
+    dulu dicocokkan dengan startswith/find sehingga Tabel 3.1 PDRB
+    Pengeluaran mendapat halaman Tabel 3.12. Titik penutup ("Tabel 3.1.")
+    tetap diterima.
+    """
+    return re.compile(re.escape(penanda) + r"(?![0-9]|[.][0-9])")
+
+
+def _cocokkan_di_halaman(baris, teks, penanda, kunci, tumpuk=frozenset(), pola=None):
     """Cek satu halaman untuk satu entri.
 
     Return 'awal baris' | 'label bertumpuk' | 'tengah baris (dua kolom)' | None.
@@ -966,14 +977,15 @@ def _cocokkan_di_halaman(baris, teks, penanda, kunci, tumpuk=frozenset()):
     if sum(1 for k in kunci if k in teks) < MIN_KATA_JUDUL:
         return None
 
+    pola = pola or _pola_penanda(penanda)
     tengah = None
     for b in baris:
-        if b.startswith(penanda):
+        if pola.match(b):
             return "awal baris"
-        pos = b.find(penanda)
-        if pos < 0 or tengah:
+        cocok = pola.search(b)
+        if not cocok or tengah:
             continue
-        sisa = b[pos + len(penanda):].strip()
+        sisa = b[cocok.end():].strip()
         if sisa[:1].isalpha() and any(
                 sisa.startswith(k[:AWALAN_COCOK]) for k in kunci):
             tengah = "tengah baris (dua kolom)"
@@ -1007,7 +1019,8 @@ def lengkapi_halaman_fisik(pdf, entri):
         kunci = _kata_isi(e["judul"])
         if len(kunci) < MIN_KATA_JUDUL:
             continue
-        tugas.append((e, f"{label} {e['nomor']}".lower(), kunci))
+        penanda = f"{label} {e['nomor']}".lower()
+        tugas.append((e, penanda, kunci, _pola_penanda(penanda)))
 
     if not tugas:
         return 0
@@ -1038,8 +1051,8 @@ def lengkapi_halaman_fisik(pdf, entri):
         tumpuk = _penanda_bertumpuk(kelompok)
 
         tersisa = []
-        for e, penanda, kunci in belum:
-            cara = _cocokkan_di_halaman(baris_kecil, teks, penanda, kunci, tumpuk)
+        for e, penanda, kunci, pola in belum:
+            cara = _cocokkan_di_halaman(baris_kecil, teks, penanda, kunci, tumpuk, pola)
             if cara in ("awal baris", "label bertumpuk"):
                 e["halaman_fisik"] = i + 1
                 e["cara_halaman_fisik"] = cara
@@ -1047,7 +1060,7 @@ def lengkapi_halaman_fisik(pdf, entri):
                 continue                # selesai, tidak perlu dicari lagi
             if cara and id(e) not in cadangan:
                 cadangan[id(e)] = (e, i + 1, cara)
-            tersisa.append((e, penanda, kunci))
+            tersisa.append((e, penanda, kunci, pola))
         belum = tersisa
 
     for e, hal, cara in cadangan.values():
@@ -1055,7 +1068,7 @@ def lengkapi_halaman_fisik(pdf, entri):
             e["halaman_fisik"] = hal
             e["cara_halaman_fisik"] = cara
 
-    return sum(1 for e, _, _ in tugas if e.get("halaman_fisik"))
+    return sum(1 for e, *_ in tugas if e.get("halaman_fisik"))
 
 
 # --------------------------------------------------------------------------
