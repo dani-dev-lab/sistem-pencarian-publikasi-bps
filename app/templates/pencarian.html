@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_form_cari.html" import form_cari %}
 {% block kelas_body %}beranda{% endblock %}
 
 {% block konten %}
@@ -12,17 +13,14 @@
 
   {% if pesan %}<p class="peringatan">{{ pesan }}</p>{% endif %}
 
-  <form action="{{ url_for('pencarian.hasil_pencarian') }}" method="get" class="kotak-cari">
-    <input type="search" name="q" placeholder="Contoh: banyaknya akomodasi kabupaten kota"
-           autofocus required>
-    <button type="submit">Cari</button>
-  </form>
+  {{ form_cari(daftar_wilayah, terpilih=w, fokus=True,
+               placeholder='Contoh: banyaknya akomodasi kabupaten kota') }}
 
   {# Tautan biasa, bukan JavaScript - tetap berfungsi kalau JS mati. #}
   <div class="contoh-kueri">
     <span class="contoh-label">Coba:</span>
     {% for c in ['banyaknya akomodasi', 'penduduk miskin', 'tingkat penghunian kamar',
-                 'ekspor impor', 'laju pertumbuhan ekonomi'] %}
+                 'ekspor impor', 'penduduk tanah laut'] %}
       <a href="{{ url_for('pencarian.hasil_pencarian', q=c) }}">{{ c }}</a>
     {% endfor %}
   </div>

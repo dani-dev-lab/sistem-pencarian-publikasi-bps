@@ -14,8 +14,10 @@ from flask import (
 )
 
 from app.models import EntriDokumen, LogPencarian, Publikasi, db
-from app.services.mesin_pencari import AMBANG_DITEMUKAN, AMBANG_SARAN, cari
+from app.services import pencarian_wilayah
+from app.services.mesin_pencari import AMBANG_DITEMUKAN, AMBANG_SARAN
 from app.services.preprocessing import normalisasi_token
+from app.services.wilayah import DOMAIN_PROVINSI, wilayah_aktif
 
 MIN_KARAKTER_SARAN = 3
 MAKS_SARAN = 8
@@ -55,16 +57,22 @@ def _catat_log(hasil):
     """
     if not current_app.config.get("CATAT_LOG_PENCARIAN", True):
         return
-    semua = hasil["publikasi"] + hasil["ditemukan"] + hasil["saran"]
+    # Entri provinsi pelengkap ("Juga ada di publikasi provinsi") ikut
+    # dihitung: kueri yang hanya terjawab tabel provinsi bukan kueri gagal.
+    semua = (hasil["publikasi"] + hasil["ditemukan"] + hasil["saran"]
+             + hasil.get("provinsi", []))
     try:
         db.session.add(LogPencarian(
             keyword=hasil["kueri"][:255],
             keyword_ternormalisasi=hasil["kueri_ternormalisasi"][:255] or None,
             jumlah_hasil=len(semua),
-            skor_tertinggi=max((h["skor"] for h in semua), default=None),
+            # Kueri yang hanya berisi nama wilayah tidak punya skor.
+            skor_tertinggi=max((h["skor"] for h in semua if h["skor"] is not None),
+                               default=None),
             # Waktu cari() saja - angka yang sama dengan "... ms" di halaman
             # hasil. Penulisan log dan render halaman tidak ikut terhitung.
             durasi_ms=round(hasil["waktu_ms"], 1),
+            wilayah_filter=hasil["filter"]["kode"],
         ))
         db.session.commit()
     except Exception:  # noqa: BLE001 - log gagal bukan alasan menolak hasil
@@ -164,22 +172,31 @@ def api_saran():
 
 @bp.get("/")
 def halaman_pencarian():
-    return render_template("pencarian.html")
+    return render_template("pencarian.html", daftar_wilayah=wilayah_aktif(),
+                           w=(request.args.get("w") or "").strip())
 
 
 @bp.get("/hasil")
 def hasil_pencarian():
     kueri = (request.args.get("q") or "").strip()
+    w = (request.args.get("w") or "").strip()
     if not kueri:
-        return render_template("pencarian.html", pesan="Masukkan kata kunci dulu.")
+        return render_template("pencarian.html", pesan="Masukkan kata kunci dulu.",
+                               daftar_wilayah=wilayah_aktif(), w=w)
 
-    hasil = cari(kueri)
+    hasil = pencarian_wilayah.cari(
+        kueri, w=w,
+        wo=(request.args.get("wo") or "").strip(),
+        abaikan=(request.args.get("abaikan") or "").strip())
     _catat_log(hasil)
 
     return render_template(
         "hasil.html",
         kueri=kueri,
         hasil=hasil,
+        filter=hasil["filter"],
+        daftar_wilayah=wilayah_aktif(),
+        domain_provinsi=DOMAIN_PROVINSI,
         ambang_ditemukan=AMBANG_DITEMUKAN,
         ambang_saran=AMBANG_SARAN,
     )

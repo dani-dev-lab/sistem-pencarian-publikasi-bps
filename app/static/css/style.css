@@ -47,7 +47,7 @@ body {
 main { flex: 1; width: 100%; max-width: 1180px; margin: 0 auto; padding: 28px 20px 64px; }
 
 /* -------------------------- kotak pencarian -------------------------- */
-.kotak-cari { display: flex; gap: 8px; max-width: 660px; margin: 0 0 22px; }
+.kotak-cari { display: flex; gap: 8px; max-width: 760px; margin: 0 0 22px; }
 .pusat .kotak-cari { margin: 0 auto; }
 .kotak-cari input {
   flex: 1;
@@ -71,6 +71,62 @@ main { flex: 1; width: 100%; max-width: 1180px; margin: 0 auto; padding: 28px 20
 }
 .kotak-cari button:hover { background: var(--biru-tua); }
 
+/* Dropdown wilayah di samping kotak cari. Lebarnya dibatasi supaya nama
+   terpanjang ("Kab. Hulu Sungai Selatan") muat tanpa memakan kotak cari. */
+.pilih-wilayah {
+  flex: 0 0 auto;
+  width: 210px;
+  padding: 0 10px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--teks);
+  background: #fff;
+  border: 2px solid var(--garis);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.pilih-wilayah:focus { outline: none; border-color: var(--biru); }
+/* Wilayah yang dipasang otomatis: senada dengan pita di bawah form. */
+.pilih-wilayah.otomatis { border-color: #e2b65c; background: var(--kuning-muda); }
+
+/* Layar kecil: kotak cari selebar layar, dropdown + tombol di baris kedua. */
+@media (max-width: 640px) {
+  .kotak-cari { flex-wrap: wrap; }
+  .kotak-cari > input[type="search"], .kotak-cari > .saran-pembungkus { flex: 1 1 100%; }
+  .pilih-wilayah { flex: 1 1 0; width: auto; min-width: 0; padding: 10px; }
+  .beranda .kotak-cari button, .kotak-cari button { padding-left: 20px; padding-right: 20px; }
+  main { padding-left: 14px; padding-right: 14px; }
+  .pusat h1 { font-size: 23px; }
+}
+
+/* Pita "dipasang otomatis" di bawah form hasil. */
+.pita-wilayah {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  max-width: 760px;
+  margin: -10px 0 18px;
+  padding: 8px 12px;
+  font-size: 14px;
+  background: var(--kuning-muda);
+  border: 1px solid #f0d78c;
+  border-left: 4px solid var(--kuning);
+  border-radius: 5px;
+}
+.pita-label {
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+  color: #fff; background: var(--kuning); padding: 2px 7px; border-radius: 3px;
+}
+.pita-teks { flex: 1 1 260px; }
+.pita-batal {
+  font-size: 13px; font-weight: 600; color: var(--kuning);
+  border: 1px solid var(--kuning); border-radius: 4px; padding: 3px 10px;
+  text-decoration: none; white-space: nowrap; background: #fff;
+}
+.pita-batal:hover { background: var(--kuning); color: #fff; }
+.pita-info { background: #f4f6f9; border-color: var(--garis); border-left-color: var(--redup); }
+
 /* ---------------------------- halaman awal ----------------------------
    Halaman ini tujuannya satu: mengetik dan mencari. Kontennya dipusatkan
    secara vertikal supaya tidak menumpuk di atas dan menyisakan rongga besar. */
@@ -86,7 +142,8 @@ main { flex: 1; width: 100%; max-width: 1180px; margin: 0 auto; padding: 28px 20
   padding-bottom: 40px;
 }
 
-.pusat { text-align: center; width: 100%; max-width: 680px; }
+/* 760px: kotak cari + dropdown wilayah + tombol muat tanpa memotong contoh kueri. */
+.pusat { text-align: center; width: 100%; max-width: 760px; }
 .pusat h1 { font-size: 28px; margin: 0 0 10px; }
 
 /* Baris yang terlalu lebar sulit dibaca. */
@@ -143,6 +200,8 @@ body:not(.beranda) main { max-width: 880px; }
 }
 .seksi-ditemukan { color: var(--hijau); }
 .seksi-saran { color: var(--kuning); }
+.seksi-provinsi { color: var(--biru-tua); }
+.ket-seksi { margin: -6px 0 12px; font-size: 13px; color: var(--redup); }
 
 /* Jarak antar kelompok; seksi pertama tidak perlu jarak atas. */
 section + section .seksi { margin-top: 34px; }
@@ -192,6 +251,9 @@ section + section .seksi { margin-top: 34px; }
 .tipe-lampiran { background: var(--ungu-muda);   color: var(--ungu); }
 .tipe-isi      { background: #eceff3; color: #46505c; }
 .lokasi .kosong { background: #f2f4f7; color: #7b8592; font-weight: 500; }
+/* Asal publikasi. Bergaris, bukan blok berwarna, supaya tidak bersaing dengan
+   label tipe dan lokasi - yang utama tetap "di bagian mana". */
+.lokasi .label-wilayah { background: #fff; color: #3d4955; border: 1px solid #c3ccd6; font-weight: 600; }
 
 /* Dibatasi 3 baris supaya tinggi kartu lebih seragam antar kolom. */
 .cuplikan {

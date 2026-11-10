@@ -1,0 +1,94 @@
+Entri kab/kota yang judulnya menyebut nama wilayahnya sendiri:
+  Kab. Tanah Laut                869 dari  1421 (61.2%)
+  Kab. Kotabaru                  591 dari  1153 (51.3%)
+  Kab. Banjar                    761 dari  1310 (58.1%)
+  Kab. Barito Kuala              873 dari  1343 (65.0%)
+  Kab. Tapin                     772 dari  1317 (58.6%)
+  Kab. Hulu Sungai Selatan       646 dari  1295 (49.9%)
+  Kab. Hulu Sungai Tengah        527 dari  1182 (44.6%)
+  Kab. Hulu Sungai Utara         643 dari  1314 (48.9%)
+  Kab. Tabalong                  434 dari  1078 (40.3%)
+  Kab. Tanah Bumbu               497 dari  1051 (47.3%)
+  Kab. Balangan                  499 dari  1121 (44.5%)
+  Kota Banjarmasin               976 dari  1684 (58.0%)
+  Kota Banjarbaru                861 dari  1454 (59.2%)
+  TOTAL 8949 dari 16723 (53.5%)
+
+=== 'penduduk tanah laut' -> Kab. Tanah Laut, topik 'penduduk'
+  (a) sekarang, tanpa filter      : ditemukan/saran (20, 20), dari Kab. Tanah Laut: 40 dari 40
+          86.7 Kab. Tanah Laut  gam Piramida Penduduk Kabupaten Tanah Laut, 2024
+          85.4 Kab. Tanah Laut  gam Piramida Penduduk Kabupaten Tanah Laut, 2024 – 2025
+          85.0 Kab. Tanah Laut  gam Persentase Penduduk Miskin di Kabupaten Tanah Laut,
+  (b) filter + kata wilayah dinilai: ditemukan/saran (20, 20)
+          86.7 Kab. Tanah Laut  gam Piramida Penduduk Kabupaten Tanah Laut, 2024
+          85.4 Kab. Tanah Laut  gam Piramida Penduduk Kabupaten Tanah Laut, 2024 – 2025
+          85.0 Kab. Tanah Laut  gam Persentase Penduduk Miskin di Kabupaten Tanah Laut,
+  (c) BARU, kata wilayah dibuang  : ditemukan/saran (20, 20), provinsi 10, publikasi 4
+          96.7 Kab. Tanah Laut  isi Penduduk
+          96.7 Kab. Tanah Laut  isi Penduduk
+          87.0 Kab. Tanah Laut  isi Pengeluaran Penduduk
+=== 'luas panen padi kotabaru' -> Kab. Kotabaru, topik 'luas panen padi'
+  (a) sekarang, tanpa filter      : ditemukan/saran (2, 20), dari Kab. Kotabaru: 6 dari 22
+          83.5 Kab. Kotabaru    tab Halaman PERTANIAN 10.1 Luas Panen dan Produksi Padi Kabupeten Kotabaru
+          83.4 Kab. Kotabaru    tab Luas Panen dan Produksi Padi Kabupaten Kotabaru, 2023– komoditas tanam
+          70.5 Provinsi Kaliman isi Bab 2 Luas Panen dan Produksi Padi
+  (b) filter + kata wilayah dinilai: ditemukan/saran (2, 20)
+          83.5 Kab. Kotabaru    tab Halaman PERTANIAN 10.1 Luas Panen dan Produksi Padi Kabupeten Kotabaru
+          83.4 Kab. Kotabaru    tab Luas Panen dan Produksi Padi Kabupaten Kotabaru, 2023– komoditas tanam
+          64.6 Kab. Kotabaru    tab Luas Panen Tanaman Biofarmaka Menurut Jenis Tanaman di Kabupaten Kotab
+  (c) BARU, kata wilayah dibuang  : ditemukan/saran (2, 12), provinsi 10, publikasi 0
+          79.9 Kab. Kotabaru    tab Luas Panen dan Produksi Padi Kabupaten Kotabaru, 2023– komoditas tanam
+          79.8 Kab. Kotabaru    tab Halaman PERTANIAN 10.1 Luas Panen dan Produksi Padi Kabupeten Kotabaru
+          56.3 Kab. Kotabaru    tab Luas Panen Tanaman Biofarmaka Menurut Jenis Tanaman di Kabupaten Kotab
+=== 'pdrb hss' -> Kab. Hulu Sungai Selatan, topik 'pdrb'
+  (a) sekarang, tanpa filter      : ditemukan/saran (0, 20), dari Kab. Hulu Sungai Selatan: 0 dari 20
+          62.5 Kota Banjarmasin isi 18 PRODUK DOMESTIK REGIONAL BRUTO
+          62.5 Provinsi Kaliman isi 19. Produk Domestik Regional Bruto
+          56.8 Kota Banjarbaru  isi BAB 3 PDRB
+  (b) filter + kata wilayah dinilai: ditemukan/saran (0, 3)
+          50.5 Kab. Hulu Sungai isi 1.1 Pengertian PDRB/ Concept of GRDP
+          50.5 Kab. Hulu Sungai isi 1.1 Pengertian PDRB/ Concept of GRDP
+          50.1 Kab. Hulu Sungai isi 1.1 Pengertian PDRB/ Definition of GRDP
+  (c) BARU, kata wilayah dibuang  : ditemukan/saran (15, 20), provinsi 10, publikasi 4
+          77.6 Kab. Hulu Sungai isi 1.1 Pengertian PDRB/ Concept of GRDP
+          77.6 Kab. Hulu Sungai isi 1.1 Pengertian PDRB/ Concept of GRDP
+          77.2 Kab. Hulu Sungai isi 1.1 Pengertian PDRB/ Definition of GRDP
+=== 'inflasi bjm' -> Kota Banjarmasin, topik 'inflasi'
+  (a) sekarang, tanpa filter      : ditemukan/saran (0, 20), dari Kota Banjarmasin: 3 dari 20
+          65.9 Kota Banjarbaru  isi BAB 8 INFLASI
+          65.4 Provinsi Kaliman isi 1.2.2 Inflasi
+          65.4 Provinsi Kaliman isi 1.2.2 Inflasi
+  (b) filter + kata wilayah dinilai: ditemukan/saran (0, 20)
+          62.1 Kota Banjarmasin gam Angka Inflasi, 2024
+          60.8 Kota Banjarmasin isi BAB 3 INFLASI KOTA BANJARMASIN
+          60.4 Kota Banjarmasin isi BAB III INDEKS HARGA KONSUMEN (IHK) & LAJU INFLASI
+  (c) BARU, kata wilayah dibuang  : ditemukan/saran (19, 9), provinsi 10, publikasi 2
+          85.3 Kota Banjarmasin gam Angka Inflasi, 2024
+          81.7 Kota Banjarmasin isi BAB III INDEKS HARGA KONSUMEN (IHK) & LAJU INFLASI
+          81.0 Kota Banjarmasin isi 3.2 Inflasi Kelompok Pengeluaran
+=== 'penduduk miskin tala' -> Kab. Tanah Laut, topik 'penduduk miskin'
+  (a) sekarang, tanpa filter      : ditemukan/saran (0, 20), dari Kab. Tanah Laut: 6 dari 20
+          71.4 Kab. Hulu Sungai gam Persentase Penduduk Miskin Menurut
+          69.7 Kab. Balangan    isi 7.1 Perkembangan Penduduk Miskin
+          69.7 Kota Banjarmasin isi 7.1 Perkembangan Penduduk Miskin
+  (b) filter + kata wilayah dinilai: ditemukan/saran (0, 15)
+          69.4 Kab. Tanah Laut  isi Kemiskinan
+          69.4 Kab. Tanah Laut  isi Kemiskinan
+          68.1 Kab. Tanah Laut  isi Penduduk
+  (c) BARU, kata wilayah dibuang  : ditemukan/saran (9, 7), provinsi 10, publikasi 1
+          82.0 Kab. Tanah Laut  gam Persentase Penduduk Miskin di Kabupaten Tanah Laut,
+          82.0 Kab. Tanah Laut  gam Persentase Penduduk Miskin di Kabupaten Tanah Laut,
+          77.8 Kab. Tanah Laut  gam Perbandingan Persentase Penduduk Miskin di Provinsi Kalimantan Selatan
+=== 'jumlah sekolah banjar' -> Kab. Banjar, topik 'jumlah sekolah'
+  (a) sekarang, tanpa filter      : ditemukan/saran (4, 20), dari Kab. Banjar: 23 dari 24
+          79.7 Kab. Banjar      tab dan Partisipasi Sekolah Kabupaten Banjar, 2025 Tidak/Belum Tidak Masih
+          78.9 Kab. Banjar      tab Karakteristik dan Partisipasi Sekolah Kabupaten Banjar, 2025 Tidak/Bel
+          78.4 Kab. Banjar      gam Angka Partisipasi Sekolah fasilitas pendidikan, sehingga diharapkan (A
+  (b) filter + kata wilayah dinilai: ditemukan/saran (4, 20)
+          79.7 Kab. Banjar      tab dan Partisipasi Sekolah Kabupaten Banjar, 2025 Tidak/Belum Tidak Masih
+          78.9 Kab. Banjar      tab Karakteristik dan Partisipasi Sekolah Kabupaten Banjar, 2025 Tidak/Bel
+          78.4 Kab. Banjar      gam Angka Partisipasi Sekolah fasilitas pendidikan, sehingga diharapkan (A
+  (c) BARU, kata wilayah dibuang  : ditemukan/saran (3, 20), provinsi 10, publikasi 0
+          76.7 Kab. Banjar      tab dan Partisipasi Sekolah Kabupaten Banjar, 2025 Tidak/Belum Tidak Masih
+          76.1 Kab. Banjar      tab Karakteristik dan Partisipasi Sekolah Kabupaten Banjar, 2025 Tidak/Bel
+          75.5 Kab. Banjar      gam Angka Partisipasi Sekolah fasilitas pendidikan, sehingga diharapkan (A

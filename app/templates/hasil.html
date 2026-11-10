@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_form_cari.html" import form_cari %}
 {% block judul %}{{ kueri }} &mdash; Pencarian Publikasi BPS{% endblock %}
 
 {% macro kartu_publikasi(p) %}
@@ -7,6 +8,7 @@
 
   <p class="lokasi">
     <span class="tipe tipe-publikasi">PUBLIKASI</span>
+    <span class="label-wilayah">{{ p.wilayah }}</span>
     {% if p.tanggal_rilis %}<span class="meta">Rilis {{ p.tanggal_rilis.year }}</span>{% endif %}
     <span class="meta">{{ p.jumlah_entri }} bagian terindeks</span>
   </p>
@@ -16,7 +18,8 @@
   {% endif %}
 
   <p class="kartu-kaki">
-    <span class="skor">Relevansi {{ p.skor }}%</span>
+    {# Kueri yang hanya berisi nama wilayah tidak punya topik untuk dinilai. #}
+    {% if p.skor is not none %}<span class="skor">Relevansi {{ p.skor }}%</span>{% endif %}
     <a class="tombol-pdf" href="{{ url_for('pencarian.buka_pdf', pub_id=p.publikasi_id) }}"
        target="_blank" rel="noopener">Buka PDF</a>
   </p>
@@ -29,6 +32,7 @@
 
   <p class="lokasi">
     <span class="tipe tipe-{{ h.tipe }}">{{ h.tipe|upper }}</span>
+    <span class="label-wilayah">{{ h.wilayah }}</span>
     {# Entri Daftar Isi memang tidak bernomor (isinya bab, bukan tabel), jadi
        "Nomor —" di situ bukan data hilang dan tidak perlu ditampilkan. #}
     {% if h.nomor %}<span class="meta">Nomor {{ h.nomor }}</span>
@@ -60,21 +64,51 @@
 {% endmacro %}
 
 {% block konten %}
-<form action="{{ url_for('pencarian.hasil_pencarian') }}" method="get" class="kotak-cari">
-  <input type="search" name="q" value="{{ kueri }}" required
-         placeholder="Cari tabel, gambar, atau lampiran...">
-  <button type="submit">Cari</button>
-</form>
+{{ form_cari(daftar_wilayah, kueri=kueri, terpilih=filter.kode or '',
+             wo=filter.kode if filter.sumber == 'otomatis' else '',
+             abaikan=filter.abaikan or '') }}
+
+{# Pita "dipasang otomatis": filter berasal dari nama wilayah di kueri, bukan
+   dari pilihan petugas, jadi harus terlihat dan bisa dibatalkan. Batalkan =
+   kueri yang sama tanpa filter, dinilai apa adanya (termasuk kata wilayah). #}
+{% if filter.sumber == 'otomatis' %}
+<div class="pita-wilayah" role="status">
+  <span class="pita-label">Dipasang otomatis</span>
+  <span class="pita-teks">Hanya publikasi <strong>{{ filter.nama }}</strong>, dari kata
+    &ldquo;{{ filter.teks }}&rdquo;. Kata itu tidak ikut dicocokkan ke judul tabel.</span>
+  <a class="pita-batal" href="{{ url_for('pencarian.hasil_pencarian', q=kueri, abaikan=filter.kode) }}">Batalkan</a>
+</div>
+{% elif filter.lebih_dari_satu and not filter.kode %}
+<div class="pita-wilayah pita-info" role="status">
+  <span class="pita-teks">Kata kunci menyebut lebih dari satu wilayah, jadi filter tidak
+    dipasang otomatis. Pilih wilayah di samping kotak cari untuk menyempitkan hasil.</span>
+</div>
+{% endif %}
 
 <p class="ringkas">
   <strong>{{ hasil.publikasi|length }}</strong> publikasi &middot;
   <strong>{{ hasil.ditemukan|length + hasil.saran|length }}</strong> bagian untuk
-  &ldquo;{{ kueri }}&rdquo; &middot; {{ '%.0f'|format(hasil.waktu_ms) }} ms
+  &ldquo;{{ kueri }}&rdquo;{% if filter.nama %} di <strong>{{ filter.nama }}</strong>{% endif %}
+  &middot; {{ '%.0f'|format(hasil.waktu_ms) }} ms
 </p>
 
-{% if not hasil.publikasi and not hasil.ditemukan and not hasil.saran %}
+{% if hasil.hanya_wilayah %}
+  {# Kueri hanya nama wilayah ("tanah laut"): tidak ada topik untuk dicari di
+     dalam publikasi, jadi yang ditampilkan seluruh publikasi wilayah itu. #}
+  <section>
+    <h2 class="seksi">Publikasi {{ filter.nama }}</h2>
+    <p class="ket-seksi">Kata kunci hanya berisi nama wilayah. Tambahkan topik, misalnya
+      &ldquo;penduduk {{ kueri }}&rdquo;, untuk mencari tabel, gambar, atau lampiran di dalamnya.
+      Diurutkan dari rilis terbaru.</p>
+    {% for p in hasil.publikasi %}{{ kartu_publikasi(p) }}{% endfor %}
+  </section>
+{% elif not hasil.publikasi and not hasil.ditemukan and not hasil.saran and not hasil.provinsi %}
   <div class="kosong-total">
-    <h2>Tidak ada hasil untuk &ldquo;{{ kueri }}&rdquo;</h2>
+    <h2>Tidak ada hasil untuk &ldquo;{{ kueri }}&rdquo;{% if filter.nama %} di {{ filter.nama }}{% endif %}</h2>
+    {% if filter.kode %}
+    <p><a href="{{ url_for('pencarian.hasil_pencarian', q=kueri, abaikan=filter.kode) }}">Cari
+      &ldquo;{{ kueri }}&rdquo; di semua wilayah</a></p>
+    {% endif %}
     <p>Coba kata kunci yang lebih umum:</p>
     <ul>
       <li>Kurangi jumlah kata &mdash; cari <em>akomodasi</em> saja, bukan
@@ -98,7 +132,7 @@
     {% if hasil.publikasi %}
       {% for p in hasil.publikasi %}{{ kartu_publikasi(p) }}{% endfor %}
     {% else %}
-      <p class="kosong-seksi">Tidak ada publikasi yang cocok.</p>
+      <p class="kosong-seksi">Tidak ada publikasi{% if filter.nama %} {{ filter.nama }}{% endif %} yang cocok.</p>
     {% endif %}
   </section>
 
@@ -119,7 +153,21 @@
   {% if not hasil.ditemukan and not hasil.saran %}
   <section>
     <h2 class="seksi seksi-ditemukan">Bagian yang ditemukan</h2>
-    <p class="kosong-seksi">Tidak ada bagian yang cocok.</p>
+    <p class="kosong-seksi">Tidak ada bagian yang cocok{% if filter.nama %} di publikasi {{ filter.nama }}{% endif %}.</p>
+  </section>
+  {% endif %}
+
+  {# Publikasi provinsi mencakup ke-13 kabupaten/kota, dan banyak tabelnya
+     dirinci per kabupaten/kota. Dicari dengan kueri yang sama TANPA kata
+     wilayah, ditampilkan terpisah supaya tidak tercampur dengan hasil
+     wilayah terpilih. #}
+  {% if hasil.provinsi %}
+  <section>
+    <h2 class="seksi seksi-provinsi">Juga ada di publikasi provinsi</h2>
+    <p class="ket-seksi">Bagian dari publikasi Provinsi Kalimantan Selatan yang cocok dengan
+      &ldquo;{{ filter.kueri_topik }}&rdquo;. Tabel provinsi sering dirinci per
+      kabupaten/kota, termasuk {{ filter.nama }}.</p>
+    {% for h in hasil.provinsi %}{{ kartu_entri(h) }}{% endfor %}
   </section>
   {% endif %}
 {% endif %}

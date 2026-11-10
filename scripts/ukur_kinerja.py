@@ -43,7 +43,7 @@ import sqlalchemy as sa
 
 from app import create_app
 from app.models import EntriDokumen, Publikasi, db
-from app.services import mesin_pencari
+from app.services import mesin_pencari, pencarian_wilayah
 from app.services.mesin_pencari import cari
 
 DIR_HASIL = os.path.join(DIR_PROYEK, "data", "ukur_kinerja")
@@ -65,6 +65,23 @@ KUERI = [
     "jumlah penduduk menurut kecamatan",
     "penduduk tanah laut",
     "luas panen padi kotabaru",
+]
+
+# Filter wilayah (10 Nov 2026): diukur lewat pencarian_wilayah.cari(), jalur
+# yang sama dengan halaman /hasil (deteksi wilayah + kueri tanpa kata wilayah
+# + bagian "Juga ada di publikasi provinsi"). Daftar terpisah supaya KUERI di
+# atas tetap sama untuk perbandingan lama.
+#   (kueri, w)   w kosong = Semua wilayah (deteksi otomatis bekerja)
+KUERI_WILAYAH = [
+    ("penduduk tanah laut", ""),          # otomatis, nama lengkap
+    ("penduduk miskin tala", ""),         # otomatis, singkatan
+    ("luas panen padi kotabaru", ""),
+    ("inflasi bjm", ""),
+    ("tanah laut", ""),                   # nama wilayah saja
+    ("penduduk", "6301"),                 # dropdown dipilih petugas
+    ("jumlah penduduk menurut kecamatan", "6371"),   # domain kab/kota terbesar
+    ("banyaknya akomodasi kabupaten kota", "6372"),
+    ("population by regency", "6300"),    # provinsi saja
 ]
 
 
@@ -175,6 +192,29 @@ def main():
               f"{statistics.mean(semua_p95):>7.0f}ms")
         print(f"{'TERLAMBAT':<38}{max(semua_median):>7.0f}ms{max(semua_p95):>7.0f}ms")
 
+        print()
+        print(f"{'dengan filter wilayah (kueri | w)':<38}{'median':>9}{'p95':>9}{'filter':>8}{'hasil':>7}")
+        print("-" * 72)
+        per_kueri_wilayah = []
+        for k, w in KUERI_WILAYAH:
+            hasil = pencarian_wilayah.cari(k, w=w)
+            r = ringkas(ukur(lambda k=k, w=w: pencarian_wilayah.cari(k, w=w), opsi.ulang))
+            r.update(kueri=k, w=w, filter=hasil["filter"]["kode"],
+                     sumber_filter=hasil["filter"]["sumber"],
+                     dinilai=hasil["jumlah_dinilai"],
+                     hasil=len(hasil["ditemukan"]) + len(hasil["saran"]),
+                     provinsi=len(hasil["provinsi"]),
+                     publikasi=len(hasil["publikasi"]))
+            per_kueri_wilayah.append(r)
+            label = f"{k} | {w or 'semua'}"
+            print(f"{label[:37]:<38}{r['median_ms']:>7.0f}ms{r['p95_ms']:>7.0f}ms"
+                  f"{r['filter'] or '-':>8}{r['hasil']:>7}")
+        print("-" * 72)
+        print(f"{'TERLAMBAT (filter wilayah)':<38}"
+              f"{max(r['median_ms'] for r in per_kueri_wilayah):>7.0f}ms"
+              f"{max(r['p95_ms'] for r in per_kueri_wilayah):>7.0f}ms")
+        print()
+
         berkas = ukuran_berkas()
         tabel = ukuran_tabel()
 
@@ -203,6 +243,7 @@ def main():
         "ulang": opsi.ulang,
         "ambil_korpus": korpus,
         "per_kueri": per_kueri,
+        "per_kueri_wilayah": per_kueri_wilayah,
         "rata_rata_median_ms": round(statistics.mean(semua_median), 1),
         "rata_rata_p95_ms": round(statistics.mean(semua_p95), 1),
         "berkas": berkas,

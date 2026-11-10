@@ -1,0 +1,26 @@
+{# Form pencarian + dropdown wilayah, dipakai beranda dan halaman hasil.
+
+   Form GET biasa: wilayah terpilih masuk URL (?w=6301) dan semuanya
+   berfungsi tanpa JavaScript.
+   - wo      : wilayah yang DIPASANG OTOMATIS di halaman ini. Dropdown
+               menampilkannya, jadi form mengirim w=wo walaupun petugas tidak
+               memilihnya; server memperlakukan w == wo sebagai "tidak
+               dipilih" dan mendeteksi ulang dari kueri yang baru.
+   - abaikan : wilayah yang deteksi otomatisnya sudah dibatalkan petugas.
+   Lihat app/services/pencarian_wilayah.py. #}
+{% macro form_cari(daftar_wilayah, kueri='', terpilih='', wo='', abaikan='',
+                   placeholder='Cari tabel, gambar, atau lampiran...', fokus=False) %}
+<form action="{{ url_for('pencarian.hasil_pencarian') }}" method="get" class="kotak-cari">
+  <input type="search" name="q" value="{{ kueri }}" required
+         aria-label="Kata kunci" placeholder="{{ placeholder }}"{% if fokus %} autofocus{% endif %}>
+  <select name="w" class="pilih-wilayah{% if wo %} otomatis{% endif %}" aria-label="Wilayah">
+    <option value="">Semua wilayah</option>
+    {% for w in daftar_wilayah %}
+    <option value="{{ w.kode }}"{% if w.kode == terpilih %} selected{% endif %}>{{ w.nama }}</option>
+    {% endfor %}
+  </select>
+  {% if wo %}<input type="hidden" name="wo" value="{{ wo }}">{% endif %}
+  {% if abaikan %}<input type="hidden" name="abaikan" value="{{ abaikan }}">{% endif %}
+  <button type="submit">Cari</button>
+</form>
+{% endmacro %}

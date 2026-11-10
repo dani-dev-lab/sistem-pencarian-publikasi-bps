@@ -5,6 +5,7 @@
     "Hanya domain dengan aktif=true yang diproses pipeline. Sebelum domain baru pertama kali dimuat, jalankan: scripts/perbarui.py --hanya-periksa",
     "singkatan BELUM DIKONFIRMASI tim PST - lihat singkatan_status tiap wilayah. Jangan perlakukan sebagai final.",
     "Deteksi wilayah dari kueri harus mencocokkan KATA UTUH: 'banjar' bertumpuk dengan 'banjarmasin' dan 'banjarbaru'.",
+    "Deteksi wilayah dari kueri (filter wilayah di halaman pencarian) memakai nama tanpa awalan Kab./Kota, nama_lain, dan singkatan. Provinsi (6300) tidak dideteksi dari kueri: hanya bisa dipilih lewat dropdown.",
     "kecualikan_judul: publikasi yang judulnya cocok dengan salah satu pola (regex, tanpa membedakan huruf besar/kecil) TIDAK ditarik, di domain mana pun. Untuk menarik lagi, ubah aktif menjadi false - tidak perlu mengubah kode. Publikasi yang sudah ada di database tidak dihapus."
   ],
   "kecualikan_judul": [
@@ -14,7 +15,7 @@
   "wilayah": [
     {"kode": "6300", "nama": "Provinsi Kalimantan Selatan", "aktif": true, "singkatan": [], "singkatan_status": null},
     {"kode": "6301", "nama": "Kab. Tanah Laut", "aktif": true, "singkatan": ["tala"], "singkatan_status": "belum dikonfirmasi"},
-    {"kode": "6302", "nama": "Kab. Kotabaru", "aktif": true, "singkatan": [], "singkatan_status": null, "catatan": "API menulis 'Kota Baru', tetapi ini KABUPATEN (kotabarukab.bps.go.id)."},
+    {"kode": "6302", "nama": "Kab. Kotabaru", "aktif": true, "singkatan": [], "singkatan_status": null, "nama_lain": ["kota baru"], "catatan": "API menulis 'Kota Baru', tetapi ini KABUPATEN (kotabarukab.bps.go.id)."},
     {"kode": "6303", "nama": "Kab. Banjar", "aktif": true, "singkatan": [], "singkatan_status": null},
     {"kode": "6304", "nama": "Kab. Barito Kuala", "aktif": true, "singkatan": ["batola"], "singkatan_status": "belum dikonfirmasi"},
     {"kode": "6305", "nama": "Kab. Tapin", "aktif": true, "singkatan": [], "singkatan_status": null},
@@ -25,6 +26,6 @@
     {"kode": "6310", "nama": "Kab. Tanah Bumbu", "aktif": true, "singkatan": ["tanbu"], "singkatan_status": "belum dikonfirmasi"},
     {"kode": "6311", "nama": "Kab. Balangan", "aktif": true, "singkatan": [], "singkatan_status": null},
     {"kode": "6371", "nama": "Kota Banjarmasin", "aktif": true, "singkatan": ["bjm"], "singkatan_status": "belum dikonfirmasi"},
-    {"kode": "6372", "nama": "Kota Banjarbaru", "aktif": true, "singkatan": ["bjb"], "singkatan_status": "belum dikonfirmasi", "catatan": "API menulis 'Banjar Baru'."}
+    {"kode": "6372", "nama": "Kota Banjarbaru", "aktif": true, "singkatan": ["bjb"], "singkatan_status": "belum dikonfirmasi", "nama_lain": ["banjar baru"], "catatan": "API menulis 'Banjar Baru'."}
   ]
 }

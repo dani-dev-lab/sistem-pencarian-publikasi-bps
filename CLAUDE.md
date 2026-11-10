@@ -240,6 +240,26 @@ Angka-angka di atas diturunkan dari pengujian, bukan ditebak:
    - **Hasil identik** dengan versi lama untuk 12 kueri uji: seluruh medan,
      urutan, dan jumlah.
    - Angka waktu, waktu muat ulang, dan memori: lihat laporan.
+7. **Filter wilayah (10 Nov 2026)**, di `app/services/pencarian_wilayah.py`.
+   Laporan: `data/regresi/filter-wilayah-20261110.md`.
+   - Dropdown (`?w=6301`) atau deteksi nama/singkatan wilayah dari kueri,
+     dicocokkan per KATA UTUH (`wilayah.deteksi`). Hasil deteksi ditandai
+     pita "dipasang otomatis" yang bisa dibatalkan (`abaikan`).
+   - Parameter `wo` menandai wilayah yang dipasang otomatis. `w == wo`
+     berarti petugas tidak memilihnya, jadi deteksi diulang.
+   - Kata wilayah yang menjadi filter TIDAK ikut dinilai. Alasannya BUKAN
+     "judul tabel kab/kota jarang menyebut wilayahnya": 75,6% tabel justru
+     menyebutnya. Alasannya:
+     - singkatan tidak pernah tercetak di judul;
+     - hasilnya konsisten, apa pun cara wilayah dipilih;
+     - di dalam filter, kata wilayah tidak membedakan relevansi.
+   - Entri provinsi yang cocok dengan kueri tanpa kata wilayah tampil
+     terpisah ("Juga ada di publikasi provinsi", maksimal 10).
+   - "Semua wilayah" + kueri tanpa nama wilayah = jalur lama, hasilnya
+     identik.
+   - `log_pencarian.wilayah_filter` (CHAR(4), nullable) ditambahkan ke DB
+     lama oleh `pastikan_kolom()` di awal request.
+   - Waktu: tanpa filter +1 ms; dengan filter paling lambat 59 ms.
 
 ## Utang teknis: 764 entri terlalu panjang
 Ekstraksi kadang menggabungkan BEBERAPA judul tabel menjadi SATU entri. Median
@@ -640,6 +660,10 @@ Aturan yang berlaku:
   sekali jalan), bukan lewat suite yang bisa diulang. Diputuskan tidak
   dikerjakan sekarang; kalau ada yang mengubah parser atau scoring, jalankan
   ulang pemeriksaan manual yang dicatat di bagian-bagian terkait.
+- **Deteksi wilayah: "banjar" juga nama suku.** "penduduk suku banjar"
+  memasang filter Kab. Banjar; petugas membatalkannya lewat pita. Singkatan
+  (tala, hss, bjm, ...) belum dikonfirmasi tim PST. Provinsi tidak dideteksi
+  dari kueri, hanya bisa dipilih lewat dropdown.
 - Judul publikasi dwibahasa menyimpan teks Indonesia DAN Inggris apa adanya.
   Ini disengaja — petugas bisa saja mencari dengan istilah Inggris, dan fuzzy
   matching yang akan menanganinya. Jangan dibuang saat preprocessing.

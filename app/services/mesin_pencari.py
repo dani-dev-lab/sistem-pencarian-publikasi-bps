@@ -21,6 +21,7 @@ from rapidfuzz import fuzz
 from app.models import EntriDokumen, Publikasi, db
 from app.services import versi_data
 from app.services.preprocessing import kamus_default, normalisasi, normalisasi_token
+from app.services.wilayah import DOMAIN_PROVINSI
 
 BOBOT_SET = 0.5        # token_set_ratio: toleran urutan kata & salah ketik
 BOBOT_SORT = 0.2       # token_sort_ratio: menghukum entri yang jauh lebih panjang
@@ -43,6 +44,10 @@ AMBANG_DITEMUKAN = 75     # >= ini: hasil ditemukan
 AMBANG_SARAN = 50         # 50-74: "mungkin maksud Anda"; < 50 disembunyikan
 
 BATAS_HASIL = 20
+
+# Bagian "Juga ada di publikasi provinsi" di bawah hasil yang difilter ke satu
+# kabupaten/kota. Pelengkap, bukan hasil utama, jadi dibatasi lebih pendek.
+BATAS_PROVINSI = 10
 
 
 def _skor(token_kueri, teks_entri):
@@ -100,6 +105,8 @@ def _ambil_publikasi():
             Publikasi.url_pdf,
             Publikasi.teks_ternormalisasi,
             db.func.coalesce(jml.c.n, 0),
+            Publikasi.domain,
+            Publikasi.wilayah,
         )
         .outerjoin(jml, jml.c.pid == Publikasi.id)
         .all()
@@ -126,8 +133,8 @@ def _cari_publikasi(token_kueri, ambang_saran, baris_publikasi):
     hasil = []
     kumpulan = set(token_kueri)
 
-    for (pid, judul, abstrak, tanggal_rilis, url_pdf,
-         ternormalisasi, jumlah_entri, token_gabungan, judul_normal) in baris_publikasi:
+    for (pid, judul, abstrak, tanggal_rilis, url_pdf, ternormalisasi,
+         jumlah_entri, domain, wilayah, token_gabungan, judul_normal) in baris_publikasi:
         if not ternormalisasi:
             continue
         # Penyaring murah memakai teks gabungan, supaya istilah yang hanya ada
@@ -155,6 +162,8 @@ def _cari_publikasi(token_kueri, ambang_saran, baris_publikasi):
             "tanggal_rilis": tanggal_rilis,
             "url_pdf": url_pdf,
             "jumlah_entri": jumlah_entri,
+            "domain": domain,
+            "wilayah": wilayah,
             "skor": round(skor, 1),
             "skor_set": round(set_r, 1),
             "skor_sort": round(sort_r, 1),
@@ -186,6 +195,8 @@ def _ambil_korpus():
             Publikasi.judul,
             Publikasi.url_pdf,
             Publikasi.tanggal_rilis,
+            Publikasi.domain,
+            Publikasi.wilayah,
         )
         .join(Publikasi, EntriDokumen.publikasi_id == Publikasi.id)
         .all()
@@ -210,14 +221,33 @@ def _ambil_korpus():
 class Korpus:
     """Potret baca-saja korpus pencarian. Tidak diubah setelah dibuat."""
 
-    __slots__ = ("versi", "kamus", "entri", "publikasi", "detik_muat")
+    __slots__ = ("versi", "kamus", "entri", "publikasi",
+                 "entri_per_domain", "publikasi_per_domain", "detik_muat")
 
     def __init__(self, versi, kamus, entri, publikasi, detik_muat):
         self.versi = versi
         self.kamus = kamus
         self.entri = entri              # tuple per entri + frozenset token
         self.publikasi = publikasi      # tuple per publikasi + token + judul ternormalisasi
+        # Filter wilayah: baris yang sama, dikelompokkan per kode domain
+        # dengan urutan aslinya. Pencarian satu wilayah hanya menelusuri
+        # baris wilayah itu, dan urutan hasil pada skor sama tetap seperti
+        # urutan korpus.
+        self.entri_per_domain = _kelompokkan(entri, _KOLOM_DOMAIN_ENTRI)
+        self.publikasi_per_domain = _kelompokkan(publikasi, _KOLOM_DOMAIN_PUBLIKASI)
         self.detik_muat = detik_muat
+
+
+# Posisi kolom domain di baris _ambil_korpus() dan _ambil_publikasi().
+_KOLOM_DOMAIN_ENTRI = 11
+_KOLOM_DOMAIN_PUBLIKASI = 7
+
+
+def _kelompokkan(baris, kolom):
+    kelompok = {}
+    for b in baris:
+        kelompok.setdefault(b[kolom], []).append(b)
+    return {kode: tuple(isi) for kode, isi in kelompok.items()}
 
 
 _korpus = None
@@ -275,41 +305,14 @@ def kata_untuk_sorot(kueri):
     return sorted(set(mentah) | set(ternormalisasi), key=len, reverse=True)
 
 
-def cari(kueri, batas=BATAS_HASIL, ambang_saran=AMBANG_SARAN,
-         ambang_ditemukan=AMBANG_DITEMUKAN):
-    """Cari entri yang relevan dengan kueri petugas.
-
-    Return dict berisi daftar `ditemukan` dan `saran`. Tiap hasil memuat lokasi
-    spesifik - publikasi mana DAN bagian mana - plus link PDF-nya.
-    """
-    mulai = time.perf_counter()
-    token_kueri = normalisasi_token(kueri)
-
-    if not token_kueri:
-        return {
-            "kueri": kueri,
-            "kueri_ternormalisasi": "",
-            "sorot": [],
-            "publikasi": [],
-            "ditemukan": [],
-            "saran": [],
-            "jumlah_entri": 0,
-            "jumlah_dinilai": 0,
-            "waktu_ms": (time.perf_counter() - mulai) * 1000,
-        }
-
-    # Dua tingkat pencarian menjawab pertanyaan yang berbeda: "publikasi mana"
-    # dan "bagian mana di dalamnya". Hasilnya sengaja TIDAK dicampur.
-    k = korpus()
-    publikasi = _cari_publikasi(token_kueri, ambang_saran, k.publikasi)[:batas]
-
-    baris = k.entri
+def _cari_entri(token_kueri, baris, ambang_saran):
+    """Nilai entri di `baris` terhadap kueri. Return (hasil terurut, dinilai)."""
     kumpulan = set(token_kueri)
-
     hasil = []
     dinilai = 0
     for (eid, tipe, nomor, judul, halaman, halaman_fisik, ternormalisasi,
-         pub_id, pub_judul, url_pdf, tanggal_rilis, token_entri) in baris:
+         pub_id, pub_judul, url_pdf, tanggal_rilis, domain, wilayah,
+         token_entri) in baris:
         if not ternormalisasi:
             continue
 
@@ -329,6 +332,8 @@ def cari(kueri, batas=BATAS_HASIL, ambang_saran=AMBANG_SARAN,
             "judul_publikasi": pub_judul,
             "tanggal_rilis": tanggal_rilis,
             "url_pdf": url_pdf,
+            "domain": domain,
+            "wilayah": wilayah,
             "tipe": tipe,
             "nomor": nomor,          # boleh None - entri tipe `isi` tidak bernomor
             "judul": judul,
@@ -344,9 +349,63 @@ def cari(kueri, batas=BATAS_HASIL, ambang_saran=AMBANG_SARAN,
     # Skor sama -> edisi terbaru lebih dulu. Judul yang sama memang muncul di
     # beberapa edisi; itu TIDAK digabung, petugas perlu tahu edisi mana.
     hasil.sort(key=lambda h: (-h["skor"], -(h["tanggal_rilis"] or date.min).toordinal()))
+    return hasil, dinilai
+
+
+def cari(kueri, batas=BATAS_HASIL, ambang_saran=AMBANG_SARAN,
+         ambang_ditemukan=AMBANG_DITEMUKAN, domain=None, provinsi=False):
+    """Cari entri yang relevan dengan kueri petugas.
+
+    Return dict berisi daftar `ditemukan` dan `saran`. Tiap hasil memuat lokasi
+    spesifik - publikasi mana DAN bagian mana - plus link PDF-nya.
+
+    Filter wilayah (10 Nov 2026):
+      - `domain` = kode domain ("6301"): hanya publikasi dan entri domain itu
+        yang dinilai. None = semua wilayah, jalur yang sama persis dengan
+        sebelum filter ada.
+      - `provinsi=True` (hanya bersama `domain` kab/kota): entri publikasi
+        provinsi yang cocok dengan kueri yang sama ikut dikembalikan sebagai
+        `provinsi`, dinilai dari korpus yang sama.
+    Kueri yang diberikan ke sini sudah TANPA kata wilayah; membuangnya urusan
+    pemanggil (app/services/pencarian_wilayah.py).
+    """
+    mulai = time.perf_counter()
+    token_kueri = normalisasi_token(kueri)
+
+    if not token_kueri:
+        return {
+            "kueri": kueri,
+            "kueri_ternormalisasi": "",
+            "sorot": [],
+            "publikasi": [],
+            "ditemukan": [],
+            "saran": [],
+            "provinsi": [],
+            "jumlah_entri": 0,
+            "jumlah_dinilai": 0,
+            "waktu_ms": (time.perf_counter() - mulai) * 1000,
+        }
+
+    # Dua tingkat pencarian menjawab pertanyaan yang berbeda: "publikasi mana"
+    # dan "bagian mana di dalamnya". Hasilnya sengaja TIDAK dicampur.
+    k = korpus()
+    if domain is None:
+        baris_publikasi, baris = k.publikasi, k.entri
+    else:
+        baris_publikasi = k.publikasi_per_domain.get(domain, ())
+        baris = k.entri_per_domain.get(domain, ())
+
+    publikasi = _cari_publikasi(token_kueri, ambang_saran, baris_publikasi)[:batas]
+    hasil, dinilai = _cari_entri(token_kueri, baris, ambang_saran)
 
     ditemukan = [h for h in hasil if h["skor"] >= ambang_ditemukan][:batas]
     saran = [h for h in hasil if h["skor"] < ambang_ditemukan][:batas]
+
+    dari_provinsi = []
+    if provinsi and domain is not None and domain != DOMAIN_PROVINSI:
+        dari_provinsi, _ = _cari_entri(
+            token_kueri, k.entri_per_domain.get(DOMAIN_PROVINSI, ()), ambang_saran)
+        dari_provinsi = dari_provinsi[:BATAS_PROVINSI]
 
     return {
         "kueri": kueri,
@@ -355,8 +414,25 @@ def cari(kueri, batas=BATAS_HASIL, ambang_saran=AMBANG_SARAN,
         "publikasi": publikasi,
         "ditemukan": ditemukan,
         "saran": saran,
+        "provinsi": dari_provinsi,
         "jumlah_entri": len(baris),
         "jumlah_dinilai": dinilai,
         "jumlah_publikasi": len(publikasi),
         "waktu_ms": (time.perf_counter() - mulai) * 1000,
     }
+
+
+def publikasi_wilayah(domain):
+    """Semua publikasi satu wilayah, terbaru dulu, untuk kueri yang hanya
+    berisi nama wilayah ("tanah laut"). Tanpa skor: tidak ada topik yang
+    bisa dinilai, jadi urutannya hanya tanggal rilis."""
+    k = korpus()
+    hasil = [{
+        "publikasi_id": pid, "judul": judul, "abstrak": abstrak,
+        "tanggal_rilis": tanggal_rilis, "url_pdf": url_pdf,
+        "jumlah_entri": jumlah_entri, "domain": kode, "wilayah": wilayah,
+        "skor": None,
+    } for (pid, judul, abstrak, tanggal_rilis, url_pdf, _, jumlah_entri,
+           kode, wilayah, _, _) in k.publikasi_per_domain.get(domain, ())]
+    hasil.sort(key=lambda h: (-(h["tanggal_rilis"] or date.min).toordinal(), h["judul"]))
+    return hasil

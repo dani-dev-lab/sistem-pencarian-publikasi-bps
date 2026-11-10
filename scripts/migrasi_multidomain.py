@@ -53,6 +53,7 @@ KOLOM_BARU = [
     ("publikasi", "galat_ekstraksi", "TEXT NULL"),
     ("publikasi", "catatan_ekstraksi", "JSON NULL"),
     ("log_pencarian", "durasi_ms", "FLOAT NULL"),
+    ("log_pencarian", "wilayah_filter", "CHAR(4) NULL"),    # filter wilayah, 10 Nov 2026
 ]
 
 
