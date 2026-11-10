@@ -862,7 +862,22 @@ def _halaman_daftar(teks_baris, lanjutan_daftar=False):
         return True
     if any(RE_HEADING.match(f"{a} {b}") for a, b in zip(atas, atas[1:])):
         return True
-    return lanjutan_daftar and " ".join(teks_baris).lower().count(".....") > 3
+    return lanjutan_daftar and _jumlah_dot_leader(" ".join(teks_baris)) > 3
+
+
+RE_LEADER_ELIPSIS = re.compile(r"…{3,}")
+
+
+def _jumlah_dot_leader(teks):
+    """Jumlah dot leader: deret "....." DAN deret >= 3 karakter elipsis "…".
+
+    Sebagian publikasi (Kesra kab/kota, KAK) mencetak leader dengan U+2026,
+    bukan titik. Dulu hanya "....." yang dihitung, sehingga lanjutan Daftar
+    ber-leader "……" tidak dikenali sebagai halaman Daftar dan
+    lengkapi_halaman_fisik mengambil baris daftarnya sebagai keterangan
+    (Kesra Kotabaru lampiran 35 -> halaman Daftar, 10 Nov 2026).
+    """
+    return teks.count(".....") + len(RE_LEADER_ELIPSIS.findall(teks))
 
 
 def ekstrak_badan(pdf, publikasi_id, baris_halaman=None):
