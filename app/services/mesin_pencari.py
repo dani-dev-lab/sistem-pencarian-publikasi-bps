@@ -12,13 +12,15 @@ Keputusan sadar (lihat CLAUDE.md): fuzzy matching, BUKAN semantic embeddings.
 
 import math
 import re
+import threading
 import time
 from datetime import date
 
 from rapidfuzz import fuzz
 
 from app.models import EntriDokumen, Publikasi, db
-from app.services.preprocessing import normalisasi, normalisasi_token
+from app.services import versi_data
+from app.services.preprocessing import kamus_default, normalisasi, normalisasi_token
 
 BOBOT_SET = 0.5        # token_set_ratio: toleran urutan kata & salah ketik
 BOBOT_SORT = 0.2       # token_sort_ratio: menghukum entri yang jauh lebih panjang
@@ -104,7 +106,7 @@ def _ambil_publikasi():
     )
 
 
-def _cari_publikasi(token_kueri, ambang_saran):
+def _cari_publikasi(token_kueri, ambang_saran, baris_publikasi):
     """Skor tingkat publikasi.
 
     Skornya diambil dari NILAI TERTINGGI antara dua perhitungan:
@@ -125,15 +127,14 @@ def _cari_publikasi(token_kueri, ambang_saran):
     kumpulan = set(token_kueri)
 
     for (pid, judul, abstrak, tanggal_rilis, url_pdf,
-         ternormalisasi, jumlah_entri) in _ambil_publikasi():
+         ternormalisasi, jumlah_entri, token_gabungan, judul_normal) in baris_publikasi:
         if not ternormalisasi:
             continue
         # Penyaring murah memakai teks gabungan, supaya istilah yang hanya ada
         # di abstrak tetap lolos ke tahap penilaian.
-        if kumpulan.isdisjoint(ternormalisasi.split()):
+        if kumpulan.isdisjoint(token_gabungan):
             continue
 
-        judul_normal = normalisasi(judul or "")
         skor_judul, set_j, sort_j, cov_j = _skor(token_kueri, judul_normal)
         skor_gabungan, set_g, sort_g, cov_g = _skor(token_kueri, ternormalisasi)
 
@@ -191,6 +192,77 @@ def _ambil_korpus():
     )
 
 
+# --------------------------------------------------------------------------
+# Korpus di memori proses (10 Nov 2026)
+# --------------------------------------------------------------------------
+# Sesudah 13 kab/kota masuk (23.461 entri), ±70% waktu tiap pencarian habis
+# untuk mengambil SELURUH korpus dari MySQL (308 dari 430 ms). Korpus kini
+# dimuat sekali, disimpan di memori proses, dan dimuat ulang hanya kalau
+# datanya berubah - ditandai versi_data (dinaikkan setiap penulis data di
+# transaksi yang sama: pembaruan lewat .bat/admin dan "Terapkan ke data").
+#
+# Aman untuk banyak thread (waitress threads=4): korpus baru disiapkan PENUH
+# dulu, baru referensi globalnya ditukar (satu penugasan, atomik di CPython).
+# Thread yang sedang mencari tetap memakai korpus lamanya sampai selesai;
+# objek Korpus tidak pernah diubah setelah dibuat.
+
+
+class Korpus:
+    """Potret baca-saja korpus pencarian. Tidak diubah setelah dibuat."""
+
+    __slots__ = ("versi", "kamus", "entri", "publikasi", "detik_muat")
+
+    def __init__(self, versi, kamus, entri, publikasi, detik_muat):
+        self.versi = versi
+        self.kamus = kamus
+        self.entri = entri              # tuple per entri + frozenset token
+        self.publikasi = publikasi      # tuple per publikasi + token + judul ternormalisasi
+        self.detik_muat = detik_muat
+
+
+_korpus = None
+_kunci_muat = threading.Lock()
+
+
+def _bangun_korpus(versi, kamus):
+    """Ambil seluruh entri dan publikasi dari database, siapkan untuk dicari.
+
+    Urutan baris sama dengan query lama (tanpa ORDER BY, query yang sama),
+    sehingga urutan hasil pada skor dan tanggal yang sama ikut sama.
+    Token dan judul publikasi ternormalisasi dihitung SEKALI di sini, bukan
+    di setiap kueri. Judul dinormalkan dengan kamus yang sama dengan yang
+    dipakai kueri (`kamus`); kamus yang diganti lewat halaman admin
+    (muat_ulang_kamus) membuat korpus dibangun ulang.
+    """
+    mulai = time.perf_counter()
+    entri = tuple(
+        (*baris, frozenset(baris[6].split()) if baris[6] else frozenset())
+        for baris in _ambil_korpus())
+    publikasi = tuple(
+        (*baris,
+         frozenset(baris[5].split()) if baris[5] else frozenset(),
+         normalisasi(baris[1] or "", kamus))
+        for baris in _ambil_publikasi())
+    return Korpus(versi, kamus, entri, publikasi, time.perf_counter() - mulai)
+
+
+def korpus():
+    """Korpus yang mutakhir: dimuat ulang kalau versi data atau kamus berubah."""
+    global _korpus
+    versi = versi_data.baca()
+    kamus = kamus_default()
+    k = _korpus
+    if k is not None and k.versi == versi and k.kamus is kamus:
+        return k
+    with _kunci_muat:
+        k = _korpus     # thread lain mungkin sudah memuatnya selagi menunggu
+        if k is not None and k.versi == versi and k.kamus is kamus:
+            return k
+        k = _bangun_korpus(versi, kamus)
+        _korpus = k
+        return k
+
+
 def kata_untuk_sorot(kueri):
     """Kata mentah + hasil normalisasinya, untuk menyorot di hasil pencarian.
 
@@ -228,21 +300,22 @@ def cari(kueri, batas=BATAS_HASIL, ambang_saran=AMBANG_SARAN,
 
     # Dua tingkat pencarian menjawab pertanyaan yang berbeda: "publikasi mana"
     # dan "bagian mana di dalamnya". Hasilnya sengaja TIDAK dicampur.
-    publikasi = _cari_publikasi(token_kueri, ambang_saran)[:batas]
+    k = korpus()
+    publikasi = _cari_publikasi(token_kueri, ambang_saran, k.publikasi)[:batas]
 
-    baris = _ambil_korpus()
+    baris = k.entri
     kumpulan = set(token_kueri)
 
     hasil = []
     dinilai = 0
     for (eid, tipe, nomor, judul, halaman, halaman_fisik, ternormalisasi,
-         pub_id, pub_judul, url_pdf, tanggal_rilis) in baris:
+         pub_id, pub_judul, url_pdf, tanggal_rilis, token_entri) in baris:
         if not ternormalisasi:
             continue
 
         # Penyaring murah: entri yang tidak memuat SATU PUN token kueri tidak
         # mungkin melewati ambang, jadi tidak perlu dihitung fuzzy-nya.
-        if kumpulan.isdisjoint(ternormalisasi.split()):
+        if kumpulan.isdisjoint(token_entri):
             continue
 
         dinilai += 1

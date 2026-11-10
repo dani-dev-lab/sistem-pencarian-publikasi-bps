@@ -38,7 +38,7 @@ import sqlalchemy as sa
 
 from app import create_app
 from app.models import EntriDokumen, Publikasi, db
-from app.services import pipeline_data, sumber_bps
+from app.services import pipeline_data, sumber_bps, versi_data
 from app.services.sumber_bps import GagalAmbil, samarkan
 from app.services.wilayah import muat_wilayah, pola_judul_dikecualikan, wilayah_aktif
 
@@ -249,6 +249,9 @@ def pastikan_skema():
     if "domain" not in kolom:
         print(PESAN_SKEMA)
         sys.exit(KODE_GAGAL)
+    # Penanda versi untuk korpus pencarian di memori. DDL di sini, SEBELUM
+    # transaksi penulis mana pun (CREATE TABLE memaksa commit di MySQL).
+    versi_data.pastikan_tabel()
 
 
 def domain_terhalang(aktif):

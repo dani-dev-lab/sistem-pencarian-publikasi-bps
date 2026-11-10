@@ -19,6 +19,7 @@ from app.models import EntriDokumen, Kategori, Publikasi, db
 from app.services.ekstraksi_pdf import ekstrak_lengkap
 from app.services.normalisasi_data import teks_publikasi
 from app.services.preprocessing import normalisasi
+from app.services import versi_data
 from app.services.sumber_bps import berkas_pdf_valid, path_pdf, samarkan, sidik_pdf
 
 PANJANG_GALAT = 1000
@@ -118,6 +119,7 @@ def simpan_metadata(kode, nama_wilayah, daftar):
             .filter(Publikasi.domain == kode).all()
             if pid not in di_daftar
         ]
+        versi_data.naikkan()        # korpus pencarian di memori perlu dimuat ulang
         db.session.commit()
     except Exception:
         db.session.rollback()
@@ -246,6 +248,7 @@ def simpan_entri(pub_id, entri, sidik, catatan, updt_diproses=None):
         pub.catatan_ekstraksi = catatan
         if updt_diproses is not None:
             pub.updt_date_diproses = updt_diproses
+        versi_data.naikkan()        # korpus pencarian di memori perlu dimuat ulang
         db.session.commit()
     except Exception:
         db.session.rollback()

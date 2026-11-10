@@ -11,7 +11,10 @@ yang sedang berjalan di laptop. Panggilan pertama dibuang sebagai pemanasan
 (memuat kamus dan cache stemmer).
 
 Waktu dipecah dua supaya kelihatan bagian mana yang membesar:
-  - ambil korpus : query SELECT seluruh entri dari MySQL
+  - ambil korpus : query SELECT seluruh entri dari MySQL. Sejak 10 Nov 2026
+                   korpus disimpan di memori (mesin_pencari.korpus()), jadi
+                   biaya ini hanya terjadi saat korpus dimuat ulang sesudah
+                   data berubah, tidak lagi di setiap pencarian
   - total cari() : ambil korpus + normalisasi + skor + urutkan
 
 Hasil ditulis ke data/ukur_kinerja/<tanggal>-<label>.json. Jalankan dengan

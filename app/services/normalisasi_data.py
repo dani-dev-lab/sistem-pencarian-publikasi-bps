@@ -19,6 +19,7 @@ from collections import Counter
 import sqlalchemy as sa
 
 from app.models import EntriDokumen, Publikasi, db
+from app.services import versi_data
 from app.services.preprocessing import kamus_default, normalisasi, stem_kata
 
 UKURAN_BATCH = 500
@@ -85,6 +86,7 @@ def jalankan(cetak=_diam):
     """
     if _pastikan_kolom():
         cetak("kolom publikasi.teks_ternormalisasi ditambahkan")
+    versi_data.pastikan_tabel()     # DDL sebelum transaksi, lihat versi_data.py
     kamus = kamus_default()
     total = EntriDokumen.query.count()
     if not total:
@@ -123,6 +125,7 @@ def jalankan(cetak=_diam):
             cetak(f"  {i}/{total} ...", flush=True)
 
     pub_diubah, pub_tanpa_abstrak = _isi_publikasi()
+    versi_data.naikkan()            # korpus pencarian di memori perlu dimuat ulang
     db.session.commit()
 
     # -------------------------- Verifikasi --------------------------

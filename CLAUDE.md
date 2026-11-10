@@ -221,6 +221,25 @@ Angka-angka di atas diturunkan dari pengujian, bukan ditebak:
      kueri (308 ms). Kueri yang hanya menilai 37 entri pun 355 ms.
    - Usulan: simpan korpus di memori proses dan buat ulang sesudah
      pembaruan data. Lihat `data/regresi/tarik-13-domain-20261110.md`.
+6. **Korpus di memori proses (10 Nov 2026)**, di `mesin_pencari.korpus()`.
+   Laporan: `data/regresi/korpus-memori-20261110.md`.
+   - Korpus (entri + publikasi, token, judul publikasi ternormalisasi)
+     dimuat sekali.
+   - Korpus dimuat ulang kalau penanda `versi_data` berubah atau objek
+     kamus berganti (`muat_ulang_kamus` dari halaman admin).
+   - **Penanda versi** = tabel satu baris `versi_data`:
+     - dinaikkan setiap penulis data DI TRANSAKSI YANG SAMA:
+       `simpan_metadata`, `simpan_entri`, `normalisasi_data.jalankan`
+       ("Terapkan ke data");
+     - dibaca tiap pencarian lewat satu SELECT berkunci primer;
+     - berlaku lintas proses (.bat, admin, skrip).
+     - `CREATE TABLE` memaksa commit di MySQL, jadi `pastikan_tabel()`
+       dipanggil SEBELUM transaksi penulis, tidak di tengahnya.
+   - **Aman untuk banyak thread:** korpus baru disiapkan penuh lalu
+     referensinya ditukar sekaligus. Objek `Korpus` tidak pernah diubah.
+   - **Hasil identik** dengan versi lama untuk 12 kueri uji: seluruh medan,
+     urutan, dan jumlah.
+   - Angka waktu, waktu muat ulang, dan memori: lihat laporan.
 
 ## Utang teknis: 764 entri terlalu panjang
 Ekstraksi kadang menggabungkan BEBERAPA judul tabel menjadi SATU entri. Median
@@ -370,8 +389,13 @@ Yang diketahui TIDAK tertangani:
 - `cari_heading` (jalur daftar) BELUM mengenali heading terbelah, sehingga
   Daftar Gambar/Lampiran Statistik Daerah 2025 tidak dibaca jalur daftar
   (gambarnya tetap masuk lewat jalur badan).
-- Lanjutan Daftar ber-leader "……" (elipsis U+2026, KAK) tidak terhitung
-  sebagai dot leader. Ini sudah begitu sejak dulu.
+- ~~Lanjutan Daftar ber-leader "……" (elipsis U+2026) tidak terhitung~~
+  **DIPERBAIKI 10 Nov 2026:** `_jumlah_dot_leader` kini menghitung deret
+  ≥3 "…" selain ".....". Syarat lanjutan dan ambang >3 tetap.
+  - Regresi 306 PDF: 0 kunci hilang; 39 `halaman_fisik` berubah, dan
+    semuanya dulu menunjuk halaman Daftar (dibuktikan per entri).
+  - 23 kini menunjuk keterangan bernomor persis; 16 kosong karena di luar
+    halaman Daftar tidak ada keterangannya (sumber keduanya -> daftar).
 
 ### Halaman fisik entri `isi` (7 Nov 2026)
 `lengkapi_halaman_isi()` mencari judul bab/subbab di badan dokumen. Kondisinya:
@@ -587,10 +611,16 @@ Aturan yang berlaku:
   - Satu-satunya teks di PDF-PDF ini adalah watermark. Ini bukan cacat
     parser; publikasinya tetap ditemukan lewat judul dan abstrak.
   - Rincian di `data/regresi/tarik-13-domain-20261110.md`.
-- **Leader elipsis "……" di lanjutan Daftar** tidak dikenali
-  `_halaman_daftar`, sehingga ±31 entri (calon, dari penyaring) di 8
-  publikasi kab/kota punya `halaman_fisik` yang menunjuk halaman Daftar.
-  Usulan perbaikan menunggu persetujuan.
+- **Target utama spike OCR (revisi 4, sesudah filter wilayah):** delapan
+  publikasi tanpa lapisan teks di atas. Lima menghasilkan 0 entri (HST Dalam
+  Angka 2026, PDRB Tapin Pengeluaran, Profil TK Tapin, Statistik Daerah
+  Banjarbaru 2025, PDRB Banjarbaru LU); tiga sebagian besar halamannya tanpa
+  teks (PDRB Tapin LU dua edisi, PDRB Tabalong). Bentuknya ada dua:
+  - huruf diubah menjadi kurva vektor;
+  - teks dirasterkan menjadi gambar.
+
+  Pendekatan OCR harus menangani keduanya, misalnya dengan merender halaman
+  lalu meng-OCR hasil rendernya.
 - **5 publikasi hanya punya Daftar Isi** (Direktori Perusahaan Akomodasi,
   Direktori Perusahaan Konstruksi, Direktori Perusahaan Industri Manufaktur,
   Statistik Daerah, Buklet Survei Angkatan Kerja). Memang tidak ada daftar
@@ -620,6 +650,27 @@ dijalankan orang yang tidak pernah melihat kodenya. Dokumen operasionalnya
 untuk tim IT ada di `PANDUAN.md` (bahasa awam, tanpa asumsi tahu Python).
 Kata sandi admin dan isi `.env` DISERAHKAN TERPISAH - tidak ditulis di
 PANDUAN.md maupun di Git.
+
+### Rencana isi PANDUAN.md yang belum ditulis (tahap dokumentasi)
+- **Pemecahan masalah jaringan:**
+  - gejala: "connection reset" saat pembaruan padahal browser bisa;
+  - cara cek: `Resolve-DnsName webapi.bps.go.id` (hasil 10.0.11.232 = DNS
+    kantor);
+  - solusi sementara: hosts file, hanya dengan izin. Lihat "Catatan
+    lingkungan".
+- **Penarikan besar sebaiknya dijadwalkan dini hari**, misalnya mulai
+  sesudah 01:00. Bukti dari penarikan 13 kab/kota (9-10 Nov 2026), dengan
+  koneksi tunggal yang sama:
+  - pukul 20:30-00:00: 38-75 KB/detik per berkas, 3,35 jam untuk 732 MB;
+  - sesudah 01:00: 7-10 MB/detik.
+
+  Pembaruan rutin (beberapa publikasi baru per bulan) tidak terpengaruh
+  berarti. Unduhan paralel sengaja TIDAK dibuat (keputusan 10 Nov 2026):
+  - manfaatnya belum terbukti;
+  - menambah beban ke server BPS di jam sibuk (Term of Use).
+- **Korpus pencarian di memori.** Sesudah pembaruan data atau "Terapkan ke
+  data", pencarian pertama sedikit lebih lambat karena korpus dimuat ulang.
+  Ini normal, dan aplikasi tidak perlu di-restart.
 
 ### Konfigurasi wajib - aplikasi menolak jalan kalau kurang
 `app/config.py:periksa_konfigurasi()` dipanggil di awal `create_app()` dan
