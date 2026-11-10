@@ -214,6 +214,13 @@ Angka-angka di atas diturunkan dari pengujian, bukan ditebak:
 4. Setelah perbaikan: puncak skor turun dari 100 ke kisaran 87-90, kejenuhan
    hilang, top-1 kedelapan kueri uji tetap benar, waktu ~70 ms per kueri
    (4.219 entri, jauh di bawah batas 300 ms).
+5. **Sesudah 13 kab/kota masuk (10 Nov 2026; 306 publikasi, 23.461 entri):**
+   - Rata-rata median 430 ms, terlambat 539 ms. Ini **melewati 300 ms**.
+     Data 79 publikasi dalam sesi yang sama: 116 ms.
+   - ±70% waktunya adalah mengambil SELURUH korpus dari MySQL di setiap
+     kueri (308 ms). Kueri yang hanya menilai 37 entri pun 355 ms.
+   - Usulan: simpan korpus di memori proses dan buat ulang sesudah
+     pembaruan data. Lihat `data/regresi/tarik-13-domain-20261110.md`.
 
 ## Utang teknis: 764 entri terlalu panjang
 Ekstraksi kadang menggabungkan BEBERAPA judul tabel menjadi SATU entri. Median
@@ -561,8 +568,29 @@ Aturan yang berlaku:
   Pemberian atribut"). Diterima apa adanya. Catatan: audit heuristik otomatis
   sempat melaporkan 0% untuk kasus serupa - untuk menilai mutu jalur ini,
   PERIKSA SAMPEL ACAK SECARA MANUAL, jangan hanya mengandalkan heuristik.
-- **3 × Master File Desa: 0 entri.** Publikasi ini memang tidak punya halaman
-  DAFTAR konvensional, hanya halaman navigasi bergaya grid. Perilaku benar.
+- **Master File Desa: semua entri jalur badan, tanpa nomor halaman cetak.**
+  Publikasi ini tidak punya halaman DAFTAR konvensional, hanya halaman
+  navigasi bergaya grid.
+  - Dulu (Agustus) hasilnya 0 entri. Sejak ekstraksi badan, tiap edisi
+    334-336 entri, semuanya punya `halaman_fisik`.
+  - Peringatan "336/336 entri tanpa nomor halaman" di ringkasan pembaruan
+    adalah PERINGATAN PALSU: tombol PDF tetap menuju halaman yang tepat.
+- **Publikasi tanpa lapisan teks (perlu OCR), ditemukan 10 Nov 2026:**
+  - **5 publikasi kab/kota menghasilkan 0 entri:**
+    - HST Dalam Angka 2026 dan PDRB Tapin Pengeluaran: huruf diubah menjadi
+      kurva vektor;
+    - Profil TK Tapin dan Statistik Daerah Banjarbaru 2025: teks
+      dirasterkan menjadi potongan gambar;
+    - PDRB Banjarbaru LU: gambar satu halaman penuh.
+  - Tiga lainnya sebagian besar halamannya tanpa teks: PDRB Tapin LU dua
+    edisi (91%) dan PDRB Tabalong (64%).
+  - Satu-satunya teks di PDF-PDF ini adalah watermark. Ini bukan cacat
+    parser; publikasinya tetap ditemukan lewat judul dan abstrak.
+  - Rincian di `data/regresi/tarik-13-domain-20261110.md`.
+- **Leader elipsis "……" di lanjutan Daftar** tidak dikenali
+  `_halaman_daftar`, sehingga ±31 entri (calon, dari penyaring) di 8
+  publikasi kab/kota punya `halaman_fisik` yang menunjuk halaman Daftar.
+  Usulan perbaikan menunggu persetujuan.
 - **5 publikasi hanya punya Daftar Isi** (Direktori Perusahaan Akomodasi,
   Direktori Perusahaan Konstruksi, Direktori Perusahaan Industri Manufaktur,
   Statistik Daerah, Buklet Survei Angkatan Kerja). Memang tidak ada daftar
