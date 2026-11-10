@@ -1,0 +1,128 @@
+{
+ "_catatan": "Acuan dibaca manual dari render 300 dpi (potongan atas tiap halaman), 10 Nov 2026. jenis: entri = baris Daftar (nomor+judul+halaman), keterangan = judul tabel/gambar di badan, judul = heading, sel = baris tabel data, prosa = kalimat badan.",
+ "aafda0cf-p9": [
+  {"jenis": "judul", "teks": "DAFTAR ISI/CONTENTS"},
+  {"jenis": "judul", "teks": "Kabupaten Hulu Sungai Tengah Dalam Angka 2026"},
+  {"jenis": "entri", "teks": "Kata Pengantar/Preface", "hal": "vii"},
+  {"jenis": "entri", "teks": "Daftar Tabel/List of Tables", "hal": "xi"},
+  {"jenis": "entri", "teks": "Daftar Gambar/List of Figures", "hal": "xxxiii"},
+  {"jenis": "entri", "teks": "Penjelasan Umum/Explanatory Notes", "hal": "xxxv"},
+  {"jenis": "entri", "teks": "Statistik Kunci/Key Statistics", "hal": "1"},
+  {"jenis": "entri", "teks": "Geografi dan Iklim/Geography and Climate", "nomor": "1.", "hal": "3"}
+ ],
+ "aafda0cf-p10": [
+  {"jenis": "judul", "teks": "DAFTAR TABEL/LIST OF TABLES"},
+  {"jenis": "judul", "teks": "GEOGRAFI DAN IKLIM/GEOGRAPHY AND CLIMATE", "nomor": "1."},
+  {"jenis": "judul", "teks": "KEADAAN GEOGRAFI", "nomor": "1.1"},
+  {"jenis": "entri", "teks": "Luas Daerah dan Jumlah Pulau Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025", "nomor": "1.1.1", "hal": "9"},
+  {"jenis": "entri", "teks": "Total Area and Number of Islands by District in Hulu Sungai Tengah Regency, 2025"},
+  {"jenis": "entri", "teks": "Jarak ke Ibukota Kabupaten Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025", "nomor": "1.1.2"}
+ ],
+ "aafda0cf-p20": [
+  {"jenis": "judul", "teks": "KEMISKINAN DAN PEMBANGUNAN MANUSIA", "nomor": "4.5"},
+  {"jenis": "judul", "teks": "POVERTY AND HUMAN DEVELOPMENT"},
+  {"jenis": "entri", "teks": "Garis Kemiskinan, Jumlah, dan Persentase Penduduk Miskin di Kabupaten Hulu Sungai Tengah, 2011-2025", "nomor": "4.5.1", "hal": "137"},
+  {"jenis": "entri", "teks": "Poverty Line, Number, and Percentage of Poor People in Hulu Sungai Tengah Regency, 2011-2025"},
+  {"jenis": "entri", "teks": "Indeks Kedalaman Kemiskinan dan Indeks Keparahan Kemiskinan di Kabupaten Hulu Sungai Tengah, 2011-2025", "nomor": "4.5.2", "hal": "138"},
+  {"jenis": "entri", "teks": "Indeks Pembangunan Manusia (IPM) dan Indikatornya Kabupaten Hulu Sungai Tengah, 2011-2025", "nomor": "4.5.3", "hal": "139"}
+ ],
+ "aafda0cf-p31": [
+  {"jenis": "judul", "teks": "DAFTAR GAMBAR/LIST OF FIGURES"},
+  {"jenis": "entri", "teks": "Peta Wilayah Kabupaten Hulu Sungai Tengah", "nomor": "1.1", "hal": "8"},
+  {"jenis": "entri", "teks": "Jumlah Desa/Kelurahan Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025", "nomor": "2.1", "hal": "22"},
+  {"jenis": "entri", "teks": "Persentase Penduduk Miskin di Kabupaten Hulu Sungai Tengah, 2016-2025", "nomor": "4.1", "hal": "71"},
+  {"jenis": "entri", "teks": "Jumlah Wisatawan Menurut Bulan di Kabupaten Hulu Sungai Tengah, 2025", "nomor": "7.1"}
+ ],
+ "aafda0cf-p40": [
+  {"jenis": "judul", "teks": "KEADAAN GEOGRAFI", "nomor": "1.1"},
+  {"jenis": "keterangan", "teks": "Luas Daerah dan Jumlah Pulau Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025", "nomor": "1.1.1"},
+  {"jenis": "keterangan", "teks": "Total Area and Number of Islands by District in Hulu Sungai Tengah Regency, 2025"},
+  {"jenis": "sel", "teks": "Haruyan Haruyan 104,81"},
+  {"jenis": "sel", "teks": "Batu Benawa Pagat 58,16"},
+  {"jenis": "sel", "teks": "Hantakan Hantakan 227,57"},
+  {"jenis": "sel", "teks": "Batang Alai Selatan Birayang 80,51"},
+  {"jenis": "sel", "teks": "Batang Alai Timur Tandilang 565,24"},
+  {"jenis": "sel", "teks": "Barabai Barabai Timur 41,98"}
+ ],
+ "aafda0cf-p150": [
+  {"jenis": "keterangan", "teks": "Lanjutan Tabel/Continued Table 4.3.1", "nomor": "4.3.1"},
+  {"jenis": "sel", "teks": "Jenis Tindak Pidana"},
+  {"jenis": "sel", "teks": "Penipuan 2"},
+  {"jenis": "sel", "teks": "Penganiayaan Ringan (ANIRING) 1 1"},
+  {"jenis": "sel", "teks": "Bawa Sajam/Lahgun Sajam 16 16"},
+  {"jenis": "sel", "teks": "Kekerasan Dalam Rumah Tangga (KDRT)"},
+  {"jenis": "sel", "teks": "Penemuan Mayat 11 11"},
+  {"jenis": "sel", "teks": "Setrum Ikan Bukan Ilegal Fishing"},
+  {"jenis": "sel", "teks": "Percobaan Pencurian dengan Kekerasan"}
+ ],
+ "f338cd99-p10": [
+  {"jenis": "entri", "teks": "Perbandingan Pengeluaran Konsumsi Rumah Tangga Terhadap PMTB Kabupaten Tapin, 2021-2025", "nomor": "4.2", "hal": "67"},
+  {"jenis": "entri", "teks": "Ratio of Household Final Consumption Expenditure to GFCF of Tapin Regency, 2021-2025"},
+  {"jenis": "entri", "teks": "Proporsi Total Pengeluaran Konsumsi Terhadap PDRB Kabupaten Tapin, 2021-2025", "nomor": "4.3", "hal": "68"}
+ ],
+ "f338cd99-p11": [
+  {"jenis": "judul", "teks": "DAFTAR LAMPIRAN"},
+  {"jenis": "judul", "teks": "LIST OF APPENDICES"},
+  {"jenis": "entri", "teks": "Produk Domestik Regional Bruto Atas Dasar Harga Berlaku Kabupaten Tapin (miliar rupiah), 2021-2025", "nomor": "1", "hal": "81"},
+  {"jenis": "entri", "teks": "Produk Domestik Regional Bruto Atas Dasar Harga Konstan (2010=100) Kabupaten Tapin (miliar rupiah), 2021-2025", "nomor": "2", "hal": "82"},
+  {"jenis": "entri", "teks": "Distribusi Produk Domestik Regional Bruto Atas Dasar Harga Berlaku Kabupaten Tapin (persen), 2021-2025", "nomor": "3", "hal": "83"},
+  {"jenis": "entri", "teks": "Distribusi Produk Domestik Regional Bruto Atas Dasar Harga Konstan (2010=100) Kabupaten Tapin (persen), 2021-2025", "nomor": "4", "hal": "84"}
+ ],
+ "47c94280-p11": [
+  {"jenis": "judul", "teks": "Daftar Tabel"},
+  {"jenis": "entri", "teks": "Rasio Jumlah Penduduk yang Bekerja Terhadap Jumlah Penduduk Usia Kerja, Agustus 2024", "nomor": "2.1", "hal": "60"},
+  {"jenis": "entri", "teks": "Persentase Penduduk yang Bekerja Menurut Jam Kerja dan Jenis Kelamin, Agustus 2024", "nomor": "2.2", "hal": "81"}
+ ],
+ "47c94280-p13": [
+  {"jenis": "judul", "teks": "Daftar Gambar"},
+  {"jenis": "entri", "teks": "Persentase Penduduk Usia Kerja Menurut Jenis Kelamin, Agustus 2023 dan 2024", "nomor": "2.1", "hal": "30"},
+  {"jenis": "entri", "teks": "Persentase Penduduk Usia Kerja Menurut Klasifikasi Wilayah, Agustus 2023 dan 2024", "nomor": "2.2", "hal": "32"},
+  {"jenis": "entri", "teks": "Persentase Angkatan Kerja (AK) dan Bukan Angkatan Kerja (BAK) Menurut Jenis Kelamin, Agustus 2024", "nomor": "2.3", "hal": "36"},
+  {"jenis": "entri", "teks": "Persentase Penduduk Usia Kerja Berdasarkan Jenis Kelamin, Agustus 2024", "nomor": "2.4", "hal": "38"}
+ ],
+ "8db55ef6-p9": [
+  {"jenis": "judul", "teks": "Daftar Isi"},
+  {"jenis": "judul", "teks": "Statistik Daerah Kota Banjarbaru 2025"},
+  {"jenis": "entri", "teks": "Kata Pengantar", "hal": "v"},
+  {"jenis": "entri", "teks": "Geografi dan Iklim", "nomor": "1"},
+  {"jenis": "entri", "teks": "Pemerintahan", "nomor": "2"},
+  {"jenis": "entri", "teks": "Kependudukan", "nomor": "3"},
+  {"jenis": "entri", "teks": "Ketenagakerjaan", "nomor": "4"}
+ ],
+ "8db55ef6-p13": [
+  {"jenis": "judul", "teks": "BAB 2"},
+  {"jenis": "judul", "teks": "Pemerintahan"},
+  {"jenis": "prosa", "teks": "Kota Banjarbaru dipimpin Hj. Erna Lisa Halaby sejak 2025, memiliki 30 anggota DPRD,"},
+  {"jenis": "prosa", "teks": "Sejak diresmikan menjadi Kota Banjarbaru, kepemimpinan daerah dipegang oleh Walikota Drs."},
+  {"jenis": "prosa", "teks": "periode 2010-2016. Setelah itu selama periode"},
+  {"jenis": "keterangan", "teks": "Jumlah Anggota DPRD Berdasarkan Jenis Kelamin Kota Banjarbaru Tahun 2024"}
+ ],
+ "a818fdde-p11": [
+  {"jenis": "judul", "teks": "DAFTAR TABEL"},
+  {"jenis": "entri", "teks": "Perbandingan Perubahan Konsep dan Metode Penghitungan PDRB", "nomor": "1.1", "hal": "10"},
+  {"jenis": "entri", "teks": "Perbandingan Perubahan Klasifikasi PDRB Menurut Lapangan Usaha Tahun Dasar 2000 dan 2010", "nomor": "1.2", "hal": "11"},
+  {"jenis": "entri", "teks": "Perbandingan Perubahan Klasifikasi PDRB Menurut Pengeluaran Tahun Dasar 2000 dan 2010", "nomor": "1.3", "hal": "12"},
+  {"jenis": "entri", "teks": "Laju Pertumbuhan PDRB Kota Banjarbaru (Persen), 2021-2025", "nomor": "3.1", "hal": "90"},
+  {"jenis": "entri", "teks": "PDRB Per Kapita Kota Banjarbaru Menurut Lapangan Usaha, 2021-2025", "nomor": "3.2", "hal": "92"}
+ ],
+ "182e2e58-p40": [
+  {"jenis": "judul", "teks": "PDRB Kabupaten Tapin Menurut Lapangan Usaha 2020-2024"},
+  {"jenis": "judul", "teks": "Perikanan", "nomor": "3."},
+  {"jenis": "prosa", "teks": "Subkategori ini meliputi semua kegiatan penangkapan, pembenihan, dan budidaya segala jenis ikan dan biota air lainnya"},
+  {"jenis": "prosa", "teks": "This subcategory covers all fishing activities, seeding, and cultivation of all kinds of fish"}
+ ],
+ "786645b6-p11": [
+  {"jenis": "judul", "teks": "DAFTAR TABEL"},
+  {"jenis": "entri", "teks": "Perbandingan Perubahan Konsep dan Metode Perhitungan PDRB", "nomor": "1.1", "hal": "10"},
+  {"jenis": "entri", "teks": "Perbandingan Perubahan Klasifikasi PDRB Menurut Lapangan Usaha Tahun Dasar 2000 dan 2010", "nomor": "1.2", "hal": "12"},
+  {"jenis": "entri", "teks": "Perbandingan Perubahan Klasifikasi PDRB Menurut Pengeluaran Tahun Dasar 2000 dan 2010", "nomor": "1.3", "hal": "13"},
+  {"jenis": "entri", "teks": "Peranan PDRB Kabupaten Tabalong Atas Dasar Harga Berlaku Menurut Lapangan Usaha (Persen), 2020-2024", "nomor": "3.1", "hal": "95"},
+  {"jenis": "entri", "teks": "Laju Pertumbuhan Riil PDRB Kabupaten Tabalong Atas Dasar Harga Konstan 2010 Menurut Lapangan Usaha (Persen), 2020-2024", "nomor": "3.2", "hal": "100"}
+ ],
+ "786645b6-p40": [
+  {"jenis": "judul", "teks": "Produk Domestik Regional Bruto Kabupaten Tabalong Menurut Lapangan Usaha 2020-2024"},
+  {"jenis": "judul", "teks": "Tanaman Perkebunan", "nomor": "2.1.1.3"},
+  {"jenis": "prosa", "teks": "Subkategori Tanaman Perkebunan terdiri dari tanaman perkebunan semusim dan tanaman perkebunan tahunan"},
+  {"jenis": "prosa", "teks": "Plantation Crops subcategory consists of plantations of seasonal and annual plantation crops"}
+ ]
+}

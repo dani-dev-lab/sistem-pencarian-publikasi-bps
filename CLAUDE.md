@@ -641,6 +641,15 @@ Aturan yang berlaku:
 
   Pendekatan OCR harus menangani keduanya, misalnya dengan merender halaman
   lalu meng-OCR hasil rendernya.
+  - **Spike 10 Nov 2026** (`data/regresi/spike-ocr-20261110.md`), 16 halaman,
+    93 butir acuan dibaca manual. Belum dipasang ke pipeline.
+    - Kata terbaca: Tesseract 95,8%, EasyOCR 98,2%.
+    - Nomor entri: Tesseract 29/44 (kolom nomor di kiri hilang), EasyOCR
+      39/44. Halaman: 31/36 vs 35/36.
+    - Waktu: 2,1 vs 16 detik per halaman (CPU). Ukuran: ±183 MB (portabel,
+      tanpa admin) vs 1,1 GB.
+    - Usulan berikutnya: uji HST Dalam Angka 2026 penuh lewat kotak kata
+      ke parser koordinat.
 - **5 publikasi hanya punya Daftar Isi** (Direktori Perusahaan Akomodasi,
   Direktori Perusahaan Konstruksi, Direktori Perusahaan Industri Manufaktur,
   Statistik Daerah, Buklet Survei Angkatan Kerja). Memang tidak ada daftar
