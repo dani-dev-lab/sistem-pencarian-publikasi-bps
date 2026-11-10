@@ -8,11 +8,22 @@
   {% block kepala %}{% endblock %}
 </head>
 <body class="{% block kelas_body %}{% endblock %}">
+  {# Identitas visual mengikuti kop situs resmi BPS Provinsi Kalimantan Selatan
+     (logo + dua baris nama instansi, bilah #002B6A). Hanya tampilannya yang
+     diambil: tidak ada skrip, stylesheet, atau menu dari situs BPS, dan
+     logonya berkas lokal, jadi aplikasi tetap jalan tanpa internet. Nama
+     aplikasi tetap terlihat supaya jelas ini alat internal PST, bukan situs
+     resmi BPS. #}
   <header class="kop">
-    <a class="kop-judul" href="{{ url_for('pencarian.halaman_pencarian') }}">
-      Pencarian Publikasi BPS
+    <a class="kop-identitas" href="{{ url_for('pencarian.halaman_pencarian') }}">
+      <img class="kop-logo" src="{{ url_for('static', filename='img/logo-bps.png') }}"
+           width="62" height="48" alt="Logo BPS">
+      <span class="kop-instansi">
+        <span>Badan Pusat Statistik</span>
+        <span>Provinsi Kalimantan Selatan</span>
+      </span>
     </a>
-    <span class="kop-sub">Provinsi Kalimantan Selatan &mdash; Pelayanan Statistik Terpadu</span>
+    <span class="kop-aplikasi">Pencarian Publikasi PST</span>
     {# Halaman admin SENGAJA tidak ditautkan di sini. UI ini untuk petugas PST;
        /admin/ diakses lewat URL langsung. Lihat CLAUDE.md. Tombol Keluar hanya
        muncul di dalam /admin/ setelah login - tidak pernah di halaman pencarian. #}

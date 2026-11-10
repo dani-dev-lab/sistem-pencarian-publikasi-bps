@@ -17,6 +17,8 @@
   --ungu: #553c9a;
   --ungu-muda: #ede7f6;
   --merah: #b02a2a;
+  /* Warna bilah kop situs resmi BPS Provinsi Kalimantan Selatan. */
+  --kop-bps: #002B6A;
 }
 
 * { box-sizing: border-box; }
@@ -33,14 +35,66 @@ body {
   flex-direction: column;
 }
 
-/* ---------------------------- kop halaman ---------------------------- */
+/* ---------------------------- kop halaman ----------------------------
+   Meniru kop situs resmi BPS Kalsel: bilah #002B6A, logo setinggi 48 px,
+   nama instansi dua baris putih kapital miring tebal. Sticky supaya
+   identitas dan nama aplikasi selalu terlihat saat menggulir hasil. */
 .kop {
-  background: var(--biru);
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  background: var(--kop-bps);
   color: #fff;
-  padding: 16px 24px 18px;
+  padding: 12px 24px;
 }
-.kop-judul { color: #fff; font-size: 19px; font-weight: 700; text-decoration: none; }
-.kop-sub { display: block; font-size: 13px; opacity: .85; margin-top: 2px; }
+.kop-identitas {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  text-decoration: none;
+  min-width: 0;
+}
+/* Logo tidak persegi (661x512): tinggi dikunci, lebar mengikuti. */
+.kop-logo { height: 48px; width: auto; flex: none; }
+.kop-instansi {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+  line-height: 1.2;
+  letter-spacing: .01em;
+}
+/* Nama aplikasi di sisi kanan: penanda bahwa ini alat internal PST. */
+.kop-aplikasi {
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  padding: 4px 11px;
+  border: 1px solid rgba(255, 255, 255, .55);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.kop-identitas:focus-visible { outline: 2px solid #fff; outline-offset: 4px; border-radius: 2px; }
+
+@media (max-width: 640px) {
+  .kop { padding: 10px 14px; gap: 6px 12px; }
+  .kop-instansi { font-size: 14px; }
+  /* Baris kecil di bawah identitas, rata kiri dengan teks instansi. */
+  /* flex 1: mengisi baris kedua sendirian, atau berbagi dengan Keluar
+     (admin) supaya kop sticky tidak bertambah satu baris lagi. */
+  .kop-aplikasi { margin-left: 0; flex: 1 1 auto; padding: 0; border: 0;
+                  font-size: 12px; opacity: .9; }
+  .kop-keluar button { padding: 3px 10px; font-size: 12px; }
+}
 
 /* Kolom pencarian sengaja TIDAK di dalam kop - diberi ruang putih di bawahnya
    supaya tidak menggantung di perbatasan warna. */
@@ -130,9 +184,6 @@ main { flex: 1; width: 100%; max-width: 1180px; margin: 0 auto; padding: 28px 20
 /* ---------------------------- halaman awal ----------------------------
    Halaman ini tujuannya satu: mengetik dan mencari. Kontennya dipusatkan
    secara vertikal supaya tidak menumpuk di atas dan menyisakan rongga besar. */
-.beranda .kop { padding: 11px 24px 12px; }
-.beranda .kop-judul { font-size: 17px; }
-.beranda .kop-sub { font-size: 12px; }
 
 .beranda main {
   display: flex;
@@ -389,7 +440,8 @@ mark { background: #fff2a8; color: inherit; padding: 0 1px; border-radius: 2px; 
   border: none; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: 600;
 }
 .form-terapkan button:hover { opacity: .9; }
-.kop-keluar { float: right; margin-top: 2px; }
+.kop-keluar { margin: 0; }
+.kop-aplikasi + .kop-keluar { margin-left: 0; }
 .kop-keluar button {
   padding: 5px 12px; background: transparent; color: #fff;
   border: 1px solid rgba(255,255,255,.6); border-radius: 4px;
