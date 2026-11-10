@@ -1,0 +1,31 @@
+urut	tipe	nomor_parser	nomor_benar	nomor_ok	hal_parser	hal_benar	hal_ok	fisik_parser	fisik_ok	judul	catatan
+1	tabel	4.4.5	4.4.5	ya	132	132	ya	159	ya	berawalan_sampah	awal judul = sampah titik pemandu entri sebelumnya
+2	tabel	-	(3.2.x)	tidak	54	?	tak_terverifikasi	-	-	berawalan_sampah	diawali ekor Inggris entri sebelumnya ("Regency, 2025") - pola yang di kasus terverifikasi selalu membawa halaman entri sebelumnya
+3	tabel	-	12.5	tidak	285	285	ya	-	-	bersih
+4	tabel	7.1	7.1	ya	224	224	ya	-	-	bersih	benar seluruhnya
+5	tabel	-	5.2.5	tidak	170	170	ya	-	-	bersih
+6	tabel	4.5	4.5.1	tidak	137	137	ya	-	-	berawalan_sampah	nomor = kode bagian 4.5; judul diawali "Halaman Table Page" + kepala bagian
+7	tabel	-	3.2.8+3.2.9	tidak	56	57/58	tidak	-	-	rusak	GABUNGAN dua judul tabel (Pencari Kerja + Penempatan); halaman milik entri sebelumnya
+8	tabel	-	12.4	tidak	283	283	ya	-	-	rusak	TERPOTONG: baris pertama judul hilang; "12.4" masuk ke teks judul, bukan ke kolom nomor
+9	tabel	-	4.5.4	tidak	139	140	tidak	-	-	berawalan_sampah	halaman 139 milik 4.5.3 (IPM)
+10	tabel	4.1.10	4.1.10	ya	97	97	ya	124	ya	bersih	benar seluruhnya
+11	tabel	-	13.4	tidak	295	296	tidak	-	-	berawalan_sampah	halaman 295 milik 13.3
+12	tabel	-	10.1	tidak	262	262	ya	-	-	berawalan_sampah	diawali kepala bab "10. PENGELUARAN PENDUDUK/..."
+13	tabel	-	12.1	tidak	270	?	tidak	-	-	berawalan_sampah	diawali ekor entri sebelumnya + kepala bab 12; 270 milik entri bab 11
+14	tabel	5.2.14	5.2.14	ya	184	184	ya	210	ya	berawalan_sampah
+15	tabel	12.2	12.2	ya	279	?	tak_terverifikasi	296	ya	berawalan_sampah	diawali "Halaman Table Page"; 279 konsisten dengan urutan 281/283
+16	tabel	-	3.1.2	tidak	45	45	ya	-	-	berawalan_sampah
+17	tabel	-	(5.1.x kacang hijau)	tidak	159	?	tak_terverifikasi	-	-	rusak	TERPOTONG: awal judul hilang ("Kecamatan di Kabupaten ...")
+18	tabel	6.2	6.2	ya	212	212	ya	237	ya	berawalan_sampah
+19	tabel	5.2.13	5.2.13	ya	182	182	ya	208	ya	rusak	baris kedua judul hilang ("... Jenis Tanaman di Production of Fruits ...")
+20	tabel	-	4.1.9	tidak	94	94	ya	-	-	berawalan_sampah
+21	tabel	-	13.5	tidak	297	297	ya	-	-	bersih
+22	tabel	8.1.4	8.1.4	ya	235	235	ya	258	ya	berawalan_sampah
+23	tabel	-	(4.1.x MI)	tidak	79	?	tak_terverifikasi	-	-	rusak	TERPOTONG: judul Indonesia hampir seluruhnya hilang ("dan 2025/2026 Number of Schools ...")
+24	tabel	-	3.2.1	tidak	49	?	tak_terverifikasi	-	-	bersih	49 konsisten dengan entri berikutnya (50)
+25	tabel	-	3.2.4	tidak	52	?	tidak	-	-	berawalan_sampah	52 milik 3.2.3 (terlihat di pita hal. 13)
+26	tabel	-	8.2.2	tidak	237	237	ya	-	-	rusak	urutan kata kacau ("Memiliki Kantor Pos? Menurut yang Kecamatan")
+27	tabel	-	3.1.1	tidak	-	43	tidak	-	-	berawalan_sampah	halaman tidak ada; diawali kepala bab 3
+28	tabel	-	5.2.3	tidak	168	168	ya	-	-	rusak	TERPOTONG: baris pertama judul hilang
+29	isi	-	(bab 6)	-	207	207	ya	-	-	berawalan_sampah	"6. Energi/ENergy" diawali sampah
+30	isi	-	(bab 7)	-	217	217	ya	-	-	berawalan_sampah

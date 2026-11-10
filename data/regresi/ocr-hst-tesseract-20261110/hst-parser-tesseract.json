@@ -1,0 +1,1428 @@
+{
+ "ringkasan": {
+  "pdf": "data/publikasi_pdf/6307/aafda0cff288ddb041cfa024.pdf",
+  "mesin": "tesseract",
+  "halaman_ocr": 320,
+  "heading": {
+   "isi": 8,
+   "tabel": 9
+  },
+  "dari_daftar": 153,
+  "dari_badan": 0,
+  "halaman_fisik_dilengkapi": 32,
+  "halaman_fisik_isi": 1,
+  "entri": 153,
+  "detik_parser": 0.8
+ },
+ "entri": [
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "isi",
+   "nomor": null,
+   "judul": "Kata Pengantar/Prerace",
+   "halaman": "vii",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "isi",
+   "nomor": null,
+   "judul": "sesssssscssscssessssscsnsecsuseesusessucesuseccuceesucessuesesueeesnecesseessueeesneesees sesssssescsesecsseecsesessessssscesssscssseessscessscessseccuseesssessnecesnseesusecsseecsuseesseeesees esssssssssssessccssssscssssccssseceesseeessneseccssceecsnseceesneesesnseessnneeseaneeees sssssssssscssssscssecessseseesssecssssscensssecssseceesneessssssecsnseeseanseess Pernjelasan UMUM/EXxplanatory Notes",
+   "halaman": "xxxv",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "isi",
+   "nomor": null,
+   "judul": "ssscsssscssecssescseseccseccseeesseesesneecssecesseeesueeesneeesees Statistik Kunci/Key Statistics",
+   "halaman": "1",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "isi",
+   "nomor": null,
+   "judul": "csessssssecssssssecsessesecessssscsecasssecucsseuecucsesscsucaeeneeneaeenees 1. Geografi dan Iklim/Geography and Climate",
+   "halaman": "3",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "isi",
+   "nomor": null,
+   "judul": "2. Pemerintahan/GovernMent",
+   "halaman": "17",
+   "halaman_fisik": 47,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "isi",
+   "nomor": null,
+   "judul": "ssseccsescnseecseecsseecsssccnseecseeessseesseeecnseessseeeneeesseees 3. Penduduk dan Ketenagakerjaan/Population and Employment",
+   "halaman": "35",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "isi",
+   "nomor": null,
+   "judul": "4. Sosial dan Kesejahteraan Rakyat/Social ANd Welfare",
+   "halaman": "59",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "isi",
+   "nomor": null,
+   "judul": "sessssssscsssecseeesseecsees 5. Pertanian, Kehutanan, Peternakan, dan Perikanan/Agriculture, Forestry, Livestock, and Fishery",
+   "halaman": "141",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "isi",
+   "nomor": null,
+   "judul": "ssssssscsssccssecsssesseesessseesseceneecsstecssseceaseesseeeaeeesasees 6. Energi/ENergy ou",
+   "halaman": "207",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "isi",
+   "nomor": null,
+   "judul": "essseecsescseecseecssecssecssecsvecsnecsnecssecsnecsnecsnecsnecsnessneesseesscesseesseesneesseeseeess 7. Pariwisata/Tourism",
+   "halaman": "217",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "isi",
+   "nomor": null,
+   "judul": "8. Transportasi dan Komunikasi/Transportation and Communication",
+   "halaman": "227",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "isi",
+   "nomor": null,
+   "judul": "9. Koperasi dan Harga-harga/Cooperative an Prices",
+   "halaman": "243",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "isi",
+   "nomor": null,
+   "judul": "s.ssssssscssscssecsseeseeeseeese 10. Pengeluaran Penduduk/Population Expenditure",
+   "halaman": "257",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "isi",
+   "nomor": null,
+   "judul": "scssccsssccssescseceseseeseeeese 11. Perdagangan/Trade",
+   "halaman": "265",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "isi",
+   "nomor": null,
+   "judul": "12. Sistem Neraca Regional/Syster of Regional ACCOUNTS",
+   "halaman": "271",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "isi",
+   "nomor": null,
+   "judul": "s.ssssssssssseessessesseee 13. Perbandingan Antar Kabupaten/Kota/Regency/Municipal Comparison",
+   "halaman": "289",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "isi",
+   "nomor": null,
+   "judul": "Daftar Pustaka/ReferenC€es",
+   "halaman": "299",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "isi",
+   "nomor": null,
+   "judul": "c.cceccssssssssssssssssssssssssssssssscssssssscsssssssssnssssecssecssecssecssecsseceneessees",
+   "halaman": null,
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Luas Daerah dan Jumlah Pulau Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025 Total Area and Number of Islands by District in Hulu Sungai Tengah Regency, 2025",
+   "halaman": "9",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "1.1.2",
+   "judul": "uaessesssessssssessessssssessesssessessesssesssssessssssssessssssssusssssssssesssssessesssssesees Jarak ke Ibukota Kabupaten Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025 Distance to the Capital of Regency by District in Hulu Sungai Tengah Regency, 2025",
+   "halaman": "11",
+   "halaman_fisik": 42,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "1.1.3",
+   "judul": "u essessessesseesecsecseesscsscsssnscnscssssessenscseeusenecuceusenscussussnecesseeseeseesceseensenes Jumlah Desa'/Kelurahan Menurut Kecamatan di Kabupaten Hulu Sungai Tengah dan Letak Geografi, 2021-2025 Number of Villages'/Subdistricts by District in Hulu Sungai Tengah Regency and Geographical Location, 2021-2025",
+   "halaman": "12",
+   "halaman_fisik": 43,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "1.1.4",
+   "judul": "esssssescsssssseeceserseeeneeese Jumlah Desa’/Kelurahan Menurut Kecamatan di Kabupaten Hulu Sungai Tengah dan Topografi Wilayah, 2021-2025 Number of Villages'/Subdistricts by District in Hulu Sungai Tengah Regency and Topographical Areas, 2021-2025",
+   "halaman": "13",
+   "halaman_fisik": 44,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "sssssssssecsssscsecseesneecneeese CLIMATE CONDITION Pengamatan Unsur Iklim Menurut Bulan di Kabupaten Hulu Sungai Tengah, 2025 Observation of Climate Elements By Months at Hulu Sungai Tengah Regency, 2025",
+   "halaman": "14",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "2.1.1",
+   "judul": "ue esressecsesseesecsecneesscsecsecnscsscessseseenscnccuseuccuccuscnsesssussneceeseeneeseeneeseeneeness ADMINISTRATIVE AREA Jumlah Desa'/Kelurahan Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2021-2025 Number of Villages'/Subdistricts by District in Hulu Sungai Tengah REGENCY, 2021-2025",
+   "halaman": "23",
+   "halaman_fisik": 52,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "essecssecsseessecsssesssesssssssesssescseesseesseesssesssesseessnesssesssesssessseesseesse",
+   "halaman": null,
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "2.2",
+   "judul": "Halaman Table Page DEWAN PERWAKILAN RAKYAT DAERAH REGIONAL HOUSE OF REPRESENTATIVE Jumlah Anggota Dewan Perwakilan Rakyat Daerah Menurut Partai Politik dan Jenis Kelamin di Kabupaten Hulu Sungai Tengah (orang), 2025 Number of Regional House of Representatives’s Members by Political Parties and Sex in Hulu Sungai Tengah Regency (people), 2025",
+   "halaman": "24",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "2.3. SUMBER DAYA MANUSIA HUMAN RESOURCES Jumlah Aparatur Sipil Negara (ASN) Pemerintah Kabupaten Hulu Sungai Tengah Menurut Jabatan, Jenis ASN, dan Jenis Kelamin (orang), Desember 2025 Number of State Civil Service of Hulu Sungai Tengah Regency Government by Occupation, Type of ASN, and Sex (people), Desember QODS",
+   "halaman": "25",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "vrscserssssssssrsssssssssssssessssssessssssssesssssessessscasssssssesssesessssesesesesscsesesssssesesesssssesseassesecs Jumlah Aparatur Sipil Negara (ASN) Pemerintah Kabupaten Hulu Sungai Tengah Menurut Tingkat Pendidikan, Jenis ASN, dan Jenis Kelamin (orang), Desember 2025 Number of State Civil Service of Hulu Sungai Tengah Regency Government by Educational Level, Type of ASN, and Sex (people), December 2025 ressessssssessssssesssssnssssssssssscsassssesacsnsesscsassnscsacsssesacsasssscsaceneessssseessesass",
+   "halaman": "27",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Jumlah Pegawai Negeri Sipil Pemerintah Kabupaten Hulu Sungai Tengah Menurut Tingkat Kepangkatan dan Jenis Kelamin (orang), Desember 2025 Number of Hulu Sungai Tengah Regency Government's Employee by Hierarchy and Sex (people), December 2025 s.ssssssssseessesseecsserseeeneene Jumlah Pegawai Pemerintah dengan Perjanjian Kerja Pemerintah 2.3.4 Kabupaten Hulu Sungai Tengah Menurut Tingkat Kepangkatan dan",
+   "halaman": "29",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Jenis Kelamin (orang), Desember 2025 Number of Hulu Sungai Tengah Regency State Employees with Employment Agreements by Hierarchy and Sex (people), Desember 2025 wressssesscesssceeseceensenesscesseenesecussecnssecusscensacensseensacusaeensaseneatenssnenesuenssncessnssssnessensees xii",
+   "halaman": "30",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "2.4.1",
+   "judul": "Realisasi Pendapatan Pemerintah Kabupaten Hulu Sungai Tengah Menurut Jenis Pendapatan (ribu rupiah), 2024-2025 Actual Hulu Sungai Tengah Regency Government Revenues by Kind of Revenues (thousand rupiahs), 2024-2025",
+   "halaman": "31",
+   "halaman_fisik": 60,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "2.4.2",
+   "judul": "csssesssssssesssesssssssssssssssssssssseessess Realisasi Belanja Pemerintah Kabupaten Hulu Sungai Tengah Menurut Jenis Belanja (ribu rupiah), 2024-2025 Actual Hulu Sungai Tengah Regency Government Expenditures by Kind of Expenditures (thousand rupichs), 2024-2025 m",
+   "halaman": "33",
+   "halaman_fisik": 62,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "2.4.3",
+   "judul": "Realisasi Pembiayaan Pemerintah Kabupaten Hulu Sungai Tengah Menurut Jenis Pembiayaan (ribu rupiah), 2024-2025 Actual Finances of Government of Hulu Sungai Tengah Regency by Kind of Finances (thousand rupidhs), 2024-2025",
+   "halaman": "34",
+   "halaman_fisik": 63,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "c cccc.cesesesssenun POPULATION AND EMPLOYMENT POPULATION Jumlah Penduduk, Laju Pertumbuhan Penduduk, Distribusi Persentase Penduduk, Kepadatan Penduduk, Rasio Jenis Kelamin Penduduk Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025 Population, Population Growth Rate, Percentage Distribution of Population, Population Density, and Population Sex Ratio by District",
+   "halaman": null,
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "in Hulu Sungai Tengah Regency, 2025",
+   "halaman": "43",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "ss.ssssssscscssscseessesesseessessesseesneesses Jumlah Penduduk Menurut Kelompok Umur dan Jenis Kelamin di Kabupaten Hulu Sungai Tengah (jiwa), 2025 Population by Age Groups and Sex in Hulu Sungai Tengah Regency (people), 2025",
+   "halaman": "45",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "vesssesssessseesseessssssuesssessuessuessuessussssessusssuessnessuesesessuesasecsnecasecssecesecssees Jumlah Penduduk Menurut Jenis Kelamin dan Kecamatan di Kabupaten Hulu Sungai Tengah, 2025 Population by Sex and District in Hulu Sungai Tengah Regency, 2025",
+   "halaman": "46",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "3.1.4",
+   "judul": "Halaman Table Page Jumlah Penduduk, Kepala Keluarga, Penduduk Wajib KTP, dan Penduduk yang Sudah Melakukan Perekaman E-KTP Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025 Number of Population, Head of Family, Mandatory Identity Card, and Population Who Have Performed E-ID Card Record by District in Hulu",
+   "halaman": null,
+   "halaman_fisik": 75,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Sungai Tengah Regency, 2025 c c.cc.coc.c o.c mmm mreeeseeeeeea Jumlah Akta yang Diterbitkan Menurut Bulan dan Jenis Akta di Kabupaten Hulu Sungai Tengah, 2025 Number of Certificate that Issued by Month and Type of Certificate in Hulu Sungai Tengah Regency, 2025 48 ssssscescesssssessecsssesssesseesscesececseesseeeseeese 3.2. KETENAGAKERJAAN EMPLOYMENT",
+   "halaman": "47",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Jumlah Penduduk Berumur 15 Tahun ke Atas Menurut Jenis Kegiatan Selama Seminggu Terakhir dan Jenis Kelamin di Kabupaten Hulu Sungai Tengah, 2025 Number of Population Aged 15 Years and Over by Type of Activity During the Last Week and Sex in Hulu Sungai Tengah Regency, 2025 Jumlah Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan dan Jenis Kegiatan Selama Seminggu Terakhir di Kabupaten Hulu Sungai Tengah, 2025",
+   "halaman": "49",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Number of Population 15 Years of Age and Over by Educational Attainment and Type of Activity During the Last Week in Hulu Sungai Tengah REGency, 2025 .rssesssssssssssssscssssssssnesensscssesseeescesscssscesscsssessuceeseecaeceneeessees Jumlah Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Status Pekerjaan Utama dan Jenis Kelamin di Kabupaten Hulu Sungai Tengah, 2025 Number of Population 15 Years of Age and Over Who Worked During",
+   "halaman": "50",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "the Last Week by Main Employment Status and Sex in Hulu Sungai Tengah Regency, 2025 u.esesssescssscssecnsecssscnescssecsseesecsneesscssscecseesneecutecseecneeenseessees Persentase Penduduk Berumur 15 Tahun ke Atas yang Bekerja 3.2.4 Selama Seminggu Terakhir Menurut Kelompok Umur dan Jenis Kelamin di Kabupaten Hulu Sungai Tengah, 2025 Percentage of Population Aged 15 Years and Over Who Worked During",
+   "halaman": "52",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "the Last Week by Age Groups and Sex in Hulu Sungai Tengah Regency, xiv",
+   "halaman": null,
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "3.2.5",
+   "judul": "Halaman Table Page Persentase Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Lapangan Pekerjaan Utama dan Jenis Kelamin di Kabupaten Hulu Sungai Tengah, 2025 Percentage of Population Aged 15 Years and Over Who Worked During the Last Week by Main Industry and Sex in Hulu Sungai Tengah",
+   "halaman": null,
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Regency, 2025 ueeesessesessessessecseesssssscssssssscseesesscssceassussscsnssnssussesessesseesesseessessenessess Persentase Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja Seluruhnya dan Jenis Kelamin di Kabupaten Hulu Sungai Tengah, 2025 Percentage of Population Aged 15 Years and Over Who Worked During the Last Week by Total Working Hours and Sex in Hulu Sungai Tengah REGENCY, 2025 55",
+   "halaman": "54",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "u.sresssesssscsecssssecsnsssscessosscssscscsssccaccnsscscsnsssussssssecsaccnsesscessssnessesaneesseses Persentase Penduduk Berumur 15 Tahun ke Atas yang Bekerja 3.2.7 Selama Seminggu Terakhir Menurut Jumlah Jam Kerja pada Pekerjaan Utama dan Jenis Kelamin di Kabupaten Hulu Sungai Tengah, 2025 Percentage of Population Aged 15 Years and Over Who Worked During the Last Week by Number of Working Hours on Main Industry and Sex",
+   "halaman": null,
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "In Hulu Sungai Tengah Regency, 2025 ssssssssscssscssecseeeseeseesssesssesseesseesses Jumlah Pencari Kerja Terdaftar Menurut Bulan dan Jenis Kelamin di Kabupaten Hulu Sungai Tengah, 2025 Number of Registered Job Applicants by Month and Sex in Hulu Sungai Tengah Regency, 2025 57 rrsserssersssesssesssessssssessssssseessessssesssesssssssssssessseecsssssesssseessees Penempatan Tenaga Kerja Menurut Bulan dan Jenis Kelamin di Kabupaten Hulu Sungai Tengah, 2025",
+   "halaman": "56",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Placement of Registered Job Applicants by Month and Sex in Hulu Sungai Tengah Regency, 2025 .reccscsssscssscssessssssssesnesssseessseneesneecssecseeeseeeseesscesees",
+   "halaman": "58",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "4.1",
+   "judul": "Halaman Table Page SOSIAL DAN KESEJAHTERAAN RAKYAT/SOCIAL AND WELFARE PENDIDIKAN EDUCATION Jumlah Satuan Pendidikan, Kepala Sekolah dan Pendidik, serta Peserta Didik' Taman Kanak—Kanak (TK) di Bawah Kementerian Dasar dan Menengah Menurut Kecamatan di Kabupaten Hulu",
+   "halaman": null,
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Sungai Tengah, 2024/2025 dan 2025/2026 Number of Schools, Headmasters and Teachers, and Pupils’ in Kindergarten Under The Ministry of Primary and Secondary Edication by District in Hulu Sungai Tengah Regency, 2024/2025 and 2025/2026 Jumlah Satuan Pendidikan, Kepala Sekolah dan Pendidik, serta Peserta Didik' Raudatul Athfal (RA)* di Bawah Kementerian Agama Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2024/2025 dan 2025/2026",
+   "halaman": "72",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Number of Schools, Headmasters and Teachers, and Pupils’ in Raudatul Athfal (RA)? Under The Ministry of Religious Affairs by District in Hulu Sungai Tengah Regency, 2024/2025 ANd 2025/2026 1. Jumlah Satuan Pendidikan, Kepala Sekolah dan Pendidik, serta Peserta Didik' Sekolah Dasar (SD) di Bawah Kementerian Pendidikan Dasar dan Menengah Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2024/2025 dan 2025/2026 Number of Schools, Headmasters and Teachers, and Pupils’ in",
+   "halaman": "75",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Elementary Schools Under The Ministry Primary and Secondary Education by District in Hulu Sungai Tengah Regency, 2024/2025 and 2OQ5/2O2G wecssassssesssssssssnsssssssssssecsnsssssssssnscssssssssscsssscssssscsssssssacsssacsssasessacsssacesseseessees Jumlah Satuan Pendidikan, Kepala Sekolah dan Guru, serta Peserta 4.1.4 Didik' Madrasah Ibtidaiyah (MI) di Bawah Kementerian Agama Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2024/2025",
+   "halaman": "76",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "dan 2025/2026 Number of Schools, Headmasters and Teachers, and Pupils’ in Madrasah Ibtidaiyah (MI) Under The Ministry of Religious Affairs by District in Hulu Sungai Tengah Regency, 2024/2025 and 2025/2026",
+   "halaman": "79",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "4.1.5",
+   "judul": "Halaman Table Page Jumlah Satuan Pendidikan, Kepala Sekolah dan Guru, serta Peserta Didik' Sekolah Menengah Pertama (SMP) di Bawah Kementerian Pendidikan Dasar dan Menengah Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2024/2025 dan 2025/2026 Number of Schools, Headmasters and Teachers, and Pupils! in Junior",
+   "halaman": null,
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "High Schools Under The Ministry of Primary and Secondary Education by District in Hulu Sungai Tengah Regency, 2024/2025 and 2025/2026 Jumlah Satuan Pendidikan, Kepala Sekolah dan Guru, serta Peserta Didik' Madrasah Tsanawiyah (MTs) di Bawah Kementerian Agama Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2024/2025 dan 2025/2026 Number of Schools, Headmasters and Teachers, and Pupils’ in Madrasah Tsanawiyah (MTs) Under The Ministry of Religious Affairs by",
+   "halaman": "82",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "District in Hulu Sungai Tengah Regency, 2024/2025 and 2025/2026 Jumlah Satuan Pendidikan, Kepala Sekolah dan Guru, serta Peserta Didik' Sekolah Menengah Atas (SMA) di Bawah Kementerian Pendidikan Dasar dan Menengah Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2024/2025 dan 2025/2026 Number of Schools, Headmasters and Teachers, and Pupils’ in Senior High Schools Under The Ministry of Primary and Secondary Education by District in Hulu Sungai Tengah Regency, 2024/2025 and 2025/2026 88",
+   "halaman": "85",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Jumlah Satuan Pendidikan, Kepala Sekolah dan Guru, serta Peserta Didik' Sekolah Menengah Kejuruan (SMK) di Bawah Kementerian Pendidikan Dasar dan Menengah Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2024/2025 dan 2025/2026 Number of Schools, Headmasters and Teachers, and Pupils’ in Vocational High Schools Under The Ministry of Primary and Secondary Education by District in Hulu Sungai Tengah Regency, 2024/2025 and 2025/2026",
+   "halaman": "91",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "weesessessscsssscsssscesscsenscsssscsesscscsscsessssensesensescaseneaseseaseneasenesseuessescsnesesseneenenes Jumlah Sekolah, Guru, dan Peserta Didik Madrasah Aliyah (MA) di Bawah Kementerian Agama Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2024/2025 dan 2025/2026 Number of Schools, Teachers, and Pupils in Madrasah Aliyah (MA) Under the Ministry of Religious Affairs by District in Hulu Sungai Tengah Regency, 2024/2025 AN 2025/2026",
+   "halaman": "94",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "4.1.10",
+   "judul": "Persentase Penduduk Berumur 15 Tahun ke Atas Menurut Jenis Kelamin dan Kemampuan Membaca dan Menulis Kabupaten Hulu Sungai Tengah, 2025 Percentage of Population Aged 15 Years and Above by Sex and Literacy Level in Hulu Sungai Tengah Regency, 2025 sscsscsecsssessecssecssseseeeneesees",
+   "halaman": "97",
+   "halaman_fisik": 124,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "4.1.11",
+   "judul": "Persentase Penduduk Berumur 5 Tahun ke Atas Menurut Jenis Kelamin dan Partisipasi Sekolah Kabupaten Hulu Sungai Tengah, 2025 Percentage of Population Aged 5 Years and Above by Sex and School Participation in Hulu Sungai Tengah District, 2025 c c e",
+   "halaman": "98",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "4.1.12",
+   "judul": "Jumlah Desa'/Kelurahan yang Memiliki Fasilitas Sekolah Menurut Kecamatan dan Tingkat Pendidikan di Kabupaten Hulu Sungai Tengah, 2021-2025 Number of Villages'/Subdistricts Having Educational Facilities by District and Educational Level in Hulu Sungai Tengah Regency, 2021-",
+   "halaman": "99",
+   "halaman_fisik": 126,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Jumlah Desa'/Kelurahan Yang Memiliki Sarana Kesehatan Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2021-2025 Number of Villages'/Subdistricts Having Health Facilities by District in Hulu Sungai Tengah Regency, 2021-2025 sssssscsecsssssssenssessessseensesnessneerse",
+   "halaman": "102",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Jumlah Fasilitas Kesehatan Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2024 dan 2025 Number of Health Facilities by District in Hulu Sungai Tengah Regency, 2024 CIN 2025",
+   "halaman": "106",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "4.2.3",
+   "judul": "urecsesssessssssesressnssssssscsnsssscsacsnsesscsssssscsssssscsacsasssscsacsssesscsseenesssssesseess Jumlah Tenaga Kesehatan Menurut Unit Kerja di Kabupaten Hulu Sungai Tengah, 2025 Number of Health Workers by District in Hulu Sungai Tengah Regency, QODS",
+   "halaman": "109",
+   "halaman_fisik": 136,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "4.2.4",
+   "judul": "cressssescsnssccscecsseessneccsnsecsneessseessueecsncessscecsscecsueessscessseccuseesusessnseesnseesaseeeaseesnsees Jumlah Kasus 10 Penyakit Terbanyak Rawat Jalan di RSUD H. Damanhuri, 2025 Number of Cases 10 Most Outpatient Diseases in H. Damanhuri Hospital, 2025 o essecsessessscssssscsessssscssssssssssessssnsssssassnssussacsussasscsessecsesseenssassacsncssesaess",
+   "halaman": null,
+   "halaman_fisik": 140,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "4.2.5",
+   "judul": "Jumlah Kasus 10 Penyakit Terbanyak Rawat Inap di RSUD H. Damanhuri, 2025 Number of Cases 10 Most Hospitalized Diseases in H. Damanhuri Hospital, 2025 sesseesssssssssesssssseessesscesecsscsscsssesacenesscsnsesscsacssscsacsaeesacsaeeneesacsneesseeass Jumlah Bayi Lahir, Bayi Berat Badan Lahir Rendah (BBLR), BBLR 4.2.6",
+   "halaman": null,
+   "halaman_fisik": 141,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Dirujuk, dan Bergizi Buruk di Kabupaten Hulu Sungai Tengah, 2015-2025 Number of Births, Babies with Low Birth Weights (LBW), Treated LBW, and Malnutrion Cases in Hulu Sungai Tengah Regency, 2015-2025 Jumlah lbu Hamil, Melakukan Kunjungan K1, Melakukan Kunjungan K4, Kurang Energi Kronis (KEK), dan Mendapat Tablet Zat Besi (Fe) di Kabupaten Hulu Sungai Tengah, 2015-2025 Number of Pregnant Women, Those with One Visit and four Visits of Antenatal Care, Chronic Energy Deficiency (CED), and Receiving Iron",
+   "halaman": null,
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Supplement in Hulu Sungai Tengah Regency, 2015-2025",
+   "halaman": "116",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Jumlah Kasus Penyakit Menurut Kecamatan dan Jenis Penyakit di Kabupaten Hulu Sungai Tengah, 2025 Number of Disease Cases by District and Type Of Disease in Hulu Sungai Tengah REGENCY, 2025",
+   "halaman": "117",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "essserssessssssssessssscsersessssecsssesessssesssesssessnsssseessessses Jumlah Klinik Keluarga Berencana (KKB) dan Pos Pelayanan Keluarga Berencana Desa (PPKBD) Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025 Number of Family Planning Clinics and Village Family Planning Service Units by District in Hulu Sungai Tengah Regency, 2025",
+   "halaman": "119",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "4.2.10",
+   "judul": "Jumlah Pasangan Usia Subur dan Peserta KB Aktif Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025 Number of Eligible Couples and Family Planning Participants by District in Hulu Sungai Tengah Regency, 2025",
+   "halaman": "120",
+   "halaman_fisik": 147,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "4.3.1",
+   "judul": "ssssssssssssssessssessseseseseesneeese CRIMES Jumlah Tindak Pidana yang Dilaporkan dan Diselesaikan Menurut Jenis Tindak Pidana di Kabupaten Hulu Sungai Tengah, 2025 Number of Reported and Cleared Criminal Cases by Type of Cases in Hulu Sungai Tengah Regency, 2025 s.sssscsescescssscssecsssesssenseessssssceeseesseesseeese",
+   "halaman": null,
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "4.4.1",
+   "judul": "Jumlah Penduduk Menurut Kecamatan dan Agama yang Dianut di Kabupaten Hulu Sungai Tengah, 2025 Population by District and Religion in Hulu Sungai Tengah Regency, 2025",
+   "halaman": "126",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "4.4.2",
+   "judul": "rresssssorsecsessnssssessscscneecseessvecssecssessssesssessesssceessesusssnsesscesssseneeessessscesneessessseesneessees Jumlah Tempat Peribadatan Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025 Number of Places of Worship by District in Hulu Sungai Tengah Regency, 2025",
+   "halaman": "128",
+   "halaman_fisik": 155,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "44.3",
+   "judul": "ueessesssessssssessessssssessesssessesssssessssssssessssssessssssssusssssssssessessesssessesseesses Jumlah Jemaah Haji yang Diberangkatkan ke Tanah Suci Mekah Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2020-2025 Number of Hajj Pilgrims Departured to the Holyland of Mecca by District in Hulu Sungai Tengah Regency, 2020-2025 sssssessssscsserseecneeene",
+   "halaman": "130",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "444",
+   "judul": "Jumlah Pernikahan Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2020-2025 Number of Marriages by District in Hulu Sungai Tengah Regency, 2OQO-QOQS",
+   "halaman": "131",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "4.4.5",
+   "judul": "cessssssessssuscssnsscssesssnessssscssncsssnssssssssssscsssscsssssssssecssaccesuccssassssacsesusessseessaees Jumlah Perceraian Menurut Faktor Perceraian di Kabupaten Hulu Sungai Tengah, 2021-2024 Number of Divorces by Factors in Hulu Sungai Tengah Regency, 2021- QOQ4",
+   "halaman": "132",
+   "halaman_fisik": 159,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "4.4.6",
+   "judul": "veessssscsnsscssecssssessssssssacscssscesnscesnscssacssaecssseessscsssscsssscesssccessccesucseseceesuccesueessseessaees Jumlah Desa'/Kelurahan yang Mengalami Bencana Alam? Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2021-2025 Number of Villages'/Subdistricts that Had Natural Disaster’ by District in Hulu Sungai Tengah Regency, 2021-2025",
+   "halaman": "133",
+   "halaman_fisik": 160,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "44.7",
+   "judul": "u ssssscsscssecsesesseessesnsesseeeneeenes Jumlah Panti Asuhan dan Anak Asuh di Kabupaten Hulu Sungai Tengah, 2025 Number of Orphanages and Children in Care Every in Hulu Sungai Tengah REGency, 2025",
+   "halaman": "135",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "44.8",
+   "judul": "sesssescssessssecescnsecsescssecssssseeesseesscsssccessesseesneeeseeenesenseensees Jumlah Keluarga Penerima Bantuan Program Keluarga Harapan Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2024-2025 Number of Aid Recipients Social by District in Hulu Sungai Tengah REGONCY, 2024-2025",
+   "halaman": "136",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "essecsecsecsscsecsecsscseneessensencenecnsenscucsnscsssscsesseneeseeneeneeueeneeneesees",
+   "halaman": null,
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "4.5",
+   "judul": "Halaman Table Page KEMISKINAN DAN PEMBANGUNAN MANUSIA POVERTY AND HUMAN DEVELOPMENT Garis Kemiskinan, Jumlah, dan Persentase Penduduk Miskin di Kabupaten Hulu Sungai Tengah, 2011-2025 Poverty Line, Number, and Percentage of Poor People in Hulu Sungai Tengah Regency, 201 1-2025 csessescssssssssssssssessnecssssssensessccnseneesscencensssacenesssenes",
+   "halaman": "137",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Indeks Kedalaman Kemiskinan dan Indeks Keparahan Kemiskinan di Kabupaten Hulu Sungai Tengah, 2011-2025 Poverty Gap Index and Poverty Severity Index in Hulu Sungai Tengah Regency, 2011-2025 vsseessesssssssssesssesssssssssesssessessssssessessessssssesssssessssssesssssessesseesees Indeks Pembangunan Manusia (IPM) dan Indikatornya Kabupaten Hulu Sungai Tengah, 2011-2025 Human Development Index (HDI) and It’s Indicator Hulu Sungai",
+   "halaman": "138",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Tengah Regency, 2011-2025 reessesscsssssssssscssecnserseecsseesscsseeceseesneseneecseecaeeeneessees Indeks Pembangunan Gender (IPG), Indeks Pemberdayaan Gender (IDG) dan Komponennya Kabupaten Hulu Sungai Tengah, 2022-2024 Gender Development Index (GDI), Gender Empowerment Measure (GEM) and It’s Components Hulu Sungai Tengah Regency, 2022-2024. 140 PERTANIAN, KEHUTANAN, PETERNAKAN, DAN PERIKANAN/ AGRICULTURE, FORESTRY, LIVESTOCK, AND FISHERY",
+   "halaman": "139",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "TANAMAN PANGAN FOOD CROPS Luas Lahan Sawah Menurut Kecamatan dan Jenis Pengairan di Kabupaten Hulu Sungai Tengah (ha), 2025 Area of Wetland by District and Type of Irrigation in Hulu Sungai Tengah Regency (HG), 2025. sccsscssssssesescnsccnsessescssecsscssceseesscssaseessecneceneeeseees Luas Lahan Tegal/Kebun, Ladang/Huma, dan Lahan yang",
+   "halaman": "152",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Sementara Tidak Diusahakan Menurut Kecamatan di Kabupaten Hulu Sungai Tengah (ha), 2025 Area of Dry Field/Garden, Shifting Cultivation, Land and Temporarily Unused Land by District in Hulu Sungai Tengah Regency (ha), 2025 Luas Panen, Produksi, dan Produktivitas Padi Sawah Menurut 5.1.3 Kecamatan di Kabupaten Hulu Sungai Tengah, 2025 Harvested Area, Production, and Productivity of Wetland Paddy by",
+   "halaman": "153",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "District in Hulu Sungai Tengah Regency, 2025 sssscsssssecssecsseeceecsseseecneeese",
+   "halaman": "154",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "5.1.4",
+   "judul": "Halaman Table Page Luas Panen, Produksi, dan Produktivitas Padi Ladang Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025 Harvested Area, Production, and Productivity of Dryland Paddy by District in Hulu Sungai Tengah Regency, 20235 s cscssseseesseeseeceserneeeneeese",
+   "halaman": "155",
+   "halaman_fisik": 181,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Luas Panen, Produksi, dan Produktivitas Jagung Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025 Harvested Area, Production, and Productivity of Maize by District in Hulu Sungai Tengah REGency, 2025 sssscseccsescsescssecsssessseneesssessceesserseeenseese Luas Panen, Produksi, dan Produktivitas Kedelai Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025 Harvested Area, Production, and Productivity of Soybean by District in",
+   "halaman": "156",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Hulu Sungai Tengah REgency, 2025 cssssssssssssssseressssssesssssnsessseaseneessssneessesees Luas Panen, Produksi, dan Produktivitas Kacang Tanah Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025 Harvested Area, Production, and Productivity of Peanuts by District in Hulu Sungai Tengah REGency, 2025 158 .sseecsssssescsescssscssessssssessssesssesssssssessseesseeese Luas Panen, Produksi, dan Produktivitas Kacang Hijau Menurut",
+   "halaman": "157",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Kecamatan di Kabupaten Hulu Sungai Tengah, 2025 Harvested Area, Production, and Productivity of Mungbean by District In Hulu Sungai Tengah Regency, 2025 sesssssssscsscsecssecnsessscessecssecseeeseeseeesaes Luas Panen, Produksi, dan Produktivitas Ubi Kayu Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025 Harvested Area, Production, and Productivity of Cassava by District in Hulu Sungai Tengah Regency, 2025 160",
+   "halaman": "159",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "sreessscssecsssssscssecsssessssnseescsssceseesseeeneeese Luas Panen, Produksi, dan Produktivitas Ubi Jalar Menurut 5.1.10 Kecamatan di Kabupaten Hulu Sungai Tengah, 2025 Harvested Area, Production, and Productivity of Sweet Potato by District in Hulu Sungai Tengah Regency, 2025 ssscsssssesessecsseecsecsesneecneeene 5.2. HORTIKULTURA",
+   "halaman": "161",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "HORTICULTURE Luas Panen Tanaman Sayuran Menurut Kecamatan dan Jenis Tanaman di Kabupaten Hulu Sungai Tengah (ha), 2024 dan 2025 Harvested Area of Vegetables by District and Kind of Plant in Hulu Sungai Tengah Regency (ha), 2024 ANd 2025 reccsescssssssesssesssscsssssseessesseeesees xxii",
+   "halaman": "162",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "5.2.2",
+   "judul": "Halaman Table Page Produksi Tanaman Sayuran Menurut Kecamatan dan Jenis Tanaman di Kabupaten Hulu Sungai Tengah (kuintal), 2024 dan 2025 Production of Vegetables by District and Kind of Plant in Hulu Sungai Tengah Regency (guintal), 2024 and 2025 Luas Panen Tanaman Sayuran dan Buah—buahan Semusim Menurut",
+   "halaman": "165",
+   "halaman_fisik": 191,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Jenis Tanaman di Kabupaten Hulu Sungai Tengah, 2022-2025 Harvested Area of Seasonal Vegetables and Fruits by Kind of Plant in Hulu Sungai Tengah Regency, 2022-2025 rsssscssecsssesseesseersescnsecnserseeeneeese Produksi Tanaman Sayuran dan Buah-buahan Semusim Menurut Jenis Tanaman di Kabupaten Hulu Sungai Tengah, 2022-2025 Production of Seasonal Vegetables and Fruits by Kind of Plant in Hulu Sungai Tengah Regency, 2022-2025 169 sssscssssscssssssssssssesssssesessnseneeseesseseesses",
+   "halaman": "168",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Luas Panen Tanaman Biofarmaka Menurut Kecamatan dan Jenis Tanaman di Kabupaten Hulu Sungai Tengah (m2), 2024 dan 2025 Harvested Area of Medicinal Plants by District and Kind of Plant in Hulu Sungai Tengah Regency (12), 2024 GN 2OD5 .seccssssssssssesssssssssrsesssssees Produksi Tanaman Biofarmaka Menurut Kecamatan dan Jenis Tanaman di Kabupaten Hulu Sungai Tengah (kg), 2024 dan 2025 Production of Medicinal Plants by District and Kind of Plant in Hulu",
+   "halaman": "170",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Sungai Tengah Regency (kg), 2024 and 2025 reecsesscssscssscsecssecssessseesseesseesees Luas Panen Tanaman Biofarmaka Menurut Jenis Tanaman di Kabupaten Hulu Sungai Tengah, 2022-2025 Harvested Area of Medicinal Plants by Kind of Plant in Hulu Sungai Tengah Regency, 2022-2025 174 reesressssssssssssssssesssessessssesssssssessssssessncesseseneseneessees Produksi Tanaman Biofarmaka Menurut Jenis Tanaman di",
+   "halaman": "172",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Kabupaten Hulu Sungai Tengah, 2022-2025 Production of Medicinal Plants by Kind of Plant in Hulu Sungai Tengah REGENCY, 2022-2025 sessescsscneereerssessecnscnscnsencensscucensesnsessessecacensecuceasesesessesneessesee Luas Panen Tanaman Hias Menurut Kecamatan dan Jenis Tanaman di Kabupaten Hulu Sungai Tengah (m7), 2024 dan 2025 Harvested Area of Ornamental Plants by District and Kind of Plant in Hulu Sungai Tengah Regency (117), 2024 ANd 2025 176",
+   "halaman": "175",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "ssssssscsseeceecsserneecneeese xxiii",
+   "halaman": null,
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "5.2.10",
+   "judul": "Produksi Tanaman Hias Menurut Kecamatan dan Jenis Tanaman di Kabupaten Hulu Sungai Tengah (tangkai), 2024 dan 2025 Production of Ornamental Plants by District and Kind of Plant in Hulu Sungai Tengah Regency (Stalks), 2024 and 2025",
+   "halaman": "178",
+   "halaman_fisik": 204,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "5.2.11",
+   "judul": "- Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kabupaten Hulu Sungai Tengah (m7), 2022-2025 Harvested Area of Ornamental Plants by Kind of Plant in Hulu Sungai Tengah Regency (117), 2022-2025",
+   "halaman": "180",
+   "halaman_fisik": 206,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "5.2.12",
+   "judul": "wesssssssssssssssscssssssssssssnsssssssssssssssessssssssssssssaes Produksi Tanaman Hias Menurut Jenis Tanaman di Kabupaten Hulu Sungai Tengah (tangkai), 2022-2025 Production of Ornamental Plants by Kind of Plant in Hulu Sungai Tengah Regency (stalks), 2022-2025",
+   "halaman": "181",
+   "halaman_fisik": 207,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "5.2.13",
+   "judul": "sssssssssscssssssssesecnsesnescsseeseecneeesseensees Produksi Buah—buahan Menurut Kecamatan dan Jenis Tanaman di Production of Fruits by District and Kind of Plant in Hulu Sungai Tengah Regency (kuintal), 2024 AN 2025",
+   "halaman": "182",
+   "halaman_fisik": 208,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "5.2.14",
+   "judul": "ssssssssssesssssssesssessssscsesesessseessees Produksi Buah-Buahan dan Sayuran Tahunan Menurut Jenis Tanaman di Kabupaten Hulu Sungai Tengah (kuintal), 2022-2025 Production of Annual Fruits and Vegetables by Kind of Plant in Hulu Sungai Tengah Regency(quintal), 2022-2025",
+   "halaman": "184",
+   "halaman_fisik": 210,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "531",
+   "judul": "essescssssssscsscssecssessseesseeseesees ESTATE CROPS Luas Areal Tanaman Perkebunan Menurut Kecamatan dan Jenis Planted Area of Estate Crops by District and Type of Crops in Hulu Sungai Tengah Regency (Hd), 2024 ANd 20235 cc c.s c mmm",
+   "halaman": "185",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Produksi Perkebunan Menurut Kecamatan dan Jenis Tanaman di Kabupaten Hulu Sungai Tengah (ton), 2024 dan 2025 Production of Estate by District and Type of Crops in Hulu Sungai Tengah Regency (ton), 2024 ANd 2025- a",
+   "halaman": "189",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Luas Areal Tanaman Perkebunan Rakyat Menurut Jenis Tanaman di Kabupaten Hulu Sungai Tengah (ha), 2021-2025 Planted Area of Smallholders Estates by Type of Crops in Hulu Sungai Tengah Regency (Hd), 2021-2025",
+   "halaman": "193",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "eccescssscssssssssssssssesssesssseseesscssnseesseessseneeeseees",
+   "halaman": null,
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "5.4",
+   "judul": "KEHUTANAN FORESTRY Luas Kawasan Hutan dan Konservasi Perairan Menurut Kecamatan",
+   "halaman": null,
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "5.5",
+   "judul": "PETERNAKAN LIVESTOCK Populasi Ternak Menurut Kecamatan dan Jenis Ternak di Kabupaten Hulu Sungai Tengah (ekor), 2024 dan 2025 Livestock Population by District and Kind of Livestock in Hulu Sungai Tengah Regency (heads), 2024 ANd 2025 ssssssssssssesecsesnescnsecseeenesenseessees Populasi Unggas Menurut Kecamatan dan Jenis Unggas di",
+   "halaman": "197",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "5.6",
+   "judul": "PERIKANAN FISHERY Produksi Perikanan Tangkap Menurut Kecamatan dan Subsektor di Kabupaten Hulu Sungai Tengah (ton), 2024 dan 2025 Production of Fish Capture by District and Subsector in Hulu Sungai Tengah Regency (ton), 2024 Gd 2025 csssssssssscsssssssssescssesssssenseeseeeneseneeeseees Produksi dan Nilai Produksi Perikanan Tangkap Menurut Jenis Ikan",
+   "halaman": "202",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "5.6.4",
+   "judul": "Jumlah Alat Penangkap Ikan Menurut Jenis Alat di Kabupaten Hulu Sungai Tengah (unit), 2025 Number of Fishing Tools by Its Type in Hulu Sungai Tengah Regency (UNIt), 2OD5",
+   "halaman": "205",
+   "halaman_fisik": 231,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "565",
+   "judul": "reecseesccsesccsesccssesesecsessccesuscesnsessnscesnscssnscssascesnssesasecsnseesnscesnseceaneeenseeeeneees Produksi Perikanan Budidaya Menurut Kecamatan dan Jenis Budidaya di Kabupaten Hulu Sungai Tengah (ton), 2025 Production of Aquaculture by District and Type of Aquaculture in Hulu Sungai Tengah Regency (ton), 2025",
+   "halaman": "206",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "6.1",
+   "judul": "sssscssccssecsecssecssscneeessecseesseesnsenseesseesees Jumlah Pelanggan Menurut Tarif Listrik di Kabupaten Hulu Sungai Tengah (KVa), 2017-2025 Installed Capacity by Type of Fare in Hulu Sungai Tengah Regency (KVG), 2017-2025",
+   "halaman": "211",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "6.2",
+   "judul": "wrecsesssresserssssrscerscsecsssesecsesscsesscsesscaeencasensaceseseeeaseeaeeeessenenseneaees Jumlah Pelanggan, Total Daya Terpasang, dan Listrik Terjual Menurut Jenis Tarif di Kabupaten Hulu Sungai Tengah, 2025 Number of Registered Electricity Costumers, Installed Capacity, and Electricity Sold by Type of Fare in Hulu Sungai Tengah Regency, 2025",
+   "halaman": "212",
+   "halaman_fisik": 237,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "6.3",
+   "judul": "Jumlah Pelanggan Air Menurut Jenis Konsumen di Kabupaten Hulu Sungai Tengah, 2021-2025 Number of Clean Water Customers by Type of Customers in Hulu Sungai Tengah Regency, 2021-2025 sesssssssssscsscsecsecnsesseeessecsseesseesessseesees",
+   "halaman": "213",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "6.4",
+   "judul": "Jumlah Air yang Diproduksi, Disalurkan, Terjual dan Susut/Hilang di Kabupaten Hulu Sungai Tengah (m*), 2021-2025 Number of Produced, Distributed, Sold, and Lost Clean Water in Hulu Sungai Tengah Regency (117), 2021-2025",
+   "halaman": "214",
+   "halaman_fisik": 239,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "6.5",
+   "judul": "vrrsessssssssssssssssssssssssssssssssssssssssssees Nilai Penjualan Air Menurut Jenis Konsumen di Kabupaten Hulu Sungai Tengah (rupiah), 2022-2025 Value of Sold Clean Water by Type of Costumers in Hulu Sungai Tengah Regency (rupiahs), 2022-2025 ssssssessescsscneecseesssscnsecsseesssesseesseecncerseenseeesseese",
+   "halaman": "215",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "6.6",
+   "judul": "Jumlah Stasiun Pengisian Bahan Bakar Umum (SPBU) Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2021-2025 Number of Gas Station by Subdistrict in Hulu Sungai Tengah Regency, 2021-2025",
+   "halaman": "216",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "o.eeessecessscssssceeseesesecnssecnesecnsscenesecnsseenescensaeeneaseneatenssenesnenssncessnesesncasenenes",
+   "halaman": null,
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "7.1",
+   "judul": "Jumlah Hotel dan Akomodasi lain Menurut Kecamatan dan Jenis Akomodasi di Kabupaten Hulu Sungai Tengah, 2025 Number of Hotel and Other Accomodations by District and Type of Accomodations in Hulu Sungai Tengah Regency, 2025",
+   "halaman": "224",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "7.2",
+   "judul": "uu Jumlah Restoran/Rumah Makan Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2021-2025 Number of Restaurant by District in Hulu Sungai Tengah Regency, 2021-2025",
+   "halaman": "225",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "73",
+   "judul": "verresecsessssnesssnesssnesesnesesnecsssessssscessssessecsssscsssscessuceessceesuceeserecsucenseessseessnees Jumlah Wisatawan Asing dan Wisatawan Domestik Menurut Bulan di Kabupaten Hulu Sungai Tengah, 2025 Number Foreign and Domestic Tourist by Month in Hulu Sungai Tengah Regency, 2025",
+   "halaman": "226",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "8.1.1",
+   "judul": "rssserssersssesssssssessesssesssssssesssesssessscssscsssssssessseesseeesessseessees TRANSPORTASI DAN KOMUNIKASI/ TRANSPORTATION AND COMMUNICATION TRANSPORTATION Panjang Jalan Kabupaten Menurut Kecamatan dan Jenis Permukaan Jalan di Kabupaten Hulu Sungai Tengah (km), 2025 ‘Length of Regency Roads by District and Type of Road Surface in Hulu",
+   "halaman": null,
+   "halaman_fisik": 255,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Sungai Tengah Regency (Kr), 2025",
+   "halaman": "232",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "8.1.2",
+   "judul": "sssssssscssecssecssecssecneessssesseesseesnsenseesseeseee 'Panjang Jalan Kabupaten Menurut Kecamatan dan Kondisi Jalan di Kabupaten Hulu Sungai Tengah (km), 2025 ‘Length of Regency Roads by District and Road Condition in Hulu Sungai Tengah Regency (Kr), 2025",
+   "halaman": "233",
+   "halaman_fisik": 256,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "ssssssscssseseesssecssscneessseessecsssesneesseesneesses Jumlah Jembatan Menurut Jenis Jembatan di Kabupaten Hulu Sungai Tengah, 2023-2025 Number of Bridge by Type of Bridge in Hulu Sungai Tengah Regency, 2023-2025",
+   "halaman": "234",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "8.1.4",
+   "judul": "ceeesssessresesscssnsessecsnecesscensessecssscesscssscesseesscsssccssccssccssessuceeaseeaceeseeeseeeneeessees Jumlah Kendaraan Bermotor yang Membayar Pajak Menurut Jenis Kendaraan di Kabupaten Hulu Sungai Tengah, 2025 Number of Registered Motor Vehicles that Pay Taxes by Type of Motor Vehicles in Hulu Sungai Tengah Regency, 2025",
+   "halaman": "235",
+   "halaman_fisik": 258,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "ssssssssecsesseessesnesenseeniees xxvii",
+   "halaman": null,
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "8.2",
+   "judul": "Halaman Table Page KOMUNIKASI COMMUNICATION Jumlah Kantor Pos Pembantu Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2020-2025 Number of Post Offices Subsidiaries by District in Hulu Sungai Tengah REGONCY, 2020-2025",
+   "halaman": "236",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "essecsecnecsscsecsecscensessensenccnccnceucenccnsessescsseseneeseeneeneeneeneeseesees Jumlah Desa'/Kelurahan Memiliki Kantor Pos? Menurut yang Kecamatan di Kabupaten Hulu Sungai Tengah, 2021-2025 Number of Villages'/District with Post Office? by District in Hulu Sungai Tengah Regency, 2021-2025 reessesssesssesssescsssssesssessssesssesssssssssssesssessseessesssesseess Jumlah Desa’/Kelurahan Menurut Kecamatan dan Penerimaan",
+   "halaman": "237",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Sinyal Internet Telepon Seluler di Kabupaten Hulu Sungai Tengah, 2024 dan 2025 Number of Villages '/District by District in Hulu Sungai Tengah Regency and Cellular Phone Internet Signal Reception, 2024 ANd 2025 Jumlah Surat dan Paket yang Dikirim Menurut Kantor Cabang di Kabupaten Hulu Sungai Tengah, 2024 dan 2025 Number of Sent Mail and Package by Branch Office in Hulu Sungai Tengah Regency, 2024 ANd 2025 240",
+   "halaman": "238",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "sssssssscssscssesseessseesssseesssssnescnserseecneerseessees Jumlah Menara Telekomunikasi (BTS) di Kabupaten Hulu Sungai Tengah, 2021-2025 Number of Telecommunication Tower (BTS) in Hulu Sungai Tengah REGENCY, 2021-2025 seraesssscneereerseensecsecssscsscasensecsccnsssssessessecacensessccasssnsesssseesesee 9. KOPERASI DAN HARGA-HARGA/COOPERATIVE AND PRICES Jumlah Koperasi Menurut Jenis Koperasi dan Kecamatan di",
+   "halaman": "241",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "9.1 Kabupaten Hulu Sungai Tengah, 2025 Number of Cooperative by Kind of Cooperative and District in Hulu Sungai Tengah REGency, 2025 esssscrsscssescssecsserneecssecnsecneesssesseenscesneesseesneessee Indeks Harga Konsumen per Bulan Menurut Kelompok Pengeluaran 92 (2022=100) di Kabupaten Hulu Sungai Tengah, 2025",
+   "halaman": "247",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Consumer Price Index per Month by Expenditure Group (2022=100) in Hulu Sungai Tengah Regency, 2025 vcrccsescssssscssssssssssscssssnseessecseceseeseesseense xxviii",
+   "halaman": "248",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "9.3",
+   "judul": "Halaman Table Page Laju Inflasi Bulanan Menurut Kelompok Pengeluaran (2022=100) di Kabupaten Hulu Sungai Tengah, 2025 Monthly Inflation Rate by Expenditure Group (2012=100) in Hulu Sungai Tengah REGency, 2025 ssscssscsseecssecsserseecssecssecneecseecssecsscesneesseesseesees",
+   "halaman": "252",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "10. PENGELUARAN PENDUDUK/POPULATION EXPENDITURE Rata-rata Pengeluaran per Kapita Sebulan Menurut Kelompok Komoditas di Kabupaten Hulu Sungai Tengah (rupiah), 2024 dan 2025 Monthly Average Expenditure per Capita by Commodity Group in Hulu Sungai Tengah Regency (rupiahs), 2024 ANd 2025 seceereeeneeene Rata-Rata Konsumsi Kalori per Kapita Sehari Menurut Kelompok Komoditas Makanan Kabupaten Hulu Sungai Tengah (kkal), 2025 Average Daily Calorie Consumption per Capita by Food Commodity",
+   "halaman": "262",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Group in Hulu Sungai Tengah Regency (kkal), 2025 ssssssssssssesseesseeeseeese Rata-Rata Konsumsi Protein per Kapita Sehari Menurut Kelompok Komoditas Makanan Kabupaten Hulu Sungai Tengah (gram), 2025 Average Daily Protein Consumption per Capita by Food Commodity Group in Hulu Sungai Tengah Regency (Grams), 2025 264 wesssssssssecssereecseeese PERDAGANGAN/TRADE",
+   "halaman": "263",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Jumlah Pasar Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2021-2025 Number of Market by District in Hulu Sungai Tengah Regency, 2021- 20235 vessressessesssssscscsscsncsssessesscsscsseesssscsscsssssssssssssessssseesssasssssncssssesssseeseessesseasssssnesessess Jumlah Nomor Induk Berusaha (NIB) yang diterbitkan Menurut Bulan di Kabupaten Hulu Sungai Tengah, 2022-2025 Number of Business Registration Published by Month in Hulu Sungai",
+   "halaman": "269",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Tengah Regency, 2022-2025 ssscsscssesseecsssesesseessssssssecssecssesssesssecseecneeesseessees 12. SISTEM NERACA REGIONAL/SYSTEM OF REGIONAL ACCOUNTS Produk Domestik Regional Bruto Atas Dasar Harga Berlaku Menurut 12.1. Lapangan Usaha di Kabupaten Hulu Sungai Tengah (miliar rupiah), 2021-2025 Gross Regional Domestic Product at Current Market Prices by Industry",
+   "halaman": "270",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "in Hulu Sungai Tengah Regency (billion rupiahs), 2021-2025",
+   "halaman": "277",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "12.2",
+   "judul": "Halaman Table Page Produk Domestik Regional Bruto Atas Dasar Harga Konstan 2010 Menurut Lapangan Usaha di Kabupaten Hulu Sungai Tengah (miliar rupiah), 2021-2025 Gross Regional Domestic Product at 2010 Constant Market Prices by Industry in Hulu Sungai Tengah Regency (billion rupiahs), 2021-2025",
+   "halaman": "279",
+   "halaman_fisik": 296,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Distribusi Persentase Produk Domestik Regional Bruto Atas Dasar Harga Berlaku Menurut Lapangan Usaha di Kabupaten Hulu Sungai Tengah (persen), 2021-2025 Percentage Distribution of Gross Regional Domestic Product at Current Market Prices by Industry in Hulu Sungai Tengah Regency (percent), 2021-2025 u.resssesessecssescneerseerseccsseesscessscssscsscesscesscesucssscesscecusseseesssessecenseessessseesneessees Laju Pertumbuhan Produk Domestik Regional Bruto Atas Dasar Harga",
+   "halaman": "281",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "12.4 Konstan 2010 Menurut Lapangan Usaha di Kabupaten Hulu Sungai Tengah (persen), 2021-2025 eecsecsescssssssssssssssessnesssssssensssessceneesscencenessncsneesssenes GrowthRateofGrossRegionalDomesticProductat2010ConstantMarket Prices by Industry in Hulu Sungai Tengah Regency (percent), 2021- QOQS vescssessssscssnecssnesssnecesnsesnecesnscesnscssscssaseecsseessncessucsssucessucessucseseceesusecsuceensseessseessees",
+   "halaman": "283",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Produk Domestik Regional Bruto Kabupaten Hulu Sungai Tengah Atas Dasar Harga Berlaku Menurut Pengeluaran (miliar rupiah), 2021-2025 Gross Regional Domestic Product of Hulu Sungai Tengah Regency at Current Market Prices by Expenditure (billion rupiahs), 2021-2025 Produk Domestik Regional Bruto Kabupaten Hulu Sungai Tengah Atas Dasar Harga Konstan 2010 Menurut Pengeluaran (miliar rupiah), 2021-2025",
+   "halaman": "285",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Gross Regional Domestic Product of Hulu Sungai Tengah Regency at 2010 Constant Market Prices by Expenditure (billion rupiahs), 2021- 2025 veressseccssscssccsscssscsssccsscessesssecesessesssessscesscessccsseesscsssecsscceacesscesucesaeceateeseeeseeeneeessees Distribusi Persentase Produk Domestik Regional Bruto Kabupaten Hulu Sungai Tengah Atas Dasar Harga Berlaku Menurut Pengeluaran (persen), 2021-2025 Percentage Distribution of Gross Regional Domestic Product of Hulu",
+   "halaman": "286",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Sungai Tengah Regency at Current Market Prices by Expenditure (percent), 2O21—2OQ5 ecsecrecssssessssssssssssssssssscsscssssssnsesssacsacsucsecsecsesseeasenseassncsscsacss",
+   "halaman": "287",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": "12.8",
+   "judul": "Halaman Table Page Laju Pertumbuhan Produk Domestik Regional Bruto Kabupaten Hulu Sungai Tengah Atas Dasar Harga Konstan 2010 Menurut Pengeluaran (persen), 2021—2025 Growth Rate of Gross Regional Domestic Product of Hulu Sungai Tengah Regency at 2010 Constant Market Prices by Expenditure",
+   "halaman": null,
+   "halaman_fisik": 305,
+   "sumber": "daftar",
+   "cara_halaman_fisik": "label bertumpuk"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "(percent), 2021-2025. ssessecsessessecseenseseeececsecsenesasenceacensesecseesescseeaeeaeenseneeneeeeesess 13. PERBANDINGAN ANTAR KABUPATEN/ KOTA/REGENCY/MUNICIPAL COMPARISON Jumlah Penduduk Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (ribu jiwa), 2022-2026 Population by Regency/Municipality in Kalimantan Selatan Province (thOUSANA people), 2O22—2O2G eesscsssssssessssssssssssssssssssssesscsessesseenseassassesssessess 293",
+   "halaman": "288",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Laju Pertumbuhan Produk Domestik Regional Bruto Atas Dasar Harga Konstan 2010 Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (persen), 2021-2025 Rate of Growth of Gross Regional Domestic Products at Constant 2010 Prices by Regency/Municipality in Kalimantan Selatan Province (Percent), 2021—-2OQS5 ecsssecserscsersssecscsecsesecsesesscsssscseeseasensseeeeseesesseeeseeeeaeenenseesees Jumlah Penduduk Miskin Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (ribu orang), 2021-2025",
+   "halaman": "294",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Number of Poor Population by Regency/Municipality in Kalimantan Selatan Province (thousand), 2021-2O2S rccersccccssssssssscsssssssscsesssssssscssssssseseee Indeks Pembangunan Manusia Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan, 2021-2025 Human Development Index by Regency/Municipality in Kalimantan Selatan Province, 2OZ1—QODS 296 .recssscosscessssessssssssesscsesssssscscscsssscscscsesecesscscssssseceveve",
+   "halaman": "295",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Persentase Penduduk Miskin Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan, 2021-2025 Percentage of Poor People by Regency/Municipality in Kalimantan Selatan Province, 2021-2025 u essecsseecssscsseecssessesneecssecssecssecneecssecsseesseesseesneesees Tingkat Pengangguran Terbuka Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan, 2021-2025 Unemployment Rate by Regency/Municipality in Kalimantan Selatan",
+   "halaman": "297",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  },
+  {
+   "publikasi_id": "aafda0cff288ddb041cfa024",
+   "tipe": "tabel",
+   "nomor": null,
+   "judul": "Province, 2021—-2025 wesesssesssesssessssesssesssesssessseseseessecsscsssessscssnssssssssssssssssessseesseesse",
+   "halaman": "298",
+   "halaman_fisik": null,
+   "sumber": "daftar"
+  }
+ ]
+}

@@ -3,6 +3,18 @@
 **Percobaan saja. Kode skor produksi TIDAK diubah.** Keputusan final menunggu
 uji coba petugas PST.
 
+**Keputusan pemilik project (10 Nov 2026):** skor produksi TIDAK diubah;
+hasil percobaan ini dibawa ke uji coba PST.
+
+**Masalah utama "penduduk tanah laut" adalah kueri satu kata yang terlalu
+umum, bukan entri bab vs tabel.**
+- Sesudah kata wilayah dibuang, topiknya tinggal "penduduk".
+- Di Tanah Laut ada 45 tabel/gambar lain yang juga memuat kata itu dan
+  berskor lebih tinggi daripada tabel yang dicari. Rinciannya di bagian
+  "Kasus penduduk tanah laut".
+- Tidak ada varian bobot atau urutan yang membawa tabel itu ke halaman
+  hasil. Yang membawanya adalah kueri yang lebih spesifik.
+
 - Skrip: `scripts/percobaan_skor_isi.py`. Skrip ini membaca daftar kandidat
   lengkap dari `mesin_pencari._cari_entri` lewat jalur filter wilayah yang
   sama dengan halaman `/hasil`, lalu menyusun ulang peringkatnya di luar

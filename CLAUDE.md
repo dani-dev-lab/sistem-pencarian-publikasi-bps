@@ -650,6 +650,19 @@ Aturan yang berlaku:
       tanpa admin) vs 1,1 GB.
     - Usulan berikutnya: uji HST Dalam Angka 2026 penuh lewat kotak kata
       ke parser koordinat.
+  - **HST Dalam Angka 2026 penuh, Tesseract (10 Nov 2026)**
+    (`data/regresi/ocr-hst-tesseract-20261110.md`).
+    - Parser produksi tidak diubah, tidak ke MySQL.
+    - Hasil: 0 -> 153 entri (HST 2025 bertekst: 157).
+    - Sampel manual 30: nomor 8/28, halaman 19/30, fisik 7/7, judul +
+      halaman benar 15/30.
+    - Nomor kolom kiri tetap hilang di tingkat OCR.
+    - Cache OCR di `data/ocr_cache/` (gitignore).
+    - Alat dan venv di `C:/Users/Dani/alat-ocr/`.
+    - EasyOCR besok.
+  - **Temuan parser:** `BATAS_HALAMAN_CARI = 25` membuat Daftar Gambar di
+    halaman 31 (HST Dalam Angka, juga edisi bertekst) tidak pernah dibaca.
+    Belum diubah.
 - **5 publikasi hanya punya Daftar Isi** (Direktori Perusahaan Akomodasi,
   Direktori Perusahaan Konstruksi, Direktori Perusahaan Industri Manufaktur,
   Statistik Daerah, Buklet Survei Angkatan Kerja). Memang tidak ada daftar
