@@ -96,12 +96,57 @@ Diperiksa langsung di kotak kata cache (kata dengan x0 < 65 pt):
 | Halaman | Yang terbaca di kolom kiri |
 |---|---|
 | 10 | 1.1.2, 1.1.3, 1.1.4, 2.1.1 benar; **1.1.1 tidak ada** |
-| 20 | hanya "4.5" (kode bagian); **4.5.1-4.5.6 tidak ada sama sekali** |
+| 20 | hanya "4.5" (kode bagian); **4.5.1-4.5.4 tidak ada sama sekali** (koreksi: versi pertama laporan ini menulis 4.5.1-4.5.6 tanpa membaca gambarnya. Halaman 20 hanya memuat 4.5.1-4.5.4, lalu 5.1.1-5.1.3) |
 | 31 | titik desimal lepas: "11", "21", "41", "71" untuk 1.1, 2.1, 4.1, 7.1 |
 
 Jadi **kotak kata saja tidak menyelesaikan masalah spike**. Yang hilang
 sudah hilang di tingkat OCR, bukan di parser. Nomor halaman di kolom kanan
 terbaca rapi.
+
+## Uji psm 4 dan psm 6 pada Daftar Tabel (hal. 10-30), atas permintaan pemilik project
+- **Acuan dibaca manual:** nomor tabel di kolom kiri ke-21 halaman, dari
+  potongan render PDF asli (`kolom-kiri-1..3.png`). Hasilnya **139 nomor
+  tabel** (`acuan-kolom-kiri.json`), tanpa kode bagian bercetak tebal seperti
+  "4.5" atau "5.".
+- **Cache:** `<hal>-tesseract-psm6.json` dan `<hal>-tesseract-psm4.json`
+  (42 berkas, ±1 menit).
+- **Cara menghitung:** nomor dianggap terbaca bila ada sebagai token utuh di
+  kolom kiri (x0 < 65 pt) halaman yang benar. Token kolom kiri lain yang
+  bukan nomor acuan dan bukan kode bagian dihitung sebagai salah baca.
+
+| Mode Tesseract | Nomor kolom kiri terbaca | Salah baca di kolom kiri | Angka halaman di kolom kanan | Kata judul conf ≥ 80 |
+|---|---|---|---|---|
+| psm 3 (bawaan) | 56 / 139 (40%) | 8 | 130 | 4.516 |
+| psm 6 | 22 / 139 (16%) | 112 (titik hilang: "112" untuk 1.1.2) | 109 | 4.447 |
+| **psm 4** | **106 / 139 (76%)** | 33 (titik hilang: "421", "41.10") | 122 | 4.517 |
+
+- psm 4 = "satu kolom teks berukuran beragam". Mode ini tidak memisahkan
+  kolom nomor menjadi blok sendiri, sehingga nomornya ikut terbaca bersama
+  baris judulnya.
+- Kesalahan psm 4 yang tersisa sebagian besar berupa **titik yang hilang**
+  ("4.2.1" terbaca "421"). Halaman 17 paling buruk.
+
+**Parser penuh, psm 4 hanya untuk halaman 10-30, psm 3 untuk sisanya**
+(`hst-parser-tesseract-psm4daftar.json`). Ini angka otomatis, **belum
+dinilai manual**:
+
+| | psm 3 semua | psm 4 di Daftar |
+|---|---|---|
+| Entri / tabel | 153 / 135 | 168 / 150 (acuan 139 tabel) |
+| Nomor tabel yang cocok dengan acuan | 44 / 139 | **103 / 139** |
+| Nomor asing (salah baca) | 14 | 32 |
+| Tabel berhalaman cetak | 115 | 123 |
+| Tabel ber-`halaman_fisik` | 32 | **85** |
+
+Jumlah tabel 150 melebihi acuan 139, dan judul yang diawali sampah titik
+pemandu naik (heuristik kasar: 40 → 69). Mutunya baru bisa disimpulkan dari
+sampel manual.
+
+**Usul untuk perbandingan besok:** sampel 30 entri ditetapkan menurut
+**identitas tabel** (30 nomor acak dari 139 nomor acuan, seed 20261110),
+bukan menurut indeks keluaran parser. Daftar entri tiap mesin berbeda, jadi
+indeks yang sama tidak menunjuk tabel yang sama. Dengan begitu Tesseract
+psm 3, Tesseract psm 4, dan EasyOCR dinilai pada 30 tabel yang persis sama.
 
 ## Penilaian manual: 30 entri acak (seed 20261110)
 Setiap entri dibandingkan dengan potongan gambar halaman Daftar asli (render
@@ -157,8 +202,11 @@ cocok < 100 dinilai dari teks judul dan pita halaman sekitarnya.
   entri menjadi 153.** Separuh sampel (15/30) memuat judul lengkap dengan
   halaman benar, jadi bisa ditemukan lewat pencarian. Mutunya masih jauh di
   bawah publikasi bertekst: nomor 8/28, dan 7/30 judul rusak.
-- Masalah spike (nomor kolom kiri) **belum tertangani**. Kotak kata tidak
-  menolong, karena nomornya memang tidak keluar dari OCR.
+- Masalah spike (nomor kolom kiri), dengan psm 3: kotak kata tidak menolong,
+  karena nomornya memang tidak keluar dari OCR.
+- **psm 4 di halaman Daftar menaikkan nomor terbaca dari 40% ke 76%** di
+  tingkat OCR. Di keluaran parser, nomor yang cocok naik 44 → 103 dari 139.
+  Mutunya belum dinilai manual.
 - Besok: EasyOCR dengan cache dan adaptor yang sama, lalu penilaian manual
   dengan seed yang sama. Di spike, EasyOCR membaca 39/44 nomor.
 - Kemungkinan perbaikan, BELUM dicoba dan perlu persetujuan:

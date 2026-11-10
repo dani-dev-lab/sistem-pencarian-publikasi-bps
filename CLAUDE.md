@@ -479,6 +479,10 @@ Masing-masing langkah punya laporan, baseline, dan TSV perubahan sendiri.
 - **C1(b), keterangan bertumpuk sebagai entri BARU di jalur badan:
   DITUNDA (keputusan 9 Nov 2026), saran pengembangan.** Rinciannya di
   `data/regresi/C1b-perkiraan-20261109.md`.
+  - **KOREKSI 10 Nov 2026:** alasan "Dalam Angka tidak punya Daftar Gambar"
+    di bawah ini SALAH. Dalam Angka punya Daftar Gambar di hal. 27-49, dan
+    terlewat karena `BATAS_HALAMAN_CARI = 25`. Lihat
+    `data/regresi/batas-heading-20261110.md`.
   - Manfaat: sekitar 55 grafik Dalam Angka provinsi ("Gambar" / "1.1" /
     "Figure" di halaman infografis bab) ditambah sekitar 5 per Dalam Angka
     kab/kota. Semuanya kini tidak terindeks, karena Dalam Angka tidak punya
@@ -660,9 +664,14 @@ Aturan yang berlaku:
     - Cache OCR di `data/ocr_cache/` (gitignore).
     - Alat dan venv di `C:/Users/Dani/alat-ocr/`.
     - EasyOCR besok.
-  - **Temuan parser:** `BATAS_HALAMAN_CARI = 25` membuat Daftar Gambar di
-    halaman 31 (HST Dalam Angka, juga edisi bertekst) tidak pernah dibaca.
-    Belum diubah.
+  - **Temuan parser:** `BATAS_HALAMAN_CARI = 25` membuat Daftar yang headingnya
+    sesudah halaman 25 tidak pernah dibaca. Belum diubah (keputusan pemilik
+    project). Diukur di 306 publikasi (`data/regresi/batas-heading-20261110.md`):
+    - 24 Daftar Gambar Dalam Angka (hal. 27-49): 498 entri, ±464 gambar
+      bernomor tidak terindeks;
+    - 6 Daftar Lampiran KAK: lampirannya sudah tertangkap jalur badan.
+  - **Uji psm Daftar Tabel HST:** nomor kolom kiri terbaca psm 3 56/139,
+    psm 6 22/139, psm 4 106/139.
 - **5 publikasi hanya punya Daftar Isi** (Direktori Perusahaan Akomodasi,
   Direktori Perusahaan Konstruksi, Direktori Perusahaan Industri Manufaktur,
   Statistik Daerah, Buklet Survei Angkatan Kerja). Memang tidak ada daftar

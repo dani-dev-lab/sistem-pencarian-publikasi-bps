@@ -65,13 +65,20 @@ class PdfCampuran:
 def main():
     deteksi = json.load(open(sys.argv[1], encoding="utf-8"))
     mesin, keluar = sys.argv[2], sys.argv[3]
+    # Opsional: mesin lain untuk rentang halaman tertentu, mis. "tesseract-psm4:10-30"
+    # (psm 4 hanya untuk halaman Daftar Tabel). Dicatat di ringkasan.
+    timpa = {}
+    if len(sys.argv) > 4:
+        m2, rentang = sys.argv[4].split(":")
+        a, b = map(int, rentang.split("-"))
+        timpa = {n: m2 for n in range(a, b + 1)}
     path = deteksi["pdf"]
     domain = os.path.basename(os.path.dirname(path))
     pub_id = os.path.splitext(os.path.basename(path))[0]
     cache = os.path.join("data", "ocr_cache", domain, pub_id)
     ganti, hilang = {}, []
     for n in deteksi["halaman_ocr"]:
-        f = os.path.join(cache, f"{n:04d}-{mesin}.json")
+        f = os.path.join(cache, f"{n:04d}-{timpa.get(n, mesin)}.json")
         if os.path.exists(f):
             ganti[n] = HalamanOCR(json.load(open(f, encoding="utf-8")))
         else:
@@ -94,7 +101,7 @@ def main():
         gabungan = ep._gabung(dari_daftar, dari_badan)
         n_fisik = ep.lengkapi_halaman_fisik(pdf, gabungan)
         n_isi = ep.lengkapi_halaman_isi(gabungan, baris_halaman)
-    ringkas = {"pdf": path, "mesin": mesin, "halaman_ocr": len(ganti),
+    ringkas = {"pdf": path, "mesin": mesin, "timpa": sys.argv[4] if len(sys.argv) > 4 else None, "halaman_ocr": len(ganti),
                "heading": heading, "dari_daftar": len(dari_daftar), "dari_badan": len(dari_badan),
                "halaman_fisik_dilengkapi": n_fisik, "halaman_fisik_isi": n_isi,
                "entri": len(gabungan), "detik_parser": round(time.perf_counter() - t, 1)}

@@ -26,11 +26,11 @@ DPI = 300
 SKALA = 72 / DPI
 
 
-def ocr_tesseract(img):
+def ocr_tesseract(img, psm=3):
     import pytesseract
     pytesseract.pytesseract.tesseract_cmd = os.path.join(DIR, "tesseract", "tesseract.exe")
     os.environ["TESSDATA_PREFIX"] = os.path.join(DIR, "tesseract", "tessdata")
-    d = pytesseract.image_to_data(img, lang="ind+eng", config="--psm 3",
+    d = pytesseract.image_to_data(img, lang="ind+eng", config=f"--psm {psm}",
                                   output_type=pytesseract.Output.DICT)
     kata = []
     for i, t in enumerate(d["text"]):
@@ -72,7 +72,13 @@ def main():
     pub_id = os.path.splitext(os.path.basename(path_pdf))[0]
     keluar = os.path.join(proyek, "data", "ocr_cache", domain, pub_id)
     os.makedirs(keluar, exist_ok=True)
-    fungsi = {"tesseract": ocr_tesseract, "easyocr": ocr_easyocr}[mesin]
+    # "tesseract" = psm 3 (bawaan); "tesseract-psm6"/"tesseract-psm4" = mode lain,
+    # disimpan dengan nama berkas berbeda supaya bisa dibandingkan.
+    if mesin.startswith("tesseract-psm"):
+        psm = int(mesin.split("psm")[1])
+        fungsi = lambda img: ocr_tesseract(img, psm)
+    else:
+        fungsi = {"tesseract": ocr_tesseract, "easyocr": ocr_easyocr}[mesin]
     pdf = pdfium.PdfDocument(path_pdf)
     for n in deteksi["halaman_ocr"]:
         if n % jumlah != bagian:
