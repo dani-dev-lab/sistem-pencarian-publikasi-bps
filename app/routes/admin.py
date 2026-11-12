@@ -388,11 +388,16 @@ def log():
         db.func.max(LogPencarian.waktu_pencarian).label("terakhir"),
     ).group_by(LogPencarian.keyword, LogPencarian.keyword_ternormalisasi)
 
+    # Gagal = tidak ada hasil, ATAU skor terbaiknya di bawah ambang. Aturan
+    # yang sama dengan hitungan "kueri lemah" di beranda admin. Skor kosong
+    # saja BUKAN tanda gagal: kueri yang hanya berisi nama wilayah ("tanah
+    # laut") menampilkan publikasi wilayah itu tanpa skor (lihat _catat_log).
+    # Kueri tanpa hasil sudah tertangkap oleh syarat pertama. Di SQL,
+    # NULL < ambang bernilai NULL, jadi skor kosong tidak lolos syarat kedua.
     if hanya_gagal:
         q = q.having(db.or_(
             db.func.max(LogPencarian.jumlah_hasil) == 0,
             db.func.max(LogPencarian.skor_tertinggi) < AMBANG_KUERI_LEMAH,
-            db.func.max(LogPencarian.skor_tertinggi).is_(None),
         ))
 
     baris = q.order_by(db.desc("frekuensi"), db.desc("terakhir")).limit(100).all()

@@ -777,6 +777,24 @@ Aturan yang berlaku:
     `/admin/perbarui`. Berkas kunci tetap sama, jadi run uji dan run
     produksi tidak bisa berjalan bersamaan. PDF dan cache OCR tetap folder
     bersama.
+- **Bug `_catat_log` (hasil tingkat publikasi tercatat 0 / skor NULL)
+  SUDAH DIPERBAIKI di `d29ec34` (5 Nov 2026).** Diperiksa ulang 12 Nov di
+  database uji: 12 jalur pencarian, `jumlah_hasil` di log = jumlah kartu
+  yang tampil, 12/12. Jalurnya meliputi dropdown, deteksi otomatis,
+  `abaikan`, kueri nama wilayah saja, dan provinsi.
+  - Yang tersisa hanya **8 baris log lama dari 3 Nov** (id 1-21: `mfd`,
+    `master file desa`, `p0`/`P0`). Sengaja TIDAK diubah.
+  - `p0` memang 0 hasil saat itu: tabelnya (Kab. Banjar Dalam Angka) baru
+    masuk 10 Nov.
+  - `/admin/log` mengambil nilai terbaik per kueri, jadi kelompok itu
+    tetap tampil "gagal" sampai kuerinya dicari lagi.
+- **`/admin/log`: kriteria gagal disamakan dengan beranda admin
+  (12 Nov 2026).** Gagal = hasil 0 ATAU skor terbaik di bawah ambang.
+  - Syarat "skor kosong" dibuang. Alasannya: kueri yang hanya berisi nama
+    wilayah ("tanah laut", 17 hasil) memang dicatat tanpa skor, dan dulu
+    ikut terdaftar sebagai gagal.
+  - Diuji di database uji: hanya kelompok itu yang keluar dari daftar;
+    `?semua=1` identik; checksum `log_pencarian` tidak berubah.
 - **Deteksi wilayah: "banjar" juga nama suku.** "penduduk suku banjar"
   memasang filter Kab. Banjar; petugas membatalkannya lewat pita. Singkatan
   (tala, hss, bjm, ...) belum dikonfirmasi tim PST. Provinsi tidak dideteksi
