@@ -18,7 +18,10 @@ from collections import Counter
 
 import pdfplumber
 
-BATAS_HALAMAN_CARI = 25     # heading DAFTAR X dicari di 25 halaman pertama
+BATAS_HALAMAN_CARI = 25     # heading DAFTAR X dicari di 25 halaman pertama,
+                            # lalu diperpanjang selama blok halaman Daftar
+                            # belum putus (lihat cari_heading)
+MAKS_HALAMAN_KOSONG = 2     # halaman kosong berturut-turut yang tidak memutus blok
 TOLERANSI_BARIS = 3.0       # selisih `top` (poin) yang masih dianggap satu baris
 TOLERANSI_KOLOM = 4.0       # selisih `x0` yang masih dianggap satu kolom
 BATAS_KANAN_RASIO = 0.80    # kandidat nomor halaman harus berakhir di 80% kanan
@@ -291,20 +294,70 @@ def _lanjutan_masuk_akal(baris, tipe, batas_kanan):
     return any(_label_baris(b) in label_sah for b in baris)
 
 
+# Kop kolom halaman Daftar ("Tabel ... Halaman", "Gambar ... Page"). Daftar
+# KAK tidak memakai dot leader sama sekali; yang diulang di setiap halaman
+# lanjutannya hanya kop kolom ini.
+RE_KOP_KOLOM_DAFTAR = re.compile(
+    r"^(tabel|table|tables|gambar|figure|figures|grafik|lampiran|appendix|appendices)\b"
+    r".*\b(halaman|hal\.?|page|pages)$", re.IGNORECASE)
+
+
+def _status_halaman_depan(teks_baris, lanjutan_daftar):
+    """'daftar' | 'kosong' | None - dipakai cari_heading untuk perpanjangan.
+
+    'daftar' : halaman Daftar menurut _halaman_daftar, ATAU lanjutan langsung
+               yang membawa kop kolom Daftar di 3 baris teratas.
+    'kosong' : paling banyak 3 baris tanpa dot leader - halaman kosong
+               pemisah, folio saja ("xxvi"), atau kop kolom tanpa isi.
+    """
+    if _halaman_daftar(teks_baris, lanjutan_daftar):
+        return "daftar"
+    if lanjutan_daftar and any(RE_KOP_KOLOM_DAFTAR.match(t) for t in teks_baris[:3]):
+        return "daftar"
+    if len(teks_baris) <= 3 and _jumlah_dot_leader(" ".join(teks_baris)) == 0:
+        return "kosong"
+    return None
+
+
 def cari_heading(pdf):
     """Cari halaman tiap heading DAFTAR X. Return {tipe: nomor_halaman}.
 
     Heading yang tidak ada bukan error - DAFTAR LAMPIRAN memang hanya ada di
     sebagian publikasi.
+
+    Heading dicari di HALAMAN DEPAN: BATAS_HALAMAN_CARI halaman pertama,
+    ditambah perpanjangan selama blok halaman Daftar belum putus. Sesudah
+    batas itu, halaman berikutnya hanya diperiksa kalau ia halaman Daftar
+    (lihat _status_halaman_depan); halaman kosong di sela blok tidak memutus,
+    paling banyak MAKS_HALAMAN_KOSONG berturut-turut. Halaman pertama yang
+    bukan keduanya mengakhiri pencarian.
+
+    Alasannya (12 Nov 2026): Daftar Tabel Dalam Angka panjang (sampai 21
+    halaman), sehingga Daftar Gambar sesudahnya jatuh di hal. 27-49 dan tidak
+    pernah dibaca - 24 Dalam Angka, ±464 gambar tidak terindeks
+    (data/regresi/batas-heading-20261110.md). Batas angka yang dinaikkan
+    hanya memindahkan masalah; batas yang mengikuti blok Daftar tidak.
+    Pemeriksaan heading per halaman tidak berubah, dan setdefault
+    mempertahankan heading pertama: tipe yang sudah ditemukan sebelum batas
+    tidak berubah, aturan ini hanya menambah daftar yang tadinya terlewat.
     """
     ketemu = {}
-    for i in range(min(BATAS_HALAMAN_CARI, len(pdf.pages))):
+    lanjutan = False
+    kosong = 0
+    for i in range(len(pdf.pages)):
         baris = _kelompokkan_baris(_kata_halaman(pdf.pages[i]))
+        status = _status_halaman_depan([_teks_baris(b).strip() for b in baris], lanjutan)
+        if i >= BATAS_HALAMAN_CARI:
+            kosong = kosong + 1 if status == "kosong" else 0
+            if status is None or kosong > MAKS_HALAMAN_KOSONG:
+                break
         for b in baris[:6]:                       # heading selalu di atas halaman
             cocok = RE_HEADING.match(_teks_baris(b).strip())
             if cocok:
                 for tipe in _tipe_dari_heading(cocok.group(1)):
                     ketemu.setdefault(tipe, i)
+        if status != "kosong":
+            lanjutan = status == "daftar"
     return ketemu
 
 

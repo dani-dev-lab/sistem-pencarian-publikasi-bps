@@ -482,7 +482,10 @@ Masing-masing langkah punya laporan, baseline, dan TSV perubahan sendiri.
   - **KOREKSI 10 Nov 2026:** alasan "Dalam Angka tidak punya Daftar Gambar"
     di bawah ini SALAH. Dalam Angka punya Daftar Gambar di hal. 27-49, dan
     terlewat karena `BATAS_HALAMAN_CARI = 25`. Lihat
-    `data/regresi/batas-heading-20261110.md`.
+    `data/regresi/batas-heading-20261110.md`. **Sejak 12 Nov 2026 Daftar
+    Gambar itu terbaca** (+464 gambar bernomor,
+    `batas-heading-20261112.md`), jadi manfaat C1(b) di bawah ini jauh lebih
+    kecil daripada perkiraan semula.
   - Manfaat: sekitar 55 grafik Dalam Angka provinsi ("Gambar" / "1.1" /
     "Figure" di halaman infografis bab) ditambah sekitar 5 per Dalam Angka
     kab/kota. Semuanya kini tidak terindeks, karena Dalam Angka tidak punya
@@ -663,15 +666,30 @@ Aturan yang berlaku:
     - Nomor kolom kiri tetap hilang di tingkat OCR.
     - Cache OCR di `data/ocr_cache/` (gitignore).
     - Alat dan venv di `C:/Users/Dani/alat-ocr/`.
-    - EasyOCR besok.
-  - **Temuan parser:** `BATAS_HALAMAN_CARI = 25` membuat Daftar yang headingnya
-    sesudah halaman 25 tidak pernah dibaca. Belum diubah (keputusan pemilik
-    project). Diukur di 306 publikasi (`data/regresi/batas-heading-20261110.md`):
-    - 24 Daftar Gambar Dalam Angka (hal. 27-49): 498 entri, ±464 gambar
-      bernomor tidak terindeks;
-    - 6 Daftar Lampiran KAK: lampirannya sudah tertangkap jalur badan.
   - **Uji psm Daftar Tabel HST:** nomor kolom kiri terbaca psm 3 56/139,
     psm 6 22/139, psm 4 106/139.
+- **Batas heading Daftar, DIPERBAIKI 12 Nov 2026**
+  (`data/regresi/batas-heading-20261112.md`). Dulu `cari_heading` hanya
+  mencari di `BATAS_HALAMAN_CARI = 25` halaman pertama, sehingga 24 Daftar
+  Gambar Dalam Angka (hal. 27-49) tidak pernah dibaca.
+  - **Aturan sekarang:** 25 halaman pertama, ditambah perpanjangan selama
+    blok halaman Daftar belum putus. Lihat `_status_halaman_depan`; halaman
+    kosong di sela blok paling banyak 2 berturut-turut.
+  - **Regresi 306 PDF:** hanya 30 publikasi berubah; 0 kunci hilang;
+    +487 entri; 17 gambar Tanah Laut badan → keduanya.
+  - **Sampel 30 gambar baru: 30/30 benar** (nomor, judul, halaman cetak,
+    halaman fisik).
+  - **Utang teknis, sengaja TIDAK ditambal (keputusan pemilik project):**
+    - **23 entri sampah tanpa nomor** dari Daftar yang baru terbaca:
+      - 6 lampiran KAK tergabung, duplikat lampiran 1/2 dari jalur badan
+        (nomor "1"/"2" berdiri sendiri di kolom kiri);
+      - ±13 potongan baris bahasa Inggris;
+      - 4 kop berjalan halaman Daftar ("KABUPATEN HULU SUNGAI UTARA DALAM
+        ANGKA 2026 xxxi").
+    - **3 nomor gambar dicetak dua kali DI SUMBER:** Barito Kuala 2025/2026
+      Gambar 1.2, Tanah Bumbu 2026 Gambar 4.1. Kembaran kedua mendapat
+      `halaman_fisik` kembaran pertama (penanda nomor yang sama). Contohnya
+      Curah Hujan Barito Kuala menunjuk hal. 57, seharusnya 58.
 - **5 publikasi hanya punya Daftar Isi** (Direktori Perusahaan Akomodasi,
   Direktori Perusahaan Konstruksi, Direktori Perusahaan Industri Manufaktur,
   Statistik Daerah, Buklet Survei Angkatan Kerja). Memang tidak ada daftar
