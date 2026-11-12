@@ -668,6 +668,17 @@ Aturan yang berlaku:
     - Alat dan venv di `C:/Users/Dani/alat-ocr/`.
   - **Uji psm Daftar Tabel HST:** nomor kolom kiri terbaca psm 3 56/139,
     psm 6 22/139, psm 4 106/139.
+  - **EasyOCR HST penuh (12 Nov 2026)** (`data/regresi/ocr-hst-easyocr-20261112.md`).
+    - 78 menit untuk 320 halaman (14,6 detik per halaman, CPU).
+    - 30 tabel yang SAMA dinilai manual. "Benar seluruhnya": Tesseract
+      psm 3 3/30, psm 4 12/30, **EasyOCR 27/30**.
+    - **Keputusan pemilik project: pakai EasyOCR.** Rancangan pemasangan ke
+      pipeline menunggu persetujuan (OCR opsional, dependensi terpisah, cache
+      per halaman, penanda publikasi hasil OCR).
+    - Lisensi bobot model (`craft_mlt_25k.pth`, `latin_g2.pth`) TIDAK
+      dinyatakan di repo CRAFT (kode MIT), repo EasyOCR (kode Apache-2.0),
+      maupun di model hub JaidedAI. Terms JaidedAI hanya mengatur layanan
+      web mereka.
 - **Batas heading Daftar, DIPERBAIKI 12 Nov 2026**
   (`data/regresi/batas-heading-20261112.md`). Dulu `cari_heading` hanya
   mencari di `BATAS_HALAMAN_CARI = 25` halaman pertama, sehingga 24 Daftar

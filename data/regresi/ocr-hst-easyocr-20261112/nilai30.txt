@@ -1,0 +1,240 @@
+=== #1 [3.2.1] hal=49 (Daftar hal.13)
+    ACUAN: Jumlah Penduduk Berumur 15 Tahun ke Atas Menurut Jenis Kegiatan Selama Seminggu Terakhir dan Jenis Kelamin di Kabupaten Hulu Sungai Tengah, 2025
+    psm3       (judul 100) nomor=None hal=49 fisik=None mirip=100 awalan=0
+               Jumlah Penduduk Berumur 15 Tahun ke Atas Menurut Jenis Kegiatan Selama Seminggu Terakhir dan Jenis Kelamin di Kabupaten Hulu Sungai Tengah, 2025 Number of Population Aged 15 Years and Over by Type of Activity During the Last Week 
+    psm4       (nomor) nomor=3.2.1 hal=49 fisik=77 mirip=100 awalan=66
+               ssssscescesssssessecsssesssesseesscesececseesseeeseeese EMPLOYMENT Jumlah Penduduk Berumur 15 Tahun ke Atas Menurut Jenis Kegiatan Selama Seminggu Terakhir dan Jenis Kelamin di Kabupaten Hulu Sungai Tengah, 2025 Number of Populati
+    easyocr    (nomor) nomor=3.2.1 hal=None fisik=77 mirip=100 awalan=0
+               Jumlah Penduduk Berumur 15 Tahun ke Atas Menurut Jenis Kegiatan Selama Seminggu Terakhir dan Jenis Kelamin di Kabupaten Hulu Sungai Tengah, 2025 Number of Population Aged 15 Years and Over by Type of Activity During the Last Week 
+=== #2 [3.2.2] hal=50 (Daftar hal.13)
+    ACUAN: Jumlah Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan dan Jenis Kegiatan Selama Seminggu Terakhir di Kabupaten Hulu Sungai Tengah, 2025
+    psm3       (judul 100) nomor=None hal=49 fisik=None mirip=100 awalan=273
+               Jumlah Penduduk Berumur 15 Tahun ke Atas Menurut Jenis Kegiatan Selama Seminggu Terakhir dan Jenis Kelamin di Kabupaten Hulu Sungai Tengah, 2025 Number of Population Aged 15 Years and Over by Type of Activity During the Last Week 
+    psm4       (nomor) nomor=3.2.2 hal=50 fisik=78 mirip=100 awalan=0
+               Jumlah Penduduk Berumur 15 Tahun ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan dan Jenis Kegiatan Selama Seminggu Terakhir di Kabupaten Hulu Sungai Tengah, 2025 Number of Population 15 Years of Age and Over by Educational A
+    easyocr    (judul 100) nomor=3.2.1 hal=None fisik=77 mirip=67 awalan=0
+               Jumlah Penduduk Berumur 15 Tahun ke Atas Menurut Jenis Kegiatan Selama Seminggu Terakhir dan Jenis Kelamin di Kabupaten Hulu Sungai Tengah, 2025 Number of Population Aged 15 Years and Over by Type of Activity During the Last Week 
+=== #3 [3.2.4] hal=53 (Daftar hal.13)
+    ACUAN: Persentase Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Kelompok Umur dan Jenis Kelamin di Kabupaten Hulu Sungai Tengah, 2025
+    psm3       (judul 100) nomor=None hal=52 fisik=None mirip=92 awalan=172
+               the Last Week by Main Employment Status and Sex in Hulu Sungai Tengah Regency, 2025 u.esesssescssscssecnsecssscnescssecsseesecsneesscssscecseesneecutecseecneeenseessees Persentase Penduduk Berumur 15 Tahun ke Atas yang Bekerja 3.2
+    psm4       (nomor) nomor=3.2.4 hal=None fisik=81 mirip=100 awalan=84
+               u.esesssescssscssecnsecssscnescssecsseesecsneesscssscecseesneecutecseecneeenseessees Persentase Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Kelompok Umur dan Jenis Kelamin di Kabupaten Hulu Sung
+    easyocr    (nomor) nomor=3.2.4 hal=53 fisik=81 mirip=100 awalan=0
+               Persentase Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Kelompok Umur dan Jenis Kelamin di Kabupaten Hulu Sungai Tengah, 2025 Percentageof Population Aged 15 Years and Over Who Worked During the 
+=== #4 [3.2.8] hal=57 (Daftar hal.14)
+    ACUAN: Jumlah Pencari Kerja Terdaftar Menurut Bulan dan Jenis Kelamin di Kabupaten Hulu Sungai Tengah, 2025
+    psm3       (judul 100) nomor=None hal=56 fisik=None mirip=100 awalan=84
+               In Hulu Sungai Tengah Regency, 2025 ssssssssscssscssecseeeseeseesssesssesseesseesses Jumlah Pencari Kerja Terdaftar Menurut Bulan dan Jenis Kelamin di Kabupaten Hulu Sungai Tengah, 2025 Number of Registered Job Applicants by Month
+    psm4       (nomor) nomor=3.2.8 hal=57 fisik=85 mirip=100 awalan=0
+               Jumlah Pencari Kerja Terdaftar Menurut Bulan dan Jenis Kelamin di Kabupaten Hulu Sungai Tengah, 2025 Number of Registered Job Applicants by Month and Sex in Hulu Sungai Tengah Regency, 2025
+    easyocr    (nomor) nomor=3.2.8 hal=57 fisik=85 mirip=99 awalan=0
+               Jumlah Pencari Kerja Terdaftar Menurut Bulan dan Jenis Kelamin di Kabupaten Hulu Sungai Tengah; 2025 Number of Registered Job Applicants by Month and Sex in Hulu Sungai Tengah Regency; 2025
+=== #5 [4.1.1] hal=None (Daftar hal.15)
+    ACUAN: Jumlah Satuan Pendidikan, Kepala Sekolah dan Pendidik, serta Peserta Didik Taman Kanak-Kanak (TK) di Bawah Kementerian Dasar dan Menengah Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2024/2025 dan 2025/2026
+    psm3       (judul 100) nomor=4.1 hal=None fisik=None mirip=81 awalan=90
+               Halaman Table Page SOSIAL DAN KESEJAHTERAAN RAKYAT/SOCIAL AND WELFARE PENDIDIKAN EDUCATION Jumlah Satuan Pendidikan, Kepala Sekolah dan Pendidik, serta Peserta Didik' Taman Kanak—Kanak (TK) di Bawah Kementerian Dasar dan Menengah 
+    psm4       (nomor) nomor=4.1.1 hal=72 fisik=None mirip=99 awalan=0
+               Jumlah Satuan Pendidikan, Kepala Sekolah dan Pendidik, serta Peserta Didik' Taman Kanak—Kanak (TK) di Bawah Kementerian Dasar dan Menengah Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2024/2025 dan 2025/2026 Number of School
+    easyocr    (nomor) nomor=4.1.1 hal=72 fisik=99 mirip=98 awalan=0
+               Jumlah Satuan Pendidikan; Kepala Sekolah dan Pendidik, serta Peserta Didik' Taman Kanak-Kanak (TK) di Bawah Kementerian Dasar dan Menengah Menurut Kecamatan di Kabupaten Hulu Sungai Tengah; 2024/2025 dan 2025/2026 Number of School
+=== #6 [4.1.6] hal=None (Daftar hal.16)
+    ACUAN: Jumlah Satuan Pendidikan, Kepala Sekolah dan Guru, serta Peserta Didik Madrasah Tsanawiyah (MTs) di Bawah Kementerian Agama Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2024/2025 dan 2025/2026
+    psm3       (judul 100) nomor=4.1 hal=None fisik=None mirip=61 awalan=90
+               Halaman Table Page SOSIAL DAN KESEJAHTERAAN RAKYAT/SOCIAL AND WELFARE PENDIDIKAN EDUCATION Jumlah Satuan Pendidikan, Kepala Sekolah dan Pendidik, serta Peserta Didik' Taman Kanak—Kanak (TK) di Bawah Kementerian Dasar dan Menengah 
+    psm4       (nomor) nomor=4.1.6 hal=85 fisik=None mirip=99 awalan=0
+               Jumlah Satuan Pendidikan, Kepala Sekolah dan Guru, serta Peserta Didik' Madrasah Tsanawiyah (MTs) di Bawah Kementerian Agama Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2024/2025 dan 2025/2026 Number of Schools, Headmasters
+    easyocr    (nomor) nomor=4.1.6 hal=85 fisik=112 mirip=98 awalan=0
+               Jumlah Satuan Pendidikan, Kepala Sekolah dan Guru; serta Peserta Didik' Madrasah Tsanawiyah (MTs) di Bawah Kementerian Agama Menurut Kecamatan di Kabupaten Hulu Sungai Tengah; 2024/2025 dan 2025/2026 Number of Schools, Headmasters
+=== #7 [4.1.8] hal=None (Daftar hal.16)
+    ACUAN: Jumlah Satuan Pendidikan, Kepala Sekolah dan Guru, serta Peserta Didik Sekolah Menengah Kejuruan (SMK) di Bawah Kementerian Pendidikan Dasar dan Menengah Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2024/2025 dan 2025/2026
+    psm3       (judul 100) nomor=4.1 hal=None fisik=None mirip=65 awalan=90
+               Halaman Table Page SOSIAL DAN KESEJAHTERAAN RAKYAT/SOCIAL AND WELFARE PENDIDIKAN EDUCATION Jumlah Satuan Pendidikan, Kepala Sekolah dan Pendidik, serta Peserta Didik' Taman Kanak—Kanak (TK) di Bawah Kementerian Dasar dan Menengah 
+    psm4       (nomor) nomor=4.1.8 hal=None fisik=118 mirip=99 awalan=0
+               Jumlah Satuan Pendidikan, Kepala Sekolah dan Guru, serta Peserta Didik' Sekolah Menengah Kejuruan (SMK) di Bawah Kementerian Pendidikan Dasar dan Menengah Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2024/2025 dan 2025/2026 
+    easyocr    (nomor) nomor=4.1.8 hal=None fisik=118 mirip=99 awalan=0
+               Jumlah Satuan Pendidikan, Kepala Sekolah dan Guru; serta Peserta Didik' Sekolah Menengah Kejuruan (SMK) di Bawah Kementerian Pendidikan Dasar dan Menengah Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2024/2025 dan 2025/2026 
+=== #8 [4.2.5] hal=114 (Daftar hal.18)
+    ACUAN: Jumlah Kasus 10 Penyakit Terbanyak Rawat Inap di RSUD H. Damanhuri, 2025
+    psm3       (nomor) nomor=4.2.5 hal=None fisik=141 mirip=100 awalan=0
+               Jumlah Kasus 10 Penyakit Terbanyak Rawat Inap di RSUD H. Damanhuri, 2025 Number of Cases 10 Most Hospitalized Diseases in H. Damanhuri Hospital, 2025 sesseesssssssssesssssseessesscesecsscsscsssesacenesscsnsesscsacssscsacsaeesacsae
+    psm4       (nomor) nomor=4.2.5 hal=None fisik=141 mirip=100 awalan=0
+               Jumlah Kasus 10 Penyakit Terbanyak Rawat Inap di RSUD H. Damanhuri, 2025 Number of Cases 10 Most Hospitalized Diseases in H. Damanhuri Hospital, 2025 sesseesssssssssesssssseessesscesecsscsscsssesacenesscsnsesscsacssscsacsaeesacsae
+    easyocr    (nomor) nomor=4.2.5 hal=114 fisik=141 mirip=99 awalan=0
+               Jumlah Kasus 10 Penyakit Terbanyak Rawat Inap di RSUD H Damanhuri, 2025 Number of Cases 10 Most Hospitalized Diseases in H. Damanhuri Hospital 2025
+=== #9 [4.2.7] hal=116 (Daftar hal.18)
+    ACUAN: Jumlah Ibu Hamil, Melakukan Kunjungan K1, Melakukan Kunjungan K4, Kurang Energi Kronis (KEK), dan Mendapat Tablet Zat Besi (Fe) di Kabupaten Hulu Sungai Tengah, 2015-2025
+    psm3       (judul 98) nomor=None hal=None fisik=None mirip=99 awalan=199
+               Dirujuk, dan Bergizi Buruk di Kabupaten Hulu Sungai Tengah, 2015-2025 Number of Births, Babies with Low Birth Weights (LBW), Treated LBW, and Malnutrion Cases in Hulu Sungai Tengah Regency, 2015-2025 Jumlah lbu Hamil, Melakukan Ku
+    psm4       (nomor) nomor=4.2.7 hal=116 fisik=143 mirip=99 awalan=0
+               Jumlah lbu Hamil, Melakukan Kunjungan K1, Melakukan Kunjungan K4, Kurang Energi Kronis (KEK), dan Mendapat Tablet Zat Besi (Fe) di Kabupaten Hulu Sungai Tengah, 2015-2025 Number of Pregnant Women, Those with One Visit and four Vis
+    easyocr    (nomor) nomor=4.2.7 hal=116 fisik=143 mirip=97 awalan=0
+               Jumlahlbu Hamil, Melakukan Kunjungan Kı , Melakukan Kunjungan K4, Kurang Energi Kronis (KEK), dan Mendapat Tablet Zat Besi (Fe) di Kabupaten Hulu Sungai Tengah; 2015-2025 Number of Pregnant Women; Those with One Visit and four Vis
+=== #10 [4.4.1] hal=126 (Daftar hal.19)
+    ACUAN: Jumlah Penduduk Menurut Kecamatan dan Agama yang Dianut di Kabupaten Hulu Sungai Tengah, 2025
+    psm3       (nomor) nomor=4.4.1 hal=126 fisik=None mirip=100 awalan=0
+               Jumlah Penduduk Menurut Kecamatan dan Agama yang Dianut di Kabupaten Hulu Sungai Tengah, 2025 Population by District and Religion in Hulu Sungai Tengah Regency, 2025
+    psm4       (nomor) nomor=4.4.1 hal=126 fisik=None mirip=100 awalan=0
+               Jumlah Penduduk Menurut Kecamatan dan Agama yang Dianut di Kabupaten Hulu Sungai Tengah, 2025 Population by District and Religion in Hulu Sungai Tengah Regency,
+    easyocr    (nomor) nomor=4.4.1 hal=126 fisik=153 mirip=99 awalan=0
+               Jumlah Penduduk Menurut Kecamatan dan Agama yang Dianut di Kabupaten Hulu Sungai Tengah; 2025 Population by District and Religion in Hulu Sungai Tengah Regency 2025
+=== #11 [4.4.7] hal=135 (Daftar hal.19)
+    ACUAN: Jumlah Panti Asuhan dan Anak Asuh di Kabupaten Hulu Sungai Tengah, 2025
+    psm3       (judul 100) nomor=44.7 hal=135 fisik=None mirip=100 awalan=42
+               u ssssscsscssecsesesseessesnsesseeeneeenes Jumlah Panti Asuhan dan Anak Asuh di Kabupaten Hulu Sungai Tengah, 2025 Number of Orphanages and Children in Care Every in Hulu Sungai Tengah REGency, 2025
+    psm4       (judul 100) nomor=44.7 hal=135 fisik=None mirip=100 awalan=42
+               u ssssscsscssecsesesseessesnsesseeeneeenes Jumlah Panti Asuhan dan Anak Asuh di Kabupaten Hulu Sungai Tengah, 2025 Number of Orphanages and Children in Care Every in Hulu Sungai Tengah REGency, 2025
+    easyocr    (nomor) nomor=4.4.7 hal=135 fisik=162 mirip=100 awalan=0
+               Jumlah Panti Asuhan dan Anak Asuh di Kabupaten Hulu Sungai Tengah, 2025 Number of Orphanages and Children in Care Every in Hulu Sungai Tengah Regency; 2025
+=== #12 [4.4.8] hal=136 (Daftar hal.19)
+    ACUAN: Jumlah Keluarga Penerima Bantuan Program Keluarga Harapan Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2024-2025
+    psm3       (judul 100) nomor=44.8 hal=136 fisik=None mirip=100 awalan=82
+               sesssescssessssecescnsecsescssecssssseeesseesscsssccessesseesneeeseeenesenseensees Jumlah Keluarga Penerima Bantuan Program Keluarga Harapan Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2024-2025 Number of Aid Recipients Soc
+    psm4       (judul 100) nomor=4.48 hal=None fisik=None mirip=100 awalan=82
+               sesssescssessssecescnsecsescssecssssseeesseesscsssccessesseesneeeseeenesenseensees Jumlah Keluarga Penerima Bantuan Program Keluarga Harapan Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2024-2025 Number of Aid Recipients Soc
+    easyocr    (nomor) nomor=4.4.8 hal=136 fisik=None mirip=100 awalan=0
+               Jumlah Keluarga Penerima Bantuan Program Keluarga Harapan Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2024-2025 Number of Aid Recipients Social by District in Hulu Sungai Tengah Regency; 2024-2025
+=== #13 [5.1.1] hal=152 (Daftar hal.20)
+    ACUAN: Luas Lahan Sawah Menurut Kecamatan dan Jenis Pengairan di Kabupaten Hulu Sungai Tengah (ha), 2025
+    psm3       (judul 100) nomor=None hal=152 fisik=None mirip=100 awalan=25
+               TANAMAN PANGAN FOOD CROPS Luas Lahan Sawah Menurut Kecamatan dan Jenis Pengairan di Kabupaten Hulu Sungai Tengah (ha), 2025 Area of Wetland by District and Type of Irrigation in Hulu Sungai Tengah Regency (HG), 2025. sccsscsssssse
+    psm4       (nomor) nomor=5.1.1 hal=152 fisik=178 mirip=100 awalan=0
+               Luas Lahan Sawah Menurut Kecamatan dan Jenis Pengairan di Kabupaten Hulu Sungai Tengah (ha), 2025 Area of Wetland by District and Type of Irrigation in Hulu Sungai Tengah Regency (HG), 2025
+    easyocr    (nomor) nomor=5.1.1 hal=152 fisik=178 mirip=99 awalan=0
+               Luas Lahan Sawah Menurut Kecamatan dan Jenis Pengairan di Kabupaten Hulu Sungai Tengah (ha) 2025 Area of Wetland by District and Type of Irrigation in Hulu Sungai Tengah Regency (ha) 2025
+=== #14 [5.1.7] hal=158 (Daftar hal.21)
+    ACUAN: Luas Panen, Produksi, dan Produktivitas Kacang Tanah Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025
+    psm3       (judul 100) nomor=None hal=153 fisik=None mirip=84 awalan=226
+               Sementara Tidak Diusahakan Menurut Kecamatan di Kabupaten Hulu Sungai Tengah (ha), 2025 Area of Dry Field/Garden, Shifting Cultivation, Land and Temporarily Unused Land by District in Hulu Sungai Tengah Regency (ha), 2025 Luas Pan
+    psm4       (judul 100) nomor=5.1.3 hal=None fisik=180 mirip=94 awalan=0
+               Luas Panen, Produksi, dan Produktivitas Padi Sawah Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025 Harvested Area, Production, and Productivity of Wetland Paddy by District in Hulu Sungai Tengah Regency, 2025 sssscsssssecs
+    easyocr    (nomor) nomor=5.1.7 hal=158 fisik=184 mirip=98 awalan=0
+               Luas Panen; Produksi; dan Produktivitas Kacang Tanah Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025 Harvested Area; Production; and Productivity of Peanuts by District in Hulu Sungai Tengah Regency; 2025
+=== #15 [5.1.10] hal=161 (Daftar hal.21)
+    ACUAN: Luas Panen, Produksi, dan Produktivitas Ubi Jalar Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025
+    psm3       (judul 100) nomor=None hal=153 fisik=None mirip=82 awalan=228
+               Sementara Tidak Diusahakan Menurut Kecamatan di Kabupaten Hulu Sungai Tengah (ha), 2025 Area of Dry Field/Garden, Shifting Cultivation, Land and Temporarily Unused Land by District in Hulu Sungai Tengah Regency (ha), 2025 Luas Pan
+    psm4       (nomor) nomor=5.1.10 hal=161 fisik=187 mirip=59 awalan=56
+               sreessscssecsssssscssecsssessssnseescsssceseesseeeneeese Luas Panen, Produksi, dan Produktivitas Ubi Jalar Menurut Harvested Area, Production, and Productivity of Sweet Potato by District in Hulu Sungai Tengah Regency, 2025
+    easyocr    (nomor) nomor=5.1.10 hal=161 fisik=187 mirip=99 awalan=0
+               Luas Panen, Produksi, dan Produktivitas Ubi Jalar Menurut Kecamatan di Kabupaten Hulu Sungai Tengah; 2025 Harvested Area; Production; and Productivity of Sweet Potato by District in Hulu Sungai Tengah Regency, 2025
+=== #16 [5.2.3] hal=168 (Daftar hal.22)
+    ACUAN: Luas Panen Tanaman Sayuran dan Buah-buahan Semusim Menurut Jenis Tanaman di Kabupaten Hulu Sungai Tengah, 2022-2025
+    psm3       (judul 100) nomor=5.2.2 hal=165 fisik=191 mirip=57 awalan=23
+               Halaman Table Page Produksi Tanaman Sayuran Menurut Kecamatan dan Jenis Tanaman di Kabupaten Hulu Sungai Tengah (kuintal), 2024 dan 2025 Production of Vegetables by District and Kind of Plant in Hulu Sungai Tengah Regency (guintal
+    psm4       (nomor) nomor=5.2.3 hal=168 fisik=194 mirip=100 awalan=0
+               Luas Panen Tanaman Sayuran dan Buah—buahan Semusim Menurut Jenis Tanaman di Kabupaten Hulu Sungai Tengah, 2022-2025 Harvested Area of Seasonal Vegetables and Fruits by Kind of Plant in Hulu Sungai Tengah Regency, 2022-2025 rsssscs
+    easyocr    (nomor) nomor=5.2.3 hal=168 fisik=194 mirip=100 awalan=0
+               Luas Panen Tanaman Sayuran dan Buah-buahan Semusim Menurut Jenis Tanaman di Kabupaten Hulu Sungai Tengah, 2022-2025 Harvested Area of Seasonal Vegetables and Fruits by Kind of Plant in Hulu Sungai Tengah Regency; 2022-2025
+=== #17 [5.2.4] hal=169 (Daftar hal.22)
+    ACUAN: Produksi Tanaman Sayuran dan Buah-buahan Semusim Menurut Jenis Tanaman di Kabupaten Hulu Sungai Tengah, 2022-2025
+    psm3       (judul 100) nomor=None hal=168 fisik=None mirip=100 awalan=209
+               Jenis Tanaman di Kabupaten Hulu Sungai Tengah, 2022-2025 Harvested Area of Seasonal Vegetables and Fruits by Kind of Plant in Hulu Sungai Tengah Regency, 2022-2025 rsssscssecsssesseesseersescnsecnserseeeneeese Produksi Tanaman Say
+    psm4       (nomor) nomor=5.2.4 hal=169 fisik=195 mirip=100 awalan=0
+               Produksi Tanaman Sayuran dan Buah-buahan Semusim Menurut Jenis Tanaman di Kabupaten Hulu Sungai Tengah, 2022-2025 Production of Seasonal Vegetables and Fruits by Kind of Plant in Hulu Sungai Tengah Regency, 2022-2025
+    easyocr    (nomor) nomor=5.2.4 hal=169 fisik=195 mirip=100 awalan=0
+               Produksi Tanaman Sayuran dan Buah-buahan Semusim Menurut Jenis Tanaman di Kabupaten Hulu Sungai Tengah, 2022-2025 Production of Seasonal Vegetables and Fruits by Kind of Plant in Hulu Sungai Tengah Regency; 2022-2025
+=== #18 [5.2.9] hal=176 (Daftar hal.22)
+    ACUAN: Luas Panen Tanaman Hias Menurut Kecamatan dan Jenis Tanaman di Kabupaten Hulu Sungai Tengah (m2), 2024 dan 2025
+    psm3       (judul 100) nomor=None hal=175 fisik=None mirip=99 awalan=216
+               Kabupaten Hulu Sungai Tengah, 2022-2025 Production of Medicinal Plants by Kind of Plant in Hulu Sungai Tengah REGENCY, 2022-2025 sessescsscneereerssessecnscnscnsencensscucensesnsessessecacensecuceasesesessesneessesee Luas Panen Ta
+    psm4       (nomor) nomor=5.2.9 hal=None fisik=202 mirip=99 awalan=87
+               sessescsscneereerssessecnscnscnsencensscucensesnsessessecacensecuceasesesessesneessesee Luas Panen Tanaman Hias Menurut Kecamatan dan Jenis Tanaman di Kabupaten Hulu Sungai Tengah (m7), 2024 dan 2025 Harvested Area of Ornamental P
+    easyocr    (nomor) nomor=5.2.9 hal=176 fisik=202 mirip=98 awalan=0
+               Luas Panen Tanaman Hias Menurut Kecamatan dan Jenis Tanaman di Kabupaten Hulu Sungai Tengah (m?) 2024 dan 2025 Harvested Area of Ornamental Plants by District and Kind of Plant in Hulu Sungai Tengah Regency (m?) 2024 and 2025
+=== #19 [5.2.11] hal=180 (Daftar hal.23)
+    ACUAN: Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kabupaten Hulu Sungai Tengah (m2), 2022-2025
+    psm3       (nomor) nomor=5.2.11 hal=180 fisik=206 mirip=99 awalan=1
+               - Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kabupaten Hulu Sungai Tengah (m7), 2022-2025 Harvested Area of Ornamental Plants by Kind of Plant in Hulu Sungai Tengah Regency (117), 2022-2025
+    psm4       (nomor) nomor=5.2.11 hal=180 fisik=206 mirip=99 awalan=1
+               - Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kabupaten Hulu Sungai Tengah (m7), 2022-2025 Harvested Area of Ornamental Plants by Kind of Plant in Hulu Sungai Tengah Regency (117), 2022-2025
+    easyocr    (nomor) nomor=5.2.11 hal=180 fisik=206 mirip=100 awalan=0
+               Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kabupaten Hulu Sungai Tengah (m2), 2022-2025 Harvested Area of Ornamental Plants by Kind of Plant in Hulu Sungai Tengah Regency (mł), 2022-2025 _
+=== #20 [5.3.1] hal=185 (Daftar hal.23)
+    ACUAN: Luas Areal Tanaman Perkebunan Menurut Kecamatan dan Jenis Tanaman di Kabupaten Hulu Sungai Tengah (ha), 2024 dan 2025
+    psm3       (judul 100) nomor=531 hal=185 fisik=None mirip=50 awalan=43
+               essescssssssscsscssecssessseesseeseesees ESTATE CROPS Luas Areal Tanaman Perkebunan Menurut Kecamatan dan Jenis Planted Area of Estate Crops by District and Type of Crops in Hulu Sungai Tengah Regency (Hd), 2024 ANd 20235 cc c.s c
+    psm4       (nomor) nomor=5.3.1 hal=185 fisik=211 mirip=100 awalan=53
+               essescssssssscsscssecssessseesseeseesees ESTATE CROPS Luas Areal Tanaman Perkebunan Menurut Kecamatan dan Jenis Tanaman di Kabupaten Hulu Sungai Tengah (ha), 2024 dan 2025 Planted Area of Estate Crops by District and Type of Crops
+    easyocr    (nomor) nomor=5.3.1 hal=185 fisik=211 mirip=100 awalan=15
+               ESTATE CROPS Ay Luas Areal Tanaman Perkebunan Menurut Kecamatan dan Jenis Tanaman di Kabupaten Hulu Sungai Tengah (ha), 2024 dan 2025 Planted Area of Estate Crops by District and Type of Crops in Hulu Sungai Tengah Regency (ha) 20
+=== #21 [5.3.3] hal=193 (Daftar hal.23)
+    ACUAN: Luas Areal Tanaman Perkebunan Rakyat Menurut Jenis Tanaman di Kabupaten Hulu Sungai Tengah (ha), 2021-2025
+    psm3       (judul 100) nomor=None hal=193 fisik=None mirip=100 awalan=0
+               Luas Areal Tanaman Perkebunan Rakyat Menurut Jenis Tanaman di Kabupaten Hulu Sungai Tengah (ha), 2021-2025 Planted Area of Smallholders Estates by Type of Crops in Hulu Sungai Tengah Regency (Hd), 2021-2025
+    psm4       (nomor) nomor=5.3.3 hal=None fisik=219 mirip=100 awalan=0
+               Luas Areal Tanaman Perkebunan Rakyat Menurut Jenis Tanaman di Kabupaten Hulu Sungai Tengah (ha), 2021—2025 Planted Area of Smallholders Estates by Type of Crops in Hulu Sungai Tengah Regency (Hd), 2021-2025 eccescssscsssssssssssss
+    easyocr    (nomor) nomor=5.3.3 hal=193 fisik=219 mirip=99 awalan=0
+               Luas Areal Tanaman Perkebunan Rakyat Menurut Jenis Tanaman di Kabupaten Hulu Sungai Tengah (ha) 2021-2025 Planted Area of Smallholders Estates by Type of Crops in Hulu Sungai Tengah Regency (ha) 2021-2025
+=== #22 [5.3.4] hal=194 (Daftar hal.24)
+    ACUAN: Produksi Perkebunan Rakyat Menurut Jenis Tanaman di Kabupaten Hulu Sungai Tengah (ton), 2021-2025
+    psm3       (judul 85) nomor=5.6 hal=202 fisik=None mirip=63 awalan=19
+               PERIKANAN FISHERY Produksi Perikanan Tangkap Menurut Kecamatan dan Subsektor di Kabupaten Hulu Sungai Tengah (ton), 2024 dan 2025 Production of Fish Capture by District and Subsector in Hulu Sungai Tengah Regency (ton), 2024 Gd 20
+    psm4       (nomor) nomor=5.3.4 hal=194 fisik=220 mirip=100 awalan=0
+               Produksi Perkebunan Rakyat Menurut Jenis Tanaman di Kabupaten Hulu Sungai Tengah (ton), 2021-2025 Production of Smallholder Estate Crops by Type of Crops in Hulu Sungai Tengah Regency (ton), 2021-2025 sssssscssecssecsesessecsseess
+    easyocr    (nomor) nomor=5.3.4 hal=194 fisik=220 mirip=99 awalan=0
+               Produksi Perkebunan Rakyat Menurut Jenis Tanaman di Kabupaten Hulu Sungai Tengah (ton) 2021-2025 Production of Smallholder Estate Crops by Type of Crops in Hulu Sungai Tengah Regency (ton) 2021-2025
+=== #23 [5.5.2] hal=200 (Daftar hal.24)
+    ACUAN: Populasi Unggas Menurut Kecamatan dan Jenis Unggas di Kabupaten Hulu Sungai Tengah (ekor), 2024 dan 2025
+    psm3       (judul 100) nomor=5.5 hal=197 fisik=None mirip=90 awalan=20
+               PETERNAKAN LIVESTOCK Populasi Ternak Menurut Kecamatan dan Jenis Ternak di Kabupaten Hulu Sungai Tengah (ekor), 2024 dan 2025 Livestock Population by District and Kind of Livestock in Hulu Sungai Tengah Regency (heads), 2024 ANd 2
+    psm4       (nomor) nomor=5.5.2 hal=200 fisik=226 mirip=100 awalan=44
+               ssssssssssssesecsesnescnsecseeenesenseessees Populasi Unggas Menurut Kecamatan dan Jenis Unggas di Kabupaten Hulu Sungai Tengah (ekor), 2024 dan 2025 Poultry Population by District and Kind of Poultry in Hulu Sungai Tengah Regency
+    easyocr    (nomor) nomor=5.5.2 hal=200 fisik=226 mirip=99 awalan=0
+               Populasi Unggas Menurut Kecamatan dan Jenis Unggas di Kabupaten Hulu Sungai Tengah (ekor) 2024 dan 2025 Poultry Population by District and Kind of Poultry in Hulu Sungai Tengah Regency (heads) 2024 and 2025
+=== #24 [5.6.2] hal=203 (Daftar hal.24)
+    ACUAN: Produksi dan Nilai Produksi Perikanan Tangkap Menurut Jenis Ikan di Kabupaten Hulu Sungai Tengah, 2025
+    psm3       (judul 100) nomor=5.6 hal=202 fisik=None mirip=63 awalan=287
+               PERIKANAN FISHERY Produksi Perikanan Tangkap Menurut Kecamatan dan Subsektor di Kabupaten Hulu Sungai Tengah (ton), 2024 dan 2025 Production of Fish Capture by District and Subsector in Hulu Sungai Tengah Regency (ton), 2024 Gd 20
+    psm4       (nomor) nomor=5.6.2 hal=203 fisik=229 mirip=100 awalan=0
+               Produksi dan Nilai Produksi Perikanan Tangkap Menurut Jenis Ikan di Kabupaten Hulu Sungai Tengah, 2025 Production and Its Value of Fish Capture by Type of Fish in Hulu Sungai Tengah REGency, 2025
+    easyocr    (nomor) nomor=5.6.2 hal=203 fisik=229 mirip=99 awalan=0
+               Produksi dan Nilai Produksi Perikanan Tangkap Menurut Jenis Ikan di Kabupaten Hulu Sungai Tengah; 2025 Production and Its Value of Fish Capture by Type of Fish in Hulu Sungai Tengah Regency; 2025
+=== #25 [6.5] hal=215 (Daftar hal.25)
+    ACUAN: Nilai Penjualan Air Menurut Jenis Konsumen di Kabupaten Hulu Sungai Tengah (rupiah), 2022-2025
+    psm3       (nomor) nomor=6.5 hal=215 fisik=None mirip=100 awalan=50
+               vrrsessssssssssssssssssssssssssssssssssssssssssees Nilai Penjualan Air Menurut Jenis Konsumen di Kabupaten Hulu Sungai Tengah (rupiah), 2022-2025 Value of Sold Clean Water by Type of Costumers in Hulu Sungai Tengah Regency (rupiah
+    psm4       (judul 100) nomor=65 hal=215 fisik=None mirip=62 awalan=45
+               vrrsessssssssssssssssssssssssssssssssssssssssssees Nilai Penjualan Air Menurut Jenis Konsumen di Kabupaten Hulu Value of Sold Clean Water by Type of Costumers in Hulu Sungai Tengah Regency (rupiahs), 2022-2025 ssssssessescsscneecs
+    easyocr    (nomor) nomor=6.5 hal=215 fisik=None mirip=100 awalan=0
+               Nilai Penjualan Air Menurut Jenis Konsumen di Kabupaten Hulu Sungai Tengah (rupiah), 2022-2025 Value of Sold Clean Water by Type of Costumers in Hulu Sungai Tengah Regency (rupiahs), 2022-2025
+=== #26 [6.6] hal=216 (Daftar hal.25)
+    ACUAN: Jumlah Stasiun Pengisian Bahan Bakar Umum (SPBU) Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2021-2025
+    psm3       (nomor) nomor=6.6 hal=216 fisik=None mirip=100 awalan=0
+               Jumlah Stasiun Pengisian Bahan Bakar Umum (SPBU) Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2021-2025 Number of Gas Station by Subdistrict in Hulu Sungai Tengah Regency, 2021-2025
+    psm4       (nomor) nomor=6.6 hal=None fisik=None mirip=100 awalan=0
+               Jumlah Stasiun Pengisian Bahan Bakar Umum (SPBU) Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2021-2025 Number of Gas Station by Subdistrict in Hulu Sungai Tengah Regency, 2021-2025 o.aeesecessssesesesceseresenscsecesssesecs
+    easyocr    (nomor) nomor=6.6 hal=216 fisik=241 mirip=100 awalan=0
+               Jumlah Stasiun Pengisian Bahan Bakar Umum (SPBU) Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2021-2025 Number of Gas Station by Subdistrict in Hulu Sungai Tengah Regency; 2021-2025
+=== #27 [8.2.2] hal=237 (Daftar hal.27)
+    ACUAN: Jumlah Desa/Kelurahan yang Memiliki Kantor Pos Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2021-2025
+    psm3       (judul 94) nomor=4.1.12 hal=99 fisik=126 mirip=55 awalan=0
+               Jumlah Desa'/Kelurahan yang Memiliki Fasilitas Sekolah Menurut Kecamatan dan Tingkat Pendidikan di Kabupaten Hulu Sungai Tengah, 2021-2025 Number of Villages'/Subdistricts Having Educational Facilities by District and Educational 
+    psm4       (nomor) nomor=8.2.2 hal=237 fisik=260 mirip=87 awalan=87
+               essecsecnecsscsecsecscensessensenccnccnceucenccnsessescsseseneeseeneeneeneeneeseesees Jumlah Desa'/Kelurahan Memiliki Kantor Pos? Menurut yang Kecamatan di Kabupaten Hulu Sungai Tengah, 2021-2025 Number of Villages'/District with 
+    easyocr    (nomor) nomor=8.2.2 hal=237 fisik=260 mirip=94 awalan=0
+               Jumlah Desa' /Kelurahan yang Memiliki Kantor Pos? Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2021-2025 Number of Villages' /District with Post Office? by District in Hulu Sungai Tengah Regency; 2021-2025._
+=== #28 [10.1] hal=262 (Daftar hal.28)
+    ACUAN: Rata-rata Pengeluaran per Kapita Sebulan Menurut Kelompok Komoditas di Kabupaten Hulu Sungai Tengah (rupiah), 2024 dan 2025
+    psm3       (judul 100) nomor=None hal=262 fisik=None mirip=100 awalan=47
+               10. PENGELUARAN PENDUDUK/POPULATION EXPENDITURE Rata-rata Pengeluaran per Kapita Sebulan Menurut Kelompok Komoditas di Kabupaten Hulu Sungai Tengah (rupiah), 2024 dan 2025 Monthly Average Expenditure per Capita by Commodity Group 
+    psm4       (judul 100) nomor=9.3 hal=None fisik=None mirip=48 awalan=255
+               Laju Inflasi Bulanan Menurut Kelompok Pengeluaran (2022=100) di Kabupaten Hulu Sungai Tengah, 2025 Monthly Inflation Rate by Expenditure Group (2012=100) in Hulu Sungai Tengah REGency, 2025 ssscssscsseecssecsserseecssecssecneecsee
+    easyocr    (nomor) nomor=10.1 hal=262 fisik=281 mirip=99 awalan=0
+               Rata-rata Pengeluaran per Kapita Sebulan Menurut Kelompok Komoditas di Kabupaten Hulu Sungai Tengah (rupiah) 2024 dan 2025 Monthly Average Expenditure per Capita by Commodity Group in Hulu Sungai Tengah Regency (rupiahs) 2024 and 
+=== #29 [11.1] hal=269 (Daftar hal.28)
+    ACUAN: Jumlah Pasar Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2021-2025
+    psm3       (judul 100) nomor=None hal=269 fisik=None mirip=100 awalan=0
+               Jumlah Pasar Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2021-2025 Number of Market by District in Hulu Sungai Tengah Regency, 2021- 20235 vessressessesssssscscsscsncsssessesscsscsseesssscsscsssssssssssssessssseesssasssssnc
+    psm4       (nomor) nomor=11.1 hal=269 fisik=287 mirip=100 awalan=26
+               wesssssssssecssereecseeese Jumlah Pasar Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2021-2025 Number of Market by District in Hulu Sungai Tengah Regency, 2021-
+    easyocr    (nomor) nomor=11.1 hal=269 fisik=287 mirip=99 awalan=0
+               Jumlah Pasar Menurut Kecamatan di Kabupaten Hulu Sungai Tengah; 2021-2025 Number of Market by District in Hulu Sungai Tengah Regency, 2021 _ 2025
+=== #30 [12.8] hal=288 (Daftar hal.30)
+    ACUAN: Laju Pertumbuhan Produk Domestik Regional Bruto Kabupaten Hulu Sungai Tengah Atas Dasar Harga Konstan 2010 Menurut Pengeluaran (persen), 2021-2025
+    psm3       (nomor) nomor=12.8 hal=None fisik=305 mirip=100 awalan=18
+               Halaman Table Page Laju Pertumbuhan Produk Domestik Regional Bruto Kabupaten Hulu Sungai Tengah Atas Dasar Harga Konstan 2010 Menurut Pengeluaran (persen), 2021—2025 Growth Rate of Gross Regional Domestic Product of Hulu Sungai Te
+    psm4       (nomor) nomor=12.8 hal=288 fisik=305 mirip=100 awalan=0
+               Laju Pertumbuhan Produk Domestik Regional Bruto Kabupaten Hulu Sungai Tengah Atas Dasar Harga Konstan 2010 Menurut Pengeluaran (persen), 2021—2025 Growth Rate of Gro ss Regional Domestic Product of Hulu Sungai Tengah Regency at 20
+    easyocr    (nomor) nomor=12.8 hal=288 fisik=305 mirip=99 awalan=0
+               Laju Pertumbuhan Produk Domestik Regional Bruto Kabupaten Hulu Sungai Tengah Atas Dasar Harga Konstan 2010 Menurut Pengeluaran (persen) 2021-2025 Growth Rate of Gross Regional Domestic Product of Hulu Sungai Tengah Regency at 2010

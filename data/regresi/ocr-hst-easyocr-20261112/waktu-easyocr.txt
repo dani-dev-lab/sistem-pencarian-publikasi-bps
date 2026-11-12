@@ -1,0 +1,3 @@
+mulai 07:54:56
+exit 0
+selesai 09:13:22

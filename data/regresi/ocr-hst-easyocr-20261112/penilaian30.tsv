@@ -1,0 +1,91 @@
+no	nomor_acuan	halaman_acuan	mesin	judul	nomor_ok	halaman_ok	fisik_ok
+1	3.2.1	49	tesseract_psm3	bersih	n	y	-
+1	3.2.1	49	tesseract_psm4_daftar	sampah	y	y	y
+1	3.2.1	49	easyocr	rusak	y	n	y
+2	3.2.2	50	tesseract_psm3	tidak	-	-	-
+2	3.2.2	50	tesseract_psm4_daftar	bersih	y	y	y
+2	3.2.2	50	easyocr	tidak	-	-	-
+3	3.2.4	53	tesseract_psm3	sampah	n	n	-
+3	3.2.4	53	tesseract_psm4_daftar	sampah	y	n	y
+3	3.2.4	53	easyocr	bersih	y	y	y
+4	3.2.8	57	tesseract_psm3	sampah	n	n	-
+4	3.2.8	57	tesseract_psm4_daftar	bersih	y	y	y
+4	3.2.8	57	easyocr	bersih	y	y	y
+5	4.1.1		tesseract_psm3	sampah	n	na	-
+5	4.1.1		tesseract_psm4_daftar	bersih	y	na	-
+5	4.1.1		easyocr	bersih	y	na	y
+6	4.1.6		tesseract_psm3	tidak	-	-	-
+6	4.1.6		tesseract_psm4_daftar	bersih	y	na	-
+6	4.1.6		easyocr	bersih	y	na	y
+7	4.1.8		tesseract_psm3	tidak	-	-	-
+7	4.1.8		tesseract_psm4_daftar	bersih	y	na	y
+7	4.1.8		easyocr	bersih	y	na	y
+8	4.2.5	114	tesseract_psm3	sampah	y	n	y
+8	4.2.5	114	tesseract_psm4_daftar	sampah	y	n	y
+8	4.2.5	114	easyocr	bersih	y	y	y
+9	4.2.7	116	tesseract_psm3	sampah	n	n	-
+9	4.2.7	116	tesseract_psm4_daftar	bersih	y	y	y
+9	4.2.7	116	easyocr	bersih	y	y	y
+10	4.4.1	126	tesseract_psm3	bersih	y	y	-
+10	4.4.1	126	tesseract_psm4_daftar	bersih	y	y	-
+10	4.4.1	126	easyocr	bersih	y	y	y
+11	4.4.7	135	tesseract_psm3	sampah	n	y	-
+11	4.4.7	135	tesseract_psm4_daftar	sampah	n	y	-
+11	4.4.7	135	easyocr	bersih	y	y	y
+12	4.4.8	136	tesseract_psm3	sampah	n	y	-
+12	4.4.8	136	tesseract_psm4_daftar	sampah	n	n	-
+12	4.4.8	136	easyocr	bersih	y	y	-
+13	5.1.1	152	tesseract_psm3	sampah	n	y	-
+13	5.1.1	152	tesseract_psm4_daftar	bersih	y	y	y
+13	5.1.1	152	easyocr	bersih	y	y	y
+14	5.1.7	158	tesseract_psm3	tidak	-	-	-
+14	5.1.7	158	tesseract_psm4_daftar	tidak	-	-	-
+14	5.1.7	158	easyocr	bersih	y	y	y
+15	5.1.10	161	tesseract_psm3	tidak	-	-	-
+15	5.1.10	161	tesseract_psm4_daftar	rusak	y	y	y
+15	5.1.10	161	easyocr	bersih	y	y	y
+16	5.2.3	168	tesseract_psm3	tidak	-	-	-
+16	5.2.3	168	tesseract_psm4_daftar	sampah	y	y	y
+16	5.2.3	168	easyocr	bersih	y	y	y
+17	5.2.4	169	tesseract_psm3	sampah	n	n	-
+17	5.2.4	169	tesseract_psm4_daftar	bersih	y	y	y
+17	5.2.4	169	easyocr	bersih	y	y	y
+18	5.2.9	176	tesseract_psm3	sampah	n	n	-
+18	5.2.9	176	tesseract_psm4_daftar	sampah	y	n	y
+18	5.2.9	176	easyocr	bersih	y	y	y
+19	5.2.11	180	tesseract_psm3	bersih	y	y	y
+19	5.2.11	180	tesseract_psm4_daftar	bersih	y	y	y
+19	5.2.11	180	easyocr	bersih	y	y	y
+20	5.3.1	185	tesseract_psm3	rusak	n	y	-
+20	5.3.1	185	tesseract_psm4_daftar	sampah	y	y	y
+20	5.3.1	185	easyocr	sampah	y	y	y
+21	5.3.3	193	tesseract_psm3	bersih	n	y	-
+21	5.3.3	193	tesseract_psm4_daftar	sampah	y	n	y
+21	5.3.3	193	easyocr	bersih	y	y	y
+22	5.3.4	194	tesseract_psm3	tidak	-	-	-
+22	5.3.4	194	tesseract_psm4_daftar	sampah	y	y	y
+22	5.3.4	194	easyocr	bersih	y	y	y
+23	5.5.2	200	tesseract_psm3	tidak	-	-	-
+23	5.5.2	200	tesseract_psm4_daftar	sampah	y	y	y
+23	5.5.2	200	easyocr	bersih	y	y	y
+24	5.6.2	203	tesseract_psm3	tidak	-	-	-
+24	5.6.2	203	tesseract_psm4_daftar	bersih	y	y	y
+24	5.6.2	203	easyocr	bersih	y	y	y
+25	6.5	215	tesseract_psm3	sampah	y	y	-
+25	6.5	215	tesseract_psm4_daftar	rusak	n	y	-
+25	6.5	215	easyocr	bersih	y	y	-
+26	6.6	216	tesseract_psm3	bersih	y	y	-
+26	6.6	216	tesseract_psm4_daftar	sampah	y	n	-
+26	6.6	216	easyocr	bersih	y	y	y
+27	8.2.2	237	tesseract_psm3	tidak	-	-	-
+27	8.2.2	237	tesseract_psm4_daftar	rusak	y	y	y
+27	8.2.2	237	easyocr	bersih	y	y	y
+28	10.1	262	tesseract_psm3	sampah	n	y	-
+28	10.1	262	tesseract_psm4_daftar	tidak	-	-	-
+28	10.1	262	easyocr	bersih	y	y	y
+29	11.1	269	tesseract_psm3	sampah	n	y	-
+29	11.1	269	tesseract_psm4_daftar	sampah	y	y	y
+29	11.1	269	easyocr	bersih	y	y	y
+30	12.8	288	tesseract_psm3	sampah	y	n	y
+30	12.8	288	tesseract_psm4_daftar	bersih	y	y	y
+30	12.8	288	easyocr	bersih	y	y	y
