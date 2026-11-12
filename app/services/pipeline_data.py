@@ -19,7 +19,7 @@ from app.models import EntriDokumen, Kategori, Publikasi, db
 from app.services.ekstraksi_pdf import ekstrak_lengkap
 from app.services.normalisasi_data import teks_publikasi
 from app.services.preprocessing import normalisasi
-from app.services import versi_data
+from app.services import ocr, versi_data
 from app.services.sumber_bps import berkas_pdf_valid, path_pdf, samarkan, sidik_pdf
 
 PANJANG_GALAT = 1000
@@ -194,15 +194,22 @@ def susun_rencana(kode, di_daftar=None, paksa=False):
     return tugas, menunggu
 
 
-def ekstrak_berkas(path, pub_id):
-    """Jalankan parser. Tidak menyentuh database. Return (entri, catatan)."""
+def ekstrak_berkas(path, pub_id, ocr_aktif=True, log=print):
+    """Jalankan parser. Tidak menyentuh database. Return (entri, catatan).
+
+    Halaman tanpa lapisan teks dibaca lewat OCR kalau `ocr_aktif` dan
+    EasyOCR terpasang (atau cache-nya sudah ada); kalau tidak, dilewati dan
+    dicatat di catatan["ocr"]. Lihat app/services/ocr.py.
+    """
     # Heading dicatat supaya bisa membedakan "daftarnya memang tidak ada" dari
     # "daftarnya ada tapi gagal dibaca". Diambil dari dalam ekstrak_lengkap(),
     # bukan dicari ulang: mencarinya dua kali menambah sekitar 16% waktu.
     heading = {}
     jejak = []
+    info_ocr = {}
     entri, n_daftar, n_badan, n_lengkap, n_isi = ekstrak_lengkap(
-        path, pub_id, jejak, heading_keluar=heading)
+        path, pub_id, jejak, heading_keluar=heading,
+        penyiap_pdf=ocr.penyiap(path, aktif=ocr_aktif, catatan=info_ocr, log=log))
 
     catatan = {
         "heading_ditemukan": sorted(heading),
@@ -215,6 +222,7 @@ def ekstrak_berkas(path, pub_id):
         "dari_badan": n_badan,
         "halaman_fisik_dilengkapi": n_lengkap,
         "halaman_fisik_isi": n_isi,
+        "ocr": info_ocr,
     }
     return entri, catatan
 
@@ -246,6 +254,10 @@ def simpan_entri(pub_id, entri, sidik, catatan, updt_diproses=None):
         pub.diekstrak_pada = datetime.now(timezone.utc)
         pub.galat_ekstraksi = None
         pub.catatan_ekstraksi = catatan
+        # Penanda publikasi hasil OCR: jumlah halaman yang dibaca lewat OCR,
+        # kosong = tidak ada (12 Nov 2026).
+        info_ocr = catatan.get("ocr") or {}
+        pub.halaman_ocr = (info_ocr.get("dari_cache", 0) + info_ocr.get("di_ocr", 0)) or None
         if updt_diproses is not None:
             pub.updt_date_diproses = updt_diproses
         versi_data.naikkan()        # korpus pencarian di memori perlu dimuat ulang
@@ -269,6 +281,10 @@ def perlu_diperiksa(catatan):
     """Alasan hasil ekstraksi ini layak diperiksa manual, atau None."""
     jumlah = catatan["jumlah_entri"]
     per_tipe = catatan["per_tipe"]
+    dilewati = (catatan.get("ocr") or {}).get("dilewati")
+    if dilewati:
+        return (f"{dilewati} halaman tanpa lapisan teks dilewati "
+                f"({catatan['ocr']['alasan_dilewati']})")
     if jumlah == 0:
         return "0 entri sama sekali"
     buntu = [t for t in catatan["heading_ditemukan"] if not per_tipe.get(t)]

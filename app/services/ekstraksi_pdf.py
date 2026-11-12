@@ -1382,7 +1382,8 @@ def lengkapi_halaman_isi(entri, baris_halaman):
 # API modul
 # --------------------------------------------------------------------------
 
-def ekstrak_lengkap(path_pdf, publikasi_id, jejak=None, heading_keluar=None):
+def ekstrak_lengkap(path_pdf, publikasi_id, jejak=None, heading_keluar=None,
+                    penyiap_pdf=None):
     """Ekstraksi DUA jalur: halaman daftar + badan dokumen, lalu digabung.
 
     Jalur daftar memberi nomor halaman CETAK; jalur badan memberi halaman
@@ -1394,10 +1395,15 @@ def ekstrak_lengkap(path_pdf, publikasi_id, jejak=None, heading_keluar=None):
     perlu mencatat heading tidak usah memanggil cari_heading() sendiri - itu
     memakan sekitar 16% waktu ekstraksi karena seluruh halaman depan dibaca dua kali.
 
+    `penyiap_pdf` opsional: fungsi pdf -> objek ber-`.pages` yang sebagian
+    halamannya boleh diganti (OCR halaman tanpa lapisan teks, lihat
+    app/services/ocr.py). Tanpa itu perilakunya sama persis seperti dulu.
+
     Return (entri, jumlah dari daftar, jumlah dari badan, halaman_fisik
     tabel/gambar/lampiran yang dilengkapi, halaman_fisik isi yang diisi).
     """
-    with pdfplumber.open(path_pdf) as pdf:
+    with pdfplumber.open(path_pdf) as asli:
+        pdf = penyiap_pdf(asli) if penyiap_pdf else asli
         dari_daftar = []
         heading = cari_heading(pdf)
         if heading_keluar is not None:

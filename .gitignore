@@ -35,3 +35,5 @@ data/pemeriksaan_domain.json
 
 # Cache OCR per halaman (spike revisi 4); dibuat ulang dari PDF, besar.
 data/ocr_cache/
+# Log pengisian cache OCR (scripts/isi_cache_ocr.py).
+data/log_ocr/

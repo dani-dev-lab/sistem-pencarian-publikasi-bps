@@ -55,13 +55,13 @@ def create_app(config_class: type[Config] = Config) -> Flask:
     app.register_blueprint(bp_pencarian)
     app.register_blueprint(bp_admin, url_prefix="/admin")
 
-    # Kolom log_pencarian.wilayah_filter (filter wilayah, 10 Nov 2026) untuk
-    # database lama. Di awal request, bukan di sini: create_app() juga
+    # Kolom tambahan (log_pencarian.wilayah_filter, publikasi.halaman_ocr)
+    # untuk database lama. Di awal request, bukan di sini: create_app() juga
     # dipanggil skrip dan pemeriksa .bat sebelum koneksi MySQL dipastikan.
-    from app.models.log_pencarian import pastikan_kolom
+    from app.models.skema import pastikan_kolom
 
     @app.before_request
-    def _pastikan_kolom_log():
+    def _pastikan_kolom_tambahan():
         pastikan_kolom()
 
     return app

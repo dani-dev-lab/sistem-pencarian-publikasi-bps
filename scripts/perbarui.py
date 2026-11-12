@@ -45,6 +45,10 @@ from app.services.wilayah import muat_wilayah, pola_judul_dikecualikan, wilayah_
 FILE_RINGKASAN = "data/pembaruan_terakhir.json"   # dibaca /admin/perbarui
 FILE_KUNCI = "data/pembaruan.lock"                # berisi PID yang sedang jalan
 FILE_PEMERIKSAAN = "data/pemeriksaan_domain.json" # hasil --hanya-periksa
+# OCR halaman tanpa lapisan teks (app/services/ocr.py). Dimatikan dengan
+# --tanpa-ocr: halaman itu lalu dilewati dan dicatat, perilaku sebelum OCR ada.
+OCR_AKTIF = True
+
 DIR_LOG = "data/log_pembaruan"                    # salinan keluaran tiap run
 
 TAHAP = ("ambil_metadata", "unduh", "ekstraksi", "muat")
@@ -252,6 +256,9 @@ def pastikan_skema():
     # Penanda versi untuk korpus pencarian di memori. DDL di sini, SEBELUM
     # transaksi penulis mana pun (CREATE TABLE memaksa commit di MySQL).
     versi_data.pastikan_tabel()
+    # Kolom tambahan untuk database lama (publikasi.halaman_ocr, dll.).
+    from app.models.skema import pastikan_kolom
+    pastikan_kolom()
 
 
 def domain_terhalang(aktif):
@@ -438,7 +445,9 @@ def proses_tugas(t, durasi, hasil):
     sidik = sumber_bps.sidik_pdf(t["path"])
     mulai = time.perf_counter()
     try:
-        entri, catatan = pipeline_data.ekstrak_berkas(t["path"], t["pub_id"])
+        entri, catatan = pipeline_data.ekstrak_berkas(
+            t["path"], t["pub_id"], ocr_aktif=OCR_AKTIF,
+            log=lambda baris: print(baris, flush=True))
     except Exception as e:  # noqa: BLE001 - satu PDF rusak tidak boleh menghentikan yang lain
         durasi["ekstraksi"] += time.perf_counter() - mulai
         gagal("ekstraksi", str(e))
@@ -458,6 +467,14 @@ def proses_tugas(t, durasi, hasil):
     durasi["muat"] += time.perf_counter() - mulai
 
     print(f"      {len(entri)} entri", flush=True)
+    info_ocr = catatan.get("ocr") or {}
+    if info_ocr.get("halaman_tanpa_teks"):
+        print(f"      halaman tanpa teks {info_ocr['halaman_tanpa_teks']}: "
+              f"cache OCR {info_ocr['dari_cache']}, di-OCR {info_ocr['di_ocr']}, "
+              f"dilewati {info_ocr['dilewati']}"
+              + (f" ({info_ocr['alasan_dilewati']})" if info_ocr["dilewati"] else ""),
+              flush=True)
+        hasil.setdefault("ocr", []).append({"pub_id": t["pub_id"], "judul": t["judul"], **info_ocr})
     hasil["diproses"] += 1
     if t["belum_pernah"]:
         hasil["publikasi_baru"].append({"pub_id": t["pub_id"], "judul": t["judul"],
@@ -707,6 +724,7 @@ def jalankan_pembaruan(opsi):
         status,
         jaringan=jaringan,
         mode="lokal" if opsi.lokal else "online",
+        ocr="mati (--tanpa-ocr)" if not OCR_AKTIF else "aktif",
         jumlah_publikasi=jumlah_publikasi,
         publikasi_baru=[{**p, "wilayah": d["wilayah"]}
                         for d in per_domain for p in d["publikasi_baru"]],
@@ -736,9 +754,14 @@ def main():
                      help="Tarik metadata semua wilayah (aktif maupun tidak) dan "
                           "cari tabrakan pub_id. Tidak mengubah database. WAJIB "
                           "sebelum domain baru pertama kali dimuat.")
+    arg.add_argument("--tanpa-ocr", action="store_true",
+                     help="Jangan memakai OCR (EasyOCR maupun cache-nya). Halaman "
+                          "PDF tanpa lapisan teks dilewati dan dicatat.")
     arg.add_argument("--tahun-min", type=int, default=None,
                      help="Tahun rilis paling awal (default: 2 tahun terakhir).")
     opsi = arg.parse_args()
+    global OCR_AKTIF
+    OCR_AKTIF = not opsi.tanpa_ocr
 
     # Baris dialirkan begitu muncul: kalau layar diam selama penarikan metadata,
     # orang yang menjalankan .bat menyangka macet. errors="replace" karena konsol

@@ -308,6 +308,7 @@ di jaringan kantor, hal-hal berikut perlu disiapkan oleh tim IT:
 | **Menjalankan sebagai layanan** | Sekarang aplikasi berjalan di jendela Command Prompt yang harus dibiarkan terbuka. Untuk berjalan otomatis saat komputer menyala, daftarkan `jalankan-aplikasi.bat` di Task Scheduler (*At startup*) atau bungkus dengan NSSM sebagai Windows Service. |
 | **Pembaruan berkala** | Pengelola bisa memperbarui dari halaman admin (bagian 4). Kalau ingin otomatis, `perbarui-data.bat` bisa dijadwalkan lewat Task Scheduler, mis. tiap Senin pagi, di komputer yang tersambung "BPS - Pegawai" — pengaman "satu pembaruan pada satu waktu" tetap berlaku antara jadwal dan tombol di browser. |
 | **Kerahasiaan `.env`** | Berisi API key BPS dan sandi database. Jangan disalin ke tempat bersama; batasi hak baca berkasnya. Perhatikan: halaman Ganti Kata Sandi **menulis ulang** baris `ADMIN_PASSWORD_HASH` di berkas ini, jadi akun yang menjalankan aplikasi harus punya hak tulis ke `.env`. |
+| **OCR untuk PDF tanpa teks (opsional)** | Beberapa PDF BPS tidak punya lapisan teks: hurufnya berupa gambar atau kurva. Halaman seperti itu dibaca dengan OCR (EasyOCR). OCR **tidak wajib**: tanpa paketnya, aplikasi dan pembaruan tetap jalan, dan halaman tanpa teks hanya dilewati dan dicatat. Memasangnya: `venv\Scripts\python.exe -m pip install -r requirements-ocr.txt` (±1,1 GB; model ±94 MB diunduh otomatis saat pertama dipakai ke `%USERPROFILE%\.EasyOCR`). OCR lambat (±15 detik per halaman), jadi hasilnya disimpan di `data/ocr_cache/` dan hanya dikerjakan sekali per halaman. Untuk mematikan OCR pada satu pembaruan: `perbarui-data.bat --tanpa-ocr`. Server web tidak pernah memuat OCR, jadi kebutuhan memorinya tidak berubah. |
 | **Pemulihan kata sandi admin** | Kalau pengelola lupa sandi, hanya bisa disetel ulang dari server: buka Command Prompt di folder proyek, jalankan `venv\Scripts\python.exe scripts\buat_hash_sandi.py`, ketik sandi baru dua kali (tidak tampil di layar, minimal 8 karakter), lalu salin baris `ADMIN_PASSWORD_HASH=...` yang dicetak ke `.env` menggantikan baris lama. Hentikan dan jalankan ulang aplikasi — jalur ini tidak membaca ulang `.env` secara otomatis. Prosedur yang sama dipakai saat pemasangan pertama (bagian 2). |
 
 ### Mengganti port di server
@@ -344,6 +345,24 @@ Diuji: port 5006-5009 lewat argumen `run.py`, argumen `.bat`, `PORT` di
 `PORT=abc` dan port yang sedang dipakai.
 
 ---
+
+### Hal terbuka yang perlu dikonfirmasi saat serah terima
+
+- **Lisensi berkas model OCR.** EasyOCR mengunduh dua berkas model:
+  `craft_mlt_25k.pth` (deteksi teks, dari proyek CRAFT milik NAVER) dan
+  `latin_g2.pth` (pengenalan huruf). **Lisensi kedua berkas itu tidak
+  dinyatakan di mana pun** (diperiksa 12 Nov 2026):
+  - kode CRAFT berlisensi MIT, dan bobotnya hanya dibagikan lewat tautan
+    Google Drive tanpa keterangan lisensi;
+  - kode EasyOCR berlisensi Apache-2.0, dan halaman model hub JaidedAI tidak
+    menyebut lisensi untuk berkas modelnya;
+  - halaman *Terms* JaidedAI yang menyebut "non-commercial" mengatur layanan
+    web mereka, bukan berkas model.
+
+  Pemakaian internal BPS kemungkinan besar aman, tetapi itu kesimpulan,
+  bukan pernyataan lisensi. **Perlu konfirmasi tim IT/mentor** sebelum OCR
+  dipakai di server BPS. Kalau tidak disetujui, cukup jangan pasang
+  `requirements-ocr.txt`: aplikasi tetap berjalan tanpa OCR.
 
 ## 8. Keterbatasan yang diketahui
 

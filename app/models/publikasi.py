@@ -65,6 +65,11 @@ class Publikasi(db.Model):
     # "daftarnya ada tapi gagal dibaca".
     catatan_ekstraksi = db.Column(db.JSON)
 
+    # Jumlah halaman yang dibaca lewat OCR (halaman tanpa lapisan teks,
+    # app/services/ocr.py). Kosong = publikasi ini tidak memakai OCR.
+    # Ditambahkan ke database lama oleh app/models/skema.py (12 Nov 2026).
+    halaman_ocr = db.Column(db.Integer)
+
     # Judul + abstrak yang sudah dinormalisasi, untuk pencarian tingkat
     # publikasi. Diisi oleh scripts/isi_normalisasi.py.
     teks_ternormalisasi = db.Column(db.Text)

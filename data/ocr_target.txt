@@ -1,0 +1,10 @@
+# Publikasi tanpa lapisan teks yang perlu OCR (revisi 4, lihat CLAUDE.md).
+# Satu pub_id per baris; teks sesudah '#' diabaikan. Dipakai scripts/isi_cache_ocr.py.
+aafda0cff288ddb041cfa024  # HST Dalam Angka 2026 (kurva vektor) - cache sudah lengkap 12 Nov 2026
+f338cd99104699dbbd49256a  # PDRB Tapin Pengeluaran 2021-2025 (kurva vektor)
+47c94280220a99e5d2045881  # Profil Tenaga Kerja Tapin Agustus 2024 (teks dirasterkan)
+8db55ef62f0d2083f60d1b31  # Statistik Daerah Kota Banjarbaru 2025 (teks dirasterkan)
+a818fdde814d5bbc2820d135  # PDRB Kota Banjarbaru LU 2021-2025 (gambar satu halaman)
+182e2e58be59ddf2d26a7a44  # PDRB Tapin LU 2020-2024 (91% halaman tanpa teks)
+25f039221e44a34843043419  # PDRB Tapin LU 2021-2025 (91% halaman tanpa teks)
+786645b667871d033771a8b9  # PDRB Tabalong LU 2020-2024 (64% halaman tanpa teks)

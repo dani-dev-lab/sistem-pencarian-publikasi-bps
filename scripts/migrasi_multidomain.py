@@ -54,6 +54,7 @@ KOLOM_BARU = [
     ("publikasi", "catatan_ekstraksi", "JSON NULL"),
     ("log_pencarian", "durasi_ms", "FLOAT NULL"),
     ("log_pencarian", "wilayah_filter", "CHAR(4) NULL"),    # filter wilayah, 10 Nov 2026
+    ("publikasi", "halaman_ocr", "INT NULL"),               # OCR, 12 Nov 2026
 ]
 
 

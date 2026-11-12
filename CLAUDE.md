@@ -678,7 +678,43 @@ Aturan yang berlaku:
     - Lisensi bobot model (`craft_mlt_25k.pth`, `latin_g2.pth`) TIDAK
       dinyatakan di repo CRAFT (kode MIT), repo EasyOCR (kode Apache-2.0),
       maupun di model hub JaidedAI. Terms JaidedAI hanya mengatur layanan
-      web mereka.
+      web mereka. Dicatat sebagai hal terbuka di PANDUAN.md bagian 7.
+  - **OCR di pipeline (12 Nov 2026, rancangan disetujui; BELUM dimuat ke
+    DB):** `app/services/ocr.py`.
+    - **Opsional.** EasyOCR, torch, dan numpy hanya diimpor di dalam fungsi
+      OCR. Server web terbukti tidak memuatnya: working set 174 MB sebelum
+      dan sesudah pemasangan, tanpa DLL torch/opencv.
+    - Dependensi di `requirements-ocr.txt` (torch CPU). Pemasangannya ke venv
+      proyek tidak mengubah versi paket lama (pip freeze 37 → 58 paket,
+      0 berubah).
+    - Halaman OCR masuk ke parser lewat `ekstrak_lengkap(penyiap_pdf=...)`
+      sebagai `HalamanOCR` (antarmuka halaman pdfplumber). Parser lain tidak
+      berubah.
+    - **Syarat dua tingkat:**
+      - halaman: karakter non-watermark < 20;
+      - **publikasi: >= 50% halamannya seperti itu** (`AMBANG_PUBLIKASI`).
+    - **Kenapa syarat publikasi wajib:** PDF bertekst juga punya halaman
+      kosong, sampul, dan pembatas bab di bawah 20 karakter (median korpus
+      10,7%, 4.390 halaman). Versi pertama tanpa syarat ini meng-OCR halaman
+      kosong itu (±25 detik per halaman) - ketahuan di regresi 6 PDF
+      bertekst.
+    - Diukur di 306 PDF: kedelapan target >= 69,6%, berikutnya 44,4%.
+      Kasus batas: PDRB HST Pengeluaran (44,4%) dan LU (41,5%) punya
+      halaman prosa/grafik berkurva, tetapi Daftar-nya bertekst (52/82
+      entri), sehingga tidak di-OCR.
+    - **Cache:** `data/ocr_cache/<domain>/<pub_id>/<hal>-easyocr.json` +
+      `_meta.json` (sidik PDF; PDF berganti = cache lama dibuang).
+    - **Penanda di DB:** `publikasi.halaman_ocr` = jumlah halaman OCR,
+      ditambahkan oleh `app/models/skema.py`.
+    - Saklar `perbarui.py --tanpa-ocr` (untuk tim IT): OCR dan cache-nya
+      tidak dipakai; halaman dilewati dan dicatat, publikasi masuk "perlu
+      diperiksa".
+    - OCR massal dipisah dari pemuatan: `scripts/isi_cache_ocr.py
+      data/ocr_target.txt`. Hanya mengisi cache, tanpa DB, bisa dilanjutkan,
+      ada log dan kunci proses.
+    - Uji: pipeline pada HST = 163 entri, identik dengan keluaran yang
+      dinilai 27/30; `--tanpa-ocr` = 0 entri, 320 halaman tercatat
+      dilewati.
 - **Batas heading Daftar, DIPERBAIKI 12 Nov 2026**
   (`data/regresi/batas-heading-20261112.md`). Dulu `cari_heading` hanya
   mencari di `BATAS_HALAMAN_CARI = 25` halaman pertama, sehingga 24 Daftar
