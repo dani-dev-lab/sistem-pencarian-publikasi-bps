@@ -35,14 +35,17 @@ DIR_PROYEK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, DIR_PROYEK)
 
 import sqlalchemy as sa
+from sqlalchemy.engine import make_url
 
 from app import create_app
+from app.config import Config, KonfigurasiUji
 from app.models import EntriDokumen, Publikasi, db
 from app.services import pipeline_data, sumber_bps, versi_data
 from app.services.sumber_bps import GagalAmbil, samarkan
 from app.services.wilayah import muat_wilayah, pola_judul_dikecualikan, wilayah_aktif
 
 FILE_RINGKASAN = "data/pembaruan_terakhir.json"   # dibaca /admin/perbarui
+FILE_RINGKASAN_UJI = "data/pembaruan_terakhir-uji.json"   # run --db-uji
 FILE_KUNCI = "data/pembaruan.lock"                # berisi PID yang sedang jalan
 FILE_PEMERIKSAAN = "data/pemeriksaan_domain.json" # hasil --hanya-periksa
 # OCR halaman tanpa lapisan teks (app/services/ocr.py). Dimatikan dengan
@@ -759,9 +762,17 @@ def main():
                           "PDF tanpa lapisan teks dilewati dan dicatat.")
     arg.add_argument("--tahun-min", type=int, default=None,
                      help="Tahun rilis paling awal (default: 2 tahun terakhir).")
+    arg.add_argument("--db-uji", action="store_true",
+                     help="Tulis ke database UJI (KonfigurasiUji: nama database di "
+                          "DATABASE_URL + '_uji'), bukan produksi. Ringkasan ditulis ke "
+                          f"{FILE_RINGKASAN_UJI}, bukan ke ringkasan yang dibaca "
+                          "/admin/perbarui.")
     opsi = arg.parse_args()
-    global OCR_AKTIF
+    global OCR_AKTIF, FILE_RINGKASAN
     OCR_AKTIF = not opsi.tanpa_ocr
+    konfigurasi = KonfigurasiUji if opsi.db_uji else Config
+    if opsi.db_uji:
+        FILE_RINGKASAN = FILE_RINGKASAN_UJI
 
     # Baris dialirkan begitu muncul: kalau layar diam selama penarikan metadata,
     # orang yang menjalankan .bat menyangka macet. errors="replace" karena konsol
@@ -770,6 +781,13 @@ def main():
     sys.stderr.reconfigure(encoding="utf-8", errors="replace", line_buffering=True)
     # Baris pdfminer tentang FontBBox membanjiri layar tanpa memberi informasi.
     logging.getLogger("pdfminer").setLevel(logging.ERROR)
+
+    # Baris PERTAMA keluaran: database mana yang akan ditulis. Sandi tidak
+    # pernah ikut dicetak. Pengaman nama database uji ada di create_app().
+    tujuan = make_url(konfigurasi.SQLALCHEMY_DATABASE_URI)
+    baris_tujuan = (f"Database tujuan: {tujuan.database} @ {tujuan.host or '-'}:{tujuan.port or '-'}"
+                    f" ({'UJI - bukan produksi' if opsi.db_uji else 'PRODUKSI'})")
+    print(baris_tujuan)
 
     os.chdir(DIR_PROYEK)
     pid_lain = pembaruan_sedang_berjalan()
@@ -783,13 +801,14 @@ def main():
     nama_log = os.path.join(DIR_LOG, datetime.now().strftime("%Y%m%d-%H%M%S")
                             + ("-periksa" if opsi.hanya_periksa else "") + ".log")
     berkas_log = open(nama_log, "w", encoding="utf-8")
+    berkas_log.write(baris_tujuan + "\n")       # sudah tercetak di layar, belum di log
     sys.stdout = Salin(sys.stdout, berkas_log)
     print(f"Log run ini: {nama_log}")
     jaga_tetap_bangun(True)
 
     kode = KODE_GAGAL
     try:
-        app = create_app()
+        app = create_app(konfigurasi)
         with app.app_context():
             pastikan_skema()
             kode = jalankan_pemeriksaan() if opsi.hanya_periksa else jalankan_pembaruan(opsi)

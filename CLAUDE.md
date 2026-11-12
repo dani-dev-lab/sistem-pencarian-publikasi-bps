@@ -756,6 +756,27 @@ Aturan yang berlaku:
   sekali jalan), bukan lewat suite yang bisa diulang. Diputuskan tidak
   dikerjakan sekarang; kalau ada yang mengubah parser atau scoring, jalankan
   ulang pemeriksaan manual yang dicatat di bagian-bagian terkait.
+- **Database uji terpisah (12 Nov 2026).** Uji yang bisa mengubah data
+  atau skema TIDAK boleh ke produksi `db_pencarian_bps`. Termasuk request
+  test_client, karena `skema.pastikan_kolom()` berjalan di awal request.
+  - `create_app(KonfigurasiUji)` memakai `db_pencarian_bps_uji`: nama di
+    `DATABASE_URL` + `_uji`, server yang sama (`url_database_uji()` di
+    `app/config.py`). Log pencarian tetap mati di konfigurasi ini; untuk
+    menguji log, buat subclass dengan `CATAT_LOG_PENCARIAN = True`.
+  - Pengaman `periksa_database_uji()` (dipanggil `periksa_konfigurasi()`):
+    konfigurasi uji yang bernama database sama dengan produksi ditolak
+    dengan SystemExit, termasuk subclass yang menimpa URL-nya.
+  - Salinan dibuat `scripts/siapkan_db_uji.py` (mysqldump dialirkan
+    langsung, lalu jumlah baris + CHECKSUM TABLE per tabel dibandingkan).
+    Skrip ini tidak pernah menghapus atau menimpa: kalau database uji sudah
+    ada, ia berhenti. Menyegarkan = hapus manual dulu (dengan izin pemilik
+    project). Salinan TIDAK ikut diperbarui; isinya keadaan saat dibuat.
+  - `perbarui.py` mencetak database tujuan di baris pertama keluarannya
+    (juga di log run). `--db-uji` menulis ke database uji, dan ringkasannya
+    ke `data/pembaruan_terakhir-uji.json`, bukan ke ringkasan yang dibaca
+    `/admin/perbarui`. Berkas kunci tetap sama, jadi run uji dan run
+    produksi tidak bisa berjalan bersamaan. PDF dan cache OCR tetap folder
+    bersama.
 - **Deteksi wilayah: "banjar" juga nama suku.** "penduduk suku banjar"
   memasang filter Kab. Banjar; petugas membatalkannya lewat pita. Singkatan
   (tala, hss, bjm, ...) belum dikonfirmasi tim PST. Provinsi tidak dideteksi

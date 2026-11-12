@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 
 from dotenv import load_dotenv
+from sqlalchemy.engine import make_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / ".env")
@@ -50,17 +51,68 @@ class Config:
     # Rekam tiap pencarian di /hasil ke log_pencarian. Sengaja TIDAK dibaca
     # dari .env: log ini bahan perbaikan kamus sinonim, dan satu baris salah di
     # .env server akan mematikannya tanpa ada yang sadar. Yang mematikannya
-    # hanya KonfigurasiUji di bawah, supaya pemeriksaan route /hasil terhadap
-    # data asli tidak mencemari log dengan kueri buatan.
+    # hanya KonfigurasiUji di bawah, supaya pemeriksaan route /hasil tidak
+    # mengisi log dengan kueri buatan.
     CATAT_LOG_PENCARIAN = True
 
 
+def url_database_uji(url_produksi):
+    """URL database uji: server yang sama, nama database + '_uji'.
+
+    db_pencarian_bps -> db_pencarian_bps_uji. Diturunkan dari DATABASE_URL,
+    bukan ditulis terpisah di .env, supaya tidak ada isian kedua yang bisa
+    keliru diisi nama database produksi.
+    """
+    u = make_url(url_produksi)
+    if u.drivername.startswith("sqlite"):
+        p = Path(u.database)
+        u = u.set(database=str(p.with_name(f"{p.stem}_uji{p.suffix}")))
+    else:
+        u = u.set(database=f"{u.database}_uji")
+    # str(URL) menyamarkan sandi menjadi "***" di SQLAlchemy 2.x.
+    return u.render_as_string(hide_password=False)
+
+
 class KonfigurasiUji(Config):
-    """Konfigurasi untuk pengujian: semuanya sama, kecuali log tidak ditulis.
+    """Konfigurasi untuk pengujian: database UJI terpisah, log tidak ditulis.
+
+    Database-nya salinan produksi (db_pencarian_bps_uji), dibuat dengan
+    scripts/siapkan_db_uji.py. Uji yang lewat create_app(KonfigurasiUji)
+    karena itu tidak bisa mengubah data atau skema produksi - termasuk
+    ALTER TABLE dari skema.pastikan_kolom() di awal request.
+
+    Salinan tidak ikut diperbarui sendiri: isinya keadaan produksi saat
+    salinan dibuat.
 
     Pakai: create_app(KonfigurasiUji).
     """
+    KONFIGURASI_UJI = True
+    SQLALCHEMY_DATABASE_URI = url_database_uji(Config.SQLALCHEMY_DATABASE_URI)
     CATAT_LOG_PENCARIAN = False
+
+
+def periksa_database_uji(config_class):
+    """Tolak berjalan kalau konfigurasi uji menunjuk ke database produksi.
+
+    Produksi = database di DATABASE_URL (Config). Dibandingkan menurut NAMA
+    database, jadi juga menangkap subclass yang menimpa
+    SQLALCHEMY_DATABASE_URI dengan URL lain yang ujungnya sama. Dipanggil
+    dari periksa_konfigurasi() dan dari scripts/siapkan_db_uji.py.
+    """
+    if not getattr(config_class, "KONFIGURASI_UJI", False):
+        return
+    nama_uji = make_url(config_class.SQLALCHEMY_DATABASE_URI).database
+    nama_produksi = make_url(Config.SQLALCHEMY_DATABASE_URI).database
+    if not nama_uji or nama_uji == nama_produksi:
+        garis = "=" * 72
+        raise SystemExit(
+            f"\n{garis}\nKONFIGURASI UJI MENUNJUK KE DATABASE PRODUKSI - tidak dijalankan\n"
+            f"{garis}\n\n"
+            f"  {config_class.__name__} memakai database {nama_uji!r}, sama dengan\n"
+            f"  database produksi di DATABASE_URL. Uji harus memakai salinan\n"
+            f"  (lihat url_database_uji() di app/config.py dan\n"
+            f"  scripts/siapkan_db_uji.py).\n{garis}"
+        )
 
 
 PESAN_SECRET_KEY = """\
@@ -95,6 +147,7 @@ def periksa_konfigurasi(config_class=Config):
     bukan diam-diam memakai nilai bawaan - nilai bawaan yang tersimpan di
     kode sumber sama saja dengan tidak ada pengamanan.
     """
+    periksa_database_uji(config_class)
     masalah = []
     if not config_class.SECRET_KEY or config_class.SECRET_KEY == SECRET_KEY_LAMA:
         masalah.append(PESAN_SECRET_KEY)
