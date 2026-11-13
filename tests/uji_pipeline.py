@@ -217,14 +217,14 @@ ENV.pop("BPS_DOMAIN", None)
 assert ENV["BPS_API_BASE_URL"].startswith("http://127.0.0.1:"), "uji tidak boleh ke API BPS"
 
 
-def jalan(skrip, *arg, timeout=3600):
+def jalan(skrip, *arg, timeout=3600, env_tambah=None):
     """Jalankan skrip di salinan. perbarui.py SELALU dengan --db-uji."""
     arg = list(arg)
     if skrip == "perbarui.py" and "--db-uji" not in arg:
         arg.insert(0, "--db-uji")
     t = time.time()
-    r = subprocess.run([PY, "-u", f"{UJI}/scripts/{skrip}", *arg], cwd=SP, env=ENV, capture_output=True,
-                       text=True, encoding="utf-8", errors="replace", timeout=timeout)
+    r = subprocess.run([PY, "-u", f"{UJI}/scripts/{skrip}", *arg], cwd=SP, env={**ENV, **(env_tambah or {})},
+                       capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=timeout)
     return r.returncode, r.stdout + r.stderr, time.time() - t
 
 
@@ -779,7 +779,283 @@ def bagian_t(per_id, x, kecil):
     cek("T4 pertama selesai normal", p.returncode == 0, p.returncode)
 
 
-BAGIAN_BELUM = "D K R W"   # dijadwalkan Senin
+TIRUAN = {"kode": "6399", "nama": "Kab. Tiruan Uji", "aktif": False, "singkatan": [],
+          "singkatan_status": "tiruan"}
+
+
+def bagian_d(per_id, kecil):
+    print("\n=== D. MULTI-DOMAIN (domain tiruan 6399) ===", flush=True)
+    semula = list(KEADAAN["domain"][DOMAIN])
+    aktifkan(DOMAIN, TIRUAN["kode"], tambahan=[TIRUAN])
+    b63 = copy.deepcopy(per_id[kecil[0]])
+    id63 = "aaaabbbbccccddddeeee6399"
+    b63.update(pub_id=id63, title="Kabupaten Tiruan Dalam Angka Tiruan",
+               pdf=f"http://127.0.0.1:{PORT}/pdf/{id63}", updt_date=None)
+    KEADAAN["berkas_pdf"][id63] = f"{SUMBER}/{kecil[0]}.pdf"
+    KEADAAN["domain"]["6399"] = [b63]
+
+    def run(*arg):
+        kode, keluar, _ = jalan("perbarui.py", *arg)
+        r = ringkasan()
+        return kode, r, {d["kode"]: d for d in r.get("domain", [])}
+
+    kode, r, ds = run()
+    cek("D1 domain baru tanpa --hanya-periksa: DILEWATI, domain lama tetap jalan, exit 3",
+        ds["6399"]["status"] == "gagal" and "hanya-periksa" in ds["6399"]["pesan"]
+        and ds[DOMAIN]["status"] in ("tidak_ada_baru", "sukses") and kode == 3,
+        f"exit {kode}, 6399: {str(ds['6399']['pesan'])[:50]}")
+    n = sql("SELECT COUNT(*) FROM publikasi WHERE domain='6399'", DB_UJI)
+    cek("D1 tak ada baris 6399 masuk", n == "0", n)
+
+    sebelum = sql("SELECT COUNT(*), MAX(updated_at) FROM publikasi", DB_UJI)
+    pdf_sebelum = len(glob.glob(f"{UJI}/data/publikasi_pdf/*/*.pdf"))
+    kode, keluar, dtk = jalan("perbarui.py", "--hanya-periksa")
+    lap = json.load(open(f"{UJI}/data/pemeriksaan_domain.json", encoding="utf-8"))
+    n_wil = len(json.load(open(f"{UJI}/data/wilayah.json", encoding="utf-8"))["wilayah"])
+    cek(f"D2 --hanya-periksa bersih: {n_wil} wilayah, 0 tabrakan, exit 0",
+        kode == 0 and len(lap["domain_berhasil"]) == n_wil and not lap["tabrakan"],
+        f"exit {kode}, {len(lap['domain_berhasil'])} domain, {dtk:.0f} d")
+    cek("D2 --hanya-periksa tidak menulis DB / PDF",
+        sql("SELECT COUNT(*), MAX(updated_at) FROM publikasi", DB_UJI) == sebelum
+        and len(glob.glob(f"{UJI}/data/publikasi_pdf/*/*.pdf")) == pdf_sebelum)
+
+    kode, r, ds = run()
+    p63 = f"{UJI}/data/publikasi_pdf/6399/{id63}.pdf"
+    cek("D3 setelah lolos: 6399 dimuat ke subfolder + wilayah benar",
+        ds["6399"]["status"] == "sukses" and os.path.exists(p63) and kolom_pub(id63, "wilayah") == TIRUAN["nama"]
+        and kolom_pub(id63, "domain") == "6399", f"{ds['6399']['status']}, {kolom_pub(id63, 'wilayah')}")
+
+    x = kecil[2]
+    KEADAAN["gagal_domain"]["6399"] = "putus"
+    per_id[x]["updt_date"] = "2026-12-24"
+    kode, r, ds = run()
+    cek("D4 domain putus jaringan: domain lain tetap diproses, exit 3",
+        kode == 3 and r["status"] == "sebagian" and ds["6399"]["status"] == "gagal" and ds["6399"]["jaringan"]
+        and ds[DOMAIN]["status"] == "sukses" and kolom_pub(x, "updt_date_diproses") == "2026-12-24",
+        f"exit {kode}, {r['status']}, {DOMAIN} {ds[DOMAIN]['status']}")
+    cek("D4 data domain yang gagal tidak disentuh", entri_n(id63) > 0 and kolom_pub(id63, "domain") == "6399")
+    del KEADAAN["gagal_domain"]["6399"]
+
+    # Halaman ke-2 gagal: domain gagal tanpa upsert sebagian (judul halaman 1 tetap)
+    KEADAAN["gagal_halaman"][DOMAIN] = 2
+    pid0 = semula[0]["pub_id"]
+    judul0 = kolom_pub(pid0, "judul")
+    semula[0]["title"] = "JUDUL SEHARUSNYA TIDAK MASUK"
+    kode, r, ds = run()
+    cek("D5 halaman ke-2 gagal: domain gagal, metadata tak tersentuh",
+        ds[DOMAIN]["status"] == "gagal" and kolom_pub(pid0, "judul") == judul0,
+        f"{ds[DOMAIN]['status']}: {str(ds[DOMAIN]['pesan'])[:60]}")
+    del KEADAAN["gagal_halaman"][DOMAIN]
+    semula[0]["title"] = judul0
+
+    KEADAAN["domain"]["6399"] = []
+    kode, r, ds = run()
+    cek("D6 0 publikasi padahal DB berisi: ditolak, data utuh",
+        ds["6399"]["status"] == "gagal" and kolom_pub(id63, "domain") == "6399", str(ds["6399"]["pesan"])[:70])
+
+    t = semula[1]["pub_id"]
+    judul_t, ent_t = kolom_pub(t, "judul"), entri_n(t)
+    kol = copy.deepcopy(semula[1])
+    kol["title"] = "JUDUL DOMAIN LAIN"
+    KEADAAN["domain"]["6399"] = [b63, kol]
+    kode, keluar, _ = jalan("perbarui.py", "--hanya-periksa")
+    lap = json.load(open(f"{UJI}/data/pemeriksaan_domain.json", encoding="utf-8"))
+    cek("D7 --hanya-periksa: 1 pub_id di dua domain = TEPAT 1 tabrakan, exit 1",
+        kode == 1 and [x["pub_id"] for x in lap["tabrakan"]] == [t], f"exit {kode}, {len(lap['tabrakan'])} tabrakan")
+    KEADAAN["domain"][DOMAIN] = [p for p in semula if p["pub_id"] != t]
+    kode, keluar, _ = jalan("perbarui.py", "--hanya-periksa")
+    lap = json.load(open(f"{UJI}/data/pemeriksaan_domain.json", encoding="utf-8"))
+    cek("D7b tabrakan API-vs-DB terdeteksi, tepat 1",
+        kode == 1 and [x["pub_id"] for x in lap["tabrakan"]] == [t]
+        and lap["tabrakan"][0].get("domain_tersimpan") == DOMAIN, f"exit {kode}, {len(lap['tabrakan'])} tabrakan")
+    KEADAAN["domain"][DOMAIN] = semula
+    jalan("perbarui.py", "--hanya-periksa")
+    kode, r, ds = run()
+    cek("D8 pengaman: baris domain lain TIDAK ditimpa, dilaporkan, exit 3",
+        kode == 3 and ds["6399"]["status"] == "sebagian" and ds["6399"]["tabrakan"][0]["pub_id"] == t
+        and kolom_pub(t, "judul") == judul_t and kolom_pub(t, "domain") == DOMAIN and entri_n(t) == ent_t,
+        f"exit {kode}, {ds['6399']['status']}")
+
+    KEADAAN["domain"]["6399"] = [kol]
+    kode, r, ds = run()
+    cek("D9 publikasi hilang dari daftar API: dilaporkan, tidak dihapus",
+        ds["6399"]["tidak_di_daftar"] and ds["6399"]["tidak_di_daftar"][0]["pub_id"] == id63 and entri_n(id63) > 0,
+        len(ds["6399"]["tidak_di_daftar"]))
+    KEADAAN["domain"]["6399"] = [b63]
+    aktifkan(DOMAIN)
+
+
+def bagian_k():
+    print("\n=== K. API KEY TIDAK BOCOR ===", flush=True)
+    import requests
+    try:
+        requests.get(f"http://127.0.0.1:9/v1/key/{KEY}/", timeout=2)
+        cek("K0 alat uji sah: pesan galat mentah memang memuat key", False, "tidak ada galat")
+    except Exception as e:  # noqa: BLE001
+        cek("K0 alat uji sah: pesan galat mentah memang memuat key", KEY in str(e))
+    bocor = []
+    putus = {"BPS_API_BASE_URL": "http://127.0.0.1:9/v1/api"}       # port tertutup, bukan BPS
+    for skenario, arg in (("jaringan putus", ()), ("periksa putus", ("--hanya-periksa",))):
+        kode, keluar, _ = jalan("perbarui.py", *arg, timeout=900, env_tambah=putus)
+        for nama_b, berkas in (("keluaran", None), ("ringkasan", "pembaruan_terakhir-uji.json"),
+                               ("pemeriksaan", "pemeriksaan_domain.json")):
+            isi = keluar if berkas is None else (open(f"{UJI}/data/{berkas}", encoding="utf-8").read()
+                                                  if os.path.exists(f"{UJI}/data/{berkas}") else "")
+            if KEY in isi:
+                bocor.append((skenario, nama_b))
+        cek(f"K1 {skenario}: gagal dengan pesan, key tersamar", kode == 1 and "***" in keluar and "127.0.0.1" in keluar,
+            f"exit {kode}")
+    cek("K1 key tidak ada di keluaran/ringkasan/laporan", not bocor, bocor)
+
+
+def bagian_r(contoh_id):
+    print("\n=== R. ROUTE PDF & HALAMAN ADMIN (test_client, KonfigurasiUji) ===", flush=True)
+    kode_r = rf"""
+import json, os, re
+from app import create_app
+from app.config import KonfigurasiUji
+from app.models import Publikasi
+app = create_app(KonfigurasiUji); c = app.test_client()
+U = r'{UJI}/data/publikasi_pdf'
+with app.app_context():
+    semua = [(p.id, p.domain, p.url_pdf) for p in Publikasi.query.filter(Publikasi.domain.in_(['{DOMAIN}', '6399'])).all()]
+buruk = []
+n = 0
+for pid, dom, _ in semua:
+    path = f'{{U}}/{{dom}}/{{pid}}.pdf'
+    if not os.path.exists(path): continue
+    n += 1
+    r = c.get('/pdf/' + pid); isi = r.get_data(); r.close()
+    if (r.status_code != 200 or r.headers.get('Location') or r.mimetype != 'application/pdf' or isi[:4] != b'%PDF'
+            or len(isi) != os.path.getsize(path) or 'attachment' in r.headers.get('Content-Disposition', '')):
+        buruk.append((pid, r.status_code))
+print('PDF_LOKAL', n, 'buruk', buruk)
+h = c.get('/hasil?q=pdrb&w={DOMAIN}').get_data(as_text=True)
+# Kartu "Juga ada di publikasi provinsi" menautkan PDF domain 6300, yang tidak
+# ada di salinan uji: route itu benar mengalihkan ke url_pdf. Dinilai terpisah.
+lokal = set(p for p, _, _ in semua)
+tautan = re.findall(r'href="(/pdf/(\w+)[^"]*)"', h)
+ok = lain = lain_ok = 0
+for t, pid in tautan:
+    r = c.get(t.split('#')[0])
+    if pid in lokal:
+        ok += r.status_code == 200 and not r.headers.get('Location') and r.get_data()[:4] == b'%PDF'
+    else:
+        lain += 1; lain_ok += r.status_code == 302
+    r.close()
+print('TOMBOL', len(tautan) - lain, 'ok', ok, 'LAIN', lain, 'alih', lain_ok)
+url = dict((p, u) for p, _, u in semua)['{contoh_id}']
+path = f'{{U}}/{DOMAIN}/{contoh_id}.pdf'
+os.replace(path, path + '.x'); r = c.get('/pdf/{contoh_id}'); print('HILANG', r.status_code, r.headers.get('Location') == url); os.replace(path + '.x', path)
+print('TAK_ADA', c.get('/pdf/..%2f..%2fapp').status_code, c.get('/pdf/tidakada').status_code)
+with c.session_transaction() as s: s['admin_masuk'] = True
+F = r'{UJI}/data/pembaruan_terakhir-uji.json'
+contoh = {{
+ 'sebagian': {{'status':'sebagian','selesai_pada':'2026-11-05T01:00:00+00:00','jaringan':False,'jumlah_publikasi':80,'publikasi_baru':[{{'pub_id':'x','judul':'Judul Baru <b>','entri':5,'wilayah':'Kab. Tapin'}}],'entri_sebelum':10,'entri_sesudah':15,'durasi_detik':60,'durasi_tahap':{{'ambil_metadata':1.5,'unduh':2.5,'ekstraksi':3.5,'muat':0.5}},
+   'domain':[{{'kode':'6305','wilayah':'Kab. Tapin','status':'sebagian','pesan':None,'jumlah_publikasi':17,'diunduh':1,'diproses':0,'gagal':[{{'judul':'Judul Gagal','tahap':'unduh','pesan':'HTTP 500'}}],'tabrakan':[{{'pub_id':'id1','domain_lain':'6399','judul_api':'Judul Tabrakan'}}],'tidak_di_daftar':[{{'pub_id':'y','judul':'z'}}],'menunggu_unduhan':[{{'pub_id':'m'}}],'perlu_diperiksa':[]}},
+             {{'kode':'6301','wilayah':'Kab. Tanah Laut','status':'gagal','pesan':'halaman 1: putus','jumlah_publikasi':0,'diunduh':0,'diproses':0,'gagal':[],'tabrakan':[],'tidak_di_daftar':[],'menunggu_unduhan':[],'perlu_diperiksa':[]}}]}},
+ 'sukses': {{'status':'sukses','selesai_pada':'2026-11-05T01:00:00+00:00','jaringan':False,'jumlah_publikasi':80,'publikasi_baru':[],'entri_sebelum':10,'entri_sesudah':15,'durasi_detik':60,'durasi_tahap':{{'ambil_metadata':1,'unduh':2,'ekstraksi':3,'muat':4}},'domain':[]}},
+ 'tidak_ada_baru': {{'status':'tidak_ada_baru','selesai_pada':'2026-11-05T01:00:00+00:00','jaringan':False,'jumlah_publikasi':80,'durasi_detik':60,'publikasi_baru':[],'domain':[{{'kode':'6305','wilayah':'Kab. Tapin','status':'tidak_ada_baru','pesan':None,'jumlah_publikasi':17,'diunduh':0,'diproses':0,'gagal':[],'tabrakan':[],'tidak_di_daftar':[],'menunggu_unduhan':[],'perlu_diperiksa':[]}}],'durasi_tahap':{{'ambil_metadata':1,'unduh':0,'ekstraksi':0,'muat':0}}}},
+ 'gagal_jaringan': {{'status':'gagal','selesai_pada':'2026-11-05T01:00:00+00:00','jaringan':True,'durasi_detik':5,'domain':[]}},
+ 'gagal_lain': {{'status':'gagal','selesai_pada':'2026-11-05T01:00:00+00:00','jaringan':False,'tahap':'konfigurasi','durasi_detik':5}},
+ 'lama_sukses': {{'status':'sukses','selesai_pada':'2026-09-15T01:00:00+00:00','jumlah_publikasi':74,'publikasi_baru':[{{'pub_id':'x','judul':'Format Lama','entri':3}}],'entri_sebelum':1,'entri_sesudah':4,'diekstrak_ulang':0,'durasi_detik':179}},
+ 'lama_tidak_ada': {{'jumlah_publikasi':79,'durasi_detik':175,'status':'tidak_ada_baru','selesai_pada':'2026-11-05T01:53:19+00:00'}},
+}}
+harap = {{'sebagian':['selesai sebagian','Kab. Tanah Laut','Sebagian gagal','Judul Gagal','Judul Tabrakan','halaman 1: putus','menunggu pembaruan online','tidak lagi ada','ambil daftar 1.5','&lt;b&gt;'],'sukses':['Pembaruan selesai','simpan 4'],'tidak_ada_baru':['Tidak ada publikasi baru','Tidak ada yang baru'],'gagal_jaringan':['BPS - Pegawai'],'gagal_lain':['di tahap konfigurasi'],'lama_sukses':['Format Lama','179 detik'],'lama_tidak_ada':['Tidak ada publikasi baru','175 detik']}}
+for nama, isi in contoh.items():
+    json.dump(isi, open(F, 'w', encoding='utf-8'))
+    r = c.get('/admin/perbarui'); h = r.get_data(as_text=True)
+    print('ADMIN', nama, r.status_code, 'kurang', [x for x in harap[nama] if x not in h])
+os.remove(F)
+r = c.get('/admin/perbarui'); print('ADMIN tanpa_berkas', r.status_code, 'kurang', [])
+"""
+    kode, keluar, err = jalan_py(kode_r, timeout=900)
+    print("    | " + keluar.strip().replace("\n", "\n    | "), err[-800:], flush=True)
+    m = re.search(r"PDF_LOKAL (\d+) buruk (.*)", keluar)
+    cek("R1 /pdf/<id> menyajikan berkas lokal untuk semua publikasi domain uji",
+        m and int(m.group(1)) > 0 and m.group(2) == "[]", m.group(0)[:100] if m else err[-200:])
+    m = re.search(r"TOMBOL (\d+) ok (\d+) LAIN (\d+) alih (\d+)", keluar)
+    cek("R2 tombol Buka PDF di /hasil -> berkas lokal tanpa redirect; PDF di luar salinan -> alih ke url_pdf",
+        m and int(m.group(1)) > 0 and m.group(1) == m.group(2) and m.group(3) == m.group(4), m.group(0) if m else "")
+    cek("R3 berkas hilang -> cadangan redirect ke url_pdf", "HILANG 302 True" in keluar)
+    cek("R4 id tak dikenal / path aneh -> 404", "TAK_ADA 404 404" in keluar)
+    admin = re.findall(r"ADMIN (\w+) (\d+) kurang (.*)", keluar)
+    cek("R5 /admin/perbarui (ringkasan -uji) merender semua status + format lama",
+        len(admin) == 8 and all(a[1] == "200" and a[2] == "[]" for a in admin), admin)
+
+
+def bagian_w(per_id, v):
+    print("\n=== W. TOMBOL WEB + .BAT SUNGGUHAN (keduanya --db-uji) ===", flush=True)
+    per_id[v]["updt_date"] = "2026-12-23"
+    KEADAAN["mode_pdf"][v] = "500"
+    kode_web = rf"""
+import time
+from app import create_app
+from app.config import KonfigurasiUji
+app = create_app(KonfigurasiUji); c = app.test_client()
+with c.session_transaction() as s: s['admin_masuk'] = True
+r = c.post('/admin/perbarui/mulai'); print('MULAI', r.status_code)
+r = c.post('/admin/perbarui/mulai'); h = c.get('/admin/perbarui').get_data(as_text=True); print('KEDUA_NONAKTIF', 'sedang berjalan' in h)
+t = time.time()
+while time.time() - t < 600:
+    h = c.get('/admin/perbarui').get_data(as_text=True)
+    if 'Pembaruan sedang berjalan' not in h: break
+    time.sleep(1)
+print('SEBAGIAN_TAMPIL', 'selesai sebagian' in h, 'JUDUL_GAGAL', {per_id[v]['title'][:30]!r} in h, 'UJI', '{DB_UJI}' in h)
+"""
+    kode, keluar, err = jalan_py(kode_web, timeout=700)
+    print("    | " + keluar.strip().replace("\n", "\n    | "), err[-500:], flush=True)
+    cek("W1 tombol web (KonfigurasiUji): berjalan ke DB uji, POST kedua ditolak, ringkasan 'sebagian' + judul gagal",
+        "MULAI 302" in keluar and "KEDUA_NONAKTIF True" in keluar
+        and "SEBAGIAN_TAMPIL True JUDUL_GAGAL True UJI True" in keluar)
+    del KEADAAN["mode_pdf"][v]
+
+    # .bat sungguhan: python/activate palsu mengarah ke venv asli
+    os.makedirs(f"{UJI}/venv/Scripts", exist_ok=True)
+    open(f"{UJI}/venv/Scripts/python.exe", "wb").close()
+    with open(f"{UJI}/venv/Scripts/activate.bat", "w", newline="") as f:
+        jalur = os.path.dirname(PY).replace("/", chr(92))
+        f.write('@set "PATH=' + jalur + ';%PATH%"' + chr(13) + chr(10))
+    shutil.copy2(f"{ASLI}/perbarui-data.bat", f"{UJI}/perbarui-data.bat")
+    open(f"{UJI}/.env", "w").write("# kosong: nilai uji datang dari variabel lingkungan\n")
+    isi_bat = open(f"{ASLI}/perbarui-data.bat", "rb").read()
+    cek("W2 .bat tetap ASCII + CRLF", all(x < 128 for x in isi_bat) and b"\n" not in isi_bat.replace(b"\r\n", b""))
+
+    def bat():
+        r = subprocess.run(["cmd", "/c", os.path.normpath(f"{UJI}/perbarui-data.bat"), "--db-uji"], cwd=UJI, env=ENV,
+                           stdin=subprocess.DEVNULL, capture_output=True, text=True, encoding="utf-8",
+                           errors="replace", timeout=600)
+        return r.stdout + r.stderr
+
+    def baris(k, kata):
+        return [b.strip() for b in k.splitlines() if kata in b][:2]
+
+    per_id[v]["updt_date"] = "2026-12-22"
+    KEADAAN["mode_pdf"][v] = "500"
+    k = bat()
+    cek("W3 .bat exit 3 -> SELESAI SEBAGIAN", "PEMBARUAN SELESAI SEBAGIAN" in k and "PEMBARUAN GAGAL" not in k,
+        baris(k, "PEMBARUAN"))
+    del KEADAAN["mode_pdf"][v]
+    k = bat()
+    cek("W4 .bat exit 0 -> PEMBARUAN SELESAI., cek MySQL ke database uji",
+        "PEMBARUAN SELESAI." in k and "SEBAGIAN" not in k and f"database: {DB_UJI}" in k,
+        baris(k, "PEMBARUAN") + baris(k, "database:"))
+    KEADAAN["gagal_domain"][DOMAIN] = "putus"
+    k = bat()
+    cek("W5 .bat exit 1 -> PEMBARUAN GAGAL + pesan jaringan", "PEMBARUAN GAGAL" in k and "tidak bisa dihubungi" in k,
+        baris(k, "PEMBARUAN"))
+    del KEADAAN["gagal_domain"][DOMAIN]
+    per_id[v]["updt_date"] = "2026-12-21"            # run pertama diberi kerja supaya pasti masih berjalan
+    p = popen_perbarui()
+    t0 = time.time()
+    while time.time() - t0 < 60 and not os.path.exists(f"{UJI}/data/pembaruan.lock"):
+        time.sleep(0.05)
+    k = bat()
+    cek("W6 .bat saat terkunci -> TIDAK DIJALANKAN", "TIDAK DIJALANKAN" in k, baris(k, "DIJALANKAN"))
+    p.wait()
+
+
+SEMUA_BAGIAN = "PLCHOBGETDKRW"
 
 
 def main():
@@ -796,20 +1072,27 @@ def main():
         for p in usang:
             sql(f"UPDATE publikasi SET updt_date_api='2026-12-31' WHERE id='{p}'", DB_UJI)
         s0 = potret()
-        bagian_p(s0, usang)
-        bagian_l(usang)
-        bagian_c(s0, ocr_pub)
-        bagian_h(s0)
         per_id = {p["pub_id"]: p for p in pubs}
-        bagian_o(pubs, per_id, usang, s0)
         # publikasi kecil bertekst (bukan OCR, bukan usang) untuk skenario cepat
         kecil = sorted((p for p in dom if p not in ocr_pub and p not in usang),
                        key=lambda p: os.path.getsize(path_uji(p)))[:6]
-        baru = bagian_b(pubs, per_id, kecil)
-        bagian_g(per_id, kecil[2])
-        bagian_e(pubs, per_id, kecil, baru)
-        bagian_t(per_id, kecil[2], kecil)
-        print(f"\n(belum diporting ke struktur baru: {BAGIAN_BELUM})", flush=True)
+        baru = None
+        if BAGIAN != SEMUA_BAGIAN:
+            print(f"\n(--hanya {BAGIAN}: bagian lain dilewati)", flush=True)
+        for b in BAGIAN:
+            if b == "P": bagian_p(s0, usang)
+            if b == "L": bagian_l(usang)
+            if b == "C": bagian_c(s0, ocr_pub)
+            if b == "H": bagian_h(s0)
+            if b == "O": bagian_o(pubs, per_id, usang, s0)
+            if b == "B": baru = bagian_b(pubs, per_id, kecil)
+            if b == "G": bagian_g(per_id, kecil[2])
+            if b == "E": bagian_e(pubs, per_id, kecil, baru or copy.deepcopy(per_id[kecil[0]]))
+            if b == "T": bagian_t(per_id, kecil[2], kecil)
+            if b == "D": bagian_d(per_id, kecil)
+            if b == "K": bagian_k()
+            if b == "R": bagian_r(kecil[0])
+            if b == "W": bagian_w(per_id, kecil[2])
     finally:
         srv.shutdown()
 
@@ -871,4 +1154,10 @@ def jalankan():
 
 
 if __name__ == "__main__":
+    # --hanya DKRW: jalankan sebagian bagian saja (urutan tetap SEMUA_BAGIAN).
+    # U dan Z selalu jalan. Untuk tim IT: jalankan tanpa argumen.
+    BAGIAN = SEMUA_BAGIAN
+    if "--hanya" in sys.argv:
+        pilih = sys.argv[sys.argv.index("--hanya") + 1].upper()
+        BAGIAN = "".join(b for b in SEMUA_BAGIAN if b in pilih)
     sys.exit(jalankan())

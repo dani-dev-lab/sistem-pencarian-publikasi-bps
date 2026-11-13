@@ -1,0 +1,106 @@
+### Run --hanya DKRW (13 Nov 2026 15:23, MYSQL_BIN dari .env): R2 gagal karena alat uji (tautan provinsi), diperbaiki
+Cadangan database uji: 8.8 MB, 6 tabel; produksi 6 tabel
+Database uji: db_pencarian_bps_uji | produksi (hanya dibaca): db_pencarian_bps | domain uji: 6305
+
+=== U. PENGAMAN DATABASE UJI ===
+  [LULUS] U1 KonfigurasiUji yang menunjuk nama produksi ditolak (SystemExit)  -- DITOLAK True
+  [LULUS] U2 baris pertama perbarui.py = database uji  -- Database tujuan: db_pencarian_bps_uji @ localhost:3306 (UJI - bukan produksi)
+  [LULUS] U3 ringkasan ke pembaruan_terakhir-uji.json, berkas produksi tidak dibuat  -- exit 0, 1 d
+
+(--hanya DKRW: bagian lain dilewati)
+
+=== D. MULTI-DOMAIN (domain tiruan 6399) ===
+  [LULUS] D1 domain baru tanpa --hanya-periksa: DILEWATI, domain lama tetap jalan, exit 3  -- exit 3, 6399: Dilewati: belum lolos scripts/perbarui.py --hanya-
+  [LULUS] D1 tak ada baris 6399 masuk  -- 0
+  [LULUS] D2 --hanya-periksa bersih: 15 wilayah, 0 tabrakan, exit 0  -- exit 0, 15 domain, 16 d
+  [LULUS] D2 --hanya-periksa tidak menulis DB / PDF
+  [LULUS] D3 setelah lolos: 6399 dimuat ke subfolder + wilayah benar  -- sukses, Kab. Tiruan Uji
+  [LULUS] D4 domain putus jaringan: domain lain tetap diproses, exit 3  -- exit 3, sebagian, 6305 sukses
+  [LULUS] D4 data domain yang gagal tidak disentuh
+  [LULUS] D5 halaman ke-2 gagal: domain gagal, metadata tak tersentuh  -- gagal: halaman 2: 500 Server Error: Internal Server Error for url: 
+  [LULUS] D6 0 publikasi padahal DB berisi: ditolak, data utuh  -- 0 publikasi lolos filter padahal database berisi 1 publikasi domain in
+  [LULUS] D7 --hanya-periksa: 1 pub_id di dua domain = TEPAT 1 tabrakan, exit 1  -- exit 1, 1 tabrakan
+  [LULUS] D7b tabrakan API-vs-DB terdeteksi, tepat 1  -- exit 1, 1 tabrakan
+  [LULUS] D8 pengaman: baris domain lain TIDAK ditimpa, dilaporkan, exit 3  -- exit 3, sebagian
+  [LULUS] D9 publikasi hilang dari daftar API: dilaporkan, tidak dihapus  -- 1
+
+=== K. API KEY TIDAK BOCOR ===
+  [LULUS] K0 alat uji sah: pesan galat mentah memang memuat key
+  [LULUS] K1 jaringan putus: gagal dengan pesan, key tersamar  -- exit 1
+  [LULUS] K1 periksa putus: gagal dengan pesan, key tersamar  -- exit 1
+  [LULUS] K1 key tidak ada di keluaran/ringkasan/laporan  -- []
+
+=== R. ROUTE PDF & HALAMAN ADMIN (test_client, KonfigurasiUji) ===
+    | PDF_LOKAL 18 buruk []
+    | TOMBOL 41 ok 31
+    | HILANG 302 True
+    | TAK_ADA 404 404
+    | ADMIN sebagian 200 kurang []
+    | ADMIN sukses 200 kurang []
+    | ADMIN tidak_ada_baru 200 kurang []
+    | ADMIN gagal_jaringan 200 kurang []
+    | ADMIN gagal_lain 200 kurang []
+    | ADMIN lama_sukses 200 kurang []
+    | ADMIN lama_tidak_ada 200 kurang []
+    | ADMIN tanpa_berkas 200 kurang [] 
+  [LULUS] R1 /pdf/<id> menyajikan berkas lokal untuk semua publikasi domain uji  -- PDF_LOKAL 18 buruk []
+  [GAGAL] R2 tombol Buka PDF di /hasil -> berkas lokal, tanpa redirect  -- TOMBOL 41 ok 31
+  [LULUS] R3 berkas hilang -> cadangan redirect ke url_pdf
+  [LULUS] R4 id tak dikenal / path aneh -> 404
+  [LULUS] R5 /admin/perbarui (ringkasan -uji) merender semua status + format lama  -- [('sebagian', '200', '[]'), ('sukses', '200', '[]'), ('tidak_ada_baru', '200', '[]'), ('gagal_jaringan', '200', '[]'), ('gagal_lain', '200', '[]'), ('lama_sukses', '200', '[]'), ('lama_tidak_ada', '200', '[]'), ('tanpa_berkas', '200', '[]')]
+
+=== W. TOMBOL WEB + .BAT SUNGGUHAN (keduanya --db-uji) ===
+    | MULAI 302
+    | KEDUA_NONAKTIF True
+    | SEBAGIAN_TAMPIL True JUDUL_GAGAL True UJI True 
+  [LULUS] W1 tombol web (KonfigurasiUji): berjalan ke DB uji, POST kedua ditolak, ringkasan 'sebagian' + judul gagal
+  [LULUS] W2 .bat tetap ASCII + CRLF
+  [LULUS] W3 .bat exit 3 -> SELESAI SEBAGIAN  -- ['RINGKASAN PEMBARUAN', 'PEMBARUAN SELESAI SEBAGIAN - sebagian wilayah/publikasi gagal.']
+  [LULUS] W4 .bat exit 0 -> PEMBARUAN SELESAI., cek MySQL ke database uji  -- ['RINGKASAN PEMBARUAN', 'PEMBARUAN SELESAI.', 'database: db_pencarian_bps_uji']
+  [LULUS] W5 .bat exit 1 -> PEMBARUAN GAGAL + pesan jaringan  -- ['RINGKASAN PEMBARUAN', 'PEMBARUAN GAGAL - baca pesan di atas.']
+  [LULUS] W6 .bat saat terkunci -> TIDAK DIJALANKAN  -- ['TIDAK DIJALANKAN: pembaruan lain sedang berjalan.']
+
+=== Z. PEMULIHAN DAN BUKTI ===
+  [LULUS] Z1 database uji dipulihkan, CHECKSUM TABLE sama dengan awal  -- []
+  [LULUS] Z2 produksi tidak berubah (CHECKSUM TABLE awal = akhir)  -- []
+  [LULUS] Z3 folder sementara dibersihkan
+
+=== TOTAL: 33 lulus, 1 gagal, 0 dilewati (782 detik) ===
+  GAGAL: R2 tombol Buka PDF di /hasil -> berkas lokal, tanpa redirect
+
+### Run --hanya R sesudah perbaikan R2 (15:37)
+Cadangan database uji: 8.8 MB, 6 tabel; produksi 6 tabel
+Database uji: db_pencarian_bps_uji | produksi (hanya dibaca): db_pencarian_bps | domain uji: 6305
+
+=== U. PENGAMAN DATABASE UJI ===
+  [LULUS] U1 KonfigurasiUji yang menunjuk nama produksi ditolak (SystemExit)  -- DITOLAK True
+  [LULUS] U2 baris pertama perbarui.py = database uji  -- Database tujuan: db_pencarian_bps_uji @ localhost:3306 (UJI - bukan produksi)
+  [LULUS] U3 ringkasan ke pembaruan_terakhir-uji.json, berkas produksi tidak dibuat  -- exit 0, 1 d
+
+(--hanya R: bagian lain dilewati)
+
+=== R. ROUTE PDF & HALAMAN ADMIN (test_client, KonfigurasiUji) ===
+    | PDF_LOKAL 17 buruk []
+    | TOMBOL 31 ok 31 LAIN 10 alih 10
+    | HILANG 302 True
+    | TAK_ADA 404 404
+    | ADMIN sebagian 200 kurang []
+    | ADMIN sukses 200 kurang []
+    | ADMIN tidak_ada_baru 200 kurang []
+    | ADMIN gagal_jaringan 200 kurang []
+    | ADMIN gagal_lain 200 kurang []
+    | ADMIN lama_sukses 200 kurang []
+    | ADMIN lama_tidak_ada 200 kurang []
+    | ADMIN tanpa_berkas 200 kurang [] 
+  [LULUS] R1 /pdf/<id> menyajikan berkas lokal untuk semua publikasi domain uji  -- PDF_LOKAL 17 buruk []
+  [LULUS] R2 tombol Buka PDF di /hasil -> berkas lokal tanpa redirect; PDF di luar salinan -> alih ke url_pdf  -- TOMBOL 31 ok 31 LAIN 10 alih 10
+  [LULUS] R3 berkas hilang -> cadangan redirect ke url_pdf
+  [LULUS] R4 id tak dikenal / path aneh -> 404
+  [LULUS] R5 /admin/perbarui (ringkasan -uji) merender semua status + format lama  -- [('sebagian', '200', '[]'), ('sukses', '200', '[]'), ('tidak_ada_baru', '200', '[]'), ('gagal_jaringan', '200', '[]'), ('gagal_lain', '200', '[]'), ('lama_sukses', '200', '[]'), ('lama_tidak_ada', '200', '[]'), ('tanpa_berkas', '200', '[]')]
+
+=== Z. PEMULIHAN DAN BUKTI ===
+  [LULUS] Z1 database uji dipulihkan, CHECKSUM TABLE sama dengan awal  -- []
+  [LULUS] Z2 produksi tidak berubah (CHECKSUM TABLE awal = akhir)  -- []
+  [LULUS] Z3 folder sementara dibersihkan
+
+=== TOTAL: 11 lulus, 0 gagal, 0 dilewati (9 detik) ===
