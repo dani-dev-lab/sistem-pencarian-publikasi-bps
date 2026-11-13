@@ -1,0 +1,18 @@
+Database tujuan: db_pencarian_bps @ localhost:3306 (PRODUKSI)
+  siap  aafda0cff288ddb041cfa024  OCR 320/320 hal, cache lengkap  Kabupaten Hulu Sungai Tengah Dalam Angka 2026
+  siap  f338cd99104699dbbd49256a  OCR 99/99 hal, cache lengkap  Produk Domestik Regional Bruto Kabupaten Tapin Men
+  siap  47c94280220a99e5d2045881  OCR 99/114 hal, cache lengkap  Profil Tenaga Kerja Kabupaten Tapin Agustus 2024
+  siap  8db55ef62f0d2083f60d1b31  OCR 63/63 hal, cache lengkap  Statistik Daerah Kota Banjarbaru 2025
+  siap  a818fdde814d5bbc2820d135  OCR 139/156 hal, cache lengkap  Produk Domestik Regional Bruto Kota Banjarbaru Men
+  siap  182e2e58be59ddf2d26a7a44  OCR 174/186 hal, cache lengkap  Produk Domestik Regional Bruto Kabupaten Tapin Men
+  siap  25f039221e44a34843043419  OCR 181/190 hal, cache lengkap  Produk Domestik Regional Bruto Kabupaten Tapin Men
+  siap  786645b667871d033771a8b9  OCR 117/168 hal, cache lengkap  Produk Domestik Regional Bruto Kabupaten Tabalong 
+  muat  aafda0cff288ddb041cfa024  163 entri  Kabupaten Hulu Sungai Tengah Dalam Angka 2026
+  muat  f338cd99104699dbbd49256a  44 entri  Produk Domestik Regional Bruto Kabupaten Tapin Men
+  muat  47c94280220a99e5d2045881  34 entri  Profil Tenaga Kerja Kabupaten Tapin Agustus 2024
+  muat  8db55ef62f0d2083f60d1b31  20 entri  Statistik Daerah Kota Banjarbaru 2025
+  muat  a818fdde814d5bbc2820d135  74 entri  Produk Domestik Regional Bruto Kota Banjarbaru Men
+  muat  182e2e58be59ddf2d26a7a44  43 entri  Produk Domestik Regional Bruto Kabupaten Tapin Men
+  muat  25f039221e44a34843043419  43 entri  Produk Domestik Regional Bruto Kabupaten Tapin Men
+  muat  786645b667871d033771a8b9  87 entri  Produk Domestik Regional Bruto Kabupaten Tabalong 
+Selesai.

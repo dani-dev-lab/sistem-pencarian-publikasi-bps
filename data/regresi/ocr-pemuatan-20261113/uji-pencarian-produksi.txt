@@ -1,0 +1,8 @@
+[LULUS] 'jumlah pasar hulu sungai tengah': kartu 'Jumlah Pasar Menurut Kecamatan' 1x, #page=[287] (diharapkan 287)
+       ah; 2021-2025 Number of Market by District in Hulu Sungai Tengah Regency, 2021 _ 2025 TABEL Kab. Hulu Sungai Tengah Nomor 11.1 Halaman 269 Kabupaten Hulu Sungai Tengah Dalam Angka 2026 (2026) Relevansi 74.0% <a class="tombol-pdf" 
+[LULUS] 'perbandingan konsumsi rumah tangga terhadap pmtb tapin': kartu 'Perbandingan Pengeluaran Konsumsi' 1x, #page=[79] (diharapkan 79)
+       ngeluaran Konsumsi Terhadap PDRB Kabupaten Tapin, 2021-2025/Share 4.3 TABEL Kab. Tapin Nomor 4.2 Halaman 67 Produk Domestik Regional Bruto Kabupaten Tapin Menurut Pengeluaran 2021-2025 (2026) Relevansi 78.0% <a class="tombol-pdf" 
+[LULUS] 'menara telekomunikasi hst': kartu 'Menara Telekomunikasi' 1x, #page=[264] (diharapkan 264)
+       025 Number of Telecommunication Tower (BTS) in Hulu Sungai Tengah Regency; 2021-2025 TABEL Kab. Hulu Sungai Tengah Nomor 8.2.5 Halaman 241 Kabupaten Hulu Sungai Tengah Dalam Angka 2026 (2026) Relevansi 75.6% <a class="tombol-pdf" 
+log_pencarian tidak berubah: True (51, 53)
+SEMUA LULUS: True

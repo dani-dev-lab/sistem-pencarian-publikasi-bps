@@ -715,6 +715,32 @@ Aturan yang berlaku:
     - Uji: pipeline pada HST = 163 entri, identik dengan keluaran yang
       dinilai 27/30; `--tanpa-ocr` = 0 entri, 320 halaman tercatat
       dilewati.
+  - **Uji ujung ke ujung di database uji (13 Nov 2026)**
+    (`data/regresi/ocr-pemuatan-20261113.md`). **Dimuat ke produksi 13 Nov
+    2026** lewat `muat_ocr_terarah.py` (8 publikasi saja): identik dengan DB
+    uji, 0 perubahan di luar target, 23.948 -> 24.373 entri, versi_data
+    345 -> 353. Cadangan sebelum muat di `C:/Users/Dani/cadangan-bps/`.
+    - `--paksa` + OCR: hanya 8 target berubah, 0 di luar target.
+      +425 entri (HST 163, Banjarbaru LU 74, Tabalong 1 -> 87, ...).
+    - `--tanpa-ocr`: identik per kunci dengan produksi di 306 publikasi.
+    - Sampel manual 30: 25 dapat ditemukan dengan benar (19 benar
+      seluruhnya, 6 judul bersampah ringan), 3 nomor hilang, 1 judul
+      berawalan nomor tetangga, 1 halaman fisik meleset 2.
+    - **Pengecualian superset ketiga (keputusan pemilik project):**
+      62 entri dua PDRB Tapin LU berubah HANYA `halaman_fisik`/`sumber`.
+      Judul, nomor, dan halaman cetak tetap, 0 hilang. 19 di antaranya
+      dulu menunjuk halaman Daftar Tabel (fisik 12), karena halaman badan
+      tanpa teks; kini menunjuk keterangan "Tabel N" yang dibaca OCR
+      (55/55 terbukti).
+    - **Utang teknis, parser sengaja TIDAK diubah:** PDRB Tabalong LU
+      37/37 entri tabel/gambar/lampiran tanpa nomor ("Table 4.9" masuk
+      ke tengah judul), 1/86 punya `halaman_fisik`, lampiran berupa blok
+      gabungan; PDRB Banjarbaru LU 15/29 tanpa nomor.
+      PDRB Tapin Pengeluaran: judul Tabel 4.2 menyerap awal 4.3, 4.3 tanpa
+      nomor, "3.11" terbaca "3.71".
+    - Pemuatan produksi dirancang terarah ke 8 publikasi saja
+      (`muat_ocr_terarah.py` di folder laporan), bukan `--paksa` ke seluruh
+      produksi. Uji cobanya di database uji identik dengan run penuh.
 - **Batas heading Daftar, DIPERBAIKI 12 Nov 2026**
   (`data/regresi/batas-heading-20261112.md`). Dulu `cari_heading` hanya
   mencari di `BATAS_HALAMAN_CARI = 25` halaman pertama, sehingga 24 Daftar

@@ -38,3 +38,6 @@ data/pemeriksaan_domain.json
 data/ocr_cache/
 # Log pengisian cache OCR (scripts/isi_cache_ocr.py).
 data/log_ocr/
+
+# Potret DB per kunci (7-8 MB per berkas, isinya bisa dibuat ulang dari DB)
+data/regresi/*/potret/

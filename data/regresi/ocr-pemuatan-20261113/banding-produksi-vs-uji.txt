@@ -1,0 +1,24 @@
+sebelum: db_pencarian_bps_uji versi 965 | sesudah: db_pencarian_bps versi 353
+publikasi 306 -> 306; entri 24373 -> 24373
+publikasi hilang: [] | baru: []
+
+Publikasi dengan entri berubah: 0 (target 0/8, DI LUAR TARGET 0)
+Medan publikasi berubah:
+   judul                     0  di luar target: 0
+   abstrak                   0  di luar target: 0
+   teks_ternormalisasi       0  di luar target: 0
+   galat_ekstraksi           0  di luar target: 0
+   halaman_ocr               0  di luar target: 0
+   sidik_ukuran              0  di luar target: 0
+   sidik_mtime               0  di luar target: 0
+   domain                    0  di luar target: 0
+
+publikasi                          sebelum sesudah  tetap berubah hilang tambah hal.OCR  per tipe sesudah
+HST Dalam Angka 2026                   163     163    163       0      0      0     320  {'isi': 16, 'tabel': 141, 'gambar': 6}
+PDRB Tapin Pengeluaran                  44      44     44       0      0      0      99  {'isi': 26, 'tabel': 14, 'lampiran': 4}
+Profil TK Tapin Agt 2024                34      34     34       0      0      0      99  {'isi': 22, 'tabel': 2, 'gambar': 10}
+Statistik Daerah Banjarbaru 2025        20      20     20       0      0      0      63  {'isi': 20}
+PDRB Banjarbaru LU                      74      74     74       0      0      0     139  {'isi': 45, 'tabel': 8, 'gambar': 16, 'lampiran': 5}
+PDRB Tapin LU 2020-2024                 43      43     43       0      0      0     174  {'isi': 12, 'tabel': 22, 'lampiran': 7, 'gambar': 2}
+PDRB Tapin LU 2021-2025                 43      43     43       0      0      0     181  {'isi': 12, 'tabel': 22, 'lampiran': 7, 'gambar': 2}
+PDRB Tabalong LU 2020-2024              87      87     87       0      0      0     117  {'isi': 49, 'tabel': 20, 'gambar': 13, 'lampiran': 5}
