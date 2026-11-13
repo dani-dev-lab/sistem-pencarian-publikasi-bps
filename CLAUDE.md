@@ -799,7 +799,13 @@ Aturan yang berlaku:
     terpasang), H (batas heading), O, B, G, E, T, Z (pemulihan + bukti).
     M (migrasi) dihapus. Run 13 Nov: 50 lulus, 0 gagal, 24 menit
     (`data/regresi/uji-pipeline-20261113.txt`).
-  - BELUM diporting (dijadwalkan Senin): D, K, R, W.
+  - D (domain tiruan 6399), K, R, W juga sudah diporting dan lulus lewat
+    `--hanya DKRW` + `--hanya R` (`uji-pipeline-20261113-dkrw.txt`). W1
+    menjalankan tombol admin sungguhan, aman karena KonfigurasiUji -> --db-uji.
+  - `--hanya <huruf>` menjalankan sebagian bagian (U dan Z selalu jalan); tim
+    IT menjalankan tanpa argumen.
+  - BELUM: satu run PENUH semua bagian berurutan (±37 menit) untuk memastikan
+    bagian-bagian tidak saling mengganggu. Dijadwalkan Senin.
 - **Tombol pembaruan admin dan `perbarui-data.bat` mengikuti KonfigurasiUji
   (13 Nov 2026).** Aplikasi dengan KonfigurasiUji menjalankan perbarui.py
   `--db-uji` dan membaca `pembaruan_terakhir-uji.json`; konfigurasi biasa

@@ -4,6 +4,9 @@ Cara menjalankan (dari folder proyek):
 
     venv\Scripts\python.exe -u tests\uji_pipeline.py > uji_log.txt 2>&1
 
+Semua bagian sekitar 37 menit. Sebagian saja (untuk pengembang): tambahkan
+--hanya DKRW (huruf bagian; U dan Z selalu jalan).
+
 Kode keluar (untuk tim IT):
     0  semua uji lulus (uji yang DILEWATI tidak dihitung gagal)
     1  ada uji yang gagal - baca baris "GAGAL:" di akhir keluaran
