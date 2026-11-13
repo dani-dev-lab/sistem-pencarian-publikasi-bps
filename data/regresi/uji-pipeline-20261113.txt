@@ -1,0 +1,53 @@
+Cadangan database uji: 8.8 MB, 6 tabel; produksi 6 tabel
+Database uji: db_pencarian_bps_uji | produksi (hanya dibaca): db_pencarian_bps | domain uji: 6305
+
+=== U. PENGAMAN DATABASE UJI ===
+  [LULUS] U1 KonfigurasiUji yang menunjuk nama produksi ditolak (SystemExit)  -- DITOLAK True
+  [LULUS] U2 baris pertama perbarui.py = database uji  -- Database tujuan: db_pencarian_bps_uji @ localhost:3306 (UJI - bukan produksi)
+  [LULUS] U3 ringkasan ke pembaruan_terakhir-uji.json, berkas produksi tidak dibuat  -- exit 0, 1 d
+
+=== P. EKSTRAKSI PENUH DOMAIN 6305 (--lokal --paksa) ===
+    |   Unduhan      : 0 berkas, 0.0 MB, rata-rata None KB/detik; putus 0x, percobaan ulang 0x, putaran ulang 0 (pulih 0), tetap gagal 0
+    |   domain                            status          publikasi  diunduh diproses  gagal
+    |   6305 Kab. Tapin                   sukses                 17        0       17      0
+    |   Perlu diperiksa manual (1):
+    |     6305 Statistik Daerah Kabupaten Tapin 2025      hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+    | Selesai 2026-11-13 14:33:10, kode keluar 0. Log: data/log_pembaruan\20261113-143021.log
+  [LULUS] P1 17 diproses, 0 diunduh, 0 gagal, exit 0  -- exit 0, proses 17, unduh 0, 171 d, tahap {'ambil_metadata': 0.0, 'unduh': 0.0, 'ekstraksi': 168.4, 'muat': 0.9}
+  [LULUS] P2 isi database uji identik per kunci dengan sebelum (306 publikasi, semua domain)  -- berbeda: []
+  [LULUS] P3 --lokal --paksa TIDAK memajukan updt_date_diproses publikasi usang  -- {'1d00e98fc8211bf401d37078': 'NULL', '34232029fdd831e30af08728': 'NULL'}
+  [LULUS] P4 tanpa entri dengan teks_ternormalisasi NULL  -- 0
+
+=== L. MODE LOKAL (tanpa jaringan) ===
+    |   Per tahap    : ambil_metadata 0.0 d, unduh 0.0 d, ekstraksi 0.0 d, muat 0.0 d
+    |   Jaringan     : SSID None, webapi.bps.go.id -> None
+    |   Unduhan      : 0 berkas, 0.0 MB, rata-rata None KB/detik; putus 0x, percobaan ulang 0x, putaran ulang 0 (pulih 0), tetap gagal 0
+    |   domain                            status          publikasi  diunduh diproses  gagal
+    |   6305 Kab. Tapin                   tidak_ada_baru         17        0        0      0
+    | Selesai 2026-11-13 14:33:12, kode keluar 0. Log: data/log_pembaruan\20261113-143312.log
+  [LULUS] L1 --lokal: tidak ada kerja, 2 'menunggu pembaruan online'  -- exit 0, tidak_ada_baru, menunggu 2
+  [LULUS] L2 --lokal: nol permintaan ke server (tiruan maupun BPS)  -- 0
+
+=== C. OCR ===
+  [LULUS] C1 4 publikasi OCR: entri dari cache identik, halaman_ocr terisi  -- {'182e2e58': (174, 43), '25f03922': (181, 43), '47c94280': (99, 34), 'f338cd99': (99, 44)}
+  [LULUS] C2 --tanpa-ocr: halaman dilewati, masuk 'perlu diperiksa', halaman_ocr kosong  -- exit 0, 313 d, alasan: ['174 halaman tanpa lapisan teks dilewati ', '181 halaman tanpa lapisan teks dilewati ']
+  [LULUS] C2 --tanpa-ocr: publikasi bertekst tidak berubah, publikasi OCR kehilangan entri OCR  -- {'182e2e58': (43, 41), '25f03922': (43, 41), '47c94280': (34, 0), 'f338cd99': (44, 0)}
+  [LULUS] C2 OCR dinyalakan lagi: kembali identik per kunci (cache dipakai ulang)  -- exit 0, 168 d
+  [LULUS] C3 cache kurang + EasyOCR tidak ada: 3 halaman dilewati, alasan tercatat, sisanya dari cache  -- {'halaman_tanpa_teks': 99, 'dari_cache': 96, 'di_ocr': 0, 'dilewati': 3, 'alasan_dilewati': 'EasyOCR tidak terpasang', 'rasio_tanpa_teks': 0.868}
+  [LULUS] C4 PDF berganti: cache halaman lama dibuang, _meta.json memakai sidik baru  -- C4 99 0 True
+  [LULUS] C5 PDF bertekst berhalaman kosong: tidak di-OCR, tidak meninggalkan folder cache  -- 1d00e98f: 4/118 halaman kosong
+  [LULUS] C6 aplikasi web melayani pencarian tanpa memuat easyocr/torch  -- C6 [200, 200] False False
+  [LULUS] C7 OCR sungguhan 1 halaman: cache dibuat, teks >= 95% sama dengan cache semula  -- 97 kata, sama 100.0%, 11.86 d
+
+=== H. BATAS HEADING DAFTAR ===
+  [LULUS] H1 Daftar Gambar Dalam Angka sesudah halaman 25 terbaca, entrinya berhalaman cetak  -- [('1d520ab0', 44), ('42732c61', 44)], gambar daftar ['14', '14']
+  [LULUS] H2 blok Daftar: halaman kosong di sela <= MAKS_HALAMAN_KOSONG tidak memutus, lebih dari itu memutus  -- [('0', '25', '2'), ('1', '26', '2'), ('2', '27', '2'), ('3', 'None', '2')]
+
+(belum diporting ke struktur baru: O B G E T D K R W)
+
+=== Z. PEMULIHAN DAN BUKTI ===
+  [LULUS] Z1 database uji dipulihkan, CHECKSUM TABLE sama dengan awal  -- []
+  [LULUS] Z2 produksi tidak berubah (CHECKSUM TABLE awal = akhir)  -- []
+  [LULUS] Z3 folder sementara dibersihkan
+
+=== TOTAL: 23 lulus, 0 gagal, 0 dilewati (693 detik) ===

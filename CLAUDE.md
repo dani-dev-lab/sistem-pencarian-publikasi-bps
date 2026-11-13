@@ -782,6 +782,27 @@ Aturan yang berlaku:
   sekali jalan), bukan lewat suite yang bisa diulang. Diputuskan tidak
   dikerjakan sekarang; kalau ada yang mengubah parser atau scoring, jalankan
   ulang pemeriksaan manual yang dicatat di bagian-bagian terkait.
+- **`tests/uji_pipeline.py` disesuaikan dengan struktur sekarang (13 Nov
+  2026, SEBAGIAN).** Bukan pytest; skrip berkode keluar 0 lulus / 1 gagal /
+  2 lingkungan belum siap.
+  - Hanya menulis `db_pencarian_bps_uji`:
+    - perbarui.py selalu `--db-uji`;
+    - potongan kode wajib `create_app(KonfigurasiUji)`;
+    - database uji di-mysqldump di awal, lalu dihapus dan dibuat ulang dari
+      dump itu di akhir (hanya untuk nama `*_uji`, dibuktikan CHECKSUM);
+    - produksi hanya dibaca: CHECKSUM TABLE awal = akhir.
+  - Domain uji 6305 Tapin (hardlink PDF + salinan cache OCR). WebAPI tiruan
+    di 127.0.0.1 dibangun dari database uji; tidak ada akses ke BPS.
+  - mysql/mysqldump dari `MYSQL_BIN` di .env atau PATH
+    (`config.program_mysql`); tanpa keduanya, kode keluar 2.
+  - Sudah: U (pengaman), P, L, C (OCR; C7 dilewati kalau EasyOCR tidak
+    terpasang), H (batas heading), Z (pemulihan + bukti). M (migrasi)
+    dihapus.
+  - BELUM diporting (dijadwalkan Senin): O, B, G, E, T, D, K, R, W.
+- **Tombol pembaruan admin dan `perbarui-data.bat` mengikuti KonfigurasiUji
+  (13 Nov 2026).** Aplikasi dengan KonfigurasiUji menjalankan perbarui.py
+  `--db-uji` dan membaca `pembaruan_terakhir-uji.json`; konfigurasi biasa
+  tidak berubah. `perbarui-data.bat --db-uji` memeriksa koneksi database uji.
 - **Database uji terpisah (12 Nov 2026).** Uji yang bisa mengubah data
   atau skema TIDAK boleh ke produksi `db_pencarian_bps`. Termasuk request
   test_client, karena `skema.pastikan_kolom()` berjalan di awal request.

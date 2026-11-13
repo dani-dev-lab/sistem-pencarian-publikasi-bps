@@ -371,7 +371,211 @@ def bagian_u():
         and ringkasan()["status"] in ("tidak_ada_baru", "sukses"), f"exit {kode}, {dtk:.0f} d")
 
 
-BAGIAN_BELUM = "P L C H O B G E T D K R W"   # diisi bertahap (langkah 3 dan 4)
+def kolom_pub(pid, k):
+    return sql(f"SELECT {k} FROM publikasi WHERE id='{pid}'", DB_UJI)
+
+
+def entri_n(pid):
+    return int(sql(f"SELECT COUNT(*) FROM entri_dokumen WHERE publikasi_id='{pid}'", DB_UJI))
+
+
+def path_uji(pid):
+    return f"{UJI}/data/publikasi_pdf/{DOMAIN}/{pid}.pdf"
+
+
+def bagian_p(s0, usang):
+    print(f"\n=== P. EKSTRAKSI PENUH DOMAIN {DOMAIN} (--lokal --paksa) ===", flush=True)
+    diproses0 = {p: kolom_pub(p, "updt_date_diproses") for p in usang}
+    kode, keluar, dtk = jalan("perbarui.py", "--lokal", "--paksa")
+    tampil(keluar, 6)
+    r = ringkasan()
+    d = r["domain"][0]
+    n_dom = len([p for p in s0 if s0[p]["pub"]["domain"] == DOMAIN])
+    cek(f"P1 {n_dom} diproses, 0 diunduh, 0 gagal, exit 0",
+        kode == 0 and r["diproses"] == n_dom and r["diunduh"] == 0 and not d["gagal"],
+        f"exit {kode}, proses {r['diproses']}, unduh {r['diunduh']}, {dtk:.0f} d, tahap {r['durasi_tahap']}")
+    s1 = potret()
+    beda = beda_potret(s0, s1)
+    cek(f"P2 isi database uji identik per kunci dengan sebelum ({len(s1)} publikasi, semua domain)",
+        not beda, f"berbeda: {beda[:5]}")
+    cek("P3 --lokal --paksa TIDAK memajukan updt_date_diproses publikasi usang",
+        all(kolom_pub(p, "updt_date_diproses") == diproses0[p] for p in usang), diproses0)
+    n_null = sql(f"SELECT COUNT(*) FROM entri_dokumen e JOIN publikasi p ON p.id=e.publikasi_id "
+                 f"WHERE p.domain='{DOMAIN}' AND e.teks_ternormalisasi IS NULL", DB_UJI)
+    cek("P4 tanpa entri dengan teks_ternormalisasi NULL", n_null == "0", n_null)
+    return dtk
+
+
+def bagian_l(usang):
+    print("\n=== L. MODE LOKAL (tanpa jaringan) ===", flush=True)
+    PERMINTAAN.clear()
+    kode, keluar, _ = jalan("perbarui.py", "--lokal")
+    tampil(keluar, 6)
+    r = ringkasan()
+    menunggu = {m["pub_id"] for m in r["domain"][0]["menunggu_unduhan"]}
+    cek(f"L1 --lokal: tidak ada kerja, {len(usang)} 'menunggu pembaruan online'",
+        kode == 0 and r["status"] == "tidak_ada_baru" and menunggu == set(usang),
+        f"exit {kode}, {r['status']}, menunggu {len(menunggu)}")
+    cek("L2 --lokal: nol permintaan ke server (tiruan maupun BPS)", not PERMINTAAN, len(PERMINTAAN))
+
+
+def bagian_c(s0, ocr_pub):
+    print("\n=== C. OCR ===", flush=True)
+    s1 = potret(DOMAIN)
+    cek(f"C1 {len(ocr_pub)} publikasi OCR: entri dari cache identik, halaman_ocr terisi",
+        len(ocr_pub) >= 1 and all(s1[p] == s0[p] and s1[p]["pub"]["halaman_ocr"] and s1[p]["entri"] for p in ocr_pub),
+        {p[:8]: (s1[p]["pub"]["halaman_ocr"], sum(s1[p]["entri"].values())) for p in ocr_pub})
+
+    # C2: --tanpa-ocr = perilaku sebelum OCR ada
+    kode, keluar, dtk = jalan("perbarui.py", "--lokal", "--paksa", "--tanpa-ocr")
+    r = ringkasan()
+    s2 = potret(DOMAIN)
+    alasan = {c["pub_id"]: c["alasan"] for c in r["domain"][0]["perlu_diperiksa"]}
+    lain = [p for p in s2 if p not in ocr_pub]
+    cek("C2 --tanpa-ocr: halaman dilewati, masuk 'perlu diperiksa', halaman_ocr kosong",
+        kode == 0 and all(not s2[p]["pub"]["halaman_ocr"] and "--tanpa-ocr" in alasan.get(p, "") for p in ocr_pub),
+        f"exit {kode}, {dtk:.0f} d, alasan: {[alasan.get(p, '-')[:40] for p in ocr_pub][:2]}")
+    cek("C2 --tanpa-ocr: publikasi bertekst tidak berubah, publikasi OCR kehilangan entri OCR",
+        all(s2[p] == s0[p] for p in lain)
+        and all(sum(s2[p]["entri"].values()) < sum(s0[p]["entri"].values()) for p in ocr_pub),
+        {p[:8]: (sum(s0[p]["entri"].values()), sum(s2[p]["entri"].values())) for p in ocr_pub})
+    kode, keluar, dtk = jalan("perbarui.py", "--lokal", "--paksa")
+    cek("C2 OCR dinyalakan lagi: kembali identik per kunci (cache dipakai ulang)",
+        kode == 0 and not beda_potret(potret(), s0) and ringkasan()["domain"][0].get("gagal") == [],
+        f"exit {kode}, {dtk:.0f} d")
+
+    # C3: cache kurang + EasyOCR tidak ada -> halaman dilewati dengan alasan
+    pid = min(ocr_pub, key=lambda p: os.path.getsize(path_uji(p)))
+    folder = f"{UJI}/data/ocr_cache/{DOMAIN}/{pid}"
+    halaman = sorted(f for f in os.listdir(folder) if f.endswith("-easyocr.json"))
+    simpan = f"{SP}/cache_disimpan"
+    os.makedirs(simpan, exist_ok=True)
+    for f in halaman[:3]:
+        os.replace(f"{folder}/{f}", f"{simpan}/{f}")
+    kode, keluar, err = jalan_py(
+        "import json\n"
+        "from app import create_app\nfrom app.config import KonfigurasiUji\n"
+        "from app.services import ocr, pipeline_data\n"
+        "ocr.tersedia = lambda: False\n"
+        "app = create_app(KonfigurasiUji)\n"
+        "with app.app_context():\n"
+        f"    entri, cat = pipeline_data.ekstrak_berkas(r'{path_uji(pid)}', '{pid}', ocr_aktif=True, log=lambda *a: None)\n"
+        "print('OCR', json.dumps(cat['ocr']))\n")
+    for f in halaman[:3]:
+        os.replace(f"{simpan}/{f}", f"{folder}/{f}")
+    m = re.search(r"^OCR (.*)$", keluar, re.M)
+    info = json.loads(m.group(1)) if m else {}
+    cek("C3 cache kurang + EasyOCR tidak ada: 3 halaman dilewati, alasan tercatat, sisanya dari cache",
+        info.get("dilewati") == 3 and info.get("di_ocr") == 0 and info.get("alasan_dilewati") == "EasyOCR tidak terpasang"
+        and info.get("dari_cache") == len(halaman) - 3, info or err[-200:])
+
+    # C4: PDF berganti -> cache OCR lama dibuang. PDF uji = hardlink: ganti lewat os.replace.
+    path = path_uji(pid)
+    shutil.copyfile(path, path + ".baru")
+    os.replace(path + ".baru", path)
+    kode, keluar, err = jalan_py(
+        "import os, json\nfrom app.services import ocr\n"
+        f"h, n, j = ocr.halaman_tanpa_teks(r'{path}')\n"
+        f"f = r'{folder}'\n"
+        "meta = json.load(open(f + '/_meta.json', encoding='utf-8'))\n"
+        "print('C4', len(h), len([x for x in os.listdir(f) if x.endswith('-easyocr.json')]), "
+        "meta['sidik'] == ocr._sidik(r'" + path + "'))\n")
+    m = re.search(r"C4 (\d+) (\d+) (\w+)", keluar)
+    cek("C4 PDF berganti: cache halaman lama dibuang, _meta.json memakai sidik baru",
+        m and int(m.group(1)) > 0 and m.group(2) == "0" and m.group(3) == "True",
+        m.group(0) if m else err[-200:])
+    os.link(f"{ASLI}/data/publikasi_pdf/{DOMAIN}/{pid}.pdf", path + ".asli")
+    os.replace(path + ".asli", path)
+    shutil.rmtree(folder)
+    shutil.copytree(f"{ASLI}/data/ocr_cache/{DOMAIN}/{pid}", folder)
+
+    # C5: PDF bertekst dengan halaman kosong tidak di-OCR (syarat publikasi 50%)
+    bertekst = sorted((p for p in s0 if s0[p]["pub"]["domain"] == DOMAIN and p not in ocr_pub),
+                      key=lambda p: os.path.getsize(path_uji(p)))
+    kode, keluar, err = jalan_py(
+        "import os\nfrom app.services import ocr\n"
+        f"for pid in {bertekst!r}:\n"
+        f"    p = r'{UJI}/data/publikasi_pdf/{DOMAIN}/' + pid + '.pdf'\n"
+        "    h, n, j = ocr.halaman_tanpa_teks(p)\n"
+        "    if n:\n"
+        "        print('C5', pid, len(h), n, j, os.path.exists(ocr.folder_cache(p)))\n"
+        "        break\n")
+    m = re.search(r"C5 (\w+) (\d+) (\d+) (\d+) (\w+)", keluar)
+    if not m:
+        lewati("C5 PDF bertekst berhalaman kosong tidak di-OCR", "tidak ada PDF bertekst berhalaman kosong di domain uji")
+    else:
+        cek("C5 PDF bertekst berhalaman kosong: tidak di-OCR, tidak meninggalkan folder cache",
+            m.group(2) == "0" and int(m.group(3)) > 0 and m.group(5) == "False",
+            f"{m.group(1)[:8]}: {m.group(3)}/{m.group(4)} halaman kosong")
+
+    # C6: server web tidak memuat EasyOCR / torch
+    kode, keluar, err = jalan_py(
+        "import sys\nfrom app import create_app\nfrom app.config import KonfigurasiUji\n"
+        "c = create_app(KonfigurasiUji).test_client()\n"
+        "kode = [c.get('/').status_code, c.get('/hasil?q=pdrb+tapin').status_code]\n"
+        "print('C6', kode, 'easyocr' in sys.modules, 'torch' in sys.modules)\n")
+    cek("C6 aplikasi web melayani pencarian tanpa memuat easyocr/torch",
+        "C6 [200, 200] False False" in keluar, (keluar + err).strip()[-120:])
+
+    # C7: OCR sungguhan satu halaman tanpa cache (butuh EasyOCR)
+    from importlib.util import find_spec
+    if find_spec("easyocr") is None:
+        lewati("C7 OCR sungguhan 1 halaman", "EasyOCR tidak terpasang (requirements-ocr.txt); uji lain tetap berjalan")
+        return
+    # Halaman dengan kata terbanyak: halaman 2 kata membuat "100% sama" tak berarti.
+    hal7 = max(halaman, key=lambda f: len(json.load(open(f"{folder}/{f}", encoding="utf-8"))["kata"]))
+    halaman = [hal7]
+    n = int(halaman[0][:4])
+    asli = json.load(open(f"{folder}/{halaman[0]}", encoding="utf-8"))
+    os.remove(f"{folder}/{halaman[0]}")
+    kode, keluar, err = jalan_py(
+        "from app.services import ocr\n"
+        f"print('C7', ocr.isi_cache(r'{path}', [{n}], log=lambda *a: None))\n", timeout=900)
+    baru = json.load(open(f"{folder}/{halaman[0]}", encoding="utf-8")) if os.path.exists(f"{folder}/{halaman[0]}") else {}
+    ta = [k["text"] for k in asli["kata"]]
+    tb = [k["text"] for k in baru.get("kata", [])]
+    sama = sum((Counter(ta) & Counter(tb)).values()) / max(len(ta), 1)
+    cek("C7 OCR sungguhan 1 halaman: cache dibuat, teks >= 95% sama dengan cache semula",
+        "C7 1" in keluar and sama >= 0.95, f"{len(tb)} kata, sama {sama:.1%}, {baru.get('detik_ocr')} d")
+    shutil.copy2(f"{ASLI}/data/ocr_cache/{DOMAIN}/{pid}/{halaman[0]}", f"{folder}/{halaman[0]}")
+
+
+def bagian_h(s0):
+    print("\n=== H. BATAS HEADING DAFTAR ===", flush=True)
+    da = [p for p in s0 if s0[p]["pub"]["domain"] == DOMAIN and "Dalam Angka" in s0[p]["pub"]["judul"]]
+    kode, keluar, err = jalan_py(
+        "import pdfplumber\nfrom app.services import ekstraksi_pdf as E\n"
+        f"for pid in {da!r}:\n"
+        f"    with pdfplumber.open(r'{UJI}/data/publikasi_pdf/{DOMAIN}/' + pid + '.pdf') as pdf:\n"
+        "        print('H1', pid, E.cari_heading(pdf).get('gambar'), E.BATAS_HALAMAN_CARI)\n")
+    temuan = re.findall(r"H1 (\w+) (\w+) (\d+)", keluar)
+    lewat = [(p, int(g)) for p, g, b in temuan if g != "None" and int(g) >= int(b)]
+    n_gambar = {p: sql(f"SELECT COUNT(*) FROM entri_dokumen WHERE publikasi_id='{p}' AND tipe='gambar' "
+                       f"AND sumber IN ('daftar','keduanya') AND halaman IS NOT NULL", DB_UJI) for p, _ in lewat}
+    cek("H1 Daftar Gambar Dalam Angka sesudah halaman 25 terbaca, entrinya berhalaman cetak",
+        lewat and all(int(n) > 0 for n in n_gambar.values()),
+        f"{[(p[:8], g) for p, g in lewat]}, gambar daftar {list(n_gambar.values())}" if lewat else (keluar + err)[-200:])
+
+    # H2: blok Daftar sintetis - halaman kosong di sela blok paling banyak 2
+    kode, keluar, err = jalan_py(
+        "from types import SimpleNamespace\nfrom app.services import ekstraksi_pdf as E\n"
+        "E._kata_halaman = lambda hal: hal\n"
+        "E._kelompokkan_baris = lambda kata: [[k] for k in kata]\n"
+        "E._teks_baris = lambda b: b[0]\n"
+        "prosa = ['kalimat prosa biasa', 'tanpa dot leader', 'sama sekali', 'lebih dari tiga baris']\n"
+        "def daftar(label, heading=None):\n"
+        "    return ([heading] if heading else []) + [f'{label} {i}.1 Judul contoh ............... {i}' for i in range(1, 7)]\n"
+        "for k in (0, 1, 2, 3):\n"
+        "    hal = [prosa, prosa, daftar('Tabel', 'DAFTAR TABEL')] + [daftar('Tabel') for _ in range(3, 25)]\n"
+        "    hal += [[] for _ in range(k)] + [daftar('Gambar', 'DAFTAR GAMBAR'), prosa]\n"
+        "    print('H2', k, E.cari_heading(SimpleNamespace(pages=hal)).get('gambar'), E.MAKS_HALAMAN_KOSONG)\n")
+    h2 = re.findall(r"H2 (\d) (\w+) (\d+)", keluar)
+    maks = int(h2[0][2]) if h2 else -1
+    cek("H2 blok Daftar: halaman kosong di sela <= MAKS_HALAMAN_KOSONG tidak memutus, lebih dari itu memutus",
+        len(h2) == 4 and all((g != "None") == (int(k) <= maks) for k, g, _ in h2), h2 or err[-200:])
+
+
+BAGIAN_BELUM = "O B G E T D K R W"   # langkah 4
 
 
 def main():
@@ -380,6 +584,18 @@ def main():
     srv, pubs = siapkan_tiruan()
     try:
         bagian_u()
+        s0 = potret()
+        dom = [p for p in s0 if s0[p]["pub"]["domain"] == DOMAIN]
+        ocr_pub = sorted(p for p in dom if s0[p]["pub"]["halaman_ocr"])
+        # Dua publikasi kecil bertekst dibuat "usang": API punya versi lebih baru.
+        usang = sorted((p for p in dom if p not in ocr_pub), key=lambda p: os.path.getsize(path_uji(p)))[:2]
+        for p in usang:
+            sql(f"UPDATE publikasi SET updt_date_api='2026-12-31' WHERE id='{p}'", DB_UJI)
+        s0 = potret()
+        bagian_p(s0, usang)
+        bagian_l(usang)
+        bagian_c(s0, ocr_pub)
+        bagian_h(s0)
         print(f"\n(belum diporting ke struktur baru: {BAGIAN_BELUM})", flush=True)
     finally:
         srv.shutdown()
