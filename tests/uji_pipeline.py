@@ -575,7 +575,211 @@ def bagian_h(s0):
         len(h2) == 4 and all((g != "None") == (int(k) <= maks) for k, g, _ in h2), h2 or err[-200:])
 
 
-BAGIAN_BELUM = "O B G E T D K R W"   # langkah 4
+def bagian_o(pubs, per_id, usang, s0):
+    print("\n=== O. ONLINE (server tiruan): publikasi usang diunduh ulang ===", flush=True)
+    for p in usang:
+        per_id[p]["updt_date"] = "2026-12-31"
+    PERMINTAAN.clear()
+    kode, keluar, dtk = jalan("perbarui.py")
+    tampil(keluar, 10)
+    r = ringkasan()
+    cek(f"O1 tepat {len(usang)} diunduh + diproses, status sukses, exit 0",
+        kode == 0 and r["status"] == "sukses" and r["diunduh"] == len(usang) and r["diproses"] == len(usang),
+        f"exit {kode}, {r['status']}, unduh {r['diunduh']}, proses {r['diproses']}, {dtk:.0f} d")
+    n_beda = sql(f"SELECT COUNT(*) FROM publikasi WHERE domain='{DOMAIN}' AND updt_date_api IS NOT NULL "
+                 f"AND (updt_date_diproses IS NULL OR updt_date_diproses<>updt_date_api)", DB_UJI)
+    cek("O1 updt_date_diproses kini cocok dengan updt_date_api", n_beda == "0", n_beda)
+    cek("O1 durasi 4 tahap tercatat", set(r["durasi_tahap"]) == {"ambil_metadata", "unduh", "ekstraksi", "muat"}
+        and r["durasi_tahap"]["ekstraksi"] > 0, r["durasi_tahap"])
+    jeda = [b[0] - a[0] for a, b in zip(PERMINTAAN, PERMINTAAN[1:])]
+    cek("O1 jeda antar permintaan >= ~1 detik", jeda and min(jeda) >= 0.95,
+        f"minimum {min(jeda):.2f} d dari {len(PERMINTAAN)} permintaan" if jeda else "tidak ada permintaan")
+    cek("O1 isi identik per kunci (PDF tiruan = PDF lama)", not beda_potret(s0, potret()))
+    PERMINTAAN.clear()
+    kode, keluar, _ = jalan("perbarui.py")
+    r = ringkasan()
+    cek("O2 run kedua: tidak ada yang dikerjakan, tidak ada unduhan",
+        kode == 0 and r["status"] == "tidak_ada_baru" and r["diproses"] == 0
+        and not any("/pdf/" in p for _, p in PERMINTAAN), f"{r['status']}, proses {r['diproses']}")
+
+
+def bagian_b(pubs, per_id, kecil):
+    print("\n=== B. PUBLIKASI BARU & updt_date BERUBAH ===", flush=True)
+    id_baru = "aaaabbbbccccddddeeee0001"
+    baru = copy.deepcopy(per_id[kecil[0]])
+    baru.update(pub_id=id_baru, title="Publikasi Tiruan Baru", pdf=f"http://127.0.0.1:{PORT}/pdf/{id_baru}",
+                updt_date=None)
+    KEADAAN["berkas_pdf"][id_baru] = f"{SUMBER}/{kecil[0]}.pdf"
+    KEADAAN["domain"][DOMAIN] = pubs + [baru]
+    per_id[kecil[1]]["updt_date"] = "2026-12-30"
+    kode, keluar, _ = jalan("perbarui.py")
+    r = ringkasan()
+    cek("B1 publikasi baru: masuk, entri terisi, teks ternormalisasi terisi",
+        r["publikasi_baru"] and r["publikasi_baru"][0]["pub_id"] == id_baru
+        and entri_n(id_baru) == entri_n(kecil[0]) > 0 and kolom_pub(id_baru, "teks_ternormalisasi") != "NULL",
+        f"exit {kode}, entri {entri_n(id_baru)}/{entri_n(kecil[0])}")
+    cek("B1 tanpa entri NULL normalisasi",
+        sql("SELECT COUNT(*) FROM entri_dokumen WHERE teks_ternormalisasi IS NULL", DB_UJI) == "0")
+    cek("B2 updt_date berubah: diunduh ulang + diproses",
+        kolom_pub(kecil[1], "updt_date_diproses") == "2026-12-30" and r["diunduh"] == 2,
+        f"diunduh {r['diunduh']}, diproses {kolom_pub(kecil[1], 'updt_date_diproses')}")
+    per_id[kecil[1]]["updt_date"] = None
+    kode, keluar, _ = jalan("perbarui.py")
+    r = ringkasan()
+    cek("B3 updt_date kosong dari API: bukan perubahan, nilai lama dipertahankan",
+        r["diproses"] == 0 and kolom_pub(kecil[1], "updt_date_api") == "2026-12-30",
+        f"proses {r['diproses']}, api {kolom_pub(kecil[1], 'updt_date_api')}")
+    per_id[kecil[1]]["updt_date"] = "2026-12-30"
+    return baru
+
+
+def md5(p):
+    return hashlib.md5(open(p, "rb").read()).hexdigest()
+
+
+def bagian_g(per_id, x):
+    print("\n=== G. UNDUHAN GAGAL (kelas bug 'publikasi tertinggal') ===", flush=True)
+    n0, proses0, h0 = entri_n(x), kolom_pub(x, "updt_date_diproses"), md5(path_uji(x))
+    per_id[x]["updt_date"] = "2026-12-29"
+    for mode in ("500", "html", "potong"):
+        KEADAAN["mode_pdf"][x] = mode
+        kode, keluar, dtk = jalan("perbarui.py")
+        r = ringkasan()
+        d = r["domain"][0]
+        cek(f"G1 unduh '{mode}': exit 3, sebagian, data+PDF lama utuh, api tersimpan, diproses tak maju",
+            kode == 3 and r["status"] == "sebagian" and len(d["gagal"]) == 1 and entri_n(x) == n0
+            and md5(path_uji(x)) == h0 and kolom_pub(x, "updt_date_api") == "2026-12-29"
+            and kolom_pub(x, "updt_date_diproses") == proses0 and not os.path.exists(path_uji(x) + ".part"),
+            f"exit {kode}, {r['status']}, {dtk:.0f} d, pesan: {d['gagal'][0]['pesan'][:60] if d['gagal'] else ''}")
+    del KEADAAN["mode_pdf"][x]
+    kode, keluar, _ = jalan("perbarui.py")
+    r = ringkasan()
+    cek("G2 run berikutnya memprosesnya sendiri setelah pulih",
+        kode == 0 and r["diunduh"] == 1 and kolom_pub(x, "updt_date_diproses") == "2026-12-29"
+        and r["status"] == "sukses", f"exit {kode}, {r['status']}, diunduh {r['diunduh']}")
+
+
+def bagian_e(pubs, per_id, kecil, baru):
+    print("\n=== E. PDF RUSAK, PDF 0 ENTRI, PDF HILANG/DIGANTI ===", flush=True)
+    y = kecil[3]
+    n0 = entri_n(y)
+    rusak = f"{SP}/rusak.pdf"
+    open(rusak, "wb").write(b"%PDF-1.4\n" + b"sampah bukan pdf\n" * 200 + b"%%EOF\n")
+    KEADAAN["berkas_pdf"][y] = rusak
+    per_id[y]["updt_date"] = "2026-12-28"
+    kode, keluar, _ = jalan("perbarui.py")
+    galat = kolom_pub(y, "galat_ekstraksi")
+    cek("E1 PDF tak terbaca: entri lama utuh, galat tercatat, exit 3",
+        kode == 3 and entri_n(y) == n0 and galat not in ("NULL", ""), f"exit {kode}, entri {entri_n(y)}/{n0}, galat: {galat[:50]}")
+    KEADAAN["berkas_pdf"][y] = f"{SUMBER}/{y}.pdf"
+    kode, keluar, _ = jalan("perbarui.py")
+    cek("E2 pulih: galat terhapus, dicoba lagi otomatis",
+        kode == 0 and kolom_pub(y, "galat_ekstraksi") == "NULL" and entri_n(y) == n0,
+        f"exit {kode}, galat {kolom_pub(y, 'galat_ekstraksi')}")
+
+    # PDF sah tanpa teks: 0 entri itu sah dan tidak boleh diekstrak ulang tiap run
+    id_kosong = "aaaabbbbccccddddeeee0002"
+    kosong = f"{SP}/kosong.pdf"
+    open(kosong, "wb").write(
+        b"%PDF-1.4\n1 0 obj<</Type/Catalog/Pages 2 0 R>>endobj\n2 0 obj<</Type/Pages/Kids[3 0 R]/Count 1>>endobj\n"
+        b"3 0 obj<</Type/Page/Parent 2 0 R/MediaBox[0 0 200 200]>>endobj\ntrailer<</Root 1 0 R>>\n"
+        + b"%" + b"x" * 1200 + b"\n%%EOF\n")
+    b2 = copy.deepcopy(per_id[kecil[0]])
+    b2.update(pub_id=id_kosong, title="Publikasi Tiruan Kosong", pdf=f"http://127.0.0.1:{PORT}/pdf/{id_kosong}",
+              updt_date=None)
+    KEADAAN["berkas_pdf"][id_kosong] = kosong
+    KEADAAN["domain"][DOMAIN] = pubs + [baru, b2]
+    kode, keluar, _ = jalan("perbarui.py")
+    r = ringkasan()
+    cek("E3 PDF sah 0 entri: tercatat diekstrak",
+        entri_n(id_kosong) == 0 and kolom_pub(id_kosong, "diekstrak_pada") != "NULL",
+        f"exit {kode}, perlu diperiksa: {[c['alasan'][:40] for c in r['domain'][0]['perlu_diperiksa'] if c['pub_id'] == id_kosong]}")
+    kode, keluar, _ = jalan("perbarui.py")
+    cek("E4 run berikutnya TIDAK mengekstrak ulang publikasi 0 entri", ringkasan()["diproses"] == 0,
+        f"proses {ringkasan()['diproses']}")
+
+    z = kecil[4]
+    os.remove(path_uji(z))          # hanya menghapus hardlink salinan
+    kode, keluar, _ = jalan("perbarui.py")
+    r = ringkasan()
+    cek("E5 PDF hilang di disk: diunduh ulang + diekstrak", kode == 0 and r["diunduh"] == 1 and os.path.exists(path_uji(z)),
+        f"exit {kode}, diunduh {r['diunduh']}")
+    shutil.copy(f"{SUMBER}/{z}.pdf", path_uji(z) + ".salin")
+    os.replace(path_uji(z) + ".salin", path_uji(z))
+    kode, keluar, _ = jalan("perbarui.py")
+    r = ringkasan()
+    cek("E6 PDF diganti di disk: diekstrak tanpa unduh", r["diproses"] == 1 and r["diunduh"] == 0,
+        f"proses {r['diproses']}, unduh {r['diunduh']}")
+
+    w = kecil[5]
+    per_id[w]["updt_date"] = "2026-12-27"
+    sql(f"UPDATE publikasi SET updt_date_api='2026-12-27' WHERE id='{w}'", DB_UJI)   # metadata sudah ditarik
+    d0 = kolom_pub(w, "updt_date_diproses")
+    kode, keluar, _ = jalan("perbarui.py", "--lokal")
+    r = ringkasan()
+    cek("E7 --lokal: updt_date_diproses tak maju, tercatat menunggu",
+        kolom_pub(w, "updt_date_diproses") == d0 and any(m["pub_id"] == w for m in r["domain"][0]["menunggu_unduhan"]),
+        f"diproses {kolom_pub(w, 'updt_date_diproses')}")
+    kode, keluar, _ = jalan("perbarui.py")          # selesaikan supaya bagian berikut mulai bersih
+
+
+def popen_perbarui():
+    """perbarui.py di latar, SELALU --db-uji."""
+    return subprocess.Popen([PY, "-u", f"{UJI}/scripts/perbarui.py", "--db-uji"], cwd=SP, env=ENV,
+                            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+
+def bagian_t(per_id, x, kecil):
+    print("\n=== T. TRANSAKSI DAN KUNCI ===", flush=True)
+    kode, keluar, err = jalan_py(
+        "from app import create_app\nfrom app.config import KonfigurasiUji\n"
+        "from app.models import db, EntriDokumen\nfrom app.services import pipeline_data as P\n"
+        "app = create_app(KonfigurasiUji)\n"
+        "with app.app_context():\n"
+        f"    n0 = EntriDokumen.query.filter_by(publikasi_id='{x}').count()\n"
+        "    try:\n"
+        f"        P.simpan_entri('{x}', [{{'tipe':'tabel','judul':'ok'}},{{'tipe':'TIPE-TIDAK-SAH','judul':'gagal'}}], (1,1), {{}})\n"
+        "        print('TIDAK-GAGAL')\n"
+        "    except Exception:\n"
+        "        print('GAGAL-SEPERTI-DIHARAPKAN')\n"
+        f"    print('jumlah', n0, EntriDokumen.query.filter_by(publikasi_id='{x}').count())\n")
+    m = re.search(r"jumlah (\d+) (\d+)", keluar)
+    cek("T1 gagal di tengah transaksi: entri lama utuh",
+        "GAGAL-SEPERTI-DIHARAPKAN" in keluar and m and m.group(1) == m.group(2) and int(m.group(1)) > 0,
+        keluar.strip().replace("\n", " | ")[-120:] + err[-150:])
+
+    proses0 = kolom_pub(x, "updt_date_diproses")
+    per_id[x]["updt_date"] = "2026-12-26"
+    PERMINTAAN.clear()
+    p = popen_perbarui()
+    t0 = time.time()
+    while time.time() - t0 < 120 and not any("/pdf/" in q for _, q in PERMINTAAN):
+        time.sleep(0.05)
+    subprocess.run(["taskkill", "/F", "/PID", str(p.pid)], capture_output=True)
+    p.wait()
+    kunci = f"{UJI}/data/pembaruan.lock"
+    cek("T2 proses dibunuh: kunci basi tertinggal", os.path.exists(kunci), f"setelah {time.time() - t0:.1f} d")
+    cek("T2 proses dibunuh: entri & diproses belum berubah",
+        kolom_pub(x, "updt_date_diproses") == proses0 and entri_n(x) > 0, kolom_pub(x, "updt_date_diproses"))
+    kode, keluar, _ = jalan("perbarui.py")
+    cek("T3 run berikutnya menimpa kunci basi dan menyelesaikan",
+        kode == 0 and kolom_pub(x, "updt_date_diproses") == "2026-12-26" and not os.path.exists(kunci),
+        f"exit {kode}, {ringkasan()['status']}")
+
+    # Kunci hidup: run pertama diberi kerja (unduh + ekstrak) supaya pasti masih berjalan.
+    per_id[kecil[0]]["updt_date"] = "2026-12-25"
+    p = popen_perbarui()
+    t0 = time.time()
+    while time.time() - t0 < 60 and not os.path.exists(kunci):
+        time.sleep(0.05)
+    kode, keluar, _ = jalan("perbarui.py")
+    cek("T4 pembaruan kedua ditolak exit 2, yang pertama tetap hidup", kode == 2 and p.poll() is None,
+        f"exit {kode}: {keluar.strip().splitlines()[-1][:70] if keluar.strip() else ''}")
+    p.wait()
+    cek("T4 pertama selesai normal", p.returncode == 0, p.returncode)
+
+
+BAGIAN_BELUM = "D K R W"   # dijadwalkan Senin
 
 
 def main():
@@ -596,6 +800,15 @@ def main():
         bagian_l(usang)
         bagian_c(s0, ocr_pub)
         bagian_h(s0)
+        per_id = {p["pub_id"]: p for p in pubs}
+        bagian_o(pubs, per_id, usang, s0)
+        # publikasi kecil bertekst (bukan OCR, bukan usang) untuk skenario cepat
+        kecil = sorted((p for p in dom if p not in ocr_pub and p not in usang),
+                       key=lambda p: os.path.getsize(path_uji(p)))[:6]
+        baru = bagian_b(pubs, per_id, kecil)
+        bagian_g(per_id, kecil[2])
+        bagian_e(pubs, per_id, kecil, baru)
+        bagian_t(per_id, kecil[2], kecil)
         print(f"\n(belum diporting ke struktur baru: {BAGIAN_BELUM})", flush=True)
     finally:
         srv.shutdown()

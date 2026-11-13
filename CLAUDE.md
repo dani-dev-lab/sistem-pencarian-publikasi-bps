@@ -796,9 +796,10 @@ Aturan yang berlaku:
   - mysql/mysqldump dari `MYSQL_BIN` di .env atau PATH
     (`config.program_mysql`); tanpa keduanya, kode keluar 2.
   - Sudah: U (pengaman), P, L, C (OCR; C7 dilewati kalau EasyOCR tidak
-    terpasang), H (batas heading), Z (pemulihan + bukti). M (migrasi)
-    dihapus.
-  - BELUM diporting (dijadwalkan Senin): O, B, G, E, T, D, K, R, W.
+    terpasang), H (batas heading), O, B, G, E, T, Z (pemulihan + bukti).
+    M (migrasi) dihapus. Run 13 Nov: 50 lulus, 0 gagal, 24 menit
+    (`data/regresi/uji-pipeline-20261113.txt`).
+  - BELUM diporting (dijadwalkan Senin): D, K, R, W.
 - **Tombol pembaruan admin dan `perbarui-data.bat` mengikuti KonfigurasiUji
   (13 Nov 2026).** Aplikasi dengan KonfigurasiUji menjalankan perbarui.py
   `--db-uji` dan membaca `pembaruan_terakhir-uji.json`; konfigurasi biasa

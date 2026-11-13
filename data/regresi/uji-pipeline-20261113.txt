@@ -12,8 +12,8 @@ Database uji: db_pencarian_bps_uji | produksi (hanya dibaca): db_pencarian_bps |
     |   6305 Kab. Tapin                   sukses                 17        0       17      0
     |   Perlu diperiksa manual (1):
     |     6305 Statistik Daerah Kabupaten Tapin 2025      hanya Daftar Isi, tidak ada tabel/gambar/lampiran
-    | Selesai 2026-11-13 14:33:10, kode keluar 0. Log: data/log_pembaruan\20261113-143021.log
-  [LULUS] P1 17 diproses, 0 diunduh, 0 gagal, exit 0  -- exit 0, proses 17, unduh 0, 171 d, tahap {'ambil_metadata': 0.0, 'unduh': 0.0, 'ekstraksi': 168.4, 'muat': 0.9}
+    | Selesai 2026-11-13 14:46:36, kode keluar 0. Log: data/log_pembaruan\20261113-144341.log
+  [LULUS] P1 17 diproses, 0 diunduh, 0 gagal, exit 0  -- exit 0, proses 17, unduh 0, 175 d, tahap {'ambil_metadata': 0.0, 'unduh': 0.0, 'ekstraksi': 173.3, 'muat': 0.9}
   [LULUS] P2 isi database uji identik per kunci dengan sebelum (306 publikasi, semua domain)  -- berbeda: []
   [LULUS] P3 --lokal --paksa TIDAK memajukan updt_date_diproses publikasi usang  -- {'1d00e98fc8211bf401d37078': 'NULL', '34232029fdd831e30af08728': 'NULL'}
   [LULUS] P4 tanpa entri dengan teks_ternormalisasi NULL  -- 0
@@ -24,7 +24,7 @@ Database uji: db_pencarian_bps_uji | produksi (hanya dibaca): db_pencarian_bps |
     |   Unduhan      : 0 berkas, 0.0 MB, rata-rata None KB/detik; putus 0x, percobaan ulang 0x, putaran ulang 0 (pulih 0), tetap gagal 0
     |   domain                            status          publikasi  diunduh diproses  gagal
     |   6305 Kab. Tapin                   tidak_ada_baru         17        0        0      0
-    | Selesai 2026-11-13 14:33:12, kode keluar 0. Log: data/log_pembaruan\20261113-143312.log
+    | Selesai 2026-11-13 14:46:37, kode keluar 0. Log: data/log_pembaruan\20261113-144637.log
   [LULUS] L1 --lokal: tidak ada kerja, 2 'menunggu pembaruan online'  -- exit 0, tidak_ada_baru, menunggu 2
   [LULUS] L2 --lokal: nol permintaan ke server (tiruan maupun BPS)  -- 0
 
@@ -32,22 +32,69 @@ Database uji: db_pencarian_bps_uji | produksi (hanya dibaca): db_pencarian_bps |
   [LULUS] C1 4 publikasi OCR: entri dari cache identik, halaman_ocr terisi  -- {'182e2e58': (174, 43), '25f03922': (181, 43), '47c94280': (99, 34), 'f338cd99': (99, 44)}
   [LULUS] C2 --tanpa-ocr: halaman dilewati, masuk 'perlu diperiksa', halaman_ocr kosong  -- exit 0, 313 d, alasan: ['174 halaman tanpa lapisan teks dilewati ', '181 halaman tanpa lapisan teks dilewati ']
   [LULUS] C2 --tanpa-ocr: publikasi bertekst tidak berubah, publikasi OCR kehilangan entri OCR  -- {'182e2e58': (43, 41), '25f03922': (43, 41), '47c94280': (34, 0), 'f338cd99': (44, 0)}
-  [LULUS] C2 OCR dinyalakan lagi: kembali identik per kunci (cache dipakai ulang)  -- exit 0, 168 d
+  [LULUS] C2 OCR dinyalakan lagi: kembali identik per kunci (cache dipakai ulang)  -- exit 0, 174 d
   [LULUS] C3 cache kurang + EasyOCR tidak ada: 3 halaman dilewati, alasan tercatat, sisanya dari cache  -- {'halaman_tanpa_teks': 99, 'dari_cache': 96, 'di_ocr': 0, 'dilewati': 3, 'alasan_dilewati': 'EasyOCR tidak terpasang', 'rasio_tanpa_teks': 0.868}
   [LULUS] C4 PDF berganti: cache halaman lama dibuang, _meta.json memakai sidik baru  -- C4 99 0 True
   [LULUS] C5 PDF bertekst berhalaman kosong: tidak di-OCR, tidak meninggalkan folder cache  -- 1d00e98f: 4/118 halaman kosong
   [LULUS] C6 aplikasi web melayani pencarian tanpa memuat easyocr/torch  -- C6 [200, 200] False False
-  [LULUS] C7 OCR sungguhan 1 halaman: cache dibuat, teks >= 95% sama dengan cache semula  -- 97 kata, sama 100.0%, 11.86 d
+  [LULUS] C7 OCR sungguhan 1 halaman: cache dibuat, teks >= 95% sama dengan cache semula  -- 97 kata, sama 100.0%, 11.81 d
 
 === H. BATAS HEADING DAFTAR ===
   [LULUS] H1 Daftar Gambar Dalam Angka sesudah halaman 25 terbaca, entrinya berhalaman cetak  -- [('1d520ab0', 44), ('42732c61', 44)], gambar daftar ['14', '14']
   [LULUS] H2 blok Daftar: halaman kosong di sela <= MAKS_HALAMAN_KOSONG tidak memutus, lebih dari itu memutus  -- [('0', '25', '2'), ('1', '26', '2'), ('2', '27', '2'), ('3', 'None', '2')]
 
-(belum diporting ke struktur baru: O B G E T D K R W)
+=== O. ONLINE (server tiruan): publikasi usang diunduh ulang ===
+    | ==========================================================================
+    |   Status       : sukses
+    |   Entri dokumen: 24373 -> 24373 (+0)
+    |   Waktu        : 8 detik (0.0 jam)
+    |   Per tahap    : ambil_metadata 1.0 d, unduh 0.1 d, ekstraksi 5.0 d, muat 0.1 d
+    |   Jaringan     : SSID 'BPS - Pegawai', webapi.bps.go.id -> 203.123.60.70
+    |   Unduhan      : 2 berkas, 6.1 MB, rata-rata 67774.5 KB/detik; putus 0x, percobaan ulang 0x, putaran ulang 0 (pulih 0), tetap gagal 0
+    |   domain                            status          publikasi  diunduh diproses  gagal
+    |   6305 Kab. Tapin                   sukses                 17        2        2      0
+    | Selesai 2026-11-13 14:55:33, kode keluar 0. Log: data/log_pembaruan\20261113-145524.log
+  [LULUS] O1 tepat 2 diunduh + diproses, status sukses, exit 0  -- exit 0, sukses, unduh 2, proses 2, 10 d
+  [LULUS] O1 updt_date_diproses kini cocok dengan updt_date_api  -- 0
+  [LULUS] O1 durasi 4 tahap tercatat  -- {'ambil_metadata': 1.0, 'unduh': 0.1, 'ekstraksi': 5.0, 'muat': 0.1}
+  [LULUS] O1 jeda antar permintaan >= ~1 detik  -- minimum 1.02 d dari 4 permintaan
+  [LULUS] O1 isi identik per kunci (PDF tiruan = PDF lama)
+  [LULUS] O2 run kedua: tidak ada yang dikerjakan, tidak ada unduhan  -- tidak_ada_baru, proses 0
+
+=== B. PUBLIKASI BARU & updt_date BERUBAH ===
+  [LULUS] B1 publikasi baru: masuk, entri terisi, teks ternormalisasi terisi  -- exit 0, entri 74/74
+  [LULUS] B1 tanpa entri NULL normalisasi
+  [LULUS] B2 updt_date berubah: diunduh ulang + diproses  -- diunduh 2, diproses 2026-12-30
+  [LULUS] B3 updt_date kosong dari API: bukan perubahan, nilai lama dipertahankan  -- proses 0, api 2026-12-30
+
+=== G. UNDUHAN GAGAL (kelas bug 'publikasi tertinggal') ===
+  [LULUS] G1 unduh '500': exit 3, sebagian, data+PDF lama utuh, api tersimpan, diproses tak maju  -- exit 3, sebagian, 195 d, pesan: 500 Server Error: Internal Server Error for url: http://127.
+  [LULUS] G1 unduh 'html': exit 3, sebagian, data+PDF lama utuh, api tersimpan, diproses tak maju  -- exit 3, sebagian, 196 d, pesan: bukan PDF utuh (3600 byte)
+  [LULUS] G1 unduh 'potong': exit 3, sebagian, data+PDF lama utuh, api tersimpan, diproses tak maju  -- exit 3, sebagian, 196 d, pesan: bukan PDF utuh (50000 byte)
+  [LULUS] G2 run berikutnya memprosesnya sendiri setelah pulih  -- exit 0, sukses, diunduh 1
+
+=== E. PDF RUSAK, PDF 0 ENTRI, PDF HILANG/DIGANTI ===
+  [LULUS] E1 PDF tak terbaca: entri lama utuh, galat tercatat, exit 3  -- exit 3, entri 61/61, galat: No /Root object! - Is this really a PDF?
+  [LULUS] E2 pulih: galat terhapus, dicoba lagi otomatis  -- exit 0, galat NULL
+  [LULUS] E3 PDF sah 0 entri: tercatat diekstrak  -- exit 0, perlu diperiksa: ['0 entri sama sekali']
+  [LULUS] E4 run berikutnya TIDAK mengekstrak ulang publikasi 0 entri  -- proses 0
+  [LULUS] E5 PDF hilang di disk: diunduh ulang + diekstrak  -- exit 0, diunduh 1
+  [LULUS] E6 PDF diganti di disk: diekstrak tanpa unduh  -- proses 1, unduh 0
+  [LULUS] E7 --lokal: updt_date_diproses tak maju, tercatat menunggu  -- diproses 2025-12-30
+
+=== T. TRANSAKSI DAN KUNCI ===
+  [LULUS] T1 gagal di tengah transaksi: entri lama utuh  -- GAGAL-SEPERTI-DIHARAPKAN | jumlah 298 298
+  [LULUS] T2 proses dibunuh: kunci basi tertinggal  -- setelah 3.4 d
+  [LULUS] T2 proses dibunuh: entri & diproses belum berubah  -- 2026-12-29
+  [LULUS] T3 run berikutnya menimpa kunci basi dan menyelesaikan  -- exit 0, sukses
+  [LULUS] T4 pembaruan kedua ditolak exit 2, yang pertama tetap hidup  -- exit 2: PEMBARUAN SUDAH BERJALAN di proses lain (PID 19488). Tunggu sampai sel
+  [LULUS] T4 pertama selesai normal  -- 0
+
+(belum diporting ke struktur baru: D K R W)
 
 === Z. PEMULIHAN DAN BUKTI ===
   [LULUS] Z1 database uji dipulihkan, CHECKSUM TABLE sama dengan awal  -- []
   [LULUS] Z2 produksi tidak berubah (CHECKSUM TABLE awal = akhir)  -- []
   [LULUS] Z3 folder sementara dibersihkan
 
-=== TOTAL: 23 lulus, 0 gagal, 0 dilewati (693 detik) ===
+=== TOTAL: 50 lulus, 0 gagal, 0 dilewati (1435 detik) ===
