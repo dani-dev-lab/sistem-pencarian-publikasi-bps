@@ -1,6 +1,7 @@
 """Baca .env dan sediakan konfigurasi aplikasi (termasuk koneksi database)."""
 
 import os
+import shutil
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -39,6 +40,11 @@ class Config:
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+    # Folder program mysql / mysqldump (opsional). Hanya dipakai skrip yang
+    # menyalin database (scripts/siapkan_db_uji.py, tests/uji_pipeline.py),
+    # bukan oleh aplikasi web. Kosong = cari di PATH. Lihat program_mysql().
+    MYSQL_BIN = (os.getenv("MYSQL_BIN") or "").strip()
+
     # Berkas .env yang ditulis ulang saat sandi admin diganti lewat browser.
     FILE_ENV = BASE_DIR / ".env"
 
@@ -54,6 +60,29 @@ class Config:
     # hanya KonfigurasiUji di bawah, supaya pemeriksaan route /hasil tidak
     # mengisi log dengan kueri buatan.
     CATAT_LOG_PENCARIAN = True
+
+
+def program_mysql(nama, folder=None):
+    """Path program MySQL ("mysql" / "mysqldump").
+
+    Urutan: MYSQL_BIN di .env, lalu PATH. Path Laragon tidak ditulis mati di
+    kode (13 Nov 2026): versi MySQL di server BPS bisa berbeda. Tidak ketemu =
+    SystemExit dengan petunjuk, bukan traceback.
+    """
+    folder = Config.MYSQL_BIN if folder is None else folder
+    if folder:
+        for calon in (Path(folder) / f"{nama}.exe", Path(folder) / nama):
+            if calon.is_file():
+                return str(calon)
+        raise SystemExit(f"Program {nama} tidak ada di MYSQL_BIN ({folder}). "
+                         "Periksa baris MYSQL_BIN di .env.")
+    ketemu = shutil.which(nama)
+    if ketemu:
+        return ketemu
+    raise SystemExit(
+        f"Program {nama} tidak ditemukan di PATH. Tambahkan ke .env baris seperti:\n"
+        "  MYSQL_BIN=C:/laragon/bin/mysql/mysql-8.0.30-winx64/bin\n"
+        "(sesuaikan dengan folder bin MySQL di komputer ini).")
 
 
 def url_database_uji(url_produksi):

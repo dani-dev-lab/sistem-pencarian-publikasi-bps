@@ -22,6 +22,8 @@ from datetime import datetime, timezone
 from app.config import BASE_DIR
 
 FILE_RINGKASAN = BASE_DIR / "data" / "pembaruan_terakhir.json"
+# perbarui.py --db-uji menulis ringkasannya ke berkas terpisah (12 Nov 2026).
+FILE_RINGKASAN_UJI = BASE_DIR / "data" / "pembaruan_terakhir-uji.json"
 FILE_KUNCI = BASE_DIR / "data" / "pembaruan.lock"
 SKRIP = BASE_DIR / "scripts" / "perbarui.py"
 
@@ -76,11 +78,26 @@ def sedang_berjalan():
     return pid_proses_lain() is not None
 
 
-def _pekerja():
+def perintah(uji=False):
+    """Baris perintah pembaruan.
+
+    Aplikasi dengan KonfigurasiUji (KONFIGURASI_UJI = True) menjalankan
+    perbarui.py --db-uji, supaya tombol di halaman admin tidak pernah menulis ke
+    produksi selama pengujian (13 Nov 2026). Konfigurasi biasa tetap tanpa
+    argumen: pembaruan ke database dari .env, seperti sebelumnya.
+    """
+    return [sys.executable, "-u", str(SKRIP)] + (["--db-uji"] if uji else [])
+
+
+def berkas_ringkasan(uji=False):
+    return FILE_RINGKASAN_UJI if uji else FILE_RINGKASAN
+
+
+def _pekerja(argumen):
     lingkungan = {**os.environ, "PYTHONUTF8": "1"}
     try:
         proses = subprocess.Popen(
-            [sys.executable, "-u", str(SKRIP)],
+            argumen,
             cwd=str(BASE_DIR), env=lingkungan,
             stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
             text=True, encoding="utf-8", errors="replace",
@@ -100,8 +117,11 @@ def _pekerja():
         _keadaan["kode_keluar"] = kode
 
 
-def mulai():
-    """Mulai pembaruan di thread latar. Return False kalau sudah ada yang jalan."""
+def mulai(uji=False):
+    """Mulai pembaruan di thread latar. Return False kalau sudah ada yang jalan.
+
+    `uji` = current_app.config["KONFIGURASI_UJI"]; lihat perintah().
+    """
     with _kunci:
         if _keadaan["berjalan"]:
             return False
@@ -111,7 +131,8 @@ def mulai():
                         selesai=None, kode_keluar=None, baris=[])
     # daemon: server yang dihentikan tidak menunggu; subprocess-nya sendiri
     # tetap hidup sampai selesai (setiap tahap menulis atomik, aman diulang).
-    threading.Thread(target=_pekerja, daemon=True, name="pembaruan-data").start()
+    threading.Thread(target=_pekerja, args=(perintah(uji),), daemon=True,
+                     name="pembaruan-data").start()
     return True
 
 
@@ -145,10 +166,11 @@ def keadaan():
         }
 
 
-def ringkasan_terakhir():
-    """Isi data/pembaruan_terakhir.json (ditulis perbarui.py), atau None."""
+def ringkasan_terakhir(uji=False):
+    """Isi data/pembaruan_terakhir.json (ditulis perbarui.py), atau None.
+    Dengan uji=True: berkas ringkasan run --db-uji."""
     try:
-        with open(FILE_RINGKASAN, encoding="utf-8") as f:
+        with open(berkas_ringkasan(uji), encoding="utf-8") as f:
             isi = json.load(f)
     except (OSError, json.JSONDecodeError):
         return None

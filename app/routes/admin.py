@@ -323,7 +323,7 @@ def perbarui():
     """
     k = pembaruan.keadaan()
     pid_lain = None if k["berjalan"] else pembaruan.pid_proses_lain()
-    ringkasan = pembaruan.ringkasan_terakhir()
+    ringkasan = pembaruan.ringkasan_terakhir(_mode_uji())
 
     # Ringkasan dianggap milik run di sesi ini hanya kalau ditulis SETELAH
     # run itu dimulai; kalau tidak, proses berhenti sebelum sempat menulis.
@@ -342,9 +342,14 @@ def perbarui():
     )
 
 
+def _mode_uji():
+    """KonfigurasiUji: tombol pembaruan menjalankan perbarui.py --db-uji."""
+    return bool(current_app.config.get("KONFIGURASI_UJI", False))
+
+
 @bp.post("/perbarui/mulai")
 def perbarui_mulai():
-    if not pembaruan.mulai():
+    if not pembaruan.mulai(_mode_uji()):
         flash("Pembaruan sedang berjalan. Tunggu sampai selesai - dua pembaruan "
               "bersamaan bisa saling menimpa data.", "gagal")
     return redirect(url_for("admin.perbarui"))

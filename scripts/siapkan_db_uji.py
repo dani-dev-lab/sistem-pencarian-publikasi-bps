@@ -18,9 +18,7 @@ Jalankan (dari folder proyek):
   venv\\Scripts\\python.exe scripts\\siapkan_db_uji.py
 """
 
-import glob
 import os
-import shutil
 import subprocess
 import sys
 
@@ -29,18 +27,12 @@ sys.path.insert(0, DIR_PROYEK)
 
 from sqlalchemy.engine import make_url  # noqa: E402
 
-from app.config import Config, KonfigurasiUji, periksa_database_uji  # noqa: E402
+from app.config import Config, KonfigurasiUji, periksa_database_uji, program_mysql  # noqa: E402
 
 
 def cari_program(nama):
-    """mysql / mysqldump dari PATH, atau dari folder Laragon."""
-    ketemu = shutil.which(nama)
-    if ketemu:
-        return ketemu
-    calon = sorted(glob.glob(f"C:/laragon/bin/mysql/*/bin/{nama}.exe"))
-    if calon:
-        return calon[-1]
-    raise SystemExit(f"Program {nama} tidak ditemukan (PATH maupun C:/laragon/bin/mysql).")
+    """mysql / mysqldump: MYSQL_BIN di .env, lalu PATH (app.config.program_mysql)."""
+    return program_mysql(nama)
 
 
 def main():

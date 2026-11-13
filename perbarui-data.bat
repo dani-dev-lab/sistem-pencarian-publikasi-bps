@@ -41,7 +41,8 @@ if not exist ".env" (
 call "venv\Scripts\activate.bat"
 
 echo Memeriksa koneksi MySQL ...
-python -c "from app import create_app; from app.models import db; import sqlalchemy as sa; app=create_app(); ctx=app.app_context(); ctx.push(); db.session.execute(sa.text('SELECT 1'))"
+rem --db-uji: periksa database uji (KonfigurasiUji), bukan produksi.
+python -c "import sys; from app import create_app; from app.config import Config, KonfigurasiUji; from app.models import db; import sqlalchemy as sa; app=create_app(KonfigurasiUji if '--db-uji' in sys.argv[1:] else Config); ctx=app.app_context(); ctx.push(); db.session.execute(sa.text('SELECT 1')); print('  database:', db.engine.url.database)" %*
 if errorlevel 1 (
     echo.
     echo [GAGAL] Tidak bisa melanjutkan.
