@@ -789,6 +789,26 @@ TIRUAN = {"kode": "6399", "nama": "Kab. Tiruan Uji", "aktif": False, "singkatan"
 def bagian_d(per_id, kecil):
     print("\n=== D. MULTI-DOMAIN (domain tiruan 6399) ===", flush=True)
     semula = list(KEADAAN["domain"][DOMAIN])
+
+    # D0: keadaan pemasangan baru - SEMUA wilayah aktif tanpa data dan tanpa
+    # laporan --hanya-periksa. Harus berhenti di awal dengan satu pesan, bukan
+    # melewati wilayah satu per satu.
+    tiruan2 = dict(TIRUAN, kode="6398", nama="Kab. Tiruan Uji Dua")
+    aktifkan("6398", TIRUAN["kode"], tambahan=[tiruan2, TIRUAN])
+    lap_periksa = f"{UJI}/data/pemeriksaan_domain.json"
+    if os.path.exists(lap_periksa):
+        os.remove(lap_periksa)
+    cs0, n_minta = checksum_db(DB_UJI), len(PERMINTAAN)
+    kode, keluar, dtk = jalan("perbarui.py")
+    r = ringkasan()
+    cek("D0 semua wilayah aktif belum diperiksa: berhenti di awal, exit 1, pesan --hanya-periksa",
+        kode == 1 and "TIDAK ADA YANG DIKERJAKAN" in keluar and "perbarui.py --hanya-periksa" in keluar
+        and "DOMAIN 6398" not in keluar and r["status"] == "gagal" and "--hanya-periksa" in r.get("pesan", ""),
+        f"exit {kode}, {dtk:.0f} d, tahap {r.get('tahap')!r}")
+    tampil(keluar, 14)
+    cek("D0 tanpa permintaan ke WebAPI, database uji tidak berubah (CHECKSUM TABLE)",
+        len(PERMINTAAN) == n_minta and checksum_db(DB_UJI) == cs0, f"{len(PERMINTAAN) - n_minta} permintaan")
+
     aktifkan(DOMAIN, TIRUAN["kode"], tambahan=[TIRUAN])
     b63 = copy.deepcopy(per_id[kecil[0]])
     id63 = "aaaabbbbccccddddeeee6399"
@@ -961,16 +981,20 @@ contoh = {{
  'tidak_ada_baru': {{'status':'tidak_ada_baru','selesai_pada':'2026-11-05T01:00:00+00:00','jaringan':False,'jumlah_publikasi':80,'durasi_detik':60,'publikasi_baru':[],'domain':[{{'kode':'6305','wilayah':'Kab. Tapin','status':'tidak_ada_baru','pesan':None,'jumlah_publikasi':17,'diunduh':0,'diproses':0,'gagal':[],'tabrakan':[],'tidak_di_daftar':[],'menunggu_unduhan':[],'perlu_diperiksa':[]}}],'durasi_tahap':{{'ambil_metadata':1,'unduh':0,'ekstraksi':0,'muat':0}}}},
  'gagal_jaringan': {{'status':'gagal','selesai_pada':'2026-11-05T01:00:00+00:00','jaringan':True,'durasi_detik':5,'domain':[]}},
  'gagal_lain': {{'status':'gagal','selesai_pada':'2026-11-05T01:00:00+00:00','jaringan':False,'tahap':'konfigurasi','durasi_detik':5}},
+ 'gagal_periksa': {{'status':'gagal','selesai_pada':'2026-11-05T01:00:00+00:00','jaringan':False,'tahap':'pemeriksaan wilayah','pesan':'Tim IT perlu menjalankan sekali: perbarui.py --hanya-periksa','durasi_detik':0}},
  'lama_sukses': {{'status':'sukses','selesai_pada':'2026-09-15T01:00:00+00:00','jumlah_publikasi':74,'publikasi_baru':[{{'pub_id':'x','judul':'Format Lama','entri':3}}],'entri_sebelum':1,'entri_sesudah':4,'diekstrak_ulang':0,'durasi_detik':179}},
  'lama_tidak_ada': {{'jumlah_publikasi':79,'durasi_detik':175,'status':'tidak_ada_baru','selesai_pada':'2026-11-05T01:53:19+00:00'}},
 }}
-harap = {{'sebagian':['selesai sebagian','Kab. Tanah Laut','Sebagian gagal','Judul Gagal','Judul Tabrakan','halaman 1: putus','menunggu pembaruan online','tidak lagi ada','ambil daftar 1.5','&lt;b&gt;'],'sukses':['Pembaruan selesai','simpan 4'],'tidak_ada_baru':['Tidak ada publikasi baru','Tidak ada yang baru'],'gagal_jaringan':['BPS - Pegawai'],'gagal_lain':['di tahap konfigurasi'],'lama_sukses':['Format Lama','179 detik'],'lama_tidak_ada':['Tidak ada publikasi baru','175 detik']}}
+harap = {{'sebagian':['selesai sebagian','Kab. Tanah Laut','Sebagian gagal','Judul Gagal','Judul Tabrakan','halaman 1: putus','menunggu pembaruan online','tidak lagi ada','ambil daftar 1.5','&lt;b&gt;'],'sukses':['Pembaruan selesai','simpan 4'],'tidak_ada_baru':['Tidak ada publikasi baru','Tidak ada yang baru'],'gagal_jaringan':['DNS jaringan','Pemecahan masalah'],'gagal_lain':['di tahap konfigurasi'],'gagal_periksa':['di tahap pemeriksaan wilayah','perbarui.py --hanya-periksa'],'lama_sukses':['Format Lama','179 detik'],'lama_tidak_ada':['Tidak ada publikasi baru','175 detik']}}
+# Teks lama tentang jenis Wi-Fi tidak boleh tampil lagi (penyebabnya DNS).
+def lama(h): return ['ADA: ' + x for x in ('BPS - Pegawai', 'BPS - Tamu') if x in h]
 for nama, isi in contoh.items():
     json.dump(isi, open(F, 'w', encoding='utf-8'))
     r = c.get('/admin/perbarui'); h = r.get_data(as_text=True)
-    print('ADMIN', nama, r.status_code, 'kurang', [x for x in harap[nama] if x not in h])
+    print('ADMIN', nama, r.status_code, 'kurang', [x for x in harap[nama] if x not in h] + lama(h))
 os.remove(F)
-r = c.get('/admin/perbarui'); print('ADMIN tanpa_berkas', r.status_code, 'kurang', [])
+r = c.get('/admin/perbarui'); h = r.get_data(as_text=True)
+print('ADMIN tanpa_berkas', r.status_code, 'kurang', [x for x in ['webapi.bps.go.id'] if x not in h] + lama(h))
 """
     kode, keluar, err = jalan_py(kode_r, timeout=900)
     print("    | " + keluar.strip().replace("\n", "\n    | "), err[-800:], flush=True)
@@ -984,7 +1008,7 @@ r = c.get('/admin/perbarui'); print('ADMIN tanpa_berkas', r.status_code, 'kurang
     cek("R4 id tak dikenal / path aneh -> 404", "TAK_ADA 404 404" in keluar)
     admin = re.findall(r"ADMIN (\w+) (\d+) kurang (.*)", keluar)
     cek("R5 /admin/perbarui (ringkasan -uji) merender semua status + format lama",
-        len(admin) == 8 and all(a[1] == "200" and a[2] == "[]" for a in admin), admin)
+        len(admin) == 9 and all(a[1] == "200" and a[2] == "[]" for a in admin), admin)
 
 
 def bagian_w(per_id, v):

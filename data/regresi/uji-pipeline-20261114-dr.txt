@@ -1,0 +1,64 @@
+Cadangan database uji: 8.8 MB, 6 tabel; produksi 6 tabel
+Database uji: db_pencarian_bps_uji | produksi (hanya dibaca): db_pencarian_bps | domain uji: 6305
+
+=== U. PENGAMAN DATABASE UJI ===
+  [LULUS] U1 KonfigurasiUji yang menunjuk nama produksi ditolak (SystemExit)  -- DITOLAK True
+  [LULUS] U2 baris pertama perbarui.py = database uji  -- Database tujuan: db_pencarian_bps_uji @ localhost:3306 (UJI - bukan produksi)
+  [LULUS] U3 ringkasan ke pembaruan_terakhir-uji.json, berkas produksi tidak dibuat  -- exit 0, 1 d
+
+(--hanya DR: bagian lain dilewati)
+
+=== D. MULTI-DOMAIN (domain tiruan 6399) ===
+  [LULUS] D0 semua wilayah aktif belum diperiksa: berhenti di awal, exit 1, pesan --hanya-periksa  -- exit 1, 1 d, tahap 'pemeriksaan wilayah'
+    | Database tujuan: db_pencarian_bps_uji @ localhost:3306 (UJI - bukan produksi)
+    | Log run ini: data/log_pembaruan\20261114-101217.log
+    |   TIDAK ADA YANG DIKERJAKAN: semua wilayah aktif (2) belum punya data di
+    |   database dan belum boleh dimuat.
+    |   Sebab: belum lolos scripts/perbarui.py --hanya-periksa
+    |   Jalankan dulu sekali (butuh internet; tidak mengubah database dan tidak
+    |   mengunduh PDF):
+    |       venv\Scripts\python.exe scripts\perbarui.py --hanya-periksa
+    |   Kalau hasilnya 0 tabrakan, ulangi pembaruan. Lihat PANDUAN.md, bagian
+    |   pemasangan pertama.
+    | Selesai 2026-11-14 10:12:18, kode keluar 1. Log: data/log_pembaruan\20261114-101217.log
+  [LULUS] D0 tanpa permintaan ke WebAPI, database uji tidak berubah (CHECKSUM TABLE)  -- 0 permintaan
+  [LULUS] D1 domain baru tanpa --hanya-periksa: DILEWATI, domain lama tetap jalan, exit 3  -- exit 3, 6399: Dilewati: belum lolos scripts/perbarui.py --hanya-
+  [LULUS] D1 tak ada baris 6399 masuk  -- 0
+  [LULUS] D2 --hanya-periksa bersih: 15 wilayah, 0 tabrakan, exit 0  -- exit 0, 15 domain, 16 d
+  [LULUS] D2 --hanya-periksa tidak menulis DB / PDF
+  [LULUS] D3 setelah lolos: 6399 dimuat ke subfolder + wilayah benar  -- sukses, Kab. Tiruan Uji
+  [LULUS] D4 domain putus jaringan: domain lain tetap diproses, exit 3  -- exit 3, sebagian, 6305 sukses
+  [LULUS] D4 data domain yang gagal tidak disentuh
+  [LULUS] D5 halaman ke-2 gagal: domain gagal, metadata tak tersentuh  -- gagal: halaman 2: 500 Server Error: Internal Server Error for url: 
+  [LULUS] D6 0 publikasi padahal DB berisi: ditolak, data utuh  -- 0 publikasi lolos filter padahal database berisi 1 publikasi domain in
+  [LULUS] D7 --hanya-periksa: 1 pub_id di dua domain = TEPAT 1 tabrakan, exit 1  -- exit 1, 1 tabrakan
+  [LULUS] D7b tabrakan API-vs-DB terdeteksi, tepat 1  -- exit 1, 1 tabrakan
+  [LULUS] D8 pengaman: baris domain lain TIDAK ditimpa, dilaporkan, exit 3  -- exit 3, sebagian
+  [LULUS] D9 publikasi hilang dari daftar API: dilaporkan, tidak dihapus  -- 1
+
+=== R. ROUTE PDF & HALAMAN ADMIN (test_client, KonfigurasiUji) ===
+    | PDF_LOKAL 18 buruk []
+    | TOMBOL 31 ok 31 LAIN 10 alih 10
+    | HILANG 302 True
+    | TAK_ADA 404 404
+    | ADMIN sebagian 200 kurang []
+    | ADMIN sukses 200 kurang []
+    | ADMIN tidak_ada_baru 200 kurang []
+    | ADMIN gagal_jaringan 200 kurang []
+    | ADMIN gagal_lain 200 kurang []
+    | ADMIN gagal_periksa 200 kurang []
+    | ADMIN lama_sukses 200 kurang []
+    | ADMIN lama_tidak_ada 200 kurang []
+    | ADMIN tanpa_berkas 200 kurang [] 
+  [LULUS] R1 /pdf/<id> menyajikan berkas lokal untuk semua publikasi domain uji  -- PDF_LOKAL 18 buruk []
+  [LULUS] R2 tombol Buka PDF di /hasil -> berkas lokal tanpa redirect; PDF di luar salinan -> alih ke url_pdf  -- TOMBOL 31 ok 31 LAIN 10 alih 10
+  [LULUS] R3 berkas hilang -> cadangan redirect ke url_pdf
+  [LULUS] R4 id tak dikenal / path aneh -> 404
+  [LULUS] R5 /admin/perbarui (ringkasan -uji) merender semua status + format lama  -- [('sebagian', '200', '[]'), ('sukses', '200', '[]'), ('tidak_ada_baru', '200', '[]'), ('gagal_jaringan', '200', '[]'), ('gagal_lain', '200', '[]'), ('gagal_periksa', '200', '[]'), ('lama_sukses', '200', '[]'), ('lama_tidak_ada', '200', '[]'), ('tanpa_berkas', '200', '[]')]
+
+=== Z. PEMULIHAN DAN BUKTI ===
+  [LULUS] Z1 database uji dipulihkan, CHECKSUM TABLE sama dengan awal  -- []
+  [LULUS] Z2 produksi tidak berubah (CHECKSUM TABLE awal = akhir)  -- []
+  [LULUS] Z3 folder sementara dibersihkan
+
+=== TOTAL: 26 lulus, 0 gagal, 0 dilewati (148 detik) ===

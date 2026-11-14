@@ -97,13 +97,16 @@
   {% elif r.status == "gagal" %}
     {% if r.jaringan %}
       <p class="kabar kabar-gagal"><strong>Tidak bisa terhubung ke WebAPI BPS.</strong>
-        Pastikan komputer ini tersambung ke jaringan <strong>&ldquo;BPS - Pegawai&rdquo;</strong>
-        (jaringan &ldquo;BPS - Tamu&rdquo; memblokir akses), lalu coba lagi.
+        Periksa koneksi internet komputer ini, lalu coba lagi. Kalau situs BPS
+        terbuka di browser tetapi pembaruan tetap gagal, kemungkinan DNS jaringan
+        mengarahkan <code>webapi.bps.go.id</code> ke alamat yang salah: hubungi
+        tim IT (PANDUAN.md, bagian Pemecahan masalah).
         Data yang sudah ada tetap utuh.</p>
     {% else %}
       <p class="kabar kabar-gagal"><strong>Pembaruan gagal</strong>{% if r.tahap %} di tahap {{ r.tahap }}{% endif %}.
         Data yang sudah ada tetap utuh dan pembaruan aman diulang. Kalau gagal lagi,
         hubungi tim IT dan sertakan catatan proses di bawah.</p>
+      {% if r.pesan %}<p class="kabar kabar-gagal">{{ r.pesan }}</p>{% endif %}
     {% endif %}
     {{ rincian_pembaruan(r) }}
   {% endif %}
@@ -170,9 +173,10 @@
     strukturnya, dan memasukkannya ke database supaya bisa dicari. Publikasi yang
     tidak berubah tidak diproses ulang.</p>
   <ul class="langkah-pembaruan">
-    <li><strong>Syarat:</strong> komputer ini harus tersambung ke jaringan
-      <strong>&ldquo;BPS - Pegawai&rdquo;</strong>. Jaringan &ldquo;BPS - Tamu&rdquo;
-      memblokir WebAPI BPS.</li>
+    <li><strong>Syarat:</strong> komputer ini harus tersambung ke internet dan bisa
+      menjangkau WebAPI BPS (<code>webapi.bps.go.id</code>). Kalau gagal terhubung
+      padahal situs BPS terbuka di browser, lihat PANDUAN.md, bagian Pemecahan
+      masalah.</li>
     <li><strong>Lama:</strong> sekitar 2 menit per wilayah kalau tidak ada publikasi
       baru (memeriksa seluruh halaman daftar, dengan jeda 1 detik per halaman sesuai
       ketentuan BPS), ditambah 20&ndash;90 detik per publikasi yang diproses.</li>

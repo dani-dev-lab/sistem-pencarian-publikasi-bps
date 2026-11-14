@@ -73,6 +73,22 @@ PESAN_JARINGAN = """
   tim IT, lalu jalankan ulang perintah ini.
 """
 
+# Semua wilayah aktif terhalang (lihat domain_terhalang): keadaan pemasangan
+# baru dengan database kosong. {n} = jumlah wilayah, {alasan} = sebabnya.
+PESAN_SEMUA_TERHALANG = """
+  TIDAK ADA YANG DIKERJAKAN: semua wilayah aktif ({n}) belum punya data di
+  database dan belum boleh dimuat.
+  Sebab: {alasan}
+
+  Jalankan dulu sekali (butuh internet; tidak mengubah database dan tidak
+  mengunduh PDF):
+
+      venv\\Scripts\\python.exe scripts\\perbarui.py --hanya-periksa
+
+  Kalau hasilnya 0 tabrakan, ulangi pembaruan. Lihat PANDUAN.md, bagian
+  pemasangan pertama.
+"""
+
 PESAN_SKEMA = """
   Database belum memakai struktur multi-domain. Jalankan sekali:
 
@@ -689,6 +705,19 @@ def jalankan_pembaruan(opsi):
     entri_sebelum = EntriDokumen.query.count()
     terhalang = {} if opsi.lokal else domain_terhalang(aktif)
     db.session.commit()
+    # Semua wilayah terhalang = tidak ada yang bisa dikerjakan. Berhenti di
+    # sini dengan SATU pesan yang menunjuk ke --hanya-periksa, sebelum jaringan
+    # disentuh; tanpa ini petunjuknya terselip di rincian tiap wilayah.
+    if terhalang and len(terhalang) == len(aktif):
+        alasan = "; ".join(sorted(set(terhalang.values())))
+        print(PESAN_SEMUA_TERHALANG.format(n=len(aktif), alasan=alasan))
+        tulis_ringkasan("gagal", tahap="pemeriksaan wilayah", jaringan=False,
+                        pesan=f"Semua wilayah aktif ({len(aktif)}) belum punya data dan belum "
+                              f"boleh dimuat ({alasan}). Tim IT perlu menjalankan sekali: "
+                              "venv\\Scripts\\python.exe scripts\\perbarui.py --hanya-periksa "
+                              "- lalu pembaruan diulang.",
+                        durasi_detik=round(time.time() - mulai))
+        return KODE_GAGAL
     jaringan_dipakai = {} if opsi.lokal else info_jaringan()
     if jaringan_dipakai:
         print(f"Jaringan: SSID {jaringan_dipakai.get('ssid')!r}, "
