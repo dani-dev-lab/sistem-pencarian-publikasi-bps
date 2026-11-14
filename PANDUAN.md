@@ -148,25 +148,45 @@ Pengembang menyerahkan empat hal:
 
 | Yang diserahkan | Ditaruh di |
 |---|---|
-| Cadangan database (satu berkas `.sql`) | dipulihkan ke MySQL, langkah 1–2 |
+| Cadangan database (satu berkas `.sql`) | dipulihkan ke MySQL, langkah 1–3 |
 | Folder PDF `publikasi_pdf` (±3 GB) | `data\publikasi_pdf\` |
 | Folder cache OCR `ocr_cache` (±22 MB) | `data\ocr_cache\` |
 | Berkas `wilayah.json` | `data\wilayah.json` (sudah ikut di Git; pakai yang diserahkan kalau isinya berbeda) |
 
 Langkahnya, di **Command Prompt** (bukan PowerShell, karena tanda `<` di
-langkah 2 tidak dikenal PowerShell). `mysql` di bawah ini adalah program
-`mysql.exe` di folder `MYSQL_BIN`:
+langkah 3 tidak dikenal PowerShell), dari folder tempat berkas cadangan
+berada:
 
-1. Buat database kosong:
+1. Supaya perintah `mysql` dikenali, tambahkan dulu folder program MySQL ke
+   PATH jendela ini. Foldernya sama dengan `MYSQL_BIN` (tabel di atas);
+   sesuaikan dengan versi MySQL yang terpasang:
+   ```
+   set PATH=C:\laragon\bin\mysql\mysql-8.0.30-winx64\bin;%PATH%
+   ```
+   Tanpa langkah ini Command Prompt tidak mengenali perintah `mysql`
+   (begitulah keadaannya di laptop pengembang).
+2. Buat database kosong:
    ```
    mysql -u root -p -e "CREATE DATABASE db_pencarian_bps CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci"
    ```
-2. Pulihkan cadangan ke database itu:
+3. Pulihkan cadangan ke database itu (ganti `cadangan.sql` dengan nama
+   berkasnya):
    ```
    mysql -u root -p --default-character-set=utf8mb4 db_pencarian_bps < cadangan.sql
    ```
-3. Salin folder `publikasi_pdf` dan `ocr_cache` ke dalam folder `data\`.
-4. Jalankan `jalankan-aplikasi.bat` (bagian 3). Data langsung bisa dicari.
+4. Salin folder `publikasi_pdf` dan `ocr_cache` ke dalam folder `data\`.
+5. Jalankan `jalankan-aplikasi.bat` (bagian 3). Data langsung bisa dicari.
+
+Di langkah 2 dan 3, `-p` membuat MySQL **meminta sandi root diketik**.
+Kalau sandi root kosong (bawaan Laragon), tekan Enter saja, atau hapus `-p`
+dari perintahnya.
+
+Langkah 1–3 diuji 14 November 2026 dengan database sementara: cadangan yang
+dibuat dengan perintah `mysqldump` di bagian 7 dipulihkan dalam ±1,5 detik,
+dan keenam tabelnya sama dengan database asal (jumlah baris dan `CHECKSUM
+TABLE`). Pengujian itu memakai perintah tanpa `-p`, karena sandi root di
+laptop pengembang kosong. Langkah 4 (menyalin folder ke komputer lain) belum
+diuji.
 
 **Penting saat menyalin folder PDF: tanggal ubah berkas ("Date modified")
 harus tetap sama.** Aplikasi mengenali PDF dari ukuran dan tanggal ubahnya.
@@ -191,7 +211,14 @@ sudah punya data di database langsung boleh diperbarui.
 Dipakai kalau berkas serah terima tidak ada. Butuh internet yang bisa
 menjangkau WebAPI BPS (bagian 10 kalau gagal terhubung).
 
-1. Buat database kosong (langkah 1 jalur A). Tabelnya dibuat otomatis.
+**Jalur ini belum diuji dari nol** (dari database kosong sampai selesai),
+karena butuh jaringan ke BPS dan berjam-jam unduhan. Yang sudah terbukti
+adalah bagian-bagiannya: pemeriksaan 14 wilayah (9 November 2026), penarikan
+13 kabupaten/kota ke database yang sudah berisi provinsi (9–10 November
+2026), dan berhentinya pembaruan dengan pesan kalau langkah 2 dilewati (14
+November 2026).
+
+1. Buat database kosong (langkah 1–2 jalur A). Tabelnya dibuat otomatis.
 2. Jalankan pemeriksaan wilayah, **wajib sebelum pembaruan pertama**:
    ```
    venv\Scripts\python.exe scripts\perbarui.py --hanya-periksa
@@ -503,9 +530,9 @@ di jaringan kantor, hal-hal berikut perlu disiapkan oleh tim IT:
 | **OCR (opsional)** | Lihat 7.2 dan 7.3. |
 | **Pemulihan kata sandi admin** | Kalau pengelola lupa sandi, hanya bisa disetel ulang dari server: buka Command Prompt di folder proyek, jalankan `venv\Scripts\python.exe scripts\buat_hash_sandi.py`, ketik sandi baru dua kali (tidak tampil di layar, minimal 8 karakter), lalu salin baris `ADMIN_PASSWORD_HASH=...` yang dicetak ke `.env` menggantikan baris lama. Hentikan dan jalankan ulang aplikasi — jalur ini tidak membaca ulang `.env` secara otomatis. Prosedur yang sama dipakai saat pemasangan pertama (bagian 2). |
 
-Contoh mencadangkan database, di Command Prompt (`mysqldump` ada di folder
-`MYSQL_BIN`). Berkas hasilnya bisa dipulihkan dengan langkah 1–2 jalur A di
-bagian 2:
+Contoh mencadangkan database, di Command Prompt. Tambahkan dulu folder
+program MySQL ke PATH (langkah 1 jalur A di bagian 2); `-p` meminta sandi
+root. Berkas hasilnya dipulihkan dengan langkah 2–3 jalur A:
 
 ```
 mysqldump -u root -p --default-character-set=utf8mb4 --single-transaction --routines --triggers --events --hex-blob --no-tablespaces --result-file=cadangan.sql db_pencarian_bps

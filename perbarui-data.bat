@@ -9,7 +9,8 @@ echo ==========================================================
 echo.
 echo   Butuh koneksi internet ke webapi.bps.go.id.
 echo.
-echo   Kalau tidak ada publikasi baru, proses selesai dalam ~2 menit per wilayah.
+echo   Lama pembaruan semua wilayah tanpa publikasi baru belum diukur ulang.
+echo   Daftar tiap wilayah diperiksa dengan jeda 1 detik per halaman.
 echo   Tiap publikasi yang perlu diproses butuh ~20-90 detik
 echo   (unduh PDF + membaca strukturnya). Penarikan wilayah baru bisa
 echo   berjam-jam: biarkan jendela ini terbuka, laptop tersambung listrik,
@@ -57,8 +58,8 @@ if errorlevel 1 (
 )
 echo MySQL aktif.
 echo.
-echo Memulai. Tiap wilayah diawali pemeriksaan seluruh halaman daftar publikasi
-echo di WebAPI dengan jeda 1 detik per halaman - baris "halaman N/65 ... OK"
+echo Memulai. Tiap wilayah diawali pemeriksaan halaman daftar publikasi di
+echo WebAPI dengan jeda 1 detik per halaman - baris "halaman 3/24 ... OK"
 echo muncul satu per satu. Itu normal, bukan macet.
 echo.
 

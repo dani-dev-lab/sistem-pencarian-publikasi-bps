@@ -1,0 +1,47 @@
+Cadangan database uji: 8.8 MB, 6 tabel; produksi 6 tabel
+Database uji: db_pencarian_bps_uji | produksi (hanya dibaca): db_pencarian_bps | domain uji: 6305
+
+=== U. PENGAMAN DATABASE UJI ===
+  [LULUS] U1 KonfigurasiUji yang menunjuk nama produksi ditolak (SystemExit)  -- DITOLAK True
+  [LULUS] U2 baris pertama perbarui.py = database uji  -- Database tujuan: db_pencarian_bps_uji @ localhost:3306 (UJI - bukan produksi)
+  [LULUS] U3 ringkasan ke pembaruan_terakhir-uji.json, berkas produksi tidak dibuat  -- exit 0, 1 d
+
+(--hanya RW: bagian lain dilewati)
+
+=== R. ROUTE PDF & HALAMAN ADMIN (test_client, KonfigurasiUji) ===
+    | PDF_LOKAL 17 buruk []
+    | TOMBOL 31 ok 31 LAIN 10 alih 10
+    | HILANG 302 True
+    | TAK_ADA 404 404
+    | ADMIN sebagian 200 kurang []
+    | ADMIN sukses 200 kurang []
+    | ADMIN tidak_ada_baru 200 kurang []
+    | ADMIN gagal_jaringan 200 kurang []
+    | ADMIN gagal_lain 200 kurang []
+    | ADMIN gagal_periksa 200 kurang []
+    | ADMIN lama_sukses 200 kurang []
+    | ADMIN lama_tidak_ada 200 kurang []
+    | ADMIN tanpa_berkas 200 kurang [] 
+  [LULUS] R1 /pdf/<id> menyajikan berkas lokal untuk semua publikasi domain uji  -- PDF_LOKAL 17 buruk []
+  [LULUS] R2 tombol Buka PDF di /hasil -> berkas lokal tanpa redirect; PDF di luar salinan -> alih ke url_pdf  -- TOMBOL 31 ok 31 LAIN 10 alih 10
+  [LULUS] R3 berkas hilang -> cadangan redirect ke url_pdf
+  [LULUS] R4 id tak dikenal / path aneh -> 404
+  [LULUS] R5 /admin/perbarui (ringkasan -uji) merender semua status + format lama  -- [('sebagian', '200', '[]'), ('sukses', '200', '[]'), ('tidak_ada_baru', '200', '[]'), ('gagal_jaringan', '200', '[]'), ('gagal_lain', '200', '[]'), ('gagal_periksa', '200', '[]'), ('lama_sukses', '200', '[]'), ('lama_tidak_ada', '200', '[]'), ('tanpa_berkas', '200', '[]')]
+
+=== W. TOMBOL WEB + .BAT SUNGGUHAN (keduanya --db-uji) ===
+    | MULAI 302
+    | KEDUA_NONAKTIF True
+    | SEBAGIAN_TAMPIL True JUDUL_GAGAL True UJI True 
+  [LULUS] W1 tombol web (KonfigurasiUji): berjalan ke DB uji, POST kedua ditolak, ringkasan 'sebagian' + judul gagal
+  [LULUS] W2 .bat tetap ASCII + CRLF
+  [LULUS] W3 .bat exit 3 -> SELESAI SEBAGIAN  -- ['RINGKASAN PEMBARUAN', 'PEMBARUAN SELESAI SEBAGIAN - sebagian wilayah/publikasi gagal.']
+  [LULUS] W4 .bat exit 0 -> PEMBARUAN SELESAI., cek MySQL ke database uji  -- ['RINGKASAN PEMBARUAN', 'PEMBARUAN SELESAI.', 'database: db_pencarian_bps_uji']
+  [LULUS] W5 .bat exit 1 -> PEMBARUAN GAGAL + pesan jaringan  -- ['RINGKASAN PEMBARUAN', 'PEMBARUAN GAGAL - baca pesan di atas.']
+  [LULUS] W6 .bat saat terkunci -> TIDAK DIJALANKAN  -- ['TIDAK DIJALANKAN: pembaruan lain sedang berjalan.']
+
+=== Z. PEMULIHAN DAN BUKTI ===
+  [LULUS] Z1 database uji dipulihkan, CHECKSUM TABLE sama dengan awal  -- []
+  [LULUS] Z2 produksi tidak berubah (CHECKSUM TABLE awal = akhir)  -- []
+  [LULUS] Z3 folder sementara dibersihkan
+
+=== TOTAL: 17 lulus, 0 gagal, 0 dilewati (467 detik) ===

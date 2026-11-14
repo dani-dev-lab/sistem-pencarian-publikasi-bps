@@ -782,8 +782,8 @@ Aturan yang berlaku:
   sekali jalan), bukan lewat suite yang bisa diulang. Diputuskan tidak
   dikerjakan sekarang; kalau ada yang mengubah parser atau scoring, jalankan
   ulang pemeriksaan manual yang dicatat di bagian-bagian terkait.
-- **`tests/uji_pipeline.py` disesuaikan dengan struktur sekarang (13 Nov
-  2026, SEBAGIAN).** Bukan pytest; skrip berkode keluar 0 lulus / 1 gagal /
+- **`tests/uji_pipeline.py` disesuaikan dengan struktur sekarang (13-14 Nov
+  2026, SELESAI).** Bukan pytest; skrip berkode keluar 0 lulus / 1 gagal /
   2 lingkungan belum siap.
   - Hanya menulis `db_pencarian_bps_uji`:
     - perbarui.py selalu `--db-uji`;
@@ -804,8 +804,16 @@ Aturan yang berlaku:
     menjalankan tombol admin sungguhan, aman karena KonfigurasiUji -> --db-uji.
   - `--hanya <huruf>` menjalankan sebagian bagian (U dan Z selalu jalan); tim
     IT menjalankan tanpa argumen.
-  - BELUM: satu run PENUH semua bagian berurutan (±37 menit) untuk memastikan
-    bagian-bagian tidak saling mengganggu. Dijadwalkan Senin.
+  - **Run PENUH tanpa argumen, 14 Nov 2026: 78 lulus, 0 gagal, 0 dilewati,
+    kode keluar 0, 2.250 detik** (`data/regresi/uji-pipeline-20261114.txt`).
+    Z1 database uji dipulihkan (CHECKSUM sama), Z2 produksi tidak berubah.
+  - Ditambahkan sesudah run penuh itu (14 Nov), diuji lewat `--hanya`:
+    - D0: semua wilayah aktif belum diperiksa -> berhenti di awal, exit 1,
+      0 permintaan ke server tiruan, CHECKSUM database uji sama;
+    - R5: 9 skenario ringkasan (tambah `gagal_periksa`), dan teks lama
+      "BPS - Pegawai/Tamu" tidak boleh tampil.
+    - Log: `uji-pipeline-20261114-dr.txt`, `uji-pipeline-20261114-rw.txt`.
+    - Run penuh BELUM diulang sesudah penambahan ini.
 - **Tombol pembaruan admin dan `perbarui-data.bat` mengikuti KonfigurasiUji
   (13 Nov 2026).** Aplikasi dengan KonfigurasiUji menjalankan perbarui.py
   `--db-uji` dan membaca `pembaruan_terakhir-uji.json`; konfigurasi biasa
@@ -864,13 +872,54 @@ untuk tim IT ada di `PANDUAN.md` (bahasa awam, tanpa asumsi tahu Python).
 Kata sandi admin dan isi `.env` DISERAHKAN TERPISAH - tidak ditulis di
 PANDUAN.md maupun di Git.
 
-### Rencana isi PANDUAN.md yang belum ditulis (tahap dokumentasi)
-- **Pemecahan masalah jaringan:**
-  - gejala: "connection reset" saat pembaruan padahal browser bisa;
-  - cara cek: `Resolve-DnsName webapi.bps.go.id` (hasil 10.0.11.232 = DNS
-    kantor);
-  - solusi sementara: hosts file, hanya dengan izin. Lihat "Catatan
-    lingkungan".
+### Titik berhenti sekarang (14 Nov 2026)
+Semua di bawah ini sudah di-commit di `revisi-pst`.
+- **PANDUAN.md ditulis ulang untuk keadaan multi-wilayah** (11 bagian;
+  README disamakan). Bagian barunya: filter wilayah, pemasangan pertama dua
+  jalur, pilihan `perbarui.py`, mengelola wilayah, database uji dan cara
+  menguji, pemecahan masalah (DNS), lisensi model OCR sebagai 7.3.
+  - Angka di PANDUAN dihitung dari produksi 14 Nov: 306 publikasi, 24.373
+    entri, 18.106 punya `halaman_fisik` (74%), 317 tanpa halaman cetak maupun
+    fisik, 18 publikasi hanya punya entri isi, 8 publikasi OCR (1.192
+    halaman).
+  - Yang tidak bisa diukur dari rumah ditulis "belum diukur ulang": lama
+    pembaruan rutin online 14 wilayah tanpa publikasi baru. Teks yang sama
+    kini di halaman admin dan `perbarui-data.bat` (dulu "±2 menit per
+    wilayah", angka yang tidak pernah diukur).
+- **`perbarui.py` berhenti di awal kalau SEMUA wilayah aktif terhalang**
+  (database kosong, belum ada `pemeriksaan_domain.json`): satu pesan yang
+  menunjuk ke `--hanya-periksa`, sebelum jaringan disentuh, kode keluar 1,
+  ringkasan dengan tahap "pemeriksaan wilayah". Dulu juga keluar 1, tetapi lewat
+  satu blok DILEWATI per wilayah. Halaman admin kini menampilkan `r.pesan`.
+- **Teks jaringan di halaman admin** tidak lagi menyebut "BPS - Pegawai /
+  Tamu"; isinya penjelasan DNS (lihat "Catatan lingkungan").
+- **Jalur A (pulihkan cadangan) diuji 14 Nov** ke database sementara
+  `db_pencarian_bps_jalur_a_uji`, yang lalu dihapus; produksi hanya dibaca
+  (CHECKSUM awal = akhir).
+  - Cadangan segar dari perintah `mysqldump` PANDUAN bagian 7 -> CREATE
+    DATABASE -> pulihkan: 6 tabel SAMA dengan produksi (baris + CHECKSUM).
+  - Cadangan 13 Nov 13:59 (sebelum muat OCR): pulih tanpa galat; `kategori`,
+    `log_pencarian`, `publikasi_kategori` sama; `entri_dokumen` 23.948 vs
+    24.373, `publikasi`, `versi_data` beda. Itu memang selisih muatan OCR.
+  - Dua temuan, sudah diperbaiki di PANDUAN: `mysql` tidak ada di PATH
+    (ditambah langkah `set PATH=...`), dan `-p` menunggu sandi diketik
+    (di sesi tanpa konsol perintahnya macet; diuji tanpa `-p`, sandi root
+    Laragon kosong).
+  - Menyalin folder PDF + cache OCR ke komputer lain BELUM diuji.
+- **Jebakan serah terima: sidik PDF = (ukuran, mtime).** `sidik_pdf` dan
+  `ocr._sidik` sama-sama memakainya. Kalau folder PDF disalin dengan cara
+  yang mengubah tanggal ubah (ZIP, unduhan awan), pembaruan berikutnya
+  menganggap semua PDF berganti: ekstraksi ulang 306 PDF, dan cache OCR
+  dibuang (`halaman_tanpa_teks` menghapus berkas halaman kalau sidik beda).
+  Tidak ada mode "periksa saja". Sudah ditulis sebagai peringatan di PANDUAN.
+- **Jalur B (dari nol) belum diuji ujung ke ujung** - butuh jaringan ke BPS.
+- Masih terbuka: lama pembaruan rutin 14 wilayah (ukur dari kantor), run
+  penuh `uji_pipeline.py` sesudah D0/R5, uji coba petugas PST + ambang skor,
+  konfirmasi singkatan wilayah, lisensi model OCR.
+
+### Bukti di balik isi PANDUAN.md
+- **Pemecahan masalah jaringan** (PANDUAN bagian 10): lihat "Catatan
+  lingkungan".
 - **Penarikan besar sebaiknya dijadwalkan dini hari**, misalnya mulai
   sesudah 01:00. Bukti dari penarikan 13 kab/kota (9-10 Nov 2026), dengan
   koneksi tunggal yang sama:
@@ -1062,6 +1111,15 @@ kelompok "banyaknya" lalu Terapkan mengubah persis 105 entri (semua yang
 memuat token "hotel"); menghapus varian lalu Terapkan lagi mengembalikan
 database ke keadaan awal byte-per-byte.
 
+Waktu, diukur ulang 14 Nov 2026 di database uji (24.373 entri, proses baru
+tiap kali):
+- kamus tidak mengubah apa pun: 2,2-2,3 detik (panggilan kedua di proses
+  yang sama 1,7 detik, stemmer sudah hangat);
+- seluruh `teks_ternormalisasi` dikosongkan dulu, jadi 24.372 entri ditulis
+  ulang: 8,8 detik.
+- CHECKSUM `entri_dokumen`, `publikasi`, `log_pencarian` sesudahnya sama
+  dengan sebelum; hanya `versi_data` yang naik.
+
 ## Catatan lingkungan
 - **Masalah DNS kantor (awal Nov 2026, TERATASI 9 Nov 2026).**
   - Gejala: pembaruan data gagal dengan "connection reset" ke WebAPI, padahal
@@ -1079,8 +1137,8 @@ database ke keadaan awal byte-per-byte.
 - Kalau gejalanya muncul lagi: cek dengan `Resolve-DnsName webapi.bps.go.id`
   (PowerShell). Kalau hasilnya 10.0.11.232, masalah DNS-nya kambuh. Solusi
   sementara: baris hosts file `203.123.60.70 webapi.bps.go.id`. **Jangan ubah
-  hosts file tanpa izin pemilik project.** Cara ini dijadwalkan masuk
-  `PANDUAN.md` bagian pemecahan masalah (tahap dokumentasi, belum ditulis).
+  hosts file tanpa izin pemilik project.** Cara ini sudah ditulis di
+  `PANDUAN.md` bagian 10 (14 Nov 2026).
 - Catatan lama: dulu tercatat bahwa jaringan "BPS - Pegawai" bisa mengakses
   WebAPI dan "BPS - Tamu" tidak.
 
