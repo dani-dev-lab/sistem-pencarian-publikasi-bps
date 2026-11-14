@@ -9,6 +9,24 @@ Kata sandi admin dan isi berkas `.env` (yang memuat API key dan sandi
 database) **diserahkan terpisah** — tidak ditulis di panduan ini dan tidak
 disimpan di Git.
 
+Angka di panduan ini (jumlah publikasi, lama proses) adalah hasil pengukuran
+pada tanggal yang disebut di sampingnya, di laptop pengembang. Yang belum
+pernah diukur ditulis "belum diukur".
+
+Isi panduan:
+
+1. Apa yang dilakukan aplikasi ini
+2. Yang harus tersedia di komputer, dan pemasangan pertama kali
+3. Menjalankan dan menghentikan aplikasi
+4. Memperbarui data saat ada publikasi baru
+5. Menambah istilah pendek / sinonim lewat halaman admin
+6. Mengganti kata sandi admin
+7. Yang perlu disiapkan tim IT untuk pemasangan di jaringan kantor
+8. Mengelola daftar wilayah
+9. Database uji dan cara menguji aplikasi
+10. Pemecahan masalah
+11. Keterbatasan yang diketahui
+
 ---
 
 ## 1. Apa yang dilakukan aplikasi ini
@@ -23,8 +41,10 @@ langsung di halaman itu.
 
 Cara kerjanya secara garis besar:
 
-1. Daftar publikasi BPS Kalsel diambil dari WebAPI BPS (hanya publikasi
-   yang **dirilis dalam 2 tahun terakhir**).
+1. Daftar publikasi diambil dari WebAPI BPS untuk **14 wilayah**: Provinsi
+   Kalimantan Selatan dan 13 kabupaten/kota. Hanya publikasi yang **dirilis
+   dalam 2 tahun terakhir** yang diambil. Publikasi "Kecamatan … Dalam
+   Angka" sengaja tidak diambil, atas permintaan tim PST (bagian 8).
 2. Berkas PDF tiap publikasi diunduh dan dibaca strukturnya: Daftar Isi,
    Daftar Tabel, Daftar Gambar, Daftar Lampiran, serta keterangan
    tabel/gambar di badan dokumen.
@@ -32,8 +52,10 @@ Cara kerjanya secara garis besar:
    database ini — **tidak** menghubungi BPS setiap kali petugas mencari,
    jadi pencarian berjalan tanpa internet.
 
-Yang butuh internet (khususnya jaringan **"BPS - Pegawai"**) hanya langkah
-pembaruan data (bagian 4).
+Keadaan data pada 14 November 2026: **306 publikasi, 24.373 bagian
+terindeks**.
+
+Yang butuh internet hanya langkah pembaruan data (bagian 4).
 
 Ada dua jenis halaman:
 
@@ -49,22 +71,45 @@ Angka `5000` di alamat itu adalah **port** bawaan. Kalau port diganti (bagian
 3 dan 7), semua alamat di panduan ini ikut berubah — misalnya port 8080
 berarti `http://localhost:8080/` dan `http://localhost:8080/admin/`.
 
+### Mencari menurut wilayah
+
+Di samping kotak pencarian ada pilihan wilayah. Bawaannya **Semua wilayah**.
+
+- **Memilih sendiri:** petugas memilih satu wilayah, lalu hasil hanya berasal
+  dari publikasi wilayah itu.
+- **Dipasang otomatis:** kalau kata kunci menyebut nama kabupaten/kota,
+  misalnya "penduduk tanah laut", aplikasi memasang filter wilayah itu
+  sendiri. Di atas hasil muncul pita **Dipasang otomatis** dengan tautan
+  **Batalkan**. Batalkan berarti kata kunci yang sama dicari di semua
+  wilayah.
+- Nama wilayah yang menjadi filter tidak ikut dicocokkan ke judul tabel.
+  Jadi "penduduk tanah laut" dan memilih Tanah Laut lalu mengetik "penduduk"
+  memberi hasil yang sama.
+- Kalau kata kunci menyebut **lebih dari satu** wilayah, filter tidak
+  dipasang, dan petugas diminta memilih sendiri.
+- Kalau kata kunci **hanya** nama wilayah ("tanah laut"), yang tampil adalah
+  seluruh publikasi wilayah itu, terbaru di atas.
+- Saat filter kabupaten/kota aktif, di bawah hasil ada seksi **Juga ada di
+  publikasi provinsi** (paling banyak 10). Alasannya: tabel provinsi sering
+  dirinci per kabupaten/kota.
+- Provinsi tidak dikenali dari kata kunci; hanya bisa dipilih dari daftar.
+
 ---
 
-## 2. Yang harus tersedia di komputer
+## 2. Yang harus tersedia di komputer, dan pemasangan pertama kali
 
 - **Windows** (dikembangkan dan diuji di Windows 11).
 - **Python 3.12 atau lebih baru** (dikembangkan dengan 3.14). Saat
   memasang Python, centang *"Add Python to PATH"*.
-- **MySQL 8** — selama pengembangan dipakai lewat **Laragon**. Database
-  bernama `db_pencarian_bps` harus sudah dibuat (kosong pun tidak apa-apa;
-  tabelnya dibuat otomatis saat data dimuat pertama kali).
-- Folder proyek ini (`sistem-pencarian-bps`) beserta subfolder
-  `data/publikasi_pdf/` yang berisi PDF publikasi (~650 MB). Kalau folder
-  PDF-nya kosong, langkah pembaruan data (bagian 4) akan mengunduh semuanya
-  — butuh waktu sekitar 30-40 menit di jaringan kantor.
+- **MySQL 8** — selama pengembangan dipakai lewat **Laragon**.
+- Folder proyek ini (`sistem-pencarian-bps`).
+- **Ruang disk ±3,5 GB** untuk data: folder PDF `data/publikasi_pdf/` berisi
+  306 PDF, 3.046 MB (14 November 2026), dalam satu subfolder per kode
+  wilayah (`6300`, `6301`, …). PDF ini dipakai dua kali: dibaca saat
+  pembaruan, dan dibuka oleh tombol **Buka PDF** di hasil pencarian.
+  OCR, kalau dipasang, menambah ±1,1 GB (bagian 7.2).
 
-### Pemasangan pertama kali (sekali saja)
+### Memasang program (sekali saja)
 
 Buka **Command Prompt** di folder proyek, lalu jalankan berurutan:
 
@@ -82,16 +127,102 @@ diserahkan terpisah oleh pengembang; kalau harus membuat dari awal:
 | `SECRET_KEY` | Teks acak. Buat dengan `venv\Scripts\python.exe -c "import secrets; print(secrets.token_hex(32))"` |
 | `ADMIN_PASSWORD_HASH` | Hash kata sandi admin. Buat dengan `venv\Scripts\python.exe scripts\buat_hash_sandi.py` (rincian di bagian 7, "Pemulihan kata sandi admin"). Setelah itu sandi bisa diganti dari browser (bagian 6). |
 | `BPS_API_KEY` | API key WebAPI BPS, dari https://webapi.bps.go.id/developer/ |
+| `BPS_API_BASE_URL` | Biarkan seperti di `.env.example`. |
 | `DATABASE_URL` | `mysql+pymysql://root:SANDI@localhost:3306/db_pencarian_bps` — ganti `SANDI` dengan sandi root MySQL |
 | `PORT` | Opsional. Port server; kosong = 5000. Isi kalau 5000 sudah dipakai program lain (bagian 3). |
+| `MYSQL_BIN` | Opsional. Folder tempat program `mysql.exe` dan `mysqldump.exe`, misalnya `C:/laragon/bin/mysql/mysql-8.0.30-winx64/bin`. Hanya dipakai untuk membuat database uji dan menjalankan uji (bagian 9). Kosongkan kalau `mysql` sudah bisa dipanggil dari Command Prompt. Tulis dengan garis miring `/`, tanpa spasi di sekitar `=`. |
 
 Aplikasi **menolak berjalan** kalau `SECRET_KEY` atau `ADMIN_PASSWORD_HASH`
 kosong, dan menampilkan pesan yang menjelaskan cara mengisinya. Ini
 disengaja: lebih baik tidak jalan daripada jalan tanpa pengaman.
 
-Setelah `.env` terisi, jalankan `perbarui-data.bat` sekali (bagian 4) untuk
-mengisi database pertama kali, lalu `jalankan-aplikasi.bat` (bagian 3).
-Pembaruan berikutnya bisa dilakukan pengelola dari browser.
+### Mengisi data pertama kali
+
+Ada dua jalur. **Jalur A disarankan**: selesai dalam hitungan menit dan
+tidak butuh internet. Jalur B mengunduh semuanya dari BPS dan memakan
+beberapa jam.
+
+#### Jalur A (disarankan): dari berkas serah terima
+
+Pengembang menyerahkan empat hal:
+
+| Yang diserahkan | Ditaruh di |
+|---|---|
+| Cadangan database (satu berkas `.sql`) | dipulihkan ke MySQL, langkah 1–2 |
+| Folder PDF `publikasi_pdf` (±3 GB) | `data\publikasi_pdf\` |
+| Folder cache OCR `ocr_cache` (±22 MB) | `data\ocr_cache\` |
+| Berkas `wilayah.json` | `data\wilayah.json` (sudah ikut di Git; pakai yang diserahkan kalau isinya berbeda) |
+
+Langkahnya, di **Command Prompt** (bukan PowerShell, karena tanda `<` di
+langkah 2 tidak dikenal PowerShell). `mysql` di bawah ini adalah program
+`mysql.exe` di folder `MYSQL_BIN`:
+
+1. Buat database kosong:
+   ```
+   mysql -u root -p -e "CREATE DATABASE db_pencarian_bps CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci"
+   ```
+2. Pulihkan cadangan ke database itu:
+   ```
+   mysql -u root -p --default-character-set=utf8mb4 db_pencarian_bps < cadangan.sql
+   ```
+3. Salin folder `publikasi_pdf` dan `ocr_cache` ke dalam folder `data\`.
+4. Jalankan `jalankan-aplikasi.bat` (bagian 3). Data langsung bisa dicari.
+
+**Penting saat menyalin folder PDF: tanggal ubah berkas ("Date modified")
+harus tetap sama.** Aplikasi mengenali PDF dari ukuran dan tanggal ubahnya.
+Kalau tanggal itu berubah, pembaruan berikutnya menganggap semua PDF
+berganti, lalu:
+
+- membaca ulang seluruh 306 PDF (±75 menit, diukur 10 November 2026), dan
+- membuang cache OCR 8 publikasi, yang hanya bisa dibuat ulang dengan OCR
+  (bagian 7.2; 1.192 halaman × ±15 detik ≈ 5 jam).
+
+Menyalin lewat File Explorer atau `robocopy` dari diska eksternal
+mempertahankan tanggal ubah. Berkas ZIP dan unduhan dari penyimpanan awan
+sering tidak. Sesudah menyalin, bandingkan "Date modified" beberapa PDF
+dengan aslinya, dan simpan media serah terima sampai pembaruan pertama
+selesai dengan baik.
+
+Jalur A tidak memerlukan `--hanya-periksa` (lihat jalur B): wilayah yang
+sudah punya data di database langsung boleh diperbarui.
+
+#### Jalur B: dari nol, mengunduh dari BPS
+
+Dipakai kalau berkas serah terima tidak ada. Butuh internet yang bisa
+menjangkau WebAPI BPS (bagian 10 kalau gagal terhubung).
+
+1. Buat database kosong (langkah 1 jalur A). Tabelnya dibuat otomatis.
+2. Jalankan pemeriksaan wilayah, **wajib sebelum pembaruan pertama**:
+   ```
+   venv\Scripts\python.exe scripts\perbarui.py --hanya-periksa
+   ```
+   Perintah ini menarik daftar publikasi semua wilayah dan memastikan tidak
+   ada nomor publikasi yang sama di dua wilayah. Ia tidak mengubah database
+   dan tidak mengunduh PDF. Lamanya 927 detik (±15 menit) pada 9 November
+   2026. Hasil yang benar: `Tabrakan antar-domain : 0`.
+3. Jalankan `perbarui-data.bat`. Ini mengunduh ±3 GB PDF dan membaca
+   semuanya. Penarikan 13 kabupaten/kota pada 9–10 November 2026 memakan
+   **5,0 jam**. Mulailah **sesudah pukul 01:00**: pada malam itu kecepatan
+   unduh pukul 20:30–00:00 hanya 38–75 KB/detik per berkas, dan sesudah
+   01:00 naik menjadi 7–10 MB/detik. Biarkan jendela terbuka, laptop
+   tersambung listrik, dan layar laptop jangan ditutup.
+4. Jalankan `jalankan-aplikasi.bat`.
+
+Kalau langkah 2 dilewati, `perbarui-data.bat` berhenti dalam beberapa detik
+dengan pesan `TIDAK ADA YANG DIKERJAKAN: semua wilayah aktif … belum boleh
+dimuat` dan menunjuk ke perintah di langkah 2. Tidak ada yang rusak; jalankan
+langkah 2 lalu ulangi.
+
+Delapan publikasi tidak punya lapisan teks dan hanya terbaca dengan OCR
+(bagian 7.2). Di jalur B:
+
+- kalau OCR **sudah dipasang** sebelum langkah 3, kedelapan publikasi itu
+  di-OCR saat pembaruan, dan menambah ±5 jam (1.192 halaman × ±15 detik);
+- kalau OCR **belum dipasang**, halaman tanpa teks dilewati dan
+  publikasinya tercatat "perlu diperiksa". Publikasinya tetap ditemukan
+  lewat judul dan abstrak, tanpa rincian tabel. Untuk mengisinya kemudian:
+  pasang OCR, lalu jalankan `perbarui-data.bat --lokal --paksa` (membaca
+  ulang semua PDF tanpa internet).
 
 ---
 
@@ -120,7 +251,7 @@ paling umum:
 
 | Pesan | Artinya | Yang dilakukan |
 |---|---|---|
-| `Folder venv tidak ditemukan` | Python belum disiapkan | Ikuti "Pemasangan pertama kali" di bagian 2 |
+| `Folder venv tidak ditemukan` | Python belum disiapkan | Ikuti "Memasang program" di bagian 2 |
 | `Berkas .env tidak ditemukan` | Konfigurasi belum ada | Salin `.env.example` ke `.env`, isi nilainya |
 | `Can't connect` / `Connection refused` | MySQL belum jalan | Buka Laragon, klik **Start All**, coba lagi |
 | `Access denied` | Sandi MySQL di `.env` salah | Periksa baris `DATABASE_URL` |
@@ -144,7 +275,7 @@ Setelah port diganti, **alamat di browser ikut berubah**: pencarian di
 `http://localhost:8080/`, admin di `http://localhost:8080/admin/`. Browser
 yang dibuka otomatis sudah mengarah ke alamat yang benar; yang perlu
 diperbarui adalah bookmark atau alamat yang sudah dibagikan ke petugas.
-Rincian untuk pemasangan di server ada di bagian 7.
+Rincian untuk pemasangan di server ada di bagian 7.1.
 
 Server yang dipakai adalah **waitress** (server produksi). Jangan
 menjalankan `run.py --dev` di jaringan kantor — mode itu menyalakan debugger
@@ -154,22 +285,31 @@ yang bisa menjalankan kode dari browser; hanya untuk pengembangan.
 
 ## 4. Memperbarui data saat ada publikasi baru
 
-BPS Kalsel merilis publikasi baru secara berkala. Publikasi baru **tidak
-otomatis** masuk ke aplikasi; jalankan pembaruan secara manual, misalnya
-seminggu sekali atau setiap ada rilis.
+BPS merilis publikasi baru secara berkala. Publikasi baru **tidak otomatis**
+masuk ke aplikasi; jalankan pembaruan secara manual, misalnya seminggu
+sekali atau setiap ada rilis.
+
+Pembaruan memeriksa ke-14 wilayah satu per satu. Yang dikerjakan hanya:
+
+- publikasi **baru**,
+- publikasi yang **diperbarui BPS** (berkasnya diunduh ulang),
+- publikasi yang PDF-nya **hilang atau rusak** di komputer ini.
+
+Publikasi yang tidak berubah tidak dibaca ulang.
 
 ### Cara utama: dari halaman admin di browser
 
-1. Pastikan komputer yang menjalankan aplikasi tersambung ke jaringan
-   **"BPS - Pegawai"**. Jaringan "BPS - Tamu" **memblokir** WebAPI BPS.
+1. Pastikan komputer yang menjalankan aplikasi tersambung ke internet dan
+   bisa menjangkau WebAPI BPS (`webapi.bps.go.id`).
 2. Buka `http://localhost:5000/admin/`, masuk, klik kartu **Perbarui Data**
    (atau buka `/admin/perbarui`).
 3. Baca penjelasan singkatnya, lalu klik **Mulai pembaruan**.
-4. Kemajuan proses tampil langsung di halaman, baris demi baris — di tahap
-   pertama muncul `halaman 12/66 ... OK` kira-kira satu baris per detik. Itu
-   tanda proses berjalan normal.
-5. Begitu selesai, halaman menampilkan ringkasannya: berapa publikasi baru
-   dan berapa bagian terindeks, atau "Tidak ada publikasi baru".
+4. Kemajuan proses tampil langsung di halaman, baris demi baris. Tiap
+   wilayah diawali baris seperti `halaman 3/24 ... OK`, kira-kira satu baris
+   per detik. Itu tanda proses berjalan normal.
+5. Begitu selesai, halaman menampilkan ringkasannya: tabel per wilayah
+   (Diperbarui / Tidak ada yang baru / Sebagian gagal / Gagal), publikasi
+   baru, dan jumlah bagian terindeks.
 
 Yang perlu diketahui:
 
@@ -182,9 +322,12 @@ Yang perlu diketahui:
   termasuk kalau yang menjalankannya adalah tim IT lewat `perbarui-data.bat`
   di komputer yang sama. Dua pembaruan bersamaan bisa saling menimpa data,
   jadi aplikasi menolaknya di kedua arah.
-- Kalau gagal, halaman menjelaskan sebabnya dengan bahasa biasa. Yang paling
-  sering: tidak tersambung ke "BPS - Pegawai". Data lama tetap utuh, tinggal
-  coba lagi setelah jaringan beres.
+- **Satu wilayah atau satu publikasi gagal tidak menghentikan yang lain.**
+  Hasilnya "Pembaruan selesai sebagian": yang berhasil sudah bisa dicari,
+  yang gagal tetap memakai data lamanya dan dicoba lagi pada pembaruan
+  berikutnya.
+- Kalau gagal seluruhnya, halaman menjelaskan sebabnya. Yang paling sering:
+  WebAPI BPS tidak terjangkau (bagian 10). Data lama tetap utuh.
 - Halaman ini tetap berfungsi tanpa JavaScript: halamannya memuat ulang
   sendiri tiap 5 detik sampai ringkasan tampil.
 
@@ -192,22 +335,50 @@ Yang perlu diketahui:
 
 Melakukan hal yang persis sama dari jendela Command Prompt — berguna kalau
 aplikasi sedang tidak berjalan atau halaman admin bermasalah. Pastikan MySQL
-aktif, klik dua kali `perbarui-data.bat`, tunggu `PEMBARUAN SELESAI`, tekan
-sembarang tombol untuk menutup. Kalau muncul `TIDAK DIJALANKAN: pembaruan
-lain sedang berjalan`, berarti pengelola sedang menjalankannya dari browser —
-tunggu saja. Hasil run lewat `.bat` juga tampil di halaman admin sebagai
-"Pembaruan terakhir".
+aktif, klik dua kali `perbarui-data.bat`, tunggu sampai selesai, tekan
+sembarang tombol untuk menutup. Hasil run lewat `.bat` juga tampil di halaman
+admin sebagai "Pembaruan terakhir".
+
+Kalimat penutupnya ada empat macam:
+
+| Tertulis | Artinya |
+|---|---|
+| `PEMBARUAN SELESAI.` | Semua wilayah beres. |
+| `PEMBARUAN SELESAI SEBAGIAN` | Sebagian wilayah atau publikasi gagal. Yang berhasil sudah bisa dicari; baca rincian di atasnya, lalu ulangi lain waktu. |
+| `PEMBARUAN GAGAL` | Tidak ada yang berhasil. Baca pesan di atasnya; biasanya jaringan (bagian 10). |
+| `TIDAK DIJALANKAN: pembaruan lain sedang berjalan` | Pengelola sedang menjalankannya dari browser. Tunggu saja. |
+
+Seluruh keluaran tiap run juga disimpan di `data\log_pembaruan\` (nama
+berkasnya tercetak di baris kedua), dan ringkasannya di
+`data\pembaruan_terakhir.json`.
 
 ### Berapa lama
 
-- **Tidak ada publikasi baru:** sekitar 2 menit (memeriksa 65+ halaman
-  daftar di WebAPI, dengan jeda 1 detik per halaman sesuai ketentuan BPS).
-- **Ada publikasi baru:** ditambah sekitar 20-90 detik per publikasi
-  (unduh PDF + membaca strukturnya). Hanya publikasi baru yang diproses;
-  yang lama tidak dibaca ulang.
+- **Pembaruan rutin 14 wilayah tanpa publikasi baru: belum diukur ulang.**
+  Angka lama, saat aplikasi hanya memuat provinsi, adalah ±2 menit. Yang
+  pasti: daftar tiap wilayah diperiksa dengan jeda 1 detik per halaman
+  sesuai ketentuan BPS, dan pemeriksaan berhenti begitu sampai ke publikasi
+  yang lebih tua dari 2 tahun.
+- **Tiap publikasi yang dikerjakan:** 20–90 detik (unduh PDF + membaca
+  strukturnya), diukur saat data masih provinsi saja.
+- **Publikasi tanpa lapisan teks**, kalau OCR dipasang: ±15 detik per
+  halaman (bagian 7.2).
+- **Penarikan besar** (wilayah baru, atau mengisi dari nol): berjam-jam.
+  Lihat jalur B di bagian 2, dan jadwalkan sesudah pukul 01:00.
+
+Unduhan PDF dari BPS kadang putus di tengah. Aplikasi mengulangnya sendiri
+sampai 4 kali dengan jeda, lalu sekali lagi di akhir tiap wilayah. Unduhan
+sengaja satu per satu, tidak paralel, supaya tidak membebani server BPS.
+
+Selama pembaruan berjalan, Windows dicegah tidur. Ini **tidak** berlaku kalau
+layar laptop ditutup: untuk run yang panjang, biarkan layar terbuka dan
+laptop tersambung listrik.
 
 Aplikasi **tidak perlu di-restart** setelah pembaruan — data baru langsung
 bisa dicari, dan pencarian tetap bisa dipakai selama pembaruan berjalan.
+Pencarian **pertama** sesudah pembaruan sedikit lebih lambat (kurang dari
+satu detik di laptop pengembang), karena aplikasi memuat ulang data
+pencarian ke memori. Itu normal.
 
 Kalau pembaruan gagal di tengah jalan, tidak ada yang rusak: proses berhenti
 dengan pesan, data lama tetap utuh, dan bisa diulang begitu penyebabnya
@@ -217,6 +388,23 @@ Catatan: pembaruan mengambil publikasi yang dirilis **2 tahun terakhir**
 (tahun berjalan dan tahun sebelumnya), dihitung otomatis dari tanggal
 komputer. Publikasi yang lebih lama tidak pernah masuk dan tidak dihapus
 kalau sudah terlanjur ada.
+
+### Pilihan tambahan untuk tim IT
+
+Ditulis sesudah nama berkasnya di Command Prompt, misalnya
+`perbarui-data.bat --lokal --paksa`. Tanpa pilihan apa pun = pembaruan biasa.
+
+| Pilihan | Gunanya |
+|---|---|
+| `--lokal` | Tanpa internet. Hanya membaca PDF yang sudah ada di komputer; tidak ada yang diunduh. |
+| `--paksa` | Membaca ulang **semua** publikasi, bukan hanya yang berubah. Dipakai sesudah program pembaca PDF diperbarui. `--lokal --paksa` untuk 306 PDF memakan 4.470 detik (±75 menit) pada 10 November 2026. |
+| `--tanpa-ocr` | Tidak memakai OCR maupun cache-nya. Halaman tanpa teks dilewati dan dicatat. |
+| `--hanya-periksa` | Hanya memeriksa daftar semua wilayah; tidak mengubah database, tidak mengunduh. Wajib sebelum wilayah baru pertama kali dimuat (bagian 2 jalur B, bagian 8). |
+| `--tahun-min 2024` | Mengambil publikasi yang dirilis sejak tahun itu, bukan hanya 2 tahun terakhir. |
+| `--db-uji` | Menulis ke database uji, bukan database utama (bagian 9). |
+
+Baris pertama keluaran selalu menyebut database yang akan ditulis, misalnya
+`Database tujuan: db_pencarian_bps … (PRODUKSI)`.
 
 ---
 
@@ -237,9 +425,11 @@ Cara menambah:
    itu dan klik **Tambah**. Kalau belum ada, buka "Tambah kelompok baru",
    isi bentuk kanonik dan varian-variannya (dipisah koma).
 4. **Klik tombol "Terapkan ke data"** di bagian atas halaman. Tanpa langkah
-   ini, perubahan kamus **belum berpengaruh** pada pencarian. Prosesnya
-   sekitar 2 detik dan hasilnya dilaporkan di halaman (berapa entri yang
-   berubah).
+   ini, perubahan kamus **belum berpengaruh** pada pencarian. Hasilnya
+   dilaporkan di halaman (berapa entri yang berubah). Lamanya, diukur 14
+   November 2026 dengan 24.373 entri: **±2 detik** kalau tidak ada entri
+   yang berubah, dan **±9 detik** kalau seluruh entri harus ditulis ulang.
+   Perubahan kamus biasa jatuh di antara keduanya.
 
 Untuk menghapus varian, klik tanda `×` di sebelah katanya, lalu Terapkan ke
 data lagi.
@@ -301,17 +491,27 @@ di jaringan kantor, hal-hal berikut perlu disiapkan oleh tim IT:
 | Kebutuhan | Keterangan |
 |---|---|
 | **Mendengarkan di jaringan** | Bawaan hanya `127.0.0.1`. Untuk diakses komputer lain, jalankan `venv\Scripts\python.exe run.py --host 0.0.0.0` (atau ubah `.bat`). Lakukan **hanya** setelah butir di bawah terpenuhi. |
-| **Port** | Lihat "Mengganti port di server" di bawah tabel ini. |
+| **Port** | Lihat 7.1. |
 | **HTTPS** | Aplikasi melayani HTTP polos. Kata sandi admin dikirim saat login, jadi di jaringan bersama harus lewat HTTPS — pasang *reverse proxy* (IIS, nginx, Caddy) di depannya dengan sertifikat internal. |
 | **Firewall / pembatasan akses** | Batasi port aplikasi hanya ke subnet PST. Idealnya `/admin/` dibatasi lebih ketat lagi (mis. hanya dari alamat tertentu) di proxy. |
-| **Pencadangan database** | Database `db_pencarian_bps` bisa dibangun ulang dari WebAPI dan PDF (bagian 4), kecuali tabel `log_pencarian` (riwayat pencarian petugas) yang tidak bisa dipulihkan. Cadangkan berkala dengan `mysqldump`. Cadangkan juga `data/kamus_sinonim.json` dan `.env`. |
+| **Akses keluar ke BPS** | Hanya untuk pembaruan data: komputer ini harus bisa menjangkau `webapi.bps.go.id` lewat HTTPS, dan DNS jaringan harus mengarahkannya ke alamat yang benar (bagian 10). |
+| **Memori** | Server aplikasi memakai ±174 MB (diukur 12 November 2026 dengan 306 publikasi). Data pencarian disimpan di memori server dan dimuat ulang sendiri sesudah pembaruan. |
+| **Pencadangan** | Yang **tidak bisa dibuat ulang**: tabel `log_pencarian` (riwayat pencarian petugas), `data/kamus_sinonim.json`, `data/wilayah.json`, dan `.env`. Yang bisa dibuat ulang tetapi **mahal**: folder PDF `data/publikasi_pdf/` (±3 GB; mengunduh ulang 5,0 jam pada 9–10 November 2026) dan `data/ocr_cache/` (±22 MB; membuat ulang ±5 jam OCR). Cadangkan database berkala dengan `mysqldump`, contoh di bawah tabel ini. |
 | **Menjalankan sebagai layanan** | Sekarang aplikasi berjalan di jendela Command Prompt yang harus dibiarkan terbuka. Untuk berjalan otomatis saat komputer menyala, daftarkan `jalankan-aplikasi.bat` di Task Scheduler (*At startup*) atau bungkus dengan NSSM sebagai Windows Service. |
-| **Pembaruan berkala** | Pengelola bisa memperbarui dari halaman admin (bagian 4). Kalau ingin otomatis, `perbarui-data.bat` bisa dijadwalkan lewat Task Scheduler, mis. tiap Senin pagi, di komputer yang tersambung "BPS - Pegawai" — pengaman "satu pembaruan pada satu waktu" tetap berlaku antara jadwal dan tombol di browser. |
+| **Pembaruan berkala** | Pengelola bisa memperbarui dari halaman admin (bagian 4). Kalau ingin otomatis, `perbarui-data.bat` bisa dijadwalkan lewat Task Scheduler, mis. tiap Senin dini hari — pengaman "satu pembaruan pada satu waktu" tetap berlaku antara jadwal dan tombol di browser. Penarikan besar sebaiknya sesudah pukul 01:00 (bagian 2, jalur B). |
 | **Kerahasiaan `.env`** | Berisi API key BPS dan sandi database. Jangan disalin ke tempat bersama; batasi hak baca berkasnya. Perhatikan: halaman Ganti Kata Sandi **menulis ulang** baris `ADMIN_PASSWORD_HASH` di berkas ini, jadi akun yang menjalankan aplikasi harus punya hak tulis ke `.env`. |
-| **OCR untuk PDF tanpa teks (opsional)** | Beberapa PDF BPS tidak punya lapisan teks: hurufnya berupa gambar atau kurva. Halaman seperti itu dibaca dengan OCR (EasyOCR). OCR **tidak wajib**: tanpa paketnya, aplikasi dan pembaruan tetap jalan, dan halaman tanpa teks hanya dilewati dan dicatat. Memasangnya: `venv\Scripts\python.exe -m pip install -r requirements-ocr.txt` (±1,1 GB; model ±94 MB diunduh otomatis saat pertama dipakai ke `%USERPROFILE%\.EasyOCR`). OCR lambat (±15 detik per halaman), jadi hasilnya disimpan di `data/ocr_cache/` dan hanya dikerjakan sekali per halaman. Untuk mematikan OCR pada satu pembaruan: `perbarui-data.bat --tanpa-ocr`. Server web tidak pernah memuat OCR, jadi kebutuhan memorinya tidak berubah. |
+| **OCR (opsional)** | Lihat 7.2 dan 7.3. |
 | **Pemulihan kata sandi admin** | Kalau pengelola lupa sandi, hanya bisa disetel ulang dari server: buka Command Prompt di folder proyek, jalankan `venv\Scripts\python.exe scripts\buat_hash_sandi.py`, ketik sandi baru dua kali (tidak tampil di layar, minimal 8 karakter), lalu salin baris `ADMIN_PASSWORD_HASH=...` yang dicetak ke `.env` menggantikan baris lama. Hentikan dan jalankan ulang aplikasi — jalur ini tidak membaca ulang `.env` secara otomatis. Prosedur yang sama dipakai saat pemasangan pertama (bagian 2). |
 
-### Mengganti port di server
+Contoh mencadangkan database, di Command Prompt (`mysqldump` ada di folder
+`MYSQL_BIN`). Berkas hasilnya bisa dipulihkan dengan langkah 1–2 jalur A di
+bagian 2:
+
+```
+mysqldump -u root -p --default-character-set=utf8mb4 --single-transaction --routines --triggers --events --hex-blob --no-tablespaces --result-file=cadangan.sql db_pencarian_bps
+```
+
+### 7.1 Mengganti port di server
 
 Urutan prioritas port, dari yang paling kuat:
 
@@ -344,56 +544,253 @@ Diuji: port 5006-5009 lewat argumen `run.py`, argumen `.bat`, `PORT` di
 `.env` untuk keduanya, dan argumen yang menimpa `.env`; serta penolakan
 `PORT=abc` dan port yang sedang dipakai.
 
+### 7.2 OCR untuk PDF tanpa lapisan teks (opsional)
+
+Beberapa PDF BPS tidak punya lapisan teks: hurufnya berupa gambar atau kurva,
+jadi tidak bisa dibaca seperti PDF biasa. Halaman seperti itu dibaca dengan
+OCR (program EasyOCR). Pada 14 November 2026 ada **8 publikasi** hasil OCR di
+database, seluruhnya 1.192 halaman.
+
+- **OCR tidak wajib.** Tanpa paketnya, aplikasi dan pembaruan tetap jalan.
+  Halaman tanpa teks dilewati dan dicatat; publikasinya masuk daftar "perlu
+  diperiksa" di ringkasan pembaruan.
+- **Hasil OCR yang sudah ada tetap terpakai tanpa memasang OCR**, selama
+  folder `data/ocr_cache/` ikut dipindahkan dan PDF-nya tidak berganti
+  (bagian 2, jalur A). OCR baru diperlukan untuk publikasi tanpa teks yang
+  **baru** dirilis.
+- **Memasang:** `venv\Scripts\python.exe -m pip install -r requirements-ocr.txt`
+  (±1,1 GB; model ±94 MB diunduh otomatis saat pertama dipakai ke
+  `%USERPROFILE%\.EasyOCR`).
+- **Kapan dipakai:** hanya untuk publikasi yang **separuh atau lebih**
+  halamannya tanpa teks. Halaman kosong atau sampul di PDF biasa tidak
+  di-OCR.
+- **Lambat:** ±15 detik per halaman tanpa kartu grafis (78 menit untuk 320
+  halaman, 12 November 2026). Hasilnya disimpan di `data/ocr_cache/` dan
+  tiap halaman hanya dikerjakan sekali.
+- **Mematikan pada satu pembaruan:** `perbarui-data.bat --tanpa-ocr`.
+- **Memisahkan pekerjaan berat:** `scripts\isi_cache_ocr.py` meng-OCR
+  daftar publikasi tanpa menyentuh database dan bisa dilanjutkan kalau
+  terputus. Cara pakainya tertulis di awal berkas itu.
+- Server aplikasi tidak pernah memuat OCR, jadi kebutuhan memorinya tidak
+  berubah.
+
+Mutu hasil OCR lebih rendah daripada PDF bertekst; lihat bagian 11.
+
+### 7.3 Hal terbuka: lisensi berkas model OCR
+
+**Perlu dikonfirmasi saat serah terima, sebelum OCR dipakai di server BPS.**
+
+EasyOCR mengunduh dua berkas model: `craft_mlt_25k.pth` (deteksi teks, dari
+proyek CRAFT milik NAVER) dan `latin_g2.pth` (pengenalan huruf). **Lisensi
+kedua berkas itu tidak dinyatakan di mana pun** (diperiksa 12 November
+2026):
+
+- kode CRAFT berlisensi MIT, dan bobotnya hanya dibagikan lewat tautan
+  Google Drive tanpa keterangan lisensi;
+- kode EasyOCR berlisensi Apache-2.0, dan halaman model hub JaidedAI tidak
+  menyebut lisensi untuk berkas modelnya;
+- halaman *Terms* JaidedAI yang menyebut "non-commercial" mengatur layanan
+  web mereka, bukan berkas model.
+
+Pemakaian internal BPS kemungkinan besar aman, tetapi itu kesimpulan
+pengembang, bukan pernyataan lisensi. Kalau tidak disetujui, cukup jangan
+pasang `requirements-ocr.txt`: aplikasi tetap berjalan tanpa OCR, dan hasil
+OCR yang sudah ada di database tetap bisa dicari.
+
 ---
 
-### Hal terbuka yang perlu dikonfirmasi saat serah terima
+## 8. Mengelola daftar wilayah
 
-- **Lisensi berkas model OCR.** EasyOCR mengunduh dua berkas model:
-  `craft_mlt_25k.pth` (deteksi teks, dari proyek CRAFT milik NAVER) dan
-  `latin_g2.pth` (pengenalan huruf). **Lisensi kedua berkas itu tidak
-  dinyatakan di mana pun** (diperiksa 12 Nov 2026):
-  - kode CRAFT berlisensi MIT, dan bobotnya hanya dibagikan lewat tautan
-    Google Drive tanpa keterangan lisensi;
-  - kode EasyOCR berlisensi Apache-2.0, dan halaman model hub JaidedAI tidak
-    menyebut lisensi untuk berkas modelnya;
-  - halaman *Terms* JaidedAI yang menyebut "non-commercial" mengatur layanan
-    web mereka, bukan berkas model.
+Daftar wilayah ada di `data/wilayah.json`, berkas teks yang bisa dibuka
+dengan Notepad. Perubahannya berlaku pada pembaruan berikutnya; tidak ada
+kode yang perlu diubah.
 
-  Pemakaian internal BPS kemungkinan besar aman, tetapi itu kesimpulan,
-  bukan pernyataan lisensi. **Perlu konfirmasi tim IT/mentor** sebelum OCR
-  dipakai di server BPS. Kalau tidak disetujui, cukup jangan pasang
-  `requirements-ocr.txt`: aplikasi tetap berjalan tanpa OCR.
+- **Menghentikan pembaruan satu wilayah:** ubah `"aktif": true` menjadi
+  `"aktif": false` pada baris wilayah itu. Publikasi yang sudah ada di
+  database tidak dihapus.
+- **Mengaktifkan wilayah yang belum punya data:** ubah menjadi
+  `"aktif": true`, jalankan
+  `venv\Scripts\python.exe scripts\perbarui.py --hanya-periksa`, pastikan
+  hasilnya 0 tabrakan, baru jalankan pembaruan. Tanpa pemeriksaan itu,
+  wilayah baru **dilewati** dan pembaruan berakhir "selesai sebagian".
+  Pemeriksaan ini ada karena nomor publikasi BPS dianggap unik di semua
+  wilayah, dan anggapan itu harus dibuktikan dulu untuk wilayah baru.
+- **Publikasi yang sengaja tidak diambil:** daftar `kecualikan_judul`.
+  Sekarang isinya satu pola, "Kecamatan … Dalam Angka", atas permintaan tim
+  PST (9 November 2026): cakupan aplikasi sampai kabupaten/kota, tidak sampai
+  kecamatan. Untuk mengambilnya lagi, ubah `"aktif"` pada pola itu menjadi
+  `false`. Publikasi yang sudah ada di database tidak dihapus oleh
+  pengecualian ini.
+- **Singkatan wilayah** (`tala`, `batola`, `hss`, `hst`, `hsu`, `tanbu`,
+  `bjm`, `bjb`) dipakai untuk mengenali wilayah dari kata kunci. Daftar ini
+  **belum dikonfirmasi tim PST**; tambah atau hapus di kolom `singkatan`.
 
-## 8. Keterbatasan yang diketahui
+---
+
+## 9. Database uji dan cara menguji aplikasi
+
+Segala percobaan yang bisa mengubah data dilakukan di **database uji**,
+salinan terpisah bernama `db_pencarian_bps_uji` di server MySQL yang sama.
+Database utama tidak disentuh.
+
+Keduanya butuh program `mysql` dan `mysqldump`: isi `MYSQL_BIN` di `.env`
+(bagian 2) kalau belum bisa dipanggil dari Command Prompt.
+
+**Membuat database uji** (sekali; menyalin isi database utama):
+
+```
+venv\Scripts\python.exe scripts\siapkan_db_uji.py
+```
+
+Skrip ini hanya membaca database utama, dan tidak pernah menimpa: kalau
+database uji sudah ada, ia berhenti. Salinan itu tidak ikut diperbarui. Untuk
+menyegarkannya, hapus dulu database ujinya secara manual, lalu jalankan
+lagi.
+
+**Mencoba pembaruan tanpa menyentuh database utama:**
+`perbarui-data.bat --db-uji`. Baris pertama keluarannya menyebut
+`(UJI - bukan produksi)`.
+
+**Menjalankan uji menyeluruh**, misalnya sesudah memperbarui Python, paket,
+atau kode:
+
+```
+venv\Scripts\python.exe -u tests\uji_pipeline.py > uji_log.txt 2>&1
+```
+
+- Lamanya ±38 menit. Run 14 November 2026: 78 uji lulus, 0 gagal, 2.250
+  detik.
+- Hasilnya dibaca dari baris terakhir `uji_log.txt` dan dari kode keluar:
+
+  | Kode keluar | Artinya |
+  |---|---|
+  | 0 | Semua uji lulus. |
+  | 1 | Ada uji yang gagal; lihat baris `GAGAL:` di akhir `uji_log.txt`. |
+  | 2 | Lingkungan belum siap; tidak ada yang dijalankan. Pesannya menyebut yang kurang. |
+
+- Uji ini **tidak menghubungi BPS** (memakai server tiruan di komputer
+  sendiri) dan **tidak mengubah database utama**. Database uji dikembalikan
+  ke keadaan semula di akhir, dan keduanya dibuktikan di bagian `Z` keluaran.
+- Syaratnya: MySQL aktif, database uji sudah dibuat, dan PDF Kabupaten Tapin
+  ada di `data\publikasi_pdf\6305\`.
+- Jangan menjalankan pembaruan selama uji berjalan.
+
+---
+
+## 10. Pemecahan masalah
+
+### Pembaruan gagal terhubung, padahal situs BPS terbuka di browser
+
+Gejalanya pesan `WebAPI BPS tidak bisa dihubungi` atau "connection reset".
+Ini pernah terjadi di jaringan kantor pada awal November 2026. Penyebabnya
+**DNS**, bukan jenis Wi-Fi: DNS internal mengarahkan `webapi.bps.go.id` ke
+alamat dalam (`10.0.11.232`) yang menolak koneksi. Sejak 9 November 2026
+gejala itu tidak muncul lagi.
+
+Cara memeriksanya, di **PowerShell**:
+
+```
+Resolve-DnsName webapi.bps.go.id
+```
+
+- Hasil `203.123.60.70` (alamat yang benar pada 9 November 2026): DNS
+  beres; periksa koneksi internetnya.
+- Hasil `10.0.11.232`: DNS mengarah ke alamat yang salah. Perbaikannya di
+  DNS jaringan.
+
+Jalan sementara, **hanya oleh tim IT**: menambahkan baris
+`203.123.60.70 webapi.bps.go.id` ke berkas hosts Windows, lalu menghapusnya
+lagi sesudah DNS diperbaiki. Alamat itu bisa berubah. Cara ini belum pernah
+dipakai selama pengembangan.
+
+Tiap run pembaruan mencatat nama Wi-Fi dan alamat `webapi.bps.go.id` yang
+dipakai, di baris `Jaringan:` pada keluarannya.
+
+### Masalah lain
+
+| Gejala | Sebab dan yang dilakukan |
+|---|---|
+| `TIDAK ADA YANG DIKERJAKAN: semua wilayah aktif … belum boleh dimuat` | Database masih kosong dan pemeriksaan wilayah belum dijalankan. Ikuti jalur B di bagian 2 (atau pulihkan cadangan, jalur A). |
+| Satu wilayah `DILEWATI: belum lolos … --hanya-periksa` | Wilayah baru diaktifkan tanpa pemeriksaan. Lihat bagian 8. |
+| `Response ended prematurely`, unduhan gagal | Unduhan dari BPS putus. Sudah diulang otomatis; yang tetap gagal dicoba lagi pada pembaruan berikutnya. Kalau sering, jalankan sesudah pukul 01:00. |
+| Unduhan sangat lambat pada malam hari | Terukur 38–75 KB/detik pukul 20:30–00:00 (9 November 2026). Jadwalkan sesudah 01:00. |
+| Ringkasan menulis "336/336 entri tanpa nomor halaman" untuk Master File Desa | Peringatan yang boleh diabaikan: publikasi itu tidak punya nomor halaman cetak, tetapi tombol PDF-nya tetap menuju halaman yang tepat. |
+| Ringkasan menulis publikasi "perlu diperiksa" karena halaman tanpa teks | OCR tidak terpasang atau dimatikan. Lihat 7.2. |
+| `Database belum memakai struktur multi-domain` | Database berasal dari versi lama aplikasi. Jalankan perintah yang tertulis di pesan itu, sekali. |
+| `Program mysql tidak ada di MYSQL_BIN` | Baris `MYSQL_BIN` di `.env` menunjuk folder yang salah. Lihat tabel di bagian 2. |
+| Pencarian pertama sesudah pembaruan terasa lambat | Normal; data pencarian dimuat ulang ke memori. Pencarian berikutnya cepat lagi. |
+| Kata kunci "penduduk suku banjar" memasang filter Kab. Banjar | "Banjar" juga nama suku. Petugas mengklik **Batalkan** di pita. |
+| Pembaruan macet karena komputer tidur | Layar laptop ditutup. Jalankan lagi; yang sudah selesai tidak diulang. |
+
+---
+
+## 11. Keterbatasan yang diketahui
 
 Semua ini sudah diperiksa dan **bukan bug** yang bisa diperbaiki dengan
-mengulang pembaruan:
+mengulang pembaruan. Angka tanpa tanggal lain dihitung dari database pada 14
+November 2026.
 
-- **Sekitar 2,5-3% entri dari badan dokumen sedikit cacat** — misalnya
-  judul tabel tercampur sepotong teks di sekitarnya. Judul yang tampil di
-  hasil pencarian mungkin sedikit "kotor", tapi lokasinya benar.
-- **Beberapa entri tidak punya nomor halaman** (paling banyak di "Kalimantan
-  Selatan Dalam Angka", 15 dari 348 entri edisi 2025). Tombol PDF-nya tetap
-  membuka publikasinya, hanya tidak melompat ke halaman.
-- **Publikasi "Master File Desa" tidak punya entri sama sekali.** Publikasi
-  itu memang tidak punya Daftar Isi/Tabel konvensional. Ia tetap muncul di
-  pencarian sebagai publikasi (dicocokkan lewat judul dan abstrak), tanpa
-  rincian bagian.
-- **Lima publikasi hanya punya Daftar Isi** (direktori perusahaan, Statistik
-  Daerah, Buklet Sakernas) — memang tidak ada daftar tabel di dokumennya.
+**Cakupan**
+
+- **Hanya publikasi yang dirilis 2 tahun terakhir** (bagian 4), dari 14
+  wilayah. "Kecamatan … Dalam Angka" tidak diambil (bagian 8).
+- **Pencarian tidak membaca isi sel tabel**, hanya judul tabel/gambar/
+  lampiran/bab. Angka di dalam tabel tidak bisa dicari.
+- **18 dari 306 publikasi hanya punya Daftar Isi** (misalnya direktori
+  perusahaan dan buklet) — memang tidak ada daftar tabel di dokumennya.
+
+**Nomor halaman dan tombol PDF**
+
+- **18.106 dari 24.373 bagian (74%) punya nomor halaman PDF**; untuk bagian
+  itu tombol **Buka PDF hal. N** langsung menuju halamannya. Sisanya
+  membuka PDF dari halaman pertama, dan nomor halaman cetaknya (kalau ada)
+  tetap ditampilkan.
+- **317 bagian (1,3%) tidak punya nomor halaman sama sekali.**
+- Nomor halaman cetak dan nomor halaman PDF sering berbeda. Itu sebabnya
+  keduanya ditampilkan dengan label berbeda ("Halaman" dan "Halaman PDF").
+- **Master File Desa** tidak punya nomor halaman cetak sama sekali (tiap
+  edisi 334–336 bagian), tetapi semuanya punya nomor halaman PDF.
+
+**Mutu pembacaan PDF**
+
+- **Publikasi provinsi:** sekitar 2,5–3% entri dari badan dokumen sedikit
+  cacat — misalnya judul tabel tercampur sepotong teks di sekitarnya.
+  Lokasinya tetap benar.
+- **Publikasi kabupaten/kota:** dari 40 entri yang diperiksa acak pada 10
+  November 2026, 33 benar.
+- **Publikasi hasil OCR (8 publikasi):** dari 30 entri yang diperiksa acak
+  pada 13 November 2026, 25 dapat ditemukan dengan benar; sisanya nomor
+  tabelnya hilang, judulnya tercampur, atau halamannya meleset. Di PDRB
+  Tabalong dan PDRB Banjarbaru menurut Lapangan Usaha, sebagian besar tabel
+  tidak punya nomor.
 - **Ada entri yang terlalu panjang** karena beberapa judul tabel tergabung
   jadi satu saat dibaca dari PDF. Akibatnya kadang muncul hasil yang
   "mengandung semua kata kunci" tapi sebenarnya bukan tabel yang dicari.
+- **Sebagian entri berupa potongan baris**, misalnya potongan judul bahasa
+  Inggris tanpa nomor, terutama di "Dalam Angka".
+- **Kesalahan di PDF sumbernya sendiri** ikut terbawa. Contoh: Daftar Tabel
+  Kotabaru Dalam Angka 2026 mencetak nomor halaman yang tidak berurutan, dan
+  tiga "Dalam Angka" mencetak nomor gambar yang sama dua kali.
+
+**Pencarian**
+
 - **Ambang relevansi (75% "ditemukan", 50-74% "mungkin Anda cari") masih
   angka sementara**, ditetapkan dari sedikit kueri uji. Kalau setelah
   dipakai petugas terasa terlalu ketat/longgar, angkanya ada di
   `app/services/mesin_pencari.py` (`AMBANG_DITEMUKAN`, `AMBANG_SARAN`).
-- **Pencarian tidak membaca isi sel tabel**, hanya judul tabel/gambar/
-  lampiran/bab. Angka di dalam tabel tidak bisa dicari.
-- **Hanya publikasi yang dirilis 2 tahun terakhir** (lihat bagian 4).
+- **"Banjar" juga nama suku**, jadi kata kunci yang memuatnya memasang
+  filter Kab. Banjar; petugas membatalkannya lewat pita.
+- **Singkatan wilayah belum dikonfirmasi tim PST** (bagian 8), dan provinsi
+  tidak dikenali dari kata kunci.
+
+**Pengelolaan**
+
 - **Satu kata sandi admin untuk semua** — tidak ada akun per orang, jadi
   tidak bisa dilacak siapa yang mengubah kamus.
+- **Lama pembaruan rutin 14 wilayah belum diukur ulang** (bagian 4).
+- **Lisensi berkas model OCR belum jelas** (7.3).
 
-Rincian teknis yang lebih dalam (cara kerja parser PDF, rumus skor, riwayat
-keputusan) ada di `CLAUDE.md` di folder yang sama — ditulis untuk
-pengembang, bukan untuk operasional.
+Rincian teknis yang lebih dalam (cara kerja pembaca PDF, rumus skor, riwayat
+keputusan) ada di `CLAUDE.md` di folder yang sama, dan laporan tiap
+pemeriksaan ada di `data/regresi/` — ditulis untuk pengembang, bukan untuk
+operasional.
