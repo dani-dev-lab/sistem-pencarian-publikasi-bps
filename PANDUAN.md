@@ -94,6 +94,26 @@ Di samping kotak pencarian ada pilihan wilayah. Bawaannya **Semua wilayah**.
   dirinci per kabupaten/kota.
 - Provinsi tidak dikenali dari kata kunci; hanya bisa dipilih dari daftar.
 
+### Tombol Buka PDF: "hal. N" dan "±hal. N"
+
+Tiap bagian di hasil pencarian punya tombol untuk membuka PDF-nya. Tulisan
+pada tombol itu ada tiga macam:
+
+| Tombol | Artinya |
+|---|---|
+| **Buka PDF hal. 57** | Aplikasi menemukan sendiri tabel/gambar itu di halaman 57 berkas PDF. PDF langsung terbuka di halaman itu. |
+| **Buka PDF ±hal. 38** | **Perkiraan.** Letak tabel di PDF tidak terbaca langsung, jadi halamannya dihitung dari nomor halaman di Daftar Tabel dan letak tabel-tabel di sekitarnya. Biasanya tepat; kalau tabelnya tidak ada di halaman itu, gulir **satu-tiga halaman** ke depan atau ke belakang. Arahkan tetikus ke tombol untuk melihat keterangannya. |
+| **Buka PDF** | Letaknya tidak diketahui. PDF terbuka di halaman pertama; pakai nomor "Halaman" yang tertulis di kartu untuk mencarinya. |
+
+Nomor **"Halaman"** di kartu adalah nomor yang **tercetak** di publikasi
+(seperti di Daftar Tabel). Nomor itu sering berbeda dengan nomor halaman
+berkas PDF, karena sampul dan halaman beromawi ikut terhitung di PDF.
+
+Pada uji 16 November 2026, 56 dari 60 tombol "±hal." yang diperiksa satu per
+satu langsung menuju tabel yang benar. Tiga meleset 2–3 halaman, dan satu
+menunjuk tabel yang ternyata tidak dicetak di publikasinya. Penyebab
+utamanya: nomor halaman di Daftar Tabel publikasi itu sendiri keliru.
+
 ---
 
 ## 2. Yang harus tersedia di komputer, dan pemasangan pertama kali
@@ -433,6 +453,39 @@ Ditulis sesudah nama berkasnya di Command Prompt, misalnya
 Baris pertama keluaran selalu menyebut database yang akan ditulis, misalnya
 `Database tujuan: db_pencarian_bps … (PRODUKSI)`.
 
+### Halaman PDF perkiraan (`isi_perkiraan_halaman.py`)
+
+Arti tombol "±hal. N" untuk petugas dijelaskan di bagian 1.
+
+**Pembaruan biasa sudah mengisi perkiraan sendiri.** Setiap publikasi yang
+dimuat lewat `perbarui-data.bat` atau tombol di halaman admin langsung
+mendapat perkiraannya. Tidak ada langkah tambahan.
+
+Skrip terpisah ini hanya untuk data yang sudah ada di database **sebelum**
+fitur ini dipasang (16 November 2026), atau kalau perkiraannya perlu
+dihitung ulang. Aman diulang kapan saja; run kedua tidak mengubah apa pun.
+
+```bat
+cd C:\sistem-pencarian-bps
+venv\Scripts\python.exe scripts\isi_perkiraan_halaman.py --produksi --coba
+venv\Scripts\python.exe scripts\isi_perkiraan_halaman.py --produksi
+```
+
+- **Database wajib disebut:**
+  - `--produksi` untuk database utama;
+  - `--db-uji` untuk database uji (bagian 9);
+  - tanpa salah satunya, skrip menolak jalan.
+- **`--coba`:** hanya menghitung dan melaporkan, tanpa menulis.
+- **Yang ditulis:** hanya tabel/gambar/lampiran yang punya nomor halaman cetak
+  tetapi belum punya halaman PDF. Halaman PDF hasil pembacaan PDF tidak
+  pernah diubah.
+- **Penanda:** kolom `entri_dokumen.halaman_fisik_perkiraan`, yang
+  ditambahkan otomatis.
+- **Kalau pembaruan sedang berjalan,** skrip berhenti dengan "TIDAK
+  DIJALANKAN" (kode keluar 2).
+- **Lama:** beberapa detik untuk 306 publikasi. Pencarian pertama sesudahnya
+  sedikit lebih lambat, karena data dimuat ulang.
+
 ---
 
 ## 5. Menambah istilah pendek / sinonim lewat halaman admin
@@ -768,11 +821,24 @@ November 2026.
 
 **Nomor halaman dan tombol PDF**
 
-- **18.106 dari 24.373 bagian (74%) punya nomor halaman PDF**; untuk bagian
-  itu tombol **Buka PDF hal. N** langsung menuju halamannya. Sisanya
-  membuka PDF dari halaman pertama, dan nomor halaman cetaknya (kalau ada)
-  tetap ditampilkan.
+- **19.142 dari 24.373 bagian (78,5%) punya nomor halaman PDF** (16 November
+  2026):
+  - **18.106 (74,3%) dibaca langsung dari PDF**; tombolnya **Buka PDF hal. N**.
+  - **1.036 (4,3%) perkiraan**; tombolnya **Buka PDF ±hal. N** (bagian 1).
+    Dari 60 yang diperiksa satu per satu, 56 tepat, 3 meleset 2–3 halaman,
+    dan 1 menunjuk tabel yang tidak dicetak di publikasinya.
+- **5.231 bagian tanpa nomor halaman PDF** membuka PDF dari halaman pertama.
+  Nomor halaman cetaknya, kalau ada, tetap ditampilkan.
+  - 1.357 di antaranya tabel/gambar/lampiran. Perkiraan tidak dibuat untuk
+    mereka, karena tidak ada tabel tetangga yang cukup dekat dan konsisten,
+    atau tidak ada nomor halaman cetaknya. Contohnya semua publikasi Keadaan
+    Angkatan Kerja.
+  - Sisanya bab (Daftar Isi). Bab sengaja tidak diperkirakan.
 - **317 bagian (1,3%) tidak punya nomor halaman sama sekali.**
+- **Nomor halaman di Daftar Tabel kadang keliru di publikasinya sendiri.**
+  Contohnya Daftar Lampiran PDRB Kotabaru menurut Lapangan Usaha menulis
+  121–127, padahal tabelnya di halaman cetak 123–129. Perkiraan "±hal." untuk
+  bagian seperti itu ikut meleset.
 - Nomor halaman cetak dan nomor halaman PDF sering berbeda. Itu sebabnya
   keduanya ditampilkan dengan label berbeda ("Halaman" dan "Halaman PDF").
 - **Master File Desa** tidak punya nomor halaman cetak sama sekali (tiap

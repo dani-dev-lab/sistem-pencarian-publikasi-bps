@@ -512,7 +512,7 @@ dilewati karena selisih halaman cetak vs fisik terbukti tidak konsisten (5 dari
 publikasi). Sekarang akurat tanpa tebakan karena halaman fisik dicatat langsung
 saat ekstraksi.
 
-### Halaman fisik PERKIRAAN (16 Nov 2026, BELUM dimuat ke produksi)
+### Halaman fisik PERKIRAAN (16 Nov 2026, dimuat ke produksi 16 Nov)
 Laporan: `data/regresi/perkiraan-halaman-20261116.md`. Diminta pemilik
 project sesudah uji coba aplikasi 14 Nov.
 - **Sasaran:** tabel/gambar/lampiran berhalaman cetak tanpa `halaman_fisik`
@@ -942,19 +942,28 @@ Kata sandi admin dan isi `.env` DISERAHKAN TERPISAH - tidak ditulis di
 PANDUAN.md maupun di Git.
 
 ### Titik berhenti sekarang (16 Nov 2026)
-- **Halaman fisik perkiraan di-commit, BELUM dimuat ke produksi dan BELUM
-  di-push** (menunggu persetujuan pemilik project). Lihat bagian "Halaman
-  fisik PERKIRAAN".
-  - Begitu aplikasi versi ini berjalan di produksi, `pastikan_kolom`
-    menambahkan kolom kosong (semua 0); tampilan sama seperti sebelumnya
-    sampai skrip dijalankan.
-  - Pemuatan:
-    1. cadangkan produksi (PANDUAN bagian 7);
-    2. `venv\Scripts\python.exe scripts\isi_perkiraan_halaman.py --produksi --coba`,
-       lalu tanpa `--coba`;
-    3. bandingkan per id seperti di laporan.
-  - Sesudah dimuat: angka `halaman_fisik` di PANDUAN (18.106, 74%) perlu
-    dihitung ulang, dan skrip ini perlu ditulis di PANDUAN.
+- **Halaman fisik perkiraan DIMUAT ke produksi, 16 Nov 2026** (disetujui
+  pemilik project). PANDUAN diperbarui dan semuanya di-push.
+  - **Cadangan:** `C:/Users/Dani/cadangan-bps/db_pencarian_bps-20261116-sebelum-perkiraan.sql`
+    (perintah PANDUAN bagian 7). Dipulihkan ke database sementara: 6/6 tabel
+    sama baris + CHECKSUM, lalu database sementaranya dihapus.
+  - **Jebakan alat:** pembanding pertama melaporkan "SAMA" palsu, karena nama
+    tabel dari `mysql` membawa `\r`, setiap kueri galat, dan dua string kosong
+    dianggap sama. Saring `\r` dan pastikan nilai yang dibandingkan berupa
+    angka.
+  - **Id produksi ≠ id database uji** (uji pernah dimuat ulang). Isinya identik
+    tanpa id (24.373 baris, 29 baris kembar persis), jadi kecocokan dengan uji
+    dibuktikan per isi baris, dan perubahan dibuktikan per id di produksi.
+  - **Hasil:**
+    - 1.036 baris berubah, semuanya NULL -> angka dengan penanda 1;
+      23.337 identik;
+    - per isi baris = database uji (0 beda);
+    - `versi_data` 353 -> 354; `publikasi` dan `log_pencarian` CHECKSUM sama.
+  - **Uji tombol:** 3 kueri lewat test_client dengan konfigurasi produksi dan
+    log dimatikan; 6 tombol "±hal." menuju tabel yang benar, `/pdf` HTTP 200.
+  - **Angka produksi sekarang:**
+    - halaman PDF 19.142/24.373 (78,5%): asli 18.106, perkiraan 1.036;
+    - tanpa halaman PDF 5.231, termasuk 1.357 tabel/gambar/lampiran.
 - **"Nomor —" dari uji coba 14 Nov:** kartu ISI sudah tidak menampilkannya
   sejak `ffa4c26`. Pemilik project mencari ulang contoh kuerinya; dugaan:
   tabel/lampiran tanpa nomor DAN tanpa halaman cetak.
