@@ -788,6 +788,42 @@ def _parse_baris(daftar_baris, tipe, publikasi_id, batas_kanan):
 # Lapisan 5: satu daftar bisa memanjang ke beberapa halaman fisik
 # --------------------------------------------------------------------------
 
+MIN_BARIS_KOLOM_HALAMAN = 3   # pola A': baris sejajar yang membentuk kolom nomor halaman
+KOLOM_HALAMAN_MIN_RASIO = 0.6  # kolom itu harus di 40% kanan (bukan kolom nomor entri di kiri)
+
+
+def _batas_kanan(baris, tipe):
+    """Batas kiri margin kanan untuk nomor halaman di satu halaman Daftar.
+
+    Bawaan: 80% dari kata paling kanan di halaman. Pola A' (16 Nov 2026):
+    kalau ada kata jauh di kanan (penanda tepi, kop), kolom nomor halaman
+    bisa jatuh tepat di bawah 80%. Contohnya GEM: kata terjauh x1=488, batas
+    390, kolom nomor 386-387. Akibatnya tidak ada entri Daftar Isi yang
+    tertutup, dan seluruh daftar menjadi 3-4 gumpalan.
+
+    Batas DITURUNKAN (tidak pernah dinaikkan) ke kolom itu kalau syaratnya
+    terpenuhi:
+      - >= MIN_BARIS_KOLOM_HALAMAN baris (minimal 2 kata) berakhir nomor
+        halaman di bawah batas;
+      - x1-nya sejajar (selisih <= TOLERANSI_KOLOM);
+      - x1-nya >= KOLOM_HALAMAN_MIN_RASIO x kata terjauh.
+    """
+    kanan_maks = max(k["x1"] for b in baris for k in b)
+    batas = kanan_maks * BATAS_KANAN_RASIO
+    calon = sorted(
+        b[-1]["x1"] for b in baris
+        if len(b) >= 2 and kanan_maks * KOLOM_HALAMAN_MIN_RASIO <= b[-1]["x1"] < batas
+        and _pisah_nomor_halaman(b[-1]["text"], tipe)[1])
+    terbaik = []
+    for x in calon:
+        kelompok = [v for v in calon if x <= v <= x + TOLERANSI_KOLOM]
+        if len(kelompok) > len(terbaik):
+            terbaik = kelompok
+    if len(terbaik) >= MIN_BARIS_KOLOM_HALAMAN:
+        return min(terbaik) - 0.5
+    return batas
+
+
 def _baca_daftar(pdf, halaman_awal, tipe, publikasi_id, jejak=None):
     """Baca satu DAFTAR X, termasuk lanjutannya ke beberapa halaman fisik.
 
@@ -817,8 +853,7 @@ def _baca_daftar(pdf, halaman_awal, tipe, publikasi_id, jejak=None):
                 continue
             break
 
-        kanan_maks = max(k["x1"] for b in baris for k in b)
-        batas_kanan = kanan_maks * BATAS_KANAN_RASIO
+        batas_kanan = _batas_kanan(baris, tipe)
 
         # Tipe heading pada halaman ini (kalau ada).
         heading_tipe = None
