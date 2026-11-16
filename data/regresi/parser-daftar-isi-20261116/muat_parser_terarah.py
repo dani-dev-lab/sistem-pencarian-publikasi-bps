@@ -29,6 +29,7 @@ import argparse
 import csv
 import importlib.util
 import os
+import re
 import sys
 import time
 from collections import Counter
@@ -92,11 +93,20 @@ def entri_tujuan(p):
     return list(db.session.execute(sa.text(Q_ENTRI), {"p": p}))
 
 
+def _batch(teks):
+    """Balikkan escape `mysql --batch` di berkas potret: \\\\ \\t \\n \\0.
+
+    Ditemukan saat --coba ke produksi (16 Nov 2026): judul "PAG E \\*" di
+    potret tertulis "PAG E \\\\*", sehingga publikasinya disangka berbeda.
+    """
+    return re.sub(r"\\(.)", lambda m: {"t": "\t", "n": "\n", "0": "\0"}.get(m.group(1), m.group(1)), teks)
+
+
 def potret_sebelum():
     hasil = {}
     for pid, dom, t, no, j, h, f, perk, s in list(csv.reader(
             open(os.path.join(DIR_INI, "potret-sebelum.tsv"), encoding="utf-8"), delimiter="\t"))[1:]:
-        hasil.setdefault(pid, []).append((t, no, j, h, f, int(perk), s))
+        hasil.setdefault(pid, []).append((t, no, _batch(j), h, f, int(perk), s))
     return hasil
 
 

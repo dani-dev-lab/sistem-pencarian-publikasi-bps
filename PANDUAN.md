@@ -832,34 +832,38 @@ November 2026.
 
 **Nomor halaman dan tombol PDF**
 
-- **20.940 dari 24.373 bagian (85,9%) punya nomor halaman PDF** (16 November
-  2026):
-  - **18.106 (74,3%) dibaca langsung dari PDF**; tombolnya **Buka PDF hal. N**.
-  - **2.834 (11,6%) perkiraan**; tombolnya **Buka PDF ±hal. N** (bagian 1):
+- **21.071 dari 24.415 bagian (86,3%) punya nomor halaman PDF** (16 November
+  2026, sesudah perbaikan pembacaan Daftar):
+  - **18.206 (74,6%) dibaca langsung dari PDF**; tombolnya **Buka PDF hal. N**.
+  - **2.865 (11,7%) perkiraan**; tombolnya **Buka PDF ±hal. N** (bagian 1):
     - 1.036 tabel/gambar/lampiran. Dari 60 yang diperiksa, 56 tepat,
       3 meleset 2–3 halaman, dan 1 menunjuk tabel yang tidak dicetak di
       publikasinya.
-    - 1.798 bab/subbab. Dari 50 yang diperiksa, 48 tepat dan 2 meleset 1–2
+    - 1.829 bab/subbab. Dari 50 yang diperiksa, 48 tepat dan 2 meleset 1–2
       halaman.
-- **3.433 bagian tanpa nomor halaman PDF** membuka PDF dari halaman pertama.
+- **3.344 bagian tanpa nomor halaman PDF** membuka PDF dari halaman pertama.
   Nomor halaman cetaknya, kalau ada, tetap ditampilkan.
-  - **1.357 tabel/gambar/lampiran.** Perkiraan tidak dibuat untuk mereka,
+  - **1.251 tabel/gambar/lampiran.** Perkiraan tidak dibuat untuk mereka,
     karena tidak ada tabel tetangga yang cukup dekat dan konsisten, atau
     tidak ada nomor halaman cetaknya. Contohnya semua publikasi Keadaan
     Angkatan Kerja.
-  - **2.076 bab/subbab:**
-    - 922 di halaman depan bernomor romawi (Kata Pengantar, Daftar Isi);
+  - **2.093 bab/subbab:**
+    - 930 di halaman depan bernomor romawi (Kata Pengantar, Daftar Isi);
     - sisanya di publikasi tanpa tabel di dekatnya, misalnya Booklet
       Sakernas.
-- **Beberapa subbab di Daftar Isi terbaca keliru** (perbaikannya sedang
-  dirancang):
-  - **Tercatat dengan halaman romawi.** Contohnya Balangan PDRB Pengeluaran
-    "2.6 Ekspor dan Impor … 35" tercatat "Halaman vii", karena nomor halaman
-    Daftar Isi tercetak sebaris dengannya.
-  - **Judul berawalan potongan judul sebelumnya.** Contohnya di PDRB Kotabaru
-    dan Tanah Bumbu: "Inventory 3.7 Perkembangan Ekspor". Nomor halaman
-    bagian seperti ini tetap benar.
-- **317 bagian (1,3%) tidak punya nomor halaman sama sekali.**
+- **Pembacaan Daftar Isi/Tabel diperbaiki 16 November 2026.** Contohnya:
+  - Balangan PDRB Pengeluaran "2.6 Ekspor dan Impor" kini "Halaman 35";
+    dulu "Halaman vii".
+  - Judul seperti "Inventory 3.7 Perkembangan Ekspor" (PDRB Kotabaru, Tanah
+    Bumbu) kini bersih.
+  - Entri sampah berjudul "Halaman" sudah dibuang.
+  - Daftar Isi Gambaran Ekonomi Makro tidak lagi tergabung menjadi beberapa
+    gumpalan.
+- **Sisa yang diketahui:**
+  - Di Gambaran Ekonomi Makro, beberapa entri halaman depan masih tergabung
+    ("Kata Pengantar v Daftar Isi").
+  - Sebagian judul masih berekor nomor halaman romawi ("… 2025 xiv").
+- **200 bagian (0,8%) tidak punya nomor halaman sama sekali.**
 - **Nomor halaman di Daftar Tabel kadang keliru di publikasinya sendiri.**
   Contohnya Daftar Lampiran PDRB Kotabaru menurut Lapangan Usaha menulis
   121–127, padahal tabelnya di halaman cetak 123–129. Perkiraan "±hal." untuk

@@ -1006,10 +1006,28 @@ untuk tim IT ada di `PANDUAN.md` (bahasa awam, tanpa asumsi tahu Python).
 Kata sandi admin dan isi `.env` DISERAHKAN TERPISAH - tidak ditulis di
 PANDUAN.md maupun di Git.
 
-### Titik berhenti sekarang (16 Nov 2026, siang)
-- **Perbaikan parser Daftar (C, A2, A1, A', B): di-commit LOKAL, BELUM
-  di-push, BELUM di produksi.** Menunggu pemilik project menilai hasil
-  regresi (`data/regresi/parser-daftar-isi-20261116.md`).
+### Titik berhenti sekarang (16 Nov 2026, sore)
+- **Parser Daftar baru DIMUAT ke produksi 16 Nov 2026, 13.48-14.16**
+  (disetujui pemilik project). Caranya pemuatan terarah 138 publikasi yang
+  berubah (`data/regresi/parser-daftar-isi-20261116/muat_parser_terarah.py`).
+  - **Cadangan:** `cadangan-bps/db_pencarian_bps-20261116-sebelum-parser.sql`;
+    pemulihannya diuji (6/6 tabel sama).
+  - **`--coba` pertama GAGAL karena alat:** potret `mysql --batch` menulis
+    `\` sebagai `\\` (judul "PAG E \*"), sehingga satu publikasi disangka
+    berbeda. Pembaca potret diperbaiki (escape dibalik), lalu `--coba`
+    lulus. Tidak ada yang ditulis sebelum itu.
+  - **Muat:** 138 publikasi, masing-masing dibandingkan dengan database uji
+    SEBELUM ditulis; 0 berhenti; 1.676 detik.
+  - **Bukti** (`bukti_pemuatan.py`):
+    - 306 publikasi produksi = database uji per kunci (0 beda);
+    - 13.692 baris 168 publikasi lain identik per id;
+    - publikasi yang diekstrak ulang = persis 138 target;
+    - `versi_data` 355 -> 493;
+    - `log_pencarian` dan `kategori` CHECKSUM sama.
+  - **Produksi sekarang:** 24.415 entri; halaman PDF 21.071 (86,3%), asli
+    18.206 dan perkiraan 2.865 (isi 1.829); tanpa nomor halaman sama sekali
+    200 (dulu 317). PANDUAN bagian 11 sudah disesuaikan.
+- **Catatan sebelum pemuatan (perbaikan parser):**
   - Commit: `c0ca28a` C, `a7a62ce` A2, `3b2d835` A1, `3107579` A', `b109b5e`
     B, `89ff6fa` uji bagian I. Satu commit per pola, supaya bisa dibatalkan
     sendiri-sendiri.
