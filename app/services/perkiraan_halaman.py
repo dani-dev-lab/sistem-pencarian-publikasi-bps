@@ -13,7 +13,9 @@ lain = halaman cetak + selisih jangkar di sekitarnya, dengan syarat:
   1. Jangkar = entri tipe APA PUN (termasuk isi) yang halaman cetaknya angka
      dan halaman fisiknya asli (bukan perkiraan). Perkiraan tidak pernah jadi
      jangkar, jadi tidak ada perkiraan berantai.
-  2. Jangkar SETIPE didahulukan: kalau tipe entri itu (tabel/gambar/lampiran)
+  2. Entri ISI hanya memakai jangkar tabel/gambar/lampiran (alasannya di
+     perkirakan()). Untuk tabel/gambar/lampiran:
+     Jangkar SETIPE didahulukan: kalau tipe entri itu (tabel/gambar/lampiran)
      punya jangkar tersaring di publikasi ini, hanya jangkar setipe yang
      dipakai; kalau tidak ada, jangkar semua tipe. Alasannya: sebagian
      publikasi menomori halaman Daftar Gambar dengan urutan yang tidak sama
@@ -46,9 +48,10 @@ data lama lewat scripts/isi_perkiraan_halaman.py menghasilkan nilai yang sama.
 import bisect
 from collections import defaultdict
 
-# Hanya tipe ini yang diperkirakan (keputusan pemilik project 16 Nov 2026).
-# Entri isi tetap boleh menjadi JANGKAR.
-TIPE_DIPERKIRAKAN = ("tabel", "gambar", "lampiran")
+# Tipe yang diperkirakan. Tabel/gambar/lampiran sejak 16 Nov 2026; isi
+# (bab/subbab) ditambahkan 16 Nov 2026 sore atas permintaan pemilik project.
+TIPE_NON_ISI = ("tabel", "gambar", "lampiran")
+TIPE_DIPERKIRAKAN = TIPE_NON_ISI + ("isi",)
 
 # Jarak terjauh (halaman cetak) ke jangkar untuk entri di tepi publikasi.
 JARAK_TEPI = 10
@@ -107,9 +110,25 @@ def perkirakan(entri):
     if not gabungan:
         return {}
     pilihan = {}
-    for tipe in TIPE_DIPERKIRAKAN:
+    for tipe in TIPE_NON_ISI:
         jangkar = _jangkar([e for e in entri if e.get("tipe") == tipe]) or gabungan
         pilihan[tipe] = (jangkar, [c for c, _ in jangkar])
+    # Entri ISI: HANYA jangkar tabel/gambar/lampiran. Ini sengaja BUKAN
+    # "setipe dulu", dan jangkar isi tidak dipakai sama sekali.
+    # Alasannya: halaman fisik isi dicari dari teks judul
+    # (lengkapi_halaman_isi), dan di sebagian publikasi bergeser dari halaman
+    # yang dirujuk Daftar Isi:
+    #   - +2 di PDRB: sampul bab tanpa teks, judulnya tercetak lagi sesudahnya;
+    #   - +1 di Booklet Sakernas.
+    # Halaman fisik tabel/gambar/lampiran berasal dari keterangan bernomor
+    # dan cocok dengan folio. Bukti dari folio di halaman perkiraan (yang
+    # terbaca), 16 Nov 2026:
+    #   - jangkar non-isi 91% tepat;
+    #   - jangkar isi (cadangan) 61%;
+    #   - "isi dulu" 78%.
+    # Tanpa jangkar non-isi, entri isi dibiarkan kosong.
+    jangkar = _jangkar([e for e in entri if e.get("tipe") in TIPE_NON_ISI])
+    pilihan["isi"] = (jangkar, [c for c, _ in jangkar])
 
     hasil = {}
     for i, e in enumerate(entri):

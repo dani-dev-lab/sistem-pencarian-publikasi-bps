@@ -86,7 +86,7 @@ def isi(cetak=print, tulis=True):
     cetak(f"  perkiraan diubah  : {n['diubah']}")
     cetak(f"  perkiraan dihapus : {n['dikosongkan']}")
     cetak(f"  perkiraan tetap   : {n['tetap']}")
-    cetak("Tabel/gambar/lampiran masih tanpa halaman fisik: "
+    cetak("Masih tanpa halaman fisik (isi/tabel/gambar/lampiran): "
           + ", ".join(f"{k} {v}" for k, v in sorted(sisa_kosong.items())))
     cetak("DITULIS ke database." if tulis and berubah
           else "Tidak ada yang ditulis (--coba)." if not tulis else "Tidak ada yang berubah.")

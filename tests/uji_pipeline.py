@@ -607,10 +607,15 @@ def bagian_f():
         "      e('gambar','13',43), e('gambar','12'), T('15')], [42, 25])\n"
         "kasus('isi-jangkar', [e('isi','1',27), e('isi','13',39), T('10')], [36])\n"
         "kasus('perkiraan-bukan-jangkar', [e('tabel','10',20,True), e('tabel','12',22,True), T('11')], [None])\n"
-        "kasus('romawi-isi-dilewati', [T('10',20), T('12',22), T('xi'), T(None), e('isi','11')], [None, None, None])\n")
+        "kasus('romawi-dilewati', [T('10',20), T('12',22), T('xi'), T(None), e('isi','vii')], [None, None, None])\n"
+        # Entri isi (16 Nov 2026): HANYA jangkar tabel/gambar/lampiran, jangkar isi diabaikan.
+        "kasus('isi-dari-nonisi', [T('10',20), T('12',22), T('20',30), T('22',32), e('isi','15')], [25])\n"
+        "kasus('isi-tanpa-nonisi-kosong', [e('isi','1',27), e('isi','13',39), e('isi','10')], [None])\n"
+        "kasus('isi-abaikan-jangkar-isi', [T('10',20), T('12',22), T('20',30), T('22',32), e('isi','11',23),\n"
+        "      e('isi','13',25), e('isi','15')], [25])\n")
     f1 = re.findall(r"F1 (\S+) (OK|SALAH.*)", keluar)
-    cek("F1 aturan perkiraan: 9 kasus sintetis", len(f1) == 9 and all(h == "OK" for _, h in f1),
-        [f"{n}: {h}" for n, h in f1 if h != "OK"] or (err[-200:] if len(f1) != 9 else "9/9"))
+    cek("F1 aturan perkiraan: 12 kasus sintetis", len(f1) == 12 and all(h == "OK" for _, h in f1),
+        [f"{n}: {h}" for n, h in f1 if h != "OK"] or (err[-200:] if len(f1) != 12 else "12/12"))
 
     # F2: data lama (perkiraan kosong) diisi skrip = keadaan sebelum dikosongkan.
     kode, keluar, _ = jalan("isi_perkiraan_halaman.py", "--db-uji")    # isi dulu kalau belum
@@ -632,8 +637,8 @@ def bagian_f():
     cek("F2 halaman fisik asli tidak berubah (jumlah baris, jumlah nilai, jumlah id*nilai)",
         n_asli2 == n_asli, f"{n_asli} -> {n_asli2}")
     n_luar = sql("SELECT COUNT(*) FROM entri_dokumen WHERE halaman_fisik_perkiraan=1 "
-                 "AND (tipe NOT IN ('tabel','gambar','lampiran') OR halaman IS NULL)", DB_UJI)
-    cek("F2 perkiraan hanya di tabel/gambar/lampiran berhalaman cetak", n_luar == "0", n_luar)
+                 "AND (halaman IS NULL OR halaman NOT REGEXP '^[0-9]+$')", DB_UJI)
+    cek("F2 perkiraan hanya di entri berhalaman cetak angka", n_luar == "0", n_luar)
 
     # F3: idempoten
     kode, keluar, _ = jalan("isi_perkiraan_halaman.py", "--db-uji")

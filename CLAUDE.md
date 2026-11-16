@@ -516,8 +516,23 @@ saat ekstraksi.
 Laporan: `data/regresi/perkiraan-halaman-20261116.md`. Diminta pemilik
 project sesudah uji coba aplikasi 14 Nov.
 - **Sasaran:** tabel/gambar/lampiran berhalaman cetak tanpa `halaman_fisik`
-  (2.118). Entri isi TIDAK diperkirakan (keputusan pemilik project), tetapi
-  boleh menjadi jangkar.
+  (2.118), dimuat ke produksi 16 Nov.
+- **Perluasan ke entri ISI (16 Nov sore, database uji saja; BELUM dimuat
+  ke produksi, menunggu persetujuan).** Laporan:
+  `data/regresi/perkiraan-halaman-isi-20261116.md`.
+  - Isi HANYA memakai jangkar tabel/gambar/lampiran. Ini SENGAJA bukan
+    "setipe dulu": halaman fisik isi (dari teks judul) bergeser +2 di PDRB
+    (sampul bab) dan +1 di Booklet Sakernas.
+  - Bukti dari folio di halaman perkiraan: jangkar non-isi 91% tepat,
+    cadangan jangkar isi 61%, "isi dulu" 78%.
+  - Leave-one-out isi bias, karena kuncinya halaman fisik isi itu sendiri;
+    jangan dipakai untuk memilih aturan.
+  - Hasil:
+    - 1.798 isi terisi; per id hanya NULL -> angka; 1.036 perkiraan lama tetap;
+    - sampel manual 48/50;
+    - 12 kueri identik kecuali halaman.
+  - Jangkar isi tetap dipakai untuk TABEL/gambar/lampiran (aturan lama), dan
+    sampel Podes membenarkannya.
 - **Aturan:** `app/services/perkiraan_halaman.py`, fungsi murni.
   - Perkiraan = halaman cetak + selisih (fisik - cetak) jangkar tetangga.
   - Jangkar = entri berhalaman cetak angka dengan halaman fisik ASLI.
@@ -641,6 +656,27 @@ Aturan yang berlaku:
   Polanya sama dengan Daftar Tabel Kotabaru Dalam Angka 2026.
 - **Podes Kotabaru Tabel 1.2 "Lokasi Desa Terhadap Kawasan Hutan"** tercantum
   di Daftar, tetapi tidak dicetak di badan (16 Nov 2026).
+- **Dua cacat Daftar Isi (diperiksa 16 Nov 2026, parser BELUM diubah).**
+  Rincian: `data/regresi/perkiraan-halaman-isi-20261116.md`.
+  - **A. Folio halaman Daftar sebaris dengan entri terakhir.**
+    - Contoh: "...35 vii". Kata paling kanan "vii" menjadi halaman, dan 35
+      masuk ke judul.
+    - 9 entri isi di 9 publikasi, semuanya dibaca dan benar cacat
+      (PDRB Pengeluaran, IPM, Booklet, 4 GEM; di GEM satu entri menelan
+      2-3 subbab).
+    - Pasangannya: kop "Page" halaman lanjutan menempel, sehingga
+      "Page BAB 3 … 39 3.1 …" tergabung di 6 PDRB Pengeluaran edisi 2026.
+  - **B. Nomor halaman di baris PERTAMA (format ke-3), tidak dikenali.**
+    - Baris lanjutan menempel ke awal entri berikutnya ("Inventory 3.7
+      Perkembangan Ekspor").
+    - Sistematis di 9 publikasi, 116 entri: PDRB Kotabaru (3), Tanah Bumbu
+      (3), HSS LU (2), Indikator Pekerjaan Layak.
+    - Halaman cetaknya BENAR; yang rusak hanya judulnya.
+  - **Kop "Halaman" sebagai entri sendiri.**
+    - 98 tabel/gambar/lampiran di 24 publikasi, tanpa nomor dan tanpa
+      halaman cetak; kebanyakan di Statistik Kesra kab/kota.
+    - Kartunya tampil "Nomor —" / "Halaman —". Kemungkinan inilah "Nomor —"
+      dari uji coba 14 Nov (belum dicocokkan dengan kuerinya).
 - **8 kelompok `(publikasi, tipe, nomor)` kembar** di `entri_dokumen`. SEMUANYA
   berasal dari jalur `daftar` - nomor tabel yang bertabrakan di sumbernya atau
   salah baca parser pada daftar. Jumlahnya persis sama (8) sebelum maupun
