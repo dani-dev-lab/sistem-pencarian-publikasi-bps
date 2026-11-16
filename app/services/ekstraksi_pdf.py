@@ -444,11 +444,37 @@ def _cari_halaman_di_baris(baris, batas_kanan, tipe):
     """
     if not baris:
         return None, None
+    if _folio_sebaris(baris, batas_kanan, tipe):
+        baris = baris[:-1]
     terakhir = baris[-1]
     if terakhir["x1"] < batas_kanan:
         return None, None
     sisa, halaman = _pisah_nomor_halaman(terakhir["text"], tipe)
     return (sisa, halaman) if halaman else (None, None)
+
+
+RE_FOLIO = re.compile(r"^[ivxlcdm]+$")    # folio halaman depan: romawi HURUF KECIL
+
+
+def _folio_sebaris(baris, batas_kanan, tipe):
+    """Kata terakhir baris = folio halaman Daftar yang tercetak SEBARIS (pola A1).
+
+    Contoh Balangan PDRB Pengeluaran: "2.6 Ekspor dan Impor ......35 vii".
+    "vii" (x1=573) adalah folio halaman Daftar Isi, dan nomor halaman entrinya
+    "35" (x1=524) ada tepat sebelumnya. Dulu "vii" diambil sebagai halaman dan
+    "35" masuk ke judul.
+
+    Syaratnya:
+      - kata terakhir romawi HURUF KECIL (folio), supaya "Triwulan IV" aman;
+      - kata sebelumnya nomor halaman ARAB di margin kanan.
+    """
+    if len(baris) < 2 or not RE_FOLIO.match(baris[-1]["text"].strip(".…�")):
+        return False
+    sebelum = baris[-2]
+    if sebelum["x1"] < batas_kanan:
+        return False
+    _, halaman = _pisah_nomor_halaman(sebelum["text"], tipe)
+    return bool(halaman) and bool(RE_ANGKA.match(halaman))
 
 
 # --------------------------------------------------------------------------
@@ -525,6 +551,10 @@ def _rakit_entri(kumpulan, tipe, publikasi_id, batas_kanan, tanpa_label=False):
         sisa_baris = [k for k in b if id(k) not in dilewati]
         if sisa_baris and _kop_halaman(sisa_baris):
             dilewati.update(id(k) for k in sisa_baris)
+        # Pola A1: folio halaman Daftar sebaris dengan entri -> dibuang, nomor
+        # halaman diambil dari kata sebelumnya (lihat _folio_sebaris).
+        elif _folio_sebaris(b, batas_kanan, tipe):
+            dilewati.add(id(b[-1]))
 
     # Nomor halaman dicari di kata paling kanan SETIAP baris entri, bukan hanya
     # baris terakhir. Letaknya berbeda-beda antar publikasi: ada yang menaruh di
@@ -532,10 +562,12 @@ def _rakit_entri(kumpulan, tipe, publikasi_id, batas_kanan, tanpa_label=False):
     halaman = None
     potongan = []
     for b in kumpulan:
+        # Kata terakhir yang tidak dilewati (folio sebaris sudah dilewati).
+        akhir = max((j for j, k in enumerate(b) if id(k) not in dilewati), default=-1)
         for j, k in enumerate(b):
             if id(k) in dilewati:
                 continue
-            if halaman is None and j == len(b) - 1 and k["x1"] >= batas_kanan:
+            if halaman is None and j == akhir and k["x1"] >= batas_kanan:
                 sisa, hal = _pisah_nomor_halaman(k["text"], tipe)
                 if hal:
                     halaman = hal
