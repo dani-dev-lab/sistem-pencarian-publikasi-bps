@@ -731,6 +731,46 @@ def bagian_i():
         [f"{n}: {h}" for n, h in hasil if h != "OK"] or (err[-300:] if len(hasil) != 9 else "9/9"))
 
 
+def bagian_s():
+    """Deteksi wilayah dari kueri (filter wilayah, 10 Nov 2026; singkatan dikonfirmasi 16 Nov 2026).
+
+    Memakai data/wilayah.json ASLI proyek. Salinan uji hanya mengaktifkan
+    domain uji, padahal deteksi hanya mengenali wilayah aktif. Kasus wajib
+    dari data/regresi/filter-wilayah-20261110.md (Syarat 4), ditambah SETIAP
+    singkatan yang tercantum di wilayah.json, sehingga singkatan baru otomatis
+    ikut diuji.
+    """
+    print("\n=== S. DETEKSI WILAYAH DARI KUERI ===", flush=True)
+    kode, keluar, err = jalan_py(
+        "import json\n"
+        "from app.services import wilayah, preprocessing as P\n"
+        f"PATH = r'{ASLI}/data/wilayah.json'\n"
+        "def kode(q): return [t['kode'] for t in wilayah.deteksi(P.tokenkan(q), PATH)]\n"
+        "kasus = [('penduduk banjar', ['6303']), ('penduduk banjarmasin', ['6371']),\n"
+        "         ('penduduk banjarbaru', ['6372']), ('penduduk banjar baru', ['6372']),\n"
+        "         ('penduduk kotabaru', ['6302']), ('penduduk kota baru', ['6302']),\n"
+        "         ('penduduk miskin', []), ('jumlah hotel kabupaten kota 2024', []),\n"
+        "         ('penduduk tanah laut dan kotabaru', ['6301', '6302']),\n"
+        "         ('penduduk kalimantan selatan', []), ('pdrb kabupaten tapin', ['6305'])]\n"
+        "w = json.load(open(PATH, encoding='utf-8'))['wilayah']\n"
+        "for x in w:\n"
+        "    for s in x.get('singkatan') or []:\n"
+        "        kasus.append((f'penduduk miskin {s}', [x['kode']]))\n"
+        "status = sorted({str(x.get('singkatan_status')) for x in w if x['kode'] != '6300'})\n"
+        "print('S status', status)\n"
+        "for q, harap in kasus:\n"
+        "    d = kode(q)\n"
+        "    print('S', q.replace(' ', '_'), 'OK' if d == harap else f'SALAH {d} != {harap}')\n")
+    hasil = re.findall(r"^S (\S+) (OK|SALAH.*)$", keluar, re.M)
+    n_singkatan = len(re.findall(r"^S penduduk_miskin_", keluar, re.M))   # "penduduk miskin" tanpa _ tidak ikut
+    cek(f"S1 deteksi wilayah: {len(hasil)} kasus ({n_singkatan} singkatan dari wilayah.json)",
+        len(hasil) >= 19 and n_singkatan == 8 and all(h == "OK" for _, h in hasil),
+        [f"{n}: {h}" for n, h in hasil if h != "OK"] or (err[-300:] if not hasil else f"{len(hasil)} OK"))
+    status = re.search(r"^S status (.*)$", keluar, re.M)
+    cek("S2 singkatan_status 13 kab/kota = dikonfirmasi (tim IT BPS Kalsel, 16 Nov 2026)",
+        status and status.group(1) == "['dikonfirmasi']", status.group(1) if status else err[-200:])
+
+
 def bagian_o(pubs, per_id, usang, s0):
     print("\n=== O. ONLINE (server tiruan): publikasi usang diunduh ulang ===", flush=True)
     for p in usang:
@@ -1235,7 +1275,7 @@ print('SEBAGIAN_TAMPIL', 'selesai sebagian' in h, 'JUDUL_GAGAL', {per_id[v]['tit
     p.wait()
 
 
-SEMUA_BAGIAN = "FPLCHIOBGETDKRW"   # F dijalankan sebelum potret s0 (lihat bagian_f)
+SEMUA_BAGIAN = "FPLCHISOBGETDKRW"   # F dijalankan sebelum potret s0 (lihat bagian_f)
 
 
 def main():
@@ -1267,6 +1307,7 @@ def main():
             if b == "C": bagian_c(s0, ocr_pub)
             if b == "H": bagian_h(s0)
             if b == "I": bagian_i()
+            if b == "S": bagian_s()
             if b == "O": bagian_o(pubs, per_id, usang, s0)
             if b == "B": baru = bagian_b(pubs, per_id, kecil)
             if b == "G": bagian_g(per_id, kecil[2])

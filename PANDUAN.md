@@ -713,8 +713,14 @@ kode yang perlu diubah.
   `false`. Publikasi yang sudah ada di database tidak dihapus oleh
   pengecualian ini.
 - **Singkatan wilayah** (`tala`, `batola`, `hss`, `hst`, `hsu`, `tanbu`,
-  `bjm`, `bjb`) dipakai untuk mengenali wilayah dari kata kunci. Daftar ini
-  **belum dikonfirmasi tim PST**; tambah atau hapus di kolom `singkatan`.
+  `bjm`, `bjb`) dipakai untuk mengenali wilayah dari kata kunci.
+  - Daftar ini sudah dikonfirmasi tim IT BPS Kalimantan Selatan (16 November
+    2026).
+  - Kabupaten/kota yang tidak punya singkatan memang tidak punya singkatan
+    resmi.
+  - Kalau nanti diperlukan, singkatan baru bisa ditambahkan ke kolom
+    `singkatan` wilayah itu di `data/wilayah.json`; aplikasi memakainya tanpa
+    perlu dijalankan ulang.
 
 ---
 
@@ -902,8 +908,8 @@ November 2026.
   `app/services/mesin_pencari.py` (`AMBANG_DITEMUKAN`, `AMBANG_SARAN`).
 - **"Banjar" juga nama suku**, jadi kata kunci yang memuatnya memasang
   filter Kab. Banjar; petugas membatalkannya lewat pita.
-- **Singkatan wilayah belum dikonfirmasi tim PST** (bagian 8), dan provinsi
-  tidak dikenali dari kata kunci.
+- **Provinsi tidak dikenali dari kata kunci**, hanya bisa dipilih dari
+  daftar wilayah.
 
 **Pengelolaan**
 

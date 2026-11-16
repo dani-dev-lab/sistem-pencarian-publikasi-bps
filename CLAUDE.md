@@ -992,9 +992,18 @@ Aturan yang berlaku:
   - Diuji di database uji: hanya kelompok itu yang keluar dari daftar;
     `?semua=1` identik; checksum `log_pencarian` tidak berubah.
 - **Deteksi wilayah: "banjar" juga nama suku.** "penduduk suku banjar"
-  memasang filter Kab. Banjar; petugas membatalkannya lewat pita. Singkatan
-  (tala, hss, bjm, ...) belum dikonfirmasi tim PST. Provinsi tidak dideteksi
-  dari kueri, hanya bisa dipilih lewat dropdown.
+  memasang filter Kab. Banjar; petugas membatalkannya lewat pita. Provinsi
+  tidak dideteksi dari kueri, hanya bisa dipilih lewat dropdown.
+- **Singkatan wilayah DIKONFIRMASI tim IT BPS Kalsel (16 Nov 2026).**
+  - Daftar di `data/wilayah.json` benar: tala, batola, hss, hst, hsu, tanbu,
+    bjm, bjb.
+  - Kabupaten/kota tanpa singkatan memang tidak punya singkatan resmi; JANGAN
+    ditambah tanpa dasar.
+  - `singkatan_status` = "dikonfirmasi" untuk 13 kab/kota (provinsi null).
+    Medan ini hanya catatan dan tidak dibaca kode.
+  - Singkatan baru boleh ditambahkan kalau nanti diperlukan; deteksi
+    memakainya tanpa restart (cache menurut mtime).
+  - Diuji lewat `uji_pipeline.py` bagian S.
 - Judul publikasi dwibahasa menyimpan teks Indonesia DAN Inggris apa adanya.
   Ini disengaja — petugas bisa saja mencari dengan istilah Inggris, dan fuzzy
   matching yang akan menanganinya. Jangan dibuang saat preprocessing.
@@ -1114,7 +1123,7 @@ Titik berhenti sebelumnya (14 Nov 2026), semuanya sudah di-commit di `revisi-pst
 - **Jalur B (dari nol) belum diuji ujung ke ujung** - butuh jaringan ke BPS.
 - Masih terbuka: lama pembaruan rutin 14 wilayah (ukur dari kantor), run
   penuh `uji_pipeline.py` sesudah D0/R5, uji coba petugas PST + ambang skor,
-  konfirmasi singkatan wilayah, lisensi model OCR.
+  lisensi model OCR. (Konfirmasi singkatan wilayah SELESAI 16 Nov 2026.)
 
 ### Bukti di balik isi PANDUAN.md
 - **Pemecahan masalah jaringan** (PANDUAN bagian 10): lihat "Catatan
