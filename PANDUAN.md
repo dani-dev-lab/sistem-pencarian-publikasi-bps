@@ -102,17 +102,23 @@ pada tombol itu ada tiga macam:
 | Tombol | Artinya |
 |---|---|
 | **Buka PDF hal. 57** | Aplikasi menemukan sendiri tabel/gambar itu di halaman 57 berkas PDF. PDF langsung terbuka di halaman itu. |
-| **Buka PDF ±hal. 38** | **Perkiraan.** Letak tabel di PDF tidak terbaca langsung, jadi halamannya dihitung dari nomor halaman di Daftar Tabel dan letak tabel-tabel di sekitarnya. Biasanya tepat; kalau tabelnya tidak ada di halaman itu, gulir **satu-tiga halaman** ke depan atau ke belakang. Arahkan tetikus ke tombol untuk melihat keterangannya. |
+| **Buka PDF ±hal. 38** | **Perkiraan.** Letak bagian itu di PDF tidak terbaca langsung, jadi halamannya dihitung dari nomor halaman di Daftar Tabel atau Daftar Isi dan letak tabel-tabel di sekitarnya. Biasanya tepat; kalau tabel atau judul subbabnya tidak ada di halaman itu, gulir **satu-tiga halaman** ke depan atau ke belakang. Arahkan tetikus ke tombol untuk melihat keterangannya. |
 | **Buka PDF** | Letaknya tidak diketahui. PDF terbuka di halaman pertama; pakai nomor "Halaman" yang tertulis di kartu untuk mencarinya. |
 
 Nomor **"Halaman"** di kartu adalah nomor yang **tercetak** di publikasi
 (seperti di Daftar Tabel). Nomor itu sering berbeda dengan nomor halaman
 berkas PDF, karena sampul dan halaman beromawi ikut terhitung di PDF.
 
-Pada uji 16 November 2026, 56 dari 60 tombol "±hal." yang diperiksa satu per
-satu langsung menuju tabel yang benar. Tiga meleset 2–3 halaman, dan satu
-menunjuk tabel yang ternyata tidak dicetak di publikasinya. Penyebab
-utamanya: nomor halaman di Daftar Tabel publikasi itu sendiri keliru.
+Pada uji 16 November 2026, tombol "±hal." diperiksa satu per satu:
+
+- **Tabel/gambar/lampiran:** 56 dari 60 langsung menuju bagian yang benar.
+  Tiga meleset 2–3 halaman, dan satu menunjuk tabel yang ternyata tidak
+  dicetak di publikasinya. Penyebab utamanya: nomor halaman di Daftar Tabel
+  publikasi itu sendiri keliru.
+- **Bab dan subbab** (misalnya "3.7 Perkembangan Net Ekspor" di PDRB Menurut
+  Pengeluaran): 48 dari 50 langsung menuju judul subbabnya; dua meleset 1–2
+  halaman. Untuk **bab**, halaman yang dibuka biasanya **sampul bab**. Isi
+  babnya mulai di halaman sesudahnya.
 
 ---
 
@@ -476,9 +482,14 @@ venv\Scripts\python.exe scripts\isi_perkiraan_halaman.py --produksi
   - `--db-uji` untuk database uji (bagian 9);
   - tanpa salah satunya, skrip menolak jalan.
 - **`--coba`:** hanya menghitung dan melaporkan, tanpa menulis.
-- **Yang ditulis:** hanya tabel/gambar/lampiran yang punya nomor halaman cetak
+- **Yang ditulis:** hanya bagian yang punya nomor halaman cetak (angka)
   tetapi belum punya halaman PDF. Halaman PDF hasil pembacaan PDF tidak
   pernah diubah.
+  - **Tabel/gambar/lampiran** diperkirakan dari tabel/gambar/lampiran di
+    sekitarnya.
+  - **Bab/subbab** diperkirakan HANYA dari tabel/gambar/lampiran. Tanpa itu,
+    bab dibiarkan kosong (misalnya Booklet Sakernas), karena perkiraan dari
+    bab lain terbukti sering meleset 1–2 halaman.
 - **Penanda:** kolom `entri_dokumen.halaman_fisik_perkiraan`, yang
   ditambahkan otomatis.
 - **Kalau pembaruan sedang berjalan,** skrip berhenti dengan "TIDAK
@@ -821,19 +832,33 @@ November 2026.
 
 **Nomor halaman dan tombol PDF**
 
-- **19.142 dari 24.373 bagian (78,5%) punya nomor halaman PDF** (16 November
+- **20.940 dari 24.373 bagian (85,9%) punya nomor halaman PDF** (16 November
   2026):
   - **18.106 (74,3%) dibaca langsung dari PDF**; tombolnya **Buka PDF hal. N**.
-  - **1.036 (4,3%) perkiraan**; tombolnya **Buka PDF ±hal. N** (bagian 1).
-    Dari 60 yang diperiksa satu per satu, 56 tepat, 3 meleset 2–3 halaman,
-    dan 1 menunjuk tabel yang tidak dicetak di publikasinya.
-- **5.231 bagian tanpa nomor halaman PDF** membuka PDF dari halaman pertama.
+  - **2.834 (11,6%) perkiraan**; tombolnya **Buka PDF ±hal. N** (bagian 1):
+    - 1.036 tabel/gambar/lampiran. Dari 60 yang diperiksa, 56 tepat,
+      3 meleset 2–3 halaman, dan 1 menunjuk tabel yang tidak dicetak di
+      publikasinya.
+    - 1.798 bab/subbab. Dari 50 yang diperiksa, 48 tepat dan 2 meleset 1–2
+      halaman.
+- **3.433 bagian tanpa nomor halaman PDF** membuka PDF dari halaman pertama.
   Nomor halaman cetaknya, kalau ada, tetap ditampilkan.
-  - 1.357 di antaranya tabel/gambar/lampiran. Perkiraan tidak dibuat untuk
-    mereka, karena tidak ada tabel tetangga yang cukup dekat dan konsisten,
-    atau tidak ada nomor halaman cetaknya. Contohnya semua publikasi Keadaan
+  - **1.357 tabel/gambar/lampiran.** Perkiraan tidak dibuat untuk mereka,
+    karena tidak ada tabel tetangga yang cukup dekat dan konsisten, atau
+    tidak ada nomor halaman cetaknya. Contohnya semua publikasi Keadaan
     Angkatan Kerja.
-  - Sisanya bab (Daftar Isi). Bab sengaja tidak diperkirakan.
+  - **2.076 bab/subbab:**
+    - 922 di halaman depan bernomor romawi (Kata Pengantar, Daftar Isi);
+    - sisanya di publikasi tanpa tabel di dekatnya, misalnya Booklet
+      Sakernas.
+- **Beberapa subbab di Daftar Isi terbaca keliru** (perbaikannya sedang
+  dirancang):
+  - **Tercatat dengan halaman romawi.** Contohnya Balangan PDRB Pengeluaran
+    "2.6 Ekspor dan Impor … 35" tercatat "Halaman vii", karena nomor halaman
+    Daftar Isi tercetak sebaris dengannya.
+  - **Judul berawalan potongan judul sebelumnya.** Contohnya di PDRB Kotabaru
+    dan Tanah Bumbu: "Inventory 3.7 Perkembangan Ekspor". Nomor halaman
+    bagian seperti ini tetap benar.
 - **317 bagian (1,3%) tidak punya nomor halaman sama sekali.**
 - **Nomor halaman di Daftar Tabel kadang keliru di publikasinya sendiri.**
   Contohnya Daftar Lampiran PDRB Kotabaru menurut Lapangan Usaha menulis

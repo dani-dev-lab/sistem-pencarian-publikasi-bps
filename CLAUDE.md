@@ -517,8 +517,14 @@ Laporan: `data/regresi/perkiraan-halaman-20261116.md`. Diminta pemilik
 project sesudah uji coba aplikasi 14 Nov.
 - **Sasaran:** tabel/gambar/lampiran berhalaman cetak tanpa `halaman_fisik`
   (2.118), dimuat ke produksi 16 Nov.
-- **Perluasan ke entri ISI (16 Nov sore, database uji saja; BELUM dimuat
-  ke produksi, menunggu persetujuan).** Laporan:
+- **Perluasan ke entri ISI (16 Nov sore; aturan disetujui, DIMUAT ke
+  produksi 16 Nov).**
+  - Cadangan `cadangan-bps/db_pencarian_bps-20261116-sebelum-perkiraan-isi.sql`;
+    pemulihannya diuji (6/6 tabel sama).
+  - Per id: 1.798 isi NULL -> angka, 22.575 identik; per isi baris = database
+    uji; `versi_data` 354 -> 355.
+  - Produksi kini: halaman PDF 20.940/24.373 (85,9%); perkiraan 2.834.
+  - Laporan:
   `data/regresi/perkiraan-halaman-isi-20261116.md`.
   - Isi HANYA memakai jangkar tabel/gambar/lampiran. Ini SENGAJA bukan
     "setipe dulu": halaman fisik isi (dari teks judul) bergeser +2 di PDRB
