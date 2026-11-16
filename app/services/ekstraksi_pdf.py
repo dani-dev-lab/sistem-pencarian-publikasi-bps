@@ -43,6 +43,8 @@ RE_TAHUN = re.compile(r"^(19|20)[0-9]{2}")
 
 # Judul yang muncul di kolom kanan sering diawali sisa dot leader / glyph rusak.
 RE_SAMPAH = re.compile(r"^[.…�\s]+$")
+# "REVIEW.....39": kata, >= 3 karakter leader, nomor halaman (pola A2).
+RE_KATA_LEADER_NOMOR = re.compile(r"^(.*[^.…�\s])[.…�]{3,}([0-9]{1,4}|[ivxlcdmIVXLCDM]+)$")
 
 # Judul kolom di atas daftar: "Halaman", "Tabel Halaman", "Table Page".
 # HANYA dipakai di dalam mode tanpa-label; jalur normal tidak menyentuhnya.
@@ -417,6 +419,19 @@ def _pisah_nomor_halaman(teks, tipe):
     # Daftar Isi memakai angka romawi untuk halaman depan (v, vii, ix).
     if tipe == "isi" and RE_ROMAWI.match(bersih):
         return "", bersih.lower()
+
+    # Pola A2 (16 Nov 2026): kata judul, dot leader, dan nomor halaman
+    # menempel jadi SATU kata ("REVIEW.....39", "2024......38"). Dulu tidak
+    # dikenali, sehingga entri tidak tertutup dan menelan entri berikutnya
+    # (Balangan PDRB Pengeluaran: "BAB 3 ... 39 3.1 ..."). Minimal 3 karakter
+    # leader supaya nomor seperti "2.1" atau "3.12" tidak terpotong.
+    cocok = RE_KATA_LEADER_NOMOR.match(bersih)
+    if cocok:
+        awal, nomor = cocok.groups()
+        if RE_ANGKA.match(nomor) and not (len(nomor) == 4 and RE_TAHUN.match(nomor)):
+            return awal, nomor
+        if tipe == "isi" and RE_ROMAWI.match(nomor):
+            return awal, nomor.lower()
 
     return teks, None
 
