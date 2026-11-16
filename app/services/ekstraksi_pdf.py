@@ -216,6 +216,31 @@ def _kop_kolom(baris):
     return all(w.strip(".:") in KATA_KOP for w in kata if w.strip(".:"))
 
 
+KATA_HALAMAN = {"halaman", "hal", "page", "pages"}
+
+
+def _kop_halaman(baris):
+    """Kop kolom halaman Daftar di JALUR NORMAL (pola C, 16 Nov 2026).
+
+    Contoh: "Halaman", "Page", "Halaman/ Page", "Lampiran ... Halaman",
+    "Halaman Tables Pages xix" (folio romawi halaman Daftar boleh ikut).
+    Syaratnya:
+      - semua kata adalah kata kop atau romawi;
+      - minimal satu kata halaman/page.
+    Syarat kedua penting. Baris yang hanya berisi "Tabel" adalah label di
+    layout dua kolom PDRB (nomornya di baris berikutnya), bukan kop.
+
+    Dulu jalur normal hanya melewati "HALAMAN"/"HAL". Kop yang diawali kata
+    label ("Lampiran ... Halaman") lalu menjadi entri tanpa nomor berjudul
+    "Halaman" (98 entri di 24 publikasi). "Page" di halaman lanjutan juga
+    menempel ke judul entri berikutnya ("Page BAB 3 ...").
+    """
+    kata = [w.strip(".:") for k in baris for w in k["text"].lower().split("/")]
+    kata = [w for w in kata if w]
+    return (bool(kata) and any(w in KATA_HALAMAN for w in kata)
+            and all(w in KATA_KOP or w == "appendices" or RE_ROMAWI.match(w) for w in kata))
+
+
 def _mode_nomor_sebaris(daftar_baris, tipe, batas_kanan):
     """Daftar bernomor tanpa label, nomor SEBARIS dengan judul -> (aktif, x_judul).
 
@@ -477,6 +502,15 @@ def _rakit_entri(kumpulan, tipe, publikasi_id, batas_kanan, tanpa_label=False):
                         dilewati.add(id(k))
                         break
 
+    # Pola C (16 Nov 2026): baris kop kolom ("Halaman/ Page", "Figure Page",
+    # sisa "Halaman" sesudah label kop "Lampiran ... Halaman") tidak masuk
+    # judul. Batas entri, label, dan nomor tidak berubah. Entri yang judulnya
+    # habis (sampah "Halaman") dibuang di bawah.
+    for b in kumpulan:
+        sisa_baris = [k for k in b if id(k) not in dilewati]
+        if sisa_baris and _kop_halaman(sisa_baris):
+            dilewati.update(id(k) for k in sisa_baris)
+
     # Nomor halaman dicari di kata paling kanan SETIAP baris entri, bukan hanya
     # baris terakhir. Letaknya berbeda-beda antar publikasi: ada yang menaruh di
     # baris pertama lalu judulnya menyambung ke bawah, ada yang sebaliknya.
@@ -672,7 +706,10 @@ def _parse_baris(daftar_baris, tipe, publikasi_id, batas_kanan):
     for baris in daftar_baris:
         teks = _teks_baris(baris).strip()
 
-        # Lewati heading dan label kolom.
+        # Lewati heading dan label kolom. Kop "Page"/"Lampiran ... Halaman"
+        # TIDAK dilewati di sini (pola C): kata label di kop bisa jadi satu-
+        # satunya label yang membuka entri pertama (Dalam Angka). Kop dibuang
+        # dari judul di _rakit_entri.
         if RE_HEADING.match(teks) or teks.upper() in ("HALAMAN", "HAL"):
             continue
         if not teks:
