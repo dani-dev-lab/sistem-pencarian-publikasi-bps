@@ -669,6 +669,21 @@ Aturan yang berlaku:
     27/30 (3 membaik, masih cacat lama), 0 memburuk.
   - Pola A' (batas margin kanan) adalah mekanisme keempat yang ditemukan
     saat merancang.
+  - **Utang teknis sisa perbaikan ini (keputusan pemilik project 16 Nov:
+    dicatat, tidak dikejar):**
+    - **GEM: entri romawi atau satu digit sedikit di luar kolom nomor
+      halaman** masih tergabung ("Kata Pengantar v Daftar Isi", "1. PDRB 1
+      2. Inflasi"; IPM "Daftar Tabel ix Daftar Gambar xi 1. ..."). A'
+      menurunkan batas ke kolom yang sejajar <= 4 pt; angka-angka ini 5 pt
+      ke kiri.
+    - **Folio halaman Daftar di BARIS SENDIRI menempel ke judul** ("... 2025
+      xiv", Kesra). A1 hanya menangani folio yang sebaris.
+    - **Lanjutan judul (pola B) di awal halaman Daftar berikutnya** belum
+      ditempel ke entri terakhir halaman sebelumnya, karena `_parse_baris`
+      bekerja per halaman.
+    - **Indikator Pekerjaan Layak Provinsi 2025** (6 entri berawalan potongan
+      judul sebelumnya) tidak tersentuh B; layoutnya tidak memenuhi syarat
+      indentasi menggantung.
   - Catatan pemeriksaan sebelum perbaikan:
 - **Dua cacat Daftar Isi (diperiksa 16 Nov 2026, sebelum perbaikan).**
   Rincian: `data/regresi/perkiraan-halaman-isi-20261116.md`.
