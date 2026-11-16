@@ -662,6 +662,75 @@ def bagian_f():
         kode == 2 and "TIDAK DIJALANKAN" in keluar and not beda_potret(pf0, potret()), f"exit {kode}")
 
 
+KODE_BAGIAN_I = r'''
+from app.services import ekstraksi_pdf as E
+def w(t, x0, x1=None):
+    return {"text": t, "x0": x0, "x1": x1 if x1 is not None else x0 + 6 * len(t), "top": 0, "bottom": 10}
+def baris(*kata):
+    return list(kata)
+def cetak(nama, entri, harap):
+    dapat = [(e["nomor"], e["judul"], e["halaman"]) for e in entri]
+    print("I", nama, "OK" if dapat == harap else f"SALAH {dapat} != {harap}")
+KANAN = 520
+def hal(t, x1=KANAN):
+    return w(t, x1 - 6 * len(t), x1)
+
+# C: kop "Lampiran ... Halaman" bukan entri; label di kop tetap membuka entri pertama (Dalam Angka).
+cetak("C-kop-lampiran", E._parse_baris([
+    baris(w("Lampiran", 90), hal("Halaman")),
+    baris(w("Lampiran", 90), w("1", 150), w("Judul", 170), w("satu", 210), hal("5")),
+    baris(w("Lampiran", 90), w("2", 150), w("Judul", 170), w("dua", 210), hal("7"))], "lampiran", "x", 400),
+    [("1", "Judul satu", "5"), ("2", "Judul dua", "7")])
+cetak("C-kop-berlabel-dalam-angka", E._parse_baris([
+    baris(w("Gambar", 90), hal("Halaman")),
+    baris(w("Figure", 90), hal("Page")),
+    baris(w("13.2", 90), w("Jumlah", 150), w("Penduduk", 200), w("Miskin", 260), hal("457"))], "gambar", "x", 400),
+    [("13.2", "Jumlah Penduduk Miskin", "457")])
+# A2: kata + dot leader + nomor menempel; BAB 3 dan 3.1 tidak tergabung.
+cetak("A2-kata-leader-nomor", E._parse_baris([
+    baris(w("BAB", 90), w("3", 115), w("TINJAUAN", 125), w("EKONOMI..........39", 180, KANAN)),
+    baris(w("3.1", 90), w("Tinjauan", 125), w("PDRB", 180), w(".........42", 220, KANAN))], "isi", "x", 400),
+    [(None, "BAB 3 TINJAUAN EKONOMI", "39"), (None, "3.1 Tinjauan PDRB", "42")])
+# A1: folio romawi kecil sebaris dibuang; "Triwulan IV" (romawi besar) aman.
+cetak("A1-folio-sebaris", E._parse_baris([
+    baris(w("2.6", 90), w("Ekspor", 125), w("Impor", 170), w("......", 210), hal("35"), w("vii", 560, 575))], "isi", "x", 400),
+    [(None, "2.6 Ekspor Impor", "35")])
+cetak("A1-romawi-besar-aman", E._parse_baris([
+    baris(w("Tabel", 90), w("1", 130), w("PDRB", 150), w("Triwulan", 190), hal("12", 470), w("IV", 500, 515))],
+    "tabel", "x", 400),
+    [("1", "PDRB Triwulan 12 IV", None)])
+# A': kata terjauh x1=488, kolom nomor x1=387 -> batas turun, entri tertutup.
+halaman_ap = [baris(w("v", 482, 488))] + [
+    baris(w(j, 90), w("……………", 200, 370), w(n, 375, 387)) for j, n in
+    (("Pendahuluan", "1"), ("Metodologi", "11"), ("Hasil", "19"), ("Penutup", "25"))]
+bk = E._batas_kanan(halaman_ap, "isi")
+print("I A-batas", "OK" if 380 < bk < 387 else f"SALAH batas {bk}")
+cetak("A-kolom-sejajar", E._parse_baris(halaman_ap[1:], "isi", "x", bk),
+      [(None, "Pendahuluan", "1"), (None, "Metodologi", "11"), (None, "Hasil", "19"), (None, "Penutup", "25")])
+# B: nomor di baris pertama, lanjutan menempel ke entri SEBELUMNYA.
+cetak("B-lanjutan", E._parse_baris([
+    baris(w("3.6", 90), w("Perubahan", 124), w("Inventori/Change", 190), w("in", 300), hal("69")),
+    baris(w("Inventory", 124)),
+    baris(w("3.7", 90), w("Perkembangan", 124), w("Ekspor", 210), hal("70"))], "isi", "x", 400),
+    [(None, "3.6 Perubahan Inventori/Change in Inventory", "69"), (None, "3.7 Perkembangan Ekspor", "70")])
+# B: layout biasa (nomor di baris TERAKHIR) tidak boleh tersentuh.
+cetak("B-layout-biasa-aman", E._parse_baris([
+    baris(w("BAB", 90), w("I", 115), w("PENDAHULUAN", 124), hal("1")),
+    baris(w("Penduduk", 124), w("Usia", 180), w("Kerja", 215), w("dan", 250)),
+    baris(w("Angkatan", 124), w("Kerja", 180), hal("5"))], "isi", "x", 400),
+    [(None, "BAB I PENDAHULUAN", "1"), (None, "Penduduk Usia Kerja dan Angkatan Kerja", "5")])
+'''
+
+
+def bagian_i():
+    """Parser Daftar: pola C, A2, A1, A', B (16 Nov 2026), baris sintetis."""
+    print("\n=== I. PARSER DAFTAR (pola C, A2, A1, A', B) ===", flush=True)
+    kode, keluar, err = jalan_py(KODE_BAGIAN_I)
+    hasil = re.findall(r"^I (\S+) (OK|SALAH.*)$", keluar, re.M)
+    cek(f"I1 {len(hasil)} kasus sintetis parser Daftar", len(hasil) == 9 and all(h == "OK" for _, h in hasil),
+        [f"{n}: {h}" for n, h in hasil if h != "OK"] or (err[-300:] if len(hasil) != 9 else "9/9"))
+
+
 def bagian_o(pubs, per_id, usang, s0):
     print("\n=== O. ONLINE (server tiruan): publikasi usang diunduh ulang ===", flush=True)
     for p in usang:
@@ -1166,7 +1235,7 @@ print('SEBAGIAN_TAMPIL', 'selesai sebagian' in h, 'JUDUL_GAGAL', {per_id[v]['tit
     p.wait()
 
 
-SEMUA_BAGIAN = "FPLCHOBGETDKRW"   # F dijalankan sebelum potret s0 (lihat bagian_f)
+SEMUA_BAGIAN = "FPLCHIOBGETDKRW"   # F dijalankan sebelum potret s0 (lihat bagian_f)
 
 
 def main():
@@ -1197,6 +1266,7 @@ def main():
             if b == "L": bagian_l(usang)
             if b == "C": bagian_c(s0, ocr_pub)
             if b == "H": bagian_h(s0)
+            if b == "I": bagian_i()
             if b == "O": bagian_o(pubs, per_id, usang, s0)
             if b == "B": baru = bagian_b(pubs, per_id, kecil)
             if b == "G": bagian_g(per_id, kecil[2])
