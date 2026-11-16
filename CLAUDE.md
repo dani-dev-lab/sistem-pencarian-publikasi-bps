@@ -662,7 +662,15 @@ Aturan yang berlaku:
   Polanya sama dengan Daftar Tabel Kotabaru Dalam Angka 2026.
 - **Podes Kotabaru Tabel 1.2 "Lokasi Desa Terhadap Kawasan Hutan"** tercantum
   di Daftar, tetapi tidak dicetak di badan (16 Nov 2026).
-- **Dua cacat Daftar Isi (diperiksa 16 Nov 2026, parser BELUM diubah).**
+- **Parser Daftar DIPERBAIKI 16 Nov 2026 (pola C, A2, A1, A', B), BARU di
+  database uji, BELUM di produksi, BELUM di-push.**
+  - Laporan: `data/regresi/parser-daftar-isi-20261116.md`.
+  - Regresi 306 PDF: 0 kunci bernomor hilang. Sampel: pola B 30/30, lainnya
+    27/30 (3 membaik, masih cacat lama), 0 memburuk.
+  - Pola A' (batas margin kanan) adalah mekanisme keempat yang ditemukan
+    saat merancang.
+  - Catatan pemeriksaan sebelum perbaikan:
+- **Dua cacat Daftar Isi (diperiksa 16 Nov 2026, sebelum perbaikan).**
   Rincian: `data/regresi/perkiraan-halaman-isi-20261116.md`.
   - **A. Folio halaman Daftar sebaris dengan entri terakhir.**
     - Contoh: "...35 vii". Kata paling kanan "vii" menjadi halaman, dan 35
@@ -983,7 +991,28 @@ untuk tim IT ada di `PANDUAN.md` (bahasa awam, tanpa asumsi tahu Python).
 Kata sandi admin dan isi `.env` DISERAHKAN TERPISAH - tidak ditulis di
 PANDUAN.md maupun di Git.
 
-### Titik berhenti sekarang (16 Nov 2026)
+### Titik berhenti sekarang (16 Nov 2026, siang)
+- **Perbaikan parser Daftar (C, A2, A1, A', B): di-commit LOKAL, BELUM
+  di-push, BELUM di produksi.** Menunggu pemilik project menilai hasil
+  regresi (`data/regresi/parser-daftar-isi-20261116.md`).
+  - Commit: `c0ca28a` C, `a7a62ce` A2, `3b2d835` A1, `3107579` A', `b109b5e`
+    B, `89ff6fa` uji bagian I. Satu commit per pola, supaya bisa dibatalkan
+    sendiri-sendiri.
+  - `uji_pipeline.py` penuh tanpa argumen sesudah perbaikan: **88 lulus,
+    0 gagal, 0 dilewati**, 2.235 detik (`data/regresi/uji-pipeline-20261116.txt`;
+    termasuk I1 9/9, Z1, Z2).
+  - **Database uji sudah berisi hasil parser baru** (run penuh 10.39-11.54).
+    Produksi masih hasil parser lama, dan id-nya berbeda dari database uji.
+  - **PERHATIAN:** aplikasi dan `perbarui.py` dijalankan dari folder ini.
+    Pembaruan data produksi sebelum keputusan akan memakai parser baru untuk
+    publikasi yang diproses ulang.
+  - Pemuatan ke produksi kalau disetujui:
+    - `perbarui.py --lokal --paksa` (±75 menit), sesudah cadangan dan uji
+      pulih;
+    - lalu `isi_perkiraan_halaman.py --produksi` (perkiraan untuk entri yang
+      berubah sudah dihitung ulang oleh `simpan_entri`; skrip untuk
+      memastikan);
+    - bukti: perbandingan per kunci dengan database uji.
 - **Halaman fisik perkiraan DIMUAT ke produksi, 16 Nov 2026** (disetujui
   pemilik project). PANDUAN diperbarui dan semuanya di-push.
   - **Cadangan:** `C:/Users/Dani/cadangan-bps/db_pencarian_bps-20261116-sebelum-perkiraan.sql`
