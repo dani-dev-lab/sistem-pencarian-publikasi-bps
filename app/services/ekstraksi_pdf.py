@@ -717,6 +717,62 @@ def _parse_baris_nomor_sebaris(daftar_baris, tipe, publikasi_id, batas_kanan,
     return entri
 
 
+KATA_AWAL_ENTRI = {"bab", "chapter", "lampiran", "appendix", "daftar"}
+
+
+def _awal_entri_isi(baris):
+    """Baris yang membuka entri Daftar Isi sendiri: nomor subbab, BAB, romawi, dll."""
+    awal = baris[0]["text"]
+    return bool(RE_NOMOR.match(awal) or awal.lower().strip(".:") in KATA_AWAL_ENTRI
+                or re.match(r"^[IVXL]+\.?$", awal))
+
+
+def _kolom_teks_judul(pertama):
+    """x0 awal TEKS judul pada baris pertama entri (sesudah nomor/BAB/romawi), atau None."""
+    j = 0
+    if j < len(pertama) and pertama[j]["text"].lower().strip(".:") in ("bab", "chapter"):
+        j += 1
+    if j < len(pertama) and (RE_NOMOR.match(pertama[j]["text"])
+                             or re.match(r"^[IVXL]+\.?$", pertama[j]["text"])):
+        j += 1
+    return pertama[j]["x0"] if 0 < j < len(pertama) else None
+
+
+def _lanjutan_judul(baris, pertama, berikut, batas_kanan, tipe):
+    """Baris lanjutan judul entri isi yang nomor halamannya di baris PERTAMA (pola B).
+
+    Kotabaru PDRB Pengeluaran: "3.6 Perkembangan Perubahan Inventori/Trend of
+    Change in ... 69", lalu "Inventory" di baris berikutnya tanpa nomor. Dulu
+    entri ditutup di baris bernomor, sehingga "Inventory" menempel ke AWAL
+    entri berikutnya ("Inventory 3.7 Perkembangan Ekspor").
+
+    Syarat baris dianggap lanjutan entri sebelumnya (`pertama` = baris
+    pertamanya, yang memuat nomor halaman):
+      - entri sebelumnya diawali nomor/BAB/romawi, dan teks judulnya menjorok
+        (indentasi menggantung); baris ini sejajar dengan teks judul itu;
+      - baris ini tanpa nomor halaman, dan tidak membuka entri sendiri;
+      - baris BERIKUTNYA bukan baris sejajar kolom judul yang berakhir nomor
+        halaman dan TIDAK membuka entri sendiri. Pola itu adalah judul
+        membungkus berlayout biasa (nomor di baris terakhir), dan baris ini
+        adalah awal entri itu.
+    """
+    x_teks = _kolom_teks_judul(pertama)
+    if x_teks is None or x_teks <= pertama[0]["x0"] + TOLERANSI_KOLOM:
+        return False
+    if abs(baris[0]["x0"] - x_teks) > TOLERANSI_KOLOM:
+        return False
+    if _cari_halaman_di_baris(baris, batas_kanan, tipe)[1] or _awal_entri_isi(baris):
+        return False
+    # Subbab sering menjorok tepat ke kolom teks judul bab ("II METODE ..."
+    # lalu "2.1 ..."), jadi baris berikutnya yang membuka entri sendiri bukan
+    # tanda judul membungkus.
+    if (berikut and abs(berikut[0]["x0"] - x_teks) <= TOLERANSI_KOLOM
+            and _cari_halaman_di_baris(berikut, batas_kanan, tipe)[1]
+            and not _awal_entri_isi(berikut)):
+        return False
+    return True
+
+
 def _parse_baris(daftar_baris, tipe, publikasi_id, batas_kanan):
     """Rakit entri dari baris-baris satu halaman daftar.
 
@@ -744,23 +800,39 @@ def _parse_baris(daftar_baris, tipe, publikasi_id, batas_kanan):
 
     entri = []
     buffer = []
+    # Pola B: entri isi terakhir yang ditutup oleh nomor halaman di baris
+    # PERTAMA-nya. Baris lanjutan judulnya boleh menyusul (lihat _lanjutan_judul).
+    lanjut = None
 
     def tutup():
         hasil = _rakit_entri(buffer, tipe, publikasi_id, batas_kanan)
         if hasil:
             entri.append(hasil)
+        return bool(hasil)
 
+    # Lewati heading dan label kolom. Kop "Page"/"Lampiran ... Halaman"
+    # TIDAK dilewati di sini (pola C): kata label di kop bisa jadi satu-
+    # satunya label yang membuka entri pertama (Dalam Angka). Kop dibuang
+    # dari judul di _rakit_entri.
+    baris_daftar = []
     for baris in daftar_baris:
         teks = _teks_baris(baris).strip()
+        if teks and not (RE_HEADING.match(teks) or teks.upper() in ("HALAMAN", "HAL")):
+            baris_daftar.append(baris)
 
-        # Lewati heading dan label kolom. Kop "Page"/"Lampiran ... Halaman"
-        # TIDAK dilewati di sini (pola C): kata label di kop bisa jadi satu-
-        # satunya label yang membuka entri pertama (Dalam Angka). Kop dibuang
-        # dari judul di _rakit_entri.
-        if RE_HEADING.match(teks) or teks.upper() in ("HALAMAN", "HAL"):
+    for i, baris in enumerate(baris_daftar):
+        berikut = baris_daftar[i + 1] if i + 1 < len(baris_daftar) else None
+        if (tipe == "isi" and lanjut and not buffer
+                and _lanjutan_judul(baris, lanjut["pertama"], berikut, batas_kanan, tipe)):
+            lanjut["baris"].append(baris)
+            hasil = _rakit_entri(lanjut["baris"], tipe, publikasi_id, batas_kanan)
+            if hasil and lanjut["ada"]:
+                entri[-1] = hasil
+            elif hasil:
+                entri.append(hasil)
+                lanjut["ada"] = True
             continue
-        if not teks:
-            continue
+        lanjut = None
 
         if tipe != "isi" and buffer and _label_baris(baris):
             tutup()
@@ -775,7 +847,12 @@ def _parse_baris(daftar_baris, tipe, publikasi_id, batas_kanan):
             selesai = False
 
         if selesai or len(buffer) >= MAKS_BARIS_PER_ENTRI:
-            tutup()
+            ada = tutup()
+            # Baris penutup yang sekaligus MEMBUKA entri ("3.6 ... 69") berarti
+            # nomor halaman ada di baris pertama entri itu. Baris sebelumnya di
+            # buffer (sisa lanjutan yang gagal ditempel) tidak memutus rantai.
+            if tipe == "isi" and selesai and (len(buffer) == 1 or _awal_entri_isi(baris)):
+                lanjut = {"baris": list(buffer), "pertama": baris, "ada": ada}
             buffer = []
 
     if buffer:  # sisa di akhir halaman
