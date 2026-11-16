@@ -197,6 +197,8 @@ def _ambil_korpus():
             Publikasi.tanggal_rilis,
             Publikasi.domain,
             Publikasi.wilayah,
+            # Di akhir, supaya posisi kolom lain (teks [6], domain [11]) tetap.
+            EntriDokumen.halaman_fisik_perkiraan,
         )
         .join(Publikasi, EntriDokumen.publikasi_id == Publikasi.id)
         .all()
@@ -312,7 +314,7 @@ def _cari_entri(token_kueri, baris, ambang_saran):
     dinilai = 0
     for (eid, tipe, nomor, judul, halaman, halaman_fisik, ternormalisasi,
          pub_id, pub_judul, url_pdf, tanggal_rilis, domain, wilayah,
-         token_entri) in baris:
+         fisik_perkiraan, token_entri) in baris:
         if not ternormalisasi:
             continue
 
@@ -339,6 +341,7 @@ def _cari_entri(token_kueri, baris, ambang_saran):
             "judul": judul,
             "halaman": halaman,      # nomor CETAK dari halaman daftar, boleh None
             "halaman_fisik": halaman_fisik,   # nomor halaman PDF, untuk #page=
+            "halaman_fisik_perkiraan": bool(fisik_perkiraan),   # tampil "±hal. N"
             "skor": round(skor, 1),
             "skor_set": round(set_ratio, 1),
             "skor_sort": round(sort_ratio, 1),

@@ -1,0 +1,41 @@
+Cadangan database uji: 8.8 MB, 6 tabel; produksi 6 tabel
+Database uji: db_pencarian_bps_uji | produksi (hanya dibaca): db_pencarian_bps | domain uji: 6305
+
+=== U. PENGAMAN DATABASE UJI ===
+  [LULUS] U1 KonfigurasiUji yang menunjuk nama produksi ditolak (SystemExit)  -- DITOLAK True
+  [LULUS] U2 baris pertama perbarui.py = database uji  -- Database tujuan: db_pencarian_bps_uji @ localhost:3306 (UJI - bukan produksi)
+  [LULUS] U3 ringkasan ke pembaruan_terakhir-uji.json, berkas produksi tidak dibuat  -- exit 0, 1 d
+
+=== F. PERKIRAAN HALAMAN FISIK ===
+  [LULUS] F1 aturan perkiraan: 9 kasus sintetis  -- 9/9
+    |   perkiraan dihapus : 0
+    |   perkiraan tetap   : 0
+    | Tabel/gambar/lampiran masih tanpa halaman fisik: tanpa halaman cetak 275, tidak diperkirakan 1082
+    | DITULIS ke database.
+  [LULUS] F2 perkiraan dikosongkan lalu diisi skrip: identik per kunci dengan sebelumnya (1036 perkiraan)  -- exit 0, diisi 1036, 2 d, berbeda: []
+  [LULUS] F2 halaman fisik asli tidak berubah (jumlah baris, jumlah nilai, jumlah id*nilai)  -- 18106	2659479	571577457874 -> 18106	2659479	571577457874
+  [LULUS] F2 perkiraan hanya di tabel/gambar/lampiran berhalaman cetak  -- 0
+  [LULUS] F3 run kedua: tidak ada yang berubah  -- exit 0
+  [LULUS] F4 tanpa --db-uji/--produksi ditolak (exit 2), database tidak tersentuh  -- exit 2
+  [LULUS] F5 pembaruan lain berjalan: TIDAK DIJALANKAN (exit 2)  -- exit 2
+
+(--hanya FP: bagian lain dilewati)
+
+=== P. EKSTRAKSI PENUH DOMAIN 6305 (--lokal --paksa) ===
+    |   Unduhan      : 0 berkas, 0.0 MB, rata-rata None KB/detik; putus 0x, percobaan ulang 0x, putaran ulang 0 (pulih 0), tetap gagal 0
+    |   domain                            status          publikasi  diunduh diproses  gagal
+    |   6305 Kab. Tapin                   sukses                 17        0       17      0
+    |   Perlu diperiksa manual (1):
+    |     6305 Statistik Daerah Kabupaten Tapin 2025      hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+    | Selesai 2026-11-16 08:14:31, kode keluar 0. Log: data/log_pembaruan\20261116-081120.log
+  [LULUS] P1 17 diproses, 0 diunduh, 0 gagal, exit 0  -- exit 0, proses 17, unduh 0, 192 d, tahap {'ambil_metadata': 0.0, 'unduh': 0.0, 'ekstraksi': 189.6, 'muat': 1.0}
+  [LULUS] P2 isi database uji identik per kunci dengan sebelum (306 publikasi, semua domain)  -- berbeda: []
+  [LULUS] P3 --lokal --paksa TIDAK memajukan updt_date_diproses publikasi usang  -- {'1d00e98fc8211bf401d37078': 'NULL', '34232029fdd831e30af08728': 'NULL'}
+  [LULUS] P4 tanpa entri dengan teks_ternormalisasi NULL  -- 0
+
+=== Z. PEMULIHAN DAN BUKTI ===
+  [LULUS] Z1 database uji dipulihkan, CHECKSUM TABLE sama dengan awal  -- []
+  [LULUS] Z2 produksi tidak berubah (CHECKSUM TABLE awal = akhir)  -- []
+  [LULUS] Z3 folder sementara dibersihkan
+
+=== TOTAL: 17 lulus, 0 gagal, 0 dilewati (209 detik) ===

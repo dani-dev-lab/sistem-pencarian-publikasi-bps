@@ -41,7 +41,7 @@
        tampilkan halaman fisik dengan label berbeda, karena nomor cetak dan
        nomor halaman PDF sering tidak sama. #}
     {% if h.halaman %}<span class="meta">Halaman {{ h.halaman }}</span>
-    {% elif h.halaman_fisik %}<span class="meta">Halaman PDF {{ h.halaman_fisik }}</span>
+    {% elif h.halaman_fisik %}<span class="meta">Halaman PDF {% if h.halaman_fisik_perkiraan %}&plusmn;{% endif %}{{ h.halaman_fisik }}</span>
     {% else %}<span class="meta kosong">Halaman &mdash;</span>{% endif %}
   </p>
 
@@ -53,11 +53,14 @@
     <span class="skor">Relevansi {{ h.skor }}%</span>
     {# Salinan lokal, bukan url_pdf: menghindari unduh ulang 3-30 MB tiap klik.
        #page= memakai halaman_fisik (nomor halaman PDF sebenarnya), BUKAN kolom
-       `halaman` yang berisi nomor cetak - keduanya sering berbeda. #}
+       `halaman` yang berisi nomor cetak - keduanya sering berbeda.
+       Halaman fisik PERKIRAAN (dari selisih halaman cetak entri tetangga,
+       16 Nov 2026) ditandai "±": bisa meleset satu-dua halaman. #}
     <a class="tombol-pdf"
        href="{{ url_for('pencarian.buka_pdf', pub_id=h.publikasi_id) }}{% if h.halaman_fisik %}#page={{ h.halaman_fisik }}{% endif %}"
+       {% if h.halaman_fisik_perkiraan %}title="Halaman PDF perkiraan dari halaman tetangga; bisa meleset satu-dua halaman"{% endif %}
        target="_blank" rel="noopener">
-      {% if h.halaman_fisik %}Buka PDF hal. {{ h.halaman_fisik }}{% else %}Buka PDF{% endif %}
+      {% if h.halaman_fisik_perkiraan %}Buka PDF &plusmn;hal. {{ h.halaman_fisik }}{% elif h.halaman_fisik %}Buka PDF hal. {{ h.halaman_fisik }}{% else %}Buka PDF{% endif %}
     </a>
   </p>
 </article>

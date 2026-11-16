@@ -262,7 +262,8 @@ def potret(domain=None):
                 f"FROM publikasi {syarat}"), {"d": domain}).mappings():
             hasil[r["id"]] = {"pub": dict(r), "entri": Counter()}
         for r in k.execute(sa.text(
-                f"SELECT e.publikasi_id, e.tipe, e.nomor, e.judul, e.halaman, e.halaman_fisik, e.sumber, "
+                f"SELECT e.publikasi_id, e.tipe, e.nomor, e.judul, e.halaman, e.halaman_fisik, "
+                f"e.halaman_fisik_perkiraan, e.sumber, "
                 f"e.teks_ternormalisasi FROM entri_dokumen e JOIN publikasi p ON p.id=e.publikasi_id "
                 f"{syarat.replace('domain', 'p.domain')}"), {"d": domain}):
             hasil[r[0]]["entri"][tuple(r[1:])] += 1
@@ -576,6 +577,84 @@ def bagian_h(s0):
     maks = int(h2[0][2]) if h2 else -1
     cek("H2 blok Daftar: halaman kosong di sela <= MAKS_HALAMAN_KOSONG tidak memutus, lebih dari itu memutus",
         len(h2) == 4 and all((g != "None") == (int(k) <= maks) for k, g, _ in h2), h2 or err[-200:])
+
+
+def bagian_f():
+    """Perkiraan halaman fisik (16 Nov 2026).
+
+    Dijalankan SEBELUM potret s0 diambil: sesudah F semua perkiraan terisi,
+    sehingga P2 (ekstraksi ulang --paksa identik per kunci, termasuk
+    halaman_fisik_perkiraan) sekaligus membuktikan pipeline_data.simpan_entri
+    dan scripts/isi_perkiraan_halaman.py menghasilkan perkiraan yang sama.
+    """
+    print("\n=== F. PERKIRAAN HALAMAN FISIK ===", flush=True)
+    # F1: aturan murni, kasus sintetis. (cetak, fisik) -> entri.
+    kode, keluar, err = jalan_py(
+        "from app.services.perkiraan_halaman import perkirakan\n"
+        "def e(tipe, cetak, fisik=None, perk=False):\n"
+        "    return {'tipe': tipe, 'halaman': cetak, 'halaman_fisik': fisik, 'halaman_fisik_perkiraan': perk}\n"
+        "def T(c, f=None): return e('tabel', c, f)\n"
+        "def kasus(nama, entri, harap):\n"
+        "    h = perkirakan(entri)\n"
+        "    dapat = [h.get(i) for i, x in enumerate(entri) if x['halaman_fisik'] is None]\n"
+        "    print('F1', nama, 'OK' if dapat == harap else f'SALAH {dapat} != {harap}')\n"
+        "kasus('apit-sepakat', [T('10',20), T('12',22), T('15'), T('20',30), T('22',32)], [25])\n"
+        "kasus('apit-beda', [T('10',20), T('12',22), T('15'), T('20',32), T('22',34)], [None])\n"
+        "kasus('tepi<=10', [T('10',20), T('12',22), T('22'), T('23')], [32, None])\n"
+        "kasus('nilai-asli-tetap', [T('10',20), T('12',22), T('15',99), T('16')], [26])\n"
+        "kasus('jangkar-menyimpang', [T('10',20), T('12',22), T('14',50), T('15'), T('16',26), T('18',28)], [25])\n"
+        "kasus('setipe-dulu', [T('10',20), T('12',22), T('20',30), T('22',32), e('gambar','11',41),\n"
+        "      e('gambar','13',43), e('gambar','12'), T('15')], [42, 25])\n"
+        "kasus('isi-jangkar', [e('isi','1',27), e('isi','13',39), T('10')], [36])\n"
+        "kasus('perkiraan-bukan-jangkar', [e('tabel','10',20,True), e('tabel','12',22,True), T('11')], [None])\n"
+        "kasus('romawi-isi-dilewati', [T('10',20), T('12',22), T('xi'), T(None), e('isi','11')], [None, None, None])\n")
+    f1 = re.findall(r"F1 (\S+) (OK|SALAH.*)", keluar)
+    cek("F1 aturan perkiraan: 9 kasus sintetis", len(f1) == 9 and all(h == "OK" for _, h in f1),
+        [f"{n}: {h}" for n, h in f1 if h != "OK"] or (err[-200:] if len(f1) != 9 else "9/9"))
+
+    # F2: data lama (perkiraan kosong) diisi skrip = keadaan sebelum dikosongkan.
+    kode, keluar, _ = jalan("isi_perkiraan_halaman.py", "--db-uji")    # isi dulu kalau belum
+    pf0 = potret()
+    n_perk = int(sql("SELECT COUNT(*) FROM entri_dokumen WHERE halaman_fisik_perkiraan=1", DB_UJI))
+    q_asli = ("SELECT COUNT(*), COALESCE(SUM(halaman_fisik), 0), COALESCE(SUM(id * halaman_fisik), 0) "
+              "FROM entri_dokumen WHERE halaman_fisik_perkiraan=0 AND halaman_fisik IS NOT NULL")
+    n_asli = sql(q_asli, DB_UJI)
+    sql("UPDATE entri_dokumen SET halaman_fisik=NULL, halaman_fisik_perkiraan=0 "
+        "WHERE halaman_fisik_perkiraan=1", DB_UJI)
+    kode, keluar, dtk = jalan("isi_perkiraan_halaman.py", "--db-uji")
+    tampil(keluar, 4)
+    diisi = re.search(r"baru diisi\s*:\s*(\d+)", keluar)
+    beda = beda_potret(pf0, potret())
+    cek(f"F2 perkiraan dikosongkan lalu diisi skrip: identik per kunci dengan sebelumnya ({n_perk} perkiraan)",
+        kode == 0 and n_perk > 0 and diisi and int(diisi.group(1)) == n_perk and not beda,
+        f"exit {kode}, diisi {diisi and diisi.group(1)}, {dtk:.0f} d, berbeda: {beda[:3]}")
+    n_asli2 = sql(q_asli, DB_UJI)
+    cek("F2 halaman fisik asli tidak berubah (jumlah baris, jumlah nilai, jumlah id*nilai)",
+        n_asli2 == n_asli, f"{n_asli} -> {n_asli2}")
+    n_luar = sql("SELECT COUNT(*) FROM entri_dokumen WHERE halaman_fisik_perkiraan=1 "
+                 "AND (tipe NOT IN ('tabel','gambar','lampiran') OR halaman IS NULL)", DB_UJI)
+    cek("F2 perkiraan hanya di tabel/gambar/lampiran berhalaman cetak", n_luar == "0", n_luar)
+
+    # F3: idempoten
+    kode, keluar, _ = jalan("isi_perkiraan_halaman.py", "--db-uji")
+    cek("F3 run kedua: tidak ada yang berubah", kode == 0 and "Tidak ada yang berubah." in keluar
+        and not beda_potret(pf0, potret()), f"exit {kode}")
+
+    # F4: database tujuan wajib disebut
+    kode, keluar, _ = jalan("isi_perkiraan_halaman.py")
+    cek("F4 tanpa --db-uji/--produksi ditolak (exit 2), database tidak tersentuh",
+        kode == 2 and "--produksi" in keluar and not beda_potret(pf0, potret()), f"exit {kode}")
+
+    # F5: kunci pembaruan dihormati (PID proses uji ini masih hidup)
+    kunci = f"{UJI}/data/pembaruan.lock"
+    with open(kunci, "w", encoding="utf-8") as f:
+        f.write(str(os.getpid()))
+    try:
+        kode, keluar, _ = jalan("isi_perkiraan_halaman.py", "--db-uji")
+    finally:
+        os.remove(kunci)
+    cek("F5 pembaruan lain berjalan: TIDAK DIJALANKAN (exit 2)",
+        kode == 2 and "TIDAK DIJALANKAN" in keluar and not beda_potret(pf0, potret()), f"exit {kode}")
 
 
 def bagian_o(pubs, per_id, usang, s0):
@@ -1082,7 +1161,7 @@ print('SEBAGIAN_TAMPIL', 'selesai sebagian' in h, 'JUDUL_GAGAL', {per_id[v]['tit
     p.wait()
 
 
-SEMUA_BAGIAN = "PLCHOBGETDKRW"
+SEMUA_BAGIAN = "FPLCHOBGETDKRW"   # F dijalankan sebelum potret s0 (lihat bagian_f)
 
 
 def main():
@@ -1091,6 +1170,8 @@ def main():
     srv, pubs = siapkan_tiruan()
     try:
         bagian_u()
+        if "F" in BAGIAN:
+            bagian_f()
         s0 = potret()
         dom = [p for p in s0 if s0[p]["pub"]["domain"] == DOMAIN]
         ocr_pub = sorted(p for p in dom if s0[p]["pub"]["halaman_ocr"])

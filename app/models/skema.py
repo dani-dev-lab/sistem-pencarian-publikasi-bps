@@ -16,6 +16,8 @@ from app.models import db
 KOLOM_TAMBAHAN = [
     ("log_pencarian", "wilayah_filter", "CHAR(4) NULL AFTER durasi_ms"),   # filter wilayah, 10 Nov 2026
     ("publikasi", "halaman_ocr", "INT NULL"),                               # OCR, 12 Nov 2026
+    ("entri_dokumen", "halaman_fisik_perkiraan",
+     "TINYINT(1) NOT NULL DEFAULT 0 AFTER halaman_fisik"),                  # perkiraan, 16 Nov 2026
 ]
 
 _SIAP = False

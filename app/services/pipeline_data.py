@@ -19,7 +19,7 @@ from app.models import EntriDokumen, Kategori, Publikasi, db
 from app.services.ekstraksi_pdf import ekstrak_lengkap
 from app.services.normalisasi_data import teks_publikasi
 from app.services.preprocessing import normalisasi
-from app.services import ocr, versi_data
+from app.services import ocr, perkiraan_halaman, versi_data
 from app.services.sumber_bps import berkas_pdf_valid, path_pdf, samarkan, sidik_pdf
 
 PANJANG_GALAT = 1000
@@ -234,17 +234,22 @@ def simpan_entri(pub_id, entri, sidik, catatan, updt_diproses=None):
     Mengekstrak ulang PDF lama (--paksa, mode lokal) tidak boleh menandai
     publikasi itu sudah mengikuti versi terbaru dari BPS.
     """
+    # Halaman fisik yang tidak terbaca diperkirakan dari entri tetangga, di
+    # transaksi yang sama (perkiraan_halaman.py). Nilai hasil baca PDF tidak
+    # pernah diganti; perkiraan ditandai halaman_fisik_perkiraan.
+    perkiraan = perkiraan_halaman.perkirakan(entri)
     try:
         EntriDokumen.query.filter_by(publikasi_id=pub_id).delete(
             synchronize_session=False)
-        for e in entri:
+        for i, e in enumerate(entri):
             db.session.add(EntriDokumen(
                 publikasi_id=pub_id,
                 tipe=e["tipe"],
                 nomor=e.get("nomor"),
                 judul=e["judul"],
                 halaman=e.get("halaman"),
-                halaman_fisik=e.get("halaman_fisik"),
+                halaman_fisik=e.get("halaman_fisik") or perkiraan.get(i),
+                halaman_fisik_perkiraan=i in perkiraan,
                 sumber=e.get("sumber", "daftar"),
                 teks_ternormalisasi=normalisasi(e["judul"]),
             ))

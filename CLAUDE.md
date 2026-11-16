@@ -512,6 +512,48 @@ dilewati karena selisih halaman cetak vs fisik terbukti tidak konsisten (5 dari
 publikasi). Sekarang akurat tanpa tebakan karena halaman fisik dicatat langsung
 saat ekstraksi.
 
+### Halaman fisik PERKIRAAN (16 Nov 2026, BELUM dimuat ke produksi)
+Laporan: `data/regresi/perkiraan-halaman-20261116.md`. Diminta pemilik
+project sesudah uji coba aplikasi 14 Nov.
+- **Sasaran:** tabel/gambar/lampiran berhalaman cetak tanpa `halaman_fisik`
+  (2.118). Entri isi TIDAK diperkirakan (keputusan pemilik project), tetapi
+  boleh menjadi jangkar.
+- **Aturan:** `app/services/perkiraan_halaman.py`, fungsi murni.
+  - Perkiraan = halaman cetak + selisih (fisik - cetak) jangkar tetangga.
+  - Jangkar = entri berhalaman cetak angka dengan halaman fisik ASLI.
+    Perkiraan tidak pernah jadi jangkar.
+  - Jangkar setipe didahulukan.
+  - Jangkar yang selisihnya tidak sama dengan tetangganya dibuang.
+  - Diisi hanya kalau: ada jangkar di halaman cetak sama, ATAU jangkar
+    bawah dan atas sepakat, ATAU di tepi dengan jangkar <= 10 halaman.
+- **Kolom:** `entri_dokumen.halaman_fisik_perkiraan` (TINYINT(1), default 0,
+  lewat `skema.pastikan_kolom`).
+  - Tidak ada nilai asli yang diganti.
+  - UI: "Buka PDF ±hal. N" dengan tooltip.
+  - Kolom korpus ditaruh di AKHIR baris `_ambil_korpus` supaya indeks lama
+    (teks [6], domain [11]) tetap.
+- **Dua jalan masuk, satu fungsi:**
+  - `pipeline_data.simpan_entri` (pemuatan, transaksi yang sama);
+  - `scripts/isi_perkiraan_halaman.py (--db-uji | --produksi) [--coba]`
+    (data lama). Tujuan wajib disebut; menghormati `pembaruan.lock`;
+    idempoten.
+- **Hasil di database uji:**
+  - 1.036 terisi (tabel 823, gambar 86, lampiran 127).
+  - Per id: hanya `halaman_fisik` NULL -> angka; 23.337 baris lain identik.
+  - 12 kueri uji identik kecuali kolom halaman fisik.
+- **Akurasi:**
+  - Leave-one-out 97,7%.
+  - Sampel manual: 29/30 (sampel 1, aturan berlaku) dan 27/30 (sampel 2)
+    = 56/60. Yang meleset paling jauh 3 halaman.
+  - Tiga dari empat kegagalan sampel berasal dari halaman cetak yang salah di
+    Daftar sumbernya, yang tidak bisa dilihat leave-one-out.
+- **Jebakan alat saat membandingkan kueri:** `sorot` berurutan acak antarproses
+  (set + sort menurut panjang). Bandingkan sebagai himpunan.
+- **Harga aturan setipe:** jangkar setipe yang sudah salah pasang ('keduanya'
+  bergeser satu nomor, PDRB Kab/Kota Provinsi) mengalahkan jangkar lain yang
+  benar (tabel 3.7 meleset 3). Secara keseluruhan tetap lebih baik:
+  meleset >= 10 halaman 107 -> 61.
+
 ## Prinsip verifikasi (dipelajari dari tiga kesalahan nyata)
 **Alat verifikasi juga bisa salah, dan salahnya LEBIH BERBAHAYA daripada bug
 biasa - karena kita mempercayainya dan berhenti memeriksa.** Sudah tiga kali
@@ -584,6 +626,21 @@ Aturan yang berlaku:
     baris itu menempel ke entri SEBELUMNYA dan entri ini kehilangan awal
     judulnya (5 entri). Usulan perbaikan: baris kolom judul sebelum baris
     "Tabel" tunggal dianggap awal entri berikutnya.
+- **Luas Panen dan Produksi Padi Provinsi, dua edisi (`3d61cea5`,
+  `335ac15d`): nomor dan halaman cetak lampiran Daftar TERTUKAR (16 Nov 2026),
+  DITUNDA.**
+  - ±140 lampiran: "nomor" 55 sebenarnya halaman cetak 55 (fisik 83 = +28),
+    sedangkan kolom halaman berisi 141.
+  - Ditemukan saat merancang perkiraan halaman fisik. Saringan jangkar
+    menahannya.
+  - Keputusan pemilik project: dicatat sebagai utang teknis, jangan
+    diperbaiki sekarang.
+- **PDRB Kotabaru LU, dua edisi: halaman Daftar Lampiran = KESALAHAN SUMBER
+  (16 Nov 2026).** Daftar mencetak 121-127, folio badan 123-129. Halaman fisik
+  perkiraan menunjuk folio yang tercantum, jadi tabelnya 2 halaman sesudahnya.
+  Polanya sama dengan Daftar Tabel Kotabaru Dalam Angka 2026.
+- **Podes Kotabaru Tabel 1.2 "Lokasi Desa Terhadap Kawasan Hutan"** tercantum
+  di Daftar, tetapi tidak dicetak di badan (16 Nov 2026).
 - **8 kelompok `(publikasi, tipe, nomor)` kembar** di `entri_dokumen`. SEMUANYA
   berasal dari jalur `daftar` - nomor tabel yang bertabrakan di sumbernya atau
   salah baca parser pada daftar. Jumlahnya persis sama (8) sebelum maupun
@@ -814,6 +871,18 @@ Aturan yang berlaku:
       "BPS - Pegawai/Tamu" tidak boleh tampil.
     - Log: `uji-pipeline-20261114-dr.txt`, `uji-pipeline-20261114-rw.txt`.
     - Run penuh BELUM diulang sesudah penambahan ini.
+  - **Bagian F (perkiraan halaman fisik, 16 Nov 2026)**, dijalankan sebelum
+    potret s0:
+    - F1: 9 kasus sintetis aturan;
+    - F2: perkiraan dikosongkan lalu diisi skrip = identik per kunci;
+      halaman fisik asli tidak berubah;
+    - F3: idempoten;
+    - F4: tanpa tujuan ditolak;
+    - F5: kunci pembaruan dihormati.
+
+    P2 sekaligus membuktikan `simpan_entri` = skrip. `potret()` kini memuat
+    `halaman_fisik_perkiraan`. `--hanya FP`: 17 lulus, 0 gagal, 209 detik
+    (`uji-pipeline-20261116-fp.txt`). Run penuh belum diulang.
 - **Tombol pembaruan admin dan `perbarui-data.bat` mengikuti KonfigurasiUji
   (13 Nov 2026).** Aplikasi dengan KonfigurasiUji menjalankan perbarui.py
   `--db-uji` dan membaca `pembaruan_terakhir-uji.json`; konfigurasi biasa
@@ -872,8 +941,25 @@ untuk tim IT ada di `PANDUAN.md` (bahasa awam, tanpa asumsi tahu Python).
 Kata sandi admin dan isi `.env` DISERAHKAN TERPISAH - tidak ditulis di
 PANDUAN.md maupun di Git.
 
-### Titik berhenti sekarang (14 Nov 2026)
-Semua di bawah ini sudah di-commit di `revisi-pst`.
+### Titik berhenti sekarang (16 Nov 2026)
+- **Halaman fisik perkiraan di-commit, BELUM dimuat ke produksi dan BELUM
+  di-push** (menunggu persetujuan pemilik project). Lihat bagian "Halaman
+  fisik PERKIRAAN".
+  - Begitu aplikasi versi ini berjalan di produksi, `pastikan_kolom`
+    menambahkan kolom kosong (semua 0); tampilan sama seperti sebelumnya
+    sampai skrip dijalankan.
+  - Pemuatan:
+    1. cadangkan produksi (PANDUAN bagian 7);
+    2. `venv\Scripts\python.exe scripts\isi_perkiraan_halaman.py --produksi --coba`,
+       lalu tanpa `--coba`;
+    3. bandingkan per id seperti di laporan.
+  - Sesudah dimuat: angka `halaman_fisik` di PANDUAN (18.106, 74%) perlu
+    dihitung ulang, dan skrip ini perlu ditulis di PANDUAN.
+- **"Nomor —" dari uji coba 14 Nov:** kartu ISI sudah tidak menampilkannya
+  sejak `ffa4c26`. Pemilik project mencari ulang contoh kuerinya; dugaan:
+  tabel/lampiran tanpa nomor DAN tanpa halaman cetak.
+
+Titik berhenti sebelumnya (14 Nov 2026), semuanya sudah di-commit di `revisi-pst`:
 - **PANDUAN.md ditulis ulang untuk keadaan multi-wilayah** (11 bagian;
   README disamakan). Bagian barunya: filter wilayah, pemasangan pertama dua
   jalur, pilihan `perbarui.py`, mengelola wilayah, database uji dan cara
