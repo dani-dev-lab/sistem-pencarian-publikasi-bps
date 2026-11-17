@@ -1121,9 +1121,16 @@ Titik berhenti sebelumnya (14 Nov 2026), semuanya sudah di-commit di `revisi-pst
   dibuang (`halaman_tanpa_teks` menghapus berkas halaman kalau sidik beda).
   Tidak ada mode "periksa saja". Sudah ditulis sebagai peringatan di PANDUAN.
 - **Jalur B (dari nol) belum diuji ujung ke ujung** - butuh jaringan ke BPS.
-- Masih terbuka: lama pembaruan rutin 14 wilayah (ukur dari kantor), run
-  penuh `uji_pipeline.py` sesudah D0/R5, uji coba petugas PST + ambang skor,
-  lisensi model OCR. (Konfirmasi singkatan wilayah SELESAI 16 Nov 2026.)
+- Masih terbuka: uji coba petugas PST + ambang skor, lisensi model OCR.
+  - Konfirmasi singkatan wilayah SELESAI 16 Nov 2026.
+  - Run penuh `uji_pipeline.py` sesudah D0/R5 SELESAI 16 Nov 2026 (88 lulus).
+  - **Lama pembaruan rutin 14 wilayah DIUKUR 16 Nov 2026, 15.20**, dari
+    kantor (log `data/log_pembaruan/20261116-152001.log`):
+    - 107 detik dengan 1 publikasi baru (IPM HSU, 1,5 MB, 42 entri);
+    - per tahap: ambil_metadata 89,2 d, unduh 0,5, ekstraksi 2,4, muat 0,9;
+    - tiap wilayah berhenti di halaman 4-7 (daftar terurut terbaru).
+    - Angkanya dimasukkan ke PANDUAN bagian 4, halaman admin, dan
+      `perbarui-data.bat` (17 Nov).
 
 ### Bukti di balik isi PANDUAN.md
 - **Pemecahan masalah jaringan** (PANDUAN bagian 10): lihat "Catatan

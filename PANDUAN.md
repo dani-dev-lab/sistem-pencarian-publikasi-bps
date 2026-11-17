@@ -407,13 +407,17 @@ berkasnya tercetak di baris kedua), dan ringkasannya di
 
 ### Berapa lama
 
-- **Pembaruan rutin 14 wilayah tanpa publikasi baru: belum diukur ulang.**
-  Angka lama, saat aplikasi hanya memuat provinsi, adalah ±2 menit. Yang
-  pasti: daftar tiap wilayah diperiksa dengan jeda 1 detik per halaman
-  sesuai ketentuan BPS, dan pemeriksaan berhenti begitu sampai ke publikasi
-  yang lebih tua dari 2 tahun.
-- **Tiap publikasi yang dikerjakan:** 20–90 detik (unduh PDF + membaca
-  strukturnya), diukur saat data masih provinsi saja.
+- **Pembaruan rutin 14 wilayah: sekitar 2 menit.** Diukur 16 November 2026
+  dari jaringan kantor ("BPS - Pegawai"): **107 detik**, dengan 1 publikasi
+  baru.
+  - Hampir seluruhnya (89 detik) adalah memeriksa daftar publikasi tiap
+    wilayah, dengan jeda 1 detik per halaman sesuai ketentuan BPS.
+  - Pemeriksaan tiap wilayah berhenti di halaman 4–7, begitu sampai ke
+    publikasi yang lebih tua dari 2 tahun.
+- **Tiap publikasi yang dikerjakan:** beberapa detik untuk PDF kecil.
+  Contohnya publikasi baru 16 November 2026 (1,5 MB): unduh, baca, dan
+  simpan ±4 detik. PDF besar lebih lama, karena membaca strukturnya butuh
+  ±1,8 detik per MB (diukur saat memuat ulang semua PDF, 9 November 2026).
 - **Publikasi tanpa lapisan teks**, kalau OCR dipasang: ±15 detik per
   halaman (bagian 7.2).
 - **Penarikan besar** (wilayah baru, atau mengisi dari nol): berjam-jam.
@@ -722,6 +726,58 @@ kode yang perlu diubah.
     `singkatan` wilayah itu di `data/wilayah.json`; aplikasi memakainya tanpa
     perlu dijalankan ulang.
 
+### Membuka publikasi "Kecamatan … Dalam Angka" (kalau nanti diperlukan)
+
+Sekarang publikasi ini sengaja tidak diambil (lihat di atas). Kalau tim PST
+kelak membutuhkannya, ini perkiraan dan langkahnya.
+
+**Perkiraan**, diukur 17 November 2026 dari daftar WebAPI BPS, belum
+diunduh:
+
+| | |
+|---|---|
+| Jumlah | **312 publikasi**: 156 rilis 2025 dan 156 rilis 2026, dari 13 kabupaten/kota. Paling banyak Kotabaru (44), Banjar (40), dan Barito Kuala (34); Banjarmasin dan Banjarbaru masing-masing 10. Provinsi tidak punya. |
+| Ukuran | **±3,2 GB** menurut daftar BPS (per berkas angkanya bisa meleset, totalnya cukup akurat). Folder PDF sekarang ±3,0 GB, jadi kira-kira dua kali lipat. |
+| Waktu unduh | Tergantung jaringan. Pada 9–10 November 2026, sebelum pukul 01:00 hanya 38–75 KB/detik per berkas (pada kecepatan itu 3,2 GB butuh lebih dari 12 jam); sesudah 01:00, 7–10 MB/detik (±10 menit). |
+| Waktu membaca PDF | ±1,8 detik per MB, jadi **±1,5 jam** untuk 3,2 GB. PDF tanpa lapisan teks butuh OCR (±15 detik per halaman, bagian 7.2); jumlahnya belum diketahui. |
+| Jumlah bagian terindeks | Belum diukur. |
+
+**Langkah:**
+
+1. **Cadangkan database** (bagian 7).
+2. **Uji dulu di database uji** (bagian 9), jangan langsung di database
+   utama:
+   - di `data/wilayah.json`, pada pola "Kecamatan … Dalam Angka" di daftar
+     `kecualikan_judul`, ubah `"aktif": true` menjadi `"aktif": false`;
+   - jalankan `venv\Scripts\python.exe scripts\perbarui.py --db-uji`,
+     sebaiknya mulai sesudah pukul 01:00.
+
+   PDF yang terunduh disimpan di folder PDF yang sama, jadi langkah 4 nanti
+   tidak mengunduh ulang.
+
+   **Penting:** `data/wilayah.json` dipakai database uji DAN database utama.
+   Selama polanya `false`, pembaruan biasa (tombol di halaman admin atau
+   `perbarui-data.bat`) ikut menarik publikasi kecamatan ke database utama.
+   Jangan jalankan pembaruan biasa sampai keputusan di langkah 4 atau 5
+   diambil.
+3. **Periksa mutunya di database uji** sebelum dibuka untuk petugas:
+   - **Mutu pembacaan Daftar.** Format daftarnya sudah dikenali pembaca
+     PDF, tetapi diketahui masih ada cacat (judul seksi di akhir halaman
+     bisa menempel ke entri berikutnya). Buka 30 bagian acak dan cocokkan
+     judul serta nomor halamannya dengan PDF-nya.
+   - **Mutu hasil pencarian.** Tabel per kecamatan berjudul mirip (misalnya
+     "Luas Wilayah Menurut Desa"), sehingga hasil pencarian kabupaten/kota
+     bisa dipenuhi tabel kecamatan. Nama kecamatan juga tidak dikenali
+     sebagai filter wilayah. Coba beberapa kata kunci yang biasa dipakai
+     petugas.
+4. **Kalau mutunya diterima,** jalankan `perbarui-data.bat` untuk database
+   utama. Karena PDF-nya sudah ada, yang tersisa hanya membaca strukturnya
+   (±1,5 jam).
+5. **Kalau tidak jadi,** kembalikan `"aktif": true`. Pengecualian tidak
+   menghapus publikasi yang sudah masuk database. Karena itu langkah 2
+   dilakukan di database uji, yang bisa dihapus lalu dibuat ulang dari
+   database utama (bagian 9).
+
 ---
 
 ## 9. Database uji dan cara menguji aplikasi
@@ -915,7 +971,6 @@ November 2026.
 
 - **Satu kata sandi admin untuk semua** — tidak ada akun per orang, jadi
   tidak bisa dilacak siapa yang mengubah kamus.
-- **Lama pembaruan rutin 14 wilayah belum diukur ulang** (bagian 4).
 - **Lisensi berkas model OCR belum jelas** (7.3).
 
 Rincian teknis yang lebih dalam (cara kerja pembaca PDF, rumus skor, riwayat

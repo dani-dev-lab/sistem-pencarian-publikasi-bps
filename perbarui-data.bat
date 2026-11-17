@@ -9,10 +9,11 @@ echo ==========================================================
 echo.
 echo   Butuh koneksi internet ke webapi.bps.go.id.
 echo.
-echo   Lama pembaruan semua wilayah tanpa publikasi baru belum diukur ulang.
-echo   Daftar tiap wilayah diperiksa dengan jeda 1 detik per halaman.
-echo   Tiap publikasi yang perlu diproses butuh ~20-90 detik
-echo   (unduh PDF + membaca strukturnya). Penarikan wilayah baru bisa
+echo   Pembaruan rutin 14 wilayah: sekitar 2 menit (diukur 16 Nov 2026:
+echo   107 detik dengan 1 publikasi baru). Daftar tiap wilayah diperiksa
+echo   dengan jeda 1 detik per halaman. Tiap publikasi yang perlu diproses
+echo   menambah beberapa detik sampai beberapa menit, tergantung ukuran
+echo   PDF-nya (unduh + membaca strukturnya). Penarikan wilayah baru bisa
 echo   berjam-jam: biarkan jendela ini terbuka, laptop tersambung listrik,
 echo   dan layar laptop jangan ditutup.
 echo.
