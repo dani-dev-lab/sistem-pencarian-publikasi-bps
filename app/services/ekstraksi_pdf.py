@@ -167,6 +167,14 @@ def _indeks_mulai(baris, tipe, batas_kanan):
     return mulai
 
 
+RE_LEADER_NOMOR_SAJA = re.compile(r"^[.…�\s]*[.…�]{3,}[.…�\s]*[0-9]{1,4}$")
+
+
+def _hanya_leader_nomor(baris):
+    """Baris yang isinya hanya dot leader + nomor halaman (".......... 93")."""
+    return bool(RE_LEADER_NOMOR_SAJA.match(_teks_baris(baris).strip()))
+
+
 def _mode_tanpa_label(daftar_baris, tipe, batas_kanan):
     """Apakah halaman ini daftar bernomor TANPA kata label? -> (aktif, x_judul).
 
@@ -190,8 +198,23 @@ def _mode_tanpa_label(daftar_baris, tipe, batas_kanan):
         if _label_baris(b):
             return False, None
 
-    kolom = Counter(round(b[0]["x0"]) for b in daftar_baris
-                    if _cari_halaman_di_baris(b, batas_kanan, tipe)[1])
+    # Baris yang HANYA berisi dot leader + nomor halaman (".......... 93") tidak
+    # ikut menebak kolom judul: x0-nya adalah awal leader, bukan awal judul.
+    # Tabalong Dalam Angka 2025 mencetak nomor halaman di baris sendiri
+    # seperti itu. Dulu kolom judul tertebak di x0 leader (310), semua baris
+    # judul (x0 77) dibuang sebagai "kolom kiri", halaman Daftar menghasilkan
+    # 0 entri, dan 11 halaman Daftar Tabel sisanya tidak dibaca (17 Nov 2026).
+    berakhir_nomor = [b for b in daftar_baris if _cari_halaman_di_baris(b, batas_kanan, tipe)[1]]
+    kolom = Counter(round(b[0]["x0"]) for b in berakhir_nomor if not _hanya_leader_nomor(b))
+    if not kolom and berakhir_nomor:
+        # Semua nomor halaman di baris sendiri: kolom judul = awal baris judul
+        # yang paling sering (bukan kop, bukan nomor entri, bukan leader).
+        kolom = Counter(
+            round(b[0]["x0"]) for b in daftar_baris
+            if not _hanya_leader_nomor(b)
+            and not (len(b) == 1 and RE_NOMOR.match(b[0]["text"]))
+            and not RE_KOP_KOLOM.match(_teks_baris(b).strip())
+            and not _kop_halaman(b))
     if not kolom:
         return False, None
     x_judul = kolom.most_common(1)[0][0]

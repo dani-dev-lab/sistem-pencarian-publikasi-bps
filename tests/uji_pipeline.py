@@ -713,6 +713,20 @@ cetak("B-lanjutan", E._parse_baris([
     baris(w("Inventory", 124)),
     baris(w("3.7", 90), w("Perkembangan", 124), w("Ekspor", 210), hal("70"))], "isi", "x", 400),
     [(None, "3.6 Perubahan Inventori/Change in Inventory", "69"), (None, "3.7 Perkembangan Ekspor", "70")])
+# Kolom judul (17 Nov 2026): Daftar tanpa label, nomor halaman di BARIS SENDIRI
+# (Tabalong Dalam Angka 2025). Kolom judul tidak boleh ditebak dari x0 leader.
+halaman_tl = [
+    baris(w("Tabel", 42), w("Halaman", 330, 377)),
+    baris(w("Jumlah", 77), w("Sekolah", 120), w("Dasar", 170)), baris(w("4.1.1", 43, 62)),
+    baris(w("di", 77), w("Kabupaten", 90)), baris(w("..................", 310, 360), w("93", 366, 377)),
+    baris(w("Jumlah", 77), w("Guru", 120)), baris(w("4.1.2", 43, 62)),
+    baris(w("..................", 310, 360), w("96", 366, 377)),
+    baris(w("Jumlah", 77), w("Murid", 120)), baris(w("4.1.3", 43, 62)),
+    baris(w("..................", 310, 360), w("99", 366, 377))]
+bk = E._batas_kanan(halaman_tl, "tabel")
+cetak("kolom-judul-nomor-baris-sendiri", E._parse_baris(halaman_tl, "tabel", "x", bk),
+      [("4.1.1", "Jumlah Sekolah Dasar di Kabupaten", "93"), ("4.1.2", "Jumlah Guru", "96"),
+       ("4.1.3", "Jumlah Murid", "99")])
 # B: layout biasa (nomor di baris TERAKHIR) tidak boleh tersentuh.
 cetak("B-layout-biasa-aman", E._parse_baris([
     baris(w("BAB", 90), w("I", 115), w("PENDAHULUAN", 124), hal("1")),
@@ -727,8 +741,8 @@ def bagian_i():
     print("\n=== I. PARSER DAFTAR (pola C, A2, A1, A', B) ===", flush=True)
     kode, keluar, err = jalan_py(KODE_BAGIAN_I)
     hasil = re.findall(r"^I (\S+) (OK|SALAH.*)$", keluar, re.M)
-    cek(f"I1 {len(hasil)} kasus sintetis parser Daftar", len(hasil) == 9 and all(h == "OK" for _, h in hasil),
-        [f"{n}: {h}" for n, h in hasil if h != "OK"] or (err[-300:] if len(hasil) != 9 else "9/9"))
+    cek(f"I1 {len(hasil)} kasus sintetis parser Daftar", len(hasil) == 10 and all(h == "OK" for _, h in hasil),
+        [f"{n}: {h}" for n, h in hasil if h != "OK"] or (err[-300:] if len(hasil) != 10 else "10/10"))
 
 
 def bagian_s():

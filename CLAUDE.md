@@ -685,6 +685,24 @@ Aturan yang berlaku:
       judul sebelumnya) tidak tersentuh B; layoutnya tidak memenuhi syarat
       indentasi menggantung.
   - Catatan pemeriksaan sebelum perbaikan:
+- **Tebakan kolom judul, nomor halaman di baris sendiri (17 Nov 2026),
+  BARU di database uji, BELUM di produksi, BELUM di-push.** Laporan:
+  `data/regresi/kolom-judul-20261117.md`.
+  - Kasus: Tabalong DA 2025 (`34b2075e`). Baris ".......... 93" menyeret
+    tebakan `x_judul` ke kolom dot leader, halaman Daftar ke-4 menghasilkan
+    0 entri, dan 11 halaman Daftar Tabel tidak terbaca (hanya 25 tabel).
+  - `_mode_tanpa_label` kini mengabaikan baris "leader + nomor saja"
+    (`_hanya_leader_nomor`); cadangannya x0 baris lain.
+  - Regresi 306 publikasi: hanya Tabalong 2025 berubah, 0 kunci hilang,
+    +71 tabel (25 -> 100). Sampel 30: nomor dan halaman fisik 30/30, judul
+    + halaman cetak 25/30.
+  - **Sisa, sengaja TIDAK diubah:** `_bukan_watermark` juga membuang teks
+    MIRING sintetis (`m[2]` ≠ 0, `m[1]` = 0). Di Tabalong 2025, 11 nomor
+    halaman miring ikut terbuang, sehingga 6 tabel tergabung ke tabel
+    sebelumnya. Usulan "buang hanya bila `m[1]` ≠ 0" menunggu keputusan
+    (54 publikasi punya teks miring; butuh regresi penuh).
+  - Bab 5-6 Tabalong 2025: halaman di Daftar satu lebih kecil dari folio
+    (kesalahan sumber).
 - **Dua cacat Daftar Isi (diperiksa 16 Nov 2026, sebelum perbaikan).**
   Rincian: `data/regresi/perkiraan-halaman-isi-20261116.md`.
   - **A. Folio halaman Daftar sebaris dengan entri terakhir.**
