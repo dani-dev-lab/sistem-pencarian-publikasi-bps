@@ -732,8 +732,33 @@ Aturan yang berlaku:
   - **Sisa, sengaja TIDAK diubah:** `_bukan_watermark` juga membuang teks
     MIRING sintetis (`m[2]` ≠ 0, `m[1]` = 0). Di Tabalong 2025, 11 nomor
     halaman miring ikut terbuang, sehingga 6 tabel tergabung ke tabel
-    sebelumnya. Usulan "buang hanya bila `m[1]` ≠ 0" menunggu keputusan
-    (54 publikasi punya teks miring; butuh regresi penuh).
+    sebelumnya.
+  - **Usulan "buang hanya bila `m[1]` ≠ 0" DIKERJAKAN 17 Nov 2026 lalu
+    DIBATALKAN (utang teknis).** Laporan:
+    `data/regresi/saringan-miring-20261117.md`; patch di
+    `saringan-miring-20261117/usulan-saringan-berputar.patch`.
+    - Regresi 306 publikasi di database uji: 11 publikasi berubah (semuanya
+      bermiring), 0 kunci hilang, +12 kunci (6 tabel Tabalong 2025 kembali,
+      13/13 benar), top-1 12 kueri sama.
+    - Dibatalkan karena syarat "tanpa memburuk" gagal: sampel 30 = 24 benar,
+      3 cacat ringan, **3 memburuk**, dan 2 lampiran lain memburuk di luar
+      sampel.
+    - Penyebab yang memburuk, perlu ditangani dulu kalau dikerjakan ulang:
+      - teks miring yang digambar dua kali di posisi sama terbaca berhuruf
+        ganda (Banjar DA 2026 4.1.3: "NNuummbbeerr", halaman cetak hilang);
+      - kata miring seragam di semua judul lampiran ("Relative Standard
+        Error") mencukupkan `MIN_KATA_JUDUL` di `lengkapi_halaman_fisik`,
+        sehingga di IKR Banjarmasin (penomoran lampiran badan ≠ Daftar,
+        kesalahan sumber) lampiran 8-10 menunjuk tabel lain.
+    - Temuan yang tetap berlaku:
+      - **spasi miring** bisa membuat kata menempel ("Tabel4.2"): di IKR
+        Banjarmasin, 6 tabel/gambar tergabung ke entri sebelumnya karena itu;
+      - kata miring ikut menentukan **gaya dominan**; di Sakernas Tanah Bumbu
+        hal. 93/143 saringan lama membuat salinan keterangan putih 5 pt
+        dominan, sehingga tabel 25 dan 65 memakai keterangan tersembunyi
+        (tabel 65 menunjuk hal. 143, yang terlihatnya Tabel 67).
+    - Database uji dipulihkan dari dump (6/6 CHECKSUM sama, potret sama byte
+      demi byte).
   - Bab 5-6 Tabalong 2025: halaman di Daftar satu lebih kecil dari folio
     (kesalahan sumber).
 - **Dua cacat Daftar Isi (diperiksa 16 Nov 2026, sebelum perbaikan).**
