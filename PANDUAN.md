@@ -223,11 +223,26 @@ berganti, lalu:
 - membuang cache OCR 8 publikasi, yang hanya bisa dibuat ulang dengan OCR
   (bagian 7.2; 1.192 halaman × ±15 detik ≈ 5 jam).
 
-Menyalin lewat File Explorer atau `robocopy` dari diska eksternal
-mempertahankan tanggal ubah. Berkas ZIP dan unduhan dari penyimpanan awan
-sering tidak. Sesudah menyalin, bandingkan "Date modified" beberapa PDF
-dengan aslinya, dan simpan media serah terima sampai pembaruan pertama
-selesai dengan baik.
+Diuji 17 November 2026 di laptop pengembang (5 PDF + 100 berkas cache OCR,
+dibandingkan sampai ke detik):
+
+| Cara menyalin | Tanggal ubah | Boleh dipakai? |
+|---|---|---|
+| File Explorer (salin–tempel folder) | tetap | **ya** |
+| `robocopy <asal> <tujuan> /E` | tetap | **ya** |
+| `Copy-Item -Recurse` (PowerShell) | tetap | **ya** |
+| Arsip `tar` bawaan Windows (`tar -cf arsip.tar -C <asal> .`, lalu `tar -xf arsip.tar -C <tujuan>`) | tetap | **ya**, kalau perlu satu berkas arsip |
+| ZIP lewat File Explorer ("Send to → Compressed folder", lalu "Extract All") | **bergeser 1–2 detik** pada semua berkas | **tidak** |
+| ZIP lewat PowerShell (`Compress-Archive` / `Expand-Archive`) | **bergeser 1 detik** pada sebagian berkas | **tidak** |
+
+Format ZIP hanya mencatat waktu dengan ketelitian 2 detik, jadi pergeseran
+itu pasti terjadi, bukan kebetulan.
+- Penyimpanan awan dan flashdisk berformat FAT32 tidak diuji. FAT32 juga
+  hanya mencatat waktu per 2 detik, jadi sebaiknya dihindari.
+- Sesudah menyalin, bandingkan "Date modified" beberapa PDF dengan aslinya
+  sampai ke detik (kolom "Date modified" di File Explorer hanya menampilkan
+  menit; lihat lewat Properties).
+- Simpan media serah terima sampai pembaruan pertama selesai dengan baik.
 
 Jalur A tidak memerlukan `--hanya-periksa` (lihat jalur B): wilayah yang
 sudah punya data di database langsung boleh diperbarui.
