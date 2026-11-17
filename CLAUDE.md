@@ -29,6 +29,21 @@ Mahasiswa Politeknik Negeri Banjarmasin.
   - Publikasi yang sudah ada di database tidak dihapus oleh pengecualian ini.
   - Format daftar Kecamatan Dalam Angka ("nomor sebaris", C2) tetap
     diperbaiki, karena format yang sama ada di 6 publikasi provinsi.
+  - **17 Nov 2026: keputusan memasukkan kecamatan (312 publikasi), DATABASE
+    UJI DULU.** Presentasi 25-26 Nov, pembekuan 24 Nov.
+    - `perbarui.py --db-uji --kecamatan`: memproses HANYA publikasi yang cocok
+      `kecualikan_judul` (kebalikan saringan); publikasi lain di database uji
+      tidak disentuh. `--kecamatan` tanpa `--db-uji` DITOLAK, juga bersama
+      `--lokal`/`--paksa`/`--hanya-periksa`. Produksi (tombol admin, .bat)
+      tetap mengecualikan kecamatan karena `aktif` tetap true.
+    - `--hanya-unduh` (dengan `--kecamatan`): metadata + PDF, tanpa
+      ekstraksi. Di mode `--kecamatan`, PDF utuh yang belum pernah diproses
+      tidak diunduh ulang dan updt_date-nya dicatat diproses.
+    - `tarik-kecamatan-uji.bat` (lanjut unduh + ekstrak, `--tanpa-ocr`,
+      3 percobaan) dan `periksa-kecamatan-uji.bat`
+      (`scripts/kemajuan_kecamatan.py`, hanya membaca database uji).
+    - Unduhan 17 Nov dari kantor ±5 MB/detik. Sampel 22 PDF Tanah Laut:
+      ±140 halaman, berlapis teks, 0 perlu OCR.
 
 ## Sumber data
 - **BPS WebAPI**: `https://webapi.bps.go.id/v1/api/list/model/publication/lang/ind/domain/6300/page/{page}/key/{key}/`

@@ -51,6 +51,7 @@ FILE_PEMERIKSAAN = "data/pemeriksaan_domain.json" # hasil --hanya-periksa
 # OCR halaman tanpa lapisan teks (app/services/ocr.py). Dimatikan dengan
 # --tanpa-ocr: halaman itu lalu dilewati dan dicatat, perilaku sebelum OCR ada.
 OCR_AKTIF = True
+HANYA_UNDUH = False      # --hanya-unduh (bersama --kecamatan --db-uji)
 
 DIR_LOG = "data/log_pembaruan"                    # salinan keluaran tiap run
 
@@ -495,6 +496,9 @@ def proses_tugas(t, durasi, hasil):
               flush=True)
         hasil["diunduh"] += 1
 
+    if HANYA_UNDUH:
+        return
+
     if not sumber_bps.berkas_pdf_valid(t["path"]):
         gagal("ekstraksi", "berkas PDF lokal hilang atau rusak")
         return
@@ -518,7 +522,7 @@ def proses_tugas(t, durasi, hasil):
     try:
         pipeline_data.simpan_entri(
             t["pub_id"], entri, sidik, catatan,
-            updt_diproses=t["updt_date_api"] if t["unduh"] else None)
+            updt_diproses=t["updt_date_api"] if t["unduh"] or t.get("pdf_sudah_ada") else None)
     except Exception as e:  # noqa: BLE001 - transaksinya sudah dibatalkan, data lama utuh
         durasi["muat"] += time.perf_counter() - mulai
         gagal("muat", str(e))
@@ -615,8 +619,19 @@ def proses_domain(w, opsi, terhalang):
             # Pengecualian judul (data/wilayah.json, kecualikan_judul) - misalnya
             # "Kecamatan ... Dalam Angka", di luar cakupan atas permintaan tim PST.
             lolos, dikecualikan = sumber_bps.saring_judul(lolos, pola_judul_dikecualikan())
-            print(f"  {len(semua)} publikasi dibaca dari daftar, {len(lolos)} lolos filter tahun"
-                  f" dan judul ({len(dikecualikan)} dikecualikan menurut judul)")
+            if opsi.kecamatan:
+                # --kecamatan (hanya --db-uji): KEBALIKAN pengecualian. Yang
+                # diproses HANYA publikasi yang dikecualikan menurut judul;
+                # publikasi lain di database uji tidak disentuh.
+                lolos, dikecualikan = dikecualikan, lolos
+                print(f"  {len(semua)} publikasi dibaca dari daftar, {len(lolos)} publikasi "
+                      "kecamatan (--kecamatan: hanya yang dikecualikan menurut judul)")
+                if not lolos:
+                    hasil["status"] = "tidak_ada_baru"
+                    return hasil
+            else:
+                print(f"  {len(semua)} publikasi dibaca dari daftar, {len(lolos)} lolos filter tahun"
+                      f" dan judul ({len(dikecualikan)} dikecualikan menurut judul)")
 
             # Nol hasil padahal data lama ada hampir pasti kegagalan penarikan,
             # bukan BPS menghapus seluruh publikasinya.
@@ -630,7 +645,8 @@ def proses_domain(w, opsi, terhalang):
             meta = pipeline_data.simpan_metadata(kode, w["nama"], lolos)
             durasi["muat"] += time.perf_counter() - mulai
             hasil["tabrakan"] = meta["tabrakan"]
-            hasil["tidak_di_daftar"] = meta["tidak_di_daftar"]
+            # --kecamatan: publikasi non-kecamatan memang tidak di daftar yang disaring.
+            hasil["tidak_di_daftar"] = [] if opsi.kecamatan else meta["tidak_di_daftar"]
             # Yang bertabrakan bukan milik domain ini, jadi tidak ikut diproses.
             milik_lain = {t["pub_id"] for t in meta["tabrakan"]}
             di_daftar = {p["pub_id"] for p in lolos} - milik_lain
@@ -639,7 +655,7 @@ def proses_domain(w, opsi, terhalang):
             for t in meta["tabrakan"]:
                 print(f"  TABRAKAN pub_id {t['pub_id']}: sudah milik domain "
                       f"{t['domain_lain']}, tidak ditimpa")
-            for t in meta["tidak_di_daftar"]:
+            for t in hasil["tidak_di_daftar"]:
                 print(f"  tidak lagi di daftar API (dibiarkan): {t['judul'][:60]}")
 
         tugas, hasil["menunggu_unduhan"] = pipeline_data.susun_rencana(
@@ -647,6 +663,18 @@ def proses_domain(w, opsi, terhalang):
         hasil["jumlah_publikasi"] = Publikasi.query.filter_by(domain=kode).count()
         db.session.commit()
 
+        if opsi.kecamatan:
+            # Melanjutkan: PDF yang sudah utuh di disk dan publikasinya belum
+            # pernah diproses (diunduh run --hanya-unduh atau run yang
+            # terputus) tidak diunduh ulang.
+            for t in tugas:
+                if t["unduh"] and t["belum_pernah"] and sumber_bps.berkas_pdf_valid(t["path"]):
+                    t["unduh"] = False
+                    t["pdf_sudah_ada"] = True   # diunduh hari ini: updt_date dicatat diproses
+                    t["alasan"].append("PDF sudah ada")
+        if HANYA_UNDUH:
+            tugas = [t for t in tugas if t["unduh"]]
+            print(f"  --hanya-unduh: {len(tugas)} PDF perlu diunduh, ekstraksi dilewati")
         print(f"  {len(tugas)} publikasi perlu dikerjakan")
         if hasil["menunggu_unduhan"]:
             print(f"  {len(hasil['menunggu_unduhan'])} publikasi punya versi lebih baru "
@@ -852,8 +880,26 @@ def main():
                           "DATABASE_URL + '_uji'), bukan produksi. Ringkasan ditulis ke "
                           f"{FILE_RINGKASAN_UJI}, bukan ke ringkasan yang dibaca "
                           "/admin/perbarui.")
+    arg.add_argument("--kecamatan", action="store_true",
+                     help="HANYA dengan --db-uji: proses HANYA publikasi yang dikecualikan "
+                          "menurut judul (kecualikan_judul di data/wilayah.json, mis. "
+                          "Kecamatan ... Dalam Angka). Produksi tidak pernah menariknya.")
+    arg.add_argument("--hanya-unduh", action="store_true",
+                     help="HANYA dengan --kecamatan: simpan metadata dan unduh PDF, tanpa "
+                          "ekstraksi. Run --kecamatan berikutnya memakai PDF yang sudah ada.")
     opsi = arg.parse_args()
-    global OCR_AKTIF, FILE_RINGKASAN
+    if opsi.kecamatan and not opsi.db_uji:
+        print("DITOLAK: --kecamatan hanya boleh bersama --db-uji (publikasi kecamatan "
+              "tidak boleh masuk database produksi).")
+        sys.exit(KODE_GAGAL)
+    if opsi.hanya_unduh and not opsi.kecamatan:
+        print("DITOLAK: --hanya-unduh hanya boleh bersama --kecamatan --db-uji.")
+        sys.exit(KODE_GAGAL)
+    if opsi.kecamatan and (opsi.lokal or opsi.paksa or opsi.hanya_periksa):
+        print("DITOLAK: --kecamatan tidak boleh bersama --lokal, --paksa, atau --hanya-periksa.")
+        sys.exit(KODE_GAGAL)
+    global OCR_AKTIF, FILE_RINGKASAN, HANYA_UNDUH
+    HANYA_UNDUH = opsi.hanya_unduh
     OCR_AKTIF = not opsi.tanpa_ocr
     konfigurasi = KonfigurasiUji if opsi.db_uji else Config
     if opsi.db_uji:
