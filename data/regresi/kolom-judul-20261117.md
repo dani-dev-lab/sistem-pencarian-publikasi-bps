@@ -136,3 +136,35 @@ jadi `m[1]` ≠ 0. Teks miring yang tidak diputar dipertahankan.
   penanda gaya jalur badan. Banyak judul bisa berubah, jadi butuh regresi
   penuh dan sampel tersendiri. Perkiraan: setengah hari termasuk regresi
   (±1,5 jam).
+
+## Pemuatan ke produksi (17 Nov 2026, disetujui pemilik project)
+
+Pemuatan terarah 1 publikasi (`kolom-judul-20261117/muat_kolom_terarah.py`,
+salinan skrip 16 Nov), bukan `perbarui.py --paksa`.
+
+1. **Cadangan:** `C:/Users/Dani/cadangan-bps/db_pencarian_bps-20261117-sebelum-kolom-judul.sql`
+   (perintah PANDUAN bagian 7). Dipulihkan ke database sementara: 6/6 tabel
+   sama jumlah baris dan CHECKSUM, lalu database sementaranya dihapus.
+2. **`--coba` ke produksi: LULUS, tanpa menulis.**
+   - Target sama dengan potret sebelum regresi.
+   - 305 publikasi lain = database uji per kunci.
+   - IPM HSU (`a21060d6`) hanya ada di produksi, karena masuk lewat pembaruan
+     16 Nov 15.20. Publikasi ini diekstrak kering dengan kode baru dan hasilnya
+     identik dengan isi produksi, jadi perbaikan ini tidak mengubahnya.
+3. **Muat:** 146 entri, 32 detik. Hasilnya dibandingkan per kunci dengan
+   database uji sebelum ditulis. Log: `kolom-judul-20261117/muat-produksi.log`.
+4. **Bukti** (`bukti_pemuatan.py`, keluaran di `bukti-pemuatan.txt`):
+   - 306 publikasi produksi = database uji per kunci (0 beda);
+   - baris publikasi lain: 24.386 sebelum = 24.386 sesudah, 0 berubah per id;
+   - baris Tabalong 2025: 71 -> 146;
+   - tabel `publikasi`, dibandingkan per kolom dengan cadangan: hanya baris
+     `34b2075e` yang berubah (waktu ekstraksi);
+   - `versi_data` 508 -> 509;
+   - `log_pencarian` (113) dan `kategori` CHECKSUM sama;
+   - `entri_dokumen` 24.457 -> 24.532.
+5. **Uji tombol** lewat test_client, dengan konfigurasi produksi dan log
+   dimatikan:
+   - "angka partisipasi murni" dengan wilayah Tabalong menampilkan kartu tabel
+     4.1.10 "Halaman 114" dan "Buka PDF hal. 150";
+   - `/pdf/34b2075e…` HTTP 200;
+   - `log_pencarian` tetap 113 baris.

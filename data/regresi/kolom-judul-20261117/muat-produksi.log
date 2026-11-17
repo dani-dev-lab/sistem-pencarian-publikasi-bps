@@ -1,0 +1,6 @@
+Database tujuan: db_pencarian_bps @ localhost:3306 (PRODUKSI)
+  hanya di tujuan: a21060d6eea95b6226af0f7e Indeks Pembangunan Manusia Kabupaten Hulu Sungai U - ekstraksi kering = tujuan: True
+Pemeriksaan: 1 target, 305 bukan target (= database uji per kunci: 305), 4 d
+Pemeriksaan LULUS.
+  [  1/1] muat 34b2075e9befadb479e28c65  146 entri    29 d  Kabupaten Tabalong Dalam Angka 2025
+Selesai: 1 publikasi, 32 d.

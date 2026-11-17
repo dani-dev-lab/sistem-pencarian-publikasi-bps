@@ -192,6 +192,27 @@ itu dikarang sendiri — BUKAN kueri nyata dari petugas PST. Ambang final
 ditentukan ulang setelah uji coba petugas (minggu 9-10) dan setelah
 `log_pencarian` terisi kueri sungguhan. Jangan perlakukan 75/50 sebagai final.
 
+**Validasi 17 Nov 2026: ambang TIDAK diubah (disetujui pemilik project), tetap
+"sementara, perlu kata kunci asli petugas".** Laporan:
+`data/regresi/validasi-ambang-20261117.md`.
+- Data: 18 kata kunci topik dari log dan kueri uji. Log baru berisi uji
+  pengembang dan pemilik project, belum kata kunci petugas.
+- Ketepatan: pita 75-80 = 45/50 (90%), pita 70-75 = 69/89 (78%). Hasil
+  yang salah menumpuk di kata kunci UMUM ("jumlah hotel kabupaten kota
+  2024" 0/6), jadi menurunkan ambang ke 70 tidak cukup terbukti.
+- **Yang lebih berpengaruh daripada ambang (dicatat, BELUM dikerjakan):**
+  - **Kamus sinonim:**
+    - "konsumsi listrik" tidak menemukan satu pun dari 34 tabel listrik, karena
+      judulnya memakai "listrik terjual" / "kWh";
+    - "jumlah menginap hotel" sebagian besar di bawah 70, karena judulnya
+      memakai "wisatawan menginap" / "tamu";
+    - "inap": "pasien rawat inap" ikut cocok dengan "menginap" karena kata
+      dasarnya sama.
+  - **Tokenisasi "P 1":** banyak judul menulis "P 1" terpisah, sehingga
+    kueri "p1" hanya mencapai >=50 di 10 dari 57 tabel yang relevan.
+  - **Penalti panjang:** judul tabel lengkap (TPK, luas panen) jatuh ke
+    70-75, di bawah judul bab yang pendek.
+
 ### Riwayat kalibrasi (penting untuk laporan TA)
 Angka-angka di atas diturunkan dari pengujian, bukan ditebak:
 
@@ -686,8 +707,20 @@ Aturan yang berlaku:
       indentasi menggantung.
   - Catatan pemeriksaan sebelum perbaikan:
 - **Tebakan kolom judul, nomor halaman di baris sendiri (17 Nov 2026),
-  BARU di database uji, BELUM di produksi, BELUM di-push.** Laporan:
+  DIMUAT ke produksi 17 Nov** (pemuatan terarah 1 publikasi,
+  `data/regresi/kolom-judul-20261117/muat_kolom_terarah.py`). Laporan:
   `data/regresi/kolom-judul-20261117.md`.
+  - Cadangan: `cadangan-bps/db_pencarian_bps-20261117-sebelum-kolom-judul.sql`;
+    pemulihannya diuji (6/6 tabel sama).
+  - Bukti:
+    - 306 publikasi produksi = database uji per kunci;
+    - 24.386 baris publikasi lain identik per id;
+    - di `publikasi` hanya baris Tabalong 2025 yang berubah;
+    - `versi_data` 508 -> 509;
+    - `log_pencarian` dan `kategori` CHECKSUM sama.
+  - Produksi: 24.457 -> 24.532 entri.
+  - IPM HSU (`a21060d6`, hanya ada di produksi) diekstrak kering dengan kode
+    baru: identik, jadi tidak dimuat ulang.
   - Kasus: Tabalong DA 2025 (`34b2075e`). Baris ".......... 93" menyeret
     tebakan `x_judul` ke kolom dot leader, halaman Daftar ke-4 menghasilkan
     0 entri, dan 11 halaman Daftar Tabel tidak terbaca (hanya 25 tabel).
