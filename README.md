@@ -10,10 +10,12 @@ data tersebut, lengkap dengan tombol membuka PDF di halaman yang tepat.
 
 Cakupan: publikasi Provinsi Kalimantan Selatan dan 13 kabupaten/kota yang
 dirilis 2 tahun terakhir, dengan filter wilayah di halaman pencarian.
+Keadaan data 17 November 2026: 307 publikasi dan 24.532 bagian terindeks;
+86% bagian itu bisa dibuka langsung di halaman PDF-nya.
 
 - **Panduan operasional** (pemasangan, menjalankan, memperbarui data,
   mengelola kamus dan wilayah, OCR, cara menguji, pemecahan masalah,
-  kebutuhan deploy): [PANDUAN.md](PANDUAN.md)
+  kebutuhan deploy, keterbatasan dan utang teknis): [PANDUAN.md](PANDUAN.md)
 - **Konteks teknis dan riwayat keputusan** (untuk pengembang):
   [CLAUDE.md](CLAUDE.md)
 
@@ -38,7 +40,8 @@ copy .env.example .env      # lalu isi semua nilainya - lihat PANDUAN.md bagian 
 Lalu isi datanya, dengan salah satu dari dua jalur di PANDUAN.md bagian 2:
 
 - **dari berkas serah terima** (disarankan): pulihkan cadangan database, salin
-  folder PDF dan cache OCR;
+  folder PDF dan cache OCR tanpa ZIP (tanggal ubah berkas harus tetap; cara
+  yang aman ada di PANDUAN.md bagian 2);
 - **dari nol** (butuh internet ke WebAPI BPS, beberapa jam):
 
   ```

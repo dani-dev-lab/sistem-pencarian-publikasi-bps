@@ -25,7 +25,7 @@ Isi panduan:
 8. Mengelola daftar wilayah
 9. Database uji dan cara menguji aplikasi
 10. Pemecahan masalah
-11. Keterbatasan yang diketahui
+11. Keterbatasan yang diketahui dan utang teknis
 
 ---
 
@@ -52,8 +52,9 @@ Cara kerjanya secara garis besar:
    database ini — **tidak** menghubungi BPS setiap kali petugas mencari,
    jadi pencarian berjalan tanpa internet.
 
-Keadaan data pada 14 November 2026: **306 publikasi, 24.373 bagian
-terindeks**.
+Keadaan data pada 17 November 2026: **307 publikasi, 24.532 bagian
+terindeks**. 86% bagian itu bisa dibuka langsung di halaman PDF-nya
+(rinciannya di bagian 11).
 
 Yang butuh internet hanya langkah pembaruan data (bagian 4).
 
@@ -130,7 +131,7 @@ Pada uji 16 November 2026, tombol "±hal." diperiksa satu per satu:
 - **MySQL 8** — selama pengembangan dipakai lewat **Laragon**.
 - Folder proyek ini (`sistem-pencarian-bps`).
 - **Ruang disk ±3,5 GB** untuk data: folder PDF `data/publikasi_pdf/` berisi
-  306 PDF, 3.046 MB (14 November 2026), dalam satu subfolder per kode
+  307 PDF, 3.048 MB (17 November 2026), dalam satu subfolder per kode
   wilayah (`6300`, `6301`, …). PDF ini dipakai dua kali: dibaca saat
   pembaruan, dan dibuka oleh tombol **Buka PDF** di hasil pencarian.
   OCR, kalau dipasang, menambah ±1,1 GB (bagian 7.2).
@@ -170,11 +171,12 @@ beberapa jam.
 
 #### Jalur A (disarankan): dari berkas serah terima
 
-Pengembang menyerahkan empat hal:
+Pengembang menyerahkan empat hal, selain `.env` dan kata sandi admin yang
+diserahkan terpisah:
 
 | Yang diserahkan | Ditaruh di |
 |---|---|
-| Cadangan database (satu berkas `.sql`) | dipulihkan ke MySQL, langkah 1–3 |
+| Cadangan database (satu berkas `.sql`, dibuat dengan perintah `mysqldump` di bagian 7, pada hari yang sama dengan salinan folder PDF) | dipulihkan ke MySQL, langkah 1–3 |
 | Folder PDF `publikasi_pdf` (±3 GB) | `data\publikasi_pdf\` |
 | Folder cache OCR `ocr_cache` (±22 MB) | `data\ocr_cache\` |
 | Berkas `wilayah.json` | `data\wilayah.json` (sudah ikut di Git; pakai yang diserahkan kalau isinya berbeda) |
@@ -211,20 +213,27 @@ Langkah 1–3 diuji 14 November 2026 dengan database sementara: cadangan yang
 dibuat dengan perintah `mysqldump` di bagian 7 dipulihkan dalam ±1,5 detik,
 dan keenam tabelnya sama dengan database asal (jumlah baris dan `CHECKSUM
 TABLE`). Pengujian itu memakai perintah tanpa `-p`, karena sandi root di
-laptop pengembang kosong. Langkah 4 (menyalin folder ke komputer lain) belum
-diuji.
+laptop pengembang kosong. Untuk langkah 4, cara menyalinnya sudah diuji di
+laptop pengembang (tabel di bawah), tetapi menyalin ke komputer lain belum
+pernah dicoba.
 
 **Penting saat menyalin folder PDF: tanggal ubah berkas ("Date modified")
 harus tetap sama.** Aplikasi mengenali PDF dari ukuran dan tanggal ubahnya.
 Kalau tanggal itu berubah, pembaruan berikutnya menganggap semua PDF
 berganti, lalu:
 
-- membaca ulang seluruh 306 PDF (±75 menit, diukur 10 November 2026), dan
+- membaca ulang seluruh 307 PDF (±75–95 menit; diukur 4.470 detik pada 10
+  November dan 5.541 detik pada 17 November 2026), dan
 - membuang cache OCR 8 publikasi, yang hanya bisa dibuat ulang dengan OCR
-  (bagian 7.2; 1.192 halaman × ±15 detik ≈ 5 jam).
+  (bagian 7.2; 1.192 halaman × ±15 detik ≈ 5 jam). Kalau OCR tidak
+  dipasang, kedelapan publikasi itu kehilangan rincian tabelnya.
 
-Diuji 17 November 2026 di laptop pengembang (5 PDF + 100 berkas cache OCR,
-dibandingkan sampai ke detik):
+Aplikasi tidak punya perintah untuk memeriksa hal ini saja: pembaruan
+pertama langsung membaca ulang PDF yang tanggalnya berubah. Karena itu
+periksa sendiri sesudah menyalin (butir "Sesudah menyalin" di bawah tabel).
+
+Diuji 17 November 2026 di laptop pengembang, antarfolder di drive NTFS yang
+sama (5 PDF + 100 berkas cache OCR, dibandingkan sampai ke detik):
 
 | Cara menyalin | Tanggal ubah | Boleh dipakai? |
 |---|---|---|
@@ -237,8 +246,13 @@ dibandingkan sampai ke detik):
 
 Format ZIP hanya mencatat waktu dengan ketelitian 2 detik, jadi pergeseran
 itu pasti terjadi, bukan kebetulan.
-- Penyimpanan awan dan flashdisk berformat FAT32 tidak diuji. FAT32 juga
-  hanya mencatat waktu per 2 detik, jadi sebaiknya dihindari.
+
+- **Tidak diuji:** penyimpanan awan, flashdisk atau disk eksternal (FAT32,
+  exFAT), dan menyalin lewat folder bersama di jaringan. FAT32 juga hanya
+  mencatat waktu per 2 detik, jadi jangan menyalin berkas lepas ke flashdisk
+  FAT32. Kalau medianya flashdisk, bungkus dulu dengan arsip `tar` (tabel di
+  atas): tanggal ubah tersimpan di dalam arsip. Cara ini juga belum diuji di
+  flashdisk, jadi tetap periksa hasilnya.
 - Sesudah menyalin, bandingkan "Date modified" beberapa PDF dengan aslinya
   sampai ke detik (kolom "Date modified" di File Explorer hanya menampilkan
   menit; lihat lewat Properties).
@@ -469,8 +483,8 @@ Ditulis sesudah nama berkasnya di Command Prompt, misalnya
 | Pilihan | Gunanya |
 |---|---|
 | `--lokal` | Tanpa internet. Hanya membaca PDF yang sudah ada di komputer; tidak ada yang diunduh. |
-| `--paksa` | Membaca ulang **semua** publikasi, bukan hanya yang berubah. Dipakai sesudah program pembaca PDF diperbarui. `--lokal --paksa` untuk 306 PDF memakan 4.470 detik (±75 menit) pada 10 November 2026. |
-| `--tanpa-ocr` | Tidak memakai OCR maupun cache-nya. Halaman tanpa teks dilewati dan dicatat. |
+| `--paksa` | Membaca ulang **semua** publikasi, bukan hanya yang berubah. Dipakai sesudah program pembaca PDF diperbarui. `--lokal --paksa` untuk 306 PDF memakan 4.470 detik (±75 menit) pada 10 November 2026 dan 5.541 detik (±92 menit) pada 17 November 2026. |
+| `--tanpa-ocr` | Tidak memakai OCR maupun cache-nya. Halaman tanpa teks dilewati dan dicatat. **Jangan digabung dengan `--paksa`:** delapan publikasi OCR ikut dibaca ulang tanpa OCR, dan rincian tabelnya hilang dari database sampai dibaca ulang dengan OCR atau cache-nya. |
 | `--hanya-periksa` | Hanya memeriksa daftar semua wilayah; tidak mengubah database, tidak mengunduh. Wajib sebelum wilayah baru pertama kali dimuat (bagian 2 jalur B, bagian 8). |
 | `--tahun-min 2024` | Mengambil publikasi yang dirilis sejak tahun itu, bukan hanya 2 tahun terakhir. |
 | `--db-uji` | Menulis ke database uji, bukan database utama (bagian 9). |
@@ -513,7 +527,7 @@ venv\Scripts\python.exe scripts\isi_perkiraan_halaman.py --produksi
   ditambahkan otomatis.
 - **Kalau pembaruan sedang berjalan,** skrip berhenti dengan "TIDAK
   DIJALANKAN" (kode keluar 2).
-- **Lama:** beberapa detik untuk 306 publikasi. Pencarian pertama sesudahnya
+- **Lama:** beberapa detik untuk seluruh publikasi. Pencarian pertama sesudahnya
   sedikit lebih lambat, karena data dimuat ulang.
 
 ---
@@ -658,7 +672,7 @@ Diuji: port 5006-5009 lewat argumen `run.py`, argumen `.bat`, `PORT` di
 
 Beberapa PDF BPS tidak punya lapisan teks: hurufnya berupa gambar atau kurva,
 jadi tidak bisa dibaca seperti PDF biasa. Halaman seperti itu dibaca dengan
-OCR (program EasyOCR). Pada 14 November 2026 ada **8 publikasi** hasil OCR di
+OCR (program EasyOCR). Pada 17 November 2026 ada **8 publikasi** hasil OCR di
 database, seluruhnya 1.192 halaman.
 
 - **OCR tidak wajib.** Tanpa paketnya, aplikasi dan pembaruan tetap jalan.
@@ -826,8 +840,8 @@ atau kode:
 venv\Scripts\python.exe -u tests\uji_pipeline.py > uji_log.txt 2>&1
 ```
 
-- Lamanya ±38 menit. Run 14 November 2026: 78 uji lulus, 0 gagal, 2.250
-  detik.
+- Lamanya ±37 menit. Run penuh terakhir, 16 November 2026: 88 uji lulus,
+  0 gagal, 0 dilewati, 2.235 detik.
 - Hasilnya dibaca dari baris terakhir `uji_log.txt` dan dari kode keluar:
 
   | Kode keluar | Artinya |
@@ -892,11 +906,12 @@ dipakai, di baris `Jaringan:` pada keluarannya.
 
 ---
 
-## 11. Keterbatasan yang diketahui
+## 11. Keterbatasan yang diketahui dan utang teknis
 
 Semua ini sudah diperiksa dan **bukan bug** yang bisa diperbaiki dengan
-mengulang pembaruan. Angka tanpa tanggal lain dihitung dari database pada 14
-November 2026.
+mengulang pembaruan. Sebagian bisa diperbaiki dengan mengubah program; itu
+didaftar di akhir bagian ini ("Utang teknis"). Angka tanpa tanggal lain
+dihitung dari database pada 17 November 2026 (307 publikasi, 24.532 bagian).
 
 **Cakupan**
 
@@ -904,23 +919,22 @@ November 2026.
   wilayah. "Kecamatan … Dalam Angka" tidak diambil (bagian 8).
 - **Pencarian tidak membaca isi sel tabel**, hanya judul tabel/gambar/
   lampiran/bab. Angka di dalam tabel tidak bisa dicari.
-- **18 dari 306 publikasi hanya punya Daftar Isi** (misalnya direktori
+- **18 dari 307 publikasi hanya punya Daftar Isi** (misalnya direktori
   perusahaan dan buklet) — memang tidak ada daftar tabel di dokumennya.
 
 **Nomor halaman dan tombol PDF**
 
-- **21.071 dari 24.415 bagian (86,3%) punya nomor halaman PDF** (16 November
-  2026, sesudah perbaikan pembacaan Daftar):
-  - **18.206 (74,6%) dibaca langsung dari PDF**; tombolnya **Buka PDF hal. N**.
-  - **2.865 (11,7%) perkiraan**; tombolnya **Buka PDF ±hal. N** (bagian 1):
-    - 1.036 tabel/gambar/lampiran. Dari 60 yang diperiksa, 56 tepat,
-      3 meleset 2–3 halaman, dan 1 menunjuk tabel yang tidak dicetak di
-      publikasinya.
-    - 1.829 bab/subbab. Dari 50 yang diperiksa, 48 tepat dan 2 meleset 1–2
-      halaman.
-- **3.344 bagian tanpa nomor halaman PDF** membuka PDF dari halaman pertama.
+- **21.187 dari 24.532 bagian (86,4%) punya nomor halaman PDF:**
+  - **18.318 (74,7%) dibaca langsung dari PDF**; tombolnya **Buka PDF hal. N**.
+  - **2.869 (11,7%) perkiraan**; tombolnya **Buka PDF ±hal. N** (bagian 1):
+    - 1.040 tabel/gambar/lampiran. Dari 60 yang diperiksa (16 November
+      2026), 56 tepat, 3 meleset 2–3 halaman, dan 1 menunjuk tabel yang
+      tidak dicetak di publikasinya.
+    - 1.829 bab/subbab. Dari 50 yang diperiksa (16 November 2026), 48 tepat
+      dan 2 meleset 1–2 halaman.
+- **3.345 bagian tanpa nomor halaman PDF** membuka PDF dari halaman pertama.
   Nomor halaman cetaknya, kalau ada, tetap ditampilkan.
-  - **1.251 tabel/gambar/lampiran.** Perkiraan tidak dibuat untuk mereka,
+  - **1.252 tabel/gambar/lampiran.** Perkiraan tidak dibuat untuk mereka,
     karena tidak ada tabel tetangga yang cukup dekat dan konsisten, atau
     tidak ada nomor halaman cetaknya. Contohnya semua publikasi Keadaan
     Angkatan Kerja.
@@ -936,10 +950,15 @@ November 2026.
   - Entri sampah berjudul "Halaman" sudah dibuang.
   - Daftar Isi Gambaran Ekonomi Makro tidak lagi tergabung menjadi beberapa
     gumpalan.
+  - Daftar Tabel Kabupaten Tabalong Dalam Angka 2025 kini terbaca seluruhnya
+    (17 November 2026): dari 25 menjadi 100 tabel.
 - **Sisa yang diketahui:**
   - Di Gambaran Ekonomi Makro, beberapa entri halaman depan masih tergabung
     ("Kata Pengantar v Daftar Isi").
   - Sebagian judul masih berekor nomor halaman romawi ("… 2025 xiv").
+  - Di Tabalong Dalam Angka 2025, 6 tabel masih tergabung ke tabel
+    sebelumnya, karena nomor halamannya dicetak miring (lihat "Utang
+    teknis").
 - **200 bagian (0,8%) tidak punya nomor halaman sama sekali.**
 - **Nomor halaman di Daftar Tabel kadang keliru di publikasinya sendiri.**
   Contohnya Daftar Lampiran PDRB Kotabaru menurut Lapangan Usaha menulis
@@ -987,6 +1006,42 @@ November 2026.
 - **Satu kata sandi admin untuk semua** — tidak ada akun per orang, jadi
   tidak bisa dilacak siapa yang mengubah kamus.
 - **Lisensi berkas model OCR belum jelas** (7.3).
+
+**Hal yang masih terbuka saat serah terima**
+
+- **Lisensi berkas model OCR** perlu dikonfirmasi sebelum OCR dipasang di
+  server BPS (7.3).
+- **Ambang relevansi 75/50 belum diuji dengan kata kunci asli petugas.**
+  Pemeriksaan 17 November 2026 memakai 18 kata kunci uji dan tidak
+  menemukan alasan kuat untuk mengubahnya. Kata kunci petugas terkumpul di
+  **Review Log Pencarian** (bagian 5) begitu aplikasi dipakai.
+- **Jalur B** (mengisi data dari nol) belum diuji ujung ke ujung (bagian 2).
+- **Menyalin folder PDF dan cache OCR ke komputer lain** belum dicoba. Cara
+  menyalinnya sudah diuji di satu laptop (bagian 2, jalur A).
+
+**Utang teknis**
+
+Perbaikan yang sudah diketahui tetapi sengaja belum dikerjakan. Kecuali
+kamus sinonim, semuanya menyangkut program pembaca PDF atau penilaian skor,
+jadi perlu pengembang.
+Rinciannya ada di laporan `data/regresi/` yang disebut, dan di `CLAUDE.md`.
+
+| Hal | Akibat bagi petugas | Laporan |
+|---|---|---|
+| Beberapa judul tabel kadang terbaca sebagai satu bagian | Hasil yang memuat semua kata kunci tetapi bukan tabel yang dicari | `CLAUDE.md`, "Utang teknis: 764 entri terlalu panjang" |
+| Kamus sinonim belum memuat beberapa istilah: "konsumsi listrik" (judulnya "listrik terjual"/"kWh"), "menginap hotel" (judulnya "wisatawan"/"tamu"); "rawat inap" ikut cocok dengan "menginap" | Tabel yang relevan berskor rendah atau tidak tampil. Dua istilah pertama bisa ditambah pengelola lewat halaman admin (bagian 5); "inap" perlu pengembang, karena kata dasarnya sama | `validasi-ambang-20261117.md` |
+| Judul menulis "P 1" terpisah, sehingga kata kunci "p1" lemah | Hanya 10 dari 57 tabel P1 yang tampil | `validasi-ambang-20261117.md` |
+| Judul tabel yang panjang dan lengkap kalah dari judul bab yang pendek | Tabel TPK dan luas panen jatuh ke skor 70–75 | `validasi-ambang-20261117.md` |
+| Teks miring dibuang bersama watermark | Di Tabalong Dalam Angka 2025, 6 tabel tergabung ke tabel sebelumnya. Perbaikannya dicoba 17 November 2026, lalu dibatalkan karena memperburuk publikasi lain; usulan perbaikannya tersimpan | `saringan-miring-20261117.md` |
+| Saat versi Daftar dan versi badan sebuah judul berbeda, yang lebih panjang dipakai | 4 judul membawa sampah, padahal versi bersihnya ada | `perbaikan-daftar-20261107.md` |
+| Sisa pembacaan Daftar: entri halaman depan Gambaran Ekonomi Makro dan IPM tergabung, folio romawi di baris sendiri menempel ke judul, lanjutan judul di halaman Daftar berikutnya, Indikator Pekerjaan Layak Provinsi 2025 | Judul bercampur; lokasinya tetap benar | `parser-daftar-isi-20261116.md` |
+| KAK Agustus 2024: awal judul 5 tabel menempel ke tabel sebelumnya | Judul terpotong di depan | `C2-nomor-sebaris-20261109.md` |
+| Luas Panen dan Produksi Padi Provinsi (dua edisi): nomor dan halaman lampiran di Daftar tertukar | ±140 lampiran bernomor salah | `perkiraan-halaman-20261116.md` |
+| Grafik bertumpuk di badan "Dalam Angka" belum dibaca sebagai bagian baru | Grafik yang tidak tercantum di Daftar Gambar tidak bisa dicari. Sejak 12 November 2026 Daftar Gambar Dalam Angka terbaca, jadi sisanya sedikit | `C1b-perkiraan-20261109.md` |
+| Daftar Gambar yang baru terbaca membawa 23 potongan tanpa nomor; 3 nomor gambar dicetak dua kali di sumbernya | Bagian sampah di hasil; gambar kembar kedua menunjuk halaman gambar pertama | `batas-heading-20261112.md` |
+| Hasil OCR: sebagian besar tabel PDRB Tabalong dan PDRB Banjarbaru menurut Lapangan Usaha tanpa nomor | Tabel ditemukan lewat judul, tetapi nomornya tidak tampil | `ocr-pemuatan-20261113.md` |
+| Heading Daftar yang terbelah dua baris (Statistik Daerah 2025) tidak dibaca dari Daftar | Gambarnya tetap masuk lewat badan dokumen | `halaman-daftar-dan-isi-20261107.md` |
+| Belum ada uji otomatis per fungsi; yang ada `tests\uji_pipeline.py` (bagian 9) | Perubahan program perlu diperiksa ulang manual, seperti di laporan-laporan di atas | `CLAUDE.md`, "Tidak ada pengujian otomatis" |
 
 Rincian teknis yang lebih dalam (cara kerja pembaca PDF, rumus skor, riwayat
 keputusan) ada di `CLAUDE.md` di folder yang sama, dan laporan tiap
