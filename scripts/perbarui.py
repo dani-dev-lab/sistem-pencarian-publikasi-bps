@@ -89,6 +89,28 @@ PESAN_SEMUA_TERHALANG = """
   pemasangan pertama.
 """
 
+# --paksa + --tanpa-ocr: publikasi OCR ikut dibaca ulang tanpa OCR, sehingga
+# entri hasil OCR-nya diganti hasil kosong (HST Dalam Angka 2026: 163 -> 0).
+# Ditolak sebelum database ditulis (17 Nov 2026). {n}, {daftar} diisi.
+PESAN_PAKSA_TANPA_OCR = """
+  TIDAK DIJALANKAN: --paksa dan --tanpa-ocr tidak boleh dipakai bersamaan.
+
+  --paksa membaca ulang SEMUA publikasi. Dengan --tanpa-ocr, halaman tanpa
+  lapisan teks dilewati, sehingga rincian tabel {n} publikasi hasil OCR di
+  bawah ini akan HILANG dari database (sebagian menjadi 0 bagian):
+{daftar}
+  Database tidak diubah.
+
+  Yang benar:
+  - Membaca ulang semua PDF: pakai --paksa TANPA --tanpa-ocr, misalnya
+        perbarui-data.bat --lokal --paksa
+    Hasil OCR diambil dari cache data\\ocr_cache; EasyOCR tidak perlu
+    terpasang selama cache-nya utuh.
+  - Tidak memakai OCR: pakai --tanpa-ocr TANPA --paksa. Publikasi yang
+    tidak berubah tidak dibaca ulang, jadi hasil OCR-nya tetap.
+  Lihat PANDUAN.md bagian 4, "Pilihan tambahan untuk tim IT".
+"""
+
 PESAN_SKEMA = """
   Database belum memakai struktur multi-domain. Jalankan sekali:
 
@@ -278,6 +300,24 @@ def pastikan_skema():
     # Kolom tambahan untuk database lama (publikasi.halaman_ocr, dll.).
     from app.models.skema import pastikan_kolom
     pastikan_kolom()
+
+
+def publikasi_ocr_terancam(opsi, aktif):
+    """Publikasi OCR yang akan dibaca ulang tanpa OCR oleh --paksa --tanpa-ocr.
+
+    --paksa mengikutkan SEMUA publikasi domain aktif (susun_rencana), jadi yang
+    terancam = semua publikasi domain aktif dengan halaman_ocr terisi. Hanya
+    membaca database.
+    """
+    if not (opsi.paksa and opsi.tanpa_ocr):
+        return []
+    kode = [w["kode"] for w in aktif]
+    pubs = (Publikasi.query.filter(Publikasi.domain.in_(kode), Publikasi.halaman_ocr > 0)
+            .order_by(Publikasi.domain, Publikasi.id).all())
+    hasil = [{"pub_id": p.id, "judul": p.judul, "domain": p.domain,
+              "halaman_ocr": p.halaman_ocr} for p in pubs]
+    db.session.commit()
+    return hasil
 
 
 def domain_terhalang(aktif):
@@ -700,6 +740,22 @@ def jalankan_pembaruan(opsi):
         print("Tidak ada domain aktif di data/wilayah.json.")
         tulis_ringkasan("gagal", tahap="konfigurasi", jaringan=False,
                         pesan="Tidak ada domain aktif", durasi_detik=0)
+        return KODE_GAGAL
+
+    # Pengaman --paksa --tanpa-ocr: diperiksa PERTAMA, sebelum jaringan dan
+    # sebelum apa pun ditulis ke database.
+    terancam = publikasi_ocr_terancam(opsi, aktif)
+    if terancam:
+        daftar = "".join(f"    - [{p['domain']} {p['pub_id'][:8]}] {p['judul']} "
+                         f"({p['halaman_ocr']} halaman OCR)\n" for p in terancam)
+        print(PESAN_PAKSA_TANPA_OCR.format(n=len(terancam), daftar=daftar))
+        tulis_ringkasan("gagal", tahap="pemeriksaan pilihan", jaringan=False,
+                        pesan=f"--paksa dan --tanpa-ocr tidak boleh dipakai bersamaan: "
+                              f"{len(terancam)} publikasi hasil OCR akan kehilangan rincian "
+                              "tabelnya. Database tidak diubah. Pakai --paksa tanpa "
+                              "--tanpa-ocr (hasil OCR diambil dari cache).",
+                        publikasi_ocr=[p["pub_id"] for p in terancam],
+                        durasi_detik=round(time.time() - mulai))
         return KODE_GAGAL
 
     entri_sebelum = EntriDokumen.query.count()

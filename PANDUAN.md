@@ -484,7 +484,7 @@ Ditulis sesudah nama berkasnya di Command Prompt, misalnya
 |---|---|
 | `--lokal` | Tanpa internet. Hanya membaca PDF yang sudah ada di komputer; tidak ada yang diunduh. |
 | `--paksa` | Membaca ulang **semua** publikasi, bukan hanya yang berubah. Dipakai sesudah program pembaca PDF diperbarui. `--lokal --paksa` untuk 306 PDF memakan 4.470 detik (±75 menit) pada 10 November 2026 dan 5.541 detik (±92 menit) pada 17 November 2026. |
-| `--tanpa-ocr` | Tidak memakai OCR maupun cache-nya. Halaman tanpa teks dilewati dan dicatat. **Jangan digabung dengan `--paksa`:** delapan publikasi OCR ikut dibaca ulang tanpa OCR, dan rincian tabelnya hilang dari database sampai dibaca ulang dengan OCR atau cache-nya. |
+| `--tanpa-ocr` | Tidak memakai OCR maupun cache-nya. Halaman tanpa teks dilewati dan dicatat. **Aplikasi menolak gabungan `--paksa --tanpa-ocr`** selama ada publikasi hasil OCR di wilayah aktif. Gabungan itu akan membaca ulang delapan publikasi OCR tanpa OCR, sehingga rincian tabelnya hilang dari database. Pembaruan berhenti sebelum database diubah, dengan pesan `TIDAK DIJALANKAN: --paksa dan --tanpa-ocr tidak boleh dipakai bersamaan` yang menyebut publikasinya. Untuk membaca ulang semua PDF, pakai `--paksa` saja: hasil OCR diambil dari cache, dan EasyOCR tidak perlu terpasang. |
 | `--hanya-periksa` | Hanya memeriksa daftar semua wilayah; tidak mengubah database, tidak mengunduh. Wajib sebelum wilayah baru pertama kali dimuat (bagian 2 jalur B, bagian 8). |
 | `--tahun-min 2024` | Mengambil publikasi yang dirilis sejak tahun itu, bukan hanya 2 tahun terakhir. |
 | `--db-uji` | Menulis ke database uji, bukan database utama (bagian 9). |

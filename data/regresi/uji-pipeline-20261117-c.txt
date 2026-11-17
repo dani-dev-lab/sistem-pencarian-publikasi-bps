@@ -1,0 +1,51 @@
+Cadangan database uji: 8.8 MB, 6 tabel; produksi 6 tabel
+Database uji: db_pencarian_bps_uji | produksi (hanya dibaca): db_pencarian_bps | domain uji: 6305
+
+=== U. PENGAMAN DATABASE UJI ===
+  [LULUS] U1 KonfigurasiUji yang menunjuk nama produksi ditolak (SystemExit)  -- DITOLAK True
+  [LULUS] U2 baris pertama perbarui.py = database uji  -- Database tujuan: db_pencarian_bps_uji @ localhost:3306 (UJI - bukan produksi)
+  [LULUS] U3 ringkasan ke pembaruan_terakhir-uji.json, berkas produksi tidak dibuat  -- exit 0, 1 d
+
+(--hanya C: bagian lain dilewati)
+
+=== C. OCR ===
+  [LULUS] C1 4 publikasi OCR: entri dari cache identik, halaman_ocr terisi  -- {'182e2e58': (174, 43), '25f03922': (181, 43), '47c94280': (99, 34), 'f338cd99': (99, 44)}
+  [LULUS] C2a --lokal --paksa --tanpa-ocr: ditolak, exit 1, pesan akibat + cara benar, semua publikasi OCR disebut  -- exit 1, 1 d, 4/4 publikasi OCR
+    | Database tujuan: db_pencarian_bps_uji @ localhost:3306 (UJI - bukan produksi)
+    | Log run ini: data/log_pembaruan\20261117-140037.log
+    |   TIDAK DIJALANKAN: --paksa dan --tanpa-ocr tidak boleh dipakai bersamaan.
+    |   --paksa membaca ulang SEMUA publikasi. Dengan --tanpa-ocr, halaman tanpa
+    |   lapisan teks dilewati, sehingga rincian tabel 4 publikasi hasil OCR di
+    |   bawah ini akan HILANG dari database (sebagian menjadi 0 bagian):
+    |     - [6305 182e2e58] Produk Domestik Regional Bruto Kabupaten Tapin Menurut Lapangan Usaha 2020-2024 (174 halaman OCR)
+    |     - [6305 25f03922] Produk Domestik Regional Bruto Kabupaten Tapin Menurut Lapangan Usaha 2021-2025 (181 halaman OCR)
+    |     - [6305 47c94280] Profil Tenaga Kerja Kabupaten Tapin Agustus 2024 (99 halaman OCR)
+    |     - [6305 f338cd99] Produk Domestik Regional Bruto Kabupaten Tapin Menurut Pengeluaran 2021-2025 (99 halaman OCR)
+    |   Database tidak diubah.
+    |   Yang benar:
+    |   - Membaca ulang semua PDF: pakai --paksa TANPA --tanpa-ocr, misalnya
+    |         perbarui-data.bat --lokal --paksa
+    |     Hasil OCR diambil dari cache data\ocr_cache; EasyOCR tidak perlu
+    |     terpasang selama cache-nya utuh.
+    |   - Tidak memakai OCR: pakai --tanpa-ocr TANPA --paksa. Publikasi yang
+    |     tidak berubah tidak dibaca ulang, jadi hasil OCR-nya tetap.
+    |   Lihat PANDUAN.md bagian 4, "Pilihan tambahan untuk tim IT".
+    | Selesai 2026-11-17 14:00:37, kode keluar 1. Log: data/log_pembaruan\20261117-140037.log
+  [LULUS] C2a database uji tidak berubah (CHECKSUM TABLE)
+  [LULUS] C2b online --paksa --tanpa-ocr: ditolak sebelum jaringan (0 permintaan), database uji tidak berubah  -- exit 1, 0 permintaan
+  [LULUS] C2c domain aktif tanpa publikasi OCR: --paksa --tanpa-ocr tetap jalan, exit 0  -- exit 0, status 'tidak_ada_baru'
+  [LULUS] C2 --tanpa-ocr: halaman dilewati, masuk 'perlu diperiksa', halaman_ocr kosong  -- exit 0, 148 d, alasan: ['174 halaman tanpa lapisan teks dilewati ', '181 halaman tanpa lapisan teks dilewati ']
+  [LULUS] C2 --tanpa-ocr: publikasi bertekst tidak berubah, publikasi OCR kehilangan entri OCR  -- {'182e2e58': (43, 41), '25f03922': (43, 41), '47c94280': (34, 0), 'f338cd99': (44, 0)}
+  [LULUS] C2 OCR dinyalakan lagi: kembali identik per kunci (cache dipakai ulang)  -- exit 0, 179 d
+  [LULUS] C3 cache kurang + EasyOCR tidak ada: 3 halaman dilewati, alasan tercatat, sisanya dari cache  -- {'halaman_tanpa_teks': 99, 'dari_cache': 96, 'di_ocr': 0, 'dilewati': 3, 'alasan_dilewati': 'EasyOCR tidak terpasang', 'rasio_tanpa_teks': 0.868}
+  [LULUS] C4 PDF berganti: cache halaman lama dibuang, _meta.json memakai sidik baru  -- C4 99 0 True
+  [LULUS] C5 PDF bertekst berhalaman kosong: tidak di-OCR, tidak meninggalkan folder cache  -- 1d00e98f: 4/118 halaman kosong
+  [LULUS] C6 aplikasi web melayani pencarian tanpa memuat easyocr/torch  -- C6 [200, 200] False False
+  [LULUS] C7 OCR sungguhan 1 halaman: cache dibuat, teks >= 95% sama dengan cache semula  -- 97 kata, sama 100.0%, 12.06 d
+
+=== Z. PEMULIHAN DAN BUKTI ===
+  [LULUS] Z1 database uji dipulihkan, CHECKSUM TABLE sama dengan awal  -- []
+  [LULUS] Z2 produksi tidak berubah (CHECKSUM TABLE awal = akhir)  -- []
+  [LULUS] Z3 folder sementara dibersihkan
+
+=== TOTAL: 19 lulus, 0 gagal, 0 dilewati (367 detik) ===

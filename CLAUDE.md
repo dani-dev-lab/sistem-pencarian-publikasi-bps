@@ -907,6 +907,16 @@ Aturan yang berlaku:
     - Saklar `perbarui.py --tanpa-ocr` (untuk tim IT): OCR dan cache-nya
       tidak dipakai; halaman dilewati dan dicatat, publikasi masuk "perlu
       diperiksa".
+    - **Pengaman `--paksa` + `--tanpa-ocr` (17 Nov 2026):** ditolak (exit 1,
+      ringkasan tahap "pemeriksaan pilihan") kalau ada publikasi domain aktif
+      dengan `halaman_ocr` > 0, sebelum jaringan dan sebelum database
+      ditulis (`publikasi_ocr_terancam`). Tanpa pengaman, entri OCR diganti
+      hasil kosong. Uji C2a-c; C2 kini menguji `--tanpa-ocr` lewat
+      `diekstrak_pada=NULL` tanpa `--paksa`.
+      - Celah yang diketahui: `--tanpa-ocr` TANPA `--paksa` tetap membaca
+        ulang publikasi OCR yang PDF-nya berubah (sidik/updt_date), dan
+        sesudah itu `halaman_ocr` kosong sehingga pengaman tidak lagi
+        mengenalinya.
     - OCR massal dipisah dari pemuatan: `scripts/isi_cache_ocr.py
       data/ocr_target.txt`. Hanya mengisi cache, tanpa DB, bisa dilanjutkan,
       ada log dan kunci proses.

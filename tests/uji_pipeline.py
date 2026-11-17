@@ -430,8 +430,38 @@ def bagian_c(s0, ocr_pub):
         len(ocr_pub) >= 1 and all(s1[p] == s0[p] and s1[p]["pub"]["halaman_ocr"] and s1[p]["entri"] for p in ocr_pub),
         {p[:8]: (s1[p]["pub"]["halaman_ocr"], sum(s1[p]["entri"].values())) for p in ocr_pub})
 
-    # C2: --tanpa-ocr = perilaku sebelum OCR ada
+    # C2a-c: --paksa + --tanpa-ocr ditolak kalau ada publikasi OCR di domain
+    # aktif (17 Nov 2026). Gabungan itu dulu menghapus entri hasil OCR.
+    cs0, n_minta = checksum_db(DB_UJI), len(PERMINTAAN)
     kode, keluar, dtk = jalan("perbarui.py", "--lokal", "--paksa", "--tanpa-ocr")
+    r = ringkasan()
+    cek("C2a --lokal --paksa --tanpa-ocr: ditolak, exit 1, pesan akibat + cara benar, semua publikasi OCR disebut",
+        kode == 1 and "TIDAK DIJALANKAN: --paksa dan --tanpa-ocr" in keluar
+        and "--paksa TANPA --tanpa-ocr" in keluar and "Database tidak diubah" in keluar
+        and f"DOMAIN {DOMAIN}" not in keluar
+        and r["status"] == "gagal" and r.get("tahap") == "pemeriksaan pilihan"
+        and sorted(r.get("publikasi_ocr", [])) == ocr_pub,
+        f"exit {kode}, {dtk:.0f} d, {len(r.get('publikasi_ocr', []))}/{len(ocr_pub)} publikasi OCR")
+    tampil(keluar, 24)
+    cek("C2a database uji tidak berubah (CHECKSUM TABLE)", checksum_db(DB_UJI) == cs0)
+    kode, keluar, dtk = jalan("perbarui.py", "--paksa", "--tanpa-ocr")
+    cek("C2b online --paksa --tanpa-ocr: ditolak sebelum jaringan (0 permintaan), database uji tidak berubah",
+        kode == 1 and "TIDAK DIJALANKAN: --paksa dan --tanpa-ocr" in keluar
+        and len(PERMINTAAN) == n_minta and checksum_db(DB_UJI) == cs0,
+        f"exit {kode}, {len(PERMINTAAN) - n_minta} permintaan")
+    # Domain aktif tanpa publikasi OCR (domain tiruan, kosong): tidak ditolak.
+    aktifkan(TIRUAN["kode"], tambahan=[TIRUAN])
+    kode, keluar, dtk = jalan("perbarui.py", "--lokal", "--paksa", "--tanpa-ocr")
+    aktifkan(DOMAIN)
+    cek("C2c domain aktif tanpa publikasi OCR: --paksa --tanpa-ocr tetap jalan, exit 0",
+        kode == 0 and "TIDAK DIJALANKAN" not in keluar and ringkasan()["status"] == "tidak_ada_baru"
+        and checksum_db(DB_UJI) == cs0, f"exit {kode}, status {ringkasan()['status']!r}")
+
+    # C2: --tanpa-ocr = perilaku sebelum OCR ada. Publikasi OCR dipaksa dibaca
+    # ulang lewat "belum pernah diekstrak" (bukan --paksa, yang kini ditolak).
+    sql("UPDATE publikasi SET diekstrak_pada=NULL WHERE id IN ("
+        + ",".join(f"'{p}'" for p in ocr_pub) + ")", DB_UJI)
+    kode, keluar, dtk = jalan("perbarui.py", "--lokal", "--tanpa-ocr")
     r = ringkasan()
     s2 = potret(DOMAIN)
     alasan = {c["pub_id"]: c["alasan"] for c in r["domain"][0]["perlu_diperiksa"]}
