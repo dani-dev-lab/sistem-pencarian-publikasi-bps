@@ -11,6 +11,7 @@ from flask import (
     render_template,
     request,
     send_from_directory,
+    url_for,
 )
 
 from app.models import EntriDokumen, LogPencarian, Publikasi, db
@@ -241,4 +242,13 @@ def hasil_pencarian():
         ambang_ditemukan=AMBANG_DITEMUKAN,
         ambang_saran=AMBANG_SARAN,
         kecamatan=_konteks_kecamatan(hasil["filter"]["kode"], kec, kc_sah),
+        url_kecamatan=_url_dengan(kec="1"),
+        url_kecamatan_semua=_url_dengan(kec="1", semua_kec="1"),
     )
+
+
+def _url_dengan(**tambahan):
+    """URL /hasil yang sama ditambah/diganti parameter (tombol kecamatan)."""
+    args = request.args.to_dict()
+    args.update(tambahan)
+    return url_for("pencarian.hasil_pencarian", **args)
