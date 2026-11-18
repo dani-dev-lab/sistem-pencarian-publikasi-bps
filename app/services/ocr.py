@@ -149,6 +149,9 @@ def halaman_tanpa_teks(path_pdf, pdf=None):
 # --------------------------------------------------------------------------
 
 _pembaca = None
+# Bawaan CPU. Hanya isi_cache_ocr.py --gpu (venv terpisah dengan torch CUDA)
+# yang menyalakannya; perbarui.py dan pipeline tidak pernah.
+GPU = False
 
 
 def _ocr_halaman(path_pdf, nomor):
@@ -159,7 +162,7 @@ def _ocr_halaman(path_pdf, nomor):
     import pypdfium2 as pdfium
 
     if _pembaca is None:
-        _pembaca = easyocr.Reader(["id", "en"], gpu=False, verbose=False)
+        _pembaca = easyocr.Reader(["id", "en"], gpu=GPU, verbose=False)
     doc = pdfium.PdfDocument(path_pdf)
     try:
         hal = doc[nomor - 1]
@@ -175,9 +178,12 @@ def _ocr_halaman(path_pdf, nomor):
         kata.append({"text": teks, "x0": min(xs) * SKALA, "x1": max(xs) * SKALA,
                      "top": min(ys) * SKALA, "bottom": max(ys) * SKALA,
                      "conf": round(float(conf) * 100, 1)})
-    return {"mesin": MESIN, "versi": easyocr.__version__, "dpi": DPI,
-            "lebar_pt": lebar, "tinggi_pt": tinggi,
-            "detik_ocr": round(time.perf_counter() - mulai, 2), "kata": kata}
+    isi = {"mesin": MESIN, "versi": easyocr.__version__, "dpi": DPI,
+           "lebar_pt": lebar, "tinggi_pt": tinggi,
+           "detik_ocr": round(time.perf_counter() - mulai, 2), "kata": kata}
+    if GPU:
+        isi["perangkat"] = "cuda"   # jejak; cache CPU tidak berubah bentuk
+    return isi
 
 
 def berkas_cache(path_pdf, nomor):

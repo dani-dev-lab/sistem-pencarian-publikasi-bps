@@ -78,6 +78,8 @@ def main():
     arg.add_argument("target", help="berkas daftar pub_id (mis. data/ocr_target.txt)")
     arg.add_argument("--batas-halaman", type=int, default=None,
                      help="UJI: OCR paling banyak N halaman per publikasi")
+    arg.add_argument("--gpu", action="store_true",
+                     help="pakai GPU CUDA (venv terpisah berisi torch CUDA); bawaan CPU")
     opsi = arg.parse_args()
     os.chdir(DIR_PROYEK)
     os.makedirs(DIR_LOG, exist_ok=True)
@@ -108,8 +110,16 @@ def main():
         from app.services import ocr
         if not ocr.tersedia():
             raise SystemExit("EasyOCR tidak terpasang: venv\\Scripts\\python.exe -m pip install -r requirements-ocr.txt")
+        if opsi.gpu:
+            import torch
+            if not torch.cuda.is_available():
+                # EasyOCR diam-diam jatuh ke CPU; lebih baik berhenti.
+                raise SystemExit(f"--gpu: CUDA tidak tersedia (torch {torch.__version__}). "
+                                 "Pakai venv GPU, atau jalankan tanpa --gpu.")
+            ocr.GPU = True
         target = baca_target(opsi.target)
-        log(f"mulai: {len(target)} publikasi, batas halaman {opsi.batas_halaman or '-'}")
+        log(f"mulai: {len(target)} publikasi, batas halaman {opsi.batas_halaman or '-'}, "
+            f"perangkat {'GPU ' + torch.cuda.get_device_name(0) if opsi.gpu else 'CPU'}")
         mulai_semua = time.perf_counter()
         total_ocr = 0
         for i, pid in enumerate(target, 1):
