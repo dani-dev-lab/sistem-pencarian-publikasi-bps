@@ -1,0 +1,196 @@
+populasi 1424 entri baru/berubah; seed 20261118
+
+#1 Kecamatan Telaga Bauntung Dalam Angka 2026 [e386e777] tabel 5.7 | hal 57 | fisik 79 | keduanya | LAMA: (None, 'keduanya')
+   JUDUL: Produksi Tanaman Hias Menurut Jenis Tanaman di Kecamatan Telaga Bauntung (tangkai), 2022–2025
+   DAFTAR p15: 5.7 Produksi Tanaman Hias Menurut Jenis Tanaman di Kecamatan Telaga // Bauntung (tangkai), 2022–2025 ...................................................................... // 5.8 Produksi Buah-buahan Tahunan Menurut Jenis Tanaman di Kecamatan
+   FISIK p79: cocok=['Tabel 5.7 Produksi Tanaman Hias Menurut Jenis Tanaman di'] folio/kop=['Agricultural Statistik for Horticulture SPH-TH', 'AGRICULTURE 57']
+
+#2 Kecamatan Panyipatan Dalam Angka 2025 [75b94fe4] tabel 5.5 | hal 81 | fisik 105 | keduanya | LAMA: (None, 'badan')
+   JUDUL: Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kecamatan Panyipatan (m 2 ), 2021 – 2024
+   DAFTAR p15: 5. 5 Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kecamatan // Panyipatan (m2), 2021–2024 ......................................................................... // 5. 6 Produksi Tanaman Hias Menurut Jenis Tanaman di Kecamatan
+   FISIK p105: cocok=['Tabel 5.5 Luas Panen Tanaman Hias Menurut Jenis Tanaman di', '5. 5 Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kecamatan Panyipatan (m2), 2021–2024'] folio/kop=['Sumber: Badan Pusat Statistik, Statistik Pertanian', '81']
+
+#3 Kecamatan Astambul Dalam Angka 2026 [0f907583] tabel 1.7 | hal 60 | fisik 82 | keduanya | LAMA: (None, 'badan')
+   JUDUL: Luas Panen Tanaman Biofarmaka Menurut Jenis Tanaman di Kecamatan Astambul (m2), 2022–2025
+   DAFTAR p15: 1.7 Luas Panen Tanaman Biofarmaka Menurut Jenis Tanaman di Kecamatan // Astambul (m2), 2022–2025............................................................................ // 1.8 Produksi Tanaman Biofarmaka Menurut Jenis Tanaman di Kecamatan
+   FISIK p82: cocok=['Tabel 1.7 Luas Panen Tanaman Biofarmaka Menurut Jenis'] folio/kop=['KECAMATAN ASTAMBUL DALAM ANGKA 2026', '60 ASTAMBUL DISTRICT IN FIGURE 2026', 'Agricultural Statistic for Horticulture SPH-TBF']
+
+#4 Kecamatan Batu Ampar Dalam Angka 2025 [b941cc03] tabel 5.8 | hal 88 | fisik 112 | keduanya | LAMA: (None, 'badan')
+   JUDUL: Luas Areal Tanaman Perkebunan Menurut Jenis Tanaman di Kecamatan Batu Ampar (ha), 2021 – 2024
+   DAFTAR p16: 5. 8 Luas Areal Tanaman Perkebunan Menurut Jenis Tanaman di // Kecamatan Batu Ampar (ha), 2021–2024 ......................................................... 88 // 5. 9 Produksi Tanaman Perkebunan Menurut Jenis Tanaman di
+   FISIK p112: cocok=['Tabel 5.8 Luas Areal Tanaman Perkebunan Menurut Jenis', '5. 8 Luas Areal Tanaman Perkebunan Menurut Jenis Tanaman di Kecamatan Batu Ampar (ha), 2021–2024'] folio/kop=['KECAMATAN BATU AMPAR DALAM ANGKA 2025', 'Sumber: Dinas Tanaman Pangan, Hortikultura dan Per', '88']
+
+#5 Kecamatan Bati-Bati Dalam Angka 2025 [ac1ffc6b] tabel 5.5 | hal 85 | fisik 109 | keduanya | LAMA: (None, 'badan')
+   JUDUL: Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kecamatan Bati-Bati (m 2 ), 2021 – 2024
+   DAFTAR p15: 5. 5 Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kecamatan // Bati-Bati (m2), 2021–2024 .......................................................................... // 5. 6 Produksi Tanaman Hias Menurut Jenis Tanaman di Kecamatan Bati-
+   FISIK p109: cocok=['Tabel 5.5 Luas Panen Tanaman Hias Menurut Jenis Tanaman di', '5. 5 Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kecamatan Bati-Bati (m2), 2021–2024'] folio/kop=['Sumber: Badan Pusat Statistik, Statistik Pertanian', '85']
+
+#6 Kecamatan Bajuin Dalam Angka 2025 [ff2ba0cd] tabel 5.5 | hal 81 | fisik 105 | keduanya | LAMA: (None, 'badan')
+   JUDUL: Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kecamatan Bajuin (m 2 ), 2021 – 2024
+   DAFTAR p15: 5. 5 Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kecamatan // Bajuin (m2), 2021–2024 ............................................................................. // 5. 6 Produksi Tanaman Hias Menurut Jenis Tanaman di Kecamatan
+   FISIK p105: cocok=['Tabel 5.5 Luas Panen Tanaman Hias Menurut Jenis Tanaman di', '5. 5 Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kecamatan Bajuin (m2), 2021–2024'] folio/kop=['Sumber: Badan Pusat Statistik, Statistik Pertanian', '81']
+
+#7 Kecamatan Pelaihari Dalam Angka 2025 [735231a0] tabel 4.2.1 | hal 67 | fisik 91 | keduanya | LAMA: (None, 'badan')
+   JUDUL: Banyaknya Desa 1 /Kelurahan yang Memiliki Sarana Kesehatan Menurut Jenis Sarana Kesehatan di Kecamatan Pelaihari, 2022 – 2024
+   DAFTAR p14: 4.2. 1 Banyaknya Desa1/Kelurahan yang Memiliki Sarana Kesehatan // Menurut Jenis Sarana Kesehatan di Kecamatan Pelaihari, 2022–2024 .. 67 // 4.2. 2 Jumlah Rumah Sakit Umum, Rumah Sakit Khusus, dan Puskesmas
+   FISIK p91: cocok=['Tabel 4.2.1 Banyaknya Desa1/Kelurahan yang Memiliki Sarana', '4.2. 1 Banyaknya Desa1/Kelurahan yang Memiliki Sarana Kesehatan Menurut Jenis Sarana Kesehatan di Ke'] folio/kop=['3Badan Pusat Statistik, Pendataan Potensi Desa (Po', '67']
+
+#8 Kecamatan Cintapuri Darussalam Dalam Angka 2026 [55cf0d51] tabel 5.12 | hal 65 | fisik 85 | keduanya | LAMA: (None, 'keduanya')
+   JUDUL: Produksi Perikanan Budidaya Menurut Kecamatan dan Jenis Ikan di Kecamatan Cintapuri Darussalam (Ton), 2025
+   DAFTAR p14: 5.12 Produksi Perikanan Budidaya Menurut Kecamatan dan Jenis Ikan di // Kecamatan Cintapuri Darussalam (Ton), 2025 ................................................. 6..5 // 5.13 Produksi Perikanan Budidaya Menurut Kecamatan dan Wadah Budidaya di
+   FISIK p85: cocok=['Tabel 5.12 Produksi Perikanan Budidaya Menurut Kecamatan dan'] folio/kop=['Agency of Banjar Regency', 'AGRICULTURE 65']
+
+#9 Kecamatan Aranio Dalam Angka 2026 [a817e441] tabel 4.1.3 | hal 35 | fisik 55 | keduanya | LAMA: (None, 'keduanya')
+   JUDUL: Jumlah Guru Menurut Tingkat Pendidikan di Kecamatan Aranio, 2024/2025 dan 2025/2026
+   DAFTAR p13: 4.1.3 Jumlah Guru Menurut Tingkat Pendidikan di Kecamatan Aranio, // 2024/2025 dan 2025/2026 ............................................................................ // 4.1.4 Jumlah Murid Menurut Tingkat Pendidikan di Kecamatan Aranio,
+   FISIK p55: cocok=['Tabel 4.1.3 Jumlah Guru Menurut Tingkat Pendidikan di Kecamatan'] folio/kop=['semester report data', 'SOCIAL AND WELFARE 35']
+
+#10 Kecamatan Martapura Timur Dalam Angka 2026 [a5ce0b9e] tabel 5.7 | hal 63 | fisik 81 | keduanya | LAMA: (None, 'keduanya')
+   JUDUL: Produksi Tanaman Hias Menurut Jenis Tanaman di Kecamatan Martapura Timur (tangkai), 2022–2025
+   DAFTAR p13: 5.7 Produksi Tanaman Hias Menurut Jenis Tanaman di Kecamatan Martapura // Timur (tangkai), 2022–2025 ......................................................................... // 5.8 Produksi Buah-buahan Tahunan Menurut Jenis Tanaman di Kecamatan
+   FISIK p81: cocok=['Tabel 5.7 Produksi Tanaman Hias Menurut Jenis Tanaman di Kecamatan'] folio/kop=['Agricultural Statistik for Horticulture SPH-TH', 'AGRICULTURE 63']
+
+#11 Kecamatan Karang Intan Dalam Angka 2026 [e648c8cd] tabel 7.2 | hal 91 | fisik 109 | keduanya | LAMA: (None, 'keduanya')
+   JUDUL: Banyaknya Desa1/Kelurahan dengan Keberadaan Koperasi Aktif Menurut Jenis Koperasi di Kecamatan Karang Intan, 2025
+   DAFTAR p14: 7.2 Banyaknya Desa1/Kelurahan dengan Keberadaan Koperasi Aktif Menurut // Jenis Koperasi di Kecamatan Karang Intan, 2025 ............................................ .9.1 // 7.3 Banyaknya Desa1/Kelurahan dengan Keberadaan Sarana Perdagangan
+   FISIK p109: cocok=['Tabel 7.2 Banyaknya Desa1/Kelurahan dengan Keberadaan'] folio/kop=['Potential Data Collecting', 'BANKING, COOPERATIVE, AND TRADE 91']
+
+#12 Kecamatan Kurau Dalam Angka 2025 [bab14906] tabel 2.1.9 | hal 27 | fisik 51 | keduanya | LAMA: (None, 'badan')
+   JUDUL: Nama Ketua RT di Desa Tambak Karya, 2024
+   DAFTAR p13: 2.1. 9 Nama Ketua RT di Desa Tambak Karya, 2024 ................................................. 27 // 2.1. 10 Nama Ketua RT di Desa Padang Luas, 2024 ...................................................  // 2.1. 11 Nama Ketua RT di Desa Tambak Sarinah, 2024 ............................................. 29
+   FISIK p51: cocok=['Tabel 2.1.9 Nama Ketua RT di Desa Tambak Karya, 2024', '2.1. 9 Nama Ketua RT di Desa Tambak Karya, 2024'] folio/kop=['Sumber: Kecamatan Kurau', '27']
+
+#13 Kecamatan Pelaihari Dalam Angka 2025 [735231a0] tabel 2.1.15 | hal 34 | fisik 59 | keduanya | LAMA: (None, 'badan')
+   JUDUL: Nama Ketua RT di Kelurahan Karang Taruna, 2024
+   DAFTAR p13: 2.1. 15 Nama Ketua RT di Kelurahan Karang Taruna, 2024 ...................................... 34 // 2.1. 16 Nama Ketua RT di Desa Telaga, 2024.......................................................... // 2.1. 17 Nama Ketua RT di Desa Guntung Besar, 2024 ............................................... 36
+   FISIK p59: cocok=['Tabel 2.1.15 Nama Ketua RT di Desa Telaga, 2024', '2.1. 15 Nama Ketua RT di Desa Telaga, 2024'] folio/kop=['Sumber: Kecamatan Pelaihari', '35']
+
+#14 Kecamatan Lampihong Dalam Angka 2025 [f272a348] gambar 3 | hal 17 | fisik 39 | keduanya | LAMA: ('17', 'keduanya')
+   JUDUL: Jumlah Rukun Tetangga (RT) Menurut Desa/Kelurahan di Kecamatan Lampihong, 2024 Number of Rukun Tetangga by Villages/Subdistricts in Lampihong District, 2024
+   DAFTAR p11: 3 Penduduk/Population .............................................................................. // 4 Sosial dan Kesejahteraan Rakyat/Social dan Welfare ............................................... // 4.1 Pendidikan/Education ...........................................................................
+   DAFTAR p13: 3 PENDUDUK /POPULATION // 3.1 Penduduk1, Distribusi Persentase Penduduk, Kepadatan Penduduk, // Rasio Jenis Kelamin Penduduk Menurut Desa/Kelurahan di Kecamatan
+   DAFTAR p13: Kecamatan Lampihong, 2024 .......................................................................... // Population1 by Age Groups and Sex inL ampihong District, 2024....................... 3..1. // 4 SOSIAL DAN KESEJAHTERAAN RAKYAT /SOCIAL DAN WELFARE
+   DAFTAR p13: Population1 by Age Groups and Sex inL ampihong District, 2024....................... 3..1. // 4 SOSIAL DAN KESEJAHTERAAN RAKYAT /SOCIAL DAN WELFARE // xi
+   DAFTAR p19: 3 Jumlah Rukun Tetangga (RT) Menurut Desa/Kelurahan di Kecamatan // Lampihong, 2024 .................................................................................... // Number of Rukun Tetangga by Villages/Subdistricts in Lampihong District,
+   DAFTAR p19: 2024/2025 .......................................................................................... // Number of Schools by Educational Level in Lampihong District, 2024/2025 ...... 39 // 6 Produksi Cabai Rawit di Kecamatan Lampihong (kuintal), 2021 –2024 .......... 6.1
+   DAFTAR p19: Number of Schools by Educational Level in Lampihong District, 2024/2025 ...... 39 // 6 Produksi Cabai Rawit di Kecamatan Lampihong (kuintal), 2021 –2024 .......... 6.1 // Production of Chili/Cayenne Pepper in Lampihong District (quintal), 2021–
+   FISIK p39: cocok=['Gambar 3 Jumlah Rukun Tetangga (RT) Menurut'] folio/kop=['2024', 'GOVERNMENT 17']
+
+#15 Kecamatan Bajuin Dalam Angka 2025 [ff2ba0cd] tabel 2.1.6 | hal 24 | fisik 48 | keduanya | LAMA: (None, 'badan')
+   JUDUL: Nama Ketua RT di Desa Galam, 2024
+   DAFTAR p13: 2.1. 6 Nama Ketua RT di Desa Galam, 2024 ........................................................... // 2.1. 7 Nama Ketua RT di Desa Pemalongan, 2024 .................................................... 2 // 2.1. 8 Nama Ketua RT di Desa Ketapang, 2024 ........................................................
+   FISIK p48: cocok=['Tabel 2.1.6 Nama Ketua RT di Desa Galam, 2024', '2.1. 6 Nama Ketua RT di Desa Galam, 2024'] folio/kop=['KECAMATAN BAJUIN DALAM ANGKA 2025', 'Sumber: Kecamatan Bajuin', '24']
+
+#16 Kecamatan Pelaihari Dalam Angka 2025 [735231a0] tabel 4.4.3 | hal 75 | fisik 99 | keduanya | LAMA: (None, 'badan')
+   JUDUL: Banyaknya Desa 1 /Kelurahan dengan Keberadaan Fasilitas/Upaya Antisipasi/Mitigasi Bencana Alam Menurut Jenis Fasilitas/Upaya Antisipasi/Mitigasi di Kecamatan Pelaihari, 2024
+   DAFTAR p15: 4.4. 3 Banyaknya Desa1/Kelurahan dengan Keberadaan Fasilitas/Upaya // Antisipasi/Mitigasi Bencana Alam Menurut Jenis Fasilitas/Upaya // Antisipasi/Mitigasi di Kecamatan Pelaihari, 2024 .......................................... 75
+   FISIK p99: cocok=['Tabel 4.4.3 Banyaknya Desa1/Kelurahan dengan Keberadaan', '4.4. 3 Banyaknya Desa1/Kelurahan dengan Keberadaan Fasilitas/Upaya Antisipasi/Mitigasi Bencana Alam '] folio/kop=['Sumber: Badan Pusat Statistik, Pendataan Potensi D', '75']
+
+#17 Kecamatan Pengaron Dalam Angka 2026 [6c2b07a3] tabel 4.1.4 | hal 38 | fisik 56 | keduanya | LAMA: (None, 'keduanya')
+   JUDUL: Jumlah Murid Menurut Tingkat Pendidikan di Kecamatan Pengaron, 2024/2025 dan 2025/2026
+   DAFTAR p11: 4.1.4 Jumlah Murid Menurut Tingkat Pendidikan di Kecamatan Pengaron, // 2024/2025 dan 2025/2026 ............................................................................ // 4.2 Kesehatan/Health ...............................................................................
+   FISIK p56: cocok=['Tabel 4.1.4 Jumlah Murid Menurut Tingkat Pendidikan di'] folio/kop=['KECAMATAN PENGARON DALAM ANGKA 2026', '38 PENGARON DISTRIC IN FIGURE 2026', 'semester report data']
+
+#18 Kecamatan Batu Ampar Dalam Angka 2025 [b941cc03] tabel 2.1.1 | hal 19 | fisik 43 | keduanya | LAMA: (None, 'badan')
+   JUDUL: Jumlah Rukun Warga (RW) dan Rukun Tetangga (RT) Menurut Desa/Kelurahan di Kecamatan Batu Ampar, 2024
+   DAFTAR p13: 2.1. 1 Jumlah Rukun Warga (RW) dan Rukun Tetangga (RT) Menurut // Desa/Kelurahan di Kecamatan Batu Ampar, 2024 ........................................ 19 // 2.1. 2 Nama Camat/Kepala Wilayah Kecamatan Batu Ampar, 1983−2024 ...... 20
+   DAFTAR p13: 2.1. 10 Nama Ketua RT di Desa Tajau Mulia, 2024 .................................................... // 2.1. 11 Nama Ketua RT di Desa Gunung Mas, 2024 ................................................... 2 // 2.1. 12 Nama Ketua RT di Desa Batu Ampar, 2024 .....................................................
+   DAFTAR p13: 2.1. 11 Nama Ketua RT di Desa Gunung Mas, 2024 ................................................... 2 // 2.1. 12 Nama Ketua RT di Desa Batu Ampar, 2024 ..................................................... // 2.1. 13 Nama Ketua RT di Desa Damar Lima, 2024 .....................................................
+   DAFTAR p13: 2.1. 12 Nama Ketua RT di Desa Batu Ampar, 2024 ..................................................... // 2.1. 13 Nama Ketua RT di Desa Damar Lima, 2024 ..................................................... // 2.1. 14 Nama Ketua RT di Desa Damit, 2024...........................................................
+   DAFTAR p13: 2.1. 13 Nama Ketua RT di Desa Damar Lima, 2024 ..................................................... // 2.1. 14 Nama Ketua RT di Desa Damit, 2024........................................................... // 2.1. 15 Nama Ketua RT di Desa Damit Hulu, 2024 .....................................................
+   DAFTAR p13: 2.1. 14 Nama Ketua RT di Desa Damit, 2024........................................................... // 2.1. 15 Nama Ketua RT di Desa Damit Hulu, 2024 ..................................................... // xi
+   DAFTAR p13: 2.1. 15 Nama Ketua RT di Desa Damit Hulu, 2024 ..................................................... // xi
+   DAFTAR p14: 2.1. 16 Nama Ketua RT di Desa Pantai Linuh, 2024 ................................................... // 2.1. 17 Nama Ketua RT di Desa Bluru, 2024 .......................................................... // 2.1. 18 Nama Ketua RT di Desa Gunung Melati, 2024 ............................................... 36
+   DAFTAR p14: 2.1. 17 Nama Ketua RT di Desa Bluru, 2024 .......................................................... // 2.1. 18 Nama Ketua RT di Desa Gunung Melati, 2024 ............................................... 36 // 3 PENDUDUK
+   DAFTAR p14: 2.1. 18 Nama Ketua RT di Desa Gunung Melati, 2024 ............................................... 36 // 3 PENDUDUK // 3. 1 Penduduk, Distribusi Persentase Penduduk, Kepadatan Penduduk,
+   FISIK p43: cocok=['Tabel 2.1.1 Jumlah Rukun Warga (RW) dan Rukun Tetangga', '2.1. 1 Jumlah Rukun Warga (RW) dan Rukun Tetangga (RT) Menurut Desa/Kelurahan di Kecamatan Batu Ampa'] folio/kop=['Sumber: Kecamatan Batu Ampar', '19']
+
+#19 Kecamatan Cintapuri Darussalam Dalam Angka 2026 [55cf0d51] tabel 1.1 | hal 5 | fisik 27 | keduanya | LAMA: ('7', 'daftar')
+   JUDUL: Luas Daerah Menurut Desa/Kelurahan di Kecamatan Cintapuri Darussalam, 2025
+   DAFTAR p12: 1.1 Luas Daerah Menurut Desa/Kelurahan di Kecamatan Cintapuri // Darussalam, 2025 ................................................................................... // 1.2 Jarak ke Ibukota Kecamatan dan Ibukota Kabupaten/Kota Menurut
+   DAFTAR p12: 1.1 Pengamatan Unsur Iklim Menurut Bulan di Kota Banjarbaru pada Stasiun // Klimatologi Banjarbaru, 2025 ....................................................................... // 2 Pemerintahan/ Government .........................................................................
+   FISIK p27: cocok=['Tabel 1.1 Pengamatan Unsur Iklim Menurut Bulan di Kota'] folio/kop=['Desember/December 22,20 27,58 33,20 63,00 84,20 10', 'GEOGRAPHY 7']
+
+#20 Kecamatan Bajuin Dalam Angka 2025 [ff2ba0cd] tabel 2.1.11 | hal 29 | fisik 53 | keduanya | LAMA: (None, 'badan')
+   JUDUL: Nama Ketua RT di Desa Sungai Bakar, 2024
+   DAFTAR p13: 2.1. 11 Nama Ketua RT di Desa Sungai Bakar, 2024 ................................................... // 2.1. 12 Nama Ketua RT di Desa Tanjung, 2024......................................................... // 2.1. 13 Nama Ketua RT di Desa Tebing Siring, 2024 ..................................................
+   FISIK p53: cocok=['Tabel 2.1.11 Nama Ketua RT di Desa Sungai Bakar, 2024', '2.1. 11 Nama Ketua RT di Desa Sungai Bakar, 2024'] folio/kop=['Sumber: Kecamatan Bajuin', '29']
+
+#21 Kecamatan Panyipatan Dalam Angka 2025 [75b94fe4] tabel 6.2.1 | hal 96 | fisik 120 | keduanya | LAMA: (None, 'badan')
+   JUDUL: Banyaknya Desa 1 /Kelurahan Menurut Prasarana dan Sarana Transportasi Antardesa/kelurahan di Kecamatan Panyipatan, 2024
+   DAFTAR p16: 6.2. 1 Banyaknya Desa1/Kelurahan Menurut Prasarana dan Sarana // Transportasi Antardesa/kelurahan di Kecamatan Panyipatan, 2024 ...... 96 // 6.2. 2 Banyaknya Kendaraan Bermotor di Kecamatan Panyipatan, 2022-
+   FISIK p120: cocok=['Tabel 6.2.1 Banyaknya Desa1/Kelurahan Menurut Prasarana dan', '6.2. 1 Banyaknya Desa1/Kelurahan Menurut Prasarana dan Sarana Transportasi Antardesa/kelurahan di Ke'] folio/kop=['KECAMATAN PANYIPATAN DALAM ANGKA 2025', 'Sumber: Badan Pusat Statistik, Pendataan Potensi D', '96']
+
+#22 Kecamatan Tambang Ulang Dalam Angka 2025 [c6dc0bef] tabel 4.1.2 | hal 52 | fisik 76 | keduanya | LAMA: (None, 'badan')
+   JUDUL: Jumlah Sekolah Menurut Tingkat Pendidikan di Kecamatan Tambang Ulang, 2023/2024 dan 2024/2025
+   DAFTAR p14: 4.1. 2 Jumlah Sekolah Menurut Tingkat Pendidikan di Kecamatan // Tambang Ulang, 2023/2024 dan 2024/2025 .................................................. 52 // 4.1. 3 Jumlah Guru Menurut Tingkat Pendidikan di Kecamatan Tambang
+   FISIK p76: cocok=['Tabel 4.1.2 Jumlah Sekolah Menurut Tingkat Pendidikan di', '4.1. 2 Jumlah Sekolah Menurut Tingkat Pendidikan di Kecamatan Tambang Ulang, 2023/2024 dan 2024/2025'] folio/kop=['KECAMATAN TAMBANG ULANG DALAM ANGKA 2025', '2Kementerian Agama, EMIS, data semester genap', '52']
+
+#23 Kecamatan Beruntung Baru Dalam Angka 2026 [540102bc] tabel 3.2 | hal 25 | fisik 43 | keduanya | LAMA: (None, 'keduanya')
+   JUDUL: Jumlah Kepemilikan Akta Kelahiran Kecamatan Beruntung Baru 2026 Number of Birth Certificate Ownership in Beruntung Baru Subdistrict 2026
+   DAFTAR p10: 3.2 Jumlah Kepemilikan Akta Kelahiran Kecamatan Beruntung Baru 2026 // Number of Birth Certificate Ownership in Beruntung Baru Subdistrict // 2026 ...............................................................................................
+   DAFTAR p11: Baru, 2024/2025 dan 2025/2026 ...................................................................... // 4.1.3 Jumlah Guru Menurut Tingkat Pendidikan di Kecamatan Beruntung Baru, // 2024/2025 dan 2025/2026 ............................................................................
+   FISIK p43: cocok=['Tabel 3.2 Jumlah Kepemilikan Akta Kelahiran Kecamatan'] folio/kop=['Pencatatan Sipil Kabupaten Banjar', 'POPULATION 25']
+
+#24 Kecamatan Bumi Makmur Dalam Angka 2025 [eb93beef] tabel 4.4.6 | hal 68 | fisik 92 | keduanya | LAMA: (None, 'badan')
+   JUDUL: Banyaknya Nikah, Talak, dan Cerai Menurut Desa/Kelurahan di Kecamatan Bumi Makmur, 20242
+   DAFTAR p15: 4.4. 6 Banyaknya Nikah, Talak, dan Cerai Menurut Desa/Kelurahan di // Kecamatan Bumi Makmur, 20242 ....................................................................... // 4.4. 7 Banyaknya Nikah, Talak, dan Cerai Menurut Bulan di Kecamatan Bumi
+   FISIK p92: cocok=['Tabel 4.4.6 Banyaknya Nikah, Talak, dan Cerai Menurut', '4.4. 6 Banyaknya Nikah, Talak, Cerai, dan Rujuk Menurut Desa/Kelurahan di Kecamatan Bumi Makmur, 202'] folio/kop=['KECAMATAN BUMI MAKMUR DALAM ANGKA 2025', 'Pelaihari', '68']
+
+#25 Kecamatan Sambung Makmur Dalam Angka 2026 [7ee4109d] tabel 3.1 | hal 59 | fisik 75 | daftar | LAMA: ('62', 'daftar')
+   JUDUL: Populasi Ternak Besar, Ternak Kecil, Unggas, dan Aneka Ternak Menurut Jenis Ternak di Kecamatan Sambung Makmur (unit), 2026
+   DAFTAR p10: 3.1 Luas Daerah Menurut Desa di Kecamatan Sambung Makmur, 2026 ........... 6. // 3.1 Jarak ke Ibukota Kecamatan dan Ibukota Kabupaten/Kota Menurut Desa // di Kecamatan Sambung Makmur (km), 2026 ..................................................... 7.. .
+   DAFTAR p10: 3.1 Jarak ke Ibukota Kecamatan dan Ibukota Kabupaten/Kota Menurut Desa // di Kecamatan Sambung Makmur (km), 2026 ..................................................... 7.. . // 1.1 Pengamatan Unsur Iklim Menurut Bulan di Kota Banjarbaru pada Stasiun
+   DAFTAR p10: 3.1 Penduduk, Distribusi Persentase Penduduk, Kepadatan Penduduk, Rasio // Jenis Kelamin Penduduk Menurut Desa di Kecamatan Sambung Makmur, // 2025 ...............................................................................................
+   DAFTAR p10: 3.1 Persentase Penduduk 0-16 Tahun Menurut Kepemilikan Kartu Identitas // Anak (KIA) di Kecamatan Sambung Makmur, 2025 ......................................... .23 // 3.1 Jumlah Penduduk Menurut Pendidikan Terakhir yang Ditamatkan dan
+   DAFTAR p10: 3.1 Jumlah Penduduk Menurut Pendidikan Terakhir yang Ditamatkan dan // Jenis Kelamin di Kecamatan Sambung Makmur, 2025 ................................. .2.4 // 3.1 Jumlah Penduduk Menurut Agama dan Jenis Kelamin di Kecamatan
+   DAFTAR p10: 3.1 Jumlah Penduduk Menurut Agama dan Jenis Kelamin di Kecamatan // Sambung Makmur, 2025 ............................................................................... // 4 Sosial dan Kesejahteraan Rakyat/ Social dan Welfare .................................. 27
+   DAFTAR p11: 3.1 Luas Tanam, Rusak, Panen, Produksi dan Rata-Rata Produksi Tanaman // Padi dan Palawija Menurut Jenis Tanaman di Kecamatan Sambung // Makmur, 2025 .......................................................................................
+   DAFTAR p11: 3.1 Luas Panen Tanaman Sayuran dan Buah -buahan Semusim Menurut Jenis // Tanaman di Kecamatan Sambung Makmur (ha), 2022 –2025 ..................... 4..7. // ix
+   DAFTAR p12: 3.1 Produksi Tanaman Sayuran dan Buah -buahan Semusim Menurut Jenis // Tanaman di Kecamatan Sambung Makmur (ton), 2022 –2025 .................. .4..9 // 3.1 Luas Panen Tanaman Biofarmaka Menurut Jenis Tanaman di Kecamatan
+   DAFTAR p12: 3.1 Luas Panen Tanaman Biofarmaka Menurut Jenis Tanaman di Kecamatan // Sambung Makmur (m2), 2022–2025 ..................................................................... // 3.1 Produksi Tanaman Biofarmaka Menurut Jenis Tanaman di Kecamatan
+   DAFTAR p12: 3.1 Produksi Tanaman Biofarmaka Menurut Jenis Tanaman di Kecamatan // Sambung Makmur (kg), 2022–2025 ..................................................................... // 3.1 Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kecamatan
+   DAFTAR p12: 3.1 Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kecamatan // Sambung Makmur (m2), 2022–2025 ..................................................................... // 3.1 Produksi Tanaman Hias Menurut Jenis Tanaman di Kecamatan Sambung
+   DAFTAR p12: 3.1 Produksi Tanaman Hias Menurut Jenis Tanaman di Kecamatan Sambung // Makmur (tangkai), 2022–2025 ........................................................................ // 3.1 Produksi Buah-buahan Tahunan Menurut Jenis Tanaman di Kecamatan
+   DAFTAR p12: 3.1 Produksi Buah-buahan Tahunan Menurut Jenis Tanaman di Kecamatan // Sambung Makmur (kuintal), 2022–2025 ......................................................... .5..5. // 3.1 Luas Areal Tanaman Perkebunan Menurut Jenis Tanaman di Kecamatan
+   DAFTAR p12: 3.1 Luas Areal Tanaman Perkebunan Menurut Jenis Tanaman di Kecamatan // Sambung Makmur (ha), 2025–2026 ..................................................................... // 3.1 Produksi Tanaman Perkebunan Menurut Jenis Tanaman di Kecamatan
+   DAFTAR p12: 3.1 Produksi Tanaman Perkebunan Menurut Jenis Tanaman di Kecamatan // Sambung Makmur (kilogram), 2025–2026....................................................... 5..8. // 3.1 Populasi Ternak Besar, Ternak Kecil, Unggas, dan Aneka Ternak Menurut
+   DAFTAR p12: 3.1 Populasi Ternak Besar, Ternak Kecil, Unggas, dan Aneka Ternak Menurut // Jenis Ternak di Kecamatan Sambung Makmur (unit), 2026 ....................... 5..9. // 3.1 Produksi Perikanan Budidaya Menurut Kecamatan dan Jenis Ikan di
+   DAFTAR p12: 3.1 Produksi Perikanan Budidaya Menurut Kecamatan dan Jenis Ikan di // Kecamatan Sambung Makmur (Ton), 2026 ..................................................... .6..0 // 3.1 Produksi Perikanan Budidaya Menurut Kecamatan dan Wadah Budidaya di
+   DAFTAR p12: 3.1 Produksi Perikanan Budidaya Menurut Kecamatan dan Wadah Budidaya di // Kecamatan Sambung Makmur (Ton), 2026 ..................................................... .6..1 // 3.1 Luas Kawasan Hutan Menurut Kecamatan di Kabupaten Banjar (Ha ), 2026
+   DAFTAR p12: 3.1 Luas Kawasan Hutan Menurut Kecamatan di Kabupaten Banjar (Ha ), 2026 // .................................................................................................... // 6 Pariwisata, Transportasi, dan Komunikasi/ Tourism, Transportation, and
+   DAFTAR p13: 3.1 Banyaknya Desa1 dengan Keberadaan Sarana Lembaga Keuangan Bank // Menurut Jenis Bank di Kecamatan Sambung Makmur, 2025 ..................... 7..4. // 3.1 Banyaknya Desa1 dengan Keberadaan Koperasi Aktif Menurut Jenis
+   DAFTAR p13: 3.1 Banyaknya Desa1 dengan Keberadaan Koperasi Aktif Menurut Jenis // Koperasi di Kecamatan Sambung Makmur, 2025 ............................................ .7.5 // 3.1 Banyaknya Desa1 dengan Keberadaan Sarana Perdagangan Menurut Jenis
+   DAFTAR p13: 3.1 Banyaknya Desa1 dengan Keberadaan Sarana Perdagangan Menurut Jenis // Sarana Perdagangan di Kecamatan Sambung Makmur, 2025 ................... 7..6. // 3.1 Jumlah Perusahaan Industri Menurut Klasifikasi Industri dan Kelompok
+   DAFTAR p13: 3.1 Jumlah Perusahaan Industri Menurut Klasifikasi Industri dan Kelompok // Tenaga Kerja di Kecamatan Sambung Makmur, 2025 ..................................... 77 // xi
+   FISIK p75: cocok=['Tabel 3.1 Populasi Ternak Besar, Ternak Kecil, Unggas , dan Aneka'] folio/kop=['Sumber/Source: Dinas Pertanian Kabupaten Banjar/ A', 'AGRICULTURE 59']
+
+#26 Kecamatan Mataraman Dalam Angka 2026 [ab8af54b] gambar 5 | hal 21 | fisik 41 | keduanya | LAMA: (None, 'badan')
+   JUDUL: Jumlah Penduduk Menurut Desa/Kelurahan dan Jenis Kelamin di Kecamatan Mataraman, 2024
+   DAFTAR p10: 5 Pertanian/ Agriculture ........................................................................... // 6 Pariwisata, Transportasi, dan Komunikasi/ Tourism, Transportation, and // Communication ......................................................................................
+   DAFTAR p13: 5 Pertanian/ Agriculture ........................................................................... // 5.1 Luas Tanam, Rusak, Panen, Produksi dan Rata-Rata Produksi Tanaman // Padi dan Palawija Menurut Jenis Tanaman di Kecamatan Mataraman, 2025
+   DAFTAR p13: Tanaman di Kecamatan Mataraman (kuintal), 2022–2025 ......................... 5..0.. // 5.4 Luas Panen Tanaman Biofarmaka Menurut Jenis Tanaman di Kecamatan // Mataraman (m2), 2022–2025 ..........................................................................
+   DAFTAR p16: 5 Jumlah Penduduk Menurut Desa/Kelurahan dan Jenis Kelamin di // Kecamatan Mataraman, 2024 .......................................................................... // 6 Jumlah Sekolah Menurut Tingkat Pendidikan di Kecamatan Mataraman,
+   DAFTAR p16: 8 Produksi Buah-buahan Tahunan Menurut 5 Jenis Tanaman Produksi // Terbanyak di Kecamatan Mataraman (kuintal), 2021-2024 ....................... .4..6. // 9 Banyaknya Desa Kelurahan Menurut Keberadaan Kantor Pos/Pos
+   FISIK p41: cocok=['Gambar 5 Jumlah Penduduk Menurut Desa/Kelurahan'] folio/kop=['District, 2024', 'POPULATION 21']
+
+#27 Kecamatan Gambut Dalam Angka 2026 [5f8d68d3] tabel 3.1 | hal 23 | fisik 41 | keduanya | LAMA: (None, 'keduanya')
+   JUDUL: Penduduk, Distribusi Persentase Penduduk, Kepadatan Penduduk, Rasio Jenis Kelamin Penduduk Menurut Desa/Kelurahan di Kecamatan Gambut, 2026
+   DAFTAR p11: 3.1 Penduduk, Distribusi Persentase Penduduk, Kepadatan Penduduk, Rasio // Jenis Kelamin Penduduk Menurut Desa/Kelurahan di Kecamatan Gambut, // 2026 ...............................................................................................
+   FISIK p41: cocok=['Tabel 3.1 Penduduk, Distribusi Persentase Penduduk, Kepadatan'] folio/kop=['Gambut 24.058 24.132 48.190', 'POPULATION 23']
+
+#28 Kecamatan Kintap Dalam Angka 2025 [35e0f08a] tabel 4.1.4 | hal 58 | fisik 82 | keduanya | LAMA: (None, 'badan')
+   JUDUL: Jumlah Murid Menurut Tingkat Pendidikan di Kecamatan Kintap, 2023/2024 dan 2024/2025
+   DAFTAR p14: 4.1. 4 Jumlah Murid Menurut Tingkat Pendidikan di Kecamatan Kintap, // 2023/2024 dan 2024/2025 ............................................................................ // 4.2 Kesehatan
+   FISIK p82: cocok=['Tabel 4.1.4 Jumlah Murid Menurut Tingkat Pendidikan di', '4.1. 4 Jumlah Murid Menurut Tingkat Pendidikan di Kecamatan Kintap, 2023/2024 dan 2024/2025'] folio/kop=['KECAMATAN KINTAP DALAM ANGKA 2025', '2Kementerian Agama, EMIS, data semester genap', '58']
+
+#29 Kecamatan Pelaihari Dalam Angka 2025 [735231a0] tabel 2.1.9 | hal 26 | fisik 51 | keduanya | LAMA: (None, 'badan')
+   JUDUL: Nama Ketua RT di Desa Sarang Halang, 2024
+   DAFTAR p13: 2.1. 9 Nama Ketua RT di Desa Tampang, 2024 ......................................................... // 2.1. 10 Nama Ketua RT di Desa Sarang Halang, 2024................................................ 27 // 2.1. 11 Nama Ketua RT di Desa Bumi Jaya, 2024 ......................................................
+   FISIK p51: cocok=['Tabel 2.1.9 Nama Ketua RT di Desa Sarang Halang, 2024', '2.1. 9 Nama Ketua RT di Desa Sarang Halang, 2024'] folio/kop=['Sumber: Kecamatan Pelaihari', '27']
+
+#30 Kecamatan Simpang Empat Dalam Angka 2026 [e924dd95] tabel 5.2 | hal 47 | fisik 65 | keduanya | LAMA: (None, 'keduanya')
+   JUDUL: Luas Panen Tanaman Sayuran dan Buah -buahan Semusim Menurut Jenis Tanaman di Kecamatan Simpang Empat (ha), 2022 –2025
+   DAFTAR p12: 5.2 Luas Panen Tanaman Sayuran dan Buah -buahan Semusim Menurut Jenis // Tanaman di Kecamatan Simpang Empat (ha), 2022 –2025 ........................ .4..7. // x
+   DAFTAR p13: Simpang Empat (kg), 2022–2025 ...................................................................... // 5.6 Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kecamatan Simpang // Empat (m2), 2022–2025 ..............................................................................
+   FISIK p65: cocok=['Tabel 5.2 Luas Panen Tanaman Sayuran dan Buah -buahan'] folio/kop=['Cabai Besar/Big Chilli 8 12,00 52,00 51,00', 'AGRICULTURE 47']

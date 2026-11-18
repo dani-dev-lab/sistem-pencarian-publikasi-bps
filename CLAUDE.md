@@ -53,6 +53,20 @@ Mahasiswa Politeknik Negeri Banjarmasin.
         (nomor Daftar berspasi "1. 1"), Banjar 2026 (halaman Daftar
         berselang titik "3..3"), Balangan 2025 (blok tanpa nomor);
       - ukur memori/waktu pencarian belum dijalankan.
+    - **Perbaikan parser Daftar 18 Nov 2026** (`data/regresi/kecamatan-parser-20261118.md`;
+      commit per pola: `7481e19` pola 2, `390f3d4` pola 3, `4d5c7c5` pola 1).
+      - Pola 2/3: nomor halaman bercampur titik leader ("3..5.",
+        "....4..2..") -> `_rapikan_nomor_halaman` di `_baca_daftar`.
+        Syaratnya leader menimpa kata itu (x1 >= x0 - 0,5), atau kata diawali
+        >= 3 karakter leader.
+      - Pola 1: "2.1." + "1" -> `_gabung_nomor_terbelah`; hanya aktif kalau
+        >= 3 baris berpola sama di halaman itu (syarat pemilik project).
+      - Uji kering 38 publikasi: halaman cetak 1.197 -> 2.662; sampel 27/30.
+        49 judul seksi dibuang aturan C2. 27 pasangan memburuk karena
+        penomoran Daftar ≠ badan di Tanah Laut 2025 (sumber).
+      - BELUM di database uji; regresi penuh menunggu OCR selesai.
+      - Utang teknis: folio romawi Balangan, nomor salah cetak Banjar 2026,
+        perkiraan kepala bab, penomoran Daftar ≠ badan Tanah Laut 2025.
 
 ## Sumber data
 - **BPS WebAPI**: `https://webapi.bps.go.id/v1/api/list/model/publication/lang/ind/domain/6300/page/{page}/key/{key}/`
