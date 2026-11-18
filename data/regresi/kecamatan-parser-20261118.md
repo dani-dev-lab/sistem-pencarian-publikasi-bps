@@ -98,3 +98,62 @@ publikasi yang berubah harus punya kata yang dirapikan menurut
   tengah baris.
 - Perkiraan halaman fisik entri kepala bab ("tabel 1 Geografi", sampel mutu #29).
 - Penomoran Daftar ≠ badan di Tanah Laut 2025 (27 pasangan; alasan pola 1 dibatalkan). Tabel Tanah Laut 2025 tetap tanpa halaman cetak, tombol dari badan benar.
+
+## Regresi penuh di database uji (18 Nov 2026, sesudah OCR selesai)
+
+Parser = `390f3d4` (pola 2 + 3; pola 1 dibatalkan). Produksi: CHECKSUM
+`entri_dokumen`, `publikasi`, `versi_data`, `log_pencarian` awal = akhir.
+
+1. **19 publikasi OCR kecamatan sisa** dimuat lewat `muat_ocr_terarah.py
+   --sasaran uji` (cache lengkap, 0 OCR baru), masing-masing 42-73 entri, dalam
+   23 detik.
+2. **`perbarui.py --db-uji --lokal --paksa`** dijalankan 10.15-12.07, kode keluar 0
+   (`regresi_perbarui_log.txt`). `--lokal --paksa` mengambil daftar dari
+   database (`susun_rencana`), jadi 312 kecamatan ikut diekstrak ulang dengan
+   fungsi yang sama. Pemuat terarah terpisah tidak diperlukan.
+   - Database uji kini: 618 publikasi, 44.455 entri, 34 publikasi OCR.
+   - Pembanding: `potret_awal.json` (sebelum langkah 1) vs `potret_akhir.json`,
+     per kunci (`analisis_regresi.py`).
+
+| Kelompok | Publikasi | Berubah | Kunci hilang | Kunci baru | Halaman cetak (publikasi berubah) |
+|---|---|---|---|---|---|
+| Produksi | 306 | 5 | **0** | 0 | 194 -> 208 |
+| Kecamatan (punya entri di awal) | 294 | 25 | 0 | 78 | 682 -> 1.656 |
+
+- **Bukti produksi:** kelima publikasi diekstrak ulang dengan
+  `_rapikan_nomor_halaman` DIMATIKAN, dan hasilnya identik dengan potret awal
+  (`bukti_tanpa_rapikan.txt`: tidak terjelaskan 0). Kata yang dirapikan ada di
+  `jejak_produksi.txt`. Semuanya Daftar Isi/Lampiran, dan semuanya membaik:
+  - SHK Komoditas Terpilih: "BAB I Pendahuluan 1…1 BAB II …" terpecah, hal. 11/15;
+  - IHK Provinsi: lampiran 1-5 mendapat halaman cetak 24-28 (fisik 39-43,
+    selisih tetap 15);
+  - PDRB Banjar (dua edisi): subbab 2.2-2.6 terpecah, halaman 18/21/25/32;
+  - PDRB Tabalong: "DAFTAR PUSTAKA .1.33 LAMPIRAN" terpecah, hal. 133.
+- **Kecamatan:**
+  - 22 dari 38 publikasi terdampak, sama dengan uji kering;
+  - Halong 2026 dan Tebing Tinggi 2026 (Balangan 2026) identik dengan awal
+    kalau pola dimatikan (`bukti_tanpa_rapikan_kec_luar38.txt`);
+  - Tapin Utara 2025 berubah karena dimuat dengan OCR (langkah 1).
+  - 18 publikasi OCR yang dulu 0 entri tidak ada di potret awal.
+  - 26/26 publikasi OCR identik antara pemuatan terarah dan run `--paksa`.
+3. **IPM HSU** (`a21060d6`, hanya di produksi): ekstraksi kering identik dengan
+   produksi, 42 entri, urutan dan isi sama (`ipm_hsu_kering.txt`).
+
+## Sampel 10 entri OCR kecamatan (seed 20261118, populasi 1.374 di 26 publikasi)
+
+Bukti berupa GAMBAR render halaman (PDF tanpa teks): potongan baris Daftar dan
+halaman yang dituju tombol PDF (`sampel_ocr.py`, `sampel_ocr_20261118.txt`).
+- **9/10 benar seluruhnya, 10/10 tombol PDF benar.** Salah baca OCR ringan
+  (";" untuk ",", "Desa'" untuk "Desa¹", "Lainnyal" untuk "Lainnya/") tidak
+  dihitung salah.
+- #6 Barabai 2026 tabel 7.1: judul berawalan sampah "COOPERATIVE, AND TRADE ops
+  g0-" (kop bab + watermark). Nomor, halaman, dan tombol benar.
+- #10 Hatungun "tabel 4.4 Sosial Lainnya" adalah kepala seksi dari Daftar,
+  bukan tabel. Halaman dan tombolnya benar.
+
+## uji_pipeline.py penuh (18 Nov 2026)
+**94 lulus, 0 gagal, 0 dilewati**, 2.342 detik (`../uji-pipeline-20261118.txt`).
+- Termasuk I1 13/13, Z1 (database uji dipulihkan, CHECKSUM sama), dan Z2
+  (produksi tidak berubah).
+- Domain uji 6305 kini memuat 24 kecamatan Tapin (P1 = 41 publikasi), dan C1
+  memeriksa 16 publikasi OCR.

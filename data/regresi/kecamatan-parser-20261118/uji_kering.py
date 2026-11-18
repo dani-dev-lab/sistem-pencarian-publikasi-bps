@@ -101,3 +101,10 @@ elif sys.argv[1] == "banding":
         print(f"\n-- {jenis} ({len(xs)}), {min(rinci, len(xs))} contoh")
         for x in xs[:rinci]:
             print("  ", x)
+
+elif sys.argv[1] == "potret":
+    # Seluruh entri database uji per publikasi -> json (pembanding regresi penuh).
+    with mesin().connect() as c:
+        pids = [r[0] for r in c.execute(text("select id from publikasi"))]
+    json.dump(dari_db(pids), open(sys.argv[2], "w", encoding="utf-8"), ensure_ascii=False, default=str)
+    print(len(pids), "publikasi")

@@ -1,0 +1,40 @@
+Database tujuan: db_pencarian_bps_uji @ localhost:3306 (UJI - bukan produksi)
+  siap  130bfd165bbdeee08cc64b7c  OCR 104/104 hal, cache lengkap  Kecamatan Labuan Amas Utara Dalam Angka 2026
+  siap  4d55a44608bb761456d1204c  OCR 104/104 hal, cache lengkap  Kecamatan Limpasu Dalam Angka 2026
+  siap  8f34c2e76948f89e9a7b4a18  OCR 104/104 hal, cache lengkap  Kecamatan Pandawan Dalam Angka 2026
+  siap  595d3a9a0b22cef576b87d74  OCR 98/114 hal, cache lengkap  Kecamatan Halong Dalam Angka 2025
+  siap  76ba4380b9f36822d7421c08  OCR 111/131 hal, cache lengkap  Kecamatan Mataraman Dalam Angka 2025
+  siap  091260302dc2f3300f01a939  OCR 101/124 hal, cache lengkap  Kecamatan Simpang Empat Dalam Angka 2025
+  siap  d7dcf0bed7427375ac4da183  OCR 100/128 hal, cache lengkap  Kecamatan Tatah Makmur Dalam Angka 2025
+  siap  c4a0fdd85dbab0748f9bb2e0  OCR 81/100 hal, cache lengkap  Kecamatan Bakarangan Dalam Angka 2025
+  siap  8bb113540b36485968a557e2  OCR 80/100 hal, cache lengkap  Kecamatan Binuang Dalam Angka 2025
+  siap  dc8b3a713d11db533836b1e8  OCR 82/100 hal, cache lengkap  Kecamatan Bungur Dalam Angka 2025
+  siap  0df22890d9a84e710cbb50f2  OCR 81/100 hal, cache lengkap  Kecamatan Candi Laras Selatan Dalam Angka 2025
+  siap  ec956b0e5a8004dfb3a7490b  OCR 82/101 hal, cache lengkap  Kecamatan Candi Laras Utara Dalam Angka 2025
+  siap  dd9c2563a9c49afe6108edcc  OCR 80/100 hal, cache lengkap  Kecamatan Hatungun Dalam Angka 2025
+  siap  84ca1f32c723ee169c8c8b3f  OCR 78/98 hal, cache lengkap  Kecamatan Lokpaikat Dalam Angka 2025
+  siap  2f5c1bca8e50d576f285572d  OCR 79/96 hal, cache lengkap  Kecamatan Piani Dalam Angka 2025
+  siap  0150218eb127edd721590f5f  OCR 78/98 hal, cache lengkap  Kecamatan Salam Babaris Dalam Angka 2025
+  siap  db297c77b36c7f78e51da428  OCR 80/100 hal, cache lengkap  Kecamatan Tapin Selatan Dalam Angka 2025
+  siap  24ae3f0b692d71992805d021  OCR 79/102 hal, cache lengkap  Kecamatan Tapin Tengah Dalam Angka 2025
+  siap  ba4b6cd46cebf4e0bdff9f8f  OCR 82/98 hal, cache lengkap  Kecamatan Tapin Utara Dalam Angka 2025
+  muat  130bfd165bbdeee08cc64b7c  42 entri  Kecamatan Labuan Amas Utara Dalam Angka 2026
+  muat  4d55a44608bb761456d1204c  45 entri  Kecamatan Limpasu Dalam Angka 2026
+  muat  8f34c2e76948f89e9a7b4a18  45 entri  Kecamatan Pandawan Dalam Angka 2026
+  muat  595d3a9a0b22cef576b87d74  58 entri  Kecamatan Halong Dalam Angka 2025
+  muat  76ba4380b9f36822d7421c08  73 entri  Kecamatan Mataraman Dalam Angka 2025
+  muat  091260302dc2f3300f01a939  64 entri  Kecamatan Simpang Empat Dalam Angka 2025
+  muat  d7dcf0bed7427375ac4da183  56 entri  Kecamatan Tatah Makmur Dalam Angka 2025
+  muat  c4a0fdd85dbab0748f9bb2e0  54 entri  Kecamatan Bakarangan Dalam Angka 2025
+  muat  8bb113540b36485968a557e2  59 entri  Kecamatan Binuang Dalam Angka 2025
+  muat  dc8b3a713d11db533836b1e8  57 entri  Kecamatan Bungur Dalam Angka 2025
+  muat  0df22890d9a84e710cbb50f2  58 entri  Kecamatan Candi Laras Selatan Dalam Angka 2025
+  muat  ec956b0e5a8004dfb3a7490b  61 entri  Kecamatan Candi Laras Utara Dalam Angka 2025
+  muat  dd9c2563a9c49afe6108edcc  57 entri  Kecamatan Hatungun Dalam Angka 2025
+  muat  84ca1f32c723ee169c8c8b3f  58 entri  Kecamatan Lokpaikat Dalam Angka 2025
+  muat  2f5c1bca8e50d576f285572d  54 entri  Kecamatan Piani Dalam Angka 2025
+  muat  0150218eb127edd721590f5f  57 entri  Kecamatan Salam Babaris Dalam Angka 2025
+  muat  db297c77b36c7f78e51da428  55 entri  Kecamatan Tapin Selatan Dalam Angka 2025
+  muat  24ae3f0b692d71992805d021  57 entri  Kecamatan Tapin Tengah Dalam Angka 2025
+  muat  ba4b6cd46cebf4e0bdff9f8f  56 entri  Kecamatan Tapin Utara Dalam Angka 2025
+Selesai.

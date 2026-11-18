@@ -71,7 +71,15 @@ Mahasiswa Politeknik Negeri Banjarmasin.
         tombol benar, tanpa halaman cetak. Bukti di `banding-pola1.txt`.
         **Jangan dikerjakan ulang tanpa menangani dulu pasangan daftar+badan
         yang halamannya tidak konsisten.**
-      - BELUM di database uji; regresi penuh menunggu OCR selesai.
+      - **Regresi penuh 18 Nov 2026 (database uji, sesudah OCR 26/26):**
+        - 306 publikasi produksi: 5 berubah, 0 kunci hilang, semuanya
+          membaik (Daftar Isi/Lampiran). TERBUKTI dari pola 2/3: dengan
+          `_rapikan_nomor_halaman` dimatikan, hasilnya identik dengan awal.
+        - Kecamatan: 25 berubah, 0 kunci hilang. IPM HSU kering = produksi.
+        - Database uji: 618 publikasi, 44.455 entri, 34 publikasi OCR.
+        - Sampel OCR kecamatan 9/10 (tombol 10/10). `uji_pipeline.py`
+          penuh: 94 lulus.
+        - BELUM dimuat ke produksi; kecamatan tetap dikecualikan (`aktif`).
       - Utang teknis lain: folio romawi Balangan, nomor salah cetak Banjar
         2026, perkiraan kepala bab.
 
