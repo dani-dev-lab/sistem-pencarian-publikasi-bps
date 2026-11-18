@@ -30,7 +30,9 @@ salinan sementara. Produksi tidak disentuh dan tidak di-push.
    - saran tanpa `kec=1` memuat 0 kecamatan;
    - waktu 85 vs 84 ms;
    - angka kotak info = jumlah di seksi bercentang.
-3. **`uji_pipeline.py` penuh:** lihat bagian akhir.
+3. **`uji_pipeline.py` penuh (sesudah semua bagian): 98 lulus, 0 gagal, 0
+   dilewati**, 2.425 detik (`uji-pipeline-20261118-kecamatan.txt`), termasuk V1-V4,
+   I1, Z1, dan Z2.
 
 ## Temuan
 1. **Potret tidak deterministik tanpa PYTHONHASHSEED.** Dua potret dari kode
