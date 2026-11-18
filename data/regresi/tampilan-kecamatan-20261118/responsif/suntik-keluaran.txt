@@ -1,0 +1,38 @@
+  320 beranda         MASALAH: jarak kotak-tulisan 26.5px; baris-baris tulisan tidak rata kiri
+  320 beranda-kab     MASALAH: jarak kotak-tulisan 26.5px; baris-baris tulisan tidak rata kiri
+  320 hasil-mati      MASALAH: jarak kotak-tulisan 26.5px; baris-baris tulisan tidak rata kiri
+  320 hasil-hidup-kc  MASALAH: jarak kotak-tulisan 26.5px; baris-baris tulisan tidak rata kiri
+  360 beranda         MASALAH: jarak kotak-tulisan 25.0px; baris-baris tulisan tidak rata kiri
+  360 beranda-kab     MASALAH: jarak kotak-tulisan 25.0px; baris-baris tulisan tidak rata kiri
+  360 hasil-mati      MASALAH: jarak kotak-tulisan 25.0px; baris-baris tulisan tidak rata kiri
+  360 hasil-hidup-kc  MASALAH: jarak kotak-tulisan 25.0px; baris-baris tulisan tidak rata kiri
+  375 beranda         MASALAH: jarak kotak-tulisan 32.5px; baris-baris tulisan tidak rata kiri
+  375 beranda-kab     MASALAH: jarak kotak-tulisan 32.5px; baris-baris tulisan tidak rata kiri
+  375 hasil-mati      MASALAH: jarak kotak-tulisan 32.5px; baris-baris tulisan tidak rata kiri
+  375 hasil-hidup-kc  MASALAH: jarak kotak-tulisan 32.5px; baris-baris tulisan tidak rata kiri
+  390 beranda         MASALAH: jarak kotak-tulisan 15.4px; baris-baris tulisan tidak rata kiri
+  390 beranda-kab     MASALAH: jarak kotak-tulisan 15.4px; baris-baris tulisan tidak rata kiri
+  390 hasil-mati      MASALAH: jarak kotak-tulisan 15.4px; baris-baris tulisan tidak rata kiri
+  390 hasil-hidup-kc  MASALAH: jarak kotak-tulisan 15.4px; baris-baris tulisan tidak rata kiri
+  412 beranda         MASALAH: jarak kotak-tulisan 14.3px; baris-baris tulisan tidak rata kiri
+  412 beranda-kab     MASALAH: jarak kotak-tulisan 14.3px; baris-baris tulisan tidak rata kiri
+  412 hasil-mati      MASALAH: jarak kotak-tulisan 14.3px; baris-baris tulisan tidak rata kiri
+  412 hasil-hidup-kc  MASALAH: jarak kotak-tulisan 14.3px; baris-baris tulisan tidak rata kiri
+  440 beranda         OK
+  440 beranda-kab     OK
+  440 hasil-mati      OK
+  440 hasil-hidup-kc  OK
+  768 beranda         OK
+  768 beranda-kab     OK
+  768 hasil-mati      OK
+  768 hasil-hidup-kc  OK
+ 1024 beranda         OK
+ 1024 beranda-kab     OK
+ 1024 hasil-mati      OK
+ 1024 hasil-hidup-kc  OK
+ 1366 beranda         OK
+ 1366 beranda-kab     OK
+ 1366 hasil-mati      OK
+ 1366 hasil-hidup-kc  OK
+
+16/36 lulus

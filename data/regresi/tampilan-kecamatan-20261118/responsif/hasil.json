@@ -1,0 +1,326 @@
+[
+ {
+  "lebar": 320,
+  "halaman": "beranda",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": false,
+  "centang": false
+ },
+ {
+  "lebar": 320,
+  "halaman": "beranda-kab",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": false
+ },
+ {
+  "lebar": 320,
+  "halaman": "hasil-mati",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": false
+ },
+ {
+  "lebar": 320,
+  "halaman": "hasil-hidup-kc",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": true
+ },
+ {
+  "lebar": 360,
+  "halaman": "beranda",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": false,
+  "centang": false
+ },
+ {
+  "lebar": 360,
+  "halaman": "beranda-kab",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": false
+ },
+ {
+  "lebar": 360,
+  "halaman": "hasil-mati",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": false
+ },
+ {
+  "lebar": 360,
+  "halaman": "hasil-hidup-kc",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": true
+ },
+ {
+  "lebar": 375,
+  "halaman": "beranda",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": false,
+  "centang": false
+ },
+ {
+  "lebar": 375,
+  "halaman": "beranda-kab",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": false
+ },
+ {
+  "lebar": 375,
+  "halaman": "hasil-mati",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": false
+ },
+ {
+  "lebar": 375,
+  "halaman": "hasil-hidup-kc",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": true
+ },
+ {
+  "lebar": 390,
+  "halaman": "beranda",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": false,
+  "centang": false
+ },
+ {
+  "lebar": 390,
+  "halaman": "beranda-kab",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": false
+ },
+ {
+  "lebar": 390,
+  "halaman": "hasil-mati",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": false
+ },
+ {
+  "lebar": 390,
+  "halaman": "hasil-hidup-kc",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": true
+ },
+ {
+  "lebar": 412,
+  "halaman": "beranda",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": false,
+  "centang": false
+ },
+ {
+  "lebar": 412,
+  "halaman": "beranda-kab",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": false
+ },
+ {
+  "lebar": 412,
+  "halaman": "hasil-mati",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": false
+ },
+ {
+  "lebar": 412,
+  "halaman": "hasil-hidup-kc",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": true
+ },
+ {
+  "lebar": 440,
+  "halaman": "beranda",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": false,
+  "centang": false
+ },
+ {
+  "lebar": 440,
+  "halaman": "beranda-kab",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": false
+ },
+ {
+  "lebar": 440,
+  "halaman": "hasil-mati",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": false
+ },
+ {
+  "lebar": 440,
+  "halaman": "hasil-hidup-kc",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": true
+ },
+ {
+  "lebar": 768,
+  "halaman": "beranda",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": false,
+  "centang": false
+ },
+ {
+  "lebar": 768,
+  "halaman": "beranda-kab",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": false
+ },
+ {
+  "lebar": 768,
+  "halaman": "hasil-mati",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": false
+ },
+ {
+  "lebar": 768,
+  "halaman": "hasil-hidup-kc",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": true
+ },
+ {
+  "lebar": 1024,
+  "halaman": "beranda",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": false,
+  "centang": false
+ },
+ {
+  "lebar": 1024,
+  "halaman": "beranda-kab",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": false
+ },
+ {
+  "lebar": 1024,
+  "halaman": "hasil-mati",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": false
+ },
+ {
+  "lebar": 1024,
+  "halaman": "hasil-hidup-kc",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": true
+ },
+ {
+  "lebar": 1366,
+  "halaman": "beranda",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": false,
+  "centang": false
+ },
+ {
+  "lebar": 1366,
+  "halaman": "beranda-kab",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": false
+ },
+ {
+  "lebar": 1366,
+  "halaman": "hasil-mati",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": false
+ },
+ {
+  "lebar": 1366,
+  "halaman": "hasil-hidup-kc",
+  "masalah": [],
+  "jarak": 8,
+  "tinggi_label": 44,
+  "kc": true,
+  "centang": true
+ }
+]

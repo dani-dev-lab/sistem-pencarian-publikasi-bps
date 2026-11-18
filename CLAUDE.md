@@ -128,8 +128,16 @@ Mahasiswa Politeknik Negeri Banjarmasin.
         - kolom log `sertakan_kecamatan`;
         - PANDUAN.md;
         - rencana pemuatan kecamatan ke produksi untuk Jumat pagi.
-      - **Belum:** cek di browser sungguhan (JS/tata letak), oleh pemilik
-        project lewat jalankan-aplikasi-uji.bat.
+      - **Cek browser pemilik project (19 Nov): kotak centang rusak, lalu
+        DIPERBAIKI** (`e8bfb74`, `data/regresi/tampilan-kecamatan-20261118/responsif/LAPORAN.md`).
+        - Penyebab: `.kotak-cari input` ikut mengenai kotak centang (melebar
+          333-365 px di desktop, 0 px di <= 412 px), teks label terpecah dua
+          item flex, dan beranda memusatkan teks.
+        - Hasil: Playwright 9 lebar x 4 halaman = 36/36 (kode lama 0/36).
+          Venv alat terpisah: `C:/Users/Dani/alat-playwright`, memakai Chrome
+          terpasang.
+        - Jebakan alat: ukur lebar ELEMEN kotak (bukan hanya jarak tepi) dan
+          kotak HURUF node teks (bukan kotak elemen span).
       - Utang teknis lain: folio romawi Balangan, nomor salah cetak Banjar
         2026, perkiraan kepala bab.
 
