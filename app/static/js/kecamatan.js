@@ -11,6 +11,21 @@
  */
 (function () {
   "use strict";
+  // Kotak info di halaman hasil tanpa centang: "Ada [n] bagian lain ...".
+  var info = document.getElementById("info-kecamatan");
+  if (info && window.fetch) {
+    fetch(info.getAttribute("data-url"))
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        if (!d) return;                          // galat: biarkan tautan tanpa angka
+        if (!d.jumlah) { info.hidden = true; return; }
+        info.querySelector(".info-teks").textContent =
+          "Ada " + d.jumlah.toLocaleString("id-ID") + " " + d.jenis +
+          " lain dari publikasi Kecamatan Dalam Angka (rincian per desa).";
+      })
+      .catch(function () {});
+  }
+
   var data = document.getElementById("data-kecamatan");
   var form = data && data.closest("form");
   if (!form) return;

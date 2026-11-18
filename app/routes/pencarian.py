@@ -243,8 +243,32 @@ def hasil_pencarian():
         ambang_saran=AMBANG_SARAN,
         kecamatan=_konteks_kecamatan(hasil["filter"]["kode"], kec, kc_sah),
         url_kecamatan=_url_dengan(kec="1"),
+        url_jumlah_kecamatan=url_for("pencarian.jumlah_kecamatan", q=kueri,
+                                     **{k: request.args[k] for k in ("w", "wo", "abaikan")
+                                        if request.args.get(k)}),
         url_kecamatan_semua=_url_dengan(kec="1", semua_kec="1"),
     )
+
+
+@bp.get("/api/kecamatan/jumlah")
+def jumlah_kecamatan():
+    """Jumlah bagian publikasi kecamatan yang cocok, untuk kotak info
+    "Ada [n] bagian lain ..." di halaman hasil TANPA centang (18 Nov 2026).
+
+    Dipanggil kecamatan.js SESUDAH halaman tampil, supaya penilaian bagian
+    kecamatan (sampai +200 ms pada kueri umum tanpa filter wilayah) tidak
+    menunda hasil utama. Fungsi skor dan ambang sama dengan seksi
+    kecamatan. Tidak menulis log.
+    """
+    kueri = (request.args.get("q") or "").strip()
+    if not kueri or not _ada_kecamatan():
+        return jsonify({"jumlah": 0, "jenis": "bagian"})
+    f = pencarian_wilayah.tentukan_filter(
+        kueri, (request.args.get("w") or "").strip(),
+        (request.args.get("wo") or "").strip(), (request.args.get("abaikan") or "").strip())
+    hanya_wilayah = f["kode"] is not None and not normalisasi_token(f["kueri_topik"])
+    b = pencarian_wilayah.cari_kecamatan(kueri, f, hanya_wilayah)
+    return jsonify({"jumlah": b["jumlah"], "jenis": "publikasi" if hanya_wilayah else "bagian"})
 
 
 def _url_dengan(**tambahan):

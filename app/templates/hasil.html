@@ -98,6 +98,16 @@
   </section>
 {%- endmacro %}
 
+{# Kotak info tanpa centang. Tanpa JavaScript: tautan tanpa angka. Dengan
+   JavaScript (kecamatan.js): angka dari /api/kecamatan/jumlah, kotak
+   disembunyikan kalau 0. #}
+{% macro info_kecamatan() %}
+<div class="info-kecamatan" id="info-kecamatan" data-url="{{ url_jumlah_kecamatan }}">
+  <span class="info-teks">Cari juga di publikasi Kecamatan Dalam Angka (rincian per desa).</span>
+  <a class="tombol-kecamatan" href="{{ url_kecamatan }}">Tampilkan</a>
+</div>
+{%- endmacro %}
+
 {% block konten %}
 {{ form_cari(daftar_wilayah, kueri=kueri, terpilih=filter.kode or '',
              wo=filter.kode if filter.sumber == 'otomatis' else '',
@@ -125,7 +135,8 @@
   <strong>{{ hasil.ditemukan|length + hasil.saran|length }}</strong> bagian untuk
   &ldquo;{{ kueri }}&rdquo;{% if filter.nama %} di <strong>{{ filter.nama }}</strong>{% endif %}
   &middot; {{ '%.0f'|format(hasil.waktu_ms) }} ms
-</p>
+</p>{% if kecamatan.ada and not hasil.kecamatan %}
+{{ info_kecamatan() }}{% endif %}
 
 {% if hasil.hanya_wilayah %}
   {# Kueri hanya nama wilayah ("tanah laut"): tidak ada topik untuk dicari di

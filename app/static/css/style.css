@@ -153,6 +153,11 @@ main { flex: 1; width: 100%; max-width: 1180px; margin: 0 auto; padding: 28px 20
                      font-size: 14px; color: var(--teks); cursor: pointer; }
 .centang-kecamatan .ket { color: var(--abu, #667); }
 .label-kecamatan { font-weight: 600; }
+.info-kecamatan { display: flex; align-items: center; justify-content: space-between; gap: 12px;
+                  margin: 0 0 18px; padding: 10px 14px; border: 1px solid var(--garis);
+                  border-radius: 6px; background: #f6f9fc; font-size: 14px; }
+.info-kecamatan[hidden] { display: none; }
+.tombol-kecamatan { white-space: nowrap; font-weight: 600; }
 
 /* Layar kecil: kotak cari selebar layar, dropdown + tombol di baris kedua. */
 @media (max-width: 640px) {
