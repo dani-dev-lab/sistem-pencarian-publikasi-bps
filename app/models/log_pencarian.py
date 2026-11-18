@@ -29,6 +29,13 @@ class LogPencarian(db.Model):
     # Kosong = semua wilayah. Baris sebelum 10 Nov 2026 kosong. Kolomnya
     # ditambahkan ke database lama oleh app/models/skema.py.
     wilayah_filter = db.Column(db.CHAR(4))
+
+    # Kotak centang "Sertakan publikasi Kecamatan Dalam Angka" (19 Nov 2026):
+    # 1 = dicentang, 0 = tersedia tapi tidak dicentang, NULL = tidak tersedia
+    # (database tanpa publikasi kecamatan) atau baris lama. Bahan evaluasi
+    # tim PST: seberapa sering petugas memakai rincian per desa. jumlah_hasil
+    # dan skor_tertinggi tetap hanya dari hasil utama.
+    sertakan_kecamatan = db.Column(db.Boolean)
     waktu_pencarian = db.Column(
         db.DateTime,
         nullable=False,

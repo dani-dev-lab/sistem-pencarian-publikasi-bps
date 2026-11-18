@@ -19,6 +19,7 @@ KOLOM_TAMBAHAN = [
     ("entri_dokumen", "halaman_fisik_perkiraan",
      "TINYINT(1) NOT NULL DEFAULT 0 AFTER halaman_fisik"),                  # perkiraan, 16 Nov 2026
     ("publikasi", "kecamatan", "VARCHAR(60) NULL AFTER wilayah"),           # kecamatan, 18 Nov 2026
+    ("log_pencarian", "sertakan_kecamatan", "TINYINT(1) NULL AFTER wilayah_filter"),  # 19 Nov 2026
 ]
 
 _SIAP = False

@@ -65,7 +65,7 @@ def _arg_kecamatan():
     return request.args.get("kec") == "1" or bool(kc), kc, request.args.get("semua_kec") == "1"
 
 
-def _catat_log(hasil):
+def _catat_log(hasil, kecamatan_tersedia=False):
     """Rekam kueri ke log_pencarian.
 
     Dipakai untuk closed-loop improvement: kueri berskor rendah direview
@@ -100,6 +100,7 @@ def _catat_log(hasil):
             # hasil. Penulisan log dan render halaman tidak ikut terhitung.
             durasi_ms=round(hasil["waktu_ms"], 1),
             wilayah_filter=hasil["filter"]["kode"],
+            sertakan_kecamatan=(hasil.get("kecamatan") is not None) if kecamatan_tersedia else None,
         ))
         db.session.commit()
     except Exception:  # noqa: BLE001 - log gagal bukan alasan menolak hasil
@@ -237,7 +238,7 @@ def hasil_pencarian():
         wo=(request.args.get("wo") or "").strip(),
         abaikan=(request.args.get("abaikan") or "").strip(),
         kec=kec, kc=kc, semua_kec=semua_kec)
-    _catat_log(hasil)
+    _catat_log(hasil, kecamatan_tersedia=_ada_kecamatan())
 
     kc_sah = hasil["kecamatan"]["kc"] if hasil["kecamatan"] else ""
     return render_template(
