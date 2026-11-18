@@ -1,0 +1,38 @@
+  320 beranda         MASALAH: kotak centang tidak terlihat ({'x': 18, 'y': 474.1875, 'w': 0, 'h': 13, 'r': 18, 'b': 487.1875}); area sentuh 42px
+  320 beranda-kab     MASALAH: kotak centang tidak terlihat ({'x': 18, 'y': 474.1875, 'w': 0, 'h': 13, 'r': 18, 'b': 487.1875}); area sentuh 42px
+  320 hasil-mati      MASALAH: kotak centang tidak terlihat ({'x': 18, 'y': 243.890625, 'w': 0, 'h': 13, 'r': 18, 'b': 256.890625}); area sentuh 42px
+  320 hasil-hidup-kc  MASALAH: kotak centang tidak terlihat ({'x': 18, 'y': 243.890625, 'w': 0, 'h': 13, 'r': 18, 'b': 256.890625}); area sentuh 42px
+  360 beranda         MASALAH: kotak centang tidak terlihat ({'x': 18, 'y': 479.25, 'w': 0, 'h': 13, 'r': 18, 'b': 492.25}); area sentuh 42px
+  360 beranda-kab     MASALAH: kotak centang tidak terlihat ({'x': 18, 'y': 479.25, 'w': 0, 'h': 13, 'r': 18, 'b': 492.25}); area sentuh 42px
+  360 hasil-mati      MASALAH: kotak centang tidak terlihat ({'x': 18, 'y': 241.5, 'w': 0, 'h': 13, 'r': 18, 'b': 254.5}); area sentuh 42px
+  360 hasil-hidup-kc  MASALAH: kotak centang tidak terlihat ({'x': 18, 'y': 241.5, 'w': 0, 'h': 13, 'r': 18, 'b': 254.5}); area sentuh 42px
+  375 beranda         MASALAH: kotak centang tidak terlihat ({'x': 18, 'y': 479.25, 'w': 0, 'h': 13, 'r': 18, 'b': 492.25}); area sentuh 42px
+  375 beranda-kab     MASALAH: kotak centang tidak terlihat ({'x': 18, 'y': 479.25, 'w': 0, 'h': 13, 'r': 18, 'b': 492.25}); area sentuh 42px
+  375 hasil-mati      MASALAH: kotak centang tidak terlihat ({'x': 18, 'y': 241.5, 'w': 0, 'h': 13, 'r': 18, 'b': 254.5}); area sentuh 42px
+  375 hasil-hidup-kc  MASALAH: kotak centang tidak terlihat ({'x': 18, 'y': 241.5, 'w': 0, 'h': 13, 'r': 18, 'b': 254.5}); area sentuh 42px
+  390 beranda         MASALAH: kotak centang tidak terlihat ({'x': 18, 'y': 489, 'w': 0, 'h': 13, 'r': 18, 'b': 502}); area sentuh 42px
+  390 beranda-kab     MASALAH: kotak centang tidak terlihat ({'x': 18, 'y': 489, 'w': 0, 'h': 13, 'r': 18, 'b': 502}); area sentuh 42px
+  390 hasil-mati      MASALAH: kotak centang tidak terlihat ({'x': 18, 'y': 241.5, 'w': 0, 'h': 13, 'r': 18, 'b': 254.5}); area sentuh 42px
+  390 hasil-hidup-kc  MASALAH: kotak centang tidak terlihat ({'x': 18, 'y': 241.5, 'w': 0, 'h': 13, 'r': 18, 'b': 254.5}); area sentuh 42px
+  412 beranda         MASALAH: kotak centang tidak terlihat ({'x': 18, 'y': 489, 'w': 0, 'h': 13, 'r': 18, 'b': 502}); area sentuh 42px
+  412 beranda-kab     MASALAH: kotak centang tidak terlihat ({'x': 18, 'y': 489, 'w': 0, 'h': 13, 'r': 18, 'b': 502}); area sentuh 42px
+  412 hasil-mati      MASALAH: kotak centang tidak terlihat ({'x': 18, 'y': 241.5, 'w': 0, 'h': 13, 'r': 18, 'b': 254.5}); area sentuh 42px
+  412 hasil-hidup-kc  MASALAH: kotak centang tidak terlihat ({'x': 18, 'y': 241.5, 'w': 0, 'h': 13, 'r': 18, 'b': 254.5}); area sentuh 42px
+  440 beranda         MASALAH: area sentuh 21px
+  440 beranda-kab     MASALAH: area sentuh 21px
+  440 hasil-mati      MASALAH: area sentuh 21px
+  440 hasil-hidup-kc  MASALAH: area sentuh 21px
+  768 beranda         MASALAH: elemen kotak centang melebar 333px (kotak jauh dari tulisan); area sentuh 21px
+  768 beranda-kab     MASALAH: elemen kotak centang melebar 333px (kotak jauh dari tulisan); area sentuh 21px
+  768 hasil-mati      MASALAH: elemen kotak centang melebar 333px (kotak jauh dari tulisan); area sentuh 21px
+  768 hasil-hidup-kc  MASALAH: elemen kotak centang melebar 333px (kotak jauh dari tulisan); area sentuh 21px
+ 1024 beranda         MASALAH: elemen kotak centang melebar 365px (kotak jauh dari tulisan); area sentuh 21px
+ 1024 beranda-kab     MASALAH: elemen kotak centang melebar 365px (kotak jauh dari tulisan); area sentuh 21px
+ 1024 hasil-mati      MASALAH: elemen kotak centang melebar 365px (kotak jauh dari tulisan); area sentuh 21px
+ 1024 hasil-hidup-kc  MASALAH: elemen kotak centang melebar 365px (kotak jauh dari tulisan); area sentuh 21px
+ 1366 beranda         MASALAH: elemen kotak centang melebar 365px (kotak jauh dari tulisan); area sentuh 21px
+ 1366 beranda-kab     MASALAH: elemen kotak centang melebar 365px (kotak jauh dari tulisan); area sentuh 21px
+ 1366 hasil-mati      MASALAH: elemen kotak centang melebar 365px (kotak jauh dari tulisan); area sentuh 21px
+ 1366 hasil-hidup-kc  MASALAH: elemen kotak centang melebar 365px (kotak jauh dari tulisan); area sentuh 21px
+
+0/36 lulus

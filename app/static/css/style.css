@@ -149,8 +149,40 @@ main { flex: 1; width: 100%; max-width: 1180px; margin: 0 auto; padding: 28px 20
 .kotak-cari:has(.centang-kecamatan) { flex-wrap: wrap; }
 .pilih-kecamatan { width: 170px; }
 .pilih-kecamatan:disabled { opacity: .55; cursor: default; }
-.centang-kecamatan { flex: 1 1 100%; display: flex; align-items: center; gap: 6px;
-                     font-size: 14px; color: var(--teks); cursor: pointer; }
+/* Kotak centang selalu tepat di kiri tulisan, rata kiri di baris sendiri
+   (19 Nov 2026). Selektornya sengaja lebih spesifik daripada
+   ".kotak-cari input": aturan kotak kata kunci itu (flex: 1, padding,
+   border, min-width: 0) dulu ikut mengenai kotak centang, sehingga di
+   desktop kotaknya melebar dan mendorong tulisan ke kanan jauh, dan di
+   layar sempit menyusut sampai hilang. Seluruh label (min 44px) adalah
+   area sentuh. */
+.kotak-cari .centang-kecamatan {
+  flex: 1 1 100%;
+  order: 10;                      /* selalu baris terakhir form */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;               /* beranda (.pusat) memusatkan teks */
+  gap: 8px;
+  min-height: 44px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--teks);
+  cursor: pointer;
+}
+.kotak-cari .centang-kecamatan input[type="checkbox"] {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  accent-color: var(--biru);
+  cursor: pointer;
+}
+.kotak-cari .centang-kecamatan .teks-centang { flex: 0 1 auto; min-width: 0; }
 .centang-kecamatan .ket { color: var(--abu, #667); }
 .label-kecamatan { font-weight: 600; }
 .info-kecamatan { display: flex; align-items: center; justify-content: space-between; gap: 12px;
@@ -165,6 +197,9 @@ main { flex: 1; width: 100%; max-width: 1180px; margin: 0 auto; padding: 28px 20
   .kotak-cari > input[type="search"], .kotak-cari > .saran-pembungkus { flex: 1 1 100%; }
   .pilih-wilayah { flex: 1 1 0; width: auto; min-width: 0; padding: 10px; }
   .beranda .kotak-cari button, .kotak-cari button { padding-left: 20px; padding-right: 20px; }
+  /* Dropdown kecamatan (kalau muncul): baris sendiri selebar form, di bawah
+     wilayah + tombol Cari, di atas kotak centang. */
+  .kotak-cari .pilih-kecamatan { flex: 1 1 100%; order: 5; min-height: 44px; }
   main { padding-left: 14px; padding-right: 14px; }
   .pusat h1 { font-size: 23px; }
 }

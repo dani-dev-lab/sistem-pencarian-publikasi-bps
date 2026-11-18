@@ -25,10 +25,14 @@
     {% endfor %}
   </select>
 {%- endmacro %}
+{# Teks label dalam SATU span: tanpa itu teks lepas dan span .ket menjadi dua
+   item flex dan terpecah ke dua kolom di layar sempit (19 Nov 2026).
+   Komentar ini sengaja di LUAR makro: di dalamnya ia meninggalkan baris
+   kosong di HTML, dan pembuang widget di uji_pipeline bagian V tidak cocok. #}
 {% macro centang_kecamatan(k) %}
   <label class="centang-kecamatan">
     <input type="checkbox" name="kec" value="1"{% if k.kec %} checked{% endif %}>
-    Sertakan publikasi Kecamatan Dalam Angka <span class="ket">(rincian per desa)</span>
+    <span class="teks-centang">Sertakan publikasi Kecamatan Dalam Angka <span class="ket">(rincian per desa)</span></span>
   </label>
   <script type="application/json" id="data-kecamatan">{{ k.semua|tojson }}</script>
   <script src="{{ url_for('static', filename='js/kecamatan.js') }}" defer></script>
