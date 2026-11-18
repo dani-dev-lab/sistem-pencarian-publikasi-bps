@@ -89,9 +89,10 @@ def tentukan_filter(kueri, w=None, wo=None, abaikan=None):
     }
 
 
-def cari(kueri, w=None, wo=None, abaikan=None):
+def cari(kueri, w=None, wo=None, abaikan=None, kec=False, kc=None, semua_kec=False):
     """Pencarian lengkap dengan filter wilayah. Return dict hasil cari()
-    ditambah `filter` dan `hanya_wilayah`."""
+    ditambah `filter`, `hanya_wilayah`, dan `kecamatan` (None kalau kotak
+    centang kecamatan mati; lihat cari_kecamatan)."""
     mulai = time.perf_counter()
     f = tentukan_filter(kueri, w, wo, abaikan)
 
@@ -116,4 +117,42 @@ def cari(kueri, w=None, wo=None, abaikan=None):
     hasil["kueri"] = kueri          # yang diketik petugas, untuk tampilan dan log
     hasil["filter"] = f
     hasil["hanya_wilayah"] = hanya_wilayah
+    # Kunci BARU saja; kunci di atas tidak bergantung pada kec/kc, sehingga
+    # hasil tanpa centang sama dengan sebelum kecamatan ada (18 Nov 2026).
+    hasil["kecamatan"] = (cari_kecamatan(kueri, f, hanya_wilayah, kc, semua_kec)
+                          if (kec or kc) else None)
     return hasil
+
+
+def kecamatan_sah(f, kc):
+    """Kunci kecamatan `kc` kalau sah untuk filter `f` (kab/kota yang punya
+    kecamatan itu), selain itu None."""
+    if not kc or f["kode"] in (None, DOMAIN_PROVINSI):
+        return None
+    return kc if kc in {k for k, _ in mesin_pencari.daftar_kecamatan(f["kode"])} else None
+
+
+def cari_kecamatan(kueri, f, hanya_wilayah, kc=None, semua_kec=False):
+    """Bagian "Dari publikasi Kecamatan Dalam Angka" (hanya kalau dicentang).
+
+    Kueri yang dinilai sama dengan hasil utama: tanpa kata wilayah filter.
+    `kc` yang tidak sah (wilayah bukan kab/kota, atau kecamatan tidak ada di
+    wilayah itu) diabaikan dengan pesan, bukan galat.
+    """
+    mulai = time.perf_counter()
+    kc_sah = kecamatan_sah(f, kc)
+    nama_kc = dict(mesin_pencari.daftar_kecamatan(f["kode"])).get(kc_sah) if f["kode"] else None
+    bagian = {"kc": kc_sah, "nama_kc": nama_kc, "semua": bool(semua_kec),
+              "pesan": ("Pilihan kecamatan diabaikan: pilih kabupaten/kota yang "
+                        "memiliki kecamatan itu." if kc and not kc_sah else None),
+              "hasil": [], "jumlah": 0, "publikasi": []}
+    if hanya_wilayah:
+        bagian["publikasi"] = mesin_pencari.publikasi_kecamatan(f["kode"], kc_sah)
+        bagian["jumlah"] = len(bagian["publikasi"])
+    elif f["kode"] != DOMAIN_PROVINSI:      # provinsi tidak punya publikasi kecamatan
+        r = mesin_pencari.cari_kecamatan(
+            f["kueri_topik"] if f["kode"] else kueri, domain=f["kode"],
+            kc=kc_sah, batas=None if semua_kec else mesin_pencari.BATAS_KECAMATAN)
+        bagian.update(r)
+    bagian["waktu_ms"] = (time.perf_counter() - mulai) * 1000
+    return bagian

@@ -481,3 +481,61 @@ def publikasi_wilayah(domain):
            kode, wilayah, _, _) in k.publikasi_per_domain.get(domain, ())]
     hasil.sort(key=lambda h: (-(h["tanggal_rilis"] or date.min).toordinal(), h["judul"]))
     return hasil
+
+
+# --------------------------------------------------------------------------
+# Publikasi Kecamatan Dalam Angka (18 Nov 2026)
+# --------------------------------------------------------------------------
+# Hanya dipanggil kalau petugas mencentang "Sertakan publikasi Kecamatan
+# Dalam Angka" (atau untuk menghitung kotak info). Menilai bagian *_kec
+# korpus dengan fungsi skor dan ambang yang SAMA dengan cari(); hasil utama
+# tidak disentuh.
+
+BATAS_KECAMATAN = 20     # kartu kecamatan sebelum "tampilkan semua"
+
+
+def daftar_kecamatan(domain):
+    """((kunci, nama), ...) kecamatan yang punya publikasi di `domain`."""
+    return korpus().daftar_kecamatan.get(domain, ())
+
+
+def _baris_kecamatan(k, domain, kc):
+    baris = k.entri_kec if domain is None else k.entri_kec_per_domain.get(domain, ())
+    if kc:
+        baris = tuple(b for b in baris if k.kecamatan_publikasi[b[7]][0] == kc)
+    return baris
+
+
+def cari_kecamatan(kueri, domain=None, kc=None, batas=BATAS_KECAMATAN,
+                   ambang_saran=AMBANG_SARAN):
+    """Entri publikasi kecamatan yang cocok, skor >= ambang saran, terurut.
+
+    `domain` = kab/kota (None = semua), `kc` = kunci satu kecamatan.
+    Return {"hasil": [...], "jumlah": n semua yang lolos ambang}. Tiap hasil
+    berkunci sama dengan hasil cari() + "kecamatan" (nama tampil). `batas`
+    None = semua.
+    """
+    token_kueri = normalisasi_token(kueri)
+    if not token_kueri:
+        return {"hasil": [], "jumlah": 0}
+    k = korpus()
+    hasil, _ = _cari_entri(token_kueri, _baris_kecamatan(k, domain, kc), ambang_saran)
+    for h in hasil:
+        h["kecamatan"] = k.kecamatan_publikasi[h["publikasi_id"]][1]
+    return {"hasil": hasil if batas is None else hasil[:batas], "jumlah": len(hasil)}
+
+
+def publikasi_kecamatan(domain, kc=None):
+    """Publikasi kecamatan satu kab/kota (kueri yang hanya berisi nama
+    wilayah + centang kecamatan), terbaru dulu, lalu menurut nama kecamatan."""
+    k = korpus()
+    hasil = [{
+        "publikasi_id": pid, "judul": judul, "abstrak": abstrak,
+        "tanggal_rilis": tanggal_rilis, "url_pdf": url_pdf,
+        "jumlah_entri": jumlah_entri, "domain": kode, "wilayah": wilayah,
+        "skor": None, "kecamatan": k.kecamatan_publikasi[pid][1],
+    } for (pid, judul, abstrak, tanggal_rilis, url_pdf, _, jumlah_entri,
+           kode, wilayah, _, _) in k.publikasi_kec_per_domain.get(domain, ())
+        if not kc or k.kecamatan_publikasi[pid][0] == kc]
+    hasil.sort(key=lambda h: (-(h["tanggal_rilis"] or date.min).toordinal(), h["kecamatan"]))
+    return hasil
