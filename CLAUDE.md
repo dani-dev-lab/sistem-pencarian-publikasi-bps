@@ -130,8 +130,11 @@ Mahasiswa Politeknik Negeri Banjarmasin.
           tanpa kec tetap satu halaman);
         - `log_pencarian.sertakan_kecamatan` (`be19514`: 1/0/NULL);
         - PANDUAN bagian 1, 8, 9 (`3936359`).
-      - **RENCANA muat kecamatan ke produksi** (Jumat 21 Nov pagi, MENUNGGU
-        persetujuan): `data/regresi/rencana-muat-kecamatan-20261119.md`.
+      - **RENCANA muat kecamatan ke produksi DISETUJUI 19 Nov malam,
+        dikerjakan KAMIS 20 Nov pagi:**
+        `data/regresi/rencana-muat-kecamatan-20261119.md`. Keputusannya:
+        salin dari database uji; `kecualikan_judul.aktif` = false saat
+        pemuatan; 5 publikasi produksi pola 2+3 dimuat di langkah terpisah.
         - Usulnya: salin baris dari database uji (satu transaksi), dan
           `kecualikan_judul.aktif` jadi `false`.
         - 86 publikasi kecamatan ber-`updt_date_diproses` kosong = API juga
