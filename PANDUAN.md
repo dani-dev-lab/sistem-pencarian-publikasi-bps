@@ -695,6 +695,27 @@ database, seluruhnya 1.192 halaman.
 - **Memisahkan pekerjaan berat:** `scripts\isi_cache_ocr.py` meng-OCR
   daftar publikasi tanpa menyentuh database dan bisa dilanjutkan kalau
   terputus. Cara pakainya tertulis di awal berkas itu.
+- **Kalau ada kartu grafis NVIDIA (opsional):** `isi_cache_ocr.py` bisa
+  memakai GPU dengan pilihan `--gpu`, sekitar 5 kali lebih cepat (±3,5
+  detik per halaman, diukur di RTX 3060 laptop, 18 November 2026). Bawaannya
+  tetap CPU; `perbarui-data.bat` dan tombol admin selalu memakai CPU.
+  - GPU membutuhkan **venv terpisah** berisi torch versi CUDA (±3,5 GB), bukan
+    venv proyek. Venv proyek tetap memakai torch CPU dari
+    `requirements-ocr.txt`.
+  - Memasang (contoh untuk driver yang mendukung CUDA 13.2 ke atas; cek
+    dengan `nvidia-smi`, angka "CUDA Version" di kanan atas):
+    ```
+    python -m venv C:\alat-ocr\venv-gpu
+    C:\alat-ocr\venv-gpu\Scripts\python.exe -m pip install torch==2.15.0+cu132 torchvision==0.29.1+cu132 --index-url https://download.pytorch.org/whl/cu132 --extra-index-url https://pypi.org/simple
+    C:\alat-ocr\venv-gpu\Scripts\python.exe -m pip install easyocr==1.7.2 -r requirements.txt
+    ```
+  - Menjalankan (dari folder aplikasi):
+    `C:\alat-ocr\venv-gpu\Scripts\python.exe scripts\isi_cache_ocr.py <daftar> --gpu`.
+    Kalau GPU tidak terbaca, skrip berhenti dengan pesan, tidak diam-diam
+    memakai CPU.
+  - Hasilnya hampir sama dengan CPU: letak kata identik, teks 545 dari 551
+    kata sama; bedanya hanya tanda baca (CPU memakai model yang dikompres,
+    GPU model penuh). Rincian di `data/regresi/ocr-gpu-20261118.md`.
 - Server aplikasi tidak pernah memuat OCR, jadi kebutuhan memorinya tidak
   berubah.
 

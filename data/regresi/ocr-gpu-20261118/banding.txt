@@ -1,0 +1,18 @@
+289e7b7f h 11 cache vs cpu: kata 46/46, berpasangan 46, teks sama 46/46, geser kotak maks 0.00 pt, tak berpasangan (0, 0), kemiripan teks 1.0000
+289e7b7f h 11 cache vs gpu: kata 46/46, berpasangan 46, teks sama 46/46, geser kotak maks 0.00 pt, tak berpasangan (0, 0), kemiripan teks 1.0000
+289e7b7f h 70 cache vs cpu: kata 212/212, berpasangan 212, teks sama 212/212, geser kotak maks 0.00 pt, tak berpasangan (0, 0), kemiripan teks 1.0000
+289e7b7f h 70 cache vs gpu: kata 212/212, berpasangan 212, teks sama 211/212, geser kotak maks 0.00 pt, tak berpasangan (0, 0), kemiripan teks 0.9995
+      'Indonesia:' -> 'Indonesia.'
+4d55a446 h  9 cache vs cpu: kata 56/56, berpasangan 56, teks sama 56/56, geser kotak maks 0.00 pt, tak berpasangan (0, 0), kemiripan teks 1.0000
+4d55a446 h  9 cache vs gpu: kata 56/56, berpasangan 56, teks sama 53/56, geser kotak maks 0.00 pt, tak berpasangan (0, 0), kemiripan teks 0.9972
+      'rencana pembangunan di Kecamatan Limpasu:' -> 'rencana pembangunan di Kecamatan Limpasu.'
+      'disampaikan   penghargaan' -> 'disampaikan  penghargaan'
+      'perbaikan publikasi ini; tanggapan dan' -> 'perbaikan publikasi ini, tanggapan dan'
+8f34c2e7 h 14 cache vs cpu: kata 55/55, berpasangan 55, teks sama 55/55, geser kotak maks 0.00 pt, tak berpasangan (0, 0), kemiripan teks 1.0000
+8f34c2e7 h 14 cache vs gpu: kata 55/55, berpasangan 55, teks sama 54/55, geser kotak maks 0.00 pt, tak berpasangan (0, 0), kemiripan teks 0.9993
+      "Number of Villages' /Subdistricts by Source of Villages/Subdistricts's" -> "Number of Villages' /Subdistricts by Source of VillageslSubdistricts's"
+8f34c2e7 h 27 cache vs cpu: kata 182/182, berpasangan 182, teks sama 182/182, geser kotak maks 0.00 pt, tak berpasangan (0, 0), kemiripan teks 1.0000
+8f34c2e7 h 27 cache vs gpu: kata 182/182, berpasangan 182, teks sama 181/182, geser kotak maks 0.00 pt, tak berpasangan (0, 0), kemiripan teks 0.9998
+      'tengaln' -> 'tengan'
+TOTAL cpu: 551/551 kata berpasangan sama teks (dari 551 kata cache), geser kotak maks 0.00 pt
+TOTAL gpu: 545/551 kata berpasangan sama teks (dari 551 kata cache), geser kotak maks 0.00 pt
