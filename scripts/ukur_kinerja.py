@@ -23,6 +23,9 @@ label berbeda sebelum dan sesudah revisi, lalu bandingkan kedua berkasnya.
 TIDAK menulis ke log_pencarian (memanggil cari() langsung, bukan lewat
 halaman /hasil), jadi log kueri petugas tidak tercemar kueri uji.
 
+--db-uji mengukur database uji (KonfigurasiUji); tanpa itu, produksi (hanya
+dibaca).
+
 Jalankan:  venv/Scripts/python.exe scripts/ukur_kinerja.py --label sebelum
            venv/Scripts/python.exe scripts/ukur_kinerja.py --label sesudah --ulang 30
 """
@@ -152,12 +155,19 @@ def main():
     arg = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     arg.add_argument("--label", default="ukur",
                      help="Penanda pengukuran, misalnya 'sebelum' atau 'sesudah'.")
+    arg.add_argument("--db-uji", action="store_true",
+                     help="Ukur database UJI (KonfigurasiUji), bukan produksi.")
     arg.add_argument("--ulang", type=int, default=20,
                      help="Berapa kali tiap kueri dijalankan (default 20).")
     opsi = arg.parse_args()
 
-    app = create_app()
+    if opsi.db_uji:
+        from app.config import KonfigurasiUji
+        app = create_app(KonfigurasiUji)
+    else:
+        app = create_app()
     with app.app_context():
+        print(f"Database  : {db.engine.url.database}")
         n_pub = Publikasi.query.count()
         n_entri = EntriDokumen.query.count()
 
@@ -232,6 +242,7 @@ def main():
     sekarang = datetime.now()
     keluaran = {
         "label": opsi.label,
+        "database": "uji" if opsi.db_uji else "produksi",
         "diukur_pada": sekarang.isoformat(timespec="seconds"),
         "lingkungan": {
             "komputer": platform.node(),

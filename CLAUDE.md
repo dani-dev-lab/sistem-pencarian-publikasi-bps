@@ -80,6 +80,15 @@ Mahasiswa Politeknik Negeri Banjarmasin.
         - Sampel OCR kecamatan 9/10 (tombol 10/10). `uji_pipeline.py`
           penuh: 94 lulus.
         - BELUM dimuat ke produksi; kecamatan tetap dikecualikan (`aktif`).
+    - **Kinerja dengan kecamatan (18 Nov 2026,
+      `data/regresi/kinerja-kecamatan-20261118.md`):**
+      - memori korpus 80 -> 144 MB; muat ulang 458 -> 860 ms;
+      - kecamatan ikut dicari: rata-rata 87 -> 143 ms, terlambat 210 -> 413 ms
+        (> 300 ms).
+      - Solusi terbukti lewat simulasi: korpus dipisah, sehingga tanpa centang
+        waktunya = produksi dan hasil 12/12 identik.
+      - Rancangan tampilan: `data/regresi/rancangan-tampilan-kecamatan-20261118.md`
+        (BELUM disetujui).
       - Utang teknis lain: folio romawi Balangan, nomor salah cetak Banjar
         2026, perkiraan kepala bab.
 

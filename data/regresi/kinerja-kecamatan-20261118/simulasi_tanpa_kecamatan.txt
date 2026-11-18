@@ -1,0 +1,14 @@
+kueri                                    prod  uji-tanpa-kec  hasil identik
+statistik ekspor impor                     17             18  True
+negara tujuan ekspor                       15             14  True
+banyaknya akomodasi kabupaten kota        175            176  True
+jumlah hotel kabupaten kota 2024          201            204  True
+tingkat penghunian kamar                    9              8  True
+tpk                                         9              9  True
+penduduk miskin                            62             63  True
+population by regency                     198            201  True
+ekspor batubara                            12             12  True
+jumlah penduduk menurut kecamatan         200            202  True
+penduduk tanah laut                        83             85  True
+luas panen padi kotabaru                   30             31  True
+rata-rata median: prod 84 ms, uji tanpa kecamatan 85 ms

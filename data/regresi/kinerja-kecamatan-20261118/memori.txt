@@ -1,0 +1,8 @@
+database db_pencarian_bps: 307 publikasi, 24532 entri
+muat ulang korpus: median 458 ms, maks 471 ms (5x)
+memori ditahan 80.1 MB, puncak saat membangun 88.4 MB
+entri per domain: {'6300': 6848, '6301': 1438, '6302': 1191, '6303': 1331, '6304': 1429, '6305': 1426, '6306': 1322, '6307': 1349, '6308': 1411, '6309': 1289, '6310': 1075, '6311': 1138, '6371': 1740, '6372': 1545}
+database db_pencarian_bps_uji: 618 publikasi, 44455 entri
+muat ulang korpus: median 860 ms, maks 876 ms (5x)
+memori ditahan 143.9 MB, puncak saat membangun 158.4 MB
+entri per domain: {'6300': 6851, '6301': 3041, '6302': 2995, '6303': 4589, '6304': 3501, '6305': 2724, '6306': 2734, '6307': 2371, '6308': 2858, '6309': 2692, '6310': 2505, '6311': 2052, '6371': 2689, '6372': 2853}

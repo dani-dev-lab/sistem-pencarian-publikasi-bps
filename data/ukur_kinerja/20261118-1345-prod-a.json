@@ -1,0 +1,315 @@
+{
+  "label": "prod-a",
+  "database": "produksi",
+  "diukur_pada": "2026-11-18T13:45:28",
+  "lingkungan": {
+    "komputer": "DESKTOP-69VFRLH",
+    "os": "Windows-11-10.0.26300-SP0",
+    "prosesor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+    "python": "3.14.6"
+  },
+  "data": {
+    "publikasi": 307,
+    "entri": 24532
+  },
+  "ulang": 20,
+  "ambil_korpus": {
+    "median_ms": 363.7,
+    "p95_ms": 412.3,
+    "min_ms": 353.8,
+    "maks_ms": 413.2
+  },
+  "per_kueri": [
+    {
+      "median_ms": 17.1,
+      "p95_ms": 17.7,
+      "min_ms": 16.6,
+      "maks_ms": 18.4,
+      "kueri": "statistik ekspor impor",
+      "dinilai": 402,
+      "hasil": 20,
+      "publikasi": 7
+    },
+    {
+      "median_ms": 14.3,
+      "p95_ms": 14.7,
+      "min_ms": 13.9,
+      "maks_ms": 15.0,
+      "kueri": "negara tujuan ekspor",
+      "dinilai": 313,
+      "hasil": 38,
+      "publikasi": 3
+    },
+    {
+      "median_ms": 172.7,
+      "p95_ms": 174.0,
+      "min_ms": 171.0,
+      "maks_ms": 175.0,
+      "kueri": "banyaknya akomodasi kabupaten kota",
+      "dinilai": 13287,
+      "hasil": 32,
+      "publikasi": 20
+    },
+    {
+      "median_ms": 231.7,
+      "p95_ms": 313.0,
+      "min_ms": 197.2,
+      "maks_ms": 318.3,
+      "kueri": "jumlah hotel kabupaten kota 2024",
+      "dinilai": 14518,
+      "hasil": 38,
+      "publikasi": 20
+    },
+    {
+      "median_ms": 11.0,
+      "p95_ms": 11.7,
+      "min_ms": 10.3,
+      "maks_ms": 11.9,
+      "kueri": "tingkat penghunian kamar",
+      "dinilai": 39,
+      "hasil": 23,
+      "publikasi": 2
+    },
+    {
+      "median_ms": 12.4,
+      "p95_ms": 14.7,
+      "min_ms": 10.5,
+      "maks_ms": 15.0,
+      "kueri": "tpk",
+      "dinilai": 39,
+      "hasil": 23,
+      "publikasi": 2
+    },
+    {
+      "median_ms": 90.9,
+      "p95_ms": 94.2,
+      "min_ms": 86.6,
+      "maks_ms": 97.6,
+      "kueri": "penduduk miskin",
+      "dinilai": 4328,
+      "hasil": 40,
+      "publikasi": 11
+    },
+    {
+      "median_ms": 196.0,
+      "p95_ms": 294.4,
+      "min_ms": 190.6,
+      "maks_ms": 296.9,
+      "kueri": "population by regency",
+      "dinilai": 13510,
+      "hasil": 40,
+      "publikasi": 20
+    },
+    {
+      "median_ms": 11.9,
+      "p95_ms": 12.1,
+      "min_ms": 11.5,
+      "maks_ms": 12.3,
+      "kueri": "ekspor batubara",
+      "dinilai": 219,
+      "hasil": 11,
+      "publikasi": 0
+    },
+    {
+      "median_ms": 197.0,
+      "p95_ms": 199.8,
+      "min_ms": 195.1,
+      "maks_ms": 199.8,
+      "kueri": "jumlah penduduk menurut kecamatan",
+      "dinilai": 14962,
+      "hasil": 40,
+      "publikasi": 11
+    },
+    {
+      "median_ms": 83.1,
+      "p95_ms": 85.0,
+      "min_ms": 81.6,
+      "maks_ms": 85.9,
+      "kueri": "penduduk tanah laut",
+      "dinilai": 5611,
+      "hasil": 40,
+      "publikasi": 20
+    },
+    {
+      "median_ms": 30.4,
+      "p95_ms": 30.9,
+      "min_ms": 29.9,
+      "maks_ms": 31.3,
+      "kueri": "luas panen padi kotabaru",
+      "dinilai": 1826,
+      "hasil": 22,
+      "publikasi": 4
+    }
+  ],
+  "per_kueri_wilayah": [
+    {
+      "median_ms": 20.8,
+      "p95_ms": 21.4,
+      "min_ms": 20.3,
+      "maks_ms": 21.6,
+      "kueri": "penduduk tanah laut",
+      "w": "",
+      "filter": "6301",
+      "sumber_filter": "otomatis",
+      "dinilai": 205,
+      "hasil": 37,
+      "provinsi": 10,
+      "publikasi": 4
+    },
+    {
+      "median_ms": 19.3,
+      "p95_ms": 19.6,
+      "min_ms": 18.7,
+      "maks_ms": 19.8,
+      "kueri": "penduduk miskin tala",
+      "w": "",
+      "filter": "6301",
+      "sumber_filter": "otomatis",
+      "dinilai": 216,
+      "hasil": 16,
+      "provinsi": 10,
+      "publikasi": 1
+    },
+    {
+      "median_ms": 9.4,
+      "p95_ms": 9.7,
+      "min_ms": 9.0,
+      "maks_ms": 10.0,
+      "kueri": "luas panen padi kotabaru",
+      "w": "",
+      "filter": "6302",
+      "sumber_filter": "otomatis",
+      "dinilai": 36,
+      "hasil": 16,
+      "provinsi": 10,
+      "publikasi": 0
+    },
+    {
+      "median_ms": 5.3,
+      "p95_ms": 5.7,
+      "min_ms": 4.9,
+      "maks_ms": 5.8,
+      "kueri": "inflasi bjm",
+      "w": "",
+      "filter": "6371",
+      "sumber_filter": "otomatis",
+      "dinilai": 30,
+      "hasil": 30,
+      "provinsi": 10,
+      "publikasi": 2
+    },
+    {
+      "median_ms": 0.7,
+      "p95_ms": 1.1,
+      "min_ms": 0.7,
+      "maks_ms": 1.2,
+      "kueri": "tanah laut",
+      "w": "",
+      "filter": "6301",
+      "sumber_filter": "otomatis",
+      "dinilai": 0,
+      "hasil": 0,
+      "provinsi": 0,
+      "publikasi": 17
+    },
+    {
+      "median_ms": 20.8,
+      "p95_ms": 21.4,
+      "min_ms": 20.0,
+      "maks_ms": 21.6,
+      "kueri": "penduduk",
+      "w": "6301",
+      "filter": "6301",
+      "sumber_filter": "pilihan",
+      "dinilai": 205,
+      "hasil": 37,
+      "provinsi": 10,
+      "publikasi": 4
+    },
+    {
+      "median_ms": 59.2,
+      "p95_ms": 60.9,
+      "min_ms": 57.6,
+      "maks_ms": 63.8,
+      "kueri": "jumlah penduduk menurut kecamatan",
+      "w": "6371",
+      "filter": "6371",
+      "sumber_filter": "pilihan",
+      "dinilai": 1029,
+      "hasil": 22,
+      "provinsi": 10,
+      "publikasi": 0
+    },
+    {
+      "median_ms": 43.9,
+      "p95_ms": 45.2,
+      "min_ms": 42.8,
+      "maks_ms": 45.4,
+      "kueri": "banyaknya akomodasi kabupaten kota",
+      "w": "6372",
+      "filter": "6372",
+      "sumber_filter": "pilihan",
+      "dinilai": 959,
+      "hasil": 17,
+      "provinsi": 10,
+      "publikasi": 1
+    },
+    {
+      "median_ms": 36.5,
+      "p95_ms": 37.6,
+      "min_ms": 35.9,
+      "maks_ms": 37.7,
+      "kueri": "population by regency",
+      "w": "6300",
+      "filter": "6300",
+      "sumber_filter": "pilihan",
+      "dinilai": 2705,
+      "hasil": 25,
+      "provinsi": 0,
+      "publikasi": 3
+    }
+  ],
+  "rata_rata_median_ms": 89.0,
+  "rata_rata_p95_ms": 105.2,
+  "berkas": {
+    "json_bytes": {
+      "domain_kalsel.json": 1620,
+      "frekuensi_kata.json": 60215,
+      "kamus_sinonim.json": 6442,
+      "ocr_target_kecamatan.json": 757,
+      "pembaruan_terakhir-uji.json": 34509,
+      "pembaruan_terakhir.json": 12539,
+      "pemeriksaan_domain.json": 23294,
+      "wilayah.json": 3497
+    },
+    "json_total_bytes": 142873,
+    "pdf_jumlah": 619,
+    "pdf_total_bytes": 6550014609
+  },
+  "tabel_mysql": {
+    "entri_dokumen": {
+      "data_bytes": 10502144,
+      "indeks_bytes": 4227072
+    },
+    "kategori": {
+      "data_bytes": 16384,
+      "indeks_bytes": 16384
+    },
+    "log_pencarian": {
+      "data_bytes": 16384,
+      "indeks_bytes": 16384
+    },
+    "publikasi": {
+      "data_bytes": 1540096,
+      "indeks_bytes": 49152
+    },
+    "publikasi_kategori": {
+      "data_bytes": 16384,
+      "indeks_bytes": 16384
+    },
+    "versi_data": {
+      "data_bytes": 16384,
+      "indeks_bytes": 0
+    }
+  }
+}
