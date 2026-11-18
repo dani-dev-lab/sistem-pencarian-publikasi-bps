@@ -525,45 +525,6 @@ def _rapikan_nomor_halaman(baris):
     return baris[:i] + [dict(w, text=digit)]
 
 
-RE_NOMOR_BERTITIK = re.compile(r"^[0-9]+(?:[.][0-9]+)*[.]$")
-RE_EKOR_NOMOR = re.compile(r"^[0-9]{1,2}$")
-MAKS_CELAH_NOMOR = 4.0      # pt antara "2.1." dan "1" yang masih satu nomor
-
-
-def _nomor_terbelah(baris):
-    """Baris diawali nomor yang terpotong jadi dua kata ("2.1." + "1" + judul)?"""
-    return (len(baris) >= 3
-            and RE_NOMOR_BERTITIK.match(baris[0]["text"])
-            and RE_EKOR_NOMOR.match(baris[1]["text"])
-            and baris[1]["x0"] - baris[0]["x1"] <= MAKS_CELAH_NOMOR
-            and baris[2]["text"][:1].isalpha())
-
-
-def _gabung_nomor_terbelah(semua_baris):
-    """Satukan nomor entri yang terpotong ("2.1." + "1" -> "2.1.1").
-
-    Pola 1 (18 Nov 2026, Kecamatan Dalam Angka Tanah Laut 2025). Contoh Bumi
-    Makmur 2025 hal. 13:
-        [57-70]2.1.  [73-77]1  [91-119]Jumlah ...
-    Baris dianggap bernomor hanya kalau kata ke-2 diawali huruf, jadi baris
-    ini dibuang sebagai "kolom kiri tanpa nomor" dan Daftar Tabel hampir
-    kosong (tabel hanya masuk lewat jalur badan, tanpa halaman cetak).
-
-    Pengaman TINGKAT HALAMAN (syarat pemilik project): penggabungan hanya
-    aktif kalau minimal MIN_NOMOR_KOLOM baris di halaman Daftar yang sama
-    berpola serupa. Spasi biasa juga ±2-3 pt, sehingga satu baris
-    "1. 10 Desa ..." saja tidak boleh memicunya.
-    """
-    if sum(1 for b in semua_baris if _nomor_terbelah(b)) < MIN_NOMOR_KOLOM:
-        return semua_baris
-    hasil = []
-    for b in semua_baris:
-        if _nomor_terbelah(b):
-            b = [dict(b[0], text=b[0]["text"] + b[1]["text"], x1=b[1]["x1"])] + b[2:]
-        hasil.append(b)
-    return hasil
-
-
 RE_FOLIO = re.compile(r"^[ivxlcdm]+$")    # folio halaman depan: romawi HURUF KECIL
 
 
@@ -1036,7 +997,7 @@ def _baca_daftar(pdf, halaman_awal, tipe, publikasi_id, jejak=None):
 
     while h < len(pdf.pages):
         baris = _kelompokkan_baris(_kata_halaman(pdf.pages[h]))
-        baris = _gabung_nomor_terbelah([_rapikan_nomor_halaman(b) for b in baris])
+        baris = [_rapikan_nomor_halaman(b) for b in baris]
         if not baris:
             if boleh_lompat():
                 continue
