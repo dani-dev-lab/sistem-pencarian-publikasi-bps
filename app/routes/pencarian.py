@@ -158,14 +158,9 @@ def api_saran():
         .join(Publikasi, EntriDokumen.publikasi_id == Publikasi.id)
     )
     # Publikasi Kecamatan Dalam Angka hanya ikut kalau kotak centangnya aktif
-    # (saran.js mengirim kec=1), 18 Nov 2026. Filter HANYA dipasang kalau
-    # database memang berisi publikasi kecamatan: klausa WHERE tambahan
-    # mengubah rencana kueri MySQL, dan ORDER BY panjang judul tanpa pemecah
-    # seri lalu memilih edisi lain di antara judul sepanjang sama (terbukti di
-    # salinan produksi: 4/5 awalan berubah). Tanpa kecamatan, kuerinya tetap
-    # sama persis dengan sebelumnya.
-    if request.args.get("kec") != "1" and db.session.query(
-            db.exists().where(Publikasi.kecamatan.isnot(None))).scalar():
+    # (saran.js mengirim kec=1), 18 Nov 2026. Urutan tidak bergantung pada
+    # klausa ini karena ORDER BY di bawah punya pemecah seri.
+    if request.args.get("kec") != "1":
         q = q.filter(Publikasi.kecamatan.is_(None))
     # Dicocokkan ke teks ternormalisasi ATAU judul asli. Keduanya perlu:
     # kamus sinonim mengubah "tingkat penghunian kamar" menjadi "tpk", sehingga
@@ -179,8 +174,13 @@ def api_saran():
 
     # Judul terpendek lebih dulu: makin pendek makin spesifik, dan entri
     # gabungan yang panjang (utang teknis yang tercatat) tidak menutupi daftar.
+    # Seri (judul sama panjang): EDISI TERBARU dulu, lalu id - keputusan
+    # pemilik project 18 Nov 2026. Tanpa pemecah seri, edisi yang tampil
+    # ditentukan filesort MySQL dan berubah menurut rencana kueri (klausa
+    # WHERE tambahan, isi tabel berubah).
     baris = (
-        q.order_by(db.func.char_length(EntriDokumen.judul).asc())
+        q.order_by(db.func.char_length(EntriDokumen.judul).asc(),
+                   Publikasi.tanggal_rilis.desc(), Publikasi.id, EntriDokumen.id)
         .limit(MAKS_SARAN * 4)     # ambil lebih, sisakan ruang untuk dedup
         .all()
     )
