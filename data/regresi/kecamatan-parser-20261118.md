@@ -9,7 +9,7 @@ Produksi tidak disentuh. Database uji juga belum ditulis (hanya uji kering).
 | `7481e19` | Pola 2: `_rapikan_nomor_halaman`, nomor halaman yang ditimpa leader |
 | `390f3d4` | Pola 3: digit di dalam kata leader, ditambah buang "." sendirian |
 | `4d5c7c5` | Pola 1: `_gabung_nomor_terbelah`, aktif hanya kalau >= 3 baris berpola sama di satu halaman |
-| (berikutnya) | `uji_pipeline.py` bagian I: 15 kasus (K1-K3, termasuk 2 kasus "aman") |
+| `5419397` | `uji_pipeline.py` bagian I: 15 kasus (K1-K3, termasuk 2 kasus "aman") |
 
 ## Alat (folder `kecamatan-parser-20261118/`)
 - `uji_kering.py`: mengekstrak tanpa DB dan membandingkan per kunci
