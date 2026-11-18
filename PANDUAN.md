@@ -95,6 +95,41 @@ Di samping kotak pencarian ada pilihan wilayah. Bawaannya **Semua wilayah**.
   dirinci per kabupaten/kota.
 - Provinsi tidak dikenali dari kata kunci; hanya bisa dipilih dari daftar.
 
+### Rincian per desa: publikasi "Kecamatan … Dalam Angka"
+
+Bagian ini hanya muncul kalau publikasi Kecamatan Dalam Angka sudah dimuat ke
+database (lihat bagian 8). Kalau belum, halaman pencarian tampil seperti biasa
+dan tidak ada yang berubah.
+
+- **Bawaannya mati.** Tanpa dicentang, hasil pencarian sama persis dengan
+  pencarian tanpa publikasi kecamatan: hanya publikasi provinsi dan
+  kabupaten/kota yang dicari.
+- **Kotak centang "Sertakan publikasi Kecamatan Dalam Angka"** di bawah
+  kotak pencarian. Kalau dicentang, di bawah hasil kabupaten/kota muncul
+  seksi **Dari publikasi Kecamatan Dalam Angka**.
+  - Tiap kartu berlabel nama kecamatan dan kabupaten/kotanya, misalnya
+    **Kec. Pelaihari** · **Kab. Tanah Laut**.
+  - Yang tampil 20 teratas; tautan **Tampilkan semua** membuka sisanya.
+- **Pilihan kecamatan.** Kalau wilayah yang dipilih kabupaten/kota, di
+  sampingnya muncul pilihan kecamatan. Memilih satu kecamatan menyempitkan
+  seksi kecamatan ke kecamatan itu saja, dan otomatis berarti kotak centang
+  aktif. Daftarnya diambil dari publikasi yang ada, jadi kecamatan tanpa
+  publikasi tidak muncul.
+- **Kotak info.** Kalau kotak tidak dicentang tetapi publikasi kecamatan
+  punya bagian yang cocok, di atas hasil muncul **"Ada [n] bagian lain dari
+  publikasi Kecamatan Dalam Angka (rincian per desa)"** dengan tombol
+  **Tampilkan**. Kalau tidak ada yang cocok, kotak ini tidak muncul.
+- **Nama kecamatan di kata kunci TIDAK dikenali sebagai filter.**
+  Contohnya, "penduduk martapura" tidak otomatis memilih Kecamatan
+  Martapura. Pilih kabupaten/kotanya, lalu pilih kecamatannya dari daftar.
+- **Saran saat mengetik** ikut menampilkan judul dari publikasi kecamatan
+  hanya kalau kotak dicentang.
+- Kalau kata kunci **hanya** nama wilayah ("tanah laut") dan kotak
+  dicentang, yang tampil adalah daftar publikasi kecamatan di wilayah itu.
+- Dengan kotak dicentang dan **Semua wilayah**, kata kunci umum ("jumlah
+  penduduk") bisa ±0,2 detik lebih lambat, karena ada ±20.000 bagian
+  tambahan yang dinilai. Memilih kabupaten/kota mempercepatnya.
+
 ### Tombol Buka PDF: "hal. N" dan "±hal. N"
 
 Tiap bagian di hasil pencarian punya tombol untuk membuka PDF-nya. Tulisan
@@ -776,57 +811,61 @@ kode yang perlu diubah.
     `singkatan` wilayah itu di `data/wilayah.json`; aplikasi memakainya tanpa
     perlu dijalankan ulang.
 
-### Membuka publikasi "Kecamatan … Dalam Angka" (kalau nanti diperlukan)
+### Publikasi "Kecamatan … Dalam Angka" (rincian per desa)
 
-Sekarang publikasi ini sengaja tidak diambil (lihat di atas). Kalau tim PST
-kelak membutuhkannya, ini perkiraan dan langkahnya.
+**Keadaan 19 November 2026:** ke-312 publikasi sudah ditarik dan diuji di
+**database uji**. Database utama belum memuatnya, karena pola di
+`kecualikan_judul` masih `"aktif": true`. Pemuatannya ke database utama
+menunggu keputusan; rencananya ada di
+`data/regresi/rencana-muat-kecamatan-20261119.md`.
 
-**Perkiraan**, diukur 17 November 2026 dari daftar WebAPI BPS, belum
-diunduh:
-
-| | |
+| | Angka dari database uji |
 |---|---|
-| Jumlah | **312 publikasi**: 156 rilis 2025 dan 156 rilis 2026, dari 13 kabupaten/kota. Paling banyak Kotabaru (44), Banjar (40), dan Barito Kuala (34); Banjarmasin dan Banjarbaru masing-masing 10. Provinsi tidak punya. |
-| Ukuran | **±3,2 GB** menurut daftar BPS (per berkas angkanya bisa meleset, totalnya cukup akurat). Folder PDF sekarang ±3,0 GB, jadi kira-kira dua kali lipat. |
-| Waktu unduh | Tergantung jaringan. Pada 9–10 November 2026, sebelum pukul 01:00 hanya 38–75 KB/detik per berkas (pada kecepatan itu 3,2 GB butuh lebih dari 12 jam); sesudah 01:00, 7–10 MB/detik (±10 menit). |
-| Waktu membaca PDF | ±1,8 detik per MB, jadi **±1,5 jam** untuk 3,2 GB. PDF tanpa lapisan teks butuh OCR (±15 detik per halaman, bagian 7.2); jumlahnya belum diketahui. |
-| Jumlah bagian terindeks | Belum diukur. |
+| Jumlah | **312 publikasi** (156 edisi 2025, 156 edisi 2026), **156 kecamatan** di 13 kabupaten/kota. Provinsi tidak punya. |
+| Ukuran PDF | **3,35 GB** (folder PDF jadi ±6,2 GB). |
+| Bagian terindeks | **19.955**, 18.381 di antaranya punya halaman PDF. |
+| Tanpa lapisan teks (OCR) | **26 publikasi, 2.412 halaman** (HST 2026, Tapin 2025, sebagian Banjar 2025, Halong 2025). Cache OCR-nya sudah ada di `data\ocr_cache\`. |
+| Memori aplikasi | Data pencarian di memori naik dari ±80 MB ke ±144 MB. |
+| Waktu pencarian | Tanpa kotak dicentang: sama dengan tanpa publikasi kecamatan (diuji). Dengan dicentang + Semua wilayah: kata kunci umum sampai ±0,4 detik. |
 
-**Langkah:**
+**Catatan untuk tim IT:**
 
-1. **Cadangkan database** (bagian 7).
-2. **Uji dulu di database uji** (bagian 9), jangan langsung di database
-   utama:
-   - di `data/wilayah.json`, pada pola "Kecamatan … Dalam Angka" di daftar
-     `kecualikan_judul`, ubah `"aktif": true` menjadi `"aktif": false`;
-   - jalankan `venv\Scripts\python.exe scripts\perbarui.py --db-uji`,
-     sebaiknya mulai sesudah pukul 01:00.
-
-   PDF yang terunduh disimpan di folder PDF yang sama, jadi langkah 4 nanti
-   tidak mengunduh ulang.
-
-   **Penting:** `data/wilayah.json` dipakai database uji DAN database utama.
-   Selama polanya `false`, pembaruan biasa (tombol di halaman admin atau
-   `perbarui-data.bat`) ikut menarik publikasi kecamatan ke database utama.
-   Jangan jalankan pembaruan biasa sampai keputusan di langkah 4 atau 5
-   diambil.
-3. **Periksa mutunya di database uji** sebelum dibuka untuk petugas:
-   - **Mutu pembacaan Daftar.** Format daftarnya sudah dikenali pembaca
-     PDF, tetapi diketahui masih ada cacat (judul seksi di akhir halaman
-     bisa menempel ke entri berikutnya). Buka 30 bagian acak dan cocokkan
-     judul serta nomor halamannya dengan PDF-nya.
-   - **Mutu hasil pencarian.** Tabel per kecamatan berjudul mirip (misalnya
-     "Luas Wilayah Menurut Desa"), sehingga hasil pencarian kabupaten/kota
-     bisa dipenuhi tabel kecamatan. Nama kecamatan juga tidak dikenali
-     sebagai filter wilayah. Coba beberapa kata kunci yang biasa dipakai
-     petugas.
-4. **Kalau mutunya diterima,** jalankan `perbarui-data.bat` untuk database
-   utama. Karena PDF-nya sudah ada, yang tersisa hanya membaca strukturnya
-   (±1,5 jam).
-5. **Kalau tidak jadi,** kembalikan `"aktif": true`. Pengecualian tidak
-   menghapus publikasi yang sudah masuk database. Karena itu langkah 2
-   dilakukan di database uji, yang bisa dihapus lalu dibuat ulang dari
-   database utama (bagian 9).
+- **Dua pengaturan di `data/wilayah.json`** dengan tugas berbeda:
+  - `kecualikan_judul` menentukan publikasi mana yang **ditarik** dari BPS.
+    Selama polanya `"aktif": true`, publikasi kecamatan tidak ditarik ke
+    database mana pun lewat pembaruan biasa.
+  - `pola_kecamatan` **menandai** publikasi kecamatan yang sudah ada di
+    database (kolom `publikasi.kecamatan`, diisi otomatis saat aplikasi
+    atau pembaruan berjalan). Tanda inilah yang dipakai kotak centang.
+    Jangan diubah kecuali BPS mengganti format judulnya.
+- **Selama database tidak berisi publikasi kecamatan, kotak centang,
+  pilihan kecamatan, dan kotak info tidak tampil.** Halaman sama persis
+  dengan sebelumnya. Ini dibuktikan oleh `tests\potret_tampilan.py` dan
+  bagian `V` di `tests\uji_pipeline.py`.
+- **Kolom baru di database** ditambahkan sendiri oleh aplikasi saat
+  pertama dijalankan:
+  - `publikasi.kecamatan`;
+  - `log_pencarian.sertakan_kecamatan`: 1 = dicentang, 0 = tidak
+    dicentang, kosong = fitur tidak tersedia. Ini bahan evaluasi seberapa
+    sering petugas memakai rincian per desa.
+- **Mencoba di database uji tanpa mengganggu aplikasi utama:**
+  `jalankan-aplikasi-uji.bat` membuka aplikasi dengan database uji di port
+  5001, sehingga bisa berjalan berdampingan dengan aplikasi utama (port
+  5000). Log pencarian tidak ditulis.
+- **Pembaruan biasa tetap tidak menarik publikasi kecamatan.** Untuk
+  menariknya ke database uji saja:
+  `venv\Scripts\python.exe scripts\perbarui.py --db-uji --kecamatan`
+  (berkas `tarik-kecamatan-uji.bat`). `--kecamatan` tanpa `--db-uji`
+  ditolak.
+- 26 publikasi butuh OCR. Tanpa cache OCR dan tanpa EasyOCR (bagian 7.2),
+  publikasi itu masuk tanpa bagian, tetapi tetap ditemukan lewat judul dan
+  abstraknya. Jangan memakai `--paksa --tanpa-ocr` (ditolak, bagian 4).
+- **Keterbatasan yang diketahui** (bagian 11 dan laporan di
+  `data/regresi/`):
+  - di Tanah Laut 2025, tabel tanpa halaman cetak (tombol PDF tetap
+    benar): penomoran Daftar di sumbernya berbeda dari penomoran tabel;
+  - di Banjar 2026, beberapa nomor tabel salah cetak di sumber ("1.1"
+    untuk beberapa tabel berbeda).
 
 ---
 
@@ -854,6 +893,12 @@ lagi.
 `perbarui-data.bat --db-uji`. Baris pertama keluarannya menyebut
 `(UJI - bukan produksi)`.
 
+**Membuka aplikasi dengan database uji:** `jalankan-aplikasi-uji.bat`
+(port 5001; port lain sebagai argumen, misalnya
+`jalankan-aplikasi-uji.bat 5002`). Bisa berjalan bersamaan dengan aplikasi
+utama, dan log pencarian tidak ditulis. Untuk melihat tampilan ponsel: di
+browser tekan F12, lalu Ctrl+Shift+M.
+
 **Menjalankan uji menyeluruh**, misalnya sesudah memperbarui Python, paket,
 atau kode:
 
@@ -861,8 +906,11 @@ atau kode:
 venv\Scripts\python.exe -u tests\uji_pipeline.py > uji_log.txt 2>&1
 ```
 
-- Lamanya ±37 menit. Run penuh terakhir, 16 November 2026: 88 uji lulus,
-  0 gagal, 0 dilewati, 2.235 detik.
+- Lamanya ±40 menit. Run penuh terakhir, 18 November 2026: 98 uji lulus,
+  0 gagal, 0 dilewati, 2.425 detik. Bagian `V` membuktikan bahwa tanpa
+  kotak centang kecamatan, halaman pencarian sama persis dengan database
+  tanpa publikasi kecamatan; bagian ini dilewati kalau database uji tidak
+  berisi publikasi kecamatan.
 - Hasilnya dibaca dari baris terakhir `uji_log.txt` dan dari kode keluar:
 
   | Kode keluar | Artinya |
