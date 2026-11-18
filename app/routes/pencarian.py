@@ -22,6 +22,7 @@ from app.services.wilayah import DOMAIN_PROVINSI, wilayah_aktif
 
 MIN_KARAKTER_SARAN = 3
 MAKS_SARAN = 8
+MAKS_HALAMAN_SARAN_KECAMATAN = 10   # paling banyak 10 x 32 baris saat kec=1
 
 # Bagian nama yang muncul di hampir semua judul publikasi; dibuang supaya nama
 # publikasi di daftar saran tetap pendek dan mudah dibedakan.
@@ -178,29 +179,36 @@ def api_saran():
     # pemilik project 18 Nov 2026. Tanpa pemecah seri, edisi yang tampil
     # ditentukan filesort MySQL dan berubah menurut rencana kueri (klausa
     # WHERE tambahan, isi tabel berubah).
-    baris = (
-        q.order_by(db.func.char_length(EntriDokumen.judul).asc(),
-                   Publikasi.tanggal_rilis.desc(), Publikasi.id, EntriDokumen.id)
-        .limit(MAKS_SARAN * 4)     # ambil lebih, sisakan ruang untuk dedup
-        .all()
-    )
+    urut = q.order_by(db.func.char_length(EntriDokumen.judul).asc(),
+                      Publikasi.tanggal_rilis.desc(), Publikasi.id, EntriDokumen.id)
+    ukuran = MAKS_SARAN * 4        # ambil lebih, sisakan ruang untuk dedup
+    # Dengan kotak centang kecamatan, satu judul ("3 Penduduk") ada di ratusan
+    # publikasi kecamatan, sehingga 32 baris pertama bisa hanya berisi 3-4
+    # judul berbeda (19 Nov 2026). Halaman berikutnya diambil sampai 8 judul
+    # berbeda terkumpul. Tanpa centang tetap SATU halaman, sama persis dengan
+    # sebelumnya.
+    maks_halaman = MAKS_HALAMAN_SARAN_KECAMATAN if request.args.get("kec") == "1" else 1
 
     saran = []
     terlihat = set()
-    for judul, tipe, judul_pub in baris:
-        kunci = judul.strip().lower()
-        # Judul yang sama muncul di beberapa edisi. Untuk SARAN cukup satu -
-        # ini pemantik kueri, bukan jawaban. Hasil pencarian tetap menampilkan
-        # semua edisi secara terpisah.
-        if kunci in terlihat:
-            continue
-        terlihat.add(kunci)
-        saran.append({
-            "judul": judul,
-            "tipe": tipe,
-            "publikasi": _nama_singkat(judul_pub),
-        })
-        if len(saran) >= MAKS_SARAN:
+    for nomor_halaman in range(maks_halaman):
+        baris = urut.offset(nomor_halaman * ukuran).limit(ukuran).all()
+        for judul, tipe, judul_pub in baris:
+            kunci = judul.strip().lower()
+            # Judul yang sama muncul di beberapa edisi. Untuk SARAN cukup satu -
+            # ini pemantik kueri, bukan jawaban. Hasil pencarian tetap menampilkan
+            # semua edisi secara terpisah.
+            if kunci in terlihat:
+                continue
+            terlihat.add(kunci)
+            saran.append({
+                "judul": judul,
+                "tipe": tipe,
+                "publikasi": _nama_singkat(judul_pub),
+            })
+            if len(saran) >= MAKS_SARAN:
+                break
+        if len(saran) >= MAKS_SARAN or len(baris) < ukuran:
             break
 
     return jsonify({"saran": saran})
