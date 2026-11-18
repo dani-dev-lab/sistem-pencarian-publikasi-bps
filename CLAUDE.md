@@ -88,7 +88,35 @@ Mahasiswa Politeknik Negeri Banjarmasin.
       - Solusi terbukti lewat simulasi: korpus dipisah, sehingga tanpa centang
         waktunya = produksi dan hasil 12/12 identik.
       - Rancangan tampilan: `data/regresi/rancangan-tampilan-kecamatan-20261118.md`
-        (BELUM disetujui).
+        (DISETUJUI 18 Nov tanpa deteksi nama kecamatan dari kueri; deteksi
+        = saran pengembangan sesudah presentasi).
+    - **Tampilan kecamatan, hari 1 (18 Nov 2026), BELUM di-push:**
+      `data/regresi/tampilan-kecamatan-20261118.md`.
+      - Bagian 1-7 sudah di-commit, masing-masing lulus:
+        - kolom `publikasi.kecamatan` (dari `pola_kecamatan` di wilayah.json);
+        - korpus dipisah (`*_kec`);
+        - `/api/saran` dengan `kec=1`;
+        - backend `kec`/`kc`/`semua_kec`;
+        - kotak centang + dropdown;
+        - seksi hasil;
+        - kotak info + `/api/kecamatan/jumlah`.
+      - **Tanpa publikasi kecamatan di database, widget tidak dirender**
+        (produksi sekarang byte-identik, potret 28/28).
+      - Jaminan identik: `tests/potret_tampilan.py` + `uji_pipeline.py`
+        bagian V. Pembandingnya salinan sementara tanpa kecamatan: 23/23
+        halaman, waktu setara.
+      - **Urutan korpus kini eksplisit** (`tahun_terbit, publikasi.id,
+        entri.id`). Tanpa ORDER BY, seri skor mengikuti rencana MySQL, yang
+        berbeda antara produksi dan salinannya.
+      - **Jebakan alat:** potret wajib `PYTHONHASHSEED=0`; tanpa itu 4/28
+        halaman berbeda antarproses.
+      - **Menunggu keputusan:** pemecah seri `/api/saran`. Filesort + LIMIT
+        tidak stabil; usulan: edisi terbaru dulu.
+      - **Belum:**
+        - kolom log `sertakan_kecamatan`;
+        - cek di browser sungguhan (JS/tata letak);
+        - PANDUAN;
+        - memuat kecamatan ke produksi.
       - Utang teknis lain: folio romawi Balangan, nomor salah cetak Banjar
         2026, perkiraan kepala bab.
 
