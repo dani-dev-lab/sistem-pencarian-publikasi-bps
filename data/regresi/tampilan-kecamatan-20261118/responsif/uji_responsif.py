@@ -11,7 +11,9 @@ pengukuran DOM yang dipakai menilai (bukan heuristik visual):
   - tulisan SATU blok di kanan kotak (tidak terpecah kolom);
   - label rata kiri dengan kolom kata kunci (selisih <= 2 px); tinggi label >= 44 px;
   - dropdown kecamatan (kalau terlihat) di dalam layar, tinggi >= 36 px;
-  - tidak ada gulir horizontal.
+  - tidak ada gulir horizontal;
+  - beranda > 640 px dengan dropdown kecamatan: kolom kata kunci >= 95% lebar form;
+  - kartu hasil: label "Kec." sejajar (saudara) label wilayah, tidak bersarang.
 """
 import json, os, sys
 from playwright.sync_api import sync_playwright
@@ -53,7 +55,14 @@ UKUR = r"""() => {
   const q = f.querySelector('input[type=search]');
   const kc = f.querySelector('select[name=kc]');
   const r = e => { const b = e.getBoundingClientRect(); return {x: b.left, y: b.top, w: b.width, h: b.height, r: b.right, b: b.bottom}; };
-  return {lebar: innerWidth, gulir: document.documentElement.scrollWidth,
+  // Label kartu kecamatan: harus SEJAJAR dengan label wilayah, bukan bersarang.
+  const bersarang = document.querySelectorAll('.label-wilayah .label-kecamatan').length;
+  const kec = Array.from(document.querySelectorAll('.lokasi > .label-kecamatan')).slice(0, 5).map(e => {
+    const w = e.nextElementSibling, a = e.getBoundingClientRect(), b = w.getBoundingClientRect();
+    return {wilayah: w.classList.contains('label-wilayah'), sebaris: Math.abs(a.top - b.top) < 2 || b.top >= a.bottom - 1};
+  });
+  return {lebar: innerWidth, gulir: document.documentElement.scrollWidth, form: r(f),
+          beranda: document.body.classList.contains('beranda'), bersarang, kec,
           cb: cb && r(cb), cbTampil: cb && getComputedStyle(cb).display !== 'none' && getComputedStyle(cb).visibility !== 'hidden',
           tx: tx, txBaris: rects, lab: lab && r(lab), q: r(q),
           kc: kc && !kc.hidden ? r(kc) : null, centang: cb && cb.checked};
@@ -95,6 +104,12 @@ def nilai(m):
             masalah.append("dropdown kecamatan keluar layar")
         if m["kc"]["h"] < 36:
             masalah.append(f"dropdown kecamatan {m['kc']['h']:.0f}px")
+    if m["beranda"] and m["kc"] and m["lebar"] > 640 and m["q"]["w"] < 0.95 * m["form"]["w"]:
+        masalah.append(f"kolom kata kunci menyempit {m['q']['w']:.0f}/{m['form']['w']:.0f}px")
+    if m["bersarang"]:
+        masalah.append(f"{m['bersarang']} label kecamatan bersarang di label wilayah")
+    if any(not k["wilayah"] for k in m["kec"]):
+        masalah.append("label kecamatan tidak diikuti label wilayah")
     if m["gulir"] > m["lebar"]:
         masalah.append(f"gulir horizontal {m['gulir']}>{m['lebar']}")
     return masalah

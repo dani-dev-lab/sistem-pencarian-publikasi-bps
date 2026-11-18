@@ -66,3 +66,20 @@ Keluhan dari cek browser pemilik project:
   wilayah, karena gaya `span` di `.lokasi` ikut mengenainya.
 - Beranda 1366 px dengan wilayah terpilih: kolom kata kunci menyempit karena
   dropdown kecamatan ikut di baris yang sama (form maksimal 760 px).
+
+## Rapikan dua hal kecil (19 Nov 2026, sesudah perbaikan kotak centang)
+- **Label kartu kecamatan:** "Kec. X" kini label sendiri (gaya `.label-wilayah`)
+  yang SEJAJAR dengan label wilayah, bukan kapsul di dalam kapsul. Disisipkan
+  sebaris dengan tag lama, jadi kartu tanpa kecamatan byte-identik.
+- **Beranda layar lebar:** kalau dropdown kecamatan tampil, kolom kata kunci
+  mengambil satu baris penuh, lalu wilayah + kecamatan + Cari di baris kedua.
+  Dulu kolom itu menyempit ke 231-263 px dari form 728-760 px. Tanpa dropdown
+  kecamatan, tata letak beranda tidak berubah.
+- **Pemeriksaan baru di `uji_responsif.py`:**
+  - beranda > 640 px dengan dropdown kecamatan: kolom kata kunci >= 95% lebar
+    form;
+  - tidak ada `.label-wilayah .label-kecamatan`.
+  - Keduanya dibuktikan menangkap masalah pada kode sebelumnya (24/36:
+    bersarang di 9 lebar, menyempit di 768/1024/1366).
+- **Hasil: 36/36 lulus**, tangkapan layar diperbarui. Salinan produksi
+  28/28 identik.

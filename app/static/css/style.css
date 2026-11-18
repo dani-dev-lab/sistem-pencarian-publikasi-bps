@@ -184,7 +184,9 @@ main { flex: 1; width: 100%; max-width: 1180px; margin: 0 auto; padding: 28px 20
 }
 .kotak-cari .centang-kecamatan .teks-centang { flex: 0 1 auto; min-width: 0; }
 .centang-kecamatan .ket { color: var(--abu, #667); }
-.label-kecamatan { font-weight: 600; }
+/* "Kec. X" = label tersendiri, sejajar dengan label wilayah (gaya
+   .label-wilayah yang sama), bukan bersarang di dalamnya (19 Nov 2026). */
+.lokasi .label-kecamatan { color: var(--teks); }
 .info-kecamatan { display: flex; align-items: center; justify-content: space-between; gap: 12px;
                   margin: 0 0 18px; padding: 10px 14px; border: 1px solid var(--garis);
                   border-radius: 6px; background: #f6f9fc; font-size: 14px; }
@@ -255,6 +257,13 @@ main { flex: 1; width: 100%; max-width: 1180px; margin: 0 auto; padding: 28px 20
 /* Kolom pencarian adalah elemen paling menonjol di halaman ini. */
 .beranda .kotak-cari input { padding: 15px 18px; font-size: 17px; }
 .beranda .kotak-cari button { padding: 15px 30px; font-size: 17px; }
+/* Dropdown kecamatan tampil (wilayah kab/kota terpilih): kolom kata kunci
+   tetap selebar form di baris pertama, wilayah + kecamatan + Cari di baris
+   kedua - dulu kolom kata kunci menyempit (19 Nov 2026). Tanpa dropdown
+   kecamatan, tata letak beranda tidak berubah. */
+.beranda .kotak-cari:has(.pilih-kecamatan:not([hidden])) > input[type="search"],
+.beranda .kotak-cari:has(.pilih-kecamatan:not([hidden])) > .saran-pembungkus { flex: 1 1 100%; }
+.beranda .kotak-cari:has(.pilih-kecamatan:not([hidden])) .pilih-wilayah { flex: 1 1 0; width: auto; min-width: 0; }
 
 .contoh-kueri {
   margin-top: 18px;

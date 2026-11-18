@@ -8,7 +8,7 @@
 
   <p class="lokasi">
     <span class="tipe tipe-publikasi">PUBLIKASI</span>
-    <span class="label-wilayah">{% if p.kecamatan %}<span class="label-kecamatan">Kec. {{ p.kecamatan }}</span> &middot; {% endif %}{{ p.wilayah }}</span>
+    {% if p.kecamatan %}<span class="label-wilayah label-kecamatan">Kec. {{ p.kecamatan }}</span>{% endif %}<span class="label-wilayah">{{ p.wilayah }}</span>
     {% if p.tanggal_rilis %}<span class="meta">Rilis {{ p.tanggal_rilis.year }}</span>{% endif %}
     <span class="meta">{{ p.jumlah_entri }} bagian terindeks</span>
   </p>
@@ -32,7 +32,7 @@
 
   <p class="lokasi">
     <span class="tipe tipe-{{ h.tipe }}">{{ h.tipe|upper }}</span>
-    <span class="label-wilayah">{% if h.kecamatan %}<span class="label-kecamatan">Kec. {{ h.kecamatan }}</span> &middot; {% endif %}{{ h.wilayah }}</span>
+    {% if h.kecamatan %}<span class="label-wilayah label-kecamatan">Kec. {{ h.kecamatan }}</span>{% endif %}<span class="label-wilayah">{{ h.wilayah }}</span>
     {# Entri Daftar Isi memang tidak bernomor (isinya bab, bukan tabel), jadi
        "Nomor —" di situ bukan data hilang dan tidak perlu ditampilkan. #}
     {% if h.nomor %}<span class="meta">Nomor {{ h.nomor }}</span>
