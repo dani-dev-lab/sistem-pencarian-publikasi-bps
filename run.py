@@ -11,6 +11,11 @@ Dua mode:
 Alamat dan port bisa diubah lewat --host / --port. Port juga bisa ditetapkan
 permanen lewat PORT di .env (argumen --port tetap menimpanya). --buka-browser
 (dipakai .bat) membuka browser SETELAH server benar-benar menjawab.
+
+--db-uji (18 Nov 2026, dipakai jalankan-aplikasi-uji.bat): aplikasi memakai
+DATABASE UJI (KonfigurasiUji: db_pencarian_bps_uji, log pencarian mati,
+tombol pembaruan admin -> perbarui.py --db-uji). Untuk mencoba fitur yang
+belum ada di produksi, misalnya publikasi Kecamatan Dalam Angka.
 """
 
 import argparse
@@ -23,8 +28,11 @@ import urllib.request
 import webbrowser
 
 from app import create_app
+from app.config import KonfigurasiUji
 
-app = create_app()
+# Dibaca SEBELUM argparse: aplikasi dibuat saat modul diimpor.
+DB_UJI = "--db-uji" in sys.argv
+app = create_app(KonfigurasiUji) if DB_UJI else create_app()
 
 
 # Batas tunggu server siap sebelum menyerah membuka browser.
@@ -78,6 +86,8 @@ def main():
                           "PORT di .env; kalau itu pun kosong, 5000.")
     arg.add_argument("--buka-browser", action="store_true",
                      help="Buka browser ke alamat aplikasi begitu server siap.")
+    arg.add_argument("--db-uji", action="store_true",
+                     help="Pakai DATABASE UJI (bukan produksi); log pencarian mati.")
     opsi = arg.parse_args()
     # Urutan: argumen baris perintah > PORT di .env > 5000. PORT di .env sudah
     # divalidasi oleh periksa_konfigurasi() saat create_app().
@@ -102,6 +112,10 @@ def main():
 
     tujuan = "localhost" if opsi.host in ("127.0.0.1", "0.0.0.0") else opsi.host
     url = f"http://{tujuan}:{opsi.port}/"
+    if DB_UJI:
+        from sqlalchemy.engine import make_url
+        print(f"DATABASE UJI: {make_url(app.config['SQLALCHEMY_DATABASE_URI']).database} "
+              "(bukan produksi; log pencarian tidak ditulis)", flush=True)
     print(f"Menyiapkan aplikasi di {url} ...", flush=True)
     if opsi.buka_browser:
         # daemon: kalau serve() gagal dan proses keluar, thread ini ikut mati

@@ -110,13 +110,26 @@ Mahasiswa Politeknik Negeri Banjarmasin.
         berbeda antara produksi dan salinannya.
       - **Jebakan alat:** potret wajib `PYTHONHASHSEED=0`; tanpa itu 4/28
         halaman berbeda antarproses.
-      - **Menunggu keputusan:** pemecah seri `/api/saran`. Filesort + LIMIT
-        tidak stabil; usulan: edisi terbaru dulu.
-      - **Belum:**
+      - **Pemecah seri `/api/saran` DIPUTUSKAN: edisi terbaru dulu**
+        (`e1bd82e`, `tanggal_rilis DESC, publikasi.id, entri.id`). Filesort +
+        LIMIT tanpa pemecah seri tidak stabil. Dibanding sebelumnya, 3/5 awalan
+        berganti ke edisi lebih baru.
+      - **`jalankan-aplikasi-uji.bat [port]`** (bawaan 5001, tidak membaca PORT
+        di .env) = `run.py --db-uji`: aplikasi dengan DATABASE UJI, log mati.
+        Untuk mencoba tampilan kecamatan di browser; layar kecil lewat F12 +
+        Ctrl+Shift+M. Diuji lewat waitress: 7 URL HTTP 200.
+      - **PERHATIAN:** aplikasi produksi yang dijalankan dengan kode ini
+        menambahkan kolom `publikasi.kecamatan` ke produksi (pastikan_kolom
+        di awal request, 0 baris terisi) dan memakai urutan korpus/saran yang
+        baru. Tampilan hasil identik (potret salinan 28/28), kecuali label
+        edisi saran.
+      - **Rencana besok (19 Nov):**
+        - saran kembar ("penduduk" 3-4 saran saat dicentang);
         - kolom log `sertakan_kecamatan`;
-        - cek di browser sungguhan (JS/tata letak);
-        - PANDUAN;
-        - memuat kecamatan ke produksi.
+        - PANDUAN.md;
+        - rencana pemuatan kecamatan ke produksi untuk Jumat pagi.
+      - **Belum:** cek di browser sungguhan (JS/tata letak), oleh pemilik
+        project lewat jalankan-aplikasi-uji.bat.
       - Utang teknis lain: folio romawi Balangan, nomor salah cetak Banjar
         2026, perkiraan kepala bab.
 
