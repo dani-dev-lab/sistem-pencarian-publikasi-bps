@@ -1,0 +1,38 @@
+  320 beranda         OK
+  320 beranda-kab     OK
+  320 hasil-mati      OK
+  320 hasil-hidup-kc  MASALAH: 8 label kecamatan bersarang di label wilayah
+  360 beranda         OK
+  360 beranda-kab     OK
+  360 hasil-mati      OK
+  360 hasil-hidup-kc  MASALAH: 8 label kecamatan bersarang di label wilayah
+  375 beranda         OK
+  375 beranda-kab     OK
+  375 hasil-mati      OK
+  375 hasil-hidup-kc  MASALAH: 8 label kecamatan bersarang di label wilayah
+  390 beranda         OK
+  390 beranda-kab     OK
+  390 hasil-mati      OK
+  390 hasil-hidup-kc  MASALAH: 8 label kecamatan bersarang di label wilayah
+  412 beranda         OK
+  412 beranda-kab     OK
+  412 hasil-mati      OK
+  412 hasil-hidup-kc  MASALAH: 8 label kecamatan bersarang di label wilayah
+  440 beranda         OK
+  440 beranda-kab     OK
+  440 hasil-mati      OK
+  440 hasil-hidup-kc  MASALAH: 8 label kecamatan bersarang di label wilayah
+  768 beranda         OK
+  768 beranda-kab     MASALAH: kolom kata kunci menyempit 231/728px
+  768 hasil-mati      OK
+  768 hasil-hidup-kc  MASALAH: 8 label kecamatan bersarang di label wilayah
+ 1024 beranda         OK
+ 1024 beranda-kab     MASALAH: kolom kata kunci menyempit 263/760px
+ 1024 hasil-mati      OK
+ 1024 hasil-hidup-kc  MASALAH: 8 label kecamatan bersarang di label wilayah
+ 1366 beranda         OK
+ 1366 beranda-kab     MASALAH: kolom kata kunci menyempit 263/760px
+ 1366 hasil-mati      OK
+ 1366 hasil-hidup-kc  MASALAH: 8 label kecamatan bersarang di label wilayah
+
+24/36 lulus
