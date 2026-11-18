@@ -109,6 +109,7 @@ def _ambil_publikasi():
             Publikasi.wilayah,
         )
         .outerjoin(jml, jml.c.pid == Publikasi.id)
+        .order_by(Publikasi.tahun_terbit, Publikasi.id)
         .all()
     )
 
@@ -201,6 +202,7 @@ def _ambil_korpus():
             EntriDokumen.halaman_fisik_perkiraan,
         )
         .join(Publikasi, EntriDokumen.publikasi_id == Publikasi.id)
+        .order_by(Publikasi.tahun_terbit, Publikasi.id, EntriDokumen.id)
         .all()
     )
 

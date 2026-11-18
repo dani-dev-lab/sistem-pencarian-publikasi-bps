@@ -10,7 +10,7 @@ Angka "N ms" di halaman hasil disamarkan; selebihnya dibandingkan byte demi
 byte.
 
   python tests/potret_tampilan.py simpan <keluar.json> --db salinan|uji
-  python tests/potret_tampilan.py banding <a.json> <b.json>
+  python tests/potret_tampilan.py banding <a.json> <b.json> [--buang-widget]
 
 --db salinan = db_pencarian_bps_salinan_uji (salinan produksi tanpa
 kecamatan); --db uji = db_pencarian_bps_uji. Produksi TIDAK PERNAH dipakai:
@@ -45,13 +45,35 @@ RE_WAKTU = re.compile(r"&middot; \d+ ms")
 
 
 def konfigurasi(nama):
+    """"uji" = database uji; "salinan" = <produksi>_salinan_uji; nama lain =
+    nama database lengkap (misalnya salinan sementara tanpa kecamatan).
+    Selalu turunan KonfigurasiUji: log mati, dan periksa_database_uji menolak
+    nama database produksi."""
     from sqlalchemy.engine import make_url
     from app.config import Config, KonfigurasiUji
     if nama == "uji":
         return KonfigurasiUji
     url = make_url(Config.SQLALCHEMY_DATABASE_URI)
-    url = url.set(database=f"{url.database}_salinan_uji").render_as_string(hide_password=False)
+    db = f"{url.database}_salinan_uji" if nama == "salinan" else nama
+    url = url.set(database=db).render_as_string(hide_password=False)
     return type("KonfigurasiSalinan", (KonfigurasiUji,), {"SQLALCHEMY_DATABASE_URI": url})
+
+
+# Widget kecamatan yang SENGAJA ditambahkan di halaman tanpa centang (dropdown
+# kc, kotak centang + skripnya, kotak info). Dibuang dari potret database
+# berkecamatan sebelum dibandingkan dengan potret database tanpa kecamatan:
+# selebihnya harus byte-identik.
+RE_WIDGET_KECAMATAN = [
+    re.compile(r'\n\n  <select name="kc"[\s\S]*?</select>'),
+    re.compile(r'\n\n  <label class="centang-kecamatan">[\s\S]*?js/kecamatan\.js" defer></script>'),
+    re.compile(r'\n\n<div class="info-kecamatan"[\s\S]*?</div>'),
+]
+
+
+def buang_widget_kecamatan(teks):
+    for rx in RE_WIDGET_KECAMATAN:
+        teks = rx.sub("", teks)
+    return teks
 
 
 def daftar_url():
@@ -77,9 +99,11 @@ def simpan(keluar, db):
     print(f"{len(hasil)} URL ({db}) -> {keluar}")
 
 
-def banding(a, b):
+def banding(a, b, buang_widget=False):
     pa = json.load(open(a, encoding="utf-8"))["potret"]
     pb = json.load(open(b, encoding="utf-8"))["potret"]
+    if buang_widget:        # b = database berkecamatan, a = tanpa kecamatan
+        pb = {u: {**v, "isi": buang_widget_kecamatan(v["isi"])} for u, v in pb.items()}
     beda = [u for u in pa if pa[u] != pb.get(u)] + [u for u in pb if u not in pa]
     for u in beda:
         print("BEDA", u)
@@ -99,4 +123,4 @@ if __name__ == "__main__":
     if sys.argv[1] == "simpan":
         simpan(sys.argv[2], sys.argv[sys.argv.index("--db") + 1])
     else:
-        sys.exit(0 if banding(sys.argv[2], sys.argv[3]) else 1)
+        sys.exit(0 if banding(sys.argv[2], sys.argv[3], "--buang-widget" in sys.argv) else 1)
