@@ -231,13 +231,14 @@ def jalan(skrip, *arg, timeout=3600, env_tambah=None):
     return r.returncode, r.stdout + r.stderr, time.time() - t
 
 
-def jalan_py(kode, timeout=1800):
+def jalan_py(kode, timeout=1800, env_tambahan=None):
     """Potongan Python di salinan. Wajib memakai KonfigurasiUji, tidak boleh create_app()."""
     sah = {"KonfigurasiUji"} | set(re.findall(r"class (\w+)\(KonfigurasiUji\)", kode))
     for arg in re.findall(r"create_app\(([^)]*)\)", kode):
         if arg.strip() not in sah:
             raise AssertionError(f"potongan uji harus memakai create_app(KonfigurasiUji), bukan {arg!r}")
-    r = subprocess.run([PY, "-c", f"import sys; sys.path.insert(0, r'{UJI}')\n" + kode], cwd=SP, env=ENV,
+    r = subprocess.run([PY, "-c", f"import sys; sys.path.insert(0, r'{UJI}')\n" + kode], cwd=SP,
+                       env={**ENV, **(env_tambahan or {})},
                        capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=timeout)
     return r.returncode, r.stdout, r.stderr
 
@@ -1345,7 +1346,142 @@ print('SEBAGIAN_TAMPIL', 'selesai sebagian' in h, 'JUDUL_GAGAL', {per_id[v]['tit
     p.wait()
 
 
-SEMUA_BAGIAN = "FPLCHISOBGETDKRW"   # F dijalankan sebelum potret s0 (lihat bagian_f)
+KODE_BAGIAN_V = r'''
+import json, os, re, statistics, sys, time
+from urllib.parse import urlencode
+sys.path.insert(0, os.path.join(sys.path[0], "scripts"))
+assert os.environ.get("PYTHONHASHSEED") == "0"
+from app import create_app
+from app.config import KonfigurasiUji
+from ukur_kinerja import KUERI, KUERI_WILAYAH
+from app.services import mesin_pencari as M
+class KonfigurasiTanpaKec(KonfigurasiUji):
+    SQLALCHEMY_DATABASE_URI = URL_TANPA_KEC
+RE_WIDGET = [re.compile(r'\n\n  <select name="kc"[\s\S]*?</select>'),
+             re.compile(r'\n\n  <label class="centang-kecamatan">[\s\S]*?js/kecamatan\.js" defer></script>'),
+             re.compile(r'\n\n<div class="info-kecamatan"[\s\S]*?</div>')]
+RE_WAKTU = re.compile(r"&middot; \d+ ms")
+URL = ["/", "/?w=6301"] + ["/hasil?" + urlencode({"q": k}) for k in KUERI] + \
+      ["/hasil?" + urlencode({"q": k, "w": w}) for k, w in KUERI_WILAYAH]
+SARAN = ["penduduk", "luas pan", "jumlah sek", "tpk", "ekspor", "jumlah penduduk menurut desa"]
+def app_untuk(tanpa):
+    return create_app(KonfigurasiTanpaKec) if tanpa else create_app(KonfigurasiUji)
+def potret(tanpa, buang):
+    c = app_untuk(tanpa).test_client(); out = {}
+    for u in URL:
+        t = RE_WAKTU.sub("# ms", c.get(u).get_data(as_text=True))
+        if buang:
+            for rx in RE_WIDGET: t = rx.sub("", t)
+        out[u] = t
+    return out
+uji, tanpa = potret(False, True), potret(True, False)
+beda = [u for u in URL if uji[u] != tanpa[u]]
+print("V1", len(URL), json.dumps(beda))
+c = create_app(KonfigurasiUji).test_client()
+kec = [s["publikasi"] for a in SARAN for s in c.get("/api/saran", query_string={"q": a}).get_json()["saran"]
+       if s["publikasi"].startswith("Kecamatan")]
+kec1 = sum(s["publikasi"].startswith("Kecamatan") for a in SARAN
+           for s in c.get("/api/saran", query_string={"q": a, "kec": "1"}).get_json()["saran"])
+print("V2", len(kec), kec1)
+def waktu(tanpa):
+    M._korpus = None
+    with app_untuk(tanpa).app_context():
+        M.cari("pemanasan"); med = []
+        for q in KUERI:
+            M.cari(q); w = []
+            for _ in range(10):
+                t = time.perf_counter(); M.cari(q); w.append(time.perf_counter() - t)
+            med.append(statistics.median(w))
+        return statistics.mean(med) * 1000
+w = [(waktu(True), waktu(False)) for _ in range(2)]
+print("V3", json.dumps(w))
+cek = []
+for a in [{"q": "jumlah penduduk menurut desa"}, {"q": "penduduk", "w": "6305"}, {"q": "tpk"}]:
+    j = c.get("/api/kecamatan/jumlah", query_string=a).get_json()["jumlah"]
+    t = c.get("/hasil?" + urlencode({**a, "kec": "1"})).get_data(as_text=True)
+    m = re.search(r"<strong>(\d+)</strong> bagian cocok", t)
+    cek.append([a["q"], j, int(m.group(1)) if m else None, 'class="seksi seksi-kecamatan"' in t])
+print("V4", json.dumps(cek))
+'''
+
+
+def bagian_v():
+    """Tampilan kecamatan (18 Nov 2026): TANPA centang hasil identik.
+
+    Pembanding yang bisa dibuat ulang kapan saja: salinan sementara database
+    uji yang publikasi kecamatannya dihapus (<uji>_tanpakec_uji, dari dump
+    awal). Halaman database uji, sesudah widget kecamatan (dropdown, kotak
+    centang, kotak info) dibuang, harus byte-identik dengan halaman salinan
+    itu, dan waktunya setara.
+
+    /api/saran TIDAK dibandingkan byte demi byte: urutan seri edisi berjudul
+    sama panjang ditentukan filesort MySQL dan berubah menurut rencana
+    kueri (dicatat, menunggu keputusan pemilik project). Yang diuji: tanpa
+    kec=1 tidak ada saran dari publikasi kecamatan.
+    """
+    print("\n=== V. TAMPILAN KECAMATAN: TANPA CENTANG IDENTIK ===", flush=True)
+    kode, keluar, err = jalan_py(
+        "from app import create_app\nfrom app.config import KonfigurasiUji\nfrom app.models import skema, Publikasi\n"
+        "with create_app(KonfigurasiUji).app_context():\n"
+        "    skema.pastikan_kolom()\n"
+        "    print('V0', Publikasi.query.filter(Publikasi.kecamatan.isnot(None)).count())\n")
+    m = re.search(r"^V0 (\d+)$", keluar, re.M)
+    if not m:
+        cek("V0 kolom publikasi.kecamatan terisi", False, err[-300:])
+        return
+    if int(m.group(1)) == 0:
+        lewati("V tampilan kecamatan", "database uji tidak berisi publikasi Kecamatan Dalam Angka")
+        return
+    tanpa = f"{DB_UJI[:-len('_uji')]}_tanpakec_uji"
+    if not nama_uji_sah(tanpa):
+        raise SystemExit(f"GALAT: nama salinan sementara tidak sah: {tanpa}")
+    sql(f"DROP DATABASE IF EXISTS `{tanpa}`")
+    sql(f"CREATE DATABASE `{tanpa}` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci")
+    try:
+        with open(DUMP_UJI, "rb") as f:
+            r = subprocess.run([MYSQL, *DASAR_MY, tanpa], env=ENV_MY, stdin=f, capture_output=True)
+        if r.returncode:
+            raise RuntimeError("memuat salinan tanpa kecamatan gagal: " + r.stderr.decode("utf-8", "replace")[:300])
+        # Dump dibuat sebelum V0; kolom kecamatan diisi ulang dari judul (sama dengan sinkron_kecamatan).
+        url_tanpa = URL_UJI.set(database=tanpa).render_as_string(hide_password=False)
+        kode, keluar, err = jalan_py(
+            "from app import create_app\nfrom app.config import KonfigurasiUji\nfrom app.models import skema\n"
+            f"class KonfigurasiTanpaKec(KonfigurasiUji):\n    SQLALCHEMY_DATABASE_URI = {url_tanpa!r}\n"
+            "with create_app(KonfigurasiTanpaKec).app_context():\n    skema.pastikan_kolom()\n")
+        for q in ("DELETE e FROM entri_dokumen e JOIN publikasi p ON p.id = e.publikasi_id WHERE p.kecamatan IS NOT NULL",
+                  "DELETE pk FROM publikasi_kategori pk JOIN publikasi p ON p.id = pk.publikasi_id WHERE p.kecamatan IS NOT NULL",
+                  "DELETE FROM publikasi WHERE kecamatan IS NOT NULL"):
+            sql(q, tanpa)
+        n_sisa = sql("SELECT COUNT(*) FROM publikasi", tanpa)
+
+        kode, keluar, err = jalan_py(f"URL_TANPA_KEC = {url_tanpa!r}\n" + KODE_BAGIAN_V,
+                                     env_tambahan={"PYTHONHASHSEED": "0"})
+        def baris(kunci):
+            m = re.search(rf"^{kunci} (.*)$", keluar, re.M)
+            return m.group(1) if m else None
+        v1 = baris("V1")
+        if v1 is None:
+            cek("V1 potongan uji berjalan", False, err[-400:])
+            return
+        n_url, beda = v1.split(" ", 1)
+        beda = json.loads(beda)
+        cek(f"V1 tanpa centang: {n_url} halaman (beranda + 21 kueri) identik dengan salinan tanpa kecamatan "
+            f"({n_sisa} publikasi), widget kecamatan dibuang", not beda, beda[:5] or f"{n_url}/{n_url}")
+        n_kec, n_kec1 = map(int, baris("V2").split())
+        cek("V2 /api/saran tanpa kec=1: 0 saran dari publikasi kecamatan (kec=1 boleh ada)", n_kec == 0,
+            f"tanpa kec {n_kec}, kec=1 {n_kec1}")
+        w = json.loads(baris("V3"))
+        selisih = max(abs(u - t) / t for t, u in w)
+        cek("V3 waktu 12 kueri tanpa centang setara (selisih rata-rata median <= 10%)", selisih <= 0.10,
+            "; ".join(f"tanpa {t:.0f} ms / uji {u:.0f} ms" for t, u in w))
+        v4 = json.loads(baris("V4"))
+        cek("V4 kotak info = jumlah di seksi bercentang; seksi tampil dengan kec=1",
+            all(j == n and s for _, j, n, s in v4), v4)
+    finally:
+        sql(f"DROP DATABASE IF EXISTS `{tanpa}`")
+
+
+SEMUA_BAGIAN = "VFPLCHISOBGETDKRW"   # V dan F dijalankan sebelum potret s0 (lihat main)
 
 
 def main():
@@ -1354,6 +1490,8 @@ def main():
     srv, pubs = siapkan_tiruan()
     try:
         bagian_u()
+        if "V" in BAGIAN:
+            bagian_v()          # sebelum bagian lain mengubah isi database uji
         if "F" in BAGIAN:
             bagian_f()
         s0 = potret()
