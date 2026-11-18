@@ -1,0 +1,6 @@
+entri_luar	42990	1340706833
+pub_luar	611	3050037378
+target	308
+db_pencarian_bps_uji.log_pencarian	105269702
+db_pencarian_bps_uji.kategori	1501779208
+db_pencarian_bps_uji.publikasi_kategori	0

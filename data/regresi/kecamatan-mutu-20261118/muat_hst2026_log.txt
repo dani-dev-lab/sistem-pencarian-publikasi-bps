@@ -1,0 +1,16 @@
+Database tujuan: db_pencarian_bps_uji @ localhost:3306 (UJI - bukan produksi)
+  siap  289e7b7ffea9212fd954d849  OCR 104/104 hal, cache lengkap  Kecamatan Barabai Dalam Angka 2026
+  siap  e3eb7975c2d3d43a1144ddf2  OCR 104/104 hal, cache lengkap  Kecamatan Batang Alai Selatan Dalam Angka 2026
+  siap  9d9fc69a6340558366cdd51b  OCR 104/104 hal, cache lengkap  Kecamatan Batang Alai Timur Dalam Angka 2026
+  siap  b0d3817c3ae3788048ad8c87  OCR 104/104 hal, cache lengkap  Kecamatan Batang Alai Utara Dalam Angka 2026
+  siap  d774eb0b6f130968ae3b5c50  OCR 104/104 hal, cache lengkap  Kecamatan Batu Benawa Dalam Angka 2026
+  siap  abf5e6920511b575b8859ea7  OCR 104/104 hal, cache lengkap  Kecamatan Hantakan Dalam Angka 2026
+  siap  4ce13f41bb7314220ba6525e  OCR 104/104 hal, cache lengkap  Kecamatan Labuan Amas Selatan Dalam Angka 2026
+  muat  289e7b7ffea9212fd954d849  46 entri  Kecamatan Barabai Dalam Angka 2026
+  muat  e3eb7975c2d3d43a1144ddf2  41 entri  Kecamatan Batang Alai Selatan Dalam Angka 2026
+  muat  9d9fc69a6340558366cdd51b  41 entri  Kecamatan Batang Alai Timur Dalam Angka 2026
+  muat  b0d3817c3ae3788048ad8c87  43 entri  Kecamatan Batang Alai Utara Dalam Angka 2026
+  muat  d774eb0b6f130968ae3b5c50  46 entri  Kecamatan Batu Benawa Dalam Angka 2026
+  muat  abf5e6920511b575b8859ea7  45 entri  Kecamatan Hantakan Dalam Angka 2026
+  muat  4ce13f41bb7314220ba6525e  46 entri  Kecamatan Labuan Amas Selatan Dalam Angka 2026
+Selesai.

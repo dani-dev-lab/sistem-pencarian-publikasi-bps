@@ -1,0 +1,220 @@
+populasi 18496 entri, 286 publikasi; seed 20261118
+
+#1 id=283130 Kecamatan Belawang Dalam Angka 2026 [2edf1885]
+   isi None | hal 29 | fisik 53 | daftar
+   JUDUL: 4. Sosial dan Kesejahteraan Rakyat/Social and Welfare
+   FISIK p53 atas: 04 | SOSIAL DAN KESEJAHTERAAN RAKYAT | SOCIAL AND WELFARE | BAB
+   FISIK folio: angka=['04', '4'] kop=[] bawah=['Rakyat', '4. Sosial dan Kesejahteraan Rakyat/Social and Welf']
+
+#2 id=287693 Kecamatan Banjang Dalam Angka 2026 [100f7180]
+   tabel 5.2.3 | hal None | fisik 98 | daftar
+   JUDUL: Luas Panen Tanaman Biofarmaka Menurut Jenis Tanaman di Kecamatan Banjang (m2), 2022–2025
+   DAFTAR p16: 5.2.3 // Tanaman di Kecamatan Banjang (m2), 2022–2025 // xiv
+   FISIK p98 atas: KECAMATAN BANJANG DALAM ANGKA 2026 | Tabel Luas Panen Tanaman Biofarmaka Menurut Jenis Tanaman | 5.2.3 | Table di Kecamatan Banjang (m2), 2022–2025
+   FISIK cocok: 5.2.3
+   FISIK folio: angka=[] kop=['KECAMATAN BANJANG DALAM ANGKA 2026', '72 BANJANG DISTRICT IN FIGURE 2026'] bawah=['Agriculture (Directorate General of Horticulture)', '72 BANJANG DISTRICT IN FIGURE 2026']
+
+#3 id=278893 Kecamatan Pamukan Selatan Dalam Angka 2025 [7825b778]
+   tabel 4.3.1 | hal 25 | fisik 45 | keduanya
+   JUDUL: Banyaknya Desa 1 /Kelurahan Menurut Sumber Penerangan Jalan Utama Desa/Kelurahan di Kecamatan Pamukan Selatan, 2021 dan 2024
+   DAFTAR p14: 4.3.1 Banyaknya Desa/Kelurahan Menurut Sumber Penerangan Jalan // Utama Desa/Kelurahan di Kecamatan Pamukan Selatan, 2021 dan // 2024 .........................................................................................................
+   FISIK p45 atas: SOSIAL DAN KESEJAHTERAAN RAKYAT | 4.3 PERUMAHAN DAN LINGKUNGAN | Tabel 4.3.1 Banyaknya Desa1/Kelurahan Menurut Sumber Penerangan | Jalan Utama Desa/Kelurahan di Kecamatan Pamukan
+   FISIK cocok: Tabel 4.3.1 Banyaknya Desa1/Kelurahan Menurut Sumber Penerangan
+   FISIK folio: angka=['25'] kop=[] bawah=['Sumber : 2 Badan Pusat Statistik, Pendataan Potens', '25']
+
+#4 id=277943 Kecamatan Bumi Makmur Dalam Angka 2025 [eb93beef]
+   tabel 4.1.3 | hal None | fisik 79 | badan
+   JUDUL: Jumlah Guru Menurut Tingkat Pendidikan di Kecamatan Bumi Makmur, 2023/2024 dan 2024/2025
+   FISIK p79 atas: SOSIAL DAN KESEJAHTERAAN RAKYAT | Tabel 4.1.3 Jumlah Guru Menurut Tingkat Pendidikan di | Kecamatan Bumi Makmur, 2023/2024 dan | 2024/2025
+   FISIK cocok: Tabel 4.1.3 Jumlah Guru Menurut Tingkat Pendidikan di
+   FISIK folio: angka=['33', '20', '30'] kop=[] bawah=['2Kementerian Agama, EMIS, data semester genap', '55']
+
+#5 id=277046 Kecamatan Jorong Dalam Angka 2026 [6c5e501c]
+   tabel 4.4.1 | hal 56 | fisik 84 | keduanya
+   JUDUL: Banyaknya Desa1/Kelurahan yang Mengalami Kejadian Bencana Alam Menurut Jenis Bencana Alam di Kecamatan Jorong, 20252 Number of Villages1/Subdistricts with Natural Disaster Events by Type of Natural Disaster in Jorong District, 20252
+   FISIK p84 atas: KECAMATAN JORONG DALAM ANGKA 2026 | 4.4 SOSIAL LAINNYA/RELIGION AND OTHER SOCIAL AFFAIRS | Tabel 4.4.1 Banyaknya Desa1/Kelurahan yang Mengalami | Table Kejadian Bencana Alam Menurut Jenis Bencana Alam
+   FISIK cocok: Tabel 4.4.1 Banyaknya Desa1/Kelurahan yang Mengalami
+   FISIK folio: angka=['2025'] kop=['KECAMATAN JORONG DALAM ANGKA 2026', '56 JORONG DISTRICT IN FIGURES 2026'] bawah=['Potential Data Collecting', '56 JORONG DISTRICT IN FIGURES 2026']
+
+#6 id=283830 Kecamatan Anjir Pasar Dalam Angka 2026 [888e62ec]
+   tabel 5.3 | hal 64 | fisik 88 | daftar
+   JUDUL: Luas Panen Tanaman Biofarmaka Menurut Jenis Tanaman di Kecamatan Anjir Pasar (m2), 2022–2025 Harvested Area of Medicinal Plants by Kind of Plant in Anjir Pasar District (m2), 2022–2025
+   DAFTAR p17: 5.3 Luas Panen Tanaman Biofarmaka Menurut Jenis Tanaman di // Kecamatan Anjir Pasar (m2), 2022–2025 // Harvested Area of Medicinal Plants by Kind of Plant in Anjir Pasar // District (m2), 2022–2025 .....................................................................................
+   FISIK p88 atas: KECAMATAN ANJIR PASAR DALAM ANGKA 2026 | Tabel Luas Panen Tanaman Biofarmaka Menurut Jenis Tanaman | 5.3 | di Kecamatan Anjir Pasar (m2), 2022–2025
+   FISIK cocok: 5.3
+   FISIK folio: angka=[] kop=['KECAMATAN ANJIR PASAR DALAM ANGKA 2026', '64 ANJIR PASAR DISTRICT IN FIGURES 2026'] bawah=['Agriculture (Directorate General of Horticulture)', '64 ANJIR PASAR DISTRICT IN FIGURES 2026']
+
+#7 id=288952 Kecamatan Sungai Tabukan Dalam Angka 2026 [ebc34d76]
+   tabel 5.2.2 | hal 70 | fisik 96 | daftar
+   JUDUL: Produksi Tanaman Sayuran dan Buah-buahan Semusim Menurut Jenis Tanaman di Kecamatan Sungai Tabukan (kuintal), 2022–2025 Production of Temporary Vegetables and Fruit Crops by Type of Crops in Sungai Tabukan District (quintal), 2022–2025
+   DAFTAR p16: 5.2.2 // Semusim Menurut Jenis Tanaman di Kecamatan // Sungai Tabukan (kuintal), 2022–2025 // Production of Temporary Vegetables and Fruit Crops by Type of
+   FISIK p96 atas: KECAMATAN SUNGAI TABUKAN DALAM ANGKA 2026 | Tabel Produksi Tanaman Sayuran dan Buah-buahan Semusim | 5.2.2 | Table Menurut Jenis Tanaman di Kecamatan Sungai Tabukan
+   FISIK cocok: 5.2.2
+   FISIK folio: angka=['2025'] kop=['KECAMATAN SUNGAI TABUKAN DALAM ANGKA 2026', '70 SUNGAI TABUKAN DISTRICT IN FIGURE 2026'] bawah=['Agriculture (Directorate General of Horticulture)', '70 SUNGAI TABUKAN DISTRICT IN FIGURE 2026']
+
+#8 id=286815 Kecamatan Telaga Langsat Dalam Angka 2025 [e422f1da]
+   tabel 3.2 | hal 25 | fisik 49 | daftar
+   JUDUL: Jumlah Penduduk Menurut Kelompok Umur dan Jenis Kelamin di Kecamatan Telaga Langsat, 2024 Population by Age Group and Gender in Telaga Langsat District, 2024
+   DAFTAR p14: 3.2 // Kecamatan Telaga Langsat, 2024
+   FISIK p49 atas: PENDUDUK | Tabel Jumlah Penduduk Menurut Kelompok Umur dan Jenis | 3.2 | Table Kelamin di Kecamatan Telaga Langsat, 2024
+   FISIK cocok: 3.2
+   FISIK folio: angka=[] kop=[] bawah=['Hulu Sungai Selatan Regency', 'POPULATION 25']
+
+#9 id=292667 Kecamatan Tebing Tinggi Dalam Angka 2026 [fe50dcfe]
+   tabel None | hal None | fisik None | daftar
+   JUDUL: District (m2), 2022–2025 5 4 5.4 Produksi Tanaman Biofarmaka Menurut Jenis Tanaman di Kecamatan Tebing Tinggi (kg), 2022–2025 .5 5 Production of Medicinal Crops by Type of Crops in Tebing Tinggi District (kg), 2022–2025 5 5 5.5 Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kecamatan Tebing Tinggi (m2), 2022–2025 5 6. Harvested Area of Ornamental Crops by Type of Crops in Tebing Tinggi
+
+#10 id=290335 Kecamatan Tanjung Dalam Angka 2025 [d2eb76d0]
+   isi None | hal xi | fisik None | daftar
+   JUDUL: Daftar Tabel/List of Tables
+
+#11 id=281866 Kecamatan Aranio Dalam Angka 2026 [a817e441]
+   gambar 6 | hal None | fisik 52 | keduanya
+   JUDUL: Jumlah Sekolah Menurut Tingkat Pendidikan di Kecamatan Aranio, 2024/2025 .3 2
+   FISIK p52 atas: KECAMATAN ARANIO DALAM ANGKA 2026 | 12 | 11 | 10
+   FISIK cocok: 6
+   FISIK cocok: Gambar 6 Jumlah Sekolah Menurut Tingkat Pendidikan
+   FISIK folio: angka=['12', '11', '10'] kop=['KECAMATAN ARANIO DALAM ANGKA 2026', '32 ARANIO DISTRIC IN FIGURE 2026'] bawah=['Aranio District, 2024/2025', '32 ARANIO DISTRIC IN FIGURE 2026']
+
+#12 id=283575 Kecamatan Tabunganen Dalam Angka 2026 [6ded7299]
+   tabel 4.2.2 | hal 41 | fisik 65 | daftar
+   JUDUL: Banyaknya Tenaga Kesehatan Menurut Desa/Kelurahan di Kecamatan Tabunganen, 2025 Number of Medical Personnel by Villages/Subdistrict in Tabunganen District, 2025
+   DAFTAR p15: 4.2.2 Banyaknya Tenaga Kesehatan Menurut Desa/Kelurahan di // Kecamatan Tabunganen, 2025
+   FISIK p65 atas: SoSial dan KeSejahteraan raKyat | Tabel Banyaknya Tenaga Kesehatan Menurut Desa/Kelurahan di | 4.2.2 | Kecamatan Tabunganen, 2025
+   FISIK cocok: 4.2.2
+   FISIK folio: angka=[] kop=[] bawah=['Sumber/Source: Puskesmas Kecamatan Tabunganen/Publ', 'Social and Welfare 41']
+
+#13 id=276566 Kecamatan Kurau Dalam Angka 2026 [24e8cb19]
+   tabel 6.3.1 | hal 93 | fisik 119 | keduanya
+   JUDUL: Banyaknya Desa1/Kelurahan Menurut Keberadaan Kantor Pos/Pos Pembantu/Rumah Pos, Pos Keliling, dan Perusahaan/Agen Jasa Ekspedisi Swasta di Kecamatan Kurau, 2025 Number of Villages1/Subdistricts by Post Office/Subsidiary of Post Office, Mobile Portal Service, Private Expedition Service Company in Kurau District, 2025
+   FISIK p119 atas: PARIWISATA, TRANSPORTASI, DAN KOMUNIKASI | 6.3 KOMUNIKASI/COMMUNICATION | Tabel 6.3.1 Banyaknya Desa1/Kelurahan Menurut Keberadaan | Table Kantor Pos/Pos Pembantu/Rumah Pos, Pos Keliling,
+   FISIK cocok: Tabel 6.3.1 Banyaknya Desa1/Kelurahan Menurut Keberadaan
+   FISIK folio: angka=['2025'] kop=[] bawah=['Village Potential Data Collecting', 'TOURISM, TRANSPORTATION, AND COMMUNICATION 93']
+
+#14 id=283965 Kecamatan Tabunganen Dalam Angka 2025 [8d55ee45]
+   gambar 2.1 | hal 16 | fisik 40 | daftar
+   JUDUL: Jumlah Rukun Tetangga (RT) menurut Desa/Kelurahan di Kecamatan Tabunganen, 2024 Number of Rukun Tetangga by Villages/Subdistrict in Tabunganen District, 2024
+   FISIK p40 atas: KECAMATAN TABUNGANEN DALAM ANGKA 2025 | Sumber/Source: Kantor Camat Tabunganen/Tabunganen District Office | Gambar Jumlah Rukun Tetangga (RT) menurut Desa/Kelurahan di | 2.1
+   FISIK cocok: 2.1
+   FISIK folio: angka=[] kop=['KECAMATAN TABUNGANEN DALAM ANGKA 2025', '16 TABUNGANEN DISTRICT IN FIGURES 2025'] bawah=['Tabunganen District, 2024', '16 TABUNGANEN DISTRICT IN FIGURES 2025']
+
+#15 id=294272 Kecamatan Banjar Baru Selatan Dalam Angka 2025 [5221de74]
+   tabel 6.1.2 | hal 150 | fisik 178 | keduanya
+   JUDUL: Jumlah Rumah Makan/Restoran Menurut Kelurahan di Kecamatan Banjarbaru Selatan, 2023–2024
+   DAFTAR p22: 6.1.2 Jumlah Rumah Makan/Restoran Menurut Kelurahan di // Kecamatan Banjarbaru Selatan, 2023–2024 .................................. 150
+   FISIK p178 atas: Tabel 6.1.2 Jumlah Rumah Makan/Restoran Menurut Kelurahan di | Kecamatan Banjarbaru Selatan, 2023–2024 | Kelurahan 2023 2024 | (1) (2) (3)
+   FISIK cocok: Tabel 6.1.2 Jumlah Rumah Makan/Restoran Menurut Kelurahan di
+   FISIK folio: angka=[] kop=['150 KECAMATAN BANJARBARU SELATAN DALAM ANGKA 2025'] bawah=['Sumber: Kantor Kelurahan se-Kecamatan Banjarbaru S', '150 KECAMATAN BANJARBARU SELATAN DALAM ANGKA 2025']
+
+#16 id=278207 Kecamatan Pulau Laut Sigam Dalam Angka 2026 [1f4cdc7d]
+   tabel 5.3 | hal 36 | fisik 56 | keduanya
+   JUDUL: Luas Panen Tanaman Biofarmaka Menurut Jenis Tanaman di Kecamatan Pulau Laut Sigam (m 2 ), 2022–2025
+   DAFTAR p14: 5.3 Luas Panen Tanaman Biofarmaka Menurut Jenis Tanaman di // Kecamatan Pulau Laut Sigam (m2), 2022–2025 ...................................... 36
+   FISIK p56 atas: KECAMATAN PULAU LAUT SIGAM DALAM ANGKA 2026 | Tabel 5.3 Luas Panen Tanaman Biofarmaka Menurut Jenis Tanaman | di Kecamatan Pulau Laut Sigam (m2), 2022–2025 | Jenis Tanaman 2022 2023 2024 2025
+   FISIK cocok: Tabel 5.3 Luas Panen Tanaman Biofarmaka Menurut Jenis Tanaman
+   FISIK folio: angka=['36'] kop=['KECAMATAN PULAU LAUT SIGAM DALAM ANGKA 2026'] bawah=['Sumber: Badan Pusat Statistik-Kementerian Pertania', '36']
+
+#17 id=288583 Kecamatan Amuntai Selatan Dalam Angka 2026 [aeb1f250]
+   tabel 5.2.1 | hal 75 | fisik 101 | daftar
+   JUDUL: Luas Panen Tanaman Sayuran dan Buah-buahan Semusim Menurut Jenis Tanaman di Kecamatan Amuntai Selatan (ha), 2022–2025 Harvested Area of Temporary Vegetables and Fruit Crops by Type of Crops in Amuntai Selatan District (ha), 2022–2025
+   DAFTAR p16: 5.2.1 // Semusim Menurut Jenis Tanaman di Kecamatan // Amuntai Selatan (ha), 2022–2025 // Harvested Area of Temporary Vegetables and Fruit Crops by Type of
+   FISIK p101 atas: Pertanian | 5.2 HORTIKULTURA | HORTICULTURE | Tabel Luas Panen Tanaman Sayuran dan Buah-buahan Semusim
+   FISIK cocok: 5.2.1
+   FISIK folio: angka=[] kop=[] bawah=['Agriculture (Directorate General of Horticulture)', 'Agriculture 75']
+
+#18 id=276660 Kecamatan Jorong Dalam Angka 2025 [5136dda2]
+   isi None | hal xvii | fisik None | daftar
+   JUDUL: Daftar Gambar
+
+#19 id=283278 Kecamatan Belawang Dalam Angka 2025 [3f8735e8]
+   tabel 4.5.1 | hal 52 | fisik 76 | daftar
+   JUDUL: Jumlah Peristiwa Kejahatan dan Pelanggaran yang Dilaporkan dan Diselesaikan Menurut Jenis Kejahatan di Kecamatan Belawang, Number of Crime and Reported and Completed Violance by Type of Crime in Belawang District, 2024
+   DAFTAR p16: 4.5.1 Jumlah Peristiwa Kejahatan dan Pelanggaran yang Dilaporkan dan // Diselesaikan Menurut Jenis Kejahatan di Kecamatan Belawang, // 2024 // Number of Crime and Reported and Completed Violance by Type of
+   FISIK p76 atas: KECAMATAN BELAWANG DALAM ANGKA 2025 | 4.5 KRIMINALITAS | CRIMINALITY | Tabel Jumlah Peristiwa Kejahatan dan Pelanggaran yang
+   FISIK cocok: 4.5.1
+   FISIK folio: angka=[] kop=['KECAMATAN BELAWANG DALAM ANGKA 2025', '52 BELAWANG DISTRICT IN FIGURES 2025'] bawah=['Sumber/Source: Polsek Kecamatan Belawang/Police Se', '52 BELAWANG DISTRICT IN FIGURES 2025']
+
+#20 id=285482 Kecamatan Bakarangan Dalam Angka 2026 [f35c36ee]
+   tabel 4.3.1 | hal 42 | fisik 66 | daftar
+   JUDUL: Banyaknya Desa1/Kelurahan Menurut Sumber Penerangan Jalan Utama Desa/Kelurahan di Kecamatan Bakarangan, 2023–2025 Number of Villages1/Subdistricts by Source of Villages/Subdistricts' Main Street Illumination in Bakarangan District, 2023–2025
+   DAFTAR p14: 4.3.1 // Utama Desa/Kelurahan di Kecamatan Bakarangan, 2023–2025 // Number of Villages1/Subdistricts by Source of Villages/Subdistricts' // Main Street Illumination in Bakarangan District, 2023–2025 ................. 42
+   FISIK p66 atas: SOSIAL DAN KESEJAHTERAAN RAKYAT | 4.3 PERUMAHAN DAN LINGKUNGAN | HOUSING AND ENVIRONMENT | Tabel Banyaknya Desa1/Kelurahan Menurut Sumber
+   FISIK cocok: 4.3.1
+   FISIK folio: angka=[] kop=[] bawah=['Sumber/Source: Badan Pusat Statistik, Pendataan Po', 'SOCIAL AND WELFARE 43']
+
+#21 id=288109 Kecamatan Danau Panggang Dalam Angka 2026 [6090cf84]
+   isi None | hal xxi | fisik None | daftar
+   JUDUL: Penjelasan Umum/Explanatory Notes
+
+#22 id=279615 Kecamatan Pulau Laut Tanjung Selayar Dalam Angka 2025 [ddab472c]
+   isi None | hal ix | fisik None | daftar
+   JUDUL: Daftar Isi
+
+#23 id=293440 Kecamatan Banjarmasin Selatan Dalam Angka 2026 [abd3ff44]
+   tabel 8.2.2 | hal 128 | fisik 156 | daftar
+   JUDUL: Jumlah Pemakaian Air Minum PDAM menurut Kelurahan dan Jenis Konsumen di Kecamatan Banjarmasin Selatan (m3), 2025 Number of Water Use by Subdistricts and Kind of Customers in Banjarmasin Selatan District (m3), 2025
+   DAFTAR p22: 8.2.2 // Konsumen di Kecamatan Banjarmasin Selatan (m3), 2025
+   FISIK p156 atas: KECAMATAN BANJARMASIN SELATAN DALAM ANGKA 2026 | Tabel Jumlah Pemakaian Air Minum PDAM menurut Kelurahan | 8.2.2 | dan Jenis Konsumen di Kecamatan Banjarmasin Selatan
+   FISIK cocok: 8.2.2
+   FISIK folio: angka=[] kop=['KECAMATAN BANJARMASIN SELATAN DALAM ANGKA 2026', '128 BANJARMASIN SELATAN DISTRICT IN FIGURE 2026'] bawah=['Banjarmasin Selatan 144.710 95.959 6.947.893 67.40', '128 BANJARMASIN SELATAN DISTRICT IN FIGURE 2026']
+
+#24 id=283283 Kecamatan Belawang Dalam Angka 2025 [3f8735e8]
+   tabel 5.2 | hal 65 | fisik 89 | daftar
+   JUDUL: Produksi Tanaman Sayuran dan Buah-buahan Semusim Menurut Jenis Tanaman di Kecamatan Belawang (kuintal), 2021–2024 Production of Seasonal Vegetables and Fruits by Kind of Plant in Belawang District (quintal), 2021–2024
+   DAFTAR p17: 5.2 Produksi Tanaman Sayuran dan Buah-buahan Semusim Menurut // Jenis Tanaman di Kecamatan Belawang (kuintal), 2021–2024 // Production of Seasonal Vegetables and Fruits by Kind of Plant in // Belawang District (quintal), 2021–2024 ........................................................... 65
+   FISIK p89 atas: Pertanian | Tabel Produksi Tanaman Sayuran dan Buah-buahan Semusim | 5.2 | Menurut Jenis Tanaman di Kecamatan Belawang (kuintal),
+   FISIK cocok: 5.2
+   FISIK folio: angka=[] kop=[] bawah=['Horticulture SPH-SBS', 'Agriculture 65']
+
+#25 id=289245 Kecamatan Pugaan Dalam Angka 2025 [23a8a52e]
+   tabel 2.2.2 | hal 19 | fisik 43 | daftar
+   JUDUL: Jumlah Pegawai Negeri Sipil Pemerintah Kecamatan Pugaan Menurut Tingkat Pendidikan dan Jenis Kelamin, 2024 Number of Government Employee of Pugaan District Government by Educational Level and Sex, 2024
+   DAFTAR p13: 2.2.2 Jumlah Pegawai Negeri Sipil Pemerintah Kecamatan Pugaan // Menurut Tingkat Pendidikan dan Jenis Kelamin, 2024
+   FISIK p43 atas: Tabel Jumlah Pegawai Negeri Sipil Pemerintah Kecamatan | 2.2.2 | Table Pugaan Menurut Tingkat Pendidikan dan Jenis Kelamin, | 2024
+   FISIK cocok: 2.2.2
+   FISIK folio: angka=['2024', '19'] kop=[] bawah=['Tabalong Regency', '19']
+
+#26 id=281177 Kecamatan Martapura Barat Dalam Angka 2026 [7dd02f9e]
+   tabel 4.1.3 | hal None | fisik 55 | keduanya
+   JUDUL: Jumlah Guru Menurut Tingkat Pendidikan di Kecamatan Martapura Barat, 2023/2024 dan 2024/2025 3 5
+   DAFTAR p13: 4.1.3 Jumlah Guru Menurut Tingkat Pendidikan di Kecamatan Martapura Barat, // 2023/2024 dan 2024/2025 .....................................................................................  // 4.1.4 Jumlah Murid Menurut Tingkat Pendidikan di Kecamatan Martapura Barat, // 2023/2024 dan 2024/2025 ..................................................................................... 
+   FISIK p55 atas: SOSIAL DAN KESEJAHTERAAN RAKYAT | Tabel 4.1.3 Jumlah Guru Menurut Tingkat Pendidikan di Kecamatan | Table Martapura Barat , 2024/2025 dan 2025/2026 | Number of Teachers by Educational Level in Martapura
+   FISIK cocok: Tabel 4.1.3 Jumlah Guru Menurut Tingkat Pendidikan di Kecamatan
+   FISIK folio: angka=[] kop=[] bawah=['semester report data', 'SOCIAL AND WELFARE 35']
+
+#27 id=283482 Kecamatan Cerbon Dalam Angka 2025 [64463e50]
+   gambar 4.1 | hal 37 | fisik 61 | daftar
+   JUDUL: Jumlah Sekolah, Guru, dan Murid menurut Tingkat Pendidikan di Kecamatan Cerbon, 2024/2025 Number of Schools, Teachers, and Pupils by Educational Level in Cerbon District, 2024/2025
+   FISIK p61 atas: SoSial dan KeSejahteraan raKyat | Sumber/Source : Kementerian Pendidikan Dasar dan Menengah, Data Pokok  | go.id/sp diakses Cerbon, data semester genap/Ministry of Primary and S | Education Data System https://dapo.dikdasmen.go.id/sp accessed Cerbon,
+   FISIK cocok: 4.1
+   FISIK folio: angka=[] kop=[] bawah=['Level in Cerbon District, 2024/2025', 'Social and Welfare 37']
+
+#28 id=284051 Kecamatan Anjir Pasar Dalam Angka 2025 [92f49f27]
+   tabel 2.2.1 | hal 18 | fisik 42 | daftar
+   JUDUL: Jumlah Pegawai Negeri Sipil Menurut Pemerintah Daerah dan Jenis Kelamin di Kecamatan Anjir Pasar, 2024 Number of Government Employee by Local Government and Sex in Anjir Pasar District, 2024
+   DAFTAR p13: 2.2.1 Jumlah Pegawai Negeri Sipil Menurut Pemerintah Daerah dan // Jenis Kelamin di Kecamatan Anjir Pasar, 2024
+   FISIK p42 atas: KECAMATAN ANJIR PASAR DALAM ANGKA 2025 | 2.2 SUMBER DAYA MANUSIA | HUMAN RESOURCES | Tabel Jumlah Pegawai Negeri Sipil Menurut Pemerintah Daerah
+   FISIK cocok: 2.2.1
+   FISIK folio: angka=[] kop=['KECAMATAN ANJIR PASAR DALAM ANGKA 2025', '18 ANJIR PASAR DISTRICT IN FIGURES 2025'] bawah=['Banyiur Village Government', '18 ANJIR PASAR DISTRICT IN FIGURES 2025']
+
+#29 id=279962 Kecamatan Sambung Makmur Dalam Angka 2025 [0f5b6089]
+   tabel 1 | hal 1 | fisik 92 (perkiraan) | daftar
+   JUDUL: Geografi/GEOGRAPHY
+   DAFTAR p11: 1 Geografi/GEOGRAPHY .........................................................................................
+   DAFTAR p13: 1 Geografi/GEOGRAPHY ................................................................................... 1
+   DAFTAR p13: 2 Pemerintahan/ Government........................................................................ 13
+   DAFTAR p13: 2.1 Wilayah Administratif/Administrative Area ............................................. 17
+   DAFTAR p13: 2.2 Sumber Daya Manusia/Human Resources................................................. 19
+   DAFTAR p19: 1 Peta Wilayah Kecamatan Sambung Makmur, 2024 ...................................... 5
+   DAFTAR p19: 10 Banyaknya Desa1 dengan Keberadaan Sarana Perdagangan Menurut // Jenis Sarana Perdagangan di Kecamatan Sambung Makmur, 2024 . 105
+   DAFTAR p19: 11 Jumlah Perusahaan Industri Menurut Klasifikasi Industri dan // Kelompok Tenaga Kerja di Kecamatan Sambung Makmur, 2024 ...... 106
+   FISIK p92 atas: KECAMATAN SAMBUNG MAKMUR DALAM ANGKA 2025 | 70 SAMBUNG MAKMUR DISTRIC IN FIGURE 2025
+   FISIK folio: angka=[] kop=['KECAMATAN SAMBUNG MAKMUR DALAM ANGKA 2025', '70 SAMBUNG MAKMUR DISTRIC IN FIGURE 2025'] bawah=['KECAMATAN SAMBUNG MAKMUR DALAM ANGKA 2025', '70 SAMBUNG MAKMUR DISTRIC IN FIGURE 2025']
+
+#30 id=292649 Kecamatan Tebing Tinggi Dalam Angka 2026 [fe50dcfe]
+   tabel 2.1 | hal 16 | fisik 40 (perkiraan) | daftar
+   JUDUL: Wilayah Administratif/ Administrative Area
+   DAFTAR p13: 2.1 Wilayah Administratif/ Administrative Area 16
+   FISIK p40 atas: KECAMATAN TEBING TINGGI DALAM ANGKA 2026 | 2.1 WILAYAH ADMINISTRATIF /ADMINISTRATIVE AREA | Tabel 2.1.1 Jumlah Rukun Warga (RW) dan Rukun Tetangga (RT) | Table Menurut Desa/Kelurahan di Kecamatan Tebing Tinggi ,
+   FISIK cocok: 2.1 WILAYAH ADMINISTRATIF /ADMINISTRATIVE AREA
+   FISIK folio: angka=['2025'] kop=['KECAMATAN TEBING TINGGI DALAM ANGKA 2026', '16 TEBING TINGGI DISTRICT IN FIGURES 2026'] bawah=['Potential Data Collecting', '16 TEBING TINGGI DISTRICT IN FIGURES 2026']

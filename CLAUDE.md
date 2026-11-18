@@ -44,6 +44,15 @@ Mahasiswa Politeknik Negeri Banjarmasin.
       (`scripts/kemajuan_kecamatan.py`, hanya membaca database uji).
     - Unduhan 17 Nov dari kantor ±5 MB/detik. Sampel 22 PDF Tanah Laut:
       ±140 halaman, berlapis teks, 0 perlu OCR.
+    - **18 Nov 2026** (`data/regresi/kecamatan-mutu-20261118.md`):
+      - cache OCR sesudah mati lampu: 0 berkas rusak; 7 HST 2026 dimuat ke
+        database uji lewat `muat_ocr_terarah.py --sasaran uji` (41-46 entri,
+        mutu OCR belum disampel); 18 target OCR lain masih 0 entri;
+      - **sampel 30 entri bertekst: 20/30 benar seluruhnya (di bawah
+        27/30), pekerjaan dihentikan**; cacat terpusat di Tanah Laut 2025
+        (nomor Daftar berspasi "1. 1"), Banjar 2026 (halaman Daftar
+        berselang titik "3..3"), Balangan 2025 (blok tanpa nomor);
+      - ukur memori/waktu pencarian belum dijalankan.
 
 ## Sumber data
 - **BPS WebAPI**: `https://webapi.bps.go.id/v1/api/list/model/publication/lang/ind/domain/6300/page/{page}/key/{key}/`
