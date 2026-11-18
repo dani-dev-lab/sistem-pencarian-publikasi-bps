@@ -21,6 +21,7 @@ from app.services.normalisasi_data import teks_publikasi
 from app.services.preprocessing import normalisasi
 from app.services import ocr, perkiraan_halaman, versi_data
 from app.services.sumber_bps import berkas_pdf_valid, path_pdf, samarkan, sidik_pdf
+from app.services.wilayah import kecamatan_dari_judul
 
 PANJANG_GALAT = 1000
 
@@ -95,6 +96,8 @@ def simpan_metadata(kode, nama_wilayah, daftar):
 
             rilis = tanggal(p.get("rl_date"))
             pub.judul = judul
+            kec = kecamatan_dari_judul(judul)     # publikasi kecamatan, 18 Nov 2026
+            pub.kecamatan = kec[0] if kec else None
             pub.abstrak = abstrak
             pub.tanggal_rilis = rilis
             pub.tahun_terbit = rilis.year if rilis else None

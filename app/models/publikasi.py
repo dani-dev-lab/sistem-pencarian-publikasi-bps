@@ -31,6 +31,12 @@ class Publikasi(db.Model):
     # perlu membaca berkas konfigurasi untuk setiap baris.
     wilayah = db.Column(db.String(100), nullable=False)
 
+    # Kunci kecamatan kalau ini publikasi "Kecamatan ... Dalam Angka"
+    # (wilayah.kecamatan_dari_judul), NULL = bukan. Pencarian tanpa centang
+    # kecamatan tidak menyentuh publikasi berkolom terisi (18 Nov 2026).
+    # Ditambahkan ke database lama oleh skema.pastikan_kolom().
+    kecamatan = db.Column(db.String(60))
+
     # updt_date TERAKHIR dari API, sekadar apa kata BPS saat ini. Tidak pernah
     # ditimpa nilai kosong: API sempat mengosongkan field ini, dan kosong bukan
     # berarti publikasinya berubah.

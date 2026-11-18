@@ -85,6 +85,45 @@ def pola_judul_dikecualikan(path=None):
 
 
 @lru_cache(maxsize=4)
+def _pola_kecamatan(path, _mtime):
+    """Regex `pola_kecamatan` dari wilayah.json (None kalau tidak ada).
+    Di-cache menurut waktu ubah berkas, seperti _pola_deteksi."""
+    with open(path, encoding="utf-8") as f:
+        pola = json.load(f).get("pola_kecamatan")
+    if not pola:
+        return None
+    try:
+        rx = re.compile(pola, re.IGNORECASE)
+    except re.error as e:
+        raise SystemExit(f"{path}: pola_kecamatan tidak valid ({e})") from None
+    if "nama" not in rx.groupindex:
+        raise SystemExit(f"{path}: pola_kecamatan harus punya grup (?P<nama>...)")
+    return rx
+
+
+def kunci_kecamatan(nama):
+    """Kunci kecamatan: huruf kecil tanpa spasi/tanda baca.
+    "Banjar Baru Selatan" (2025) dan "Banjarbaru Selatan" (2026) -> sama."""
+    return re.sub(r"[^a-z0-9]", "", nama.lower())
+
+
+def kecamatan_dari_judul(judul, path=None):
+    """(kunci, nama) kalau judul = publikasi Kecamatan Dalam Angka, selain itu None.
+
+    Penanda publikasi kecamatan (18 Nov 2026). Sengaja TIDAK memakai
+    `kecualikan_judul`: pola itu mengatur apa yang ditarik dan akan dimatikan
+    kalau kecamatan masuk produksi; pola ini menandai yang sudah ada.
+    """
+    path = str(path or Config.FILE_WILAYAH)
+    rx = _pola_kecamatan(path, os.path.getmtime(path))
+    m = rx.match((judul or "").strip()) if rx else None
+    if not m:
+        return None
+    nama = re.sub(r"\s+", " ", m.group("nama")).strip()
+    return kunci_kecamatan(nama), nama
+
+
+@lru_cache(maxsize=4)
 def _pola_deteksi(path, _mtime):
     """Bentuk kata yang dikenali per wilayah, terpanjang lebih dulu.
 

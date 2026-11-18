@@ -6,8 +6,10 @@
     "singkatan DIKONFIRMASI tim IT BPS Kalsel (16 Nov 2026): daftar singkatan benar, dan kabupaten/kota tanpa singkatan memang tidak punya singkatan resmi - jangan ditambah tanpa dasar. Singkatan baru boleh ditambahkan di kolom singkatan kalau nanti diperlukan.",
     "Deteksi wilayah dari kueri harus mencocokkan KATA UTUH: 'banjar' bertumpuk dengan 'banjarmasin' dan 'banjarbaru'.",
     "Deteksi wilayah dari kueri (filter wilayah di halaman pencarian) memakai nama tanpa awalan Kab./Kota, nama_lain, dan singkatan. Provinsi (6300) tidak dideteksi dari kueri: hanya bisa dipilih lewat dropdown.",
-    "kecualikan_judul: publikasi yang judulnya cocok dengan salah satu pola (regex, tanpa membedakan huruf besar/kecil) TIDAK ditarik, di domain mana pun. Untuk menarik lagi, ubah aktif menjadi false - tidak perlu mengubah kode. Publikasi yang sudah ada di database tidak dihapus."
+    "kecualikan_judul: publikasi yang judulnya cocok dengan salah satu pola (regex, tanpa membedakan huruf besar/kecil) TIDAK ditarik, di domain mana pun. Untuk menarik lagi, ubah aktif menjadi false - tidak perlu mengubah kode. Publikasi yang sudah ada di database tidak dihapus.",
+    "pola_kecamatan (18 Nov 2026): judul publikasi Kecamatan Dalam Angka, dengan grup 'nama'. Mengisi kolom publikasi.kecamatan (kunci = nama huruf kecil tanpa spasi/tanda baca, menyatukan ejaan 'Banjar Baru Selatan'/'Banjarbaru Selatan'). Terpisah dari kecualikan_judul: pola itu mengatur apa yang DITARIK, pola ini menandai publikasi kecamatan yang sudah ada."
   ],
+  "pola_kecamatan": "^Kecamatan\\s+(?P<nama>.+?)\\s+Dalam Angka\\s+\\d{4}$",
   "kecualikan_judul": [
     {"pola": "^Kecamatan\\b.*\\bDalam Angka\\b", "aktif": true,
      "alasan": "Permintaan tim PST (9 Nov 2026): cakupan 13 kabupaten/kota, tidak sampai data per kecamatan/desa."}
