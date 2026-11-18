@@ -766,7 +766,7 @@ cetak("B-layout-biasa-aman", E._parse_baris([
 
 # Kecamatan Dalam Angka (18 Nov 2026): baris dirapikan seperti di _baca_daftar.
 def rapi(halaman):
-    return E._gabung_nomor_terbelah([E._rapikan_nomor_halaman(b) for b in halaman])
+    return [E._rapikan_nomor_halaman(b) for b in halaman]
 def baca(halaman):
     h = rapi(halaman)
     return E._parse_baris(h, "tabel", "x", E._batas_kanan(h, "tabel"))
@@ -785,26 +785,18 @@ cetak("K3-halaman-dalam-leader", baca([
     baris(w("4.4.2", 57, 75), w("Korban", 91), w("Jiwa", 150), w("..........4..3..", 200, 378), w(".", 378, 381)),
     baris(w("4.4.3", 57, 75), w("Mitigasi", 91), w("Bencana", 150), w("..........4...4..", 200, 379))]),
     [("4.4.1", "Banyaknya Bencana", "42"), ("4.4.2", "Korban Jiwa", "43"), ("4.4.3", "Mitigasi Bencana", "44")])
-# Pola 1: nomor terpotong "2.1." + "1" (celah 3 pt), >= 3 baris di halaman (Tanah Laut 2025).
-cetak("K1-nomor-terbelah", baca([
-    baris(w("2.1.", 57, 70), w("1", 73, 77), w("Jumlah", 91), w("RT", 130), w("......", 300, 364), w("19", 366, 376)),
-    baris(w("2.1.", 57, 70), w("2", 73, 77), w("Nama", 91), w("Camat", 130), w("......", 300, 364), w("20", 366, 376)),
-    baris(w("2.1.", 57, 70), w("3", 73, 77), w("Nama", 91), w("Kepala", 130), w("Desa", 175), w("......", 300, 364), w("21", 366, 376))]),
-    [("2.1.1", "Jumlah RT", "19"), ("2.1.2", "Nama Camat", "20"), ("2.1.3", "Nama Kepala Desa", "21")])
-# Pola 1: SATU baris "1." + "10" + judul di halaman tidak memicu penggabungan.
-h_satu = [baris(w("1.", 57, 63), w("10", 66, 78), w("Desa", 91), w("Terluas", 120), w("......", 300, 364), w("5", 370, 376)),
-          baris(w("2.", 57, 63), w("Luas", 91), w("Wilayah", 120), w("......", 300, 364), w("6", 370, 376))]
-print("I K1-satu-baris-aman", "OK" if rapi(h_satu) == h_satu and rapi(h_satu)[0][1]["text"] == "10" else "SALAH digabung")
+# Pola 1 (nomor terpotong "2.1." + "1", Tanah Laut 2025) DIBATALKAN 18 Nov 2026:
+# penomoran Daftar != badan di sumbernya membuat 27 tombol PDF meleset. Tidak diuji.
 '''
 
 
 def bagian_i():
     """Parser Daftar: pola C, A2, A1, A', B (16 Nov 2026) dan pola kecamatan
-    1-3 (18 Nov 2026), baris sintetis."""
-    print("\n=== I. PARSER DAFTAR (pola C, A2, A1, A', B, kecamatan K1-K3) ===", flush=True)
+    2-3 (18 Nov 2026; pola 1 dibatalkan), baris sintetis."""
+    print("\n=== I. PARSER DAFTAR (pola C, A2, A1, A', B, kecamatan K2-K3) ===", flush=True)
     kode, keluar, err = jalan_py(KODE_BAGIAN_I)
     hasil = re.findall(r"^I (\S+) (OK|SALAH.*)$", keluar, re.M)
-    n = 15
+    n = 13
     cek(f"I1 {len(hasil)} kasus sintetis parser Daftar", len(hasil) == n and all(h == "OK" for _, h in hasil),
         [f"{n}: {h}" for n, h in hasil if h != "OK"] or (err[-300:] if len(hasil) != n else f"{n}/{n}"))
 

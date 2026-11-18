@@ -4,12 +4,21 @@ Rancangan: `rancangan-kecamatan-20261118.md`, disetujui dengan dua syarat:
 urutan pola 2 -> 3 -> 1, dan pengaman tingkat halaman untuk pola 1.
 Produksi tidak disentuh. Database uji juga belum ditulis (hanya uji kering).
 
+**KEPUTUSAN 18 Nov 2026: pola 1 DIBATALKAN (revert `4d5c7c5`); pola 2 dan 3
+dipertahankan.** Alasan pemilik project: sebelum pola 1, tombol PDF tabel
+Tanah Laut 2025 sudah benar dari badan dokumen. Pola 1 hanya menambah halaman
+cetak, tetapi membuat 27 tombol meleset, dan bagi petugas tombol yang benar
+lebih penting. Penomoran Daftar ≠ badan di Tanah Laut 2025 dicatat sebagai
+utang teknis. Bagian pola 1 di bawah disimpan sebagai bukti
+(`banding-pola1.txt` dipulihkan sesudah revert). Hasil yang berlaku = baris
+"+ pola 3".
+
 | Commit | Isi |
 |---|---|
 | `7481e19` | Pola 2: `_rapikan_nomor_halaman`, nomor halaman yang ditimpa leader |
 | `390f3d4` | Pola 3: digit di dalam kata leader, ditambah buang "." sendirian |
-| `4d5c7c5` | Pola 1: `_gabung_nomor_terbelah`, aktif hanya kalau >= 3 baris berpola sama di satu halaman |
-| `5419397` | `uji_pipeline.py` bagian I: 15 kasus (K1-K3, termasuk 2 kasus "aman") |
+| `4d5c7c5` | Pola 1: `_gabung_nomor_terbelah`; **DIBATALKAN lewat revert** |
+| `5419397` | `uji_pipeline.py` bagian I: 15 kasus. Sesudah revert jadi 13 (kasus K1 dibuang) |
 
 ## Alat (folder `kecamatan-parser-20261118/`)
 - `uji_kering.py`: mengekstrak tanpa DB dan membandingkan per kunci
@@ -88,4 +97,4 @@ publikasi yang berubah harus punya kata yang dirapikan menurut
   "3.1" untuk semua tabel Sambung Makmur), dan nomor halaman yang melayang di
   tengah baris.
 - Perkiraan halaman fisik entri kepala bab ("tabel 1 Geografi", sampel mutu #29).
-- BARU: penomoran Daftar ≠ badan di Tanah Laut 2025 (27 pasangan, lihat pola 1).
+- Penomoran Daftar ≠ badan di Tanah Laut 2025 (27 pasangan; alasan pola 1 dibatalkan). Tabel Tanah Laut 2025 tetap tanpa halaman cetak, tombol dari badan benar.
