@@ -497,19 +497,32 @@ def _rapikan_nomor_halaman(baris):
       - kata sebelumnya leader (>= 3 titik berturut) yang MENIMPA W:
         x1 leader >= x0 W - 0,5. Celah normal leader ke nomor halaman ±2 pt.
     Kata baru adalah salinan; kata asli tidak diubah.
+
+    Pola 3 (18 Nov 2026, Kecamatan Dalam Angka Balangan 2025): digitnya ada
+    di DALAM kata leader itu sendiri, kadang diikuti kata "." sendirian:
+        [308-378]............................4..3..  [378-381].
+    Tidak ada baris yang dikenali berhalaman, mode nomor-sebaris tidak aktif,
+    dan entri jatuh ke jalur berlabel menjadi blok tanpa nomor. Karena itu W
+    juga diterima kalau diawali >= 3 karakter leader (syarat digit sama).
+    Kata titik-saja di kanan W dibuang, HANYA kalau W memenuhi syarat.
     """
     if len(baris) < 2:
         return baris
-    w, p = baris[-1], baris[-2]
+    i = len(baris) - 1
+    while i > 0 and RE_SAMPAH.match(baris[i]["text"]) and baris[i]["x0"] >= baris[i - 1]["x0"]:
+        i -= 1
+    w, p = baris[i], baris[i - 1] if i > 0 else None
     t = w["text"]
     if not RE_HALAMAN_BERCAMPUR.match(t) or not RE_DIGIT_LALU_TITIK.search(t):
         return baris
     digit = re.sub(r"[^0-9]", "", t)
     if not 1 <= len(digit) <= 3:
         return baris
-    if not (RE_LEADER.search(p["text"]) and p["x1"] >= w["x0"] - 0.5):
+    ditimpa = p is not None and RE_LEADER.search(p["text"]) and p["x1"] >= w["x0"] - 0.5
+    menyatu = re.match(r"[.…�]{3,}", t)
+    if not (ditimpa or menyatu):
         return baris
-    return baris[:-1] + [dict(w, text=digit)]
+    return baris[:i] + [dict(w, text=digit)]
 
 
 RE_FOLIO = re.compile(r"^[ivxlcdm]+$")    # folio halaman depan: romawi HURUF KECIL
