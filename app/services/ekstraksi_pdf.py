@@ -476,6 +476,42 @@ def _cari_halaman_di_baris(baris, batas_kanan, tipe):
     return (sisa, halaman) if halaman else (None, None)
 
 
+RE_HALAMAN_BERCAMPUR = re.compile(r"^[.…�]*[0-9][0-9.…�]*$")
+RE_DIGIT_LALU_TITIK = re.compile(r"[0-9].*[.…�]")
+RE_LEADER = re.compile(r"[.…�]{3,}")
+
+
+def _rapikan_nomor_halaman(baris):
+    """Nomor halaman Daftar yang bercampur titik leader -> digitnya saja.
+
+    Pola 2 (18 Nov 2026, Kecamatan Dalam Angka Banjar 2026): dot leader
+    tercetak MENIMPA kolom nomor halaman, sehingga titiknya masuk ke kata
+    nomor halaman. Contoh Martapura Barat 2026 hal. 13:
+        [198-368]..........  [367-376]3..5.
+    x1 leader (368) melewati x0 nomor (367). Dulu "3..5." ditolak sebagai
+    nomor halaman: halaman cetak kosong dan "3 5" menempel ke judul.
+
+    Kata terakhir W diganti digitnya ("35") hanya kalau SEMUA terpenuhi:
+      - W hanya digit dan titik/elipsis, 1-3 digit, ada titik SESUDAH digit
+        pertama (bentuk "....54" dan "33" sudah ditangani _pisah_nomor_halaman);
+      - kata sebelumnya leader (>= 3 titik berturut) yang MENIMPA W:
+        x1 leader >= x0 W - 0,5. Celah normal leader ke nomor halaman ±2 pt.
+    Kata baru adalah salinan; kata asli tidak diubah.
+    """
+    if len(baris) < 2:
+        return baris
+    w, p = baris[-1], baris[-2]
+    t = w["text"]
+    if not RE_HALAMAN_BERCAMPUR.match(t) or not RE_DIGIT_LALU_TITIK.search(t):
+        return baris
+    digit = re.sub(r"[^0-9]", "", t)
+    if not 1 <= len(digit) <= 3:
+        return baris
+    if not (RE_LEADER.search(p["text"]) and p["x1"] >= w["x0"] - 0.5):
+        return baris
+    return baris[:-1] + [dict(w, text=digit)]
+
+
 RE_FOLIO = re.compile(r"^[ivxlcdm]+$")    # folio halaman depan: romawi HURUF KECIL
 
 
@@ -948,6 +984,7 @@ def _baca_daftar(pdf, halaman_awal, tipe, publikasi_id, jejak=None):
 
     while h < len(pdf.pages):
         baris = _kelompokkan_baris(_kata_halaman(pdf.pages[h]))
+        baris = [_rapikan_nomor_halaman(b) for b in baris]
         if not baris:
             if boleh_lompat():
                 continue
