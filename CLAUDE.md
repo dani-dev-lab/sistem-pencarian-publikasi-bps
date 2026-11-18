@@ -123,11 +123,19 @@ Mahasiswa Politeknik Negeri Banjarmasin.
         di awal request, 0 baris terisi) dan memakai urutan korpus/saran yang
         baru. Tampilan hasil identik (potret salinan 28/28), kecuali label
         edisi saran.
-      - **Rencana besok (19 Nov):**
-        - saran kembar ("penduduk" 3-4 saran saat dicentang);
-        - kolom log `sertakan_kecamatan`;
-        - PANDUAN.md;
-        - rencana pemuatan kecamatan ke produksi untuk Jumat pagi.
+      - **19 Nov 2026 (belum push):**
+        - label "Kec." sejajar label wilayah; beranda tidak menyempit
+          (`c46ee23`, 36/36);
+        - saran kembar kec=1 diperbaiki (`66cb6ba`, paging sampai 8 judul;
+          tanpa kec tetap satu halaman);
+        - `log_pencarian.sertakan_kecamatan` (`be19514`: 1/0/NULL);
+        - PANDUAN bagian 1, 8, 9 (`3936359`).
+      - **RENCANA muat kecamatan ke produksi** (Jumat 21 Nov pagi, MENUNGGU
+        persetujuan): `data/regresi/rencana-muat-kecamatan-20261119.md`.
+        - Usulnya: salin baris dari database uji (satu transaksi), dan
+          `kecualikan_judul.aktif` jadi `false`.
+        - 86 publikasi kecamatan ber-`updt_date_diproses` kosong = API juga
+          kosong (bukan perubahan, tidak diunduh ulang).
       - **Cek browser pemilik project (19 Nov): kotak centang rusak, lalu
         DIPERBAIKI** (`e8bfb74`, `data/regresi/tampilan-kecamatan-20261118/responsif/LAPORAN.md`).
         - Penyebab: `.kotak-cari input` ikut mengenai kotak centang (melebar
