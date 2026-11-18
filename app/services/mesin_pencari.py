@@ -21,7 +21,7 @@ from rapidfuzz import fuzz
 from app.models import EntriDokumen, Publikasi, db
 from app.services import versi_data
 from app.services.preprocessing import kamus_default, normalisasi, normalisasi_token
-from app.services.wilayah import DOMAIN_PROVINSI
+from app.services.wilayah import DOMAIN_PROVINSI, kecamatan_dari_judul
 
 BOBOT_SET = 0.5        # token_set_ratio: toleran urutan kata & salah ketik
 BOBOT_SORT = 0.2       # token_sort_ratio: menghukum entri yang jauh lebih panjang
@@ -224,13 +224,28 @@ class Korpus:
     """Potret baca-saja korpus pencarian. Tidak diubah setelah dibuat."""
 
     __slots__ = ("versi", "kamus", "entri", "publikasi",
-                 "entri_per_domain", "publikasi_per_domain", "detik_muat")
+                 "entri_per_domain", "publikasi_per_domain", "detik_muat",
+                 "entri_kec", "publikasi_kec", "entri_kec_per_domain",
+                 "publikasi_kec_per_domain", "kecamatan_publikasi", "daftar_kecamatan")
 
-    def __init__(self, versi, kamus, entri, publikasi, detik_muat):
+    def __init__(self, versi, kamus, entri, publikasi, detik_muat,
+                 entri_kec=(), publikasi_kec=(), kecamatan_publikasi=None):
         self.versi = versi
         self.kamus = kamus
+        # Publikasi Kecamatan Dalam Angka (publikasi.kecamatan terisi) dipisah
+        # ke *_kec (18 Nov 2026). `entri`/`publikasi` dan pengelompokannya
+        # berisi baris SELAIN kecamatan dengan urutan asli, sehingga pencarian
+        # tanpa centang kecamatan menelusuri baris yang sama persis dengan
+        # sebelum kecamatan ada (waktu dan hasil identik).
         self.entri = entri              # tuple per entri + frozenset token
         self.publikasi = publikasi      # tuple per publikasi + token + judul ternormalisasi
+        self.entri_kec = entri_kec
+        self.publikasi_kec = publikasi_kec
+        self.entri_kec_per_domain = _kelompokkan(entri_kec, _KOLOM_DOMAIN_ENTRI)
+        self.publikasi_kec_per_domain = _kelompokkan(publikasi_kec, _KOLOM_DOMAIN_PUBLIKASI)
+        # pub_id -> (kunci, nama tampil); domain -> ((kunci, nama), ...) urut abjad
+        self.kecamatan_publikasi = kecamatan_publikasi or {}
+        self.daftar_kecamatan = _daftar_kecamatan(publikasi_kec, self.kecamatan_publikasi)
         # Filter wilayah: baris yang sama, dikelompokkan per kode domain
         # dengan urutan aslinya. Pencarian satu wilayah hanya menelusuri
         # baris wilayah itu, dan urutan hasil pada skor sama tetap seperti
@@ -252,6 +267,22 @@ def _kelompokkan(baris, kolom):
     return {kode: tuple(isi) for kode, isi in kelompok.items()}
 
 
+def _daftar_kecamatan(publikasi_kec, kecamatan_publikasi):
+    """Kecamatan per domain, dari publikasinya sendiri (bukan daftar manual).
+    Nama tampil = ejaan edisi TERBARU (tanggal rilis paling akhir)."""
+    terbaru = {}
+    for b in publikasi_kec:
+        pid, tanggal, domain = b[0], b[3], b[_KOLOM_DOMAIN_PUBLIKASI]
+        kunci, nama = kecamatan_publikasi[pid]
+        lama = terbaru.get((domain, kunci))
+        if lama is None or (tanggal or date.min) > lama[0]:
+            terbaru[(domain, kunci)] = (tanggal or date.min, nama)
+    daftar = {}
+    for (domain, kunci), (_, nama) in sorted(terbaru.items(), key=lambda x: (x[0][0], x[1][1])):
+        daftar.setdefault(domain, []).append((kunci, nama))
+    return {d: tuple(v) for d, v in daftar.items()}
+
+
 _korpus = None
 _kunci_muat = threading.Lock()
 
@@ -267,15 +298,26 @@ def _bangun_korpus(versi, kamus):
     (muat_ulang_kamus) membuat korpus dibangun ulang.
     """
     mulai = time.perf_counter()
-    entri = tuple(
-        (*baris, frozenset(baris[6].split()) if baris[6] else frozenset())
-        for baris in _ambil_korpus())
-    publikasi = tuple(
-        (*baris,
-         frozenset(baris[5].split()) if baris[5] else frozenset(),
-         normalisasi(baris[1] or "", kamus))
-        for baris in _ambil_publikasi())
-    return Korpus(versi, kamus, entri, publikasi, time.perf_counter() - mulai)
+    # Publikasi kecamatan (kolom publikasi.kecamatan terisi) dipisah dari
+    # korpus utama menurut pub_id, tanpa mengubah tata letak tuple.
+    kec = {pid: kunci for pid, kunci in db.session.query(Publikasi.id, Publikasi.kecamatan)
+           .filter(Publikasi.kecamatan.isnot(None))}
+    entri, entri_kec = [], []
+    for baris in _ambil_korpus():
+        (entri_kec if baris[7] in kec else entri).append(
+            (*baris, frozenset(baris[6].split()) if baris[6] else frozenset()))
+    publikasi, publikasi_kec = [], []
+    for baris in _ambil_publikasi():
+        (publikasi_kec if baris[0] in kec else publikasi).append(
+            (*baris,
+             frozenset(baris[5].split()) if baris[5] else frozenset(),
+             normalisasi(baris[1] or "", kamus)))
+    nama_kec = {}
+    for b in publikasi_kec:
+        k = kecamatan_dari_judul(b[1])
+        nama_kec[b[0]] = (kec[b[0]], k[1] if k else kec[b[0]])
+    return Korpus(versi, kamus, tuple(entri), tuple(publikasi), time.perf_counter() - mulai,
+                  tuple(entri_kec), tuple(publikasi_kec), nama_kec)
 
 
 def korpus():

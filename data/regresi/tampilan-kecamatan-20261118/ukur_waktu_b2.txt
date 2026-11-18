@@ -1,0 +1,4 @@
+putaran 1 salinan  rata-rata median  104.5 ms, terlambat  294.6 ms
+putaran 1 uji      rata-rata median  122.3 ms, terlambat  296.2 ms
+putaran 2 salinan  rata-rata median  109.2 ms, terlambat  296.4 ms
+putaran 2 uji      rata-rata median  124.9 ms, terlambat  303.5 ms

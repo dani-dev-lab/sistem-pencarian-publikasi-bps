@@ -1,0 +1,2 @@
+BEDA ('population by regency', '') publikasi hanya-salinan: [('a21060d6eea95b6226af0f7e', 59.2)] hanya-uji: [('1bbfd2ee6580000d49782fa0', 57.0)]
+identik 18/19 kueri
