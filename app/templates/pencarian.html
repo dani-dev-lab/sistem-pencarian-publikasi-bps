@@ -14,7 +14,7 @@
   {% if pesan %}<p class="peringatan">{{ pesan }}</p>{% endif %}
 
   {{ form_cari(daftar_wilayah, terpilih=w, fokus=True,
-               placeholder='Contoh: banyaknya akomodasi kabupaten kota') }}
+               placeholder='Contoh: banyaknya akomodasi kabupaten kota', kecamatan=kecamatan) }}
 
   {# Tautan biasa, bukan JavaScript - tetap berfungsi kalau JS mati. #}
   <div class="contoh-kueri">

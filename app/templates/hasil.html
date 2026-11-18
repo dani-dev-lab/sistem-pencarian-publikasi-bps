@@ -69,7 +69,7 @@
 {% block konten %}
 {{ form_cari(daftar_wilayah, kueri=kueri, terpilih=filter.kode or '',
              wo=filter.kode if filter.sumber == 'otomatis' else '',
-             abaikan=filter.abaikan or '') }}
+             abaikan=filter.abaikan or '', kecamatan=kecamatan) }}
 
 {# Pita "dipasang otomatis": filter berasal dari nama wilayah di kueri, bukan
    dari pilihan petugas, jadi harus terlihat dan bisa dibatalkan. Batalkan =

@@ -8,8 +8,34 @@
                dipilih" dan mendeteksi ulang dari kueri yang baru.
    - abaikan : wilayah yang deteksi otomatisnya sudah dibatalkan petugas.
    Lihat app/services/pencarian_wilayah.py. #}
+{# Kecamatan (18 Nov 2026): `kecamatan` dari routes/pencarian._konteks_kecamatan.
+   Semua tambahannya disisipkan SEBARIS dengan tag yang sudah ada, sehingga
+   tanpa publikasi kecamatan (kecamatan.ada salah) keluarannya byte demi byte
+   sama dengan sebelumnya - diuji tests/potret_tampilan.py.
+   - kec=1 : kotak centang "Sertakan publikasi Kecamatan Dalam Angka" (bawaan mati)
+   - kc    : dropdown kecamatan, hanya kalau wilayah terpilih kab/kota yang
+             punya publikasi kecamatan; memilihnya berarti kec=1.
+   JavaScript (kecamatan.js) mengganti isi dropdown saat wilayah diganti dan
+   mematikannya selama kotak tidak dicentang; tanpa JS form tetap berfungsi. #}
+{% macro pilih_kecamatan(k) %}
+  <select name="kc" class="pilih-wilayah pilih-kecamatan" aria-label="Kecamatan"{% if not k.daftar %} hidden disabled{% endif %}>
+    <option value="">Semua kecamatan</option>
+    {% for kunci, nama in k.daftar %}
+    <option value="{{ kunci }}"{% if kunci == k.kc %} selected{% endif %}>{{ nama }}</option>
+    {% endfor %}
+  </select>
+{%- endmacro %}
+{% macro centang_kecamatan(k) %}
+  <label class="centang-kecamatan">
+    <input type="checkbox" name="kec" value="1"{% if k.kec %} checked{% endif %}>
+    Sertakan publikasi Kecamatan Dalam Angka <span class="ket">(rincian per desa)</span>
+  </label>
+  <script type="application/json" id="data-kecamatan">{{ k.semua|tojson }}</script>
+  <script src="{{ url_for('static', filename='js/kecamatan.js') }}" defer></script>
+{%- endmacro %}
 {% macro form_cari(daftar_wilayah, kueri='', terpilih='', wo='', abaikan='',
-                   placeholder='Cari tabel, gambar, atau lampiran...', fokus=False) %}
+                   placeholder='Cari tabel, gambar, atau lampiran...', fokus=False,
+                   kecamatan=None) %}
 <form action="{{ url_for('pencarian.hasil_pencarian') }}" method="get" class="kotak-cari">
   <input type="search" name="q" value="{{ kueri }}" required
          aria-label="Kata kunci" placeholder="{{ placeholder }}"{% if fokus %} autofocus{% endif %}>
@@ -18,9 +44,11 @@
     {% for w in daftar_wilayah %}
     <option value="{{ w.kode }}"{% if w.kode == terpilih %} selected{% endif %}>{{ w.nama }}</option>
     {% endfor %}
-  </select>
+  </select>{% if kecamatan and kecamatan.ada %}
+{{ pilih_kecamatan(kecamatan) }}{% endif %}
   {% if wo %}<input type="hidden" name="wo" value="{{ wo }}">{% endif %}
   {% if abaikan %}<input type="hidden" name="abaikan" value="{{ abaikan }}">{% endif %}
-  <button type="submit">Cari</button>
+  <button type="submit">Cari</button>{% if kecamatan and kecamatan.ada %}
+{{ centang_kecamatan(kecamatan) }}{% endif %}
 </form>
 {% endmacro %}

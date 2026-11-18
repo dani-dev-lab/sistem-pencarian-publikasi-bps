@@ -38,6 +38,31 @@ def _nama_singkat(judul):
 bp = Blueprint("pencarian", __name__)
 
 
+def _ada_kecamatan():
+    """Database berisi publikasi Kecamatan Dalam Angka? Selama tidak (seperti
+    produksi sampai ada keputusan), kotak centang, dropdown kecamatan, dan
+    kotak info TIDAK dirender: halaman sama persis dengan sebelumnya."""
+    return db.session.query(db.exists().where(Publikasi.kecamatan.isnot(None))).scalar()
+
+
+def _konteks_kecamatan(domain, kec=False, kc=""):
+    """Data form kecamatan (18 Nov 2026). `semua` untuk JavaScript yang
+    mengganti isi dropdown saat wilayah diganti; `daftar` dirender server
+    untuk wilayah aktif (berfungsi tanpa JavaScript)."""
+    if not _ada_kecamatan():
+        return {"ada": False}
+    from app.services.mesin_pencari import korpus
+    semua = {d: [list(x) for x in v] for d, v in korpus().daftar_kecamatan.items()}
+    return {"ada": True, "kec": bool(kec or kc), "kc": kc or "",
+            "daftar": semua.get(domain or "", []), "semua": semua}
+
+
+def _arg_kecamatan():
+    """(kec, kc, semua_kec) dari URL. kc menyiratkan kec."""
+    kc = (request.args.get("kc") or "").strip().lower()
+    return request.args.get("kec") == "1" or bool(kc), kc, request.args.get("semua_kec") == "1"
+
+
 def _catat_log(hasil):
     """Rekam kueri ke log_pencarian.
 
@@ -182,24 +207,30 @@ def api_saran():
 
 @bp.get("/")
 def halaman_pencarian():
-    return render_template("pencarian.html", daftar_wilayah=wilayah_aktif(),
-                           w=(request.args.get("w") or "").strip())
+    w = (request.args.get("w") or "").strip()
+    kec, kc, _ = _arg_kecamatan()
+    return render_template("pencarian.html", daftar_wilayah=wilayah_aktif(), w=w,
+                           kecamatan=_konteks_kecamatan(w, kec, kc))
 
 
 @bp.get("/hasil")
 def hasil_pencarian():
     kueri = (request.args.get("q") or "").strip()
     w = (request.args.get("w") or "").strip()
+    kec, kc, semua_kec = _arg_kecamatan()
     if not kueri:
         return render_template("pencarian.html", pesan="Masukkan kata kunci dulu.",
-                               daftar_wilayah=wilayah_aktif(), w=w)
+                               daftar_wilayah=wilayah_aktif(), w=w,
+                               kecamatan=_konteks_kecamatan(w, kec, kc))
 
     hasil = pencarian_wilayah.cari(
         kueri, w=w,
         wo=(request.args.get("wo") or "").strip(),
-        abaikan=(request.args.get("abaikan") or "").strip())
+        abaikan=(request.args.get("abaikan") or "").strip(),
+        kec=kec, kc=kc, semua_kec=semua_kec)
     _catat_log(hasil)
 
+    kc_sah = hasil["kecamatan"]["kc"] if hasil["kecamatan"] else ""
     return render_template(
         "hasil.html",
         kueri=kueri,
@@ -209,4 +240,5 @@ def hasil_pencarian():
         domain_provinsi=DOMAIN_PROVINSI,
         ambang_ditemukan=AMBANG_DITEMUKAN,
         ambang_saran=AMBANG_SARAN,
+        kecamatan=_konteks_kecamatan(hasil["filter"]["kode"], kec, kc_sah),
     )

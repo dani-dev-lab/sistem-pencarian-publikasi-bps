@@ -1,0 +1,5 @@
+/ | kc: <select name="kc" class="pilih-wilayah pilih-kecamatan" aria-label="Kecamatan" hidden disabled> | opsi: 1 | terpilih: [] | centang: False | json: True
+/?w=6301 | kc: <select name="kc" class="pilih-wilayah pilih-kecamatan" aria-label="Kecamatan"> | opsi: 12 | terpilih: [] | centang: False | json: True
+/hasil?q=penduduk&w=6301 | kc: <select name="kc" class="pilih-wilayah pilih-kecamatan" aria-label="Kecamatan"> | opsi: 12 | terpilih: [] | centang: False | json: True
+/hasil?q=penduduk+tanah+laut&kec=1&kc=pelaihari | kc: <select name="kc" class="pilih-wilayah pilih-kecamatan" aria-label="Kecamatan"> | opsi: 12 | terpilih: ['pelaihari'] | centang: True | json: True
+/hasil?q=penduduk&w=6300&kec=1 | kc: <select name="kc" class="pilih-wilayah pilih-kecamatan" aria-label="Kecamatan" hidden disabled> | opsi: 1 | terpilih: [] | centang: True | json: True

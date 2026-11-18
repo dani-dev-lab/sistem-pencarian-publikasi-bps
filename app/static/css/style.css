@@ -143,6 +143,17 @@ main { flex: 1; width: 100%; max-width: 1180px; margin: 0 auto; padding: 28px 20
 /* Wilayah yang dipasang otomatis: senada dengan pita di bawah form. */
 .pilih-wilayah.otomatis { border-color: #e2b65c; background: var(--kuning-muda); }
 
+/* Kecamatan (18 Nov 2026): dropdown kecamatan lebih sempit, kotak centang di
+   baris sendiri di bawah kotak cari. Hanya dirender kalau database berisi
+   publikasi Kecamatan Dalam Angka. */
+.kotak-cari:has(.centang-kecamatan) { flex-wrap: wrap; }
+.pilih-kecamatan { width: 170px; }
+.pilih-kecamatan:disabled { opacity: .55; cursor: default; }
+.centang-kecamatan { flex: 1 1 100%; display: flex; align-items: center; gap: 6px;
+                     font-size: 14px; color: var(--teks); cursor: pointer; }
+.centang-kecamatan .ket { color: var(--abu, #667); }
+.label-kecamatan { font-weight: 600; }
+
 /* Layar kecil: kotak cari selebar layar, dropdown + tombol di baris kedua. */
 @media (max-width: 640px) {
   .kotak-cari { flex-wrap: wrap; }
