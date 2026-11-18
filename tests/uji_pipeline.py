@@ -763,16 +763,50 @@ cetak("B-layout-biasa-aman", E._parse_baris([
     baris(w("Penduduk", 124), w("Usia", 180), w("Kerja", 215), w("dan", 250)),
     baris(w("Angkatan", 124), w("Kerja", 180), hal("5"))], "isi", "x", 400),
     [(None, "BAB I PENDAHULUAN", "1"), (None, "Penduduk Usia Kerja dan Angkatan Kerja", "5")])
+
+# Kecamatan Dalam Angka (18 Nov 2026): baris dirapikan seperti di _baca_daftar.
+def rapi(halaman):
+    return E._gabung_nomor_terbelah([E._rapikan_nomor_halaman(b) for b in halaman])
+def baca(halaman):
+    h = rapi(halaman)
+    return E._parse_baris(h, "tabel", "x", E._batas_kanan(h, "tabel"))
+# Pola 2: nomor halaman ditimpa leader (x1 leader 368 > x0 nomor 367), Banjar 2026.
+cetak("K2-halaman-ditimpa-leader", baca([
+    baris(w("4.1.1", 74, 92), w("Jumlah", 99), w("Sekolah", 140), w("........", 190, 368), w("3..3", 367, 376)),
+    baris(w("4.1.2", 74, 92), w("Jumlah", 99), w("Guru", 140), w("........", 190, 369), w("3.4", 367, 376)),
+    baris(w("4.1.3", 74, 92), w("Jumlah", 99), w("Murid", 140), w("........", 190, 368), w(".3..5.", 367, 377))]),
+    [("4.1.1", "Jumlah Sekolah", "33"), ("4.1.2", "Jumlah Guru", "34"), ("4.1.3", "Jumlah Murid", "35")])
+# Pola 2: "3.4" dengan celah normal (tidak ditimpa) TIDAK diubah.
+b_aman = baris(w("Tabel", 90), w("Judul", 140), w("........", 190, 364), w("3.4", 366, 376))
+print("I K2-tanpa-tumpang-aman", "OK" if E._rapikan_nomor_halaman(b_aman) is b_aman else "SALAH diubah")
+# Pola 3: digit di dalam kata leader + "." sendirian (Balangan 2025) -> mode nomor-sebaris aktif.
+cetak("K3-halaman-dalam-leader", baca([
+    baris(w("4.4.1", 57, 75), w("Banyaknya", 91), w("Bencana", 150), w("..........4..2..", 200, 377)),
+    baris(w("4.4.2", 57, 75), w("Korban", 91), w("Jiwa", 150), w("..........4..3..", 200, 378), w(".", 378, 381)),
+    baris(w("4.4.3", 57, 75), w("Mitigasi", 91), w("Bencana", 150), w("..........4...4..", 200, 379))]),
+    [("4.4.1", "Banyaknya Bencana", "42"), ("4.4.2", "Korban Jiwa", "43"), ("4.4.3", "Mitigasi Bencana", "44")])
+# Pola 1: nomor terpotong "2.1." + "1" (celah 3 pt), >= 3 baris di halaman (Tanah Laut 2025).
+cetak("K1-nomor-terbelah", baca([
+    baris(w("2.1.", 57, 70), w("1", 73, 77), w("Jumlah", 91), w("RT", 130), w("......", 300, 364), w("19", 366, 376)),
+    baris(w("2.1.", 57, 70), w("2", 73, 77), w("Nama", 91), w("Camat", 130), w("......", 300, 364), w("20", 366, 376)),
+    baris(w("2.1.", 57, 70), w("3", 73, 77), w("Nama", 91), w("Kepala", 130), w("Desa", 175), w("......", 300, 364), w("21", 366, 376))]),
+    [("2.1.1", "Jumlah RT", "19"), ("2.1.2", "Nama Camat", "20"), ("2.1.3", "Nama Kepala Desa", "21")])
+# Pola 1: SATU baris "1." + "10" + judul di halaman tidak memicu penggabungan.
+h_satu = [baris(w("1.", 57, 63), w("10", 66, 78), w("Desa", 91), w("Terluas", 120), w("......", 300, 364), w("5", 370, 376)),
+          baris(w("2.", 57, 63), w("Luas", 91), w("Wilayah", 120), w("......", 300, 364), w("6", 370, 376))]
+print("I K1-satu-baris-aman", "OK" if rapi(h_satu) == h_satu and rapi(h_satu)[0][1]["text"] == "10" else "SALAH digabung")
 '''
 
 
 def bagian_i():
-    """Parser Daftar: pola C, A2, A1, A', B (16 Nov 2026), baris sintetis."""
-    print("\n=== I. PARSER DAFTAR (pola C, A2, A1, A', B) ===", flush=True)
+    """Parser Daftar: pola C, A2, A1, A', B (16 Nov 2026) dan pola kecamatan
+    1-3 (18 Nov 2026), baris sintetis."""
+    print("\n=== I. PARSER DAFTAR (pola C, A2, A1, A', B, kecamatan K1-K3) ===", flush=True)
     kode, keluar, err = jalan_py(KODE_BAGIAN_I)
     hasil = re.findall(r"^I (\S+) (OK|SALAH.*)$", keluar, re.M)
-    cek(f"I1 {len(hasil)} kasus sintetis parser Daftar", len(hasil) == 10 and all(h == "OK" for _, h in hasil),
-        [f"{n}: {h}" for n, h in hasil if h != "OK"] or (err[-300:] if len(hasil) != 10 else "10/10"))
+    n = 15
+    cek(f"I1 {len(hasil)} kasus sintetis parser Daftar", len(hasil) == n and all(h == "OK" for _, h in hasil),
+        [f"{n}: {h}" for n, h in hasil if h != "OK"] or (err[-300:] if len(hasil) != n else f"{n}/{n}"))
 
 
 def bagian_s():
