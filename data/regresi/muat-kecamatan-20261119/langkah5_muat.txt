@@ -1,0 +1,12 @@
+Tujuan: db_pencarian_bps | mode: MUAT | 5 publikasi
+  87781992 Statistik Harga Konsumen Komoditas Terpilih Provinsi Ka: 22 -> 24 entri, = database uji
+     dimuat
+  ac3255bf Indeks Harga Konsumen Provinsi Kalimantan Selatan 2024: 23 -> 24 entri, = database uji
+     dimuat
+  e04dba4c Produk Domestik Regional Bruto Kabupaten Banjar Menurut: 57 -> 60 entri, = database uji
+     dimuat
+  f85ba47f Produk Domestik Regional Bruto Kabupaten Banjar Menurut: 57 -> 60 entri, = database uji
+     dimuat
+  45af79c0 Produk Domestik Regional Bruto Kabupaten Tabalong Menur: 89 -> 90 entri, = database uji
+     dimuat
+Selesai.

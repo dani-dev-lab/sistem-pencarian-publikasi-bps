@@ -79,7 +79,7 @@ Mahasiswa Politeknik Negeri Banjarmasin.
         - Database uji: 618 publikasi, 44.455 entri, 34 publikasi OCR.
         - Sampel OCR kecamatan 9/10 (tombol 10/10). `uji_pipeline.py`
           penuh: 94 lulus.
-        - BELUM dimuat ke produksi; kecamatan tetap dikecualikan (`aktif`).
+        - (Sejak 19 Nov 2026 sudah dimuat ke produksi, lihat di bawah.)
     - **Kinerja dengan kecamatan (18 Nov 2026,
       `data/regresi/kinerja-kecamatan-20261118.md`):**
       - memori korpus 80 -> 144 MB; muat ulang 458 -> 860 ms;
@@ -130,6 +130,26 @@ Mahasiswa Politeknik Negeri Banjarmasin.
           tanpa kec tetap satu halaman);
         - `log_pencarian.sertakan_kecamatan` (`be19514`: 1/0/NULL);
         - PANDUAN bagian 1, 8, 9 (`3936359`).
+      - **KECAMATAN DIMUAT KE PRODUKSI, Kamis 19 Nov 2026, 08.02-08.20**
+        (`data/regresi/muat-kecamatan-20261119.md`), semua bukti cocok:
+        - disalin dari database uji (satu transaksi): 312 publikasi,
+          19.955 entri, isi = uji baris demi baris; 5 publikasi pola 2+3
+          ikut dimuat (= uji); per id lainnya identik dengan cadangan
+          `cadangan-bps/db_pencarian_bps-20261119-sebelum-kecamatan.sql`;
+        - `kecualikan_judul` kecamatan `aktif: false`; `--kecamatan` kini
+          tidak berguna;
+        - potret produksi tanpa centang sebelum = sesudah (28/28,
+          widget dibuang); tombol PDF 15/15; kinerja setara (bergantian);
+        - pembaruan rutin sesudahnya: 1 publikasi BPS baru (Profil TK
+          Provinsi Feb 2026), 0 kecamatan diunduh ulang.
+        - Produksi: 620 publikasi (312 kecamatan), 44.548 entri,
+          versi_data 530.
+        - Sebelumnya, seksi Publikasi diperbaiki (`3db1e8b`): ikut membaca
+          publikasi kecamatan kalau dicentang; uji V5.
+        - **Keputusan terbuka:** publikasi kecamatan yang DIPILIH saat ini
+          hanya didahulukan kalau cocok dengan kata kunci. Martapura
+          Timur + "penduduk" tidak tampil di seksi Publikasi (abstrak
+          tidak menyebut penduduk).
       - **RENCANA muat kecamatan ke produksi DISETUJUI 18 Nov malam,
         dikerjakan KAMIS 19 Nov pagi:**
         `data/regresi/rencana-muat-kecamatan-20261119.md`. Keputusannya:

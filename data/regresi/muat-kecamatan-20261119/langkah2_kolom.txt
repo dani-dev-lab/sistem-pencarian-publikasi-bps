@@ -1,0 +1,4 @@
+database: db_pencarian_bps
+publikasi.kecamatan: ada
+log_pencarian.sertakan_kecamatan: ada
+publikasi.kecamatan terisi: 0

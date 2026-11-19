@@ -1,0 +1,6 @@
+log_lama	143	1715447538
+publikasi_lama	307	2335053678
+entri_non_kec_per_id	24532	1243144362
+versi	509
+db_pencarian_bps.kategori	1501779208
+db_pencarian_bps.publikasi_kategori	0

@@ -1,0 +1,8 @@
+entri lain: hilang/berubah dari cadangan	0
+entri lain di cadangan	24284
+entri produksi baru di luar target+kecamatan	0
+publikasi lama berubah (kolom selain diekstrak_pada/catatan)	0
+publikasi lama dengan diekstrak_pada/catatan berubah	45af79c0,87781992,ac3255bf,e04dba4c,f85ba47f
+publikasi lama: kecamatan terisi	0
+publikasi produksi total / kecamatan	619	312
+entri produksi total	44497

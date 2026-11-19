@@ -11,8 +11,8 @@
   ],
   "pola_kecamatan": "^Kecamatan\\s+(?P<nama>.+?)\\s+Dalam Angka\\s+\\d{4}$",
   "kecualikan_judul": [
-    {"pola": "^Kecamatan\\b.*\\bDalam Angka\\b", "aktif": true,
-     "alasan": "Permintaan tim PST (9 Nov 2026): cakupan 13 kabupaten/kota, tidak sampai data per kecamatan/desa."}
+    {"pola": "^Kecamatan\\b.*\\bDalam Angka\\b", "aktif": false,
+     "alasan": "Permintaan tim PST (9 Nov 2026): cakupan 13 kabupaten/kota, tidak sampai data per kecamatan/desa. DIMATIKAN 19 Nov 2026: 312 publikasi kecamatan dimuat ke produksi (keputusan pemilik project), sehingga pembaruan rutin menangani kecamatan seperti publikasi lain. Tampilannya diatur kotak centang di halaman pencarian (bawaan mati)."}
   ],
   "wilayah": [
     {"kode": "6300", "nama": "Provinsi Kalimantan Selatan", "aktif": true, "singkatan": [], "singkatan_status": null},

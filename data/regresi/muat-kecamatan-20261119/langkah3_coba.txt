@@ -1,0 +1,4 @@
+Tujuan: db_pencarian_bps (PRODUKSI) | sumber: db_pencarian_bps_uji | mode: COBA (rollback)
+target 312 publikasi, 19955 entri; sudah di produksi: 0
+disisipkan: publikasi 312, entri 19955, publikasi_kategori 0; versi_data -> 510
+COBA: ROLLBACK, tidak ada yang tersimpan.

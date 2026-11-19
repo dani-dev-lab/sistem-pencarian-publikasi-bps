@@ -1,0 +1,13 @@
+[OK] 6303 kc=martapuratimur 'Kecamatan Martapura Timur Dalam Angka 2026': pertama ('Kecamatan Martapura Timur Dalam Angka 2026', 'Kec. Martapura Timur')
+[OK] 6303 kc=martapuratimur 'Kecamatan Martapura Timur Dalam Angka 2025': pertama ('Kecamatan Martapura Timur Dalam Angka 2025', 'Kec. Martapura Timur')
+[GAGAL] 6303 kc=martapuratimur 'penduduk': 4 kartu, 3 teratas ['Statistik Kesejahteraan Rakyat', 'KEADAAN ANGKATAN KERJA DI KABU', 'Indikator Kesejahteraan Rakyat']
+[OK] 6303 tanpa centang: 2 kartu, kecamatan 0
+[OK] 6309 kc=tanjung 'Kecamatan Tanjung Dalam Angka 2026': pertama ('Kecamatan Tanjung Dalam Angka 2026', 'Kec. Tanjung')
+[OK] 6309 kc=tanjung 'Kecamatan Tanjung Dalam Angka 2025': pertama ('Kecamatan Tanjung Dalam Angka 2025', 'Kec. Tanjung')
+[OK] 6309 kc=tanjung 'penduduk': 5 kartu, 3 teratas ['Kec. Tanjung', 'Indikator Kesejahteraan Rakyat', 'Statistik Kesejahteraan Rakyat']
+[OK] 6309 tanpa centang: 2 kartu, kecamatan 0
+[OK] 6371 kc=banjarmasinutara 'Kecamatan Banjarmasin Utara Dalam Angka 2026': pertama ('Kecamatan Banjarmasin Utara Dalam Angka 2026', 'Kec. Banjarmasin Utara')
+[OK] 6371 kc=banjarmasinutara 'Kecamatan Banjarmasin Utara Dalam Angka 2025': pertama ('Kecamatan Banjarmasin Utara Dalam Angka 2025', 'Kec. Banjarmasin Utara')
+[OK] 6371 kc=banjarmasinutara 'penduduk': 6 kartu, 3 teratas ['Kec. Banjarmasin Utara', 'Kec. Banjarmasin Utara', 'Profil Tenaga Kerja Kota Banja']
+[OK] 6371 tanpa centang: 2 kartu, kecamatan 0
+11/12 lulus

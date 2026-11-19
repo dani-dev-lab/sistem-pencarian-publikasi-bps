@@ -1,0 +1,21 @@
+{'q': 'jumlah penduduk menurut desa', 'kec': '1'}: seksi kecamatan True, publikasi pertama: Statistik Potensi Desa Kabupaten Barito Kuala 2025
+     hal   41 nomor 4        OK  Jumlah Penduduk Menurut Desa/Kelurahan
+     hal   91 nomor 4.4.5    OK  Jumlah Penduduk Menurut Desa/Kelurahan dan
+     hal   42 nomor 4        OK  Jumlah Penduduk Menurut Desa di Kecamatan Aranio, 2025
+     hal   42 nomor 4        OK  Jumlah Penduduk Menurut Desa di Kecamatan Aranio, 2024
+     hal   36 nomor 4        OK  Jumlah Penduduk Menurut Desa di Kecamatan Paramasan, 20
+     tombol PDF: 5/5 halaman memuat nomor/awal judul
+{'q': 'sekolah', 'w': '6301', 'kec': '1'}: seksi kecamatan True, publikasi pertama: (tidak ada kartu)
+     hal   78 nomor 4.1.2    OK  Jumlah Sekolah Menurut Tingkat Pendidikan di
+     hal   80 nomor 4.1.2    OK  Jumlah Sekolah Menurut Tingkat Pendidikan di Kecamatan 
+     hal   78 nomor 4.1.2    OK  Jumlah Sekolah Menurut Tingkat Pendidikan di Kecamatan 
+     hal   80 nomor 4.1.2    OK  Jumlah Sekolah Menurut Tingkat Pendidikan di Kecamatan 
+     hal   78 nomor 4.1.2    OK  Jumlah Sekolah Menurut Tingkat Pendidikan di Kecamatan 
+     tombol PDF: 5/5 halaman memuat nomor/awal judul
+{'q': 'Kecamatan Kintap Dalam Angka 2026', 'w': '6301', 'kc': 'kintap', 'kec': '1'}: seksi kecamatan True, publikasi pertama: Kecamatan Kintap Dalam Angka 2026
+     hal   45 nomor 2.1.3    OK  Nama Kepala Desa di Kecamatan Kintap, 2024
+     hal   31 nomor 1        OK  Peta Wilayah Kecamatan Kintap, 2024
+     hal  125 nomor 6.2.2    OK  Banyaknya Kendaraan Bermotor di Kecamatan Kintap, 2022-
+     hal   75 nomor 4.1.2    OK  Jumlah Satuan Pendidikan Menurut Tingkat Pendidikan di 
+     hal   77 nomor 4.1.4    OK  Jumlah Peserta Didik Menurut Tingkat Pendidikan di Keca
+     tombol PDF: 5/5 halaman memuat nomor/awal judul

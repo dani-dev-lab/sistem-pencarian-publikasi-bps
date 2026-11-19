@@ -1,0 +1,228 @@
+Database tujuan: db_pencarian_bps @ localhost:3306 (PRODUKSI)
+Log run ini: data/log_pembaruan\20261119-081446.log
+Jaringan: SSID 'BPS - Pegawai', webapi.bps.go.id -> 203.123.60.70
+
+==========================================================================
+DOMAIN 6300 Provinsi Kalimantan Selatan
+==========================================================================
+  halaman 1/? ... OK (10 item)
+  halaman 2/66 ... OK (10 item)
+  halaman 3/66 ... OK (10 item)
+  halaman 4/66 ... OK (10 item)
+  halaman 5/66 ... OK (10 item)
+  halaman 6/66 ... OK (10 item)
+  halaman 7/66 ... OK (10 item)
+  halaman 8/66 ... OK (10 item)
+  halaman 9/66 ... OK (10 item)
+  berhenti di halaman 9/66: seluruh isinya dirilis sebelum 2025 (daftar API terurut terbaru)
+  90 publikasi dibaca dari daftar, 80 lolos filter tahun dan judul (0 dikecualikan menurut judul)
+  metadata tersimpan: 1 baru, 79 diperbarui
+  1 publikasi perlu dikerjakan
+  Profil Tenaga Kerja Provinsi Kalimantan Selatan Febr [belum pernah diekstrak, PDF hilang/rusak]
+      unduh 4.0 MB, 653 KB/detik
+      51 entri
+
+==========================================================================
+DOMAIN 6301 Kab. Tanah Laut
+==========================================================================
+  halaman 1/? ... OK (10 item)
+  halaman 2/37 ... OK (10 item)
+  halaman 3/37 ... OK (10 item)
+  halaman 4/37 ... OK (10 item)
+  halaman 5/37 ... OK (10 item)
+  berhenti di halaman 5/37: seluruh isinya dirilis sebelum 2025 (daftar API terurut terbaru)
+  50 publikasi dibaca dari daftar, 39 lolos filter tahun dan judul (0 dikecualikan menurut judul)
+  metadata tersimpan: 0 baru, 39 diperbarui
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6302 Kab. Kotabaru
+==========================================================================
+  halaman 1/? ... OK (10 item)
+  halaman 2/55 ... OK (10 item)
+  halaman 3/55 ... OK (10 item)
+  halaman 4/55 ... OK (10 item)
+  halaman 5/55 ... OK (10 item)
+  halaman 6/55 ... OK (10 item)
+  halaman 7/55 ... OK (10 item)
+  halaman 8/55 ... OK (10 item)
+  berhenti di halaman 8/55: seluruh isinya dirilis sebelum 2025 (daftar API terurut terbaru)
+  80 publikasi dibaca dari daftar, 61 lolos filter tahun dan judul (0 dikecualikan menurut judul)
+  metadata tersimpan: 0 baru, 61 diperbarui
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6303 Kab. Banjar
+==========================================================================
+  halaman 1/? ... OK (10 item)
+  halaman 2/41 ... OK (10 item)
+  halaman 3/41 ... OK (10 item)
+  halaman 4/41 ... OK (10 item)
+  halaman 5/41 ... OK (10 item)
+  halaman 6/41 ... OK (10 item)
+  halaman 7/41 ... OK (10 item)
+  berhenti di halaman 7/41: seluruh isinya dirilis sebelum 2025 (daftar API terurut terbaru)
+  70 publikasi dibaca dari daftar, 55 lolos filter tahun dan judul (0 dikecualikan menurut judul)
+  metadata tersimpan: 0 baru, 55 diperbarui
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6304 Kab. Barito Kuala
+==========================================================================
+  halaman 1/? ... OK (10 item)
+  halaman 2/45 ... OK (10 item)
+  halaman 3/45 ... OK (10 item)
+  halaman 4/45 ... OK (10 item)
+  halaman 5/45 ... OK (10 item)
+  halaman 6/45 ... OK (10 item)
+  halaman 7/45 ... OK (10 item)
+  berhenti di halaman 7/45: seluruh isinya dirilis sebelum 2025 (daftar API terurut terbaru)
+  70 publikasi dibaca dari daftar, 52 lolos filter tahun dan judul (0 dikecualikan menurut judul)
+  metadata tersimpan: 0 baru, 52 diperbarui
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6305 Kab. Tapin
+==========================================================================
+  halaman 1/? ... OK (10 item)
+  halaman 2/32 ... OK (10 item)
+  halaman 3/32 ... OK (10 item)
+  halaman 4/32 ... OK (10 item)
+  halaman 5/32 ... OK (10 item)
+  halaman 6/32 ... OK (10 item)
+  berhenti di halaman 6/32: seluruh isinya dirilis sebelum 2025 (daftar API terurut terbaru)
+  60 publikasi dibaca dari daftar, 41 lolos filter tahun dan judul (0 dikecualikan menurut judul)
+  metadata tersimpan: 0 baru, 41 diperbarui
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6306 Kab. Hulu Sungai Selatan
+==========================================================================
+  halaman 1/? ... OK (10 item)
+  halaman 2/39 ... OK (10 item)
+  halaman 3/39 ... OK (10 item)
+  halaman 4/39 ... OK (10 item)
+  halaman 5/39 ... OK (10 item)
+  berhenti di halaman 5/39: seluruh isinya dirilis sebelum 2025 (daftar API terurut terbaru)
+  50 publikasi dibaca dari daftar, 39 lolos filter tahun dan judul (0 dikecualikan menurut judul)
+  metadata tersimpan: 0 baru, 39 diperbarui
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6307 Kab. Hulu Sungai Tengah
+==========================================================================
+  halaman 1/? ... OK (10 item)
+  halaman 2/32 ... OK (10 item)
+  halaman 3/32 ... OK (10 item)
+  halaman 4/32 ... OK (10 item)
+  halaman 5/32 ... OK (10 item)
+  berhenti di halaman 5/32: seluruh isinya dirilis sebelum 2025 (daftar API terurut terbaru)
+  50 publikasi dibaca dari daftar, 38 lolos filter tahun dan judul (0 dikecualikan menurut judul)
+  metadata tersimpan: 0 baru, 38 diperbarui
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6308 Kab. Hulu Sungai Utara
+==========================================================================
+  halaman 1/? ... OK (10 item)
+  halaman 2/35 ... OK (10 item)
+  halaman 3/35 ... OK (10 item)
+  halaman 4/35 ... OK (10 item)
+  halaman 5/35 ... OK (10 item)
+  berhenti di halaman 5/35: seluruh isinya dirilis sebelum 2025 (daftar API terurut terbaru)
+  50 publikasi dibaca dari daftar, 40 lolos filter tahun dan judul (0 dikecualikan menurut judul)
+  metadata tersimpan: 0 baru, 40 diperbarui
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6309 Kab. Tabalong
+==========================================================================
+  halaman 1/? ... OK (10 item)
+  halaman 2/37 ... OK (10 item)
+  halaman 3/37 ... OK (10 item)
+  halaman 4/37 ... OK (10 item)
+  halaman 5/37 ... OK (10 item)
+  halaman 6/37 ... OK (10 item)
+  berhenti di halaman 6/37: seluruh isinya dirilis sebelum 2025 (daftar API terurut terbaru)
+  60 publikasi dibaca dari daftar, 41 lolos filter tahun dan judul (0 dikecualikan menurut judul)
+  metadata tersimpan: 0 baru, 41 diperbarui
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6310 Kab. Tanah Bumbu
+==========================================================================
+  halaman 1/? ... OK (10 item)
+  halaman 2/31 ... OK (10 item)
+  halaman 3/31 ... OK (10 item)
+  halaman 4/31 ... OK (10 item)
+  halaman 5/31 ... OK (10 item)
+  berhenti di halaman 5/31: seluruh isinya dirilis sebelum 2025 (daftar API terurut terbaru)
+  50 publikasi dibaca dari daftar, 40 lolos filter tahun dan judul (0 dikecualikan menurut judul)
+  metadata tersimpan: 0 baru, 40 diperbarui
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6311 Kab. Balangan
+==========================================================================
+  halaman 1/? ... OK (10 item)
+  halaman 2/29 ... OK (10 item)
+  halaman 3/29 ... OK (10 item)
+  halaman 4/29 ... OK (10 item)
+  halaman 5/29 ... OK (10 item)
+  berhenti di halaman 5/29: seluruh isinya dirilis sebelum 2025 (daftar API terurut terbaru)
+  50 publikasi dibaca dari daftar, 32 lolos filter tahun dan judul (0 dikecualikan menurut judul)
+  metadata tersimpan: 0 baru, 32 diperbarui
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6371 Kota Banjarmasin
+==========================================================================
+  halaman 1/? ... OK (10 item)
+  halaman 2/27 ... OK (10 item)
+  halaman 3/27 ... OK (10 item)
+  halaman 4/27 ... OK (10 item)
+  halaman 5/27 ... OK (10 item)
+  berhenti di halaman 5/27: seluruh isinya dirilis sebelum 2025 (daftar API terurut terbaru)
+  50 publikasi dibaca dari daftar, 33 lolos filter tahun dan judul (0 dikecualikan menurut judul)
+  metadata tersimpan: 0 baru, 33 diperbarui
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6372 Kota Banjarbaru
+==========================================================================
+  halaman 1/? ... OK (10 item)
+  halaman 2/24 ... OK (10 item)
+  halaman 3/24 ... OK (10 item)
+  halaman 4/24 ... OK (10 item)
+  berhenti di halaman 4/24: seluruh isinya dirilis sebelum 2025 (daftar API terurut terbaru)
+  40 publikasi dibaca dari daftar, 29 lolos filter tahun dan judul (0 dikecualikan menurut judul)
+  metadata tersimpan: 0 baru, 29 diperbarui
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+RINGKASAN PEMBARUAN
+==========================================================================
+  Status       : sukses
+  Entri dokumen: 44497 -> 44548 (+51)
+  Waktu        : 145 detik (0.0 jam)
+  Per tahap    : ambil_metadata 98.8 d, unduh 5.9 d, ekstraksi 8.0 d, muat 3.2 d
+  Jaringan     : SSID 'BPS - Pegawai', webapi.bps.go.id -> 203.123.60.70
+  Unduhan      : 1 berkas, 4.0 MB, rata-rata 653.5 KB/detik; putus 0x, percobaan ulang 0x, putaran ulang 0 (pulih 0), tetap gagal 0
+
+  domain                            status          publikasi  diunduh diproses  gagal
+  6300 Provinsi Kalimantan Selatan  sukses                 80        1        1      0
+  6301 Kab. Tanah Laut              tidak_ada_baru         39        0        0      0
+  6302 Kab. Kotabaru                tidak_ada_baru         61        0        0      0
+  6303 Kab. Banjar                  tidak_ada_baru         55        0        0      0
+  6304 Kab. Barito Kuala            tidak_ada_baru         52        0        0      0
+  6305 Kab. Tapin                   tidak_ada_baru         41        0        0      0
+  6306 Kab. Hulu Sungai Selatan     tidak_ada_baru         39        0        0      0
+  6307 Kab. Hulu Sungai Tengah      tidak_ada_baru         38        0        0      0
+  6308 Kab. Hulu Sungai Utara       tidak_ada_baru         40        0        0      0
+  6309 Kab. Tabalong                tidak_ada_baru         41        0        0      0
+  6310 Kab. Tanah Bumbu             tidak_ada_baru         40        0        0      0
+  6311 Kab. Balangan                tidak_ada_baru         32        0        0      0
+  6371 Kota Banjarmasin             tidak_ada_baru         33        0        0      0
+  6372 Kota Banjarbaru              tidak_ada_baru         29        0        0      0
+
+Selesai 2026-11-19 08:17:11, kode keluar 0. Log: data/log_pembaruan\20261119-081446.log

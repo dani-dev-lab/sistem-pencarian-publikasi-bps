@@ -122,6 +122,12 @@ dan tidak ada yang berubah.
 - **Nama kecamatan di kata kunci TIDAK dikenali sebagai filter.**
   Contohnya, "penduduk martapura" tidak otomatis memilih Kecamatan
   Martapura. Pilih kabupaten/kotanya, lalu pilih kecamatannya dari daftar.
+- **Seksi Publikasi** juga menampilkan publikasi kecamatan yang cocok dengan
+  kata kunci, berlabel **Kec. X**, kalau kotak dicentang. Kalau kecamatan
+  dipilih, publikasi kecamatan itu di paling atas (asalkan cocok dengan kata
+  kunci, misalnya "Kecamatan Kintap Dalam Angka 2026"). Publikasi
+  kabupaten/kota dan provinsi tidak tergeser; publikasi kecamatan lain
+  paling banyak 10.
 - **Saran saat mengetik** ikut menampilkan judul dari publikasi kecamatan
   hanya kalau kotak dicentang.
 - Kalau kata kunci **hanya** nama wilayah ("tanah laut") dan kotak
@@ -813,13 +819,14 @@ kode yang perlu diubah.
 
 ### Publikasi "Kecamatan … Dalam Angka" (rincian per desa)
 
-**Keadaan 19 November 2026:** ke-312 publikasi sudah ditarik dan diuji di
-**database uji**. Database utama belum memuatnya, karena pola di
-`kecualikan_judul` masih `"aktif": true`. Pemuatannya ke database utama
-menunggu keputusan; rencananya ada di
-`data/regresi/rencana-muat-kecamatan-20261119.md`.
+**Keadaan 19 November 2026: ke-312 publikasi SUDAH DIMUAT ke database utama**
+(disalin dari database uji yang sudah diperiksa), dan pola "Kecamatan …
+Dalam Angka" di `kecualikan_judul` kini `"aktif": false`. Bukti pemuatan
+ada di `data/regresi/muat-kecamatan-20261119.md`. Sesudah pemuatan dan satu
+pembaruan rutin, database utama berisi 620 publikasi (312 kecamatan) dan
+44.548 bagian.
 
-| | Angka dari database uji |
+| | Angka publikasi kecamatan |
 |---|---|
 | Jumlah | **312 publikasi** (156 edisi 2025, 156 edisi 2026), **156 kecamatan** di 13 kabupaten/kota. Provinsi tidak punya. |
 | Ukuran PDF | **3,35 GB** (folder PDF jadi ±6,2 GB). |
@@ -832,8 +839,11 @@ menunggu keputusan; rencananya ada di
 
 - **Dua pengaturan di `data/wilayah.json`** dengan tugas berbeda:
   - `kecualikan_judul` menentukan publikasi mana yang **ditarik** dari BPS.
-    Selama polanya `"aktif": true`, publikasi kecamatan tidak ditarik ke
-    database mana pun lewat pembaruan biasa.
+    Pola kecamatan di sana kini `"aktif": false`, jadi pembaruan biasa
+    menarik publikasi kecamatan seperti publikasi lain: edisi baru diunduh,
+    dan yang sudah ada tidak diunduh ulang. Mengembalikannya ke `true` hanya
+    menghentikan penarikan publikasi kecamatan BARU; yang sudah ada tidak
+    terhapus.
   - `pola_kecamatan` **menandai** publikasi kecamatan yang sudah ada di
     database (kolom `publikasi.kecamatan`, diisi otomatis saat aplikasi
     atau pembaruan berjalan). Tanda inilah yang dipakai kotak centang.
@@ -852,11 +862,16 @@ menunggu keputusan; rencananya ada di
   `jalankan-aplikasi-uji.bat` membuka aplikasi dengan database uji di port
   5001, sehingga bisa berjalan berdampingan dengan aplikasi utama (port
   5000). Log pencarian tidak ditulis.
-- **Pembaruan biasa tetap tidak menarik publikasi kecamatan.** Untuk
-  menariknya ke database uji saja:
-  `venv\Scripts\python.exe scripts\perbarui.py --db-uji --kecamatan`
-  (berkas `tarik-kecamatan-uji.bat`). `--kecamatan` tanpa `--db-uji`
-  ditolak.
+- **`perbarui.py --db-uji --kecamatan` dan `tarik-kecamatan-uji.bat`**
+  dipakai sebelum pemuatan, untuk menarik publikasi kecamatan ke database uji
+  saja. Selama pola kecamatan di `kecualikan_judul` `"aktif": false`, keduanya
+  tidak lagi berguna: tidak ada lagi publikasi yang dikecualikan.
+- **Seksi Publikasi dengan kotak dicentang** ikut menilai publikasi
+  kecamatan, dengan skor yang sama. Kalau kecamatan dipilih, publikasinya
+  didahulukan, **asalkan cocok dengan kata kunci**. Untuk kata kunci topik
+  (misalnya "penduduk") yang tidak disebut di judul/abstrak publikasi
+  kecamatan itu, tabel-tabelnya tetap muncul di seksi "Dari publikasi
+  Kecamatan Dalam Angka".
 - 26 publikasi butuh OCR. Tanpa cache OCR dan tanpa EasyOCR (bagian 7.2),
   publikasi itu masuk tanpa bagian, tetapi tetap ditemukan lewat judul dan
   abstraknya. Jangan memakai `--paksa --tanpa-ocr` (ditolak, bagian 4).
