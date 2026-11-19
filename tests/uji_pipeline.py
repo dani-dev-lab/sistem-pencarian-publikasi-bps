@@ -30,8 +30,13 @@ Sifat (13 Nov 2026):
 - Database uji di-mysqldump di awal, lalu di akhir DIHAPUS DAN DIBUAT ULANG dari
   dump itu, dan dibuktikan sama dengan CHECKSUM TABLE. Hapus/buat ulang hanya
   untuk nama berakhiran "_uji"; selain itu berhenti dengan galat.
-- Tidak ada akses ke API BPS dan tidak ada unduhan dari BPS. Metadata dan PDF
-  disajikan server tiruan di 127.0.0.1, dibangun dari baris database uji.
+- Tidak ada akses ke API BPS dan tidak ada unduhan dari BPS. Metadata, PDF, dan
+  sampul disajikan server tiruan di 127.0.0.1, dibangun dari baris database uji.
+  Tiga pengaman (19 Nov 2026, sejak ada unduhan sampul): url_cover/url_pdf di
+  database uji diarahkan ke server tiruan di awal (dipulihkan bersama database
+  uji di akhir); proses di salinan memakai proxy mati untuk semua alamat
+  selain 127.0.0.1/localhost, sehingga URL BPS yang lolos GAGAL di mesin ini;
+  U4/A5 membuktikan keduanya. Sampul ditulis ke folder salinan (DIR_SAMPUL).
 - Salinan kode, PDF (hardlink), dan cache OCR (salinan) di folder sementara;
   folder proyek tidak ditulis. PDF uji = hardlink, jadi JANGAN pernah
   os.utime / menulis ke isinya: ganti berkas hanya lewat os.replace.
@@ -218,6 +223,14 @@ ENV = {**os.environ, "SECRET_KEY": "kunci-uji-acak-" + "x" * 30, "ADMIN_PASSWORD
        "PYTHONUTF8": "1", "PORT": "5000"}
 ENV.pop("BPS_DOMAIN", None)
 assert ENV["BPS_API_BASE_URL"].startswith("http://127.0.0.1:"), "uji tidak boleh ke API BPS"
+# Jaringan luar diblokir untuk proses di salinan: requests membaca variabel
+# proxy ini, jadi alamat selain 127.0.0.1/localhost diarahkan ke port 9 lokal
+# yang tidak melayani apa pun (ProxyError), bukan ke BPS.
+PROXY_MATI = "http://127.0.0.1:9"
+for _k in ("HTTP_PROXY", "HTTPS_PROXY", "ALL_PROXY", "http_proxy", "https_proxy", "all_proxy"):
+    ENV[_k] = PROXY_MATI
+ENV["NO_PROXY"] = ENV["no_proxy"] = "127.0.0.1,localhost"
+ENV["DIR_SAMPUL"] = f"{UJI}/data/sampul"      # bukan data/sampul/ proyek
 
 
 def jalan(skrip, *arg, timeout=3600, env_tambah=None):
@@ -277,8 +290,20 @@ def beda_potret(a, b):
 
 
 # ---------------------------------------------------------------- WebAPI tiruan
-KEADAAN = {"domain": {}, "gagal_domain": {}, "gagal_halaman": {}, "mode_pdf": {}, "berkas_pdf": {}}
+KEADAAN = {"domain": {}, "gagal_domain": {}, "gagal_halaman": {}, "mode_pdf": {}, "berkas_pdf": {},
+           "mode_sampul": {}}
 PERMINTAAN = []
+
+
+def _buat_sampul_tiruan():
+    import io
+    from PIL import Image
+    b = io.BytesIO()
+    Image.new("RGB", (500, 709), (0, 43, 106)).save(b, "JPEG", quality=85)
+    return b.getvalue()
+
+
+SAMPUL_TIRUAN = _buat_sampul_tiruan()     # JPEG 500x709, seperti sampul WebAPI
 
 
 class Tiruan(BaseHTTPRequestHandler):
@@ -320,10 +345,34 @@ class Tiruan(BaseHTTPRequestHandler):
             if mode == "html":
                 self._kirim(200, b"<html>galat</html>" * 200, "text/html")
                 return
+            if mode == "400":
+                self._kirim(400, b"x")
+                return
             isi = open(KEADAAN["berkas_pdf"][pid], "rb").read()
             self._kirim(200, isi[:50000] if mode == "potong" else isi, "application/pdf")
             return
+        m = re.match(r"/cover\.php\?f=TOKENUJI(\w+)$", self.path)
+        if m:
+            mode = KEADAAN["mode_sampul"].get(m.group(1))
+            if mode == "400":
+                self._kirim(400, b"x")
+            elif mode == "html":
+                self._kirim(200, b"<html>galat</html>" * 200, "text/html")
+            else:
+                self._kirim(200, SAMPUL_TIRUAN, "image/jpeg")
+            return
         self._kirim(404, b"{}")
+
+
+# Sampul tiruan berbentuk seperti WebAPI asli (cover.php?f=<token>), supaya
+# penyamaran token di pesan galat ikut teruji.
+TOKEN_TIRUAN = "TOKENUJI"
+
+
+def url_tiruan(jenis, pid):
+    if jenis == "cover":
+        return f"http://127.0.0.1:{PORT}/cover.php?f={TOKEN_TIRUAN}{pid}"
+    return f"http://127.0.0.1:{PORT}/{jenis}/{pid}"
 
 
 def metadata_dari_db(domain):
@@ -336,9 +385,36 @@ def metadata_dari_db(domain):
             pubs.append({"pub_id": r["id"], "title": r["judul"], "abstract": r["abstrak"],
                          "rl_date": str(r["tanggal_rilis"]) if r["tanggal_rilis"] else None,
                          "updt_date": str(r["updt_date_api"]) if r["updt_date_api"] else None,
-                         "pdf": f"http://127.0.0.1:{PORT}/pdf/{r['id']}", "cover": r["url_cover"],
+                         "pdf": url_tiruan("pdf", r["id"]), "cover": url_tiruan("cover", r["id"]),
                          "issn": r["issn"], "subject_csa": []})
     return pubs
+
+
+def arahkan_url_ke_tiruan():
+    """url_cover/url_pdf SEMUA publikasi database uji -> server tiruan. Isi asli
+    (alamat webapi.bps.go.id bertoken) kembali saat database uji dipulihkan
+    dari dump di akhir (Z1)."""
+    sql(f"UPDATE publikasi SET url_cover=CONCAT('http://127.0.0.1:{PORT}/cover.php?f={TOKEN_TIRUAN}', id), "
+        f"url_pdf=CONCAT('http://127.0.0.1:{PORT}/pdf/', id)", DB_UJI)
+
+
+def url_luar_di_db():
+    return int(sql("SELECT COUNT(*) FROM publikasi WHERE url_cover NOT LIKE 'http://127.0.0.1:%' "
+                   "OR url_pdf NOT LIKE 'http://127.0.0.1:%'", DB_UJI))
+
+
+KODE_CEK_JARINGAN = """
+import requests
+try:
+    requests.get('https://webapi.bps.go.id/v1/api/domain/type/all/key/x/', timeout=10)
+    print('LUAR TERHUBUNG')
+except requests.exceptions.ProxyError:
+    print('LUAR DIBLOKIR')
+except Exception as e:
+    print('LUAR LAIN', type(e).__name__)
+r = requests.get(URL_TIRUAN, timeout=10)
+print('TIRUAN', r.status_code, r.headers.get('Content-Type'))
+"""
 
 
 def siapkan_tiruan():
@@ -371,6 +447,12 @@ def bagian_u():
     baris1 = keluar.splitlines()[0] if keluar else ""
     cek("U2 baris pertama perbarui.py = database uji",
         baris1.startswith(f"Database tujuan: {DB_UJI} ") and "(UJI" in baris1, baris1[:90])
+    n_luar = url_luar_di_db()
+    kode, keluar, err = jalan_py(f"URL_TIRUAN = {url_tiruan('cover', 'cek')!r}\n" + KODE_CEK_JARINGAN)
+    cek("U4 tanpa BPS: url_cover/url_pdf database uji semuanya ke server tiruan; alamat luar "
+        "diblokir proxy mati (tidak sampai ke BPS); server tiruan tetap terjangkau",
+        n_luar == 0 and "LUAR DIBLOKIR" in keluar and "TIRUAN 200 image/jpeg" in keluar,
+        f"URL luar di DB {n_luar}; " + (keluar + err).strip().replace("\n", " | ")[-120:])
     cek("U3 ringkasan ke pembaruan_terakhir-uji.json, berkas produksi tidak dibuat",
         os.path.exists(f"{UJI}/data/pembaruan_terakhir-uji.json") and not os.path.exists(prod_asli)
         and ringkasan()["status"] in ("tidak_ada_baru", "sukses"), f"exit {kode}, {dtk:.0f} d")
@@ -1409,7 +1491,9 @@ def kartu_publikasi(a):
     t = c.get("/hasil?" + urlencode(a)).get_data(as_text=True)
     s = re.search(r'<h2 class="seksi">Publikasi</h2>(.*?)</section>', t, re.S)
     out = []
-    for k in re.findall(r'<article class="kartu kartu-pub">(.*?)</article>', s.group(1) if s else "", re.S):
+    # Kartu PUBLIKASI = tepat dua bentuk kelas: tanpa sampul, atau dengan sampul
+    # ("ada-sampul", 19 Nov 2026). Kartu tabel/gambar/lampiran/bab tidak cocok.
+    for k in re.findall(r'<article class="kartu kartu-pub(?: ada-sampul)?">(.*?)</article>', s.group(1) if s else "", re.S):
         j = re.sub("<[^>]+>", "", re.search(r'<h3 class="kartu-judul">(.*?)</h3>', k, re.S).group(1)).strip()
         m = re.search(r'label-kecamatan">(.*?)</span>', k)
         out.append([j, m.group(1) if m else None])
@@ -1508,12 +1592,138 @@ def bagian_v():
         sql(f"DROP DATABASE IF EXISTS `{tanpa}`")
 
 
-SEMUA_BAGIAN = "VFPLCHISOBGETDKRW"   # V dan F dijalankan sebelum potret s0 (lihat main)
+KODE_A4 = """
+import json, re
+from app import create_app
+from app.config import KonfigurasiUji
+app = create_app(KonfigurasiUji)
+with app.test_client() as c:
+    h = c.get('/hasil?q=tapin&w=6305').get_data(as_text=True)
+    kartu = re.findall(r'<article class="kartu kartu-pub(?: ada-sampul)?">[\\s\\S]*?</article>', h)
+    hasil = {}
+    for k in kartu:
+        pid = re.search(r'/pdf/(\\w+)', k).group(1)
+        img = re.search(r'<img class="sampul" src="([^"]+)"\\s+width="(\\d+)" height="(\\d+)" alt="([^"]*)" loading="lazy"', k)
+        rec = {'img': bool(img), 'kelas': 'ada-sampul' in k.split('>', 1)[0], 'div': k.count('kartu-badan')}
+        if img:
+            g = c.get(img.group(1).replace('&amp;', '&'))
+            rec.update(ukuran=[int(img.group(2)), int(img.group(3))], alt=img.group(4)[:60], status=g.status_code,
+                       jenis=g.mimetype, byte=len(g.data), luar='://' in img.group(1))
+        hasil[pid] = rec
+    e = c.get('/hasil?q=penduduk&w=6305').get_data(as_text=True)
+    entri = re.findall(r'<article class="kartu kartu-(?:tabel|gambar|lampiran|isi)[^>]*>[\\s\\S]*?</article>', e)
+    print('A4', json.dumps({'kartu': hasil, 'entri': len(entri), 'entri_sampul': sum('sampul' in k for k in entri),
+                            'tanpa': c.get('/sampul/' + TANPA).status_code, 'jahat': c.get('/sampul/..%2Fx').status_code}))
+"""
+
+
+def bagian_a(kecil):
+    """Sampul publikasi (19 Nov 2026): unduhan di perbarui.py, cadangan PDF,
+    gagal, --lokal, dan tampilan kartu. Folder sampul salinan dikosongkan dulu,
+    jadi tidak bergantung pada bagian lain."""
+    print("\n=== A. SAMPUL PUBLIKASI ===", flush=True)
+    from PIL import Image
+    dir_s = ENV["DIR_SAMPUL"]
+    shutil.rmtree(dir_s, ignore_errors=True)
+    aktifkan(DOMAIN)
+    KEADAAN["domain"].pop("6399", None)
+    dom = sorted(x["pub_id"] for x in KEADAAN["domain"][DOMAIN])
+    # publikasi kecil bertekst: unduh ulang + ekstraksi y di A2 cepat
+    x_cad, y_gagal, z_lokal = kecil[4], kecil[3], kecil[5]
+
+    def resmi(p):
+        return f"{dir_s}/{p}.jpg"
+
+    def cadangan(p):
+        return f"{dir_s}/{p}.cadangan.jpg"
+
+    # A1: x -> 400 (cadangan PDF); y -> 400 dan PDF-nya hilang + tak bisa diunduh (gagal)
+    KEADAAN["mode_sampul"].update({x_cad: "400", y_gagal: "400"})
+    pdf_y = path_uji(y_gagal)
+    os.remove(pdf_y)                      # hardlink di salinan saja; berkas aslinya tidak disentuh
+    KEADAAN["mode_pdf"][y_gagal] = "400"
+    PERMINTAAN.clear()
+    kode, keluar, dtk = jalan("perbarui.py")
+    r = ringkasan()
+    minta = [(t, q) for t, q in PERMINTAAN if q.startswith("/cover.php")]
+    identik = all(os.path.exists(resmi(p)) and open(resmi(p), "rb").read() == SAMPUL_TIRUAN
+                  for p in dom if p not in (x_cad, y_gagal))
+    cek(f"A1 sampul ada: {len(dom) - 2} sampul resmi dari server tiruan, byte identik",
+        identik and r["sampul"]["resmi"] == len(dom) - 2, f"exit {kode}, {dtk:.0f} d, {r['sampul']}")
+    uk_cad = None
+    if os.path.exists(cadangan(x_cad)):
+        with Image.open(cadangan(x_cad)) as im:
+            uk_cad = im.size
+    cek("A1 cadangan PDF: unduhan 400 -> <id>.cadangan.jpg lebar 500 dari halaman 1, tanpa <id>.jpg",
+        r["sampul"]["cadangan"] == 1 and uk_cad and uk_cad[0] == 500 and not os.path.exists(resmi(x_cad)), uk_cad)
+    gagal_domain = [g["pub_id"] for d in r["domain"] for g in d["gagal"]]
+    cek("A1 sampul gagal (unduhan 400, PDF tidak ada): tanpa berkas, dicatat; status domain hanya "
+        "dipengaruhi unduhan PDF, bukan sampul",
+        r["sampul"]["gagal"] == 1 and not os.path.exists(resmi(y_gagal)) and not os.path.exists(cadangan(y_gagal))
+        and gagal_domain == [y_gagal], f"status {r['status']}, gagal {gagal_domain}")
+    jeda = [b[0] - a[0] for a, b in zip(minta, minta[1:])]
+    cek("A1 satu permintaan sampul per publikasi (400 tidak diulang), jeda >= ~1 detik",
+        len(minta) == len(dom) and jeda and min(jeda) >= 0.95,
+        f"{len(minta)} permintaan, jeda minimum {min(jeda):.2f} d" if jeda else "tidak ada permintaan")
+    cek("A1 token sampul tidak tercetak di keluaran (pesan galat memuat f=***)",
+        TOKEN_TIRUAN not in keluar and "f=***" in keluar)
+    tampil("\n".join(b for b in keluar.splitlines() if "ampul" in b), 8)
+
+    # A2: run berikutnya, server pulih -> hanya x dan y diminta; resmi menggantikan cadangan
+    KEADAAN["mode_sampul"].clear()
+    KEADAAN["mode_pdf"].pop(y_gagal, None)
+    PERMINTAAN.clear()
+    kode, keluar, _ = jalan("perbarui.py")
+    r = ringkasan()
+    minta = sorted(q for _, q in PERMINTAAN if q.startswith("/cover.php"))
+    cek("A2 run berikutnya: hanya 2 yang belum punya sampul resmi diminta; cadangan diganti resmi",
+        minta == sorted(url_tiruan("cover", p).split(str(PORT), 1)[1] for p in (x_cad, y_gagal))
+        and os.path.exists(resmi(x_cad))
+        and not os.path.exists(cadangan(x_cad)) and os.path.exists(resmi(y_gagal)) and os.path.exists(pdf_y),
+        f"exit {kode}, permintaan {len(minta)}, {r['sampul']}")
+
+    # A3: --lokal: tanpa permintaan; publikasi tanpa berkas mendapat cadangan PDF
+    os.remove(resmi(z_lokal))
+    PERMINTAAN.clear()
+    kode, keluar, _ = jalan("perbarui.py", "--lokal")
+    r = ringkasan()
+    cek("A3 --lokal: 0 permintaan, publikasi tanpa berkas mendapat cadangan PDF",
+        not PERMINTAAN and os.path.exists(cadangan(z_lokal)) and r["sampul"]["cadangan"] == 1,
+        f"{len(PERMINTAAN)} permintaan, {r['sampul']}")
+
+    # A4: tampilan. z: berkasnya dihapus -> kartu tanpa gambar, markup kartu lama.
+    os.remove(cadangan(z_lokal))
+    kode, keluar, err = jalan_py(f"TANPA = {z_lokal!r}\n" + KODE_A4)
+    m = re.search(r"^A4 (.*)$", keluar, re.M)
+    if not m:
+        cek("A4 potongan tampilan berjalan", False, err[-300:])
+        return
+    a4 = json.loads(m.group(1))
+    k = a4["kartu"]
+    dengan = [p for p in k if p != z_lokal]
+    cek(f"A4 sampul ada: {len(dengan)} kartu publikasi bergambar lewat route lokal, width/height 500x709, "
+        "alt 'Sampul <judul>', lazy; gambar = berkas",
+        dengan and all(k[p]["img"] and k[p]["kelas"] and k[p]["div"] == 1 and k[p]["ukuran"] == [500, 709]
+                       and k[p]["alt"].startswith("Sampul ") and k[p]["status"] == 200
+                       and k[p]["jenis"] == "image/jpeg" and k[p]["byte"] == len(SAMPUL_TIRUAN)
+                       and not k[p]["luar"] for p in dengan),
+        f"{len(dengan)} kartu")
+    cek("A4 sampul tidak ada: kartu tanpa <img>, tanpa kelas/pembungkus sampul (markup lama); /sampul -> 404",
+        z_lokal in k and k[z_lokal] == {"img": False, "kelas": False, "div": 0} and a4["tanpa"] == 404,
+        k.get(z_lokal))
+    cek("A4 kartu tabel/gambar/lampiran/bab tidak pernah bersampul; id tidak sah -> 404",
+        a4["entri"] > 0 and a4["entri_sampul"] == 0 and a4["jahat"] == 404,
+        f"{a4['entri']} kartu entri, id jahat {a4['jahat']}")
+    cek("A5 sepanjang uji tidak ada URL luar di database uji (url_cover/url_pdf)", url_luar_di_db() == 0)
+
+
+SEMUA_BAGIAN = "VFPLCHISOBGETDKRWA"   # V dan F dijalankan sebelum potret s0 (lihat main)
 
 
 def main():
     print(f"Database uji: {DB_UJI} | produksi (hanya dibaca): {DB_PROD} | domain uji: {DOMAIN}", flush=True)
     siapkan_salinan()
+    arahkan_url_ke_tiruan()
     srv, pubs = siapkan_tiruan()
     try:
         bagian_u()
@@ -1552,6 +1762,7 @@ def main():
             if b == "K": bagian_k()
             if b == "R": bagian_r(kecil[0])
             if b == "W": bagian_w(per_id, kecil[2])
+            if b == "A": bagian_a(kecil)
     finally:
         srv.shutdown()
 

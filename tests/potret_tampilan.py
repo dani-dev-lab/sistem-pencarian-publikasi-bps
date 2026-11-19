@@ -10,7 +10,7 @@ Angka "N ms" di halaman hasil disamarkan; selebihnya dibandingkan byte demi
 byte.
 
   python tests/potret_tampilan.py simpan <keluar.json> --db salinan|uji
-  python tests/potret_tampilan.py banding <a.json> <b.json> [--buang-widget] [--buang-tombol-atas]
+  python tests/potret_tampilan.py banding <a.json> <b.json> [--buang-widget] [--buang-tombol-atas] [--buang-sampul]
 
 --db salinan = db_pencarian_bps_salinan_uji (salinan produksi tanpa
 kecamatan); --db uji = db_pencarian_bps_uji. Produksi TIDAK PERNAH dipakai:
@@ -96,6 +96,26 @@ def buang_tombol_atas(u, teks, salah):
     return teks
 
 
+# Sampul publikasi (19 Nov 2026): kartu PUBLIKASI yang berkas sampulnya ada
+# mendapat kelas ada-sampul, <img class="sampul"> dan pembungkus kartu-badan.
+# --buang-sampul mengembalikan kartu itu PERSIS ke bentuk lama (isi kartu
+# tidak diindentasi ulang), lalu memastikan tidak ada sisa sampul.
+RE_SAMPUL = re.compile(
+    r'<article class="kartu kartu-pub ada-sampul">\n'
+    r'  <img class="sampul" src="/sampul/\w+\?v=\d+"\n'
+    r'       width="\d+" height="\d+" alt="[^"]*" loading="lazy" decoding="async">\n'
+    r'  <div class="kartu-badan">'
+    r'((?:(?!</article>)[\s\S])*?)\n  </div>\n</article>')
+
+
+def buang_sampul(u, teks, salah, hitung):
+    teks, n = RE_SAMPUL.subn(r'<article class="kartu kartu-pub">\1\n</article>', teks)
+    hitung[0] += n
+    if "ada-sampul" in teks or 'class="sampul"' in teks or "kartu-badan" in teks:
+        salah.append(f"{u}: sisa markup sampul")
+    return teks
+
+
 def daftar_url():
     from ukur_kinerja import KUERI, KUERI_WILAYAH
     url = ["/", "/?w=6301"]
@@ -119,10 +139,14 @@ def simpan(keluar, db):
     print(f"{len(hasil)} URL ({db}) -> {keluar}")
 
 
-def banding(a, b, buang_widget=False, buang_tombol=False):
+def banding(a, b, buang_widget=False, buang_tombol=False, buang_sampul_=False):
     pa = json.load(open(a, encoding="utf-8"))["potret"]
     pb = json.load(open(b, encoding="utf-8"))["potret"]
     salah = []
+    if buang_sampul_:
+        hitung = [0]
+        pb = {u: {**v, "isi": buang_sampul(u, v["isi"], salah, hitung)} for u, v in pb.items()}
+        print(f"SAMPUL dibuang dari {hitung[0]} kartu publikasi")
     if buang_tombol:
         pb = {u: {**v, "isi": buang_tombol_atas(u, v["isi"], salah)} for u, v in pb.items()}
         for x in salah:
@@ -149,4 +173,4 @@ if __name__ == "__main__":
         simpan(sys.argv[2], sys.argv[sys.argv.index("--db") + 1])
     else:
         sys.exit(0 if banding(sys.argv[2], sys.argv[3], "--buang-widget" in sys.argv,
-                                "--buang-tombol-atas" in sys.argv) else 1)
+                                "--buang-tombol-atas" in sys.argv, "--buang-sampul" in sys.argv) else 1)

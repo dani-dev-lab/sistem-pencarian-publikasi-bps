@@ -343,6 +343,25 @@ section + section .seksi { margin-top: 34px; }
 .kartu-lampiran { border-left-color: var(--ungu); }
 .kartu-isi { border-left-color: var(--redup); }
 
+/* Sampul publikasi (19 Nov 2026), hanya di kartu PUBLIKASI yang berkas
+   sampulnya ada: sampul di kiri, judul dan keterangan di kanan. Lebar tetap,
+   tinggi mengikuti rasio asli (atribut width/height = ukuran asli, jadi ruang
+   sudah dipesan sebelum gambar dimuat). Di ponsel sampul mengecil. */
+.kartu.ada-sampul { display: flex; align-items: flex-start; gap: 14px; }
+.ada-sampul .sampul {
+  flex: 0 0 auto;
+  width: 96px;
+  height: auto;
+  border: 1px solid var(--garis);
+  border-radius: 2px;
+  background: #fff;
+}
+.ada-sampul .kartu-badan { flex: 1 1 auto; min-width: 0; }
+@media (max-width: 640px) {
+  .kartu.ada-sampul { gap: 10px; }
+  .ada-sampul .sampul { width: 64px; }
+}
+
 .kartu-judul { margin: 0 0 8px; font-size: 15px; line-height: 1.38; }
 
 /* Lokasi entri sengaja menonjol - inilah nilai utama sistem ini. */

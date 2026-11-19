@@ -1,0 +1,16 @@
+Database sumber daftar: db_pencarian_bps (PRODUKSI, hanya dibaca)
+Folder sampul: C:\sistem-pencarian-bps\data\sampul
+620 publikasi; sudah punya berkas (dilewati) 0; dikerjakan 620 (tanpa url_cover 0); perkiraan 14 menit
+...
+[616/620] 6372 de8f107b Produk Domestik Regional Bruto Kota Banjarba 126 KB
+[617/620] 6372 e758a7f1 Keadaan Angkatan Kerja di Kota Banjarbaru Ag 56 KB
+[618/620] 6372 f1fa2e50 Buklet Indikator Strategis Kota Banjarbaru T 86 KB
+[619/620] 6372 f8a45b50 Statistik Potensi Kelurahan Kota Banjarbaru  101 KB
+[620/620] 6372 fe43180b Ringkasan Eksekutif Kinerja Ekonomi Kota Ban 58 KB
+
+RINGKASAN
+  berhasil (sampul resmi)      : 620 (72.5 MB)
+  cadangan dari halaman 1 PDF  : 0
+  gagal (tampil tanpa gambar)  : 0
+  dilewati (sudah ada)         : 0
+  waktu                        : 15.4 menit

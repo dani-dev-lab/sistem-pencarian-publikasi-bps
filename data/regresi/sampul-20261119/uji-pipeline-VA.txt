@@ -1,0 +1,42 @@
+Cadangan database uji: 15.9 MB, 6 tabel; produksi 6 tabel
+Database uji: db_pencarian_bps_uji | produksi (hanya dibaca): db_pencarian_bps | domain uji: 6305
+
+=== U. PENGAMAN DATABASE UJI ===
+  [LULUS] U1 KonfigurasiUji yang menunjuk nama produksi ditolak (SystemExit)  -- DITOLAK True
+  [LULUS] U2 baris pertama perbarui.py = database uji  -- Database tujuan: db_pencarian_bps_uji @ localhost:3306 (UJI - bukan produksi)
+  [LULUS] U4 tanpa BPS: url_cover/url_pdf database uji semuanya ke server tiruan; alamat luar diblokir proxy mati (tidak sampai ke BPS); server tiruan tetap terjangkau  -- URL luar di DB 0; LUAR DIBLOKIR | TIRUAN 200 image/jpeg
+  [LULUS] U3 ringkasan ke pembaruan_terakhir-uji.json, berkas produksi tidak dibuat  -- exit 0, 10 d
+
+=== V. TAMPILAN KECAMATAN: TANPA CENTANG IDENTIK ===
+  [LULUS] V1 tanpa centang: 23 halaman (beranda + 21 kueri) identik dengan salinan tanpa kecamatan (306 publikasi), widget kecamatan dibuang  -- 23/23
+  [LULUS] V2 /api/saran tanpa kec=1: 0 saran dari publikasi kecamatan (kec=1 boleh ada)  -- tanpa kec 0, kec=1 17
+  [LULUS] V3 waktu 12 kueri tanpa centang setara (putaran tercepat, selisih <= 10%)  -- tercepat: tanpa 83 ms / uji 83 ms; per putaran: 85/83; 83/84; 84/84
+  [LULUS] V4 kotak info = jumlah di seksi bercentang; seksi tampil dengan kec=1  -- [['jumlah penduduk menurut desa', 6016, 6016, True], ['penduduk', 94, 94, True], ['tpk', 0, 0, True]]
+  [LULUS] V5 seksi Publikasi: kecamatan dipilih -> publikasi kecamatan itu paling atas berlabel Kec.; tanpa centang -> tidak ada publikasi kecamatan  -- {'dipilih': [['Kecamatan Binuang Dalam Angka 2025', 'Kec. Binuang'], ['Kecamatan Binuang Dalam Angka 2026', 'Kec. Binuang']], 'tanpa_centang': [['Kabupaten Tapin Dalam Angka 2025', None], ['Kabupaten Tapin Dalam Angka 2026', None]]}
+
+(--hanya VA: bagian lain dilewati)
+
+=== A. SAMPUL PUBLIKASI ===
+  [LULUS] A1 sampul ada: 39 sampul resmi dari server tiruan, byte identik  -- exit 3, 121 d, {'resmi': 39, 'cadangan': 1, 'cadangan_lama': 0, 'gagal': 1, 'byte': 249171, 'detik': 41.9}
+  [LULUS] A1 cadangan PDF: unduhan 400 -> <id>.cadangan.jpg lebar 500 dari halaman 1, tanpa <id>.jpg  -- (500, 352)
+  [LULUS] A1 sampul gagal (unduhan 400, PDF tidak ada): tanpa berkas, dicatat; status domain hanya dipengaruhi unduhan PDF, bukan sampul  -- status sebagian, gagal ['8f46a945e36141a21806452b']
+  [LULUS] A1 satu permintaan sampul per publikasi (400 tidak diulang), jeda >= ~1 detik  -- 41 permintaan, jeda minimum 1.00 d
+  [LULUS] A1 token sampul tidak tercetak di keluaran (pesan galat memuat f=***)
+    |   sampul: 41 publikasi belum punya sampul resmi, dikerjakan
+    |     sampul Booklet Survei Angkatan Kerja Nasional Kabupat cadangan (400 Client Error: Bad Request for url: http://127.0.0.1:5981/cover.php?f=***)
+    |     sampul Keadaan Angkatan Kerja di Kabupaten Tapin Agus gagal (400 Client Error: Bad Request for url: http://127.0.0.1:5981/cover.php?f=***; PDF lokal ti)
+    |   sampul: resmi 39, cadangan PDF 1, cadangan lama dipertahankan 0, gagal 1
+    |   Sampul       : resmi 39 (0.2 MB), cadangan PDF 1, cadangan lama dipertahankan 0, gagal 1, 42 detik
+  [LULUS] A2 run berikutnya: hanya 2 yang belum punya sampul resmi diminta; cadangan diganti resmi  -- exit 0, permintaan 2, {'resmi': 2, 'cadangan': 0, 'cadangan_lama': 0, 'gagal': 0, 'byte': 12778, 'detik': 2.1}
+  [LULUS] A3 --lokal: 0 permintaan, publikasi tanpa berkas mendapat cadangan PDF  -- 0 permintaan, {'resmi': 0, 'cadangan': 1, 'cadangan_lama': 0, 'gagal': 0, 'byte': 0, 'detik': 0.2}
+  [LULUS] A4 sampul ada: 16 kartu publikasi bergambar lewat route lokal, width/height 500x709, alt 'Sampul <judul>', lazy; gambar = berkas  -- 16 kartu
+  [LULUS] A4 sampul tidak ada: kartu tanpa <img>, tanpa kelas/pembungkus sampul (markup lama); /sampul -> 404  -- {'img': False, 'kelas': False, 'div': 0}
+  [LULUS] A4 kartu tabel/gambar/lampiran/bab tidak pernah bersampul; id tidak sah -> 404  -- 50 kartu entri, id jahat 404
+  [LULUS] A5 sepanjang uji tidak ada URL luar di database uji (url_cover/url_pdf)
+
+=== Z. PEMULIHAN DAN BUKTI ===
+  [LULUS] Z1 database uji dipulihkan, CHECKSUM TABLE sama dengan awal  -- []
+  [LULUS] Z2 produksi tidak berubah (CHECKSUM TABLE awal = akhir)  -- []
+  [LULUS] Z3 folder sementara dibersihkan
+
+=== TOTAL: 23 lulus, 0 gagal, 0 dilewati (253 detik) ===

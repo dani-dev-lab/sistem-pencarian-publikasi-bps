@@ -61,6 +61,40 @@ def berkas(pub_id):
     return None
 
 
+# Ukuran sampul untuk atribut width/height <img> (tata letak tidak bergeser
+# saat gambar dimuat). Dibaca dari kepala berkas sekali per (berkas, waktu
+# ubah), lalu disimpan di memori proses; dict biasa aman untuk beberapa thread
+# waitress karena isinya hanya ditambah/ditimpa utuh.
+_UKURAN = {}
+RE_PUB_ID = re.compile(r"[0-9A-Za-z]{1,64}")
+
+
+def info(pub_id):
+    """{"lebar", "tinggi", "versi"} sampul yang ditampilkan, atau None kalau
+    publikasi tidak punya berkas sampul (kartu lalu tampil tanpa gambar).
+    versi = waktu ubah berkas, dipasang di URL supaya cache browser
+    tergantikan begitu sampul cadangan diganti sampul resmi."""
+    if not pub_id or not RE_PUB_ID.fullmatch(str(pub_id)):
+        return None
+    path = berkas(pub_id)
+    if path is None:
+        return None
+    try:
+        mtime = os.stat(path).st_mtime_ns
+    except OSError:
+        return None
+    kunci = (path, mtime)
+    if kunci not in _UKURAN:
+        from PIL import Image          # dependensi pdfplumber; hanya membaca kepala berkas
+        try:
+            with Image.open(path) as img:
+                lebar, tinggi = img.size
+        except Exception:  # noqa: BLE001 - berkas rusak: tampil tanpa gambar
+            return None
+        _UKURAN[kunci] = {"lebar": lebar, "tinggi": tinggi, "versi": mtime // 1_000_000_000}
+    return _UKURAN[kunci]
+
+
 def _tulis_atomik(path, data):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     sementara = path + ".part"

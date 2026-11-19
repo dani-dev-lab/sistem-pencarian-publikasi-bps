@@ -581,6 +581,23 @@ venv\Scripts\python.exe scripts\isi_perkiraan_halaman.py --produksi
 - **Lama:** beberapa detik untuk seluruh publikasi. Pencarian pertama sesudahnya
   sedikit lebih lambat, karena data dimuat ulang.
 
+### Sampul publikasi (`data\sampul\`)
+
+Kartu PUBLIKASI di hasil pencarian menampilkan sampul resmi dari WebAPI BPS.
+Sampul diunduh **sekali** dan disimpan di `data\sampul\<id publikasi>.jpg`
+(620 sampul, ±73 MB, 19 November 2026); browser petugas mengambilnya dari
+aplikasi ini, tidak dari situs BPS. Pembaruan data mengunduh sendiri sampul
+publikasi baru di akhir tiap wilayah, dengan jeda 1 detik. Kalau unduhan
+gagal, dibuat cadangan dari halaman 1 PDF (`<id>.cadangan.jpg`) dan sampul
+resminya dicoba lagi pada pembaruan berikutnya. Kalau keduanya gagal, kartu
+tampil tanpa gambar, seperti sebelum ada sampul. Untuk mengisi sampul
+publikasi yang sudah ada (misalnya sesudah folder `data\sampul\` hilang),
+jalankan pada hari yang sama dengan pembaruan data terakhir, karena alamat
+sampul dari BPS bisa kedaluwarsa: `venv\Scripts\python.exe
+scripts\isi_sampul.py --produksi` (±15 menit untuk 620 sampul; bisa dihentikan
+lalu dijalankan lagi; `--coba` hanya menghitung). Saat memindahkan aplikasi,
+folder `data\sampul\` ikut disalin seperti folder PDF.
+
 ---
 
 ## 5. Menambah istilah pendek / sinonim lewat halaman admin

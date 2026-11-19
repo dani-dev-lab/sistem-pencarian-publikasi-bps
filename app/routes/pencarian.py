@@ -15,7 +15,7 @@ from flask import (
 )
 
 from app.models import EntriDokumen, LogPencarian, Publikasi, db
-from app.services import pencarian_wilayah
+from app.services import pencarian_wilayah, sampul
 from app.services.mesin_pencari import AMBANG_DITEMUKAN, AMBANG_SARAN
 from app.services.preprocessing import normalisasi_token
 from app.services.wilayah import DOMAIN_PROVINSI, wilayah_aktif
@@ -105,6 +105,25 @@ def _catat_log(hasil, kecamatan_tersedia=False):
         db.session.commit()
     except Exception:  # noqa: BLE001 - log gagal bukan alasan menolak hasil
         db.session.rollback()
+
+
+@bp.get("/sampul/<pub_id>")
+def sampul_publikasi(pub_id):
+    """Sampul publikasi dari data/sampul/ (19 Nov 2026), disajikan lokal: browser
+    petugas tidak pernah meminta gambar ke situs luar.
+
+    pub_id hanya boleh huruf/angka (RE_PUB_ID), dan nama berkas disusun
+    sampul.path_*; tanpa berkas -> 404 (kartu tidak memasang <img> kalau berkas
+    tidak ada, jadi 404 hanya untuk permintaan langsung). URL dari kartu
+    membawa ?v=<waktu ubah>, sehingga cache browser boleh panjang.
+    """
+    if not sampul.RE_PUB_ID.fullmatch(pub_id):
+        abort(404)
+    path = sampul.berkas(pub_id)
+    if path is None:
+        abort(404)
+    return send_from_directory(os.path.dirname(path), os.path.basename(path),
+                               mimetype="image/jpeg", max_age=30 * 24 * 3600)
 
 
 @bp.get("/pdf/<pub_id>")

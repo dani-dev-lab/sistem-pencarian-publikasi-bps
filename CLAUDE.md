@@ -187,6 +187,19 @@ Mahasiswa Politeknik Negeri Banjarmasin.
     - potret 28 URL: `potret_tampilan.py banding --buang-tombol-atas` membuang blok
       tombol PERSIS (wajib 1x per halaman HTML). Potret yang dibuat sebelum 19 Nov
       siang hanya bisa dibandingkan lewat opsi ini.
+- **Sampul publikasi (19 Nov 2026 sore, `data/regresi/sampul-20261119.md`):**
+  - `data/sampul/<id>.jpg` = sampul resmi WebAPI (`url_cover`, `cover.php?f=<token>`,
+    token bisa kedaluwarsa); `<id>.cadangan.jpg` = halaman 1 PDF kalau unduhan gagal.
+    Di-gitignore; skema DB tidak berubah.
+  - `perbarui.py`: langkah sampul di akhir tiap wilayah (jeda 1 detik); `--lokal`
+    hanya cadangan. Data lama: `scripts/isi_sampul.py --produksi` (hari yang sama
+    dengan pembaruan terakhir).
+  - Produksi 19 Nov 15.01: 620 resmi, 72,5 MB, 0 cadangan, 0 gagal, 15,4 menit.
+  - Tampilan hanya di kartu PUBLIKASI, lewat route `/sampul/<id>`. Kartu tanpa
+    berkas = markup lama. Potret lama dibandingkan dengan `--buang-sampul`.
+  - **`uji_pipeline.py` tidak boleh menghubungi BPS:** URL database uji diarahkan
+    ke tiruan di awal, proxy mati untuk alamat luar, `DIR_SAMPUL` salinan (U4/A5).
+    Bagian A = sampul.
 
 ## Sumber data
 - **BPS WebAPI**: `https://webapi.bps.go.id/v1/api/list/model/publication/lang/ind/domain/6300/page/{page}/key/{key}/`

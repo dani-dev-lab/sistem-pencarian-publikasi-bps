@@ -2,8 +2,14 @@
 {% from "_form_cari.html" import form_cari %}
 {% block judul %}{{ kueri }} &mdash; Pencarian Publikasi BPS{% endblock %}
 
-{% macro kartu_publikasi(p) %}
-<article class="kartu kartu-pub">
+{# Sampul (19 Nov 2026): hanya kalau berkasnya ada di data/sampul/. Disisipkan
+   SEBARIS dengan tag yang sudah ada, jadi kartu tanpa sampul byte-identik
+   dengan sebelumnya. width/height = ukuran asli (rasio), lebar tampil di CSS. #}
+{% macro kartu_publikasi(p) %}{% set s = info_sampul(p.publikasi_id) %}
+<article class="kartu kartu-pub{% if s %} ada-sampul{% endif %}">{% if s %}
+  <img class="sampul" src="{{ url_for('pencarian.sampul_publikasi', pub_id=p.publikasi_id, v=s.versi) }}"
+       width="{{ s.lebar }}" height="{{ s.tinggi }}" alt="Sampul {{ p.judul }}" loading="lazy" decoding="async">
+  <div class="kartu-badan">{% endif %}
   <h3 class="kartu-judul">{{ p.judul|sorot(hasil.sorot) }}</h3>
 
   <p class="lokasi">
@@ -22,7 +28,8 @@
     {% if p.skor is not none %}<span class="skor">Relevansi {{ p.skor }}%</span>{% endif %}
     <a class="tombol-pdf" href="{{ url_for('pencarian.buka_pdf', pub_id=p.publikasi_id) }}"
        target="_blank" rel="noopener">Buka PDF</a>
-  </p>
+  </p>{% if s %}
+  </div>{% endif %}
 </article>
 {% endmacro %}
 

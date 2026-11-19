@@ -48,6 +48,8 @@ def create_app(config_class: type[Config] = Config) -> Flask:
 
     db.init_app(app)
     app.add_template_filter(_sorot, "sorot")
+    from app.services import sampul
+    app.add_template_global(sampul.info, "info_sampul")
 
     from app.routes.admin import bp as bp_admin
     from app.routes.pencarian import bp as bp_pencarian
