@@ -76,8 +76,9 @@ Martapura Timur (Banjar), Tanjung (Tabalong), Banjarmasin Utara.
   - Ini aturan yang berlaku (didahulukan di antara yang cocok), bukan
     kesalahan pemuatan. Kriteria uji saya mengandaikan publikasi yang dipilih
     selalu tampil.
-  - **Keputusan terbuka:** apakah publikasi kecamatan yang dipilih SELALU
-    ditampilkan di seksi Publikasi, walau tidak cocok dengan kata kunci.
+  - **Diputuskan pemilik project (19 Nov): aturan dipertahankan**, yaitu
+    hanya tampil kalau cocok dengan kata kunci, konsisten dengan filter
+    kabupaten. Dicatat di PANDUAN bagian 1.
 
 ## Keadaan produksi sekarang
 - 620 publikasi (312 kecamatan) dan 44.548 entri.

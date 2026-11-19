@@ -128,6 +128,16 @@ dan tidak ada yang berubah.
   kunci, misalnya "Kecamatan Kintap Dalam Angka 2026"). Publikasi
   kabupaten/kota dan provinsi tidak tergeser; publikasi kecamatan lain
   paling banyak 10.
+- **Publikasi kecamatan hanya tampil di seksi Publikasi kalau cocok dengan
+  kata kunci**, termasuk kecamatan yang dipilih. Aturan ini sama dengan
+  publikasi kabupaten/kota: memilih wilayah menyempitkan hasil, tetapi
+  tidak memunculkan publikasi yang tidak cocok. Contohnya, Kec. Martapura
+  Timur dipilih dan kata kuncinya "penduduk": publikasi Kecamatan Martapura
+  Timur Dalam Angka tidak muncul di seksi Publikasi, karena judul dan
+  abstraknya tidak menyebut "penduduk". **Tabel-tabel penduduknya tetap
+  tampil di seksi "Dari publikasi Kecamatan Dalam Angka"** di bawahnya.
+  Untuk membuka publikasinya langsung, ketik judulnya, misalnya
+  "Kecamatan Martapura Timur Dalam Angka 2026".
 - **Saran saat mengetik** ikut menampilkan judul dari publikasi kecamatan
   hanya kalau kotak dicentang.
 - Kalau kata kunci **hanya** nama wilayah ("tanah laut") dan kotak

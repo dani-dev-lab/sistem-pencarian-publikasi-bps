@@ -146,10 +146,12 @@ Mahasiswa Politeknik Negeri Banjarmasin.
           versi_data 530.
         - Sebelumnya, seksi Publikasi diperbaiki (`3db1e8b`): ikut membaca
           publikasi kecamatan kalau dicentang; uji V5.
-        - **Keputusan terbuka:** publikasi kecamatan yang DIPILIH saat ini
-          hanya didahulukan kalau cocok dengan kata kunci. Martapura
-          Timur + "penduduk" tidak tampil di seksi Publikasi (abstrak
-          tidak menyebut penduduk).
+        - **DIPUTUSKAN 19 Nov (pemilik project): aturan dipertahankan.**
+          Publikasi kecamatan, termasuk yang DIPILIH, hanya tampil di seksi
+          Publikasi kalau cocok dengan kata kunci, konsisten dengan filter
+          kabupaten. Contoh Martapura Timur + "penduduk" tidak tampil
+          (abstrak tidak menyebut penduduk), dan tabelnya tetap ada di seksi
+          kecamatan. Dicatat untuk petugas di PANDUAN bagian 1.
       - **RENCANA muat kecamatan ke produksi DISETUJUI 18 Nov malam,
         dikerjakan KAMIS 19 Nov pagi:**
         `data/regresi/rencana-muat-kecamatan-20261119.md`. Keputusannya:
