@@ -17,7 +17,7 @@ from datetime import date, datetime, timezone
 
 from app.models import EntriDokumen, Kategori, Publikasi, db
 from app.services.ekstraksi_pdf import ekstrak_lengkap
-from app.services.normalisasi_data import teks_publikasi
+from app.services.normalisasi_data import bersihkan_html, teks_publikasi
 from app.services.preprocessing import normalisasi
 from app.services import ocr, perkiraan_halaman, versi_data
 from app.services.sumber_bps import berkas_pdf_valid, path_pdf, samarkan, sidik_pdf
@@ -73,7 +73,7 @@ def simpan_metadata(kode, nama_wilayah, daftar):
 
         for p in daftar:
             pid = p["pub_id"]
-            judul = (p.get("title") or "").strip()
+            judul = (bersihkan_html(p.get("title")) or "").strip()
             pub = db.session.get(Publikasi, pid)
 
             if pub is not None and pub.domain != kode:
@@ -89,7 +89,7 @@ def simpan_metadata(kode, nama_wilayah, daftar):
                 hasil["diperbarui"] += 1
 
             # Teks ternormalisasi hanya dihitung ulang kalau sumbernya berubah.
-            abstrak = p.get("abstract")
+            abstrak = bersihkan_html(p.get("abstract"))     # kode HTML, 19 Nov 2026
             if (pub.teks_ternormalisasi is None or pub.judul != judul
                     or pub.abstrak != abstrak):
                 pub.teks_ternormalisasi = teks_publikasi(judul, abstrak)

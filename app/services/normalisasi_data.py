@@ -13,6 +13,7 @@ Dipanggil dari dua tempat: scripts/isi_normalisasi.py (terminal) dan tombol
 supaya route admin tidak perlu mengimpor berkas dari folder scripts/.
 """
 
+import html
 import time
 from collections import Counter
 
@@ -42,6 +43,17 @@ def _pastikan_kolom():
                 "ALTER TABLE publikasi ADD COLUMN teks_ternormalisasi TEXT"))
             return True
     return False
+
+
+def bersihkan_html(teks):
+    """Kode HTML di metadata BPS -> karakter biasa ("Kintap&nbsp;selama" ->
+    "Kintap selama", "&amp;" -> "&"). Spasi tak-putus jadi spasi biasa, supaya
+    pemisah kata saat dicocokkan sama dengan spasi lain (19 Nov 2026: 25
+    abstrak memuat "&nbsp;", yang dulu tampil mentah dan ikut dicocokkan
+    sebagai kata "nbsp"). None tetap None."""
+    if teks is None:
+        return None
+    return html.unescape(teks).replace(" ", " ")
 
 
 def teks_publikasi(judul, abstrak):

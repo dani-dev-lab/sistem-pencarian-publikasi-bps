@@ -1,0 +1,29 @@
+Database tujuan: db_pencarian_bps_uji (UJI)
+  0a970f4271e7afa1eef27dbd  Produk Domestik Regional Bruto Kabupaten Barito Kuala Menuru
+  0c6734a362cc76f727b1722c  Keadaan Angkatan Kerja di Kabupaten Hulu Sungai Selatan Agus
+  0ebab612e86f61450c8046ad  Kecamatan Alalak Dalam Angka 2026
+  11487a617225d1ef21344169  Laporan Perekonomian Provinsi Kalimantan Selatan 2025
+  2495e6129e180f457ce8143d  Kecamatan Tamban Dalam Angka 2026
+  2f0cd1ccd3080e6a4b5c353e  Kecamatan Anjir Muara Dalam Angka 2026
+  335ac15d2ada36b5d2402538  Luas Panen dan Produksi Padi Provinsi Kalimantan Selatan 202
+  62b7bddfd59c974bf4a39e16  Kecamatan Kintap Dalam Angka 2026
+  650fbfb530d35e8c9ae09717  Kecamatan Bati-Bati Dalam Angka 2026
+  6aee63032cf1b1904fe52bd6  Kecamatan Marabahan Dalam Angka 2026
+  6c5e501c3d36e00e7c928154  Kecamatan Jorong Dalam Angka 2026
+  6ded72993a753bd3933d1f0b  Kecamatan Tabunganen Dalam Angka 2026
+  70d54ffed4ab46df969baefd  Statistik Harga Konsumen Komoditas Terpilih Provinsi Kaliman
+  731d89e147025f80e1f68c50  Kecamatan Wanaraya Dalam Angka 2026
+  7dfe9afd26176ccd80d4bc0d  Kecamatan Bajuin Dalam Angka 2026
+  8c6d905c723429906f5dba95  Kecamatan Banjarmasin Barat Dalam Angka 2026
+  9eef33e4aa385bde6db18b08  Kecamatan Cerbon Dalam Angka 2026
+  ac101cb3ecf77273005c324d  KEADAAN ANGKATAN KERJA DI KABUPATEN BANJAR
+  ad22d3d9af903e46ae9ae002  Keadaan Angkatan Kerja di Kota Banjarbaru Agustus 2025
+  cc314c146259ae573d92a3b2  Keadaan Angkatan Kerja di Kabupaten Balangan Agustus 2025
+  cd47c0029d84ab5c8a8e44d5  Kecamatan Takisung Dalam Angka 2026
+  e258e72dfca854993191431f  Kecamatan Rantau Badauh Dalam Angka 2026
+  e758a7f15dda853fe68855a4  Keadaan Angkatan Kerja di Kota Banjarbaru Agustus 2024
+  ebef728e1d28ec0c9bc9436c  Kecamatan Barambai Dalam Angka 2026
+  f0903c0d2559a78eb8f633eb  Keadaan Angkatan Kerja di Kabupaten Tabalong Agustus 2025
+  f54bec3dbe9eb5d3115ab973  Produk Domestik Regional Bruto Kabupaten Tabalong Menurut Pe
+26 publikasi dibersihkan
+Tersimpan; versi_data naik 1.

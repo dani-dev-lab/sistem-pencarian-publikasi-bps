@@ -1,0 +1,2 @@
+publikasi berubah: 26; kolom: {('abstrak', 'teks_ternormalisasi', 'updated_at'): 25, ('judul', 'updated_at'): 1}
+entri sama: True; tabel lain sama: True; versi 530 -> 531
