@@ -5,6 +5,8 @@ Untuk tiap domain aktif di data/wilayah.json:
   2. tentukan         publikasi yang perlu dikerjakan, dari database
   3. unduh PDF        yang baru, usang, hilang, atau rusak
   4. ekstrak + muat   langsung ke MySQL, satu publikasi per transaksi
+  5. sampul           unduh sampul publikasi yang belum punya (data/sampul/),
+                      cadangan dari halaman 1 PDF kalau unduhan gagal
 
 Satu domain gagal TIDAK menghentikan domain lain, dan satu publikasi gagal tidak
 menghentikan publikasi lain. Yang gagal tetap memakai data lamanya dan dicoba
@@ -40,7 +42,7 @@ from sqlalchemy.engine import make_url
 from app import create_app
 from app.config import Config, KonfigurasiUji
 from app.models import EntriDokumen, Publikasi, db
-from app.services import pipeline_data, sumber_bps, versi_data
+from app.services import pipeline_data, sampul, sumber_bps, versi_data
 from app.services.sumber_bps import GagalAmbil, samarkan
 from app.services.wilayah import muat_wilayah, pola_judul_dikecualikan, wilayah_aktif
 
@@ -548,6 +550,50 @@ def proses_tugas(t, durasi, hasil):
                                          "alasan": alasan})
 
 
+def proses_sampul(kode, opsi, hasil):
+    """Sampul publikasi domain ini yang belum punya sampul RESMI (19 Nov 2026).
+
+    Dijalankan di akhir domain: url_cover baru saja diperbarui simpan_metadata
+    (token segar), dan PDF publikasi baru sudah diunduh, sehingga cadangan dari
+    halaman 1 PDF bisa dibuat kalau unduhan sampul gagal. Publikasi yang hanya
+    punya cadangan dicoba lagi tiap pembaruan online. --lokal: tanpa jaringan,
+    hanya membuat cadangan untuk yang belum punya berkas sama sekali.
+    Tidak menulis database dan tidak mengubah status domain.
+    """
+    s = hasil["sampul"]
+    mulai = time.perf_counter()
+    try:
+        daftar = (Publikasi.query.filter_by(domain=kode)
+                  .with_entities(Publikasi.id, Publikasi.judul, Publikasi.url_cover)
+                  .order_by(Publikasi.id).all())
+        db.session.commit()
+        perlu = [p for p in daftar
+                 if not os.path.isfile(sampul.path_resmi(p.id))
+                 and not (opsi.lokal and sampul.berkas(p.id))]
+        if not perlu:
+            return
+        print(f"  sampul: {len(perlu)} publikasi belum punya sampul"
+              + (" resmi" if not opsi.lokal else "") + ", dikerjakan", flush=True)
+        for p in perlu:
+            if not opsi.lokal:
+                time.sleep(sumber_bps.JEDA_DETIK)   # jeda sesuai Term of Use
+            r = sampul.lengkapi(p.id, p.url_cover, sumber_bps.path_pdf(kode, p.id),
+                                online=not opsi.lokal)
+            s[r["hasil"]] += 1
+            s["byte"] += r["byte"]
+            if r["hasil"] != "resmi":
+                print(f"    sampul {p.judul[:46]:<46} {r['hasil']}"
+                      + (f" ({r['pesan'][:90]})" if r["pesan"] else ""), flush=True)
+        print(f"  sampul: resmi {s['resmi']}, cadangan PDF {s['cadangan']}, cadangan lama "
+              f"dipertahankan {s['cadangan_lama']}, gagal {s['gagal']}", flush=True)
+    except Exception as e:  # noqa: BLE001 - sampul tidak boleh menggagalkan domain
+        db.session.rollback()
+        s["galat"] = sampul.samarkan_url(e)[:200]
+        print(f"  sampul dihentikan: {s['galat']}", flush=True)
+    finally:
+        s["detik"] = round(s["detik"] + time.perf_counter() - mulai, 1)
+
+
 JEDA_PUTARAN_ULANG = 60     # detik, sebelum mencoba lagi unduhan yang gagal
 
 
@@ -599,6 +645,8 @@ def proses_domain(w, opsi, terhalang):
         "unduhan": {"berkas": 0, "byte": 0, "detik_transfer": 0.0, "gagal": 0,
                     "putus": 0, "percobaan_ulang": 0, "putaran_ulang": 0,
                     "pulih_di_putaran_ulang": 0},
+        "sampul": {"resmi": 0, "cadangan": 0, "cadangan_lama": 0, "gagal": 0,
+                   "byte": 0, "detik": 0.0},
     }
     judul_bagian(f"DOMAIN {kode} {w['nama']}")
 
@@ -684,6 +732,7 @@ def proses_domain(w, opsi, terhalang):
 
         if not opsi.lokal:
             putaran_ulang(kode, tugas, durasi, hasil, opsi)
+        proses_sampul(kode, opsi, hasil)
 
     except GagalAmbil as e:
         hasil.update(status="gagal", pesan=samarkan(e), jaringan=e.jaringan)
@@ -724,6 +773,15 @@ def ringkas_unduhan(per_domain):
     return total
 
 
+def ringkas_sampul(per_domain):
+    total = {"resmi": 0, "cadangan": 0, "cadangan_lama": 0, "gagal": 0, "byte": 0, "detik": 0.0}
+    for d in per_domain:
+        for k in total:
+            total[k] += d.get("sampul", {}).get(k, 0)
+    total["detik"] = round(total["detik"], 1)
+    return total
+
+
 def cetak_ringkasan(status, per_domain, entri_sebelum, entri_sesudah, durasi_total, detik,
                     unduhan, jaringan_dipakai):
     judul_bagian("RINGKASAN PEMBARUAN")
@@ -739,6 +797,10 @@ def cetak_ringkasan(status, per_domain, entri_sebelum, entri_sesudah, durasi_tot
           f"percobaan ulang {unduhan['percobaan_ulang']}x, putaran ulang "
           f"{unduhan['putaran_ulang']} (pulih {unduhan['pulih_di_putaran_ulang']}), "
           f"tetap gagal {unduhan['gagal']}")
+    sp = ringkas_sampul(per_domain)
+    print(f"  Sampul       : resmi {sp['resmi']} ({sp['byte'] / 1e6:.1f} MB), cadangan PDF "
+          f"{sp['cadangan']}, cadangan lama dipertahankan {sp['cadangan_lama']}, "
+          f"gagal {sp['gagal']}, {sp['detik']:.0f} detik")
 
     print()
     print(f"  {'domain':<34}{'status':<16}{'publikasi':>9}{'diunduh':>9}"
@@ -851,6 +913,7 @@ def jalankan_pembaruan(opsi):
         durasi_tahap={t: round(v, 1) for t, v in durasi_total.items()},
         durasi_detik=round(detik),
         unduhan=unduhan,
+        sampul=ringkas_sampul(per_domain),
         jaringan_dipakai=jaringan_dipakai,
         log=getattr(sys.stdout, "berkas", None) and sys.stdout.berkas.name,
         domain=per_domain,

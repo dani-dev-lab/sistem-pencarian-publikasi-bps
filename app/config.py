@@ -50,6 +50,11 @@ class Config:
 
     # Path data
     DIR_PUBLIKASI_PDF = BASE_DIR / "data" / "publikasi_pdf"
+    # Sampul publikasi (19 Nov 2026): <pub_id>.jpg = sampul resmi WebAPI,
+    # <pub_id>.cadangan.jpg = render halaman 1 PDF lokal kalau unduhan gagal.
+    # Variabel lingkungan DIR_SAMPUL hanya untuk uji (folder sementara), supaya
+    # uji tidak mengisi data/sampul/ dengan cadangan.
+    DIR_SAMPUL = Path(os.environ.get("DIR_SAMPUL") or BASE_DIR / "data" / "sampul")
     DIR_SAMPEL_PDF = BASE_DIR / "data" / "sampel_pdf"
     FILE_KAMUS_SINONIM = BASE_DIR / "data" / "kamus_sinonim.json"
     FILE_WILAYAH = BASE_DIR / "data" / "wilayah.json"

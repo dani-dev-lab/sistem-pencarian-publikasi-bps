@@ -4,6 +4,8 @@
 # Data unduhan (besar, dapat diambil ulang dari WebAPI BPS)
 data/publikasi_pdf/
 !data/publikasi_pdf/.gitkeep
+# Sampul publikasi (diunduh sekali dari WebAPI BPS; cadangan dari halaman 1 PDF)
+data/sampul/
 data/sampel_pdf/*.pdf
 *.db
 *.sqlite3

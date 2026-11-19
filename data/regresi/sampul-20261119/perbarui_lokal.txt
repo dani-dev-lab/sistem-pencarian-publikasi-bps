@@ -1,0 +1,104 @@
+Database tujuan: db_pencarian_bps_uji @ localhost:3306 (UJI - bukan produksi)
+Log run ini: data/log_pembaruan\20261119-145610.log
+
+==========================================================================
+DOMAIN 6300 Provinsi Kalimantan Selatan
+==========================================================================
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6301 Kab. Tanah Laut
+==========================================================================
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6302 Kab. Kotabaru
+==========================================================================
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6303 Kab. Banjar
+==========================================================================
+  0 publikasi perlu dikerjakan
+  sampul: 1 publikasi belum punya sampul, dikerjakan
+    sampul KEADAAN ANGKATAN KERJA DI KABUPATEN BANJAR     cadangan
+  sampul: resmi 0, cadangan PDF 1, cadangan lama dipertahankan 0, gagal 0
+
+==========================================================================
+DOMAIN 6304 Kab. Barito Kuala
+==========================================================================
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6305 Kab. Tapin
+==========================================================================
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6306 Kab. Hulu Sungai Selatan
+==========================================================================
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6307 Kab. Hulu Sungai Tengah
+==========================================================================
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6308 Kab. Hulu Sungai Utara
+==========================================================================
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6309 Kab. Tabalong
+==========================================================================
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6310 Kab. Tanah Bumbu
+==========================================================================
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6311 Kab. Balangan
+==========================================================================
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6371 Kota Banjarmasin
+==========================================================================
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+DOMAIN 6372 Kota Banjarbaru
+==========================================================================
+  0 publikasi perlu dikerjakan
+
+==========================================================================
+RINGKASAN PEMBARUAN
+==========================================================================
+  Status       : tidak_ada_baru
+  Entri dokumen: 44455 -> 44455 (+0)
+  Waktu        : 9 detik (0.0 jam)
+  Per tahap    : ambil_metadata 0.0 d, unduh 0.0 d, ekstraksi 0.0 d, muat 0.0 d
+  Jaringan     : SSID None, webapi.bps.go.id -> None
+  Unduhan      : 0 berkas, 0.0 MB, rata-rata None KB/detik; putus 0x, percobaan ulang 0x, putaran ulang 0 (pulih 0), tetap gagal 0
+  Sampul       : resmi 0 (0.0 MB), cadangan PDF 1, cadangan lama dipertahankan 0, gagal 0, 0 detik
+
+  domain                            status          publikasi  diunduh diproses  gagal
+  6300 Provinsi Kalimantan Selatan  tidak_ada_baru         79        0        0      0
+  6301 Kab. Tanah Laut              tidak_ada_baru         39        0        0      0
+  6302 Kab. Kotabaru                tidak_ada_baru         61        0        0      0
+  6303 Kab. Banjar                  tidak_ada_baru         55        0        0      0
+  6304 Kab. Barito Kuala            tidak_ada_baru         52        0        0      0
+  6305 Kab. Tapin                   tidak_ada_baru         41        0        0      0
+  6306 Kab. Hulu Sungai Selatan     tidak_ada_baru         39        0        0      0
+  6307 Kab. Hulu Sungai Tengah      tidak_ada_baru         38        0        0      0
+  6308 Kab. Hulu Sungai Utara       tidak_ada_baru         39        0        0      0
+  6309 Kab. Tabalong                tidak_ada_baru         41        0        0      0
+  6310 Kab. Tanah Bumbu             tidak_ada_baru         40        0        0      0
+  6311 Kab. Balangan                tidak_ada_baru         32        0        0      0
+  6371 Kota Banjarmasin             tidak_ada_baru         33        0        0      0
+  6372 Kota Banjarbaru              tidak_ada_baru         29        0        0      0
+
+Selesai 2026-11-19 14:56:20, kode keluar 0. Log: data/log_pembaruan\20261119-145610.log
