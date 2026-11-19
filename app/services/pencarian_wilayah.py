@@ -121,7 +121,33 @@ def cari(kueri, w=None, wo=None, abaikan=None, kec=False, kc=None, semua_kec=Fal
     # hasil tanpa centang sama dengan sebelum kecamatan ada (18 Nov 2026).
     hasil["kecamatan"] = (cari_kecamatan(kueri, f, hanya_wilayah, kc, semua_kec)
                           if (kec or kc) else None)
+    # Seksi Publikasi dengan centang (19 Nov 2026): publikasi kecamatan yang
+    # cocok ikut, berlabel "Kec. X". Kunci BARU publikasi_tampil; "publikasi"
+    # (dipakai log) tetap hasil utama saja.
+    if hasil["kecamatan"] and not hanya_wilayah:
+        hasil["publikasi_tampil"] = gabung_publikasi(
+            hasil["publikasi"], hasil["kecamatan"]["publikasi_cocok"], hasil["kecamatan"]["kc"])
     return hasil
+
+
+def gabung_publikasi(utama, kecamatan, kc=None, maks_kecamatan=None):
+    """Seksi Publikasi dengan centang kecamatan (19 Nov 2026):
+      - publikasi kecamatan yang DIPILIH (kc) di paling atas;
+      - publikasi utama (provinsi/kab/kota) TIDAK pernah terbuang;
+      - publikasi kecamatan lain paling banyak `maks_kecamatan` (bawaan
+        BATAS_PUBLIKASI_KECAMATAN), digabung dengan publikasi utama menurut
+        skor lalu tanggal rilis.
+    Tanpa batas itu, kata kunci seperti "kecamatan kintap dalam angka 2026"
+    membuat 20 publikasi kecamatan menggeser publikasi kabupatennya."""
+    from datetime import date
+    maks = BATAS_PUBLIKASI_KECAMATAN if maks_kecamatan is None else maks_kecamatan
+    urut = lambda h: (-h["skor"], -(h["tanggal_rilis"] or date.min).toordinal())
+    dipilih = sorted((h for h in kecamatan if kc and h.get("kunci_kecamatan") == kc), key=urut)
+    lain = sorted((h for h in kecamatan if not (kc and h.get("kunci_kecamatan") == kc)), key=urut)[:maks]
+    return dipilih + sorted(list(utama) + lain, key=urut)
+
+
+BATAS_PUBLIKASI_KECAMATAN = 10   # publikasi kecamatan (selain yang dipilih) di seksi Publikasi
 
 
 def kecamatan_sah(f, kc):
@@ -145,14 +171,16 @@ def cari_kecamatan(kueri, f, hanya_wilayah, kc=None, semua_kec=False):
     bagian = {"kc": kc_sah, "nama_kc": nama_kc, "semua": bool(semua_kec),
               "pesan": ("Pilihan kecamatan diabaikan: pilih kabupaten/kota yang "
                         "memiliki kecamatan itu." if kc and not kc_sah else None),
-              "hasil": [], "jumlah": 0, "publikasi": []}
+              "hasil": [], "jumlah": 0, "publikasi": [], "publikasi_cocok": []}
     if hanya_wilayah:
         bagian["publikasi"] = mesin_pencari.publikasi_kecamatan(f["kode"], kc_sah)
         bagian["jumlah"] = len(bagian["publikasi"])
     elif f["kode"] != DOMAIN_PROVINSI:      # provinsi tidak punya publikasi kecamatan
+        topik = f["kueri_topik"] if f["kode"] else kueri
         r = mesin_pencari.cari_kecamatan(
-            f["kueri_topik"] if f["kode"] else kueri, domain=f["kode"],
+            topik, domain=f["kode"],
             kc=kc_sah, batas=None if semua_kec else mesin_pencari.BATAS_KECAMATAN)
         bagian.update(r)
+        bagian["publikasi_cocok"] = mesin_pencari.cari_publikasi_kecamatan(topik, f["kode"], kc_sah)
     bagian["waktu_ms"] = (time.perf_counter() - mulai) * 1000
     return bagian

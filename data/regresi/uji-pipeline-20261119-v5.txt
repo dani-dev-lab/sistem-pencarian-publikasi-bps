@@ -1,0 +1,23 @@
+Cadangan database uji: 15.9 MB, 6 tabel; produksi 6 tabel
+Database uji: db_pencarian_bps_uji | produksi (hanya dibaca): db_pencarian_bps | domain uji: 6305
+
+=== U. PENGAMAN DATABASE UJI ===
+  [LULUS] U1 KonfigurasiUji yang menunjuk nama produksi ditolak (SystemExit)  -- DITOLAK True
+  [LULUS] U2 baris pertama perbarui.py = database uji  -- Database tujuan: db_pencarian_bps_uji @ localhost:3306 (UJI - bukan produksi)
+  [LULUS] U3 ringkasan ke pembaruan_terakhir-uji.json, berkas produksi tidak dibuat  -- exit 0, 1 d
+
+=== V. TAMPILAN KECAMATAN: TANPA CENTANG IDENTIK ===
+  [LULUS] V1 tanpa centang: 23 halaman (beranda + 21 kueri) identik dengan salinan tanpa kecamatan (306 publikasi), widget kecamatan dibuang  -- 23/23
+  [LULUS] V2 /api/saran tanpa kec=1: 0 saran dari publikasi kecamatan (kec=1 boleh ada)  -- tanpa kec 0, kec=1 17
+  [LULUS] V3 waktu 12 kueri tanpa centang setara (putaran tercepat, selisih <= 10%)  -- tercepat: tanpa 84 ms / uji 84 ms; per putaran: 84/84; 84/84; 84/113
+  [LULUS] V4 kotak info = jumlah di seksi bercentang; seksi tampil dengan kec=1  -- [['jumlah penduduk menurut desa', 6016, 6016, True], ['penduduk', 94, 94, True], ['tpk', 0, 0, True]]
+  [LULUS] V5 seksi Publikasi: kecamatan dipilih -> publikasi kecamatan itu paling atas berlabel Kec.; tanpa centang -> tidak ada publikasi kecamatan  -- {'dipilih': [['Kecamatan Binuang Dalam Angka 2025', 'Kec. Binuang'], ['Kecamatan Binuang Dalam Angka 2026', 'Kec. Binuang']], 'tanpa_centang': [['Kabupaten Tapin Dalam Angka 2025', None], ['Kabupaten Tapin Dalam Angka 2026', None]]}
+
+(--hanya V: bagian lain dilewati)
+
+=== Z. PEMULIHAN DAN BUKTI ===
+  [LULUS] Z1 database uji dipulihkan, CHECKSUM TABLE sama dengan awal  -- []
+  [LULUS] Z2 produksi tidak berubah (CHECKSUM TABLE awal = akhir)  -- []
+  [LULUS] Z3 folder sementara dibersihkan
+
+=== TOTAL: 11 lulus, 0 gagal, 0 dilewati (103 detik) ===

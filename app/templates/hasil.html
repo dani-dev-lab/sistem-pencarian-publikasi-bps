@@ -131,7 +131,7 @@
 {% endif %}
 
 <p class="ringkas">
-  <strong>{{ hasil.publikasi|length }}</strong> publikasi &middot;
+  <strong>{{ (hasil.publikasi_tampil or hasil.publikasi)|length }}</strong> publikasi &middot;
   <strong>{{ hasil.ditemukan|length + hasil.saran|length }}</strong> bagian untuk
   &ldquo;{{ kueri }}&rdquo;{% if filter.nama %} di <strong>{{ filter.nama }}</strong>{% endif %}
   &middot; {{ '%.0f'|format(hasil.waktu_ms) }} ms
@@ -149,7 +149,7 @@
     {% for p in hasil.publikasi %}{{ kartu_publikasi(p) }}{% endfor %}
   </section>{% if hasil.kecamatan %}
 {{ seksi_kecamatan_publikasi(hasil.kecamatan) }}{% endif %}
-{% elif not hasil.publikasi and not hasil.ditemukan and not hasil.saran and not hasil.provinsi %}
+{% elif not (hasil.publikasi_tampil or hasil.publikasi) and not hasil.ditemukan and not hasil.saran and not hasil.provinsi %}
   <div class="kosong-total">
     <h2>Tidak ada hasil untuk &ldquo;{{ kueri }}&rdquo;{% if filter.nama %} di {{ filter.nama }}{% endif %}</h2>
     {% if filter.kode %}
@@ -177,8 +177,8 @@
      kelompok kosong karena langsung diikuti judul lain bergaya mirip. #}
   <section>
     <h2 class="seksi">Publikasi</h2>
-    {% if hasil.publikasi %}
-      {% for p in hasil.publikasi %}{{ kartu_publikasi(p) }}{% endfor %}
+    {% if hasil.publikasi_tampil or hasil.publikasi %}
+      {% for p in (hasil.publikasi_tampil or hasil.publikasi) %}{{ kartu_publikasi(p) }}{% endfor %}
     {% else %}
       <p class="kosong-seksi">Tidak ada publikasi{% if filter.nama %} {{ filter.nama }}{% endif %} yang cocok.</p>
     {% endif %}

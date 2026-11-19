@@ -1393,7 +1393,7 @@ def waktu(tanpa):
                 t = time.perf_counter(); M.cari(q); w.append(time.perf_counter() - t)
             med.append(statistics.median(w))
         return statistics.mean(med) * 1000
-w = [(waktu(True), waktu(False)) for _ in range(2)]
+w = [(waktu(True), waktu(False)) for _ in range(3)]
 print("V3", json.dumps(w))
 cek = []
 for a in [{"q": "jumlah penduduk menurut desa"}, {"q": "penduduk", "w": "6305"}, {"q": "tpk"}]:
@@ -1402,6 +1402,21 @@ for a in [{"q": "jumlah penduduk menurut desa"}, {"q": "penduduk", "w": "6305"},
     m = re.search(r"<strong>(\d+)</strong> bagian cocok", t)
     cek.append([a["q"], j, int(m.group(1)) if m else None, 'class="seksi seksi-kecamatan"' in t])
 print("V4", json.dumps(cek))
+# V5: seksi PUBLIKASI ikut membaca publikasi kecamatan kalau dicentang / kecamatan dipilih,
+# dan publikasi kecamatan yang dipilih paling atas (temuan pemilik project 19 Nov 2026:
+# "Kecamatan Kintap Dalam Angka 2026" tidak muncul). Domain uji 6305: Kecamatan Binuang.
+def kartu_publikasi(a):
+    t = c.get("/hasil?" + urlencode(a)).get_data(as_text=True)
+    s = re.search(r'<h2 class="seksi">Publikasi</h2>(.*?)</section>', t, re.S)
+    out = []
+    for k in re.findall(r'<article class="kartu kartu-pub">(.*?)</article>', s.group(1) if s else "", re.S):
+        j = re.sub("<[^>]+>", "", re.search(r'<h3 class="kartu-judul">(.*?)</h3>', k, re.S).group(1)).strip()
+        m = re.search(r'label-kecamatan">(.*?)</span>', k)
+        out.append([j, m.group(1) if m else None])
+    return out
+q5 = "Kecamatan Binuang Dalam Angka 2025"
+print("V5", json.dumps({"dipilih": kartu_publikasi({"q": q5, "w": "6305", "kec": "1", "kc": "binuang"})[:2],
+                        "tanpa_centang": kartu_publikasi({"q": q5, "w": "6305"})}))
 '''
 
 
@@ -1470,13 +1485,25 @@ def bagian_v():
         n_kec, n_kec1 = map(int, baris("V2").split())
         cek("V2 /api/saran tanpa kec=1: 0 saran dari publikasi kecamatan (kec=1 boleh ada)", n_kec == 0,
             f"tanpa kec {n_kec}, kec=1 {n_kec1}")
+        # 3 putaran bergantian; yang dibandingkan putaran TERCEPAT tiap database.
+        # Gangguan dari proses lain di laptop hanya bisa memperlambat, dan sekali
+        # terjadi di satu putaran (19 Nov 2026: 111 vs 84 ms di salinan TANPA
+        # kecamatan) sehingga perbandingan per putaran gagal tanpa sebab kode.
         w = json.loads(baris("V3"))
-        selisih = max(abs(u - t) / t for t, u in w)
-        cek("V3 waktu 12 kueri tanpa centang setara (selisih rata-rata median <= 10%)", selisih <= 0.10,
-            "; ".join(f"tanpa {t:.0f} ms / uji {u:.0f} ms" for t, u in w))
+        t_min, u_min = min(t for t, _ in w), min(u for _, u in w)
+        cek("V3 waktu 12 kueri tanpa centang setara (putaran tercepat, selisih <= 10%)",
+            abs(u_min - t_min) / t_min <= 0.10,
+            f"tercepat: tanpa {t_min:.0f} ms / uji {u_min:.0f} ms; per putaran: "
+            + "; ".join(f"{t:.0f}/{u:.0f}" for t, u in w))
         v4 = json.loads(baris("V4"))
         cek("V4 kotak info = jumlah di seksi bercentang; seksi tampil dengan kec=1",
             all(j == n and s for _, j, n, s in v4), v4)
+        v5 = json.loads(baris("V5"))
+        pertama = v5["dipilih"][0] if v5["dipilih"] else [None, None]
+        cek("V5 seksi Publikasi: kecamatan dipilih -> publikasi kecamatan itu paling atas berlabel Kec.; "
+            "tanpa centang -> tidak ada publikasi kecamatan",
+            pertama == ["Kecamatan Binuang Dalam Angka 2025", "Kec. Binuang"]
+            and all(k is None for _, k in v5["tanpa_centang"]), v5)
     finally:
         sql(f"DROP DATABASE IF EXISTS `{tanpa}`")
 

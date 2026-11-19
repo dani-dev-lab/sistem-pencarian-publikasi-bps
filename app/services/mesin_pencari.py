@@ -527,6 +527,23 @@ def cari_kecamatan(kueri, domain=None, kc=None, batas=BATAS_KECAMATAN,
     return {"hasil": hasil if batas is None else hasil[:batas], "jumlah": len(hasil)}
 
 
+def cari_publikasi_kecamatan(kueri, domain=None, kc=None, ambang_saran=AMBANG_SARAN):
+    """Publikasi kecamatan yang cocok dengan kueri (tingkat publikasi), dengan
+    fungsi skor yang SAMA dengan seksi Publikasi. `kc` = hanya kecamatan itu.
+    Tiap hasil + "kecamatan" (nama tampil) dan "kunci_kecamatan" (19 Nov 2026)."""
+    token_kueri = normalisasi_token(kueri)
+    if not token_kueri:
+        return []
+    k = korpus()
+    baris = k.publikasi_kec if domain is None else k.publikasi_kec_per_domain.get(domain, ())
+    if kc:
+        baris = tuple(b for b in baris if k.kecamatan_publikasi[b[0]][0] == kc)
+    hasil = _cari_publikasi(token_kueri, ambang_saran, baris)
+    for h in hasil:
+        h["kunci_kecamatan"], h["kecamatan"] = k.kecamatan_publikasi[h["publikasi_id"]]
+    return hasil
+
+
 def publikasi_kecamatan(domain, kc=None):
     """Publikasi kecamatan satu kab/kota (kueri yang hanya berisi nama
     wilayah + centang kecamatan), terbaru dulu, lalu menurut nama kecamatan."""
