@@ -123,15 +123,15 @@ Mahasiswa Politeknik Negeri Banjarmasin.
         di awal request, 0 baris terisi) dan memakai urutan korpus/saran yang
         baru. Tampilan hasil identik (potret salinan 28/28), kecuali label
         edisi saran.
-      - **19 Nov 2026 (belum push):**
+      - **18 Nov 2026 malam (sudah di-push):**
         - label "Kec." sejajar label wilayah; beranda tidak menyempit
           (`c46ee23`, 36/36);
         - saran kembar kec=1 diperbaiki (`66cb6ba`, paging sampai 8 judul;
           tanpa kec tetap satu halaman);
         - `log_pencarian.sertakan_kecamatan` (`be19514`: 1/0/NULL);
         - PANDUAN bagian 1, 8, 9 (`3936359`).
-      - **RENCANA muat kecamatan ke produksi DISETUJUI 19 Nov malam,
-        dikerjakan KAMIS 20 Nov pagi:**
+      - **RENCANA muat kecamatan ke produksi DISETUJUI 18 Nov malam,
+        dikerjakan KAMIS 19 Nov pagi:**
         `data/regresi/rencana-muat-kecamatan-20261119.md`. Keputusannya:
         salin dari database uji; `kecualikan_judul.aktif` = false saat
         pemuatan; 5 publikasi produksi pola 2+3 dimuat di langkah terpisah.

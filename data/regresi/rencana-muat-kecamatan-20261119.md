@@ -1,6 +1,6 @@
-# RENCANA: memuat publikasi Kecamatan Dalam Angka ke produksi (Kamis 20 Nov 2026 pagi)
+# RENCANA: memuat publikasi Kecamatan Dalam Angka ke produksi (Kamis 19 Nov 2026 pagi)
 
-STATUS: **DISETUJUI 19 Nov 2026 malam**, dikerjakan **Kamis 20 Nov pagi**
+STATUS: **DISETUJUI 18 Nov 2026 malam**, dikerjakan **Kamis 19 Nov pagi**
 (semula Jumat). Belum ada yang dimuat. Pembekuan Selasa 24 Nov; presentasi
 25-26 Nov.
 
@@ -68,7 +68,7 @@ Fakta yang sudah dicek (hanya baca, 19 Nov):
 | # | Langkah | Perkiraan |
 |---|---|---|
 | 0 | Prasyarat: tidak ada `pembaruan.lock`; potret database uji dicatat (jumlah baris + CHECKSUM), supaya sumbernya pasti yang sudah dinilai | 2 mnt |
-| 1 | **Cadangan produksi:** `mysqldump` (perintah PANDUAN bagian 7) -> `C:/Users/Dani/cadangan-bps/db_pencarian_bps-20261120-sebelum-kecamatan.sql`; pulihkan ke database sementara, bandingkan 6/6 tabel (baris + CHECKSUM), hapus database sementara | 10 mnt |
+| 1 | **Cadangan produksi:** `mysqldump` (perintah PANDUAN bagian 7) -> `C:/Users/Dani/cadangan-bps/db_pencarian_bps-20261119-sebelum-kecamatan.sql`; pulihkan ke database sementara, bandingkan 6/6 tabel (baris + CHECKSUM), hapus database sementara | 10 mnt |
 | 2 | **Kolom baru:** jalankan `skema.pastikan_kolom()` ke produksi (ALTER `publikasi`, `log_pencarian`; `sinkron_kecamatan` = 0 baris). Lalu **potret produksi SEBELUM** (`tests/potret_tampilan.py`, log mati, 28 URL) | 5 mnt |
 | 3 | **`muat_kecamatan_terarah.py --coba`:** dalam SATU transaksi yang lalu di-rollback, cek: target 312 tidak ada di produksi, kolom sama, `INSERT publikasi ... SELECT` dan `INSERT entri_dokumen (tanpa id) ... SELECT` dari database uji, hitungan 312/19.955 | 3 mnt |
 | 4 | **Muat** (`--produksi-disetujui`): transaksi yang sama, ditambah `versi_data` naik 1, lalu commit. Atomik: aplikasi yang sedang berjalan melihat semua atau tidak sama sekali | < 1 mnt |
@@ -78,7 +78,7 @@ Fakta yang sudah dicek (hanya baca, 19 Nov):
 | 8 | **Pembaruan rutin online sekali** (`perbarui-data.bat`): harapannya tidak ada publikasi baru, 0 kecamatan diunduh ulang, tidak ada baris "tidak lagi di daftar" | ±2-3 mnt |
 | 9 | Catatan: PANDUAN bagian 8 ("sudah dimuat"), CLAUDE.md; push sesudah disetujui | 5 mnt |
 
-## Bukti yang dicatat (`data/regresi/muat-kecamatan-20261120.md`)
+## Bukti yang dicatat (`data/regresi/muat-kecamatan-20261119.md`)
 - **Isi kecamatan di produksi = database uji per isi baris** (id produksi ≠
   id uji): 312 publikasi dan 19.955 entri, termasuk `halaman_fisik`,
   perkiraan, sumber, dan `teks_ternormalisasi`.
