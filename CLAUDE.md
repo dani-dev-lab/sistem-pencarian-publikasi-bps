@@ -173,6 +173,20 @@ Mahasiswa Politeknik Negeri Banjarmasin.
           kotak HURUF node teks (bukan kotak elemen span).
       - Utang teknis lain: folio romawi Balangan, nomor salah cetak Banjar
         2026, perkiraan kepala bab.
+- **19 Nov 2026 siang, dua pekerjaan kecil (di-push):**
+  - **Kode HTML di judul/abstrak** (`10303bb`, `data/regresi/kode-html-20261119/`):
+    - `normalisasi_data.bersihkan_html` (`html.unescape`, U+00A0 -> spasi) dipakai
+      saat menarik (`simpan_metadata`) dan oleh `scripts/bersihkan_kode_html.py
+      (--db-uji | --produksi) [--coba]` untuk data lama;
+    - produksi: 26 publikasi (25 abstrak, 1 judul), versi_data 530 -> 531;
+    - cadangan `cadangan-bps/db_pencarian_bps-20261119-sebelum-kode-html.sql`.
+  - **Tombol "Kembali ke atas"** di `base.html` + `js/ke-atas.js`
+    (`data/regresi/tombol-atas-20261119/`):
+    - di <= 960 px kartu/kotak info/pita diberi ruang kanan 38 px, supaya tombol
+      tidak menimpa isi;
+    - potret 28 URL: `potret_tampilan.py banding --buang-tombol-atas` membuang blok
+      tombol PERSIS (wajib 1x per halaman HTML). Potret yang dibuat sebelum 19 Nov
+      siang hanya bisa dibandingkan lewat opsi ini.
 
 ## Sumber data
 - **BPS WebAPI**: `https://webapi.bps.go.id/v1/api/list/model/publication/lang/ind/domain/6300/page/{page}/key/{key}/`

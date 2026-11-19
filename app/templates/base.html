@@ -43,6 +43,11 @@
     <p class="notice">Layanan ini menggunakan API Badan Pusat Statistik (BPS)</p>
   </footer>
 
+  <button type="button" class="ke-atas" aria-label="Kembali ke atas" title="Kembali ke atas" hidden>
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M12 5l-7 7 1.4 1.4 4.6-4.6V19h2V8.8l4.6 4.6L19 12z" fill="currentColor"/></svg>
+  </button>
+  <script src="{{ url_for('static', filename='js/ke-atas.js') }}" defer></script>
+
   <!-- Peningkatan opsional. Kolom pencarian tetap berfungsi tanpa berkas ini. -->
   <script src="{{ url_for('static', filename='js/saran.js') }}" defer></script>
   {% block skrip %}{% endblock %}

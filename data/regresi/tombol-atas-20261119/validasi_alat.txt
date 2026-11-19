@@ -1,0 +1,38 @@
+== RUSAK=ruang
+  360 hasil               MASALAH: C: 278 tabrakan, mis. ['.cuplikan', '.kartu-judul', '.lokasi > span', '.notice (teks)'] di y=818  (posisi diuji 315)
+  360 kecamatan           MASALAH: C: 342 tabrakan, mis. ['.cuplikan', '.kartu-judul', '.lokasi > span', '.notice (teks)'] di y=818  (posisi diuji 429)
+2 kombinasi bermasalah
+kode keluar 1
+== RUSAK=tampil
+  360 hasil               MASALAH: A: di y=0 tampil != False; A: di y=390 tampil != False  (posisi diuji 333)
+  360 kecamatan           MASALAH: A: di y=0 tampil != False; A: di y=390 tampil != False  (posisi diuji 458)
+ 1366 hasil               MASALAH: A: di y=0 tampil != False; A: di y=450 tampil != False  (posisi diuji 238)
+ 1366 kecamatan           MASALAH: A: di y=0 tampil != False; A: di y=450 tampil != False  (posisi diuji 327)
+4 kombinasi bermasalah
+kode keluar 1
+== RUSAK=kecil
+  360 hasil               MASALAH: B: ukuran 40x40  (posisi diuji 333)
+  360 kecamatan           MASALAH: B: ukuran 40x40  (posisi diuji 458)
+ 1366 hasil               MASALAH: B: ukuran 40x40  (posisi diuji 238)
+ 1366 kecamatan           MASALAH: B: ukuran 40x40  (posisi diuji 327)
+4 kombinasi bermasalah
+kode keluar 1
+== RUSAK=warna
+  360 hasil               MASALAH: B: warna rgb(136, 136, 136)  (posisi diuji 333)
+  360 kecamatan           MASALAH: B: warna rgb(136, 136, 136)  (posisi diuji 458)
+ 1366 hasil               MASALAH: B: warna rgb(136, 136, 136)  (posisi diuji 238)
+ 1366 kecamatan           MASALAH: B: warna rgb(136, 136, 136)  (posisi diuji 327)
+4 kombinasi bermasalah
+kode keluar 1
+== RUSAK=lompat
+  360 hasil               MASALAH: D: tidak halus (awal 2340, +60ms 0)  (posisi diuji 333)
+  360 kecamatan           MASALAH: D: tidak halus (awal 2340, +60ms 0)  (posisi diuji 458)
+ 1366 hasil               MASALAH: D: tidak halus (awal 2700, +60ms 0)  (posisi diuji 238)
+ 1366 kecamatan           MASALAH: D: tidak halus (awal 2700, +60ms 0)  (posisi diuji 327)
+4 kombinasi bermasalah
+kode keluar 1
+== RUSAK=abaikan-reduce
+  360 hasil      [reduce] MASALAH: E: tidak langsung lompat (scrollY 2340)  (kurangi animasi)
+ 1366 hasil      [reduce] MASALAH: E: tidak langsung lompat (scrollY 2700)  (kurangi animasi)
+2 kombinasi bermasalah
+kode keluar 1

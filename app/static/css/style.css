@@ -564,3 +564,38 @@ code.besar { font-size: 15px; background: #eef2f7; padding: 4px 8px; border-radi
 /* ------------------------------- footer ------------------------------- */
 .kaki { border-top: 1px solid var(--garis); padding: 16px 24px; text-align: center; }
 .notice { margin: 0; font-size: 13px; color: var(--redup); }
+
+/* ------------------------- tombol "Kembali ke atas" -------------------------
+   (19 Nov 2026) Pojok kanan bawah, warna kop BPS. Disembunyikan atribut hidden
+   sampai halaman digulir lebih dari satu layar (ke-atas.js); tanpa JavaScript
+   tetap tersembunyi. 44x44 px = area sentuh minimal. */
+.ke-atas {
+  position: fixed;
+  right: 6px;
+  bottom: 16px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--kop-bps);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .28);
+  cursor: pointer;
+}
+.ke-atas[hidden] { display: none; }
+.ke-atas:hover { background: var(--biru-tua); }
+.ke-atas:focus-visible { outline: 3px solid #f2a900; outline-offset: 2px; }
+/* Layar <= 960 px: celah tepi halaman lebih sempit dari tombol, jadi sisi kanan
+   kartu, kotak info, pita, dan notice di kaki diberi ruang kosong selebar
+   tombol. Tombol lalu berada di atas ruang kosong itu, tidak di atas isi kartu
+   atau tombol "Buka PDF" (diuji Playwright di 360-1366 px). */
+@media (max-width: 960px) {
+  .kartu { padding-right: 38px; }
+  .info-kecamatan, .pita-wilayah { padding-right: 38px; }
+  .kaki .notice { padding: 0 48px; }
+}

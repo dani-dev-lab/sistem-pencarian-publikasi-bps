@@ -10,7 +10,7 @@ Angka "N ms" di halaman hasil disamarkan; selebihnya dibandingkan byte demi
 byte.
 
   python tests/potret_tampilan.py simpan <keluar.json> --db salinan|uji
-  python tests/potret_tampilan.py banding <a.json> <b.json> [--buang-widget]
+  python tests/potret_tampilan.py banding <a.json> <b.json> [--buang-widget] [--buang-tombol-atas]
 
 --db salinan = db_pencarian_bps_salinan_uji (salinan produksi tanpa
 kecamatan); --db uji = db_pencarian_bps_uji. Produksi TIDAK PERNAH dipakai:
@@ -76,6 +76,26 @@ def buang_widget_kecamatan(teks):
     return teks
 
 
+# Tombol "Kembali ke atas" (19 Nov 2026), ditambahkan di base.html, jadi ada di
+# SETIAP halaman HTML. --buang-tombol-atas membuang blok PERSIS itu (tombol +
+# skripnya + satu baris kosong) dari potret b, dan menolak halaman HTML yang
+# tidak memuatnya tepat satu kali; selebihnya harus byte-identik dengan a.
+RE_TOMBOL_ATAS = re.compile(
+    r'^  <button type="button" class="ke-atas" aria-label="Kembali ke atas" title="Kembali ke atas" hidden>\n'
+    r'    <svg viewBox="0 0 24 24"[^\n]*</svg>\n'
+    r'  </button>\n'
+    r'  <script src="/static/js/ke-atas\.js" defer></script>\n\n', re.M)
+
+
+def buang_tombol_atas(u, teks, salah):
+    if u.startswith("/api/"):
+        return teks
+    teks, n = RE_TOMBOL_ATAS.subn("", teks)
+    if n != 1:
+        salah.append(f"{u}: tombol ke atas {n}x")
+    return teks
+
+
 def daftar_url():
     from ukur_kinerja import KUERI, KUERI_WILAYAH
     url = ["/", "/?w=6301"]
@@ -99,9 +119,14 @@ def simpan(keluar, db):
     print(f"{len(hasil)} URL ({db}) -> {keluar}")
 
 
-def banding(a, b, buang_widget=False):
+def banding(a, b, buang_widget=False, buang_tombol=False):
     pa = json.load(open(a, encoding="utf-8"))["potret"]
     pb = json.load(open(b, encoding="utf-8"))["potret"]
+    salah = []
+    if buang_tombol:
+        pb = {u: {**v, "isi": buang_tombol_atas(u, v["isi"], salah)} for u, v in pb.items()}
+        for x in salah:
+            print("TOMBOL", x)
     if buang_widget:        # b = database berkecamatan, a = tanpa kecamatan
         pb = {u: {**v, "isi": buang_widget_kecamatan(v["isi"])} for u, v in pb.items()}
     beda = [u for u in pa if pa[u] != pb.get(u)] + [u for u in pb if u not in pa]
@@ -116,11 +141,12 @@ def banding(a, b, buang_widget=False):
             else:
                 print(f"   jumlah baris {len(la)} -> {len(lb)}")
     print(f"IDENTIK {len(pa) - len(beda)}/{len(pa)}" if not beda else f"BERBEDA {len(beda)} dari {len(pa)}")
-    return not beda
+    return not beda and not salah
 
 
 if __name__ == "__main__":
     if sys.argv[1] == "simpan":
         simpan(sys.argv[2], sys.argv[sys.argv.index("--db") + 1])
     else:
-        sys.exit(0 if banding(sys.argv[2], sys.argv[3], "--buang-widget" in sys.argv) else 1)
+        sys.exit(0 if banding(sys.argv[2], sys.argv[3], "--buang-widget" in sys.argv,
+                                "--buang-tombol-atas" in sys.argv) else 1)
