@@ -4,14 +4,14 @@ Cara menjalankan (dari folder proyek):
 
     venv\Scripts\python.exe -u tests\uji_pipeline.py > uji_log.txt 2>&1
 
-Semua bagian sekitar 55 menit (24 Nov 2026: 3.299 detik, 140 uji). Sebagian saja (untuk pengembang): tambahkan
+Semua bagian sekitar 55 menit (24 Nov 2026: 3.123 detik, 142 uji). Sebagian saja (untuk pengembang): tambahkan
 --hanya DKRW (huruf bagian; U dan Z selalu jalan).
 
-Kalau data/kamus_sinonim.json sedang diubah dan belum diterapkan ke database
-uji ("Terapkan ke data"), tambahkan --kamus-head: salinan memakai kamus versi
-commit terakhir. Tanpa itu, publikasi yang judulnya terkena kamus baru berbeda
-teks_ternormalisasi-nya sesudah diekstrak ulang, dan P2/C2/... gagal walaupun
-kodenya benar (24 Nov 2026).
+Kamus: salinan memakai data/kamus_sinonim.json working tree, dan bagian N
+menerapkannya ke database uji sebelum potret awal ("Terapkan ke data"), jadi
+kamus yang belum diterapkan tidak membuat P2/C2/O1 gagal. --kamus-head
+(opsional) memakai kamus versi commit terakhir, misalnya untuk menguji kode
+tanpa ikut menguji suntingan kamus yang belum di-commit.
 
 Kode keluar (untuk tim IT):
     0  semua uji lulus (uji yang DILEWATI tidak dihitung gagal)
@@ -63,6 +63,8 @@ KODE_LULUS, KODE_GAGAL, KODE_LINGKUNGAN = 0, 1, 2
 # --kamus-head: salinan memakai data/kamus_sinonim.json versi commit terakhir
 # (lihat siapkan_salinan). Tanpa opsi ini: kamus working tree, seperti dulu.
 KAMUS_HEAD = "--kamus-head" in sys.argv
+# Q1: commit terakhir SEBELUM formulir pilihan penarikan (abeab3b^).
+KODE_SEBELUM_FORMULIR = "4c5707258616fe71da7ca1ef72036c9309e00a38"
 
 SP = os.path.join(tempfile.gettempdir(), "uji_pipeline_bps").replace(os.sep, "/")
 UJI = f"{SP}/uji"                 # salinan proyek tempat skrip dijalankan
@@ -208,10 +210,8 @@ def siapkan_salinan():
     for f in ("wilayah.json", "kamus_sinonim.json"):
         shutil.copy2(f"{ASLI}/data/{f}", f"{UJI}/data/{f}")
     if KAMUS_HEAD:
-        # --kamus-head: kamus versi commit terakhir, bukan working tree. Kamus
-        # yang diedit tanpa "Terapkan ke data" membuat entri yang diekstrak ulang
-        # berbeda teks_ternormalisasi-nya dari database uji (24 Nov 2026: p0 ->
-        # 3 publikasi Tapin; P2/C2/... gagal padahal kode benar).
+        # --kamus-head: kamus versi commit terakhir, bukan working tree.
+        # Bagian N menerapkan kamus mana pun yang dipakai ke database uji.
         isi = subprocess.run(["git", "-C", ASLI, "show", "HEAD:data/kamus_sinonim.json"],
                              capture_output=True, check=True).stdout
         open(f"{UJI}/data/kamus_sinonim.json", "wb").write(isi)
@@ -498,7 +498,53 @@ def path_uji(pid):
     return f"{UJI}/data/publikasi_pdf/{DOMAIN}/{pid}.pdf"
 
 
-def bagian_p(s0, usang):
+def tanpa_teks(s):
+    """Potret tanpa kolom teks_ternormalisasi (satu-satunya kolom yang
+    bergantung pada kamus)."""
+    return {p: ({k: v for k, v in x["pub"].items() if k != "teks_ternormalisasi"},
+                Counter({e[:-1]: n for e, n in x["entri"].items()}))
+            for p, x in s.items()}
+
+
+# pub_id domain uji yang teks_ternormalisasi-nya diubah bagian N (kamus baru).
+TERKENA_KAMUS = []
+
+
+def bagian_n():
+    """Kamus salinan diterapkan ke database uji SEBELUM potret s0 (24 Nov 2026).
+
+    Ekspektasi P2/C2/O1 ("ekstraksi ulang = isi sebelum, per kunci, termasuk
+    teks_ternormalisasi") hanya bermakna kalau isi sebelum dinormalkan dengan
+    kamus yang SAMA dengan yang dipakai pipeline saat mengekstrak ulang. Kamus
+    yang diubah lewat berkas atau /admin/kamus tanpa "Terapkan ke data"
+    membuat database uji tertinggal (24 Nov 2026: kelompok p0 -> 47 publikasi,
+    3 di antaranya Tapin). Langkah ini = tombol "Terapkan ke data" di database
+    uji; database uji dipulihkan dari dump awal di Z1.
+    """
+    print("\n=== N. KAMUS SALINAN DITERAPKAN KE DATABASE UJI ===", flush=True)
+    lama = potret()
+    kode, keluar, err = jalan_py(
+        "import json\n"
+        "from app import create_app\nfrom app.config import KonfigurasiUji\n"
+        "from app.services import normalisasi_data\n"
+        "with create_app(KonfigurasiUji).app_context():\n"
+        "    a = normalisasi_data.jalankan()\n"
+        "    b = normalisasi_data.jalankan()\n"
+        "print('N1', json.dumps([a['entri_diubah'], a['publikasi_diubah'], b['entri_diubah'], b['publikasi_diubah']]))\n")
+    m = re.search(r"^N1 (.*)$", keluar, re.M)
+    n = json.loads(m.group(1)) if m else None
+    baru = potret()
+    berubah = sorted(p for p in baru if baru[p] != lama[p])
+    TERKENA_KAMUS[:] = [p for p in berubah if baru[p]["pub"]["domain"] == DOMAIN]
+    cek("N1 kamus salinan diterapkan: hanya teks_ternormalisasi yang berubah, penerapan kedua mengubah 0",
+        kode == 0 and n is not None and n[2] == 0 and n[3] == 0 and tanpa_teks(baru) == tanpa_teks(lama),
+        f"entri diubah {n[0] if n else '?'}, publikasi diubah {n[1] if n else '?'}, "
+        f"{len(berubah)} publikasi terkena, domain uji: {[p[:8] for p in TERKENA_KAMUS]}"
+        if n else (err or keluar)[-300:])
+    return lama
+
+
+def bagian_p(s0, usang, s_lama=None):
     print(f"\n=== P. EKSTRAKSI PENUH DOMAIN {DOMAIN} (--lokal --paksa) ===", flush=True)
     diproses0 = {p: kolom_pub(p, "updt_date_diproses") for p in usang}
     kode, keluar, dtk = jalan("perbarui.py", "--lokal", "--paksa")
@@ -513,6 +559,13 @@ def bagian_p(s0, usang):
     beda = beda_potret(s0, s1)
     cek(f"P2 isi database uji identik per kunci dengan sebelum ({len(s1)} publikasi, semua domain)",
         not beda, f"berbeda: {beda[:5]}")
+    # P2b: publikasi domain uji yang terkena kamus baru (bagian N). Ekstraksi
+    # ulang menghasilkan teks BARU (= s0), bukan teks lama database uji.
+    if s_lama is not None:
+        cek(f"P2b {len(TERKENA_KAMUS)} publikasi domain uji terkena kamus baru: teks ekstraksi ulang = "
+            "teks sesudah kamus diterapkan, bukan teks lama",
+            all(s1[p] == s0[p] != s_lama[p] for p in TERKENA_KAMUS),
+            [p[:8] for p in TERKENA_KAMUS] or "tidak ada (kamus = isi database uji)")
     cek("P3 --lokal --paksa TIDAK memajukan updt_date_diproses publikasi usang",
         all(kolom_pub(p, "updt_date_diproses") == diproses0[p] for p in usang), diproses0)
     n_null = sql(f"SELECT COUNT(*) FROM entri_dokumen e JOIN publikasi p ON p.id=e.publikasi_id "
@@ -1938,17 +1991,20 @@ def bagian_q(per_id):
         and r.get("pilihan", {}).get("bawaan") is True and r["pilihan"]["wilayah"] == ["6300", DOMAIN],
         f"exit {kode}, {r['status']}, pilihan {r.get('pilihan')}")
 
-    # Q1: tanpa pilihan = KODE SEBELUMNYA (git HEAD), pada keadaan yang sama
+    # Q1: tanpa pilihan = KODE SEBELUM FITUR FORMULIR, pada keadaan yang sama.
+    # Commit tetap, bukan HEAD: sejak fitur di-commit (abeab3b), HEAD sudah
+    # memuat --cek-dulu, dan Q1 jadi membandingkan kode baru dengan dirinya
+    # sendiri (24 Nov 2026; penjaga lama_asli menangkapnya).
     lama = f"{SP}/uji_lama"
     sambungan = f"{lama}/data"
     try:
         os.makedirs(lama, exist_ok=True)
-        berkas = subprocess.run(["git", "-C", ASLI, "ls-tree", "-r", "--name-only", "HEAD", "app", "scripts"],
-                                capture_output=True, text=True, check=True).stdout.split()
+        berkas = subprocess.run(["git", "-C", ASLI, "ls-tree", "-r", "--name-only", KODE_SEBELUM_FORMULIR,
+                                 "app", "scripts"], capture_output=True, text=True, check=True).stdout.split()
         for f in berkas:
             os.makedirs(os.path.dirname(f"{lama}/{f}"), exist_ok=True)
-            open(f"{lama}/{f}", "wb").write(subprocess.run(["git", "-C", ASLI, "show", f"HEAD:{f}"],
-                                                         capture_output=True, check=True).stdout)
+            open(f"{lama}/{f}", "wb").write(subprocess.run(
+                ["git", "-C", ASLI, "show", f"{KODE_SEBELUM_FORMULIR}:{f}"], capture_output=True, check=True).stdout)
         subprocess.run(["cmd", "/c", "mklink", "/J", os.path.normpath(sambungan), os.path.normpath(f"{UJI}/data")],
                        capture_output=True, check=True)
         skrip_lama = f"{lama}/scripts/perbarui.py"
@@ -1989,7 +2045,8 @@ def bagian_q(per_id):
                             len(d["tidak_di_daftar"]), len(d["menunggu_unduhan"])) for d in r["domain"]]}
 
     bukan_sampul = lambda m: [q for _, q in m if not q.startswith("/cover.php")]  # noqa: E731
-    cek("Q1 kode lama benar-benar versi HEAD (tanpa --cek-dulu) dan bekerja: 1 baru + 1 direvisi",
+    cek(f"Q1 kode lama benar-benar versi {KODE_SEBELUM_FORMULIR[:7]} (tanpa --cek-dulu) dan bekerja: "
+        "1 baru + 1 direvisi",
         lama_asli and kode_l == 0 and inti(r_l)["diproses"] == 2 and inti(r_l)["baru"] == [N],
         f"exit {kode_l}, {inti(r_l)}")
     cek("Q1 tanpa pilihan = kode sebelumnya: permintaan daftar+PDF sama PERSIS (urutan), database sama per kunci, "
@@ -2210,6 +2267,7 @@ def main():
             bagian_v()          # sebelum bagian lain mengubah isi database uji
         if "F" in BAGIAN:
             bagian_f()
+        s_lama = bagian_n()     # ekspektasi s0 = database uji dengan kamus salinan
         s0 = potret()
         dom = [p for p in s0 if s0[p]["pub"]["domain"] == DOMAIN]
         ocr_pub = sorted(p for p in dom if s0[p]["pub"]["halaman_ocr"])
@@ -2226,7 +2284,7 @@ def main():
         if BAGIAN != SEMUA_BAGIAN:
             print(f"\n(--hanya {BAGIAN}: bagian lain dilewati)", flush=True)
         for b in BAGIAN:
-            if b == "P": bagian_p(s0, usang)
+            if b == "P": bagian_p(s0, usang, s_lama)
             if b == "L": bagian_l(usang)
             if b == "C": bagian_c(s0, ocr_pub)
             if b == "H": bagian_h(s0)

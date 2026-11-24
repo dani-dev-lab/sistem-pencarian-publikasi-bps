@@ -1050,16 +1050,17 @@ atau kode:
 venv\Scripts\python.exe -u tests\uji_pipeline.py > uji_log.txt 2>&1
 ```
 
-- Lamanya ±55 menit. Run penuh terakhir, 24 November 2026: 140 uji lulus,
-  0 gagal, 0 dilewati, 3.299 detik (dengan `--kamus-head`, lihat di bawah).
+- Lamanya ±55 menit. Run penuh terakhir, 24 November 2026: 142 uji lulus,
+  0 gagal, 0 dilewati, 3.123 detik.
   Bagian `Q` menguji formulir pilihan penarikan dan `--cek-dulu`. Bagian `V` membuktikan bahwa tanpa
   kotak centang kecamatan, halaman pencarian sama persis dengan database
   tanpa publikasi kecamatan; bagian ini dilewati kalau database uji tidak
   berisi publikasi kecamatan.
-- Kalau `data\kamus_sinonim.json` sudah diubah tetapi belum diterapkan ke
-  database uji ("Terapkan ke data"), tambahkan `--kamus-head` (memakai kamus
-  versi Git terakhir). Tanpa itu, uji P2/C2/O1 gagal untuk publikasi yang
-  judulnya terkena kamus baru, padahal programnya benar.
+- Kamus: uji memakai `data\kamus_sinonim.json` apa adanya. Bagian `N`
+  menerapkannya ke database uji lebih dulu, sama seperti tombol "Terapkan ke
+  data". Jadi kamus yang sudah diubah tetapi belum diterapkan ke database uji
+  tidak membuat uji gagal. Pilihan `--kamus-head` (memakai kamus versi Git
+  terakhir) tetap ada, tetapi biasanya tidak diperlukan.
 - Hasilnya dibaca dari baris terakhir `uji_log.txt` dan dari kode keluar:
 
   | Kode keluar | Artinya |
