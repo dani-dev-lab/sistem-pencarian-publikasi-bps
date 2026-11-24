@@ -4,8 +4,14 @@ Cara menjalankan (dari folder proyek):
 
     venv\Scripts\python.exe -u tests\uji_pipeline.py > uji_log.txt 2>&1
 
-Semua bagian sekitar 37 menit. Sebagian saja (untuk pengembang): tambahkan
+Semua bagian sekitar 55 menit (24 Nov 2026: 3.299 detik, 140 uji). Sebagian saja (untuk pengembang): tambahkan
 --hanya DKRW (huruf bagian; U dan Z selalu jalan).
+
+Kalau data/kamus_sinonim.json sedang diubah dan belum diterapkan ke database
+uji ("Terapkan ke data"), tambahkan --kamus-head: salinan memakai kamus versi
+commit terakhir. Tanpa itu, publikasi yang judulnya terkena kamus baru berbeda
+teks_ternormalisasi-nya sesudah diekstrak ulang, dan P2/C2/... gagal walaupun
+kodenya benar (24 Nov 2026).
 
 Kode keluar (untuk tim IT):
     0  semua uji lulus (uji yang DILEWATI tidak dihitung gagal)
@@ -54,6 +60,9 @@ from sqlalchemy.engine import make_url  # noqa: E402
 from app.config import Config, KonfigurasiUji, program_mysql  # noqa: E402
 
 KODE_LULUS, KODE_GAGAL, KODE_LINGKUNGAN = 0, 1, 2
+# --kamus-head: salinan memakai data/kamus_sinonim.json versi commit terakhir
+# (lihat siapkan_salinan). Tanpa opsi ini: kamus working tree, seperti dulu.
+KAMUS_HEAD = "--kamus-head" in sys.argv
 
 SP = os.path.join(tempfile.gettempdir(), "uji_pipeline_bps").replace(os.sep, "/")
 UJI = f"{SP}/uji"                 # salinan proyek tempat skrip dijalankan
@@ -198,6 +207,14 @@ def siapkan_salinan():
         shutil.copytree(f"{ASLI}/{d}", f"{UJI}/{d}", ignore=shutil.ignore_patterns("__pycache__"))
     for f in ("wilayah.json", "kamus_sinonim.json"):
         shutil.copy2(f"{ASLI}/data/{f}", f"{UJI}/data/{f}")
+    if KAMUS_HEAD:
+        # --kamus-head: kamus versi commit terakhir, bukan working tree. Kamus
+        # yang diedit tanpa "Terapkan ke data" membuat entri yang diekstrak ulang
+        # berbeda teks_ternormalisasi-nya dari database uji (24 Nov 2026: p0 ->
+        # 3 publikasi Tapin; P2/C2/... gagal padahal kode benar).
+        isi = subprocess.run(["git", "-C", ASLI, "show", "HEAD:data/kamus_sinonim.json"],
+                             capture_output=True, check=True).stdout
+        open(f"{UJI}/data/kamus_sinonim.json", "wb").write(isi)
     aktifkan(DOMAIN)
     for p in glob.glob(f"{ASLI}/data/publikasi_pdf/{DOMAIN}/*.pdf"):
         n = os.path.basename(p)
@@ -291,7 +308,7 @@ def beda_potret(a, b):
 
 # ---------------------------------------------------------------- WebAPI tiruan
 KEADAAN = {"domain": {}, "gagal_domain": {}, "gagal_halaman": {}, "mode_pdf": {}, "berkas_pdf": {},
-           "mode_sampul": {}}
+           "mode_sampul": {}, "isi_sampul": {}}
 PERMINTAAN = []
 
 
@@ -304,6 +321,17 @@ def _buat_sampul_tiruan():
 
 
 SAMPUL_TIRUAN = _buat_sampul_tiruan()     # JPEG 500x709, seperti sampul WebAPI
+
+
+def _buat_sampul_revisi():
+    import io
+    from PIL import Image
+    b = io.BytesIO()
+    Image.new("RGB", (500, 709), (180, 30, 30)).save(b, "JPEG", quality=85)
+    return b.getvalue()
+
+
+SAMPUL_REVISI = _buat_sampul_revisi()     # sampul "edisi revisi": warna lain, byte lain
 
 
 class Tiruan(BaseHTTPRequestHandler):
@@ -359,7 +387,7 @@ class Tiruan(BaseHTTPRequestHandler):
             elif mode == "html":
                 self._kirim(200, b"<html>galat</html>" * 200, "text/html")
             else:
-                self._kirim(200, SAMPUL_TIRUAN, "image/jpeg")
+                self._kirim(200, KEADAAN["isi_sampul"].get(m.group(1), SAMPUL_TIRUAN), "image/jpeg")
             return
         self._kirim(404, b"{}")
 
@@ -1357,6 +1385,25 @@ print('ADMIN tanpa_berkas', r.status_code, 'kurang', [x for x in ['webapi.bps.go
         len(admin) == 9 and all(a[1] == "200" and a[2] == "[]" for a in admin), admin)
 
 
+def siapkan_bat():
+    """perbarui-data.bat sungguhan di salinan: python/activate palsu mengarah ke venv asli."""
+    os.makedirs(f"{UJI}/venv/Scripts", exist_ok=True)
+    open(f"{UJI}/venv/Scripts/python.exe", "wb").close()
+    with open(f"{UJI}/venv/Scripts/activate.bat", "w", newline="") as f:
+        jalur = os.path.dirname(PY).replace("/", chr(92))
+        f.write('@set "PATH=' + jalur + ';%PATH%"' + chr(13) + chr(10))
+    shutil.copy2(f"{ASLI}/perbarui-data.bat", f"{UJI}/perbarui-data.bat")
+    open(f"{UJI}/.env", "w").write("# kosong: nilai uji datang dari variabel lingkungan\n")
+
+
+def bat(*arg):
+    """perbarui-data.bat di salinan, SELALU --db-uji."""
+    r = subprocess.run(["cmd", "/c", os.path.normpath(f"{UJI}/perbarui-data.bat"), "--db-uji", *arg], cwd=UJI,
+                       env=ENV, stdin=subprocess.DEVNULL, capture_output=True, text=True, encoding="utf-8",
+                       errors="replace", timeout=600)
+    return r.stdout + r.stderr
+
+
 def bagian_w(per_id, v):
     print("\n=== W. TOMBOL WEB + .BAT SUNGGUHAN (keduanya --db-uji) ===", flush=True)
     per_id[v]["updt_date"] = "2026-12-23"
@@ -1383,22 +1430,9 @@ print('SEBAGIAN_TAMPIL', 'selesai sebagian' in h, 'JUDUL_GAGAL', {per_id[v]['tit
         and "SEBAGIAN_TAMPIL True JUDUL_GAGAL True UJI True" in keluar)
     del KEADAAN["mode_pdf"][v]
 
-    # .bat sungguhan: python/activate palsu mengarah ke venv asli
-    os.makedirs(f"{UJI}/venv/Scripts", exist_ok=True)
-    open(f"{UJI}/venv/Scripts/python.exe", "wb").close()
-    with open(f"{UJI}/venv/Scripts/activate.bat", "w", newline="") as f:
-        jalur = os.path.dirname(PY).replace("/", chr(92))
-        f.write('@set "PATH=' + jalur + ';%PATH%"' + chr(13) + chr(10))
-    shutil.copy2(f"{ASLI}/perbarui-data.bat", f"{UJI}/perbarui-data.bat")
-    open(f"{UJI}/.env", "w").write("# kosong: nilai uji datang dari variabel lingkungan\n")
+    siapkan_bat()
     isi_bat = open(f"{ASLI}/perbarui-data.bat", "rb").read()
     cek("W2 .bat tetap ASCII + CRLF", all(x < 128 for x in isi_bat) and b"\n" not in isi_bat.replace(b"\r\n", b""))
-
-    def bat():
-        r = subprocess.run(["cmd", "/c", os.path.normpath(f"{UJI}/perbarui-data.bat"), "--db-uji"], cwd=UJI, env=ENV,
-                           stdin=subprocess.DEVNULL, capture_output=True, text=True, encoding="utf-8",
-                           errors="replace", timeout=600)
-        return r.stdout + r.stderr
 
     def baris(k, kata):
         return [b.strip() for b in k.splitlines() if kata in b][:2]
@@ -1617,7 +1651,7 @@ with app.test_client() as c:
 """
 
 
-def bagian_a(kecil):
+def bagian_a(kecil, per_id):
     """Sampul publikasi (19 Nov 2026): unduhan di perbarui.py, cadangan PDF,
     gagal, --lokal, dan tampilan kartu. Folder sampul salinan dikosongkan dulu,
     jadi tidak bergantung pada bagian lain."""
@@ -1716,8 +1750,453 @@ def bagian_a(kecil):
         f"{a4['entri']} kartu entri, id jahat {a4['jahat']}")
     cek("A5 sepanjang uji tidak ada URL luar di database uji (url_cover/url_pdf)", url_luar_di_db() == 0)
 
+    # A6/A7 (24 Nov 2026): sampul ikut revisi. r_pid sudah punya sampul resmi
+    # (A2). updt_date di API berubah -> PDF diunduh ulang -> sampulnya juga.
+    r_pid = x_cad
 
-SEMUA_BAGIAN = "VFPLCHISOBGETDKRWA"   # V dan F dijalankan sebelum potret s0 (lihat main)
+    def part():
+        return glob.glob(f"{dir_s}/*.part")
+
+    tanpa = {p for p in dom if not os.path.exists(resmi(p))}     # z_lokal (A4), diminta seperti biasa
+    mtime_lain = {p: os.stat(resmi(p)).st_mtime_ns for p in dom if p != r_pid and os.path.exists(resmi(p))}
+    per_id[r_pid]["updt_date"] = "2026-12-18"
+    KEADAAN["isi_sampul"][r_pid] = SAMPUL_REVISI
+    PERMINTAAN.clear()
+    kode, keluar, _ = jalan("perbarui.py")
+    r = ringkasan()
+    minta = {q for _, q in PERMINTAAN if q.startswith("/cover.php")}
+    harap = {url_tiruan("cover", p).split(str(PORT), 1)[1] for p in tanpa | {r_pid}}
+    cek("A6 revisi berhasil: PDF diunduh ulang, sampul resmi DITIMPA sampul baru (byte identik), tanpa sisa .part",
+        open(resmi(r_pid), "rb").read() == SAMPUL_REVISI and r["sampul"]["diperbarui"] == 1
+        and kolom_pub(r_pid, "updt_date_diproses") == "2026-12-18" and not part(),
+        f"exit {kode}, {r['sampul']}")
+    cek("A6 publikasi yang tidak direvisi tidak diunduh ulang sampulnya (berkasnya tidak tersentuh)",
+        minta == harap and all(os.stat(resmi(p)).st_mtime_ns == m for p, m in mtime_lain.items()),
+        f"{len(minta)} permintaan sampul, harap {len(harap)}")
+    tampil("\n".join(b for b in keluar.splitlines() if "ampul" in b), 4)
+
+    hasil_a7 = []
+    for i, mode in enumerate(("400", "html")):
+        per_id[r_pid]["updt_date"] = f"2026-12-1{6 - i}"
+        KEADAAN["mode_sampul"][r_pid] = mode
+        kode, keluar, _ = jalan("perbarui.py")
+        r = ringkasan()
+        hasil_a7.append((mode, open(resmi(r_pid), "rb").read() == SAMPUL_REVISI,
+                         r["sampul"]["lama_dipertahankan"], not part(),
+                         kolom_pub(r_pid, "updt_date_diproses") == per_id[r_pid]["updt_date"],
+                         r["domain"][0]["status"]))
+    cek("A7 revisi, unduhan sampul gagal (HTTP 400 / bukan gambar): sampul lama tetap dipakai (byte sama), "
+        "dicatat lama_dipertahankan, PDF tetap diproses, status domain tidak gagal",
+        all(ok and n == 1 and bersih and diproses and st == "sukses" for _, ok, n, bersih, diproses, st in hasil_a7),
+        hasil_a7)
+    KEADAAN["mode_sampul"].clear()
+    KEADAAN["isi_sampul"].clear()
+
+
+# ---------------------------------------------------------------- Q. pilihan penarikan
+def siapkan_provinsi():
+    """Wilayah kedua untuk bagian Q: provinsi 6300 dari database uji. PDF =
+    hardlink (tidak diunduh, sidik sama), daftar tiruan dibangun dari baris DB."""
+    for d in (f"{UJI}/data/publikasi_pdf/6300", f"{SUMBER}/6300"):
+        os.makedirs(d, exist_ok=True)
+    for p in glob.glob(f"{ASLI}/data/publikasi_pdf/6300/*.pdf"):
+        n = os.path.basename(p)
+        for tujuan in (f"{UJI}/data/publikasi_pdf/6300/{n}", f"{SUMBER}/6300/{n}"):
+            if not os.path.exists(tujuan):
+                os.link(p, tujuan)
+    pubs = metadata_dari_db("6300")
+    for p in pubs:
+        KEADAAN["berkas_pdf"][p["pub_id"]] = f"{SUMBER}/6300/{p['pub_id']}.pdf"
+    KEADAAN["domain"]["6300"] = pubs
+    return {p["pub_id"]: p for p in pubs}
+
+
+def jalan_catat(*arg, skrip=None):
+    """perbarui.py (--db-uji) + permintaan ke tiruan selama run itu."""
+    PERMINTAAN.clear()
+    if skrip:
+        r = subprocess.run([PY, "-u", skrip, "--db-uji", *arg], cwd=SP, env=ENV, capture_output=True,
+                           text=True, encoding="utf-8", errors="replace", timeout=3600)
+        kode, keluar = r.returncode, r.stdout + r.stderr
+    else:
+        kode, keluar, _ = jalan("perbarui.py", *arg)
+    return kode, keluar, list(PERMINTAAN)
+
+
+def pdf_diminta(minta):
+    return [q.split("/pdf/", 1)[1] for _, q in minta if q.startswith("/pdf/")]
+
+
+def sampul_diminta(minta):
+    return sorted(q.split(TOKEN_TIRUAN, 1)[1] for _, q in minta if q.startswith("/cover.php"))
+
+
+def daftar_diminta(minta):
+    return sorted({m.group(1) for _, q in minta for m in [re.search(r"/domain/(\d+)/page/", q)] if m})
+
+
+def jeda_min(minta):
+    t = [x for x, _ in minta]
+    return min((b - a for a, b in zip(t, t[1:])), default=None)
+
+
+def baku(keluar):
+    """Keluaran untuk dibandingkan antar-versi: angka -> #, baris sampul,
+    log, dan waktu dibuang."""
+    buang = ("ampul", "Log run ini", "Selesai ", "Database tujuan")
+    return [re.sub(r"\d+", "#", b) for b in keluar.splitlines() if b.strip() and not any(x in b for x in buang)]
+
+
+KODE_Q_WEB = r'''
+import json, re, time
+from werkzeug.datastructures import MultiDict
+from app import create_app
+from app.config import KonfigurasiUji
+from app.services import pembaruan, pilihan_pembaruan as P
+app = create_app(KonfigurasiUji); c = app.test_client()
+with c.session_transaction() as s: s['admin_masuk'] = True
+hasil = {}
+b = P.bawaan()
+hasil['bawaan_tanpa_argumen'] = b.argumen() == [] and P.dari_formulir(MultiDict()) == b
+hasil['perintah_bawaan'] = pembaruan.perintah(True, b.argumen())[2:]
+salah = {
+ 'tanpa_wilayah': {'formulir': '1', 'jenis': ['kabkota'], 'dari': '2025', 'sampai': '2026'},
+ 'kabkota_tanpa_jenis': {'formulir': '1', 'wilayah': ['6305'], 'dari': '2025', 'sampai': '2026'},
+ 'wilayah_asing': {'formulir': '1', 'wilayah': ['6305', '9999'], 'jenis': ['kabkota'], 'dari': '2025', 'sampai': '2026'},
+ 'wilayah_tidak_aktif': {'formulir': '1', 'wilayah': ['6301'], 'jenis': ['kabkota'], 'dari': '2025', 'sampai': '2026'},
+ 'jenis_asing': {'formulir': '1', 'wilayah': ['6305'], 'jenis': ['semua'], 'dari': '2025', 'sampai': '2026'},
+ 'dari_lebih_besar': {'formulir': '1', 'wilayah': ['6305'], 'jenis': ['kabkota'], 'dari': '2026', 'sampai': '2025'},
+ 'tahun_belum_tiba': {'formulir': '1', 'wilayah': ['6305'], 'jenis': ['kabkota'], 'dari': '2025', 'sampai': str(P.tahun_ini() + 1)},
+ 'tahun_terlalu_awal': {'formulir': '1', 'wilayah': ['6305'], 'jenis': ['kabkota'], 'dari': str(P.tahun_min_pilihan() - 1), 'sampai': '2026'},
+ 'tahun_bukan_angka': {'formulir': '1', 'wilayah': ['6305'], 'jenis': ['kabkota'], 'dari': '2025;DROP', 'sampai': '2026'},
+}
+for nama, data in salah.items():
+    r = c.post('/admin/perbarui/mulai', data=MultiDict([(k, x) for k, v in data.items() for x in (v if isinstance(v, list) else [v])]))
+    h = r.get_data(as_text=True)
+    g = re.search(r'<ul class="daftar-galat">(.*?)</ul>', h, re.S)
+    hasil['tolak_' + nama] = [r.status_code, re.findall(r'<li>(.*?)</li>', g.group(1)) if g else None]
+k = pembaruan.keadaan()
+hasil['tidak_ada_proses'] = (not k['berjalan']) and k['mulai'] is None and not k['baris']
+hasil['opsi_tahun'] = re.findall(r'<option value="(\d+)"', c.get('/admin/perbarui').get_data(as_text=True))
+# satu kiriman SAH: cek dulu, Kab. Tapin, hanya Kecamatan Dalam Angka
+r = c.post('/admin/perbarui/mulai', data=MultiDict([('formulir', '1'), ('wilayah', '6305'), ('jenis', 'kecamatan'),
+                                                    ('dari', '2025'), ('sampai', '2026'), ('aksi', 'cek')]))
+hasil['cek_status'] = r.status_code
+t = time.time()
+while pembaruan.keadaan()['berjalan'] and time.time() - t < 600:
+    time.sleep(0.5)
+k = pembaruan.keadaan()
+h = c.get('/admin/perbarui').get_data(as_text=True)
+hasil['cek_kode'] = k['kode_keluar']
+hasil['cek_baris_pilihan'] = [b for b in k['baris'] if b.startswith('Pilihan:')]
+hasil['cek_tampil'] = 'id="hasil-cek"' in h and 'Kab. Tapin' in h and 'Kecamatan Dalam Angka' in h
+hasil['formulir_terisi'] = sorted(re.findall(r'name="(?:wilayah|jenis)"\s+value="(\w+)"\s*(?:data-kabkota="1")?\s*checked', h))
+print('QWEB ' + json.dumps(hasil))
+'''
+
+
+def bagian_q(per_id):
+    """Pilihan penarikan (24 Nov 2026): wilayah/jenis/tahun, validasi, --cek-dulu,
+    tanpa pilihan = sama seperti kode sebelumnya. Wilayah aktif: 6305 (kab/kota
+    + 24 Kecamatan Dalam Angka) dan 6300 (provinsi). Tidak ada akses ke BPS."""
+    print("\n=== Q. PILIHAN PENARIKAN (wilayah / jenis / tahun / cek dulu) ===", flush=True)
+    aktifkan(DOMAIN, "6300")
+    KEADAAN["domain"].pop("6399", None)
+    for k in ("gagal_domain", "gagal_halaman", "mode_pdf", "mode_sampul", "isi_sampul"):
+        KEADAAN[k].clear()          # sisa gangguan bagian lain; Q0 membuktikan keadaan bersih
+    prov = siapkan_provinsi()
+    info = {}
+    # Domain dari database, bukan ditebak: bagian lain (B, E) menambah publikasi
+    # uji ke domain ini yang tidak ada di per_id. Publikasi tanpa PDF lokal
+    # (dihapus bagian lain) tidak dipakai sebagai sampel.
+    for baris in sql(f"SELECT id, domain, kecamatan IS NOT NULL, COALESCE(halaman_ocr,0), YEAR(tanggal_rilis) "
+                     f"FROM publikasi WHERE domain IN ('{DOMAIN}','6300')", DB_UJI).splitlines():
+        pid, dom, kec, ocr, th = baris.split("\t")
+        pdf = f"{UJI}/data/publikasi_pdf/{dom}/{pid}.pdf"
+        if not os.path.exists(pdf) or (dom == DOMAIN and pid not in per_id) or (dom == "6300" and pid not in prov):
+            continue
+        info[pid] = {"kec": kec == "1", "ocr": int(ocr), "tahun": int(th), "dom": dom,
+                     "mb": os.path.getsize(pdf)}
+
+    def kecil(syarat, n=1, kecuali=()):
+        return sorted((p for p, v in info.items() if not v["ocr"] and p not in kecuali and syarat(v)),
+                      key=lambda p: info[p]["mb"])[:n]
+
+    K, X = kecil(lambda v: v["dom"] == DOMAIN and not v["kec"], 2)
+    C, = kecil(lambda v: v["dom"] == DOMAIN and v["kec"])
+    P26, = kecil(lambda v: v["dom"] == "6300" and v["tahun"] == 2026)
+    P25, = kecil(lambda v: v["dom"] == "6300" and v["tahun"] == 2025)
+
+    # Q0: penyelaras (sisa bagian lain + sampul 120 publikasi), lalu run tanpa kerja
+    kode, keluar, _ = jalan_catat()
+    kode, keluar, minta = jalan_catat()
+    r = ringkasan()
+    cek("Q0 tanpa pilihan, tanpa perubahan: 2 wilayah dibaca, 0 PDF, 0 sampul, status tidak_ada_baru; "
+        "ringkasan mencatat pilihan bawaan",
+        kode == 0 and daftar_diminta(minta) == ["6300", DOMAIN] and not pdf_diminta(minta)
+        and not sampul_diminta(minta) and r["status"] == "tidak_ada_baru"
+        and r.get("pilihan", {}).get("bawaan") is True and r["pilihan"]["wilayah"] == ["6300", DOMAIN],
+        f"exit {kode}, {r['status']}, pilihan {r.get('pilihan')}")
+
+    # Q1: tanpa pilihan = KODE SEBELUMNYA (git HEAD), pada keadaan yang sama
+    lama = f"{SP}/uji_lama"
+    sambungan = f"{lama}/data"
+    try:
+        os.makedirs(lama, exist_ok=True)
+        berkas = subprocess.run(["git", "-C", ASLI, "ls-tree", "-r", "--name-only", "HEAD", "app", "scripts"],
+                                capture_output=True, text=True, check=True).stdout.split()
+        for f in berkas:
+            os.makedirs(os.path.dirname(f"{lama}/{f}"), exist_ok=True)
+            open(f"{lama}/{f}", "wb").write(subprocess.run(["git", "-C", ASLI, "show", f"HEAD:{f}"],
+                                                         capture_output=True, check=True).stdout)
+        subprocess.run(["cmd", "/c", "mklink", "/J", os.path.normpath(sambungan), os.path.normpath(f"{UJI}/data")],
+                       capture_output=True, check=True)
+        skrip_lama = f"{lama}/scripts/perbarui.py"
+        lama_asli = "--cek-dulu" not in open(skrip_lama, encoding="utf-8").read()
+
+        N = "qqqqrrrrsssstttt6300baru"
+        nb = copy.deepcopy(KEADAAN["domain"]["6300"][0])
+        nb.update(pub_id=N, title="Publikasi Baru Uji Pilihan 2026", abstract="abstrak uji pilihan",
+                  rl_date="2026-11-15", updt_date="2026-11-15", pdf=url_tiruan("pdf", N), cover=url_tiruan("cover", N))
+        KEADAAN["berkas_pdf"][N] = f"{SUMBER}/{X}.pdf"
+        KEADAAN["domain"]["6300"].insert(0, nb)
+        x_api, x_proses = kolom_pub(X, "updt_date_api"), kolom_pub(X, "updt_date_diproses")
+        per_id[X]["updt_date"] = "2026-12-15"
+
+        kode_l, keluar_l, minta_l = jalan_catat(skrip=skrip_lama)
+        r_l, s_l = ringkasan(), potret()
+        # kembalikan keadaan: N belum ada, X belum diproses (sidik dibiarkan = berkas di disk)
+        for q in (f"DELETE FROM entri_dokumen WHERE publikasi_id='{N}'",
+                  f"DELETE FROM publikasi_kategori WHERE publikasi_id='{N}'",
+                  f"DELETE FROM publikasi WHERE id='{N}'",
+                  f"UPDATE publikasi SET updt_date_api='{x_api}', updt_date_diproses='{x_proses}' WHERE id='{X}'"):
+            sql(q, DB_UJI)
+        for f in (f"{UJI}/data/publikasi_pdf/6300/{N}.pdf", f"{ENV['DIR_SAMPUL']}/{N}.jpg",
+                  f"{ENV['DIR_SAMPUL']}/{N}.cadangan.jpg"):
+            if os.path.exists(f):
+                os.remove(f)
+        kode_b, keluar_b, minta_b = jalan_catat()
+        r_b, s_b = ringkasan(), potret()
+    finally:
+        if os.path.isdir(sambungan):
+            os.rmdir(sambungan)          # hanya sambungannya; isi data/ salinan tidak disentuh
+        shutil.rmtree(lama, ignore_errors=True)
+
+    def inti(r):
+        return {"status": r["status"], "diproses": r["diproses"], "diunduh": r["diunduh"],
+                "baru": sorted(p["pub_id"] for p in r["publikasi_baru"]),
+                "domain": [(d["kode"], d["status"], d["diunduh"], d["diproses"], len(d["gagal"]),
+                            len(d["tidak_di_daftar"]), len(d["menunggu_unduhan"])) for d in r["domain"]]}
+
+    bukan_sampul = lambda m: [q for _, q in m if not q.startswith("/cover.php")]  # noqa: E731
+    cek("Q1 kode lama benar-benar versi HEAD (tanpa --cek-dulu) dan bekerja: 1 baru + 1 direvisi",
+        lama_asli and kode_l == 0 and inti(r_l)["diproses"] == 2 and inti(r_l)["baru"] == [N],
+        f"exit {kode_l}, {inti(r_l)}")
+    cek("Q1 tanpa pilihan = kode sebelumnya: permintaan daftar+PDF sama PERSIS (urutan), database sama per kunci, "
+        "ringkasan inti sama",
+        bukan_sampul(minta_l) == bukan_sampul(minta_b) and not beda_potret(s_l, s_b) and inti(r_l) == inti(r_b),
+        f"permintaan {len(bukan_sampul(minta_l))}/{len(bukan_sampul(minta_b))}, beda DB {beda_potret(s_l, s_b)[:3]}")
+    beda_baris = [b for b in difflib_unified(baku(keluar_l), baku(keluar_b))]
+    cek("Q1 keluaran layar sama (angka/waktu dan baris sampul diabaikan)", not beda_baris, beda_baris[:6])
+    cek("Q1 satu-satunya beda yang DISENGAJA: sampul publikasi direvisi ikut diunduh ulang (keputusan 24 Nov)",
+        set(sampul_diminta(minta_b)) == set(sampul_diminta(minta_l)) | {X} and X not in sampul_diminta(minta_l)
+        and set(r_b) - set(r_l) == {"pilihan"},
+        f"lama {sampul_diminta(minta_l)}, baru {sampul_diminta(minta_b)}, kunci baru {sorted(set(r_b) - set(r_l))}")
+
+    # Q2: kombinasi wilayah / jenis / tahun
+    BARU = "2026-12-29"
+    for p in (K, C):
+        per_id[p]["updt_date"] = BARU
+    for p in (P26, P25):
+        prov[p]["updt_date"] = BARU
+    api0 = {p: kolom_pub(p, "updt_date_api") for p in (K, C, P26, P25)}
+
+    def diproses(p):
+        return kolom_pub(p, "updt_date_diproses") == BARU
+
+    def tak_tersentuh(*ps):
+        return all(kolom_pub(p, "updt_date_api") == api0[p] and not diproses(p) for p in ps)
+
+    jeda = []
+    kode, keluar, minta = jalan_catat("--wilayah", DOMAIN, "--jenis", "kecamatan")
+    r = ringkasan()
+    jeda.append(jeda_min(minta))
+    cek("Q2a --wilayah 6305 --jenis kecamatan: hanya Kecamatan Dalam Angka yang direvisi diproses; publikasi "
+        "kab/kota dan provinsi tidak disentuh (metadata pun tidak); daftar 6300 tidak diminta",
+        kode == 0 and diproses(C) and tak_tersentuh(K, P26, P25) and pdf_diminta(minta) == [C]
+        and daftar_diminta(minta) == [DOMAIN] and [d["kode"] for d in r["domain"]] == [DOMAIN],
+        f"exit {kode}, pdf {pdf_diminta(minta)}, daftar {daftar_diminta(minta)}")
+    cek("Q2a publikasi di luar pilihan jenis tidak dilaporkan 'tidak lagi di daftar'; ringkasan mencatat pilihan",
+        r["domain"][0]["tidak_di_daftar"] == [] and r["pilihan"]["jenis"] == ["kecamatan"]
+        and r["pilihan"]["wilayah"] == [DOMAIN] and r["pilihan"]["bawaan"] is False and "Pilihan: " in keluar,
+        r.get("pilihan"))
+    kode, keluar, minta = jalan_catat("--wilayah", DOMAIN, "--jenis", "kabkota")
+    r = ringkasan()
+    jeda.append(jeda_min(minta))
+    cek("Q2b --jenis kabkota: hanya publikasi kab/kota yang direvisi; tidak_di_daftar kosong",
+        kode == 0 and diproses(K) and pdf_diminta(minta) == [K] and tak_tersentuh(P26, P25)
+        and r["domain"][0]["tidak_di_daftar"] == [], f"exit {kode}, pdf {pdf_diminta(minta)}")
+    kode, keluar, minta = jalan_catat("--wilayah", "6300", "--tahun-min", "2025", "--tahun-maks", "2025")
+    r = ringkasan()
+    jeda.append(jeda_min(minta))
+    cek("Q2c --wilayah 6300 --tahun-min 2025 --tahun-maks 2025: hanya rilis 2025 diproses, rilis 2026 tidak "
+        "disentuh; tidak_di_daftar kosong",
+        kode == 0 and diproses(P25) and tak_tersentuh(P26) and pdf_diminta(minta) == [P25]
+        and daftar_diminta(minta) == ["6300"] and r["domain"][0]["tidak_di_daftar"] == [],
+        f"exit {kode}, pdf {pdf_diminta(minta)}, tidak_di_daftar {len(r['domain'][0]['tidak_di_daftar'])}")
+    s0 = potret("6300")
+    kode, keluar, minta = jalan_catat("--wilayah", "6300", "--tahun-min", "2024", "--tahun-maks", "2024")
+    r = ringkasan()
+    cek("Q2d tahun tanpa publikasi (2024): 0 lolos BUKAN kegagalan selama database juga tidak punya publikasi "
+        "2024; data provinsi tidak berubah",
+        kode == 0 and r["status"] == "tidak_ada_baru" and not pdf_diminta(minta) and potret("6300") == s0
+        and tak_tersentuh(P26), f"exit {kode}, {r['status']}, {r['domain'][0].get('pesan')}")
+    kode, keluar, minta = jalan_catat()
+    jeda.append(jeda_min(minta))
+    cek("Q2e lalu tanpa pilihan: sisa revisi (provinsi 2026) diproses", kode == 0 and diproses(P26)
+        and pdf_diminta(minta) == [P26], f"exit {kode}, pdf {pdf_diminta(minta)}")
+    cek("Q2 jeda antar-permintaan ke WebAPI/PDF/sampul >= ~1 detik di semua run berpilihan",
+        all(j is not None and j >= 0.95 for j in jeda), [round(j, 2) for j in jeda if j is not None])
+
+    n_kec = sum(1 for v in info.values() if v["dom"] == DOMAIN and v["kec"])
+    ekstrak0 = {p: kolom_pub(p, "diekstrak_pada") for p in (K, P26)}
+    kode, keluar, minta = jalan_catat("--lokal", "--paksa", "--wilayah", DOMAIN, "--jenis", "kecamatan")
+    r = ringkasan()
+    cek(f"Q2f --lokal --paksa --wilayah 6305 --jenis kecamatan: tepat {n_kec} publikasi kecamatan dibaca ulang, "
+        "kab/kota dan provinsi tidak; 0 permintaan jaringan",
+        kode == 0 and r["diproses"] == n_kec and not minta
+        and all(kolom_pub(p, "diekstrak_pada") == v for p, v in ekstrak0.items()),
+        f"exit {kode}, diproses {r['diproses']}, permintaan {len(minta)}")
+
+    # Q3: pilihan ditolak di baris perintah: exit 1, tanpa jaringan, database dan ringkasan tidak berubah
+    cs0 = checksum_db(DB_UJI)
+    rk0 = open(f"{UJI}/data/pembaruan_terakhir-uji.json", "rb").read()
+    tolak = []
+    for arg in (["--wilayah", "9999"], ["--wilayah", "6301"], ["--jenis", "semua"], ["--tahun-min", "2019"],
+                ["--tahun-maks", str(time.localtime().tm_year + 1)], ["--tahun-min", "2026", "--tahun-maks", "2025"],
+                ["--tahun-maks", "abc"], ["--hanya-periksa", "--wilayah", DOMAIN], ["--cek-dulu", "--paksa"],
+                ["--cek-dulu", "--lokal"], ["--kecamatan", "--jenis", "kecamatan"]):
+        kode, keluar, minta = jalan_catat(*arg)
+        tolak.append((" ".join(arg), kode, "DITOLAK" in keluar, len(minta)))
+    cek("Q3 pilihan tidak sah di perbarui.py: semua exit 1 + DITOLAK, 0 permintaan, database dan ringkasan "
+        "tidak berubah",
+        all(k == 1 and d and m == 0 for _, k, d, m in tolak) and checksum_db(DB_UJI) == cs0
+        and open(f"{UJI}/data/pembaruan_terakhir-uji.json", "rb").read() == rk0,
+        [t for t in tolak if not (t[1] == 1 and t[2] and t[3] == 0)] or f"{len(tolak)} ditolak")
+
+    # Q4: formulir web (test_client, KonfigurasiUji): validasi server + satu cek sungguhan
+    PERMINTAAN.clear()
+    kode, keluar, err = jalan_py(KODE_Q_WEB, timeout=900)
+    m = re.search(r"^QWEB (.*)$", keluar, re.M)
+    if not m:
+        cek("Q4 potongan formulir web berjalan", False, err[-400:])
+    else:
+        w = json.loads(m.group(1))
+        tolak_web = {k[6:]: v for k, v in w.items() if k.startswith("tolak_")}
+        cek(f"Q4 formulir: {len(tolak_web)} kiriman tidak sah ditolak server (HTTP 400 + pesan), tidak ada proses dimulai",
+            all(v[0] == 400 and v[1] for v in tolak_web.values()) and w["tidak_ada_proses"],
+            {k: v for k, v in tolak_web.items() if not (v[0] == 400 and v[1])} or len(tolak_web))
+        cek("Q4 bawaan formulir = tanpa argumen (perintah sama dengan tombol lama); POST tanpa formulir = bawaan",
+            w["bawaan_tanpa_argumen"] and len(w["perintah_bawaan"]) == 2
+            and w["perintah_bawaan"][0].endswith("perbarui.py") and w["perintah_bawaan"][1] == "--db-uji",
+            w["perintah_bawaan"])
+        th = list(range(2020, time.localtime().tm_year + 1))
+        cek("Q4 pilihan tahun = tahun_min_pilihan .. tahun berjalan (tahun yang belum tiba tidak ada)",
+            w["opsi_tahun"] == [str(x) for x in th] * 2, w["opsi_tahun"][:3] + ["..."] + w["opsi_tahun"][-2:])
+        cek("Q4 'Cek dulu' dari formulir: jalur perbarui.py yang sama, pilihan sampai ke proses, hasil tampil, "
+            "formulir terisi pilihan yang sama",
+            w["cek_status"] == 302 and w["cek_kode"] == 0 and w["cek_tampil"]
+            and w["cek_baris_pilihan"] == ["Pilihan: wilayah: Kab. Tapin; jenis (kab/kota): Kecamatan Dalam Angka; "
+                                           "tahun rilis 2025-2026"]
+            and w["formulir_terisi"] == [DOMAIN, "kecamatan"], {k: w[k] for k in ("cek_kode", "cek_baris_pilihan",
+                                                                                    "formulir_terisi")})
+        cek("Q4 cek dari formulir: hanya daftar 6305 diminta, 0 PDF/sampul; database dan ringkasan pembaruan "
+            "tidak berubah",
+            daftar_diminta(PERMINTAAN) == [DOMAIN] and not pdf_diminta(PERMINTAAN) and not sampul_diminta(PERMINTAAN)
+            and checksum_db(DB_UJI) == cs0 and open(f"{UJI}/data/pembaruan_terakhir-uji.json", "rb").read() == rk0)
+
+    # Q5: --cek-dulu menghitung dengan benar, tanpa mengunduh dan tanpa menulis
+    N2 = "qqqqrrrrsssstttt6305baru"
+    nb = copy.deepcopy(per_id[K])
+    nb.update(pub_id=N2, title="Publikasi Kabupaten Baru Uji Cek", rl_date="2026-11-20", updt_date="2026-11-20",
+              size="3.5 MB", pdf=url_tiruan("pdf", N2), cover=url_tiruan("cover", N2))
+    KEADAAN["domain"][DOMAIN].insert(0, nb)
+    KEADAAN["berkas_pdf"][N2] = f"{SUMBER}/{K}.pdf"
+    per_id[C]["updt_date"] = "2026-12-30"                 # kecamatan direvisi
+    hilang = path_uji(X)
+    os.replace(hilang, hilang + ".x")                     # PDF lokal hilang: baca ulang + unduh
+    try:
+        kode, keluar, minta = jalan_catat("--wilayah", DOMAIN, "--cek-dulu")
+        c1 = json.load(open(f"{UJI}/data/cek_pembaruan-uji.json", encoding="utf-8"))
+        kode2, keluar2, minta2 = jalan_catat("--wilayah", DOMAIN, "--jenis", "kabkota", "--cek-dulu")
+        c2 = json.load(open(f"{UJI}/data/cek_pembaruan-uji.json", encoding="utf-8"))
+    finally:
+        os.replace(hilang + ".x", hilang)
+    d1 = c1["domain"][0]
+    n_dom = len(KEADAAN["domain"][DOMAIN])
+    cek("Q5 --cek-dulu: baru 1, direvisi 1, baca ulang 1, sisanya tidak berubah; unduh 3 PDF",
+        kode == 0 and (d1["baru"], d1["direvisi"], d1["baca_ulang"], d1["tetap"], d1["unduh"]) == (1, 1, 1, n_dom - 3, 3)
+        and d1["di_daftar"] == n_dom and c1["perkiraan"]["publikasi_diproses"] == 3,
+        f"exit {kode}, {({k: d1[k] for k in ('di_daftar', 'baru', 'direvisi', 'baca_ulang', 'tetap', 'unduh', 'mb_unduh')})}")
+    cek("Q5 --cek-dulu --jenis kabkota: kecamatan yang direvisi tidak dihitung",
+        kode2 == 0 and (c2["domain"][0]["baru"], c2["domain"][0]["direvisi"]) == (1, 0)
+        and c2["pilihan"]["jenis"] == ["kabkota"], c2["domain"][0].get("direvisi"))
+    cek("Q5 --cek-dulu tidak mengunduh (0 PDF, 0 sampul, berkas baru tidak ada), database dan ringkasan pembaruan "
+        "tidak berubah",
+        not pdf_diminta(minta + minta2) and not sampul_diminta(minta + minta2)
+        and not os.path.exists(path_uji(N2)) and checksum_db(DB_UJI) == cs0
+        and open(f"{UJI}/data/pembaruan_terakhir-uji.json", "rb").read() == rk0
+        and "Tidak ada PDF yang diunduh" in keluar, f"{len(minta) + len(minta2)} permintaan")
+    kode_p, keluar_p, err_p = jalan_py(
+        "import sys; sys.path.insert(0, sys.path[0] + '/scripts')\n"
+        "import perbarui\nfrom app.services import pilihan_pembaruan as P\n"
+        "perbarui.PILIHAN = P.periksa(dari=2020)\n"
+        "t = dict(baru=60, direvisi=0, baca_ulang=0, unduh=60, mb_unduh=2000.0, mb_baca=2000.0)\n"
+        "b = perbarui.perkiraan_cek(t, 10)\n"
+        "perbarui.PILIHAN = P.bawaan()\n"
+        "k = perbarui.perkiraan_cek(dict(baru=2, direvisi=1, baca_ulang=0, unduh=3, mb_unduh=20.0, mb_baca=20.0), 10)\n"
+        "print('PK', b['besar'], len(b['peringatan']), len(b['catatan']), k['besar'], len(k['catatan']))\n")
+    cek("Q5 peringatan penarikan besar (>= 50 publikasi / >= 1 GB / >= 1 jam) + catatan PDF lama (< 2025); "
+        "kecil tanpa peringatan",
+        "PK True 3 2 False 1" in keluar_p, (keluar_p + err_p)[-200:])
+    KEADAAN["domain"][DOMAIN].remove(nb)
+    per_id[C]["updt_date"] = BARU
+
+    # Q6: kunci satu pembaruan juga untuk pilihan dan cek
+    open(f"{UJI}/data/pembaruan.lock", "w").write(str(os.getpid()))      # PID hidup = proses uji ini
+    try:
+        hasil = [jalan_catat(*a) for a in (["--wilayah", DOMAIN, "--cek-dulu"], ["--wilayah", DOMAIN, "--jenis", "kabkota"])]
+    finally:
+        os.remove(f"{UJI}/data/pembaruan.lock")
+    cek("Q6 saat terkunci: cek dan pembaruan berpilihan berhenti (exit 2), 0 permintaan",
+        all(k == 2 and "SUDAH BERJALAN" in o and not m for k, o, m in hasil), [h[0] for h in hasil])
+
+    # Q7: perbarui-data.bat sungguhan dengan pilihan (koma lewat %* utuh)
+    siapkan_bat()
+    # Dua kode = semua wilayah aktif salinan; kalau koma terpotong di %*, kodenya
+    # tidak dikenal dan DITOLAK.
+    k = bat("--wilayah", f"{DOMAIN},6300", "--jenis", "kecamatan", "--cek-dulu")
+    cek("Q7 .bat --wilayah 6305,6300 --jenis kecamatan --cek-dulu: pilihan sampai utuh, penutup 'CEK SELESAI'",
+        "Pilihan: wilayah: semua wilayah aktif; jenis (kab/kota): Kecamatan Dalam Angka" in k
+        and "HASIL CEK" in k and "CEK SELESAI" in k
+        and "PEMBARUAN SELESAI" not in k, [b.strip() for b in k.splitlines() if "Pilihan" in b or "SELESAI" in b][:3])
+    k = bat("--wilayah", "9999")
+    cek("Q7 .bat pilihan tidak sah: DITOLAK -> PEMBARUAN GAGAL (bukan 'pembaruan lain sedang berjalan')",
+        "DITOLAK" in k and "PEMBARUAN GAGAL" in k and "TIDAK DIJALANKAN" not in k)
+
+    # selesai: kembali ke satu wilayah uji
+    for p in (K, C):
+        per_id[p]["updt_date"] = BARU
+    KEADAAN["domain"].pop("6300", None)
+    aktifkan(DOMAIN)
+
+
+def difflib_unified(a, b):
+    import difflib
+    return [x for x in difflib.unified_diff(a, b, lineterm="", n=0) if x[:1] in "+-" and x[:3] not in ("+++", "---")]
+
+
+SEMUA_BAGIAN = "VFPLCHISOBGETDKRWQA"   # V dan F dijalankan sebelum potret s0 (lihat main)
 
 
 def main():
@@ -1762,7 +2241,8 @@ def main():
             if b == "K": bagian_k()
             if b == "R": bagian_r(kecil[0])
             if b == "W": bagian_w(per_id, kecil[2])
-            if b == "A": bagian_a(kecil)
+            if b == "Q": bagian_q(per_id)
+            if b == "A": bagian_a(kecil, per_id)
     finally:
         srv.shutdown()
 
