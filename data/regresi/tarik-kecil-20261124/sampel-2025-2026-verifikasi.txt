@@ -1,0 +1,169 @@
+====================================================================================================
+#1 id 303183 | 054960c8 Produk Domestik Regional Bruto Kabupaten Tanah Laut Menurut  (98 hal)
+   isi | nomor None | hal cetak 'xiii' | fisik 15 | daftar
+   judul: PENJELASAN UMUM/EXPLANATORY NOTES
+   DAFTAR hal 9: PENJELASAN UMUM/EXPLANATORY NnOTES ...................................................................................................xiii
+   BADAN (baris berawal judul): []
+====================================================================================================
+#2 id 303193 | 054960c8 Produk Domestik Regional Bruto Kabupaten Tanah Laut Menurut  (98 hal)
+   isi | nomor None | hal cetak '24' | fisik None | daftar
+   judul: 2.4 Pembentukan Modal Tetap Bruto/Gross Fixed Capital Formation
+   DAFTAR hal 9: 2.4 Pembentukan Modal Tetap Bruto/Gross Fixed Capital Formation ...................................................24
+   BADAN (baris berawal judul): [40]
+      hal 40 folio ['24']
+====================================================================================================
+#3 id 303361 | 24e8cb19 Kecamatan Kurau Dalam Angka 2026 (138 hal)
+   isi | nomor None | hal cetak 'viii' | fisik 10 | daftar
+   judul: Preface
+   DAFTAR hal 13: Preface ..................................................................k.................................................................
+   BADAN (baris berawal judul): [10]
+      hal 10 folio ['viii']
+====================================================================================================
+#4 id 303415 | 24e8cb19 Kecamatan Kurau Dalam Angka 2026 (138 hal)
+   tabel | nomor '7.3' | hal cetak '108' | fisik 134 | keduanya
+   judul: Banyaknya Desa1/Kelurahan dengan Keberadaan Sarana Perdagangan Menurut Jenis Sarana Perdagangan di Kecamatan Kurau, 2025 Number of Villages1/Subdistricts with Availability of Trade Facilities Type of Trade Facilities in Kurau Dist
+   BADAN (keterangan bernomor): [134]
+      hal 134 folio ['2026', '108', '2026'] | KECAMATAN KURAU DALAM ANGKA 2026 / Tabel 7.3 Banyaknya Desa1/Kelurahan dengan Keberadaan / Table Sarana Perdagangan Menurut Jenis Sarana
+====================================================================================================
+#5 id 303489 | 35e0f08a Kecamatan Kintap Dalam Angka 2025 (142 hal)
+   tabel | nomor '5.6' | hal cetak None | fisik 110 | badan
+   judul: Produksi Tanaman Hias Menurut Jenis Tanaman di Kecamatan Kintap (tangkai), 2021 – 2024
+   BADAN (keterangan bernomor): [110]
+      hal 110 folio ['2025', '86'] | KECAMATAN KINTAP DALAM ANGKA 2025 / Tabel 5.6 Produksi Tanaman Hias Menurut Jenis Tanaman di / Kecamatan Kintap (tangkai), 2021–2024
+====================================================================================================
+#6 id 303743 | 452a5449 Produk Domestik Regional Bruto Kabupaten Tanah Laut Menurut  (162 hal)
+   isi | nomor None | hal cetak '118' | fisik 136 (PERKIRAAN) | daftar
+   judul: 4.4 Pengadaan Listrik dan Gas/Electricity and Gas
+   DAFTAR hal 10: 4.4 Pengadaan Listrik dan Gas/Electricity and Gas ............................................................ 118
+   BADAN (baris berawal judul): [136]
+      hal 136 folio ['2024', '118']
+====================================================================================================
+#7 id 303759 | 452a5449 Produk Domestik Regional Bruto Kabupaten Tanah Laut Menurut  (162 hal)
+   tabel | nomor '1.1' | hal cetak '11' | fisik 29 | keduanya
+   judul: Perbandingan Perubahan Konsep dan Metode Perhitungan PDRB/Comparison of Concept and Calculation Method Changes of GRDP
+   DAFTAR hal 9: 1.1 Pengertian PDRB/Concept of GRDP .......................................................................... / 1.2 Kegunaan PDRB/The Usefulness of GRDP ..................................................................... / 1.3 Perubahan Tahun Dasar PDRB/Base Year Change of GRDP ..................................... 6
+   BADAN (keterangan bernomor): [11, 29]
+      hal 11 folio ['2020', '2024', 'ix'] | Table/Table Halaman/Page / 1.1 Perbandingan Perubahan Konsep dan Metode Perhitungan 11 / PDRB/Comparison of Concept and Calculation Method
+      hal 29 folio ['11'] | SNA 2008 dijelaskan pada Tabel 1.1. 2008 SNA are described in Table 1.1. / Tabel 1.1 Perbandingan Perubahan Konsep dan Metode Perhitungan PDRB / Table 1.1 Comparison of Concept and Calculation Methods Changes of
+====================================================================================================
+#8 id 303845 | 5136dda2 Kecamatan Jorong Dalam Angka 2025 (140 hal)
+   tabel | nomor '5.5' | hal cetak None | fisik 107 | badan
+   judul: Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kecamatan Jorong (m 2 ), 2021 – 2024
+   BADAN (keterangan bernomor): [107]
+      hal 107 folio ['83'] | PERTANIAN / Tabel 5.5 Luas Panen Tanaman Hias Menurut Jenis Tanaman di / Kecamatan Jorong (m2), 2021–2024
+====================================================================================================
+#9 id 303888 | 555d6c68 Kecamatan Bumi Makmur Dalam Angka 2026 (140 hal)
+   tabel | nomor '4.2' | hal cetak '52' | fisik 80 (PERKIRAAN) | daftar
+   judul: Kesehatan/Health
+   BADAN (keterangan bernomor): []
+   hal fisik 80: folio ['2026', '52', '2026'] | KECAMATAN BUMI MAKMUR DALAM ANGKA 2026 / 4.2 KESEHATAN/HEALTH / Tabel 4.2.1 Banyaknya Desa1/Kelurahan yang Memiliki Sarana / Table Kesehatan Menurut Jenis Sarana Kesehatan di
+====================================================================================================
+#10 id 304187 | 58a1061b Kabupaten Tanah Laut Dalam Angka 2026 (606 hal)
+   tabel | nomor '9.7' | hal cetak None | fisik 544 | keduanya
+   judul: Jumlah Koperasi Primer Non KUD serta Keanggotaannya Menurut Kecamatan di Kabupaten Tanah Laut, 2025
+   DAFTAR hal 45: 9.7 Jumlah Koperasi Primer Non KUD serta Keanggotaannya Menurut / Kecamatan di Kabupaten Tanah Laut, 2025 / xliii
+   BADAN (keterangan bernomor): [544]
+      hal 544 folio ['2026', '490', '2026'] | KABUPATEN TANAH LAUT DALAM ANGKA 2026 / Tabel 9.7 Jumlah Koperasi Primer Non KUD serta Keanggotaannya / Table Menurut Kecamatan di Kabupaten Tanah Laut, 2025
+====================================================================================================
+#11 id 304372 | 650fbfb5 Kecamatan Bati-Bati Dalam Angka 2026 (142 hal)
+   isi | nomor None | hal cetak 'ix' | fisik 11 | daftar
+   judul: Preface
+   DAFTAR hal 14: Preface .........................................................................k..........................................................
+   BADAN (baris berawal judul): [11]
+      hal 11 folio ['ix']
+====================================================================================================
+#12 id 304917 | 7f627ab6 Produk Domestik Regional Bruto Kabupaten Tanah Laut Menurut  (90 hal)
+   isi | nomor None | hal cetak '48' | fisik 64 (PERKIRAAN) | daftar
+   judul: 3.2.6 Net Ekspor
+   DAFTAR hal 9: 3.2.6 Net Ekspor .............................................................................. 48
+   BADAN (baris berawal judul): [64]
+      hal 64 folio ['48']
+====================================================================================================
+#13 id 304974 | a32f6cc5 Kabupaten Tanah Laut Dalam Angka 2025 (604 hal)
+   isi | nomor None | hal cetak 'ix' | fisik None | daftar
+   judul: Daftar Isi/Contents
+   DAFTAR hal 11: Daftar Isi/Contents ..............................................................................................................
+   DAFTAR hal 11: DAFTAR ISI/CONTENTS
+   DAFTAR hal 11: Daftar Isi/Contents ......................................................................g........................................ ix
+   BADAN (baris berawal judul): []
+====================================================================================================
+#14 id 305034 | a32f6cc5 Kabupaten Tanah Laut Dalam Angka 2025 (604 hal)
+   tabel | nomor '3.2.6' | hal cetak '95' | fisik 147 | daftar
+   judul: Persentase Jumlah Penduduk Berumur 15 Tahun ke Atas yang Bekerja Selama Seminggu Terakhir Menurut Jumlah Jam Kerja Seluruhnya dan Jenis Kelamin di Kabupaten Tanah Laut, 2024 Percentage of Population Aged 15 Years and Over Who Work
+   DAFTAR hal 18: 3.2.6 Persentase Jumlah Penaduduk Berumur 15 Tahun ke Atas yang / n / Bekerja Selama Semainggu Terakhir Menurut Jumlah Jam Kerja
+   BADAN (keterangan bernomor): [147]
+      hal 147 folio ['15', '95'] | PENDUDUK DAN KETENAGAKERJAAN / Tabel 3.2.6 Persentase Jumlah Penduduk Berumur 15 Tahun ke Atas / Table yang Bekerja Selama Seminggu Terakhir Menurut Jumlah
+====================================================================================================
+#15 id 305084 | a32f6cc5 Kabupaten Tanah Laut Dalam Angka 2025 (604 hal)
+   tabel | nomor '4.3.2' | hal cetak '210' | fisik 262 | keduanya
+   judul: Jumlah Tempat Peribadatan Menurut Kecamatan di Kabupaten Tanah Laut, 2024 Number of Places of Worship by District in Tanah Laut Regency, 2024
+   DAFTAR hal 25: 4.3.2 Jumlah Tempat Peribadatan Muenurut Kecamatan di Kabupaten / a / Tanah Laut, 2024 l
+   BADAN (keterangan bernomor): [262]
+      hal 262 folio ['2025', '210', '2025'] | KABUPATEN TANAH LAUT DALAM ANGKA 2025 / Tabel 4.3.2 Jumlah Tempat Peribadatan Menurut Kecamatan di / Table Kabupaten Tanah Laut, 2024
+====================================================================================================
+#16 id 305184 | a32f6cc5 Kabupaten Tanah Laut Dalam Angka 2025 (604 hal)
+   tabel | nomor '5.5.10' | hal cetak '397' | fisik 449 | keduanya
+   judul: Jumlah dan Nilai Produksi Penangkapan Ikan Umum Menurut Jenisnya di Kabupaten Tanah Laut, 2024 Production and Production Value of Inland Fisheries by Kind of Fish in Tanah Laut Regency, 2024
+   DAFTAR hal 37: 5.5.10 Jumlah dan Nilai Produksi Penangkapan Ikan Umum Menurut / Jenisnya di Kabupaten Tanah Laut, 2024 / Production and Production Value of Inland Fisheries by Kind of Fish in
+   BADAN (keterangan bernomor): [449]
+      hal 449 folio ['397'] | PERTANIAN, KEHUTANAN, PETERNAKAN, DAN PERIKANAN / Tabel 5.5.10 Jumlah dan Nilai Produksi Penangkapan Ikan Umum / Table Menurut Jenisnya di Kabupaten Tanah Laut, 2024
+====================================================================================================
+#17 id 305479 | bab14906 Kecamatan Kurau Dalam Angka 2025 (140 hal)
+   tabel | nomor '2.1.6' | hal cetak None | fisik 48 | badan
+   judul: Nama Ketua RT di Desa Raden, 2024
+   BADAN (keterangan bernomor): [48]
+      hal 48 folio ['2025', '2024', '24'] | KECAMATAN KURAU DALAM ANGKA 2025 / Tabel 2.1.6 Nama Ketua RT di Desa Raden, 2024 / 2.1. 6 Nama Ketua RT di Desa Sungai Bakau, 2024
+====================================================================================================
+#18 id 305507 | bab14906 Kecamatan Kurau Dalam Angka 2025 (140 hal)
+   tabel | nomor '5.2' | hal cetak None | fisik 104 | badan
+   judul: Produksi Tanaman Sayuran dan Buah-buahan Semusim Menurut Jenis Tanaman di Kecamatan Kurau (kuintal), 2021 – 2024
+   BADAN (keterangan bernomor): [104]
+      hal 104 folio ['2025', '80'] | KECAMATAN KURAU DALAM ANGKA 2025 / Tabel 5.2 Produksi Tanaman Sayuran dan Buah-buahan / Semusim Menurut Jenis Tanaman di Kecamatan
+====================================================================================================
+#19 id 305569 | bf79d604 Produk Domestik Regional Bruto Kabupaten Tanah Laut Menurut  (162 hal)
+   isi | nomor None | hal cetak '129' | fisik 147 (PERKIRAAN) | daftar
+   judul: 4.13 Jasa Perusahaan/Business Activities
+   DAFTAR hal 10: 4.13 Jasa Perusahaan/Business Activities ................................................................................ 129
+   BADAN (baris berawal judul): []
+====================================================================================================
+#20 id 305661 | c6dc0bef Kecamatan Tambang Ulang Dalam Angka 2025 (138 hal)
+   isi | nomor None | hal cetak 'xxi' | fisik None | daftar
+   judul: Daftar Singkatan
+   DAFTAR hal 11: Daftar Singkatan .............................................k............................................................................x
+   BADAN (baris berawal judul): [23]
+      hal 23 folio ['xxi']
+====================================================================================================
+#21 id 305793 | cd47c002 Kecamatan Takisung Dalam Angka 2026 (140 hal)
+   gambar | nomor '3' | hal cetak '9' | fisik 35 | keduanya
+   judul: Jarak ke Ibukota Kecamatan Menurut Desa/Kelurahan di Kecamatan Takisung (km), 2025 Distance to the District Capital by Village/Subdistrict in Takisung District (km), 2025
+   DAFTAR hal 13: 3 Penduduk/Population ........................................................................................ / 4 Sosial Dan Kesejahteraan Rakyat/Social And Public Welfare ................................31 / 5 Pertanian, Kehutanan, Peternakan, Dan Perikanan/Agriculture,Forestry,
+   DAFTAR hal 21: 3 Jarak ke Ibukota Kecamatan Menuru.t Desa/Kelurahan di Kecamatan / b / Takisung (km), 2025 ..........................a...............................................................
+   BADAN (keterangan bernomor): [35]
+      hal 35 folio ['9'] | a / Gambar 3 Jarak ke Ibukota Kecamatan Menurut / k
+====================================================================================================
+#22 id 305932 | d163b8bb Statistik Kesejahteraan Rakyat Kabupaten Tanah Laut 2025 (196 hal)
+   lampiran | nomor '19' | hal cetak '101' | fisik 123 | keduanya
+   judul: Relative Standard Error (RSE) Persentase Rumah Tangga Menurut Karakteristik dan Bahan Bangunan Utama Atap Rumah Terluas Kabupaten Tanah Laut, 2025 Beton, Genteng, Seng, Karakteristik Lainnya 1 Kayu/Sirap
+   DAFTAR hal 18: Lampiran 19 Relative Standard Error (RSE) Relative Standard Error (RSE) Persentase / Rumah Tangga Menurut Karakteristik dan Bahan Bangunan Utama Atap / Rumah Terluas Kabupaten Tanah Laut, 2025 ...................................... 101
+   BADAN (keterangan bernomor): [123]
+      hal 123 folio ['19', '101'] | Relative Standard Error (RSE) Persentase Rumah Tangga / Lampiran 19 Menurut Karakteristik dan Bahan Bangunan Utama Atap / Rumah Terluas Kabupaten Tanah Laut, 2025
+====================================================================================================
+#23 id 305945 | d163b8bb Statistik Kesejahteraan Rakyat Kabupaten Tanah Laut 2025 (196 hal)
+   lampiran | nomor '32' | hal cetak '114' | fisik 136 | keduanya
+   judul: Relative Standard Error (RSE) Persentase Rumah Tangga Menurut Jenis Aset yang Dimiliki Kabupaten Tanah Laut, 2025
+   DAFTAR hal 19: Lampiran 32 Relative Standard Error (RSE) Persentase Rumah Tangga Menurut Jenis / Aset yang Dimiliki Kabupaten Tanah Laut, 2025 ................................. 114 / Lampiran 33 Relative Standard Error (RSE) Rata-Rata Pengeluaran per Kapita Sebulan
+   BADAN (keterangan bernomor): [136]
+      hal 136 folio ['32', '114', '2025'] | Relative Standard Error (RSE) Persentase Rumah Tangga Menurut / Lampiran 32 / Jenis Aset yang Dimiliki Kabupaten Tanah Laut, 2025
+====================================================================================================
+#24 id 306011 | e6093b17 Kecamatan Batu Ampar Dalam Angka 2026 (142 hal)
+   tabel | nomor '5.7' | hal cetak '78' | fisik 108 | keduanya
+   judul: Produksi Buah-buahan dan Sayuran Tahunan Menurut Jenis Tanaman di Kecamatan Batu Ampar (kuintal), 2022–2025 Production of Permanent Fruit and Vegetable by Type of Crops (quintal), 2022–2025
+   BADAN (keterangan bernomor): [108]
+      hal 108 folio ['2026', '80', '2026'] | KECAMATAN BATU AMPAR DALAM ANGKA 2026 / Tabel 5.7 Produksi Buah-buahan dan Sayuran Tahunan / Table Menurut Jenis Tanaman di Kecamatan Batu Ampar
+====================================================================================================
+#25 id 306147 | ff2ba0cd Kecamatan Bajuin Dalam Angka 2025 (138 hal)
+   isi | nomor None | hal cetak '19' | fisik 43 (PERKIRAAN) | daftar
+   judul: 2.1 Wilayah Administratif
+   DAFTAR hal 13: 2.1 Wilayah Administratif b
+   BADAN (baris berawal judul): [43]
+      hal 43 folio ['19']

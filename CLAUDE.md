@@ -30,7 +30,9 @@ Mahasiswa Politeknik Negeri Banjarmasin.
   - Format daftar Kecamatan Dalam Angka ("nomor sebaris", C2) tetap
     diperbaiki, karena format yang sama ada di 6 publikasi provinsi.
   - **17 Nov 2026: keputusan memasukkan kecamatan (312 publikasi), DATABASE
-    UJI DULU.** Presentasi 25-26 Nov, pembekuan 24 Nov.
+    UJI DULU.** Jadwal (diperbarui 24 Nov 2026): presentasi SUDAH 23 Nov
+    2026; **pembekuan diundur ke Jumat 27 Nov 2026** karena fitur formulir
+    pilihan penarikan dari masukan mentor (lihat di bawah).
     - `perbarui.py --db-uji --kecamatan`: memproses HANYA publikasi yang cocok
       `kecualikan_judul` (kebalikan saringan); publikasi lain di database uji
       tidak disentuh. `--kecamatan` tanpa `--db-uji` DITOLAK, juga bersama
@@ -220,12 +222,28 @@ Mahasiswa Politeknik Negeri Banjarmasin.
   - Argumen salah di perbarui.py kini exit 1 (dulu argparse 2 = "pembaruan
     lain berjalan" bagi .bat). `--tahun-min` < tahun_min_pilihan kini ditolak.
   - Uji: `uji_pipeline.py` bagian Q (pilihan; Q1 membandingkan dengan kode
-    git HEAD lewat junction `uji_lama/data`) dan A6-A7 (sampul revisi). Run
-    penuh `--kamus-head`: 140 lulus, 0 gagal, 3.299 detik.
-  - **`--kamus-head`** (uji_pipeline): kamus versi HEAD di salinan. Perlu
-    selama `data/kamus_sinonim.json` punya perubahan yang belum diterapkan ke
-    database uji (24 Nov: `p0` milik pemilik, belum di-commit) - tanpa itu
-    P2/C2/O1 gagal untuk publikasi yang judulnya terkena kamus baru.
+    commit TETAP `4c57072` = sebelum formulir, lewat junction `uji_lama/data`;
+    dulu `HEAD`, yang rusak begitu fitur di-commit) dan A6-A7 (sampul revisi).
+    Run penuh `--kamus-head` (sebelum commit fitur): 140 lulus, 0 gagal.
+  - **Kamus `p0` ("persentase penduduk miskin", istilah resmi BPS, arahan
+    mentor) di-commit 24 Nov.** Produksi sudah diterapkan (diperiksa hanya
+    membaca: 0 teks berbeda dari kamus sekarang); database uji belum (47
+    publikasi, 67 entri + 1 teks publikasi berbeda).
+  - **uji_pipeline bagian N** (selalu jalan, sebelum potret s0): kamus salinan
+    diterapkan ke database uji (`normalisasi_data.jalankan`), sehingga
+    ekspektasi P2/C2/O1 = isi dengan kamus yang sama dengan pipeline. P2b
+    memastikan publikasi domain uji yang terkena kamus baru berteks BARU.
+    `--kamus-head` (kamus versi HEAD di salinan) kini hanya opsi.
+    Run penuh tanpa opsi, kamus sekarang: **142 lulus, 0 gagal, 3.123 detik**.
+  - **Tarik kecil sungguhan ke DATABASE UJI (24 Nov sore, "BPS - Pegawai"):**
+    `--wilayah 6301 --tahun-min 2024 --tahun-maks 2024`. Cek dulu 27 baru
+    ~212 MB ~9 menit; tarik 27/27, 0 gagal, 221,7 MB, 765 detik, 0 OCR,
+    3.726 entri. Produksi CHECKSUM sama; folder PDF/sampul hanya +27/+27.
+    Sampel 25: 12 benar seluruhnya, 0 nilai salah (2025-2026 pembanding 15/25).
+    **Sensus Pertanian 2023 Tahap II** (6 publikasi, hanya rilis 2024):
+    keterangan "Tabel <judul>" / "<nomor> ..." / "Table" tidak dikenali, 1.240
+    tabel tanpa tombol PDF (saran, belum dikerjakan). Laporan:
+    `data/regresi/tarik-kecil-20261124/penilaian-sampel.md`.
   - `.bat` memanggil `%SystemRoot%\System32\find.exe` dengan jalur lengkap:
     `find` Git di PATH tidak mengenal `/i`.
   - **Jebakan alat:** heredoc di Bash tool memakan backslash (`\\n`, `\` di

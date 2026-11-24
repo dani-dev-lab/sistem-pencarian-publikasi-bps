@@ -1,0 +1,43 @@
+publikasi total 645
+baru (6301 rilis 2024) 27
+rilis selain 2025-2026 di luar 6301/2024 0
+entri publikasi baru 3726
+entri publikasi lain 44455
+publikasi lain diekstrak hari ini 0
+publikasi lain metadata diubah hari ini 0
+OCR baru (0, Decimal('0'))
+versi_data (1, 2600, datetime.datetime(2026, 11, 24, 6, 9, 32))
+
+per publikasi: kec | entri | tabel/gambar/lampiran/isi | bernomor(non-isi) | hal cetak | hal PDF asli | perkiraan
+515411a7 Analisis Hasil Survei Kebutuhan Data BPS Kabupaten Tanah Laut  -   87 4/23/19/41 nomor 46/46 hal 87 fisik 81 perk 2
+aeb3b69e Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II: Usa -  423 405/6/0/12 nomor 409/411 hal 401 fisik 11 perk 104
+4544fb10 Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II: Usa -  378 360/6/0/12 nomor 366/366 hal 368 fisik 11 perk 110
+94c7f596 Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II: Usa -  199 181/6/0/12 nomor 187/187 hal 186 fisik 11 perk 103
+d4295a1f Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II: Usa -  272 254/6/0/12 nomor 260/260 hal 258 fisik 11 perk 104
+bde68e87 Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II: Usa -  325 307/6/0/12 nomor 313/313 hal 312 fisik 11 perk 102
+c54b0ec3 Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II: Usa -  370 352/6/0/12 nomor 358/358 hal 349 fisik 11 perk 102
+24a5e477 Indikator Kesejahteraan Rakyat Kabupaten Tanah Laut 2024       -    8 1/1/6/0 nomor 8/8 hal 0 fisik 8 perk 0
+bd2aaa6f Kabupaten Tanah Laut dalam Angka 2024                          -  297 258/19/0/20 nomor 277/277 hal 289 fisik 291 perk 1
+8390ff6f Keadaan Angkatan Kerja di Kabupaten Tanah Laut Agustus 2023    -   52 17/0/26/9 nomor 12/43 hal 47 fisik 2 perk 0
+c33c4a65 Kecamatan Bajuin dalam Angka 2024                              K   76 61/1/0/14 nomor 62/62 hal 76 fisik 71 perk 1
+a6481970 Kecamatan Bati-Bati dalam Angka 2024                           K   81 66/1/0/14 nomor 67/67 hal 81 fisik 76 perk 1
+0f905fa3 Kecamatan Batu Ampar dalam Angka 2024                          K   81 66/1/0/14 nomor 67/67 hal 81 fisik 76 perk 1
+592e6064 Kecamatan Bumi Makmur dalam Angka 2024                         K   78 63/1/0/14 nomor 64/64 hal 78 fisik 73 perk 1
+70eef7e6 Kecamatan Jorong dalam Angka 2024                              K   78 63/1/0/14 nomor 64/64 hal 78 fisik 73 perk 1
+e7bc191e Kecamatan Kintap dalam Angka 2024                              K   81 66/1/0/14 nomor 67/67 hal 81 fisik 76 perk 1
+3a8acbf7 Kecamatan Kurau dalam Angka 2024                               K   78 63/1/0/14 nomor 64/64 hal 78 fisik 73 perk 1
+4e79b098 Kecamatan Panyipatan dalam Angka 2024                          K   77 62/1/0/14 nomor 63/63 hal 77 fisik 72 perk 1
+fdbcfe65 Kecamatan Pelaihari dalam Angka 2024                           K   87 72/1/0/14 nomor 73/73 hal 87 fisik 82 perk 1
+15c62b64 Kecamatan Takisung dalam Angka 2024                            K   79 64/1/0/14 nomor 65/65 hal 79 fisik 74 perk 1
+e19d3e4e Kecamatan Tambang Ulang dalam Angka 2024                       K   76 61/1/0/14 nomor 62/62 hal 76 fisik 71 perk 1
+726c4ae5 Produk Domestik Regional Bruto Kabupaten Tanah Laut Menurut La -   71 14/0/6/51 nomor 20/20 hal 71 fisik 28 perk 39
+6a6b5cbf Produk Domestik Regional Bruto Kabupaten Tanah Laut Menurut Pe -   63 19/5/6/33 nomor 30/30 hal 63 fisik 44 perk 13
+c4e6a652 Statistik Daerah Kabupaten Tanah Laut 2024                     -   53 6/22/1/24 nomor 25/29 hal 34 fisik 34 perk 6
+1d63b32f Statistik Kesejahteraan Rakyat Kabupaten Tanah Laut 2024       -   97 38/3/40/16 nomor 81/81 hal 97 fisik 87 perk 4
+096c06d8 Statistik Potensi Desa Kabupaten Tanah Laut 2024               -  113 85/0/0/28 nomor 85/85 hal 109 fisik 12 perk 76
+9e2af984 Tinjauan Perekonomian Kabupaten Tanah Laut 2024                -   46 5/16/0/25 nomor 19/21 hal 44 fisik 37 perk 3
+
+6301 rilis 2024, kab/kota              pub  16 entri  2854 (178/pub) | non-isi bernomor 98.5% | hal cetak 95.1% | hal PDF 51.1% (asli 24.2%) | tanpa keduanya 3.7%
+6301 rilis 2025-2026, kab/kota         pub  17 entri  1438 (85/pub) | non-isi bernomor 96.4% | hal cetak 95.9% | hal PDF 88.3% (asli 76.1%) | tanpa keduanya 0.8%
+6301 rilis 2024, kecamatan             pub  11 entri   872 (79/pub) | non-isi bernomor 100.0% | hal cetak 100.0% | hal PDF 95.0% (asli 93.7%) | tanpa keduanya 0.0%
+6301 rilis 2025-2026, kecamatan        pub  22 entri  1603 (73/pub) | non-isi bernomor 100.0% | hal cetak 58.1% | hal PDF 84.0% (asli 77.0%) | tanpa keduanya 3.3%

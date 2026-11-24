@@ -85,7 +85,7 @@ Dalam Angka) dan 6300 provinsi (79; PDF hardlink, tidak diunduh).
 | Uji | Isi | Hasil |
 |---|---|---|
 | Q0 | tanpa pilihan, tanpa perubahan: 0 PDF, 0 sampul; ringkasan mencatat pilihan bawaan | lulus |
-| Q1 | **tanpa pilihan = kode sebelumnya**: kode `git HEAD` dan kode baru dijalankan pada keadaan yang sama (1 publikasi baru, 1 direvisi). Permintaan daftar+PDF sama persis berikut urutannya (15/15), database sama per kunci, ringkasan inti sama, keluaran layar sama (angka/waktu dan baris sampul diabaikan). Satu-satunya beda: sampul publikasi direvisi diunduh ulang, dan kunci `pilihan` di ringkasan | 4/4 lulus |
+| Q1 | **tanpa pilihan = kode sebelumnya**: kode `git HEAD` (saat itu = sebelum formulir; kini commit tetap `4c57072`, lihat "Lanjutan") dan kode baru dijalankan pada keadaan yang sama (1 publikasi baru, 1 direvisi). Permintaan daftar+PDF sama persis berikut urutannya (15/15), database sama per kunci, ringkasan inti sama, keluaran layar sama (angka/waktu dan baris sampul diabaikan). Satu-satunya beda: sampul publikasi direvisi diunduh ulang, dan kunci `pilihan` di ringkasan | 4/4 lulus |
 | Q2a | `--wilayah 6305 --jenis kecamatan`: hanya kecamatan direvisi; kab/kota dan provinsi tidak disentuh, metadata pun tidak; daftar 6300 tidak diminta; "tidak lagi di daftar" kosong | lulus |
 | Q2b | `--jenis kabkota` | lulus |
 | Q2c | `--wilayah 6300 --tahun-min 2025 --tahun-maks 2025`: rilis 2026 tidak disentuh | lulus |
@@ -129,7 +129,8 @@ Run penuh pertama, **tanpa** `--kamus-head` (`uji-pipeline-penuh-kamus-kerja.txt
    Tapin yang judul entrinya memuat "persentase ... penduduk miskin". Dengan
    kamus versi HEAD, keempatnya lulus. Kamus pemilik tidak disentuh dan tidak
    ikut di-commit. Opsi baru `--kamus-head` di `uji_pipeline.py` untuk keadaan
-   ini; tanpa opsi, perilakunya tetap seperti dulu.
+   ini; tanpa opsi, perilakunya tetap seperti dulu. **Diganti sore harinya:**
+   kamus di-commit dan ekspektasi uji disesuaikan (bagian N, lihat "Lanjutan").
 2. **Galat di bagian Q (bug uji saya):** domain publikasi ditebak dari
    `per_id`, sehingga publikasi uji tambahan bagian B dianggap provinsi.
    Diperbaiki: domain dibaca dari database; publikasi tanpa PDF lokal tidak
@@ -197,16 +198,130 @@ lewat UI (`checksum-uji-*-cek-ui.json`).
 
 ## Belum dikerjakan / catatan
 
-- **Tarik sungguhan ke BPS belum** (sesuai instruksi). Usul tarik kecil:
-  `--wilayah 6301 --tahun-min 2024 --tahun-maks 2024`, **Cek dulu** lebih dulu.
-  Itu akan menjadi pertama kalinya PDF rilis 2024 dibaca parser; periksa sampel
-  hasilnya sebelum dipakai petugas.
+- Tarik sungguhan ke BPS: lihat "Lanjutan" di bawah (database uji saja).
 - Laju unduhan di perkiraan (5 MB/detik) dari pengukuran kantor; waktu
   "memeriksa daftar" pada pilihan tahun lama belum pernah diukur (halaman
   daftar yang dibaca bertambah sampai tahun tertua terpilih).
 - Ringkasan dan hasil cek mencatat pilihan; log pencarian tidak berubah.
-- **Perubahan kamus `p0` milik pemilik project** belum di-commit dan belum
-  diterapkan ke database uji/produksi. Selama begitu, `uji_pipeline.py` perlu
-  `--kamus-head` (lihat Uji).
-- Pengingat: CLAUDE.md mencatat pembekuan 24 Nov dan presentasi 25-26 Nov.
-  Kode ini belum di-push dan belum menyentuh produksi.
+- Kode ini belum di-push dan belum menyentuh produksi.
+
+## Lanjutan 24 Nov 2026 (sore)
+
+### 1. Kamus `p0` di-commit; ekspektasi uji disesuaikan
+
+`"p0": ["p0", "persentase penduduk miskin"]` (arahan mentor, P0 = istilah
+resmi BPS) di-commit. Akhir baris dirapikan ke format repo: LF, tanpa baris
+baru di akhir, byte demi byte sama dengan keluaran `_tulis_kamus` di
+/admin/kamus (berkas kerja sempat CRLF). Diff kamus: 4 baris.
+
+**Kenapa P2, C2 (2x), dan O1 dulu gagal, dan kenapa ekspektasi barunya benar.**
+- Yang diuji keempatnya: "ekstraksi ulang menghasilkan isi yang sama dengan
+  sebelumnya, per kunci, termasuk `teks_ternormalisasi`".
+- "Sebelumnya" = potret database uji, yang teksnya masih dinormalkan dengan
+  kamus lama. Pipeline mengekstrak ulang dengan kamus baru, sehingga frasa
+  "persentase duduk miskin" (sesudah stemming) menjadi "p0".
+- Jadi isi lama bukan lagi jawaban yang benar. Jawaban yang benar = isi lama
+  dengan kamus sekarang, dan itulah yang dihasilkan pipeline maupun tombol
+  "Terapkan ke data". Produksi sudah dalam keadaan itu: diperiksa dengan hanya
+  membaca, 0 teks produksi berbeda dari kamus sekarang (`cek_kamus_p0.py`).
+  Database uji belum: 47 publikasi, 67 entri, dan 1 teks publikasi berbeda.
+
+Perubahan uji (`tests/uji_pipeline.py`):
+- **Bagian N (baru, selalu jalan sebelum potret s0):** kamus salinan diterapkan
+  ke database uji lewat `normalisasi_data.jalankan()`, fungsi tombol "Terapkan
+  ke data". **N1** mewajibkan:
+  - hanya `teks_ternormalisasi` yang berubah, semua kolom lain identik;
+  - penerapan kedua mengubah 0 (idempoten).
+  Hasilnya: 67 entri, 1 publikasi, 47 publikasi terkena; di domain uji
+  `1d520ab0`, `37274162`, `42732c61`, persis tiga publikasi Tapin yang dulu
+  gagal. Database uji tetap dipulihkan dari dump awal di Z1.
+- **P2, C2, O1 tidak diubah:** tetap identik per kunci, termasuk teks.
+  Ekspektasinya (s0) kini isi database uji dengan kamus yang sama dengan
+  pipeline.
+- **P2b (baru, lebih ketat):** ketiga publikasi domain uji yang terkena kamus
+  baru harus berteks = s0 dan ≠ teks lama. Jadi uji juga gagal kalau pipeline
+  diam-diam memakai kamus lama.
+- `--kamus-head` tetap ada sebagai opsi, tetapi tidak diperlukan lagi.
+- `--hanya P` dengan kamus sekarang: 13 lulus, 0 gagal (N1, P1-P4, P2b, Z1-Z3).
+
+### 2. CLAUDE.md: jadwal
+
+Presentasi sudah 23 Nov 2026; pembekuan diundur ke **Jumat 27 Nov 2026**.
+
+### 3. Tarik kecil ke DATABASE UJI: Tanah Laut, rilis 2024
+
+Jaringan "BPS - Pegawai", webapi.bps.go.id -> 203.123.60.70. Bukti di
+`tarik-kecil-20261124/`.
+
+| | Cek dulu | Tarik |
+|---|---|---|
+| Perintah | `perbarui.py --db-uji --wilayah 6301 --tahun-min 2024 --tahun-maks 2024 --cek-dulu` | sama, tanpa `--cek-dulu` |
+| Publikasi | 27 baru, 0 direvisi | 27 diunduh, 27 diproses, **0 gagal**, kode keluar 0 |
+| Ukuran | ~212 MB (field size API) | 221,7 MB PDF + 4,0 MB sampul (27 resmi, 0 cadangan, 0 gagal) |
+| Waktu | perkiraan ~9 menit; cek 24 detik | **765 detik (12,8 menit)**: daftar 14,8 d, unduh 76,9 d (2.818 KB/detik, putus 0), ekstraksi 583,6 d, sampul 58 d |
+| OCR | - | **0 publikasi perlu OCR** (semua berlapis teks) |
+
+- Hasil: 27 publikasi (11 Kecamatan Dalam Angka), **3.726 entri**. Database
+  uji: 618 -> 645 publikasi, 44.455 -> 48.181 entri.
+- "Perlu diperiksa manual" (2):
+  - IKR 2024: 8/8 entri tanpa halaman cetak;
+  - Statistik Daerah 2024: 19/53, karena Daftarnya bertulisan rapat tanpa
+    spasi ("Gambar14.3 JumlahKendaraan...").
+- Yang berubah hanya data tarikan ini (`bukti-db-uji.txt`):
+  - 0 publikasi lain diekstrak ulang atau berubah metadatanya;
+  - entri publikasi lain tetap 44.455;
+  - di luar 6301/2024 tidak ada publikasi rilis sebelum 2025.
+- Folder bersama PDF/sampul/cache OCR: 0 berkas lama berubah (ukuran dan
+  mtime); baru 27 PDF + 27 sampul (`banding-berkas.txt`).
+  - Berkas itu milik publikasi yang hanya ada di database uji; produksi tidak
+    merujuknya.
+- **Produksi: CHECKSUM TABLE 6/6 sebelum = sesudah**
+  (`checksum-produksi-*.json`).
+
+**Mutu ekstraksi PDF rilis 2024**, sampel 25 acak dibaca satu per satu,
+dibandingkan dengan 25 acak Tanah Laut 2025-2026 dengan alat dan seed yang sama
+(`tarik-kecil-20261124/penilaian-sampel.md`):
+
+| | 2024 | 2025-2026 |
+|---|---|---|
+| Benar seluruhnya (judul, nomor, hal cetak, hal PDF) | 12/25 | 15/25 |
+| Nilai terisi tapi salah | **0** | 1 (subbab tercatat sebagai tabel) |
+| Tanpa tombol PDF | 11 (10 tabel Sensus Pertanian, 1 hal romawi) | 3 (entri isi) |
+| Tanpa halaman cetak | 1 | 5 (utang lama Tanah Laut 2025) |
+| Judul cacat | 2 (kop menempel; terpotong) | 1 (kop menempel) |
+
+- Mutu per entri setara, dan cacatnya berjenis sama.
+- Selisihnya dari satu seri yang hanya ada di rilis 2024: **Hasil Pencacahan
+  Lengkap Sensus Pertanian 2023 Tahap II** (6 publikasi, 1.967 entri).
+  - Tata letak keterangannya "Tabel <judul>" / "<nomor> <lanjutan>" / "Table"
+    tidak dikenali jalur badan maupun `lengkapi_halaman_fisik`.
+  - Halaman PDF asli hanya 3,4%; dengan perkiraan 35%; 1.240 tabel tanpa
+    tombol PDF.
+  - Nomor, judul, dan halaman cetaknya benar, dan 5/5 perkiraan di sampel tepat.
+- Tanpa seri itu, kab/kota 2024: halaman PDF 86,6% (2025-2026: 88,3%),
+  halaman cetak 94,8% (95,9%).
+- Kecamatan Dalam Angka 2024 justru lebih lengkap halaman cetaknya: 100% vs
+  58,1%.
+
+**Saran (belum dikerjakan, perlu keputusan):** kenali keterangan bertumpuk
+gaya Sensus Pertanian (baris "Tabel ..." diikuti baris berawal nomor) di
+`lengkapi_halaman_fisik`. Kerjakan dengan regresi penuh, seperti C1(a).
+Sebelum itu, Sensus Pertanian 2023 tetap dapat dicari, tetapi sebagian besar
+tabelnya tanpa tombol PDF.
+
+### Uji penuh dengan kamus sekarang
+
+**Tanpa `--kamus-head`: 142 lulus, 0 gagal, 0 dilewati, kode keluar 0,
+3.123 detik** (`uji-pipeline-penuh-kamus-p0.txt`). Termasuk N1, P2b, P2, C2,
+O1, Q1 (4/4), Z1, Z2. Database uji saat itu sudah berisi tarikan Tanah Laut
+2024 (P2: 645 publikasi identik per kunci).
+
+Run sebelumnya (`uji-pipeline-penuh-kamus-p0-q1head.txt`): 140 lulus, 2 gagal,
+keduanya Q1, dan penyebabnya ada di alat uji.
+- Q1 mengambil "kode sebelum formulir" dari `git HEAD`. Itu benar saat Q1
+  ditulis (fitur belum di-commit), tetapi sejak `abeab3b` HEAD sudah memuat
+  fiturnya.
+- Penjaga Q1 ("kode lama tanpa `--cek-dulu`") menangkapnya, sehingga uji
+  gagal, tidak lulus palsu.
+- Perbaikannya: pembanding dikunci ke commit tetap `4c57072` (=
+  `abeab3b^`). P2, C2, dan O1 sudah lulus di run itu.

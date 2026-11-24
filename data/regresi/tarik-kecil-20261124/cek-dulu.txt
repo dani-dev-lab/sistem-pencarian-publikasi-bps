@@ -1,0 +1,33 @@
+Database tujuan: db_pencarian_bps_uji @ localhost:3306 (UJI - bukan produksi)
+Log run ini: data/log_pembaruan\20261124-135712-cek.log
+Pilihan: wilayah: Kab. Tanah Laut; jenis (kab/kota): Publikasi kabupaten/kota + Kecamatan Dalam Angka; tahun rilis 2024-2024
+CEK DULU: hanya membaca daftar publikasi. Tidak ada PDF yang diunduh dan database tidak diubah.
+
+==========================================================================
+CEK 6301 Kab. Tanah Laut
+==========================================================================
+  halaman 1/? ... OK (10 item)
+  halaman 2/37 ... OK (10 item)
+  halaman 3/37 ... OK (10 item)
+  halaman 4/37 ... OK (10 item)
+  halaman 5/37 ... OK (10 item)
+  halaman 6/37 ... OK (10 item)
+  halaman 7/37 ... OK (10 item)
+  halaman 8/37 ... OK (10 item)
+  berhenti di halaman 8/37: seluruh isinya dirilis sebelum 2024 (daftar API terurut terbaru)
+  27 publikasi sesuai pilihan: baru 27, direvisi 0, baca ulang 0, tidak berubah 0; unduh 27 PDF (~212 MB)
+
+==========================================================================
+HASIL CEK
+==========================================================================
+  Akan diproses   : 27 publikasi (baru 27, direvisi 0, baca ulang 0); 0 tidak berubah
+  Unduhan         : 27 PDF, ~212 MB (field size API)
+  Perkiraan waktu : ~9 menit (daftar 24 d, unduh 69 d pada 5 MB/detik, baca PDF 381 d, sampul 40 d)
+  Jaringan lambat : unduhan saja bisa ~1.2 jam (50 KB/detik, terukur malam 9 Nov 2026)
+  Catatan         : Perkiraan belum termasuk OCR untuk PDF tanpa lapisan teks (sekitar 15 detik per halaman); itu baru diketahui sesudah PDF diunduh.
+  Catatan         : Mutu pembacaan PDF publikasi rilis sebelum 2025 belum pernah diuji. Periksa sampel hasilnya sebelum dipakai petugas.
+  Waktu cek       : 24 detik. Hasil: data/cek_pembaruan-uji.json
+
+  Tidak ada PDF yang diunduh dan database tidak diubah.
+
+Selesai 2026-11-24 13:57:36, kode keluar 0. Log: data/log_pembaruan\20261124-135712-cek.log
