@@ -25,6 +25,9 @@ FILE_RINGKASAN = BASE_DIR / "data" / "pembaruan_terakhir.json"
 # perbarui.py --db-uji menulis ringkasannya ke berkas terpisah (12 Nov 2026).
 FILE_RINGKASAN_UJI = BASE_DIR / "data" / "pembaruan_terakhir-uji.json"
 FILE_KUNCI = BASE_DIR / "data" / "pembaruan.lock"
+# perbarui.py --cek-dulu (24 Nov 2026): hitungan tanpa mengunduh.
+FILE_CEK = BASE_DIR / "data" / "cek_pembaruan.json"
+FILE_CEK_UJI = BASE_DIR / "data" / "cek_pembaruan-uji.json"
 SKRIP = BASE_DIR / "scripts" / "perbarui.py"
 
 _kunci = threading.Lock()
@@ -34,6 +37,8 @@ _keadaan = {
     "selesai": None,        # datetime UTC
     "kode_keluar": None,
     "baris": [],            # keluaran subprocess, satu string per baris
+    "jenis": None,          # "pembaruan" | "cek" (--cek-dulu)
+    "pilihan": None,        # pilihan_pembaruan.Pilihan run terakhir (isi ulang formulir)
 }
 
 
@@ -78,19 +83,26 @@ def sedang_berjalan():
     return pid_proses_lain() is not None
 
 
-def perintah(uji=False):
+def perintah(uji=False, argumen=()):
     """Baris perintah pembaruan.
 
     Aplikasi dengan KonfigurasiUji (KONFIGURASI_UJI = True) menjalankan
     perbarui.py --db-uji, supaya tombol di halaman admin tidak pernah menulis ke
     produksi selama pengujian (13 Nov 2026). Konfigurasi biasa tetap tanpa
     argumen: pembaruan ke database dari .env, seperti sebelumnya.
+
+    `argumen`: dari formulir (Pilihan.argumen(), ditambah --cek-dulu), jalur
+    yang sama dengan perbarui-data.bat. Formulir bawaan = tanpa argumen.
     """
-    return [sys.executable, "-u", str(SKRIP)] + (["--db-uji"] if uji else [])
+    return [sys.executable, "-u", str(SKRIP)] + (["--db-uji"] if uji else []) + list(argumen)
 
 
 def berkas_ringkasan(uji=False):
     return FILE_RINGKASAN_UJI if uji else FILE_RINGKASAN
+
+
+def berkas_cek(uji=False):
+    return FILE_CEK_UJI if uji else FILE_CEK
 
 
 def _pekerja(argumen):
@@ -117,21 +129,25 @@ def _pekerja(argumen):
         _keadaan["kode_keluar"] = kode
 
 
-def mulai(uji=False):
-    """Mulai pembaruan di thread latar. Return False kalau sudah ada yang jalan.
+def mulai(uji=False, pilihan=None, cek=False):
+    """Mulai pembaruan (atau --cek-dulu) di thread latar. Return False kalau
+    sudah ada yang jalan.
 
     `uji` = current_app.config["KONFIGURASI_UJI"]; lihat perintah().
+    `pilihan` = pilihan_pembaruan.Pilihan yang SUDAH diperiksa (None = bawaan).
     """
+    argumen = (pilihan.argumen() if pilihan is not None else []) + (["--cek-dulu"] if cek else [])
     with _kunci:
         if _keadaan["berjalan"]:
             return False
         if pid_proses_lain():
             return False
         _keadaan.update(berjalan=True, mulai=datetime.now(timezone.utc),
-                        selesai=None, kode_keluar=None, baris=[])
+                        selesai=None, kode_keluar=None, baris=[],
+                        jenis="cek" if cek else "pembaruan", pilihan=pilihan)
     # daemon: server yang dihentikan tidak menunggu; subprocess-nya sendiri
     # tetap hidup sampai selesai (setiap tahap menulis atomik, aman diulang).
-    threading.Thread(target=_pekerja, args=(perintah(uji),), daemon=True,
+    threading.Thread(target=_pekerja, args=(perintah(uji, argumen),), daemon=True,
                      name="pembaruan-data").start()
     return True
 
@@ -163,14 +179,25 @@ def keadaan():
             "selesai": _keadaan["selesai"],
             "kode_keluar": _keadaan["kode_keluar"],
             "baris": list(_keadaan["baris"]),
+            "jenis": _keadaan["jenis"],
+            "pilihan": _keadaan["pilihan"],
         }
+
+
+def hasil_cek(uji=False):
+    """Isi data/cek_pembaruan.json (ditulis perbarui.py --cek-dulu), atau None."""
+    return _baca_json(berkas_cek(uji))
 
 
 def ringkasan_terakhir(uji=False):
     """Isi data/pembaruan_terakhir.json (ditulis perbarui.py), atau None.
     Dengan uji=True: berkas ringkasan run --db-uji."""
+    return _baca_json(berkas_ringkasan(uji))
+
+
+def _baca_json(path):
     try:
-        with open(berkas_ringkasan(uji), encoding="utf-8") as f:
+        with open(path, encoding="utf-8") as f:
             isi = json.load(f)
     except (OSError, json.JSONDecodeError):
         return None

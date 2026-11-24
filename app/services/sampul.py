@@ -96,11 +96,20 @@ def info(pub_id):
 
 
 def _tulis_atomik(path, data):
+    """Berkas sementara lalu os.replace: pembaca tidak pernah melihat berkas
+    setengah jadi, dan kalau penulisan gagal, berkas lama tetap utuh."""
     os.makedirs(os.path.dirname(path), exist_ok=True)
     sementara = path + ".part"
-    with open(sementara, "wb") as f:
-        f.write(data)
-    os.replace(sementara, path)
+    try:
+        with open(sementara, "wb") as f:
+            f.write(data)
+        os.replace(sementara, path)
+    except BaseException:
+        try:
+            os.remove(sementara)
+        except OSError:
+            pass
+        raise
 
 
 def _periksa_gambar(data):
@@ -179,6 +188,34 @@ def dari_pdf(path_pdf, pub_id):
         return None
     except Exception as e:  # noqa: BLE001
         return samarkan_url(f"render halaman 1 gagal: {e}")[:200]
+
+
+def perbarui(pub_id, url, path_pdf):
+    """Sampul publikasi yang DIREVISI BPS (updt_date berubah, PDF baru saja
+    diunduh ulang), 24 Nov 2026. Sampul resmi diunduh ulang dan MENIMPA berkas
+    lama secara atomik (unduh -> _tulis_atomik: berkas .part lalu os.replace).
+
+    Kalau unduhan gagal, sampul lama tetap dipakai: berkas resmi tidak
+    disentuh. Publikasi yang belum punya sampul resmi mendapat cadangan baru
+    dari halaman 1 PDF yang baru; kalau itu juga gagal, cadangan lama (kalau
+    ada) tetap dipakai.
+
+    Kembalikan dict {hasil, byte, pesan}; hasil = "diperbarui" |
+    "lama_dipertahankan" | "cadangan" | "gagal". Pemanggil yang memberi jeda."""
+    stat = {}
+    pesan_unduh = unduh(url, pub_id, stat)
+    if pesan_unduh is None:
+        return {"hasil": "diperbarui", "byte": stat["byte"], "pesan": None}
+    if os.path.isfile(path_resmi(pub_id)):
+        return {"hasil": "lama_dipertahankan", "byte": 0, "pesan": pesan_unduh}
+    pesan_pdf = dari_pdf(path_pdf, pub_id)
+    if pesan_pdf is None:
+        return {"hasil": "cadangan", "byte": 0, "pesan": pesan_unduh}
+    if os.path.isfile(path_cadangan(pub_id)):
+        return {"hasil": "lama_dipertahankan", "byte": 0,
+                "pesan": "; ".join(p for p in (pesan_unduh, pesan_pdf) if p)}
+    return {"hasil": "gagal", "byte": 0,
+            "pesan": "; ".join(p for p in (pesan_unduh, pesan_pdf) if p)}
 
 
 def lengkapi(pub_id, url, path_pdf, online=True):

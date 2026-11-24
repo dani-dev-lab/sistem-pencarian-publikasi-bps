@@ -33,6 +33,8 @@ Thumbs.db
 data/pembaruan.lock
 data/pembaruan_terakhir.json
 data/pembaruan_terakhir-uji.json
+data/cek_pembaruan.json
+data/cek_pembaruan-uji.json
 data/log_pembaruan/
 data/pemeriksaan_domain.json
 

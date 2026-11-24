@@ -65,24 +65,36 @@ echo muncul satu per satu. Itu normal, bukan macet.
 echo.
 
 python scripts\perbarui.py %*
+rem Kode keluar disimpan dulu: perintah find di bawah mengubah errorlevel.
+set "KODE=%errorlevel%"
+set "CEK="
+rem find.exe Windows dengan jalur lengkap: find lain di PATH (mis. dari Git)
+rem tidak mengenal /i dan diam-diam gagal.
+echo.%* | "%SystemRoot%\System32\find.exe" /i "--cek-dulu" >nul && set "CEK=1"
 
 echo.
-if errorlevel 3 (
+if %KODE% GEQ 3 (
     echo ==========================================================
     echo   PEMBARUAN SELESAI SEBAGIAN - sebagian wilayah/publikasi gagal.
     echo ==========================================================
     echo   Yang berhasil sudah bisa dicari. Yang gagal tetap memakai data
     echo   lamanya dan dicoba lagi pada pembaruan berikutnya. Baca rincian di atas.
-) else if errorlevel 2 (
+) else if %KODE% EQU 2 (
     echo ==========================================================
     echo   TIDAK DIJALANKAN: pembaruan lain sedang berjalan.
     echo ==========================================================
     echo   Kemungkinan pengelola sedang menjalankannya dari halaman admin
     echo   di browser. Tunggu sampai selesai, lalu coba lagi kalau perlu.
-) else if errorlevel 1 (
+) else if %KODE% EQU 1 (
     echo ==========================================================
     echo   PEMBARUAN GAGAL - baca pesan di atas.
     echo ==========================================================
+) else if defined CEK (
+    echo ==========================================================
+    echo   CEK SELESAI - tidak ada PDF yang diunduh, database tidak diubah.
+    echo ==========================================================
+    echo   Kalau angkanya sesuai, jalankan lagi dengan pilihan yang sama
+    echo   TANPA --cek-dulu untuk memulai penarikan.
 ) else (
     echo ==========================================================
     echo   PEMBARUAN SELESAI.

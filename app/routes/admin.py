@@ -23,7 +23,8 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 from app.config import PANJANG_SANDI_MINIMAL, tulis_admin_hash
 from app.models import LogPencarian, db
-from app.services import pembaruan
+from app.services import pembaruan, pilihan_pembaruan
+from app.services.pilihan_pembaruan import PilihanTidakSah
 from app.services.normalisasi_data import jalankan as terapkan_normalisasi
 from app.services.preprocessing import muat_ulang_kamus, normalisasi
 
@@ -312,34 +313,92 @@ def _waktu_lokal(dt):
     return dt.astimezone().strftime("%d-%m-%Y %H:%M") if dt else None
 
 
-@bp.get("/perbarui")
-def perbarui():
+def _teks_durasi(detik):
+    """Detik -> "±3 menit" / "±2,5 jam" untuk perkiraan di hasil cek."""
+    detik = detik or 0
+    if detik < 90:
+        return f"±{max(1, round(detik))} detik"
+    if detik < 5400:
+        return f"±{round(detik / 60)} menit"
+    return f"±{detik / 3600:.1f} jam".replace(".", ",")
+
+
+def _nilai_formulir(p):
+    """Isi formulir dari Pilihan (bawaan, run terakhir, atau kiriman yang ditolak)."""
+    return {"wilayah": set(p.wilayah), "jenis": set(p.jenis), "dari": p.dari, "sampai": p.sampai}
+
+
+def _nilai_kiriman(form):
+    """Isi formulir dari kiriman yang DITOLAK: hanya nilai yang sah yang
+    ditampilkan ulang, sisanya bawaan."""
+    b = pilihan_pembaruan.bawaan()
+    tahun = pilihan_pembaruan.daftar_tahun()
+
+    def tahun_sah(nama, cadangan):
+        try:
+            t = int(form.get(nama, ""))
+        except ValueError:
+            return cadangan
+        return t if t in tahun else cadangan
+
+    return {"wilayah": set(form.getlist("wilayah")) & set(b.wilayah),
+            "jenis": set(form.getlist("jenis")) & set(pilihan_pembaruan.SEMUA_JENIS),
+            "dari": tahun_sah("dari", b.dari), "sampai": tahun_sah("sampai", b.sampai)}
+
+
+def _halaman_perbarui(nilai=None, galat=None, status=200):
     """Satu halaman untuk tiga keadaan: siap dimulai / sedang berjalan / selesai.
 
     Ringkasan hasil TIDAK ditebak dari teks log - dibaca dari
     data/pembaruan_terakhir.json yang ditulis perbarui.py sendiri. Karena
     berkas itu ditulis di jalur .bat juga, halaman ini tetap tahu hasil
     pembaruan terakhir meski dijalankan tim IT dari terminal.
+
+    Formulir pilihan (24 Nov 2026): diisi bawaan, atau pilihan run terakhir di
+    sesi server ini (supaya "Cek dulu" lalu "Mulai pembaruan" memakai pilihan
+    yang sama), atau kiriman yang ditolak.
     """
+    uji = _mode_uji()
     k = pembaruan.keadaan()
     pid_lain = None if k["berjalan"] else pembaruan.pid_proses_lain()
-    ringkasan = pembaruan.ringkasan_terakhir(_mode_uji())
+    ringkasan = pembaruan.ringkasan_terakhir(uji)
+    cek_sesi_ini = bool(k["selesai"]) and k["jenis"] == "cek"
 
     # Ringkasan dianggap milik run di sesi ini hanya kalau ditulis SETELAH
     # run itu dimulai; kalau tidak, proses berhenti sebelum sempat menulis.
     dari_sesi_ini = bool(
-        k["selesai"] and ringkasan and ringkasan["selesai_pada"]
+        k["selesai"] and not cek_sesi_ini and ringkasan and ringkasan["selesai_pada"]
         and ringkasan["selesai_pada"] >= k["mulai"])
+    cek = None
+    if cek_sesi_ini:
+        c = pembaruan.hasil_cek(uji)
+        if c and c["selesai_pada"] and c["selesai_pada"] >= k["mulai"]:
+            cek = c
 
+    aktif = pilihan_pembaruan.wilayah_aktif()
+    if nilai is None:
+        nilai = _nilai_formulir(k["pilihan"] or pilihan_pembaruan.bawaan())
     return render_template(
         "admin/perbarui.html",
-        berjalan=k["berjalan"], pid_lain=pid_lain,
+        berjalan=k["berjalan"], pid_lain=pid_lain, jenis_proses=k["jenis"] or "pembaruan",
         baris=k["baris"], kode_keluar=k["kode_keluar"],
-        selesai_sesi_ini=bool(k["selesai"]), dari_sesi_ini=dari_sesi_ini,
+        selesai_sesi_ini=bool(k["selesai"]) and not cek_sesi_ini, dari_sesi_ini=dari_sesi_ini,
+        cek_sesi_ini=cek_sesi_ini, cek=cek,
+        waktu_cek=_waktu_lokal(cek["selesai_pada"]) if cek else None,
         ringkasan=ringkasan,
         waktu_ringkasan=_waktu_lokal(ringkasan["selesai_pada"]) if ringkasan else None,
         waktu_mulai=_waktu_lokal(k["mulai"]),
-    )
+        f_provinsi=[w for w in aktif if w["kode"] == pilihan_pembaruan.DOMAIN_PROVINSI],
+        f_kabkota=[w for w in aktif if w["kode"] != pilihan_pembaruan.DOMAIN_PROVINSI],
+        f_tahun=pilihan_pembaruan.daftar_tahun(), f_nilai=nilai, f_galat=galat,
+        f_jumlah_wilayah=len(aktif), nama_jenis=pilihan_pembaruan.NAMA_JENIS,
+        tahun_teruji=pilihan_pembaruan.TAHUN_TERUJI, durasi=_teks_durasi,
+    ), status
+
+
+@bp.get("/perbarui")
+def perbarui():
+    return _halaman_perbarui()
 
 
 def _mode_uji():
@@ -349,7 +408,18 @@ def _mode_uji():
 
 @bp.post("/perbarui/mulai")
 def perbarui_mulai():
-    if not pembaruan.mulai(_mode_uji()):
+    """Tombol "Mulai pembaruan" dan "Cek dulu" (aksi=cek) di formulir pilihan.
+
+    Pilihan diperiksa DI SINI (pilihan_pembaruan.dari_formulir), bukan hanya
+    di browser; yang ditolak dirender ulang dengan pesan, HTTP 400, dan tidak
+    ada proses yang dimulai. POST tanpa formulir (tombol lama) = bawaan.
+    """
+    try:
+        pilihan = pilihan_pembaruan.dari_formulir(request.form)
+    except PilihanTidakSah as e:
+        return _halaman_perbarui(nilai=_nilai_kiriman(request.form), galat=e.galat, status=400)
+    cek = request.form.get("aksi") == "cek"
+    if not pembaruan.mulai(_mode_uji(), pilihan=pilihan, cek=cek):
         flash("Pembaruan sedang berjalan. Tunggu sampai selesai - dua pembaruan "
               "bersamaan bisa saling menimpa data.", "gagal")
     return redirect(url_for("admin.perbarui"))

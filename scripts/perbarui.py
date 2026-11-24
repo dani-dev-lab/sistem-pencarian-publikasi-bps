@@ -6,7 +6,16 @@ Untuk tiap domain aktif di data/wilayah.json:
   3. unduh PDF        yang baru, usang, hilang, atau rusak
   4. ekstrak + muat   langsung ke MySQL, satu publikasi per transaksi
   5. sampul           unduh sampul publikasi yang belum punya (data/sampul/),
-                      cadangan dari halaman 1 PDF kalau unduhan gagal
+                      cadangan dari halaman 1 PDF kalau unduhan gagal; sampul
+                      publikasi yang direvisi BPS (PDF diunduh ulang) diunduh
+                      ulang juga
+
+Pilihan penarikan (24 Nov 2026, sama dengan formulir /admin/perbarui; aturannya
+di app/services/pilihan_pembaruan.py): --wilayah, --jenis, --tahun-min,
+--tahun-maks. Tanpa pilihan = semua wilayah aktif, semua jenis, rilis tahun
+lalu sampai tahun ini, persis seperti sebelum ada pilihan. Publikasi di luar
+pilihan tidak disentuh dan tidak dihapus. --cek-dulu menghitung apa yang akan
+dikerjakan pilihan itu tanpa mengunduh PDF dan tanpa menulis database.
 
 Satu domain gagal TIDAK menghentikan domain lain, dan satu publikasi gagal tidak
 menghentikan publikasi lain. Yang gagal tetap memakai data lamanya dan dicoba
@@ -22,6 +31,8 @@ Kode keluar: 0 berhasil, 1 gagal, 2 ada pembaruan lain berjalan, 3 sebagian gaga
 Jalankan:  venv/Scripts/python.exe scripts/perbarui.py
            venv/Scripts/python.exe scripts/perbarui.py --hanya-periksa
            venv/Scripts/python.exe scripts/perbarui.py --lokal --paksa
+           venv/Scripts/python.exe scripts/perbarui.py --wilayah 6301 --jenis kabkota
+               --tahun-min 2024 --tahun-maks 2024 --cek-dulu        (satu baris)
 """
 
 import argparse
@@ -42,7 +53,9 @@ from sqlalchemy.engine import make_url
 from app import create_app
 from app.config import Config, KonfigurasiUji
 from app.models import EntriDokumen, Publikasi, db
-from app.services import pipeline_data, sampul, sumber_bps, versi_data
+from app.services import pilihan_pembaruan, pipeline_data, sampul, sumber_bps, versi_data
+from app.services.normalisasi_data import bersihkan_html
+from app.services.pilihan_pembaruan import PilihanTidakSah
 from app.services.sumber_bps import GagalAmbil, samarkan
 from app.services.wilayah import muat_wilayah, pola_judul_dikecualikan, wilayah_aktif
 
@@ -50,6 +63,10 @@ FILE_RINGKASAN = "data/pembaruan_terakhir.json"   # dibaca /admin/perbarui
 FILE_RINGKASAN_UJI = "data/pembaruan_terakhir-uji.json"   # run --db-uji
 FILE_KUNCI = "data/pembaruan.lock"                # berisi PID yang sedang jalan
 FILE_PEMERIKSAAN = "data/pemeriksaan_domain.json" # hasil --hanya-periksa
+FILE_CEK = "data/cek_pembaruan.json"              # hasil --cek-dulu
+FILE_CEK_UJI = "data/cek_pembaruan-uji.json"      # --cek-dulu --db-uji
+# Pilihan penarikan run ini (pilihan_pembaruan.Pilihan), diisi main().
+PILIHAN = None
 # OCR halaman tanpa lapisan teks (app/services/ocr.py). Dimatikan dengan
 # --tanpa-ocr: halaman itu lalu dilewati dan dicatat, perilaku sebelum OCR ada.
 OCR_AKTIF = True
@@ -62,6 +79,15 @@ TAHAP = ("ambil_metadata", "unduh", "ekstraksi", "muat")
 # Laju ekstraksi terukur (pemuatan ulang penuh 9 Nov 2026: 1.294 detik untuk
 # 721 MB PDF di laptop pengembang). Hanya untuk perkiraan di --hanya-periksa.
 DETIK_EKSTRAKSI_PER_MB = 1.8
+# Perkiraan unduhan untuk --cek-dulu. Cepat: terukur dari kantor dan sesudah
+# 01.00 (5.360 KB/detik, 9 dan 17 Nov 2026). Lambat: terukur pukul 20.30-00.00
+# saat penarikan 13 kab/kota (38-75 KB/detik, 9 Nov 2026).
+MB_PER_DETIK_UNDUH = 5.0
+MB_PER_DETIK_UNDUH_LAMBAT = 0.05
+# Ambang "penarikan besar" di hasil --cek-dulu (peringatan, tidak menolak).
+BESAR_PUBLIKASI = 50
+BESAR_MB = 1000
+BESAR_DETIK = 3600
 
 KODE_SUKSES, KODE_GAGAL, KODE_TERKUNCI, KODE_SEBAGIAN = 0, 1, 2, 3
 
@@ -210,7 +236,16 @@ def tulis_ringkasan(status, **isi):
     """
     isi.update(status=status,
                selesai_pada=datetime.now(timezone.utc).isoformat(timespec="seconds"))
+    if PILIHAN is not None:
+        isi.setdefault("pilihan", PILIHAN.ke_dict())
     tulis_atomik(FILE_RINGKASAN, isi)
+
+
+def cocok_pilihan(pub):
+    """Publikasi di database termasuk pilihan tahun rilis dan jenis?
+    Hanya dipakai kalau PILIHAN.menyaring_isi(); bawaan tidak menyaring."""
+    return (pub.tahun_terbit in PILIHAN.tahun()
+            and PILIHAN.cocok_jenis(pub.domain, pub.judul))
 
 
 # --------------------------------------------------------------------------
@@ -497,6 +532,10 @@ def proses_tugas(t, durasi, hasil):
               + (f", {stat['percobaan']} percobaan" if stat["percobaan"] > 1 else ""),
               flush=True)
         hasil["diunduh"] += 1
+        # Direvisi BPS: PDF yang pernah diproses diunduh ulang karena updt_date
+        # berubah. Sampulnya ikut diunduh ulang di akhir domain (proses_sampul).
+        if "updt_date berubah" in t["alasan"] and not t["belum_pernah"]:
+            hasil.setdefault("sampul_revisi", []).append(t["pub_id"])
 
     if HANYA_UNDUH:
         return
@@ -559,33 +598,57 @@ def proses_sampul(kode, opsi, hasil):
     punya cadangan dicoba lagi tiap pembaruan online. --lokal: tanpa jaringan,
     hanya membuat cadangan untuk yang belum punya berkas sama sekali.
     Tidak menulis database dan tidak mengubah status domain.
+
+    Sampul ikut revisi (24 Nov 2026): publikasi yang PDF-nya baru diunduh ulang
+    karena updt_date berubah (hasil["sampul_revisi"], dicatat proses_tugas)
+    diunduh ulang sampulnya walaupun sudah punya sampul resmi, lewat
+    sampul.perbarui: berkas sementara lalu os.replace, dan kalau unduhan gagal
+    sampul lama tetap dipakai. Publikasi yang tidak direvisi tidak diunduh ulang.
+
+    Dengan pilihan jenis/tahun (bukan bawaan), hanya publikasi di dalam
+    pilihan yang dikerjakan.
     """
     s = hasil["sampul"]
+    revisi = set(hasil.get("sampul_revisi", []))
     mulai = time.perf_counter()
     try:
-        daftar = (Publikasi.query.filter_by(domain=kode)
-                  .with_entities(Publikasi.id, Publikasi.judul, Publikasi.url_cover)
-                  .order_by(Publikasi.id).all())
+        q = Publikasi.query.filter_by(domain=kode).order_by(Publikasi.id)
+        if PILIHAN.menyaring_isi():
+            daftar = [(p.id, p.judul, p.url_cover) for p in q.all()
+                      if p.id in revisi or cocok_pilihan(p)]
+        else:
+            daftar = q.with_entities(Publikasi.id, Publikasi.judul, Publikasi.url_cover).all()
         db.session.commit()
-        perlu = [p for p in daftar
-                 if not os.path.isfile(sampul.path_resmi(p.id))
-                 and not (opsi.lokal and sampul.berkas(p.id))]
+        perlu = [(pid, judul, url) for pid, judul, url in daftar
+                 if pid in revisi
+                 or (not os.path.isfile(sampul.path_resmi(pid))
+                     and not (opsi.lokal and sampul.berkas(pid)))]
         if not perlu:
             return
-        print(f"  sampul: {len(perlu)} publikasi belum punya sampul"
-              + (" resmi" if not opsi.lokal else "") + ", dikerjakan", flush=True)
-        for p in perlu:
+        n_revisi = sum(1 for pid, _, _ in perlu if pid in revisi)
+        if len(perlu) > n_revisi:
+            print(f"  sampul: {len(perlu) - n_revisi} publikasi belum punya sampul"
+                  + (" resmi" if not opsi.lokal else "") + ", dikerjakan", flush=True)
+        if n_revisi:
+            print(f"  sampul: {n_revisi} publikasi direvisi BPS, sampulnya diunduh ulang",
+                  flush=True)
+        for pid, judul, url in perlu:
             if not opsi.lokal:
                 time.sleep(sumber_bps.JEDA_DETIK)   # jeda sesuai Term of Use
-            r = sampul.lengkapi(p.id, p.url_cover, sumber_bps.path_pdf(kode, p.id),
-                                online=not opsi.lokal)
+            path_pdf = sumber_bps.path_pdf(kode, pid)
+            if pid in revisi:
+                r = sampul.perbarui(pid, url, path_pdf)
+            else:
+                r = sampul.lengkapi(pid, url, path_pdf, online=not opsi.lokal)
             s[r["hasil"]] += 1
             s["byte"] += r["byte"]
-            if r["hasil"] != "resmi":
-                print(f"    sampul {p.judul[:46]:<46} {r['hasil']}"
+            if r["hasil"] not in ("resmi", "diperbarui"):
+                print(f"    sampul {judul[:46]:<46} {r['hasil']}"
                       + (f" ({r['pesan'][:90]})" if r["pesan"] else ""), flush=True)
         print(f"  sampul: resmi {s['resmi']}, cadangan PDF {s['cadangan']}, cadangan lama "
-              f"dipertahankan {s['cadangan_lama']}, gagal {s['gagal']}", flush=True)
+              f"dipertahankan {s['cadangan_lama']}, gagal {s['gagal']}"
+              + (f"; revisi: diperbarui {s['diperbarui']}, sampul lama dipertahankan "
+                 f"{s['lama_dipertahankan']}" if n_revisi else ""), flush=True)
     except Exception as e:  # noqa: BLE001 - sampul tidak boleh menggagalkan domain
         db.session.rollback()
         s["galat"] = sampul.samarkan_url(e)[:200]
@@ -614,7 +677,7 @@ def putaran_ulang(kode, tugas, durasi, hasil, opsi):
           f"{JEDA_PUTARAN_ULANG} detik, dengan URL segar", flush=True)
     time.sleep(JEDA_PUTARAN_ULANG)
     try:
-        jendela = sumber_bps.tahun_dipakai(opsi.tahun_min)
+        jendela = PILIHAN.tahun()
         segar = {p["pub_id"]: p.get("pdf") for p in sumber_bps.ambil_domain(
             kode, berhenti_sebelum_tahun=min(jendela) if sumber_bps.DAFTAR_TERURUT_TERBARU else None)}
     except GagalAmbil as e:
@@ -646,7 +709,7 @@ def proses_domain(w, opsi, terhalang):
                     "putus": 0, "percobaan_ulang": 0, "putaran_ulang": 0,
                     "pulih_di_putaran_ulang": 0},
         "sampul": {"resmi": 0, "cadangan": 0, "cadangan_lama": 0, "gagal": 0,
-                   "byte": 0, "detik": 0.0},
+                   "diperbarui": 0, "lama_dipertahankan": 0, "byte": 0, "detik": 0.0},
     }
     judul_bagian(f"DOMAIN {kode} {w['nama']}")
 
@@ -659,7 +722,7 @@ def proses_domain(w, opsi, terhalang):
         di_daftar = None
         if not opsi.lokal:
             mulai = time.perf_counter()
-            jendela = sumber_bps.tahun_dipakai(opsi.tahun_min)
+            jendela = PILIHAN.tahun()   # bawaan = tahun_dipakai(): tahun lalu s.d. tahun ini
             semua = sumber_bps.ambil_domain(
                 kode, berhenti_sebelum_tahun=min(jendela) if sumber_bps.DAFTAR_TERURUT_TERBARU else None)
             durasi["ambil_metadata"] = time.perf_counter() - mulai
@@ -680,10 +743,19 @@ def proses_domain(w, opsi, terhalang):
             else:
                 print(f"  {len(semua)} publikasi dibaca dari daftar, {len(lolos)} lolos filter tahun"
                       f" dan judul ({len(dikecualikan)} dikecualikan menurut judul)")
+                if not PILIHAN.jenis_bawaan():
+                    lolos, luar = saring_jenis(kode, lolos)
+                    print(f"  pilihan jenis ({', '.join(PILIHAN.jenis)}): {len(lolos)} diproses, "
+                          f"{len(luar)} di luar pilihan (tidak disentuh)")
 
             # Nol hasil padahal data lama ada hampir pasti kegagalan penarikan,
-            # bukan BPS menghapus seluruh publikasinya.
-            sudah_ada = Publikasi.query.filter_by(domain=kode).count()
+            # bukan BPS menghapus seluruh publikasinya. Dengan pilihan jenis/
+            # tahun, yang dihitung hanya data lama di dalam pilihan itu.
+            if PILIHAN.menyaring_isi():
+                sudah_ada = sum(1 for p in Publikasi.query.filter_by(domain=kode).all()
+                                if cocok_pilihan(p))
+            else:
+                sudah_ada = Publikasi.query.filter_by(domain=kode).count()
             db.session.commit()
             if not lolos and sudah_ada:
                 raise GagalAmbil("0 publikasi lolos filter padahal database berisi "
@@ -695,6 +767,13 @@ def proses_domain(w, opsi, terhalang):
             hasil["tabrakan"] = meta["tabrakan"]
             # --kecamatan: publikasi non-kecamatan memang tidak di daftar yang disaring.
             hasil["tidak_di_daftar"] = [] if opsi.kecamatan else meta["tidak_di_daftar"]
+            if PILIHAN.menyaring_isi() and hasil["tidak_di_daftar"]:
+                # Publikasi di luar pilihan memang tidak ada di daftar yang disaring.
+                tetap = {p.id for p in Publikasi.query.filter(Publikasi.id.in_(
+                    [x["pub_id"] for x in hasil["tidak_di_daftar"]])).all() if cocok_pilihan(p)}
+                db.session.commit()
+                hasil["tidak_di_daftar"] = [x for x in hasil["tidak_di_daftar"]
+                                            if x["pub_id"] in tetap]
             # Yang bertabrakan bukan milik domain ini, jadi tidak ikut diproses.
             milik_lain = {t["pub_id"] for t in meta["tabrakan"]}
             di_daftar = {p["pub_id"] for p in lolos} - milik_lain
@@ -707,7 +786,8 @@ def proses_domain(w, opsi, terhalang):
                 print(f"  tidak lagi di daftar API (dibiarkan): {t['judul'][:60]}")
 
         tugas, hasil["menunggu_unduhan"] = pipeline_data.susun_rencana(
-            kode, di_daftar, paksa=opsi.paksa)
+            kode, di_daftar, paksa=opsi.paksa,
+            pilih=cocok_pilihan if PILIHAN.menyaring_isi() else None)
         hasil["jumlah_publikasi"] = Publikasi.query.filter_by(domain=kode).count()
         db.session.commit()
 
@@ -773,8 +853,19 @@ def ringkas_unduhan(per_domain):
     return total
 
 
+def saring_jenis(kode, daftar):
+    """Daftar API -> (sesuai pilihan jenis, di luar pilihan). Judul dibersihkan
+    seperti simpan_metadata sebelum dicocokkan dengan pola_kecamatan."""
+    lolos, luar = [], []
+    for p in daftar:
+        judul = (bersihkan_html(p.get("title")) or "").strip()
+        (lolos if PILIHAN.cocok_jenis(kode, judul) else luar).append(p)
+    return lolos, luar
+
+
 def ringkas_sampul(per_domain):
-    total = {"resmi": 0, "cadangan": 0, "cadangan_lama": 0, "gagal": 0, "byte": 0, "detik": 0.0}
+    total = {"resmi": 0, "cadangan": 0, "cadangan_lama": 0, "gagal": 0, "diperbarui": 0,
+             "lama_dipertahankan": 0, "byte": 0, "detik": 0.0}
     for d in per_domain:
         for k in total:
             total[k] += d.get("sampul", {}).get(k, 0)
@@ -800,7 +891,9 @@ def cetak_ringkasan(status, per_domain, entri_sebelum, entri_sesudah, durasi_tot
     sp = ringkas_sampul(per_domain)
     print(f"  Sampul       : resmi {sp['resmi']} ({sp['byte'] / 1e6:.1f} MB), cadangan PDF "
           f"{sp['cadangan']}, cadangan lama dipertahankan {sp['cadangan_lama']}, "
-          f"gagal {sp['gagal']}, {sp['detik']:.0f} detik")
+          f"gagal {sp['gagal']}, {sp['detik']:.0f} detik"
+          + (f"; revisi: diperbarui {sp['diperbarui']}, lama dipertahankan "
+             f"{sp['lama_dipertahankan']}" if sp["diperbarui"] or sp["lama_dipertahankan"] else ""))
 
     print()
     print(f"  {'domain':<34}{'status':<16}{'publikasi':>9}{'diunduh':>9}"
@@ -825,7 +918,11 @@ def cetak_ringkasan(status, per_domain, entri_sebelum, entri_sesudah, durasi_tot
 
 def jalankan_pembaruan(opsi):
     mulai = time.time()
-    aktif = wilayah_aktif()
+    semua_aktif = wilayah_aktif()
+    # Pilihan wilayah (bawaan: semua aktif). Wilayah di luar pilihan tidak disentuh.
+    aktif = [w for w in semua_aktif if w["kode"] in PILIHAN.wilayah]
+    if not PILIHAN.bawaan():
+        print(f"Pilihan: {uraian_pilihan()}")
     if not aktif:
         print("Tidak ada domain aktif di data/wilayah.json.")
         tulis_ringkasan("gagal", tahap="konfigurasi", jaringan=False,
@@ -849,7 +946,10 @@ def jalankan_pembaruan(opsi):
         return KODE_GAGAL
 
     entri_sebelum = EntriDokumen.query.count()
-    terhalang = {} if opsi.lokal else domain_terhalang(aktif)
+    # Dihitung dari SEMUA wilayah aktif, bukan hanya pilihan: satu wilayah
+    # terpilih pun bisa bertabrakan dengan wilayah lain yang sudah dimuat.
+    terhalang = {} if opsi.lokal else {
+        k: v for k, v in domain_terhalang(semua_aktif).items() if k in PILIHAN.wilayah}
     db.session.commit()
     # Semua wilayah terhalang = tidak ada yang bisa dikerjakan. Berhenti di
     # sini dengan SATU pesan yang menunjuk ke --hanya-periksa, sebelum jaringan
@@ -921,8 +1021,198 @@ def jalankan_pembaruan(opsi):
     return {"gagal": KODE_GAGAL, "sebagian": KODE_SEBAGIAN}.get(status, KODE_SUKSES)
 
 
+# --------------------------------------------------------------------------
+# --cek-dulu: hitung tanpa mengunduh
+# --------------------------------------------------------------------------
+
+def uraian_pilihan():
+    """Pilihan run ini dalam satu baris, untuk keluaran dan log."""
+    d = PILIHAN.ke_dict()
+    wil = "semua wilayah aktif" if PILIHAN.wilayah_bawaan() else ", ".join(d["nama_wilayah"])
+    jenis = (" + ".join(pilihan_pembaruan.NAMA_JENIS[j] for j in PILIHAN.jenis)
+             if PILIHAN.ada_kabkota() else "-")
+    return f"wilayah: {wil}; jenis (kab/kota): {jenis}; tahun rilis {PILIHAN.dari}-{PILIHAN.sampai}"
+
+
+def rencana_cek(kode, daftar):
+    """Apa yang akan dikerjakan pembaruan untuk `daftar` (daftar API yang sudah
+    disaring pilihan), TANPA menulis apa pun. Aturannya meniru
+    simpan_metadata + susun_rencana:
+      baru        belum ada di database, atau belum pernah berhasil dibaca
+      direvisi    updt_date API berbeda dari updt_date yang terakhir diproses
+                  (PDF diunduh ulang, sampul juga)
+      baca_ulang  PDF lokal hilang/rusak (diunduh lagi) atau berubah
+      tetap       tidak dikerjakan
+    Ukuran dari field `size` API: per berkas meleset, jumlahnya cocok.
+    """
+    h = {"di_daftar": len(daftar), "baru": 0, "direvisi": 0, "baca_ulang": 0, "tetap": 0,
+         "tabrakan": 0, "unduh": 0, "mb_unduh": 0.0, "mb_baca": 0.0, "contoh": []}
+    for p in daftar:
+        pid = p["pub_id"]
+        pub = db.session.get(Publikasi, pid)
+        if pub is not None and pub.domain != kode:
+            h["tabrakan"] += 1          # tidak ditimpa pembaruan (simpan_metadata)
+            continue
+        path = sumber_bps.path_pdf(kode, pid)
+        updt_api = pipeline_data.tanggal(p.get("updt_date")) or (pub.updt_date_api if pub else None)
+        updt_berubah = updt_api is not None and updt_api != (pub.updt_date_diproses if pub else None)
+        utuh = sumber_bps.berkas_pdf_valid(path)
+        sidik_berubah = (pub is not None and utuh
+                         and sumber_bps.sidik_pdf(path) != (pub.sidik_ukuran, pub.sidik_mtime))
+        if pub is None or pub.diekstrak_pada is None:
+            jenis = "baru"
+        elif updt_berubah:
+            jenis = "direvisi"
+        elif not utuh or sidik_berubah:
+            jenis = "baca_ulang"
+        else:
+            h["tetap"] += 1
+            continue
+        h[jenis] += 1
+        mb_api = sumber_bps.ukuran_mb(p.get("size"))
+        if updt_berubah or not utuh:
+            h["unduh"] += 1
+            h["mb_unduh"] += mb_api
+            h["mb_baca"] += mb_api
+        else:
+            h["mb_baca"] += os.path.getsize(path) / 1e6
+        if len(h["contoh"]) < 5:
+            h["contoh"].append({"pub_id": pid, "jenis": jenis, "rl_date": p.get("rl_date"),
+                                "judul": (bersihkan_html(p.get("title")) or "").strip()[:120]})
+    db.session.commit()
+    h["mb_unduh"] = round(h["mb_unduh"], 1)
+    h["mb_baca"] = round(h["mb_baca"], 1)
+    return h
+
+
+def perkiraan_cek(total, detik_daftar):
+    """Perkiraan waktu + peringatan dari hitungan --cek-dulu."""
+    kerja = total["baru"] + total["direvisi"] + total["baca_ulang"]
+    detik = {
+        "daftar": round(detik_daftar),
+        "unduh": round(total["mb_unduh"] / MB_PER_DETIK_UNDUH + total["unduh"] * sumber_bps.JEDA_DETIK),
+        "baca_pdf": round(total["mb_baca"] * DETIK_EKSTRAKSI_PER_MB),
+        "sampul": round((total["baru"] + total["direvisi"]) * (sumber_bps.JEDA_DETIK + 0.5)),
+    }
+    detik["total"] = sum(detik.values())
+    detik["unduh_lambat"] = round(total["mb_unduh"] / MB_PER_DETIK_UNDUH_LAMBAT)
+    peringatan = []
+    if kerja >= BESAR_PUBLIKASI:
+        peringatan.append(f"{kerja} publikasi akan diproses (>= {BESAR_PUBLIKASI}).")
+    if total["mb_unduh"] >= BESAR_MB:
+        peringatan.append(f"Unduhan sekitar {total['mb_unduh'] / 1000:.1f} GB (>= {BESAR_MB / 1000:.0f} GB).")
+    if detik["total"] >= BESAR_DETIK:
+        peringatan.append(f"Perkiraan waktu sekitar {detik['total'] / 3600:.1f} jam (>= 1 jam).")
+    catatan = ["Perkiraan belum termasuk OCR untuk PDF tanpa lapisan teks (sekitar 15 detik per "
+               "halaman); itu baru diketahui sesudah PDF diunduh."]
+    if PILIHAN.dari < pilihan_pembaruan.TAHUN_TERUJI:
+        catatan.append(f"Mutu pembacaan PDF publikasi rilis sebelum {pilihan_pembaruan.TAHUN_TERUJI} "
+                       "belum pernah diuji. Periksa sampel hasilnya sebelum dipakai petugas.")
+    return {"publikasi_diproses": kerja, "detik": detik, "besar": bool(peringatan),
+            "peringatan": peringatan, "catatan": catatan,
+            "laju_unduh_mb_per_detik": MB_PER_DETIK_UNDUH,
+            "laju_unduh_lambat_mb_per_detik": MB_PER_DETIK_UNDUH_LAMBAT,
+            "detik_baca_per_mb": DETIK_EKSTRAKSI_PER_MB}
+
+
+def jalankan_cek():
+    """--cek-dulu: berapa publikasi yang akan diproses pilihan ini, per wilayah,
+    plus perkiraan waktu dan ukuran. Hanya membaca daftar WebAPI (jeda 1 detik
+    per halaman, berhenti lebih awal seperti pembaruan) dan database; tidak
+    mengunduh PDF/sampul dan tidak menulis database. Hasil di FILE_CEK."""
+    mulai = time.time()
+    semua_aktif = wilayah_aktif()
+    aktif = [w for w in semua_aktif if w["kode"] in PILIHAN.wilayah]
+    print(f"Pilihan: {uraian_pilihan()}")
+    print("CEK DULU: hanya membaca daftar publikasi. Tidak ada PDF yang diunduh dan "
+          "database tidak diubah.")
+    terhalang = {k: v for k, v in domain_terhalang(semua_aktif).items() if k in PILIHAN.wilayah}
+    db.session.commit()
+    jendela = PILIHAN.tahun()
+    per_domain = []
+    detik_daftar = 0.0
+    for i, w in enumerate(aktif):
+        kode = w["kode"]
+        judul_bagian(f"CEK {kode} {w['nama']}")
+        d = {"kode": kode, "wilayah": w["nama"], "status": "berhasil", "pesan": None,
+             "jaringan": False, "terhalang": terhalang.get(kode)}
+        t0 = time.perf_counter()
+        try:
+            semua = sumber_bps.ambil_domain(
+                kode, berhenti_sebelum_tahun=min(jendela) if sumber_bps.DAFTAR_TERURUT_TERBARU else None)
+            detik_daftar += time.perf_counter() - t0
+            lolos = sumber_bps.saring_tahun(semua, jendela)
+            lolos, _ = sumber_bps.saring_judul(lolos, pola_judul_dikecualikan())
+            lolos, _ = saring_jenis(kode, lolos)
+            d.update(rencana_cek(kode, lolos))
+            print(f"  {len(lolos)} publikasi sesuai pilihan: baru {d['baru']}, direvisi "
+                  f"{d['direvisi']}, baca ulang {d['baca_ulang']}, tidak berubah {d['tetap']}; "
+                  f"unduh {d['unduh']} PDF (~{d['mb_unduh']:,.0f} MB)")
+            if d["terhalang"]:
+                print(f"  CATATAN: wilayah ini akan DILEWATI pembaruan: {d['terhalang']}")
+        except GagalAmbil as e:
+            d.update(status="gagal", pesan=samarkan(e), jaringan=e.jaringan)
+            print(f"  GAGAL: {d['pesan']}")
+        per_domain.append(d)
+        if i < len(aktif) - 1:
+            time.sleep(sumber_bps.JEDA_DETIK)   # jeda sesuai Term of Use
+
+    ok = [d for d in per_domain if d["status"] == "berhasil"]
+    total = {k: sum(d.get(k, 0) for d in ok)
+             for k in ("di_daftar", "baru", "direvisi", "baca_ulang", "tetap", "tabrakan", "unduh")}
+    total["mb_unduh"] = round(sum(d["mb_unduh"] for d in ok), 1)
+    total["mb_baca"] = round(sum(d["mb_baca"] for d in ok), 1)
+    perkiraan = perkiraan_cek(total, detik_daftar)
+    gagal = [d for d in per_domain if d["status"] == "gagal"]
+    status = "gagal" if per_domain and len(gagal) == len(per_domain) else "sebagian" if gagal else "berhasil"
+    tulis_atomik(FILE_CEK, {
+        "status": status, "selesai_pada": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "durasi_detik": round(time.time() - mulai), "pilihan": PILIHAN.ke_dict(),
+        "domain": per_domain, "total": total, "perkiraan": perkiraan,
+        "jaringan": any(d["jaringan"] for d in gagal),
+    })
+
+    judul_bagian("HASIL CEK")
+    dt = perkiraan["detik"]
+    print(f"  Akan diproses   : {perkiraan['publikasi_diproses']} publikasi (baru {total['baru']}, "
+          f"direvisi {total['direvisi']}, baca ulang {total['baca_ulang']}); "
+          f"{total['tetap']} tidak berubah")
+    print(f"  Unduhan         : {total['unduh']} PDF, ~{total['mb_unduh']:,.0f} MB (field size API)")
+    print(f"  Perkiraan waktu : ~{dt['total'] / 60:,.0f} menit (daftar {dt['daftar']} d, unduh "
+          f"{dt['unduh']} d pada {MB_PER_DETIK_UNDUH:g} MB/detik, baca PDF {dt['baca_pdf']} d, "
+          f"sampul {dt['sampul']} d)")
+    if total["mb_unduh"]:
+        print(f"  Jaringan lambat : unduhan saja bisa ~{dt['unduh_lambat'] / 3600:,.1f} jam "
+              f"({MB_PER_DETIK_UNDUH_LAMBAT * 1000:g} KB/detik, terukur malam 9 Nov 2026)")
+    for p in perkiraan["peringatan"]:
+        print(f"  PERINGATAN      : {p}")
+    if perkiraan["besar"]:
+        print("                    Penarikan besar: jalankan malam hari (sesudah 01.00), laptop "
+              "tersambung listrik, layar jangan ditutup.")
+    for c in perkiraan["catatan"]:
+        print(f"  Catatan         : {c}")
+    for d in gagal:
+        print(f"  GAGAL {d['kode']} {d['wilayah']}: {d['pesan']}")
+    print(f"  Waktu cek       : {time.time() - mulai:.0f} detik. Hasil: {FILE_CEK}")
+    print("\n  Tidak ada PDF yang diunduh dan database tidak diubah.")
+    if status == "gagal" and any(d["jaringan"] for d in gagal):
+        print(PESAN_JARINGAN)
+    return {"gagal": KODE_GAGAL, "sebagian": KODE_SEBAGIAN}.get(status, KODE_SUKSES)
+
+
+class PenguraiArgumen(argparse.ArgumentParser):
+    """Argumen salah keluar dengan KODE_GAGAL (1), bukan 2 bawaan argparse:
+    kode 2 berarti "pembaruan lain sedang berjalan" bagi perbarui-data.bat."""
+
+    def error(self, message):
+        self.print_usage(sys.stderr)
+        print(f"DITOLAK: argumen tidak sah: {message}", file=sys.stderr)
+        sys.exit(KODE_GAGAL)
+
+
 def main():
-    arg = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    global OCR_AKTIF, FILE_RINGKASAN, HANYA_UNDUH, PILIHAN, FILE_CEK
+    arg = PenguraiArgumen(description=__doc__.splitlines()[0])
     arg.add_argument("--paksa", action="store_true",
                      help="Ekstrak ulang SEMUA publikasi, bukan hanya yang perlu. "
                           "Pakai setiap kali parser diperbarui.")
@@ -937,7 +1227,22 @@ def main():
                      help="Jangan memakai OCR (EasyOCR maupun cache-nya). Halaman "
                           "PDF tanpa lapisan teks dilewati dan dicatat.")
     arg.add_argument("--tahun-min", type=int, default=None,
-                     help="Tahun rilis paling awal (default: 2 tahun terakhir).")
+                     help="Tahun rilis paling awal (default: tahun lalu). Tidak boleh sebelum "
+                          "tahun_min_pilihan di data/wilayah.json.")
+    arg.add_argument("--tahun-maks", type=int, default=None,
+                     help="Tahun rilis paling akhir (default: tahun ini). Tahun yang belum "
+                          "tiba ditolak.")
+    arg.add_argument("--wilayah", nargs="+", default=None, metavar="KODE",
+                     help="Hanya wilayah ini: kode domain, dipisah koma atau spasi, misalnya "
+                          "6300,6301. Harus wilayah aktif. Default: semua wilayah aktif.")
+    arg.add_argument("--jenis", nargs="+", default=None, metavar="JENIS",
+                     help="Jenis publikasi kabupaten/kota: kabkota (publikasi kab/kota), "
+                          "kecamatan (Kecamatan Dalam Angka, menurut pola_kecamatan). Default: "
+                          "keduanya. Provinsi tidak terpengaruh.")
+    arg.add_argument("--cek-dulu", action="store_true",
+                     help="Hitung berapa publikasi yang akan diproses pilihan ini per wilayah, "
+                          "plus perkiraan waktu dan ukuran. Hanya membaca daftar WebAPI; tidak "
+                          f"mengunduh PDF dan tidak mengubah database. Hasil di {FILE_CEK}.")
     arg.add_argument("--db-uji", action="store_true",
                      help="Tulis ke database UJI (KonfigurasiUji: nama database di "
                           "DATABASE_URL + '_uji'), bukan produksi. Ringkasan ditulis ke "
@@ -961,12 +1266,35 @@ def main():
     if opsi.kecamatan and (opsi.lokal or opsi.paksa or opsi.hanya_periksa):
         print("DITOLAK: --kecamatan tidak boleh bersama --lokal, --paksa, atau --hanya-periksa.")
         sys.exit(KODE_GAGAL)
-    global OCR_AKTIF, FILE_RINGKASAN, HANYA_UNDUH
+    pilihan_baru = [n for n, v in (("--wilayah", opsi.wilayah), ("--jenis", opsi.jenis),
+                                   ("--tahun-maks", opsi.tahun_maks), ("--cek-dulu", opsi.cek_dulu))
+                    if v not in (None, False)]
+    if pilihan_baru and opsi.hanya_periksa:
+        print(f"DITOLAK: --hanya-periksa selalu memeriksa semua wilayah dan semua tahun; tidak "
+              f"bisa digabung dengan {', '.join(pilihan_baru)}.")
+        sys.exit(KODE_GAGAL)
+    if pilihan_baru and opsi.kecamatan:
+        print(f"DITOLAK: --kecamatan tidak bisa digabung dengan {', '.join(pilihan_baru)}; "
+              "pakai --jenis kecamatan.")
+        sys.exit(KODE_GAGAL)
+    if opsi.cek_dulu and (opsi.lokal or opsi.paksa):
+        print("DITOLAK: --cek-dulu menghitung pembaruan online biasa; tidak bisa digabung "
+              "dengan --lokal atau --paksa.")
+        sys.exit(KODE_GAGAL)
+    try:
+        PILIHAN = pilihan_pembaruan.periksa(wilayah=opsi.wilayah, jenis=opsi.jenis,
+                                            dari=opsi.tahun_min, sampai=opsi.tahun_maks)
+    except PilihanTidakSah as e:
+        print("DITOLAK: pilihan tidak sah. Database tidak diubah.")
+        for g in e.galat:
+            print(f"  - {g}")
+        sys.exit(KODE_GAGAL)
     HANYA_UNDUH = opsi.hanya_unduh
     OCR_AKTIF = not opsi.tanpa_ocr
     konfigurasi = KonfigurasiUji if opsi.db_uji else Config
     if opsi.db_uji:
         FILE_RINGKASAN = FILE_RINGKASAN_UJI
+        FILE_CEK = FILE_CEK_UJI
 
     # Baris dialirkan begitu muncul: kalau layar diam selama penarikan metadata,
     # orang yang menjalankan .bat menyangka macet. errors="replace" karena konsol
@@ -993,7 +1321,8 @@ def main():
     # Salinan keluaran ke berkas (untuk run semalaman) dan cegah laptop tidur.
     os.makedirs(DIR_LOG, exist_ok=True)
     nama_log = os.path.join(DIR_LOG, datetime.now().strftime("%Y%m%d-%H%M%S")
-                            + ("-periksa" if opsi.hanya_periksa else "") + ".log")
+                            + ("-periksa" if opsi.hanya_periksa else "-cek" if opsi.cek_dulu else "")
+                            + ".log")
     berkas_log = open(nama_log, "w", encoding="utf-8")
     berkas_log.write(baris_tujuan + "\n")       # sudah tercetak di layar, belum di log
     sys.stdout = Salin(sys.stdout, berkas_log)
@@ -1004,11 +1333,22 @@ def main():
     try:
         app = create_app(konfigurasi)
         with app.app_context():
-            pastikan_skema()
-            kode = jalankan_pemeriksaan() if opsi.hanya_periksa else jalankan_pembaruan(opsi)
+            if opsi.cek_dulu:
+                # Tanpa pastikan_skema: --cek-dulu tidak menulis apa pun ke database,
+                # termasuk DDL. Kunci tetap diambil supaya tidak bersamaan dengan
+                # pembaruan (hasil hitungan akan basi).
+                kode = jalankan_cek()
+            else:
+                pastikan_skema()
+                kode = jalankan_pemeriksaan() if opsi.hanya_periksa else jalankan_pembaruan(opsi)
     except Exception:  # noqa: BLE001 - pesan disamarkan dulu, traceback bisa memuat URL ber-key
         print(samarkan(traceback.format_exc()))
-        tulis_ringkasan("gagal", tahap="tak terduga", jaringan=False)
+        if opsi.cek_dulu:
+            tulis_atomik(FILE_CEK, {"status": "gagal", "tahap": "tak terduga",
+                                    "selesai_pada": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                                    "pilihan": PILIHAN.ke_dict()})
+        else:
+            tulis_ringkasan("gagal", tahap="tak terduga", jaringan=False)
     finally:
         lepas_kunci()
         jaga_tetap_bangun(False)

@@ -130,7 +130,7 @@ def simpan_metadata(kode, nama_wilayah, daftar):
     return hasil
 
 
-def susun_rencana(kode, di_daftar=None, paksa=False):
+def susun_rencana(kode, di_daftar=None, paksa=False, pilih=None):
     """Publikasi yang perlu dikerjakan, ditentukan dari DATABASE.
 
     `di_daftar`: himpunan pub_id dari API. None berarti mode lokal - tidak ada
@@ -142,6 +142,10 @@ def susun_rencana(kode, di_daftar=None, paksa=False):
     Publikasi yang tidak lagi ada di daftar API tidak diunduh (URL-nya tidak
     bisa dipercaya), tapi tetap ikut kalau --paksa.
 
+    `pilih`: fungsi Publikasi -> bool dari pilihan penarikan (perbarui.py
+    --jenis/--tahun-min/--tahun-maks, 24 Nov 2026). Publikasi di luar pilihan
+    tidak dikerjakan, juga dengan --paksa atau --lokal. None = semua.
+
     Return (tugas, menunggu_unduhan). Isinya nilai biasa, bukan objek ORM, dan
     transaksi baca ditutup di sini: ekstraksi bisa makan beberapa menit, dan
     transaksi tidak boleh terbuka selama itu.
@@ -151,6 +155,8 @@ def susun_rencana(kode, di_daftar=None, paksa=False):
     menunggu = []
 
     for pub in Publikasi.query.filter_by(domain=kode).order_by(Publikasi.id).all():
+        if pilih is not None and not pilih(pub):
+            continue
         ada_di_api = not lokal and pub.id in di_daftar
         if not lokal and not ada_di_api and not paksa:
             continue

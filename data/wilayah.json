@@ -7,8 +7,10 @@
     "Deteksi wilayah dari kueri harus mencocokkan KATA UTUH: 'banjar' bertumpuk dengan 'banjarmasin' dan 'banjarbaru'.",
     "Deteksi wilayah dari kueri (filter wilayah di halaman pencarian) memakai nama tanpa awalan Kab./Kota, nama_lain, dan singkatan. Provinsi (6300) tidak dideteksi dari kueri: hanya bisa dipilih lewat dropdown.",
     "kecualikan_judul: publikasi yang judulnya cocok dengan salah satu pola (regex, tanpa membedakan huruf besar/kecil) TIDAK ditarik, di domain mana pun. Untuk menarik lagi, ubah aktif menjadi false - tidak perlu mengubah kode. Publikasi yang sudah ada di database tidak dihapus.",
-    "pola_kecamatan (18 Nov 2026): judul publikasi Kecamatan Dalam Angka, dengan grup 'nama'. Mengisi kolom publikasi.kecamatan (kunci = nama huruf kecil tanpa spasi/tanda baca, menyatukan ejaan 'Banjar Baru Selatan'/'Banjarbaru Selatan'). Terpisah dari kecualikan_judul: pola itu mengatur apa yang DITARIK, pola ini menandai publikasi kecamatan yang sudah ada."
+    "pola_kecamatan (18 Nov 2026): judul publikasi Kecamatan Dalam Angka, dengan grup 'nama'. Mengisi kolom publikasi.kecamatan (kunci = nama huruf kecil tanpa spasi/tanda baca, menyatukan ejaan 'Banjar Baru Selatan'/'Banjarbaru Selatan'). Terpisah dari kecualikan_judul: pola itu mengatur apa yang DITARIK, pola ini menandai publikasi kecamatan yang sudah ada.",
+    "tahun_min_pilihan (24 Nov 2026): tahun rilis paling awal yang bisa dipilih di formulir /admin/perbarui dan di perbarui.py --tahun-min. Pilihan tahun dibuat otomatis dari tahun ini sampai tahun berjalan. Boleh diubah tanpa mengubah kode. Mutu pembacaan PDF publikasi rilis sebelum 2025 belum diuji."
   ],
+  "tahun_min_pilihan": 2020,
   "pola_kecamatan": "^Kecamatan\\s+(?P<nama>.+?)\\s+Dalam Angka\\s+\\d{4}$",
   "kecualikan_judul": [
     {"pola": "^Kecamatan\\b.*\\bDalam Angka\\b", "aktif": false,
