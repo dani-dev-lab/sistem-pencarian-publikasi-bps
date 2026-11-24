@@ -200,6 +200,39 @@ Mahasiswa Politeknik Negeri Banjarmasin.
   - **`uji_pipeline.py` tidak boleh menghubungi BPS:** URL database uji diarahkan
     ke tiruan di awal, proxy mati untuk alamat luar, `DIR_SAMPUL` salinan (U4/A5).
     Bagian A = sampul.
+- **Formulir pilihan penarikan di /admin/perbarui (24 Nov 2026, masukan mentor),
+  BARU di database uji, BELUM di-push.** Laporan:
+  `data/regresi/form-pembaruan-20261124.md`.
+  - Aturan satu tempat: `app/services/pilihan_pembaruan.py` (wilayah aktif,
+    jenis `kabkota`/`kecamatan` lewat `pola_kecamatan`, tahun rilis
+    `tahun_min_pilihan` di wilayah.json .. tahun berjalan). Formulir ->
+    `Pilihan.argumen()` -> `perbarui.py --wilayah/--jenis/--tahun-min/--tahun-maks`
+    (jalur sama dengan .bat). Bagian yang sama dengan bawaan TIDAK ditulis jadi
+    argumen; formulir bawaan = perintah lama persis.
+  - `--cek-dulu`: hanya daftar WebAPI + baca DB, tanpa pastikan_skema, hasil
+    `data/cek_pembaruan(-uji).json`; tetap memegang kunci.
+  - Dengan jenis/tahun bukan bawaan, data lama juga disaring (`cocok_pilihan`):
+    rencana (`susun_rencana(pilih=)`, juga --paksa/--lokal), sampul,
+    "tidak lagi di daftar", dan penjaga "0 lolos padahal DB berisi".
+  - Sampul ikut revisi: `sampul.perbarui` untuk publikasi yang PDF-nya diunduh
+    ulang karena updt_date berubah (bukan belum_pernah). Satu-satunya beda
+    perilaku tanpa argumen dibanding kode lama (uji Q1).
+  - Argumen salah di perbarui.py kini exit 1 (dulu argparse 2 = "pembaruan
+    lain berjalan" bagi .bat). `--tahun-min` < tahun_min_pilihan kini ditolak.
+  - Uji: `uji_pipeline.py` bagian Q (pilihan; Q1 membandingkan dengan kode
+    git HEAD lewat junction `uji_lama/data`) dan A6-A7 (sampul revisi). Run
+    penuh `--kamus-head`: 140 lulus, 0 gagal, 3.299 detik.
+  - **`--kamus-head`** (uji_pipeline): kamus versi HEAD di salinan. Perlu
+    selama `data/kamus_sinonim.json` punya perubahan yang belum diterapkan ke
+    database uji (24 Nov: `p0` milik pemilik, belum di-commit) - tanpa itu
+    P2/C2/O1 gagal untuk publikasi yang judulnya terkena kamus baru.
+  - `.bat` memanggil `%SystemRoot%\System32\find.exe` dengan jalur lengkap:
+    `find` Git di PATH tidak mengenal `/i`.
+  - **Jebakan alat:** heredoc di Bash tool memakan backslash (`\\n`, `\` di
+    akhir baris). Suntingan berisi backslash pakai Edit/Write, bukan heredoc.
+  - Tangkapan layar: Chrome merender sampul JPEG tidak deterministik (beda
+    <= 9/255) dan fokus autofocus kadang belum terpasang; potret pembanding
+    menyembunyikan isi gambar (opacity 0) dan melepas fokus.
 
 ## Sumber data
 - **BPS WebAPI**: `https://webapi.bps.go.id/v1/api/list/model/publication/lang/ind/domain/6300/page/{page}/key/{key}/`

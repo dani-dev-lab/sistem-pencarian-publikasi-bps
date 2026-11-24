@@ -1,0 +1,63 @@
+{
+ "1280-1-bawaan": {
+  "scrollWidth": 1280,
+  "lebar_layar": 1280,
+  "gulir_mendatar": false
+ },
+ "1280-2-jenis-nonaktif": true,
+ "1280-2-hanya-provinsi": {
+  "scrollWidth": 1280,
+  "lebar_layar": 1280,
+  "gulir_mendatar": false
+ },
+ "1280-3-status-ditolak": 400,
+ "1280-3-ditolak": {
+  "scrollWidth": 1280,
+  "lebar_layar": 1280,
+  "gulir_mendatar": false
+ },
+ "0375-1-bawaan": {
+  "scrollWidth": 375,
+  "lebar_layar": 375,
+  "gulir_mendatar": false
+ },
+ "0375-2-jenis-nonaktif": true,
+ "0375-2-hanya-provinsi": {
+  "scrollWidth": 375,
+  "lebar_layar": 375,
+  "gulir_mendatar": false
+ },
+ "0375-3-status-ditolak": 400,
+ "0375-3-ditolak": {
+  "scrollWidth": 375,
+  "lebar_layar": 375,
+  "gulir_mendatar": false
+ },
+ "1280-4-cek-tanah-laut": {
+  "scrollWidth": 1280,
+  "lebar_layar": 1280,
+  "gulir_mendatar": false
+ },
+ "0375-4-cek-tanah-laut": {
+  "scrollWidth": 375,
+  "lebar_layar": 375,
+  "gulir_mendatar": false
+ },
+ "cek-tanah-laut-formulir-terisi": {
+  "wilayah": [
+   "6301"
+  ],
+  "dari": "2024",
+  "sampai": "2026"
+ },
+ "1280-5-cek-besar": {
+  "scrollWidth": 1280,
+  "lebar_layar": 1280,
+  "gulir_mendatar": false
+ },
+ "0375-5-cek-besar": {
+  "scrollWidth": 375,
+  "lebar_layar": 375,
+  "gulir_mendatar": false
+ }
+}

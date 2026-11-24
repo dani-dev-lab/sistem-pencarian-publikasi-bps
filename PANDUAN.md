@@ -43,8 +43,12 @@ Cara kerjanya secara garis besar:
 
 1. Daftar publikasi diambil dari WebAPI BPS untuk **14 wilayah**: Provinsi
    Kalimantan Selatan dan 13 kabupaten/kota. Hanya publikasi yang **dirilis
-   dalam 2 tahun terakhir** yang diambil. Publikasi "Kecamatan … Dalam
-   Angka" sengaja tidak diambil, atas permintaan tim PST (bagian 8).
+   dalam 2 tahun terakhir** yang diambil pada pembaruan rutin; wilayah,
+   jenis publikasi, dan tahun rilis bisa dipilih lewat formulir di halaman
+   admin (bagian 4). Publikasi "Kecamatan … Dalam Angka" **ikut diambil**
+   sejak 19 November 2026 (312 publikasi). Di halaman pencarian, publikasi
+   kecamatan hanya tampil kalau kotak centangnya dicentang (bagian 1, "Rincian
+   per desa"; pengaturannya di bagian 8).
 2. Berkas PDF tiap publikasi diunduh dan dibaca strukturnya: Daftar Isi,
    Daftar Tabel, Daftar Gambar, Daftar Lampiran, serta keterangan
    tabel/gambar di badan dokumen.
@@ -52,9 +56,10 @@ Cara kerjanya secara garis besar:
    database ini — **tidak** menghubungi BPS setiap kali petugas mencari,
    jadi pencarian berjalan tanpa internet.
 
-Keadaan data pada 17 November 2026: **307 publikasi, 24.532 bagian
-terindeks**. 86% bagian itu bisa dibuka langsung di halaman PDF-nya
-(rinciannya di bagian 11).
+Keadaan data pada 24 November 2026: **620 publikasi (312 di antaranya
+Kecamatan Dalam Angka), 44.548 bagian terindeks**. 89% bagian itu bisa
+dibuka langsung di halaman PDF-nya. Rinciannya di bagian 11, yang masih
+dihitung dari data 17 November 2026, sebelum publikasi kecamatan dimuat.
 
 Yang butuh internet hanya langkah pembaruan data (bagian 4).
 
@@ -436,7 +441,11 @@ Publikasi yang tidak berubah tidak dibaca ulang.
    bisa menjangkau WebAPI BPS (`webapi.bps.go.id`).
 2. Buka `http://localhost:5000/admin/`, masuk, klik kartu **Perbarui Data**
    (atau buka `/admin/perbarui`).
-3. Baca penjelasan singkatnya, lalu klik **Mulai pembaruan**.
+3. Baca penjelasan singkatnya. Untuk **pembaruan rutin**, formulir
+   "Pilihan penarikan" dibiarkan seperti bawaannya (semua dicentang, tahun
+   lalu sampai tahun ini), lalu klik **Mulai pembaruan**. Untuk menarik
+   sebagian saja atau tahun yang lebih lama, lihat "Formulir pilihan
+   penarikan" di bawah.
 4. Kemajuan proses tampil langsung di halaman, baris demi baris. Tiap
    wilayah diawali baris seperti `halaman 3/24 ... OK`, kira-kira satu baris
    per detik. Itu tanda proses berjalan normal.
@@ -463,6 +472,91 @@ Yang perlu diketahui:
   WebAPI BPS tidak terjangkau (bagian 10). Data lama tetap utuh.
 - Halaman ini tetap berfungsi tanpa JavaScript: halamannya memuat ulang
   sendiri tiap 5 detik sampai ringkasan tampil.
+
+### Formulir pilihan penarikan
+
+Di atas tombol **Mulai pembaruan** ada formulir "Pilihan penarikan". Dengan
+bawaannya, hasilnya persis sama dengan pembaruan rutin. Formulir ini dipakai
+untuk menarik **sebagian** wilayah, atau publikasi yang **dirilis lebih
+lama** dari 2 tahun terakhir.
+
+| Pilihan | Isinya | Bawaan |
+|---|---|---|
+| **Wilayah** | Provinsi Kalimantan Selatan dan 13 kabupaten/kota (wilayah aktif di `data\wilayah.json`). Tombol **Pilih semua** / **Hapus semua** mencentang atau mengosongkan semuanya sekaligus. | semua dicentang |
+| **Jenis publikasi untuk kabupaten/kota terpilih** | **Publikasi kabupaten/kota** dan/atau **Kecamatan Dalam Angka**. Kecamatan Dalam Angka dikenali dari judulnya (`pola_kecamatan` di `data\wilayah.json`) di daftar situs kabupaten/kota itu. Provinsi tidak punya publikasi kecamatan, jadi pilihan ini tidak berlaku untuknya. | keduanya |
+| **Tahun rilis** | **Dari** dan **Sampai**. Pilihannya dari `tahun_min_pilihan` di `data\wilayah.json` (sekarang 2020) sampai tahun berjalan; tahun yang belum tiba tidak ada. Ini tahun **rilis** publikasi, bukan tahun data di judulnya. | tahun lalu sampai tahun ini |
+
+Cara memakainya:
+
+1. Atur pilihannya, lalu klik **Cek dulu**. Cek hanya membaca daftar
+   publikasi BPS (dengan jeda 1 detik per halaman): **tidak ada PDF yang
+   diunduh dan database tidak diubah**. Hasilnya tabel per wilayah: berapa
+   publikasi yang baru, direvisi BPS, perlu dibaca ulang, dan tidak berubah;
+   ditambah perkiraan ukuran unduhan dan lama waktunya.
+2. Kalau penarikannya besar (50 publikasi atau lebih, 1 GB atau lebih, atau
+   lebih dari 1 jam), hasil cek menampilkan kotak **Penarikan besar**.
+3. Kalau angkanya sesuai, klik **Mulai pembaruan**. Formulirnya sudah terisi
+   pilihan yang sama dengan cek tadi.
+
+Pilihan diperiksa di server, bukan hanya di browser. Pilihan yang tidak sah
+ditolak dengan pesan dan tidak ada yang dijalankan: tanpa wilayah, kode
+wilayah yang tidak dikenal, tahun di luar pilihan, "Dari" sesudah "Sampai",
+atau kabupaten/kota tanpa satu pun jenis publikasi.
+
+Yang tetap berlaku apa pun pilihannya:
+
+- **Publikasi di luar pilihan tidak disentuh dan tidak dihapus.** Misalnya
+  pilihan "Kab. Tanah Laut, hanya Kecamatan Dalam Angka" tidak membaca daftar
+  wilayah lain, dan publikasi kabupaten Tanah Laut tidak dilaporkan "tidak
+  lagi ada di daftar".
+- Satu pembaruan pada satu waktu, jeda 1 detik antar permintaan ke BPS.
+- Ringkasan hasil (`data\pembaruan_terakhir.json` dan halaman ini) mencatat
+  pilihan yang dipakai, misalnya "Pilihan: Kab. Tanah Laut · Publikasi
+  kabupaten/kota + Kecamatan Dalam Angka · rilis 2024–2026".
+- **Sampul ikut revisi.** Kalau BPS merevisi publikasi (PDF-nya diunduh
+  ulang), sampulnya juga diunduh ulang dan menimpa berkas lama. Kalau unduhan
+  sampul gagal, sampul lama tetap dipakai. Sampul publikasi yang tidak
+  direvisi tidak diunduh ulang.
+
+**Peringatan untuk penarikan besar** (misalnya semua wilayah sejak 2020):
+
+- **Bisa berjam-jam dan belasan GB.** Sebagai gambaran, diukur 24 November
+  2026: PDF rilis 2025–2026 yang sudah ada berjumlah 620 berkas, ±6,5 GB
+  (308 publikasi provinsi dan kabupaten/kota 3,2 GB; 312 Kecamatan Dalam
+  Angka 3,35 GB). Menarik tahun 2020–2024 kemungkinan menambah belasan GB
+  lagi (perkiraan kasar, belum diukur; pakai **Cek dulu**). Membaca ulang
+  306 PDF saja memakan ±75–92 menit, dan penarikan 13 kabupaten/kota
+  (732 MB) pernah memakan 3,35 jam karena jaringan lambat di malam hari.
+- **Jalankan malam hari, sesudah pukul 01.00.** Diukur 9–10 November 2026:
+  pukul 20.30–00.00 unduhan hanya 38–75 KB/detik per berkas; sesudah 01.00
+  7–10 MB/detik.
+- **Harus dari jaringan kantor "BPS - Pegawai".** Pengukuran kecepatan di
+  atas dan pembaruan rutin dilakukan dari jaringan itu. Kalau gagal
+  terhubung, lihat bagian 10.
+- Laptop tersambung listrik dan layarnya jangan ditutup (Windows dicegah
+  tidur, tetapi tidak kalau layar ditutup).
+- **Mutu pembacaan PDF publikasi rilis sebelum 2025 belum pernah diuji.**
+  Seluruh pengujian ekstraksi (sampel acak, regresi) memakai publikasi rilis
+  2025–2026. Format daftar tabel edisi lama bisa berbeda. Sesudah menarik
+  tahun lama, periksa sampel hasilnya (bagian 11) sebelum dipakai petugas.
+- Perkiraan waktu di hasil cek belum termasuk OCR untuk PDF tanpa lapisan
+  teks (±15 detik per halaman), karena itu baru diketahui sesudah PDF
+  diunduh. Ukuran dari daftar BPS per berkas bisa meleset; jumlahnya
+  mendekati.
+
+Dari Command Prompt, pilihan yang sama ditulis sebagai argumen (jalur
+program yang sama dengan formulir), misalnya satu kabupaten, satu tahun:
+
+```bat
+perbarui-data.bat --wilayah 6301 --tahun-min 2024 --tahun-maks 2024 --cek-dulu
+perbarui-data.bat --wilayah 6301 --tahun-min 2024 --tahun-maks 2024
+```
+
+Kode wilayah ada di `data\wilayah.json` (6300 provinsi, 6301 Tanah Laut, …,
+6372 Banjarbaru); beberapa kode dipisah koma: `--wilayah 6301,6302`. Jenis:
+`--jenis kabkota`, `--jenis kecamatan`, atau keduanya (bawaan). Pilihan yang
+tidak sah berhenti dengan `DITOLAK` dan `PEMBARUAN GAGAL`, tanpa mengubah
+apa pun. Sesudah `--cek-dulu` kalimat penutupnya `CEK SELESAI`.
 
 ### Cara cadangan untuk tim IT: `perbarui-data.bat`
 
@@ -521,10 +615,11 @@ Kalau pembaruan gagal di tengah jalan, tidak ada yang rusak: proses berhenti
 dengan pesan, data lama tetap utuh, dan bisa diulang begitu penyebabnya
 diperbaiki.
 
-Catatan: pembaruan mengambil publikasi yang dirilis **2 tahun terakhir**
-(tahun berjalan dan tahun sebelumnya), dihitung otomatis dari tanggal
-komputer. Publikasi yang lebih lama tidak pernah masuk dan tidak dihapus
-kalau sudah terlanjur ada.
+Catatan: pembaruan rutin mengambil publikasi yang dirilis **2 tahun
+terakhir** (tahun berjalan dan tahun sebelumnya), dihitung otomatis dari
+tanggal komputer. Publikasi yang lebih lama hanya masuk kalau dipilih lewat
+formulir pilihan (atau `--tahun-min`), dan tidak pernah dihapus oleh
+pembaruan rutin berikutnya.
 
 ### Pilihan tambahan untuk tim IT
 
@@ -537,7 +632,11 @@ Ditulis sesudah nama berkasnya di Command Prompt, misalnya
 | `--paksa` | Membaca ulang **semua** publikasi, bukan hanya yang berubah. Dipakai sesudah program pembaca PDF diperbarui. `--lokal --paksa` untuk 306 PDF memakan 4.470 detik (±75 menit) pada 10 November 2026 dan 5.541 detik (±92 menit) pada 17 November 2026. |
 | `--tanpa-ocr` | Tidak memakai OCR maupun cache-nya. Halaman tanpa teks dilewati dan dicatat. **Aplikasi menolak gabungan `--paksa --tanpa-ocr`** selama ada publikasi hasil OCR di wilayah aktif. Gabungan itu akan membaca ulang delapan publikasi OCR tanpa OCR, sehingga rincian tabelnya hilang dari database. Pembaruan berhenti sebelum database diubah, dengan pesan `TIDAK DIJALANKAN: --paksa dan --tanpa-ocr tidak boleh dipakai bersamaan` yang menyebut publikasinya. Untuk membaca ulang semua PDF, pakai `--paksa` saja: hasil OCR diambil dari cache, dan EasyOCR tidak perlu terpasang. |
 | `--hanya-periksa` | Hanya memeriksa daftar semua wilayah; tidak mengubah database, tidak mengunduh. Wajib sebelum wilayah baru pertama kali dimuat (bagian 2 jalur B, bagian 8). |
-| `--tahun-min 2024` | Mengambil publikasi yang dirilis sejak tahun itu, bukan hanya 2 tahun terakhir. |
+| `--tahun-min 2024` | Tahun rilis paling awal (bawaan: tahun lalu). Tidak boleh sebelum `tahun_min_pilihan` di `data\wilayah.json`. |
+| `--tahun-maks 2024` | Tahun rilis paling akhir (bawaan: tahun ini). Tahun yang belum tiba ditolak. |
+| `--wilayah 6301,6302` | Hanya wilayah ini (kode wilayah aktif, dipisah koma). Bawaan: semua wilayah aktif. |
+| `--jenis kabkota` / `--jenis kecamatan` | Jenis publikasi untuk kabupaten/kota: publikasi kabupaten/kota, atau Kecamatan Dalam Angka. Bawaan: keduanya. Provinsi tidak terpengaruh. |
+| `--cek-dulu` | Hanya menghitung apa yang akan dikerjakan pilihan itu, plus perkiraan waktu dan ukuran (sama dengan tombol **Cek dulu**). Tidak mengunduh PDF, tidak mengubah database. Tidak bisa digabung dengan `--lokal` atau `--paksa`. |
 | `--db-uji` | Menulis ke database uji, bukan database utama (bagian 9). |
 
 Baris pertama keluaran selalu menyebut database yang akan ditulis, misalnya
@@ -589,7 +688,10 @@ Sampul diunduh **sekali** dan disimpan di `data\sampul\<id publikasi>.jpg`
 aplikasi ini, tidak dari situs BPS. Pembaruan data mengunduh sendiri sampul
 publikasi baru di akhir tiap wilayah, dengan jeda 1 detik. Kalau unduhan
 gagal, dibuat cadangan dari halaman 1 PDF (`<id>.cadangan.jpg`) dan sampul
-resminya dicoba lagi pada pembaruan berikutnya. Kalau keduanya gagal, kartu
+resminya dicoba lagi pada pembaruan berikutnya. Sejak 24 November 2026,
+sampul publikasi yang **direvisi** BPS (PDF-nya diunduh ulang) juga diunduh
+ulang dan menimpa berkas lama lewat berkas sementara; kalau unduhannya gagal,
+sampul lama tetap dipakai. Kalau keduanya gagal, kartu
 tampil tanpa gambar, seperti sebelum ada sampul. Untuk mengisi sampul
 publikasi yang sudah ada (misalnya sesudah folder `data\sampul\` hilang),
 jalankan pada hari yang sama dengan pembaruan data terakhir, karena alamat
@@ -948,11 +1050,16 @@ atau kode:
 venv\Scripts\python.exe -u tests\uji_pipeline.py > uji_log.txt 2>&1
 ```
 
-- Lamanya ±40 menit. Run penuh terakhir, 18 November 2026: 98 uji lulus,
-  0 gagal, 0 dilewati, 2.425 detik. Bagian `V` membuktikan bahwa tanpa
+- Lamanya ±55 menit. Run penuh terakhir, 24 November 2026: 140 uji lulus,
+  0 gagal, 0 dilewati, 3.299 detik (dengan `--kamus-head`, lihat di bawah).
+  Bagian `Q` menguji formulir pilihan penarikan dan `--cek-dulu`. Bagian `V` membuktikan bahwa tanpa
   kotak centang kecamatan, halaman pencarian sama persis dengan database
   tanpa publikasi kecamatan; bagian ini dilewati kalau database uji tidak
   berisi publikasi kecamatan.
+- Kalau `data\kamus_sinonim.json` sudah diubah tetapi belum diterapkan ke
+  database uji ("Terapkan ke data"), tambahkan `--kamus-head` (memakai kamus
+  versi Git terakhir). Tanpa itu, uji P2/C2/O1 gagal untuk publikasi yang
+  judulnya terkena kamus baru, padahal programnya benar.
 - Hasilnya dibaca dari baris terakhir `uji_log.txt` dan dari kode keluar:
 
   | Kode keluar | Artinya |
@@ -1026,8 +1133,10 @@ dihitung dari database pada 17 November 2026 (307 publikasi, 24.532 bagian).
 
 **Cakupan**
 
-- **Hanya publikasi yang dirilis 2 tahun terakhir** (bagian 4), dari 14
-  wilayah. "Kecamatan … Dalam Angka" tidak diambil (bagian 8).
+- **Pembaruan rutin hanya mengambil publikasi yang dirilis 2 tahun
+  terakhir** (bagian 4), dari 14 wilayah. Tahun yang lebih lama bisa ditarik
+  lewat formulir pilihan, tetapi mutu pembacaan PDF-nya belum diuji.
+  "Kecamatan … Dalam Angka" ikut diambil sejak 19 November 2026 (bagian 8).
 - **Pencarian tidak membaca isi sel tabel**, hanya judul tabel/gambar/
   lampiran/bab. Angka di dalam tabel tidak bisa dicari.
 - **18 dari 307 publikasi hanya punya Daftar Isi** (misalnya direktori

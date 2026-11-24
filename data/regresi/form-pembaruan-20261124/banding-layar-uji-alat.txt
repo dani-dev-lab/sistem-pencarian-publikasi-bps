@@ -1,0 +1,13 @@
+BEDA  0375-beranda-kab.png  (375, 900), kotak beda (46, 424, 325, 439), maks 138/255
+BEDA  0375-beranda.png  (375, 900), kotak beda (46, 424, 325, 439), maks 138/255
+BEDA  0375-hasil-kec.png  ukuran (375, 20582) vs (375, 20840)
+BEDA  0375-hasil-kosong.png  (375, 900), kotak beda (37, 139, 81, 151), maks 255/255
+BEDA  0375-hasil-wilayah.png  ukuran (375, 10985) vs (375, 11117)
+BEDA  0375-hasil.png  ukuran (375, 13955) vs (375, 14126)
+BEDA  1280-beranda-kab.png  (1280, 900), kotak beda (292, 421, 643, 436), maks 138/255
+BEDA  1280-beranda.png  (1280, 900), kotak beda (292, 450, 643, 465), maks 138/255
+BEDA  1280-hasil-kec.png  ukuran (1280, 15619) vs (1280, 15877)
+BEDA  1280-hasil-kosong.png  (1280, 900), kotak beda (243, 119, 287, 131), maks 255/255
+BEDA  1280-hasil-wilayah.png  ukuran (1280, 8173) vs (1280, 8305)
+BEDA  1280-hasil.png  ukuran (1280, 10549) vs (1280, 10720)
+0 sama, 0 derau <= 4/255, 12 beda
