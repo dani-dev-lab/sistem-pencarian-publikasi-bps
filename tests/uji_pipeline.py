@@ -4,7 +4,7 @@ Cara menjalankan (dari folder proyek):
 
     venv\Scripts\python.exe -u tests\uji_pipeline.py > uji_log.txt 2>&1
 
-Semua bagian sekitar 55 menit (24 Nov 2026: 3.123 detik, 142 uji). Sebagian saja (untuk pengembang): tambahkan
+Semua bagian sekitar 60 menit (25 Nov 2026: 3.485 detik, 152 uji). Sebagian saja (untuk pengembang): tambahkan
 --hanya DKRW (huruf bagian; U dan Z selalu jalan).
 
 Kamus: salinan memakai data/kamus_sinonim.json working tree, dan bagian N
@@ -2213,9 +2213,11 @@ def bagian_q(per_id):
         "perbarui.PILIHAN = P.bawaan()\n"
         "k = perbarui.perkiraan_cek(dict(baru=2, direvisi=1, baca_ulang=0, unduh=3, mb_unduh=20.0, mb_baca=20.0), 10)\n"
         "print('PK', b['besar'], len(b['peringatan']), len(b['catatan']), k['besar'], len(k['catatan']))\n")
-    cek("Q5 peringatan penarikan besar (>= 50 publikasi / >= 1 GB / >= 1 jam) + catatan PDF lama (< 2025); "
+    # 25 Nov 2026: ambang dari wilayah.json (> 30 menit / > 1 GB); jumlah
+    # publikasi tidak lagi jadi alasan, jadi 60 publikasi 2000 MB = 2 alasan.
+    cek("Q5 peringatan penarikan besar (> 30 menit / > 1 GB, dari wilayah.json) + catatan PDF lama (< 2025); "
         "kecil tanpa peringatan",
-        "PK True 3 2 False 1" in keluar_p, (keluar_p + err_p)[-200:])
+        "PK True 2 2 False 1" in keluar_p, (keluar_p + err_p)[-200:])
     KEADAAN["domain"][DOMAIN].remove(nb)
     per_id[C]["updt_date"] = BARU
 
@@ -2253,7 +2255,293 @@ def difflib_unified(a, b):
     return [x for x in difflib.unified_diff(a, b, lineterm="", n=0) if x[:1] in "+-" and x[:3] not in ("+++", "---")]
 
 
-SEMUA_BAGIAN = "VFPLCHISOBGETDKRWQA"   # V dan F dijalankan sebelum potret s0 (lihat main)
+KODE_J = r'''
+import copy, json, os, re, sys
+from datetime import datetime, timedelta, timezone
+from werkzeug.datastructures import MultiDict
+from app import create_app
+from app.config import Config, KonfigurasiUji
+from app.services import pembaruan, ringkasan_pembaruan as R, pilihan_pembaruan as P
+hasil = {}
+F_RINGKASAN = r'{UJI}/data/pembaruan_terakhir-uji.json'
+RINGKASAN_ASLI = open(F_RINGKASAN, 'rb').read() if os.path.exists(F_RINGKASAN) else None
+
+# J1: satuan
+hasil['ukuran'] = [R.format_ukuran(x) for x in (None, 0, 0.04, 0.05, 211.53, 1023.94, 1024, 1250, 412345)]
+hasil['durasi'] = [R.format_durasi(x) for x in (0, 44.6, 59.4, 59.6, 89, 1790, 3569, 3600, 9000)]
+hasil['durasi_kira'] = R.format_durasi(514, kira=True)
+
+# J2: status dari aturan murni (ambang dari wilayah.json salinan)
+A = R.ambang()
+hasil['ambang'] = A
+def cek(wil, baru=1, direvisi=0, baca=0, tetap=10, mb=10.0, detik=300, gagal=()):
+    dom = [dict(kode=str(6300 + i), wilayah=w, status='berhasil', baru=baru, direvisi=direvisi,
+                baca_ulang=baca, tetap=tetap, unduh=baru + direvisi, mb_unduh=mb / max(len(wil), 1))
+           for i, w in enumerate(wil, 1)]
+    dom += [dict(kode='6399', wilayah=g, status='gagal', pesan='putus', baru=0, direvisi=0, baca_ulang=0)
+            for g in gagal]
+    n = len(wil)
+    return {'status': 'berhasil', 'domain': dom, 'pilihan': P.bawaan().ke_dict(), 'durasi_detik': 3,
+            'total': dict(baru=baru * n, direvisi=direvisi * n, baca_ulang=baca * n, tetap=tetap * n,
+                          unduh=(baru + direvisi) * n, mb_unduh=mb, mb_baca=mb, di_daftar=0, tabrakan=0),
+            'perkiraan': {'publikasi_diproses': (baru + direvisi + baca) * n,
+                          'detik': dict(total=detik, daftar=1, unduh=1, baca_pdf=1, sampul=1, unduh_lambat=1),
+                          'catatan': [], 'laju_unduh_mb_per_detik': 5.0}}
+def st(c, sisa):
+    k = R.ringkas_cek(c, sisa, A, 'C:')
+    return [k['status'], k['boleh_mulai']]
+GB = R.MB_PER_GB
+hasil['status'] = {
+ 'terbaru': st(cek(['Kab. Tapin'], baru=0, mb=0, detik=20), 1.0),          # 0 diproses: abu-abu walau disk kecil
+ 'siap': st(cek(['Kab. Tapin']), 10 ** 6),
+ 'besar_menit_pas': st(cek(['Kab. Tapin'], detik=30 * 60), 10 ** 6),        # TEPAT 30 menit: belum besar
+ 'besar_menit_lebih': st(cek(['Kab. Tapin'], detik=30 * 60 + 1), 10 ** 6),
+ 'besar_gb_pas': st(cek(['Kab. Tapin'], mb=1.0 * GB), 10 ** 6),
+ 'besar_gb_lebih': st(cek(['Kab. Tapin'], mb=1.0 * GB + 0.1), 10 ** 6),
+ 'disk_pas': st(cek(['Kab. Tapin'], mb=100.0), 120.0),                      # 100 + 20% = 120: cukup
+ 'disk_kurang': st(cek(['Kab. Tapin'], mb=100.0), 119.9),
+ 'disk_dulu_dari_besar': st(cek(['Kab. Tapin'], mb=5000.0, detik=9000), 100.0),
+ 'disk_tak_diketahui': st(cek(['Kab. Tapin'], mb=5000.0, detik=9000), None),
+}
+kal = lambda c, s=10 ** 6: R.ringkas_cek(c, s, A)['kalimat']
+hasil['kalimat'] = {
+ 'satu': kal(cek(['Kota Banjarmasin'], tetap=620)),
+ 'tiga': kal(cek(['Kab. Tapin', 'Kab. Banjar', 'Kota Banjarbaru'], tetap=1)),
+ 'lima': kal(cek(['A1', 'A2', 'A3', 'A4', 'A5'], tetap=1)),
+ 'revisi': kal(cek(['Kab. Tapin'], baru=0, direvisi=2, tetap=3)),
+ 'gagal': kal(cek(['Kab. Tapin'], tetap=3, gagal=['Kab. Balangan'])),
+ 'disk': kal(cek(['Kab. Tapin'], mb=100.0), 50.0),
+ 'terbaru': kal(cek(['Kab. Tapin'], baru=0, mb=0, tetap=40)),
+}
+# ambang benar-benar dibaca dari wilayah.json, tidak dari kode
+F = str(Config.FILE_WILAYAH)
+asli = open(F, 'rb').read()
+w = json.loads(asli)
+w['ambang_penarikan']['besar_menit'] = 4
+open(F, 'w', encoding='utf-8').write(json.dumps(w))
+hasil['ambang_diubah'] = R.ringkas_cek(cek(['Kab. Tapin'], detik=300), 10 ** 6, R.ambang())['status']
+del w['ambang_penarikan']
+open(F, 'w', encoding='utf-8').write(json.dumps(w))
+try:
+    R.ambang(); hasil['ambang_hilang'] = 'TIDAK DITOLAK'
+except SystemExit as e:
+    hasil['ambang_hilang'] = str(e)
+open(F, 'wb').write(asli)
+
+# J3-J5: halaman /admin/perbarui dengan keadaan cek buatan (tanpa proses)
+selesai = datetime.now(timezone.utc)
+keadaan = {'berjalan': False, 'selesai': selesai, 'jenis': 'cek', 'mulai': selesai - timedelta(minutes=1),
+           'baris': ['x'], 'kode_keluar': 0, 'pilihan': None}
+pembaruan.keadaan = lambda: keadaan
+SISA = {'mb': 10 ** 6}
+R.sisa_ruang_mb = lambda path=None: SISA['mb']
+dimulai = []
+pembaruan.mulai = lambda uji=False, pilihan=None, cek=False: dimulai.append((cek, pilihan.argumen())) or True
+app = create_app(KonfigurasiUji); c = app.test_client()
+with c.session_transaction() as s: s['admin_masuk'] = True
+def halaman(data, sisa):
+    SISA['mb'] = sisa
+    data = copy.deepcopy(data); data['selesai_pada'] = selesai
+    pembaruan.hasil_cek = lambda uji=False: data
+    h = c.get('/admin/perbarui').get_data(as_text=True)
+    i = h.find('id="ringkasan-cek"')
+    bag = h[i:] if i >= 0 else ''
+    m = re.search(r'data-status="(\w+)"', bag)
+    tombol = re.search(r'<button type="submit" name="aksi" value="mulai"[^>]*>', h).group(0)
+    det = re.search(r'<details class="lipat rincian-wilayah">\s*<summary>Lihat rincian per wilayah</summary>(.*?)</details>', bag, re.S)
+    return {'status': m.group(1) if m else None,
+            'judul': re.search(r'class="status-ringkasan"[^>]*><span[^>]*></span>([^<]*)', bag).group(1) if m else None,
+            'kotak': len(re.findall(r'<div class="kotak-angka">', bag[:bag.find('</dl>')])),
+            'nilai': re.findall(r'<span class="nilai-angka">([^<]*)', bag[:bag.find('</dl>')]),
+            'tabel_dilipat': bool(det and 'tabel-cek' in det.group(1)),
+            'mulai_nonaktif': ' disabled' in tombol,
+            'alasan': 'id="alasan-mulai"' in h and 'aria-describedby="alasan-mulai"' in tombol}
+data_siap = cek(['Kab. Tapin'], mb=211.5, detik=514)
+hasil['halaman'] = {
+ 'siap': halaman(data_siap, 10 ** 6),
+ 'besar': halaman(cek(['Kab. Tapin'], mb=3500.0, detik=7300), 10 ** 6),
+ 'disk': halaman(data_siap, 100.0),
+ 'terbaru': halaman(cek(['Kab. Tapin'], baru=0, mb=0, detik=20), 100.0),
+}
+# J4: POST Mulai pembaruan, pilihan sama dengan cek yang kekurangan ruang disk
+SISA['mb'] = 100.0
+d = copy.deepcopy(data_siap); d['selesai_pada'] = selesai
+pembaruan.hasil_cek = lambda uji=False: d
+def kirim(aksi='mulai', dari=None):
+    b = P.bawaan()
+    data = [('formulir', '1'), ('dari', str(dari or b.dari)), ('sampai', str(b.sampai)), ('aksi', aksi)]
+    data += [('wilayah', x) for x in b.wilayah] + [('jenis', j) for j in b.jenis]
+    r = c.post('/admin/perbarui/mulai', data=MultiDict(data))
+    return [r.status_code, 'Mulai pembaruan dinonaktifkan' in r.get_data(as_text=True), len(dimulai)]
+hasil['post'] = {'sama_disk_kurang': kirim(), 'cek_tetap_boleh': kirim('cek')}
+SISA['mb'] = 10 ** 6
+hasil['post']['sama_disk_cukup'] = kirim()
+SISA['mb'] = 100.0
+hasil['post']['pilihan_lain'] = kirim(dari=P.bawaan().dari - 1)      # tahun lain = bukan pilihan cek itu
+hasil['dimulai'] = dimulai
+
+# J5: ringkasan SESUDAH pembaruan, gaya yang sama
+F = F_RINGKASAN
+keadaan.update(jenis='pembaruan', selesai=None)
+pembaruan.hasil_cek = lambda uji=False: None
+dasar = {'selesai_pada': '2026-11-25T01:00:00+00:00', 'jaringan': False, 'jumlah_publikasi': 80,
+         'entri_sebelum': 10, 'entri_sesudah': 15, 'durasi_detik': 765, 'diproses': 2, 'diunduh': 2,
+         'unduhan': {'berkas': 2, 'mb': 1300.0},
+         'publikasi_baru': [{'pub_id': 'x', 'judul': 'Judul Publikasi Baru Uji', 'entri': 5, 'wilayah': 'Kab. Tapin'}],
+         'domain': [{'kode': '6305', 'wilayah': 'Kab. Tapin', 'status': 'sukses', 'pesan': None, 'jumlah_publikasi': 17,
+                     'diunduh': 2, 'diproses': 2, 'gagal': [], 'tabrakan': [], 'tidak_di_daftar': [],
+                     'menunggu_unduhan': [], 'perlu_diperiksa': []}]}
+sesudah = {}
+for nama, ubah in (('sukses', {'status': 'sukses'}), ('tidak_ada_baru', {'status': 'tidak_ada_baru', 'publikasi_baru': []}),
+                   ('sebagian', {'status': 'sebagian'}), ('gagal', {'status': 'gagal', 'jaringan': True})):
+    isi = copy.deepcopy(dasar); isi.update(ubah)
+    if nama == 'sebagian':
+        isi['domain'][0]['gagal'] = [{'judul': 'Judul Gagal Uji', 'tahap': 'unduh', 'pesan': 'HTTP 500'}]
+    json.dump(isi, open(F, 'w', encoding='utf-8'))
+    h = c.get('/admin/perbarui').get_data(as_text=True)
+    i = h.find('id="ringkasan-pembaruan"'); bag = h[i:]
+    m = re.search(r'data-status="(\w+)"', bag)
+    sesudah[nama] = {'status': m.group(1) if i >= 0 and m else None,
+                     'kelas': re.findall(r'panel-ringkasan (warna-\w+)" id="ringkasan-pembaruan"', h),
+                     'label': re.findall(r'<dt>([^<]*)</dt>', bag[:bag.find('</dl>')]),
+                     'nilai': re.findall(r'<span class="nilai-angka">([^<]*)', bag[:bag.find('</dl>')]),
+                     'judul_baru': 'Judul Publikasi Baru Uji' in h, 'gagal_tampil': 'Judul Gagal Uji' in h,
+                     'dilipat': 'Lihat rincian per wilayah' in h}
+if RINGKASAN_ASLI is None:
+    os.remove(F)
+else:
+    open(F, 'wb').write(RINGKASAN_ASLI)
+hasil['sesudah'] = sesudah
+print('JHASIL ' + json.dumps(hasil, ensure_ascii=False))
+'''
+
+KODE_J_WEB = r'''
+import json, re, time
+from werkzeug.datastructures import MultiDict
+from app import create_app
+from app.config import KonfigurasiUji
+from app.services import pembaruan, pilihan_pembaruan as P
+app = create_app(KonfigurasiUji); c = app.test_client()
+with c.session_transaction() as s: s['admin_masuk'] = True
+b = P.bawaan()
+data = [('formulir', '1'), ('dari', str(b.dari)), ('sampai', str(b.sampai)), ('aksi', 'cek'), ('wilayah', '{DOMAIN}')]
+data += [('jenis', j) for j in b.jenis]
+c.post('/admin/perbarui/mulai', data=MultiDict(data))
+t = time.time()
+while pembaruan.keadaan()['berjalan'] and time.time() - t < 600:
+    time.sleep(0.5)
+h = c.get('/admin/perbarui').get_data(as_text=True)
+i = h.find('id="ringkasan-cek"'); bag = h[i:] if i >= 0 else ''
+m = re.search(r'data-status="(\w+)"', bag)
+k = re.search(r'<p class="kalimat-ringkasan">(.*?)</p>', bag, re.S)
+print('JWEB ' + json.dumps({'kode': pembaruan.keadaan()['kode_keluar'], 'status': m.group(1) if m else None,
+      'kalimat': re.sub(r'\s+', ' ', k.group(1)) if k else None,
+      'nilai': re.findall(r'<span class="nilai-angka">([^<]*)', bag[:bag.find('</dl>')]),
+      'rincian': 'Lihat rincian per wilayah' in bag}, ensure_ascii=False))
+'''
+
+
+def bagian_j(per_id):
+    """Ringkasan hasil "Cek dulu" dan pembaruan untuk pembaca non-IT (25 Nov 2026):
+    satuan, empat status, kalimat, tombol Mulai nonaktif saat disk kurang (juga
+    ditolak di server), rincian dilipat, ringkasan sesudah pembaruan."""
+    print("\n=== J. RINGKASAN CEK DULU / PEMBARUAN (kartu status) ===", flush=True)
+    kode, keluar, err = jalan_py(KODE_J.replace("{UJI}", UJI), timeout=600)
+    m = re.search(r"^JHASIL (.*)$", keluar, re.M)
+    if not m:
+        cek("J0 potongan uji berjalan", False, (err or keluar)[-600:])
+        return
+    h = json.loads(m.group(1))
+    print("    | " + json.dumps(h, ensure_ascii=False)[:3000], flush=True)
+    cek("J1 satuan ukuran: MB/GB satu desimal, koma Indonesia, 1 GB = 1024 MB",
+        h["ukuran"] == ["tidak diketahui", "0 MB", "< 0,1 MB", "0,1 MB", "211,5 MB", "1.023,9 MB",
+                        "1,0 GB", "1,2 GB", "402,7 GB"], h["ukuran"])
+    cek("J1 satuan waktu: detik/menit/jam, perkiraan bertanda ±",
+        h["durasi"] == ["0 detik", "45 detik", "59 detik", "1 menit", "1 menit", "30 menit", "59 menit",
+                        "1,0 jam", "2,5 jam"] and h["durasi_kira"] == "±9 menit", [h["durasi"], h["durasi_kira"]])
+    s = h["status"]
+    cek("J2 empat status + batas: abu-abu (0 diproses), hijau, kuning (> 30 menit / > 1 GB, batasnya belum), "
+        "merah (unduhan + 20% > sisa, mengalahkan kuning; Mulai tidak boleh); sisa disk tak diketahui bukan merah",
+        h["ambang"] == {"besar_menit": 30, "besar_gb": 1, "cadangan_disk_persen": 20}
+        and s == {"terbaru": ["terbaru", True], "siap": ["siap", True],
+                  "besar_menit_pas": ["siap", True], "besar_menit_lebih": ["besar", True],
+                  "besar_gb_pas": ["siap", True], "besar_gb_lebih": ["besar", True],
+                  "disk_pas": ["siap", True], "disk_kurang": ["disk", False],
+                  "disk_dulu_dari_besar": ["disk", False], "disk_tak_diketahui": ["besar", True]}, s)
+    k = h["kalimat"]
+    cek("J2 kalimat ringkasan: wilayah disebut kalau <= 3, selain itu 'dari 5 wilayah'; revisi, gagal, disk, terbaru",
+        k["satu"] == "Ada 1 publikasi baru dari Kota Banjarmasin. 620 publikasi lain tidak berubah. "
+                     "Klik Mulai pembaruan untuk menariknya."
+        and k["tiga"].startswith("Ada 3 publikasi baru dari Kab. Tapin, Kab. Banjar, dan Kota Banjarbaru.")
+        and k["lima"].startswith("Ada 5 publikasi baru dari 5 wilayah.")
+        and k["revisi"].startswith("Ada 2 publikasi yang direvisi BPS dari Kab. Tapin.")
+        and "Cek gagal untuk Kab. Balangan" in k["gagal"]
+        and "sisa ruang hanya 50,0 MB" in k["disk"] and "120,0 MB" in k["disk"]
+        and k["terbaru"].startswith("Tidak ada publikasi baru atau yang direvisi BPS. 40 publikasi"), k)
+    cek("J2 ambang dibaca dari wilayah.json (besar_menit 4 -> 5 menit jadi kuning); kunci hilang ditolak dengan pesan",
+        h["ambang_diubah"] == "besar" and "ambang_penarikan belum diisi" in h["ambang_hilang"],
+        [h["ambang_diubah"], h["ambang_hilang"][:90]])
+    hal = h["halaman"]
+    cek("J3 halaman: kartu di atas hasil cek dengan status + 4 angka, tabel rincian dilipat di <details>",
+        all(hal[x]["status"] == x and hal[x]["kotak"] == 4 and hal[x]["tabel_dilipat"] for x in hal)
+        and hal["siap"]["judul"] == "Siap ditarik" and hal["terbaru"]["judul"] == "Semua sudah terbaru"
+        and hal["disk"]["judul"] == "Ruang disk tidak cukup"
+        and hal["besar"]["judul"].startswith("Penarikan besar")
+        and hal["siap"]["nilai"][1:3] == ["211,5 MB", "±9 menit"] and hal["besar"]["nilai"][1] == "3,4 GB",
+        {x: (v["status"], v["kotak"], v["tabel_dilipat"], v["nilai"]) for x, v in hal.items()})
+    cek("J3 tombol Mulai pembaruan nonaktif + penjelasan HANYA saat ruang disk kurang",
+        [hal[x]["mulai_nonaktif"] for x in ("siap", "besar", "disk", "terbaru")] == [False, False, True, False]
+        and [hal[x]["alasan"] for x in ("siap", "besar", "disk", "terbaru")] == [False, False, True, False],
+        {x: (v["mulai_nonaktif"], v["alasan"]) for x, v in hal.items()})
+    p = h["post"]
+    cek("J4 server menolak Mulai pembaruan (HTTP 409, 0 proses) untuk pilihan yang sama dengan cek yang kekurangan "
+        "disk; Cek dulu, disk cukup, atau pilihan lain tetap dimulai",
+        p["sama_disk_kurang"] == [409, True, 0] and p["cek_tetap_boleh"] == [302, False, 1]
+        and p["sama_disk_cukup"] == [302, False, 2] and p["pilihan_lain"] == [302, False, 3]
+        and [x[0] for x in h["dimulai"]] == [True, False, False], [p, h["dimulai"]])
+    sd = h["sesudah"]
+    label = ["Publikasi baru", "Gagal", "Terunduh", "Durasi"]
+    cek("J5 ringkasan SESUDAH pembaruan bergaya sama: status berwarna (hijau/abu-abu/kuning/merah), "
+        "4 angka (baru, gagal, terunduh, durasi), judul publikasi baru tetap tampil, rincian dilipat",
+        [sd[x]["kelas"] for x in ("sukses", "tidak_ada_baru", "sebagian", "gagal")]
+        == [["warna-hijau"], ["warna-abu"], ["warna-kuning"], ["warna-merah"]]
+        and all(v["label"] == label and v["dilipat"] for v in sd.values())
+        and sd["sukses"]["nilai"] == ["1 ", "0 ", "1,3 GB", "13 menit"] and sd["sukses"]["judul_baru"]
+        and sd["sebagian"]["nilai"][1] == "1 " and sd["sebagian"]["gagal_tampil"],
+        {x: (v["kelas"], v["nilai"], v["judul_baru"]) for x, v in sd.items()})
+
+    # J6: ujung ke ujung, "Cek dulu" sungguhan lewat test_client + WebAPI tiruan
+    aktifkan(DOMAIN)
+    KEADAAN["domain"].pop("6399", None)
+    for x in ("gagal_domain", "gagal_halaman", "mode_pdf", "mode_sampul", "isi_sampul"):
+        KEADAAN[x].clear()
+    kode, _, _ = jalan_catat()                                  # selaraskan database uji dengan tiruan
+    web = []
+    for tambah in (False, True):
+        nb = None
+        if tambah:
+            contoh = next(p for p in KEADAAN["domain"][DOMAIN] if p["pub_id"] in per_id)
+            nb = copy.deepcopy(contoh)
+            nb.update(pub_id="jjjjkkkkllllmmmm6305baru", title="Publikasi Baru Uji Ringkasan",
+                      rl_date="2026-11-24", updt_date="2026-11-24", size="12.5 MB",
+                      pdf=url_tiruan("pdf", "jjjjkkkkllllmmmm6305baru"))
+            KEADAAN["domain"][DOMAIN].insert(0, nb)
+        try:
+            kode_w, keluar_w, err_w = jalan_py(KODE_J_WEB.replace("{DOMAIN}", DOMAIN), timeout=900)
+        finally:
+            if nb:
+                KEADAAN["domain"][DOMAIN].remove(nb)
+        m = re.search(r"^JWEB (.*)$", keluar_w, re.M)
+        web.append(json.loads(m.group(1)) if m else {"galat": (err_w or keluar_w)[-300:]})
+    cek("J6 Cek dulu sungguhan (WebAPI tiruan): tanpa perubahan = abu-abu 'Semua sudah terbaru'; 1 publikasi baru "
+        "= hijau, kalimat menyebut Kab. Tapin, ukuran 12,5 MB, sisa disk terbaca",
+        kode == 0 and web[0].get("kode") == 0 and web[0].get("status") == "terbaru"
+        and web[1].get("status") == "siap" and (web[1].get("kalimat") or "").startswith("Ada 1 publikasi baru dari Kab. Tapin.")
+        and web[1]["nilai"][1] == "12,5 MB" and web[1]["nilai"][3] not in ("tidak diketahui", "")
+        and web[0]["rincian"] and web[1]["rincian"], web)
+
+
+SEMUA_BAGIAN = "VFPLCHISOBGETDKRWQAJ"   # V dan F dijalankan sebelum potret s0 (lihat main)
 
 
 def main():
@@ -2301,6 +2589,7 @@ def main():
             if b == "W": bagian_w(per_id, kecil[2])
             if b == "Q": bagian_q(per_id)
             if b == "A": bagian_a(kecil, per_id)
+            if b == "J": bagian_j(per_id)
     finally:
         srv.shutdown()
 

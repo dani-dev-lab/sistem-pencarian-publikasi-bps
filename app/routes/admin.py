@@ -23,7 +23,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 from app.config import PANJANG_SANDI_MINIMAL, tulis_admin_hash
 from app.models import LogPencarian, db
-from app.services import pembaruan, pilihan_pembaruan
+from app.services import pembaruan, pilihan_pembaruan, ringkasan_pembaruan
 from app.services.pilihan_pembaruan import PilihanTidakSah
 from app.services.normalisasi_data import jalankan as terapkan_normalisasi
 from app.services.preprocessing import muat_ulang_kamus, normalisasi
@@ -369,11 +369,10 @@ def _halaman_perbarui(nilai=None, galat=None, status=200):
     dari_sesi_ini = bool(
         k["selesai"] and not cek_sesi_ini and ringkasan and ringkasan["selesai_pada"]
         and ringkasan["selesai_pada"] >= k["mulai"])
-    cek = None
-    if cek_sesi_ini:
-        c = pembaruan.hasil_cek(uji)
-        if c and c["selesai_pada"] and c["selesai_pada"] >= k["mulai"]:
-            cek = c
+    cek = _cek_sesi_ini(uji, k)
+    # Kartu ringkasan (25 Nov 2026). Sisa ruang disk dibaca saat halaman dibuka.
+    kartu_cek = _kartu_cek(cek) if cek and cek["status"] != "gagal" else None
+    kartu_pembaruan = ringkasan_pembaruan.ringkas_pembaruan(ringkasan) if ringkasan else None
 
     aktif = pilihan_pembaruan.wilayah_aktif()
     if nilai is None:
@@ -393,7 +392,26 @@ def _halaman_perbarui(nilai=None, galat=None, status=200):
         f_tahun=pilihan_pembaruan.daftar_tahun(), f_nilai=nilai, f_galat=galat,
         f_jumlah_wilayah=len(aktif), nama_jenis=pilihan_pembaruan.NAMA_JENIS,
         tahun_teruji=pilihan_pembaruan.TAHUN_TERUJI, durasi=_teks_durasi,
+        kartu_cek=kartu_cek, kartu_pembaruan=kartu_pembaruan,
+        mulai_nonaktif=bool(kartu_cek and not kartu_cek["boleh_mulai"]),
     ), status
+
+
+def _cek_sesi_ini(uji, k):
+    """Hasil cek milik run "Cek dulu" terakhir di sesi server ini, atau None.
+    Berkas cek dianggap milik run itu hanya kalau ditulis SETELAH run dimulai."""
+    if not (k["selesai"] and k["jenis"] == "cek"):
+        return None
+    c = pembaruan.hasil_cek(uji)
+    if c and c["selesai_pada"] and c["selesai_pada"] >= k["mulai"]:
+        return c
+    return None
+
+
+def _kartu_cek(cek):
+    return ringkasan_pembaruan.ringkas_cek(
+        cek, ringkasan_pembaruan.sisa_ruang_mb(), ringkasan_pembaruan.ambang(),
+        ringkasan_pembaruan.nama_drive())
 
 
 @bp.get("/perbarui")
@@ -419,6 +437,16 @@ def perbarui_mulai():
     except PilihanTidakSah as e:
         return _halaman_perbarui(nilai=_nilai_kiriman(request.form), galat=e.galat, status=400)
     cek = request.form.get("aksi") == "cek"
+    if not cek:
+        # Tombol Mulai pembaruan dinonaktifkan kalau cek terakhir (pilihan yang
+        # sama) menunjukkan ruang disk kurang; di server ditolak juga, dengan
+        # sisa ruang yang dibaca SEKARANG (25 Nov 2026).
+        hasil = _cek_sesi_ini(_mode_uji(), pembaruan.keadaan())
+        if hasil and hasil["status"] != "gagal" and hasil["pilihan"] == pilihan.ke_dict():
+            kartu = _kartu_cek(hasil)
+            if not kartu["boleh_mulai"]:
+                return _halaman_perbarui(nilai=_nilai_formulir(pilihan),
+                                         galat=[kartu["alasan_tidak_boleh"]], status=409)
     if not pembaruan.mulai(_mode_uji(), pilihan=pilihan, cek=cek):
         flash("Pembaruan sedang berjalan. Tunggu sampai selesai - dua pembaruan "
               "bersamaan bisa saling menimpa data.", "gagal")

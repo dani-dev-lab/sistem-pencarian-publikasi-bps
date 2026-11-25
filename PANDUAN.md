@@ -449,9 +449,16 @@ Publikasi yang tidak berubah tidak dibaca ulang.
 4. Kemajuan proses tampil langsung di halaman, baris demi baris. Tiap
    wilayah diawali baris seperti `halaman 3/24 ... OK`, kira-kira satu baris
    per detik. Itu tanda proses berjalan normal.
-5. Begitu selesai, halaman menampilkan ringkasannya: tabel per wilayah
-   (Diperbarui / Tidak ada yang baru / Sebagian gagal / Gagal), publikasi
-   baru, dan jumlah bagian terindeks.
+5. Begitu selesai, halaman menampilkan **kartu ringkasan** dengan gaya yang
+   sama dengan hasil "Cek dulu" (lihat "Membaca hasil cek" di bawah):
+   - status berwarna: hijau **Pembaruan selesai**, abu-abu **Semua sudah
+     terbaru**, kuning **Pembaruan selesai sebagian**, atau merah
+     **Pembaruan gagal**;
+   - empat angka: publikasi baru, gagal, ukuran terunduh, dan durasi;
+   - daftar judul publikasi baru di bawahnya.
+
+   Tabel per wilayah (Diperbarui / Tidak ada yang baru / Sebagian gagal /
+   Gagal) dilipat di bawah **Lihat rincian per wilayah**.
 
 Yang perlu diketahui:
 
@@ -489,14 +496,60 @@ lama** dari 2 tahun terakhir.
 Cara memakainya:
 
 1. Atur pilihannya, lalu klik **Cek dulu**. Cek hanya membaca daftar
-   publikasi BPS (dengan jeda 1 detik per halaman): **tidak ada PDF yang
-   diunduh dan database tidak diubah**. Hasilnya tabel per wilayah: berapa
-   publikasi yang baru, direvisi BPS, perlu dibaca ulang, dan tidak berubah;
-   ditambah perkiraan ukuran unduhan dan lama waktunya.
-2. Kalau penarikannya besar (50 publikasi atau lebih, 1 GB atau lebih, atau
-   lebih dari 1 jam), hasil cek menampilkan kotak **Penarikan besar**.
-3. Kalau angkanya sesuai, klik **Mulai pembaruan**. Formulirnya sudah terisi
-   pilihan yang sama dengan cek tadi.
+   publikasi BPS, dengan jeda 1 detik per halaman: **tidak ada PDF yang
+   diunduh dan database tidak diubah**. Hasilnya berupa kartu ringkasan
+   (lihat "Membaca hasil cek" di bawah).
+2. Baca warna dan kalimatnya. Kalau hijau, atau kuning dan sekarang malam
+   hari, klik **Mulai pembaruan**. Formulirnya sudah terisi pilihan yang sama
+   dengan cek tadi.
+
+#### Membaca hasil cek
+
+Paling atas ada kartu dengan **empat angka besar**:
+
+| Angka | Artinya |
+|---|---|
+| **Akan diproses** | publikasi yang baru, direvisi BPS, atau perlu dibaca ulang |
+| **Ukuran unduhan** | jumlah ukuran PDF yang akan diunduh, dalam MB atau GB (1 GB = 1024 MB) |
+| **Perkiraan waktu** | perkiraan lama pembaruan, dalam detik, menit, atau jam (belum termasuk OCR) |
+| **Sisa ruang disk** | sisa ruang drive tempat folder `data` berada, dibaca saat halaman dibuka |
+
+Di layar ponsel, keempat angka itu tersusun 2×2. Di atas angka ada **status
+berwarna** dengan satu kalimat:
+
+| Warna | Status | Artinya |
+|---|---|---|
+| hijau | **Siap ditarik** | boleh langsung klik **Mulai pembaruan** |
+| kuning | **Penarikan besar, sebaiknya jalankan malam hari** | perkiraan waktu **lebih dari 30 menit** atau unduhan **lebih dari 1 GB**. Boleh dijalankan, tetapi sebaiknya sesudah pukul 01.00 (lihat peringatan di bawah) |
+| merah | **Ruang disk tidak cukup** | ukuran unduhan ditambah cadangan 20% lebih besar dari sisa ruang disk. Tombol **Mulai pembaruan** dinonaktifkan, dan di bawahnya tertulis alasannya. Kosongkan ruang disk atau perkecil pilihan, lalu klik **Cek dulu** lagi |
+| abu-abu | **Semua sudah terbaru** | tidak ada yang perlu ditarik dengan pilihan itu |
+
+Kalimat di bawah status menjelaskan hasilnya dalam bahasa sehari-hari,
+misalnya "Ada 1 publikasi baru dari Kota Banjarmasin. 620 publikasi lain
+tidak berubah. Klik Mulai pembaruan untuk menariknya." Wilayah disebut
+namanya kalau jumlahnya tiga atau kurang; kalau lebih, ditulis "dari 5
+wilayah". Kalau cek gagal untuk satu wilayah, kalimat ini menyebutkannya.
+
+Tabel per wilayah (sesuai pilihan, baru, direvisi, baca ulang, tidak berubah,
+ukuran unduhan) dan rincian perkiraan waktu dilipat di bawah **Lihat rincian
+per wilayah**. Klik untuk membukanya; ini juga bekerja di browser tanpa
+JavaScript.
+
+**Ambang kuning dan merah diatur di `data\wilayah.json`**, kunci
+`ambang_penarikan`, dan bisa diubah tanpa mengubah program:
+
+```json
+"ambang_penarikan": {"besar_menit": 30, "besar_gb": 1, "cadangan_disk_persen": 20}
+```
+
+Ambang yang sama dipakai `perbarui-data.bat --cek-dulu` untuk baris
+`PERINGATAN` di layar hitam. Kalau kunci ini hilang atau isinya bukan angka,
+halaman dan `perbarui.py` berhenti dengan pesan yang menyebut kunci itu.
+
+Tombol **Mulai pembaruan** yang nonaktif bukan satu-satunya pengaman. Server
+juga menolak pembaruan dengan pilihan yang sama selama ruang disk kurang, dan
+sisa ruang itu dibaca ulang saat tombol diklik. Pilihan yang berbeda, atau
+cek ulang sesudah disk dikosongkan, berjalan seperti biasa.
 
 Pilihan diperiksa di server, bukan hanya di browser. Pilihan yang tidak sah
 ditolak dengan pesan dan tidak ada yang dijalankan: tanpa wilayah, kode
@@ -1050,8 +1103,9 @@ atau kode:
 venv\Scripts\python.exe -u tests\uji_pipeline.py > uji_log.txt 2>&1
 ```
 
-- Lamanya ±55 menit. Run penuh terakhir, 24 November 2026: 142 uji lulus,
-  0 gagal, 0 dilewati, 3.123 detik.
+- Lamanya ±60 menit. Run penuh terakhir, 25 November 2026: 152 uji lulus,
+  0 gagal, 0 dilewati, 3.485 detik. Bagian `J` menguji kartu ringkasan hasil
+  cek: satuan, empat status, dan tombol Mulai yang nonaktif saat disk kurang.
   Bagian `Q` menguji formulir pilihan penarikan dan `--cek-dulu`. Bagian `V` membuktikan bahwa tanpa
   kotak centang kecamatan, halaman pencarian sama persis dengan database
   tanpa publikasi kecamatan; bagian ini dilewati kalau database uji tidak

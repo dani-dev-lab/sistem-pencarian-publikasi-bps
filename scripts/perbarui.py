@@ -53,7 +53,7 @@ from sqlalchemy.engine import make_url
 from app import create_app
 from app.config import Config, KonfigurasiUji
 from app.models import EntriDokumen, Publikasi, db
-from app.services import pilihan_pembaruan, pipeline_data, sampul, sumber_bps, versi_data
+from app.services import pilihan_pembaruan, pipeline_data, ringkasan_pembaruan, sampul, sumber_bps, versi_data
 from app.services.normalisasi_data import bersihkan_html
 from app.services.pilihan_pembaruan import PilihanTidakSah
 from app.services.sumber_bps import GagalAmbil, samarkan
@@ -84,10 +84,9 @@ DETIK_EKSTRAKSI_PER_MB = 1.8
 # saat penarikan 13 kab/kota (38-75 KB/detik, 9 Nov 2026).
 MB_PER_DETIK_UNDUH = 5.0
 MB_PER_DETIK_UNDUH_LAMBAT = 0.05
-# Ambang "penarikan besar" di hasil --cek-dulu (peringatan, tidak menolak).
-BESAR_PUBLIKASI = 50
-BESAR_MB = 1000
-BESAR_DETIK = 3600
+# Ambang "penarikan besar" di hasil --cek-dulu (peringatan, tidak menolak):
+# data/wilayah.json kunci ambang_penarikan, dibaca ringkasan_pembaruan.ambang()
+# (25 Nov 2026; dulu konstanta di sini: >= 50 publikasi / 1000 MB / 1 jam).
 
 KODE_SUKSES, KODE_GAGAL, KODE_TERKUNCI, KODE_SEBAGIAN = 0, 1, 2, 3
 
@@ -1096,13 +1095,8 @@ def perkiraan_cek(total, detik_daftar):
     }
     detik["total"] = sum(detik.values())
     detik["unduh_lambat"] = round(total["mb_unduh"] / MB_PER_DETIK_UNDUH_LAMBAT)
-    peringatan = []
-    if kerja >= BESAR_PUBLIKASI:
-        peringatan.append(f"{kerja} publikasi akan diproses (>= {BESAR_PUBLIKASI}).")
-    if total["mb_unduh"] >= BESAR_MB:
-        peringatan.append(f"Unduhan sekitar {total['mb_unduh'] / 1000:.1f} GB (>= {BESAR_MB / 1000:.0f} GB).")
-    if detik["total"] >= BESAR_DETIK:
-        peringatan.append(f"Perkiraan waktu sekitar {detik['total'] / 3600:.1f} jam (>= 1 jam).")
+    peringatan = ringkasan_pembaruan.penarikan_besar(detik["total"], total["mb_unduh"],
+                                                     ringkasan_pembaruan.ambang())
     catatan = ["Perkiraan belum termasuk OCR untuk PDF tanpa lapisan teks (sekitar 15 detik per "
                "halaman); itu baru diketahui sesudah PDF diunduh."]
     if PILIHAN.dari < pilihan_pembaruan.TAHUN_TERUJI:
