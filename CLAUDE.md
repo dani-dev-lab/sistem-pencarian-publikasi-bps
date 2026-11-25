@@ -244,6 +244,16 @@ Mahasiswa Politeknik Negeri Banjarmasin.
     keterangan "Tabel <judul>" / "<nomor> ..." / "Table" tidak dikenali, 1.240
     tabel tanpa tombol PDF (saran, belum dikerjakan). Laporan:
     `data/regresi/tarik-kecil-20261124/penilaian-sampel.md`.
+  - **Kartu ringkasan hasil cek / pembaruan (25 Nov 2026), BELUM di-push.**
+    Laporan `data/regresi/ringkasan-cek-20261125.md`. Aturan di
+    `app/services/ringkasan_pembaruan.py` (fungsi murni): status abu-abu
+    (0 diproses) > merah (unduhan x 1,2 > sisa disk; Mulai `disabled` DAN
+    ditolak server 409 untuk pilihan sama) > kuning (> 30 menit / > 1 GB) >
+    hijau. Ambang di wilayah.json `ambang_penarikan` (tanpa cadangan di kode;
+    juga dipakai `perbarui.py --cek-dulu`, dulu >= 50 publikasi/1000 MB/1 jam).
+    1 GB = 1024 MB. Rincian per wilayah di `<details>`. Uji: bagian J
+    (diuji dengan cacat tertanam: J2/J3 gagal). Halaman pencarian: HTML 28/28,
+    piksel 12/12 identik. Run penuh: 152 lulus, 0 gagal, 3.485 detik.
   - `.bat` memanggil `%SystemRoot%\System32\find.exe` dengan jalur lengkap:
     `find` Git di PATH tidak mengenal `/i`.
   - **Jebakan alat:** heredoc di Bash tool memakan backslash (`\\n`, `\` di

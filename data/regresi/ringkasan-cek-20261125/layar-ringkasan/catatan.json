@@ -1,0 +1,204 @@
+{
+ "1280-1-sesudah-pembaruan": {
+  "status": "sukses",
+  "judul": "Pembaruan selesai",
+  "kalimat": "27 publikasi baru dari Kab. Tanah Laut sudah bisa dicari. Entri dokumen 44.455 → 48.181.",
+  "nilai": [
+   "27 publikasi",
+   "0 publikasi",
+   "221,7 MB",
+   "13 menit"
+  ],
+  "kolom": 4,
+  "baris": 1,
+  "nilai_satu_baris": true,
+  "scrollWidth": 1280,
+  "mulai_nonaktif": false,
+  "alasan_mulai": null,
+  "gulir_mendatar": false
+ },
+ "0375-1-sesudah-pembaruan": {
+  "status": "sukses",
+  "judul": "Pembaruan selesai",
+  "kalimat": "27 publikasi baru dari Kab. Tanah Laut sudah bisa dicari. Entri dokumen 44.455 → 48.181.",
+  "nilai": [
+   "27 publikasi",
+   "0 publikasi",
+   "221,7 MB",
+   "13 menit"
+  ],
+  "kolom": 2,
+  "baris": 2,
+  "nilai_satu_baris": true,
+  "scrollWidth": 375,
+  "mulai_nonaktif": false,
+  "alasan_mulai": null,
+  "gulir_mendatar": false
+ },
+ "1280-2-cek-terbaru": {
+  "status": "terbaru",
+  "judul": "Semua sudah terbaru",
+  "kalimat": "Tidak ada publikasi baru atau yang direvisi BPS. 33 publikasi sesuai pilihan sudah terbaru.",
+  "nilai": [
+   "0 publikasi",
+   "0 MB",
+   "±3 detik",
+   "31,4 GB"
+  ],
+  "kolom": 4,
+  "baris": 1,
+  "nilai_satu_baris": true,
+  "scrollWidth": 1280,
+  "mulai_nonaktif": false,
+  "alasan_mulai": null,
+  "gulir_mendatar": false
+ },
+ "0375-2-cek-terbaru": {
+  "status": "terbaru",
+  "judul": "Semua sudah terbaru",
+  "kalimat": "Tidak ada publikasi baru atau yang direvisi BPS. 33 publikasi sesuai pilihan sudah terbaru.",
+  "nilai": [
+   "0 publikasi",
+   "0 MB",
+   "±3 detik",
+   "31,4 GB"
+  ],
+  "kolom": 2,
+  "baris": 2,
+  "nilai_satu_baris": true,
+  "scrollWidth": 375,
+  "mulai_nonaktif": false,
+  "alasan_mulai": null,
+  "gulir_mendatar": false
+ },
+ "1280-3-cek-siap": {
+  "status": "siap",
+  "judul": "Siap ditarik",
+  "kalimat": "Ada 3 publikasi baru dan 2 publikasi yang direvisi BPS dari Kab. Tanah Laut. 64 publikasi lain tidak berubah. Klik Mulai pembaruan untuk menariknya.",
+  "nilai": [
+   "5 publikasi",
+   "68,0 MB",
+   "±3 menit",
+   "31,4 GB"
+  ],
+  "kolom": 4,
+  "baris": 1,
+  "nilai_satu_baris": true,
+  "scrollWidth": 1280,
+  "mulai_nonaktif": false,
+  "alasan_mulai": null,
+  "gulir_mendatar": false
+ },
+ "0375-3-cek-siap": {
+  "status": "siap",
+  "judul": "Siap ditarik",
+  "kalimat": "Ada 3 publikasi baru dan 2 publikasi yang direvisi BPS dari Kab. Tanah Laut. 64 publikasi lain tidak berubah. Klik Mulai pembaruan untuk menariknya.",
+  "nilai": [
+   "5 publikasi",
+   "68,0 MB",
+   "±3 menit",
+   "31,4 GB"
+  ],
+  "kolom": 2,
+  "baris": 2,
+  "nilai_satu_baris": true,
+  "scrollWidth": 375,
+  "mulai_nonaktif": false,
+  "alasan_mulai": null,
+  "gulir_mendatar": false
+ },
+ "1280-3b-cek-siap-rincian-dibuka": {
+  "status": "siap",
+  "judul": "Siap ditarik",
+  "kalimat": "Ada 3 publikasi baru dan 2 publikasi yang direvisi BPS dari Kab. Tanah Laut. 64 publikasi lain tidak berubah. Klik Mulai pembaruan untuk menariknya.",
+  "nilai": [
+   "5 publikasi",
+   "68,0 MB",
+   "±3 menit",
+   "31,4 GB"
+  ],
+  "kolom": 4,
+  "baris": 1,
+  "nilai_satu_baris": true,
+  "scrollWidth": 1280,
+  "mulai_nonaktif": false,
+  "alasan_mulai": null,
+  "gulir_mendatar": false
+ },
+ "tanpa-js-rincian": {
+  "tabel_terlihat_sebelum_klik": false,
+  "tabel_terlihat_sesudah_klik": true
+ },
+ "1280-4-cek-disk-kurang": {
+  "status": "disk",
+  "judul": "Ruang disk tidak cukup",
+  "kalimat": "Ada 3 publikasi baru dan 2 publikasi yang direvisi BPS dari Kab. Tanah Laut. 64 publikasi lain tidak berubah. Perlu sekitar 81,6 MB (unduhan + cadangan 20%), sisa ruang hanya 40,0 MB.",
+  "nilai": [
+   "5 publikasi",
+   "68,0 MB",
+   "±3 menit",
+   "40,0 MB"
+  ],
+  "kolom": 4,
+  "baris": 1,
+  "nilai_satu_baris": true,
+  "scrollWidth": 1280,
+  "mulai_nonaktif": true,
+  "alasan_mulai": "Mulai pembaruan dinonaktifkan: unduhan 68,0 MB ditambah cadangan 20% (81,6 MB) lebih besar dari sisa ruang disk 40,0 MB. Kosongkan ruang disk, atau perkecil pilihan, lalu klik Cek dulu lagi.",
+  "gulir_mendatar": false
+ },
+ "0375-4-cek-disk-kurang": {
+  "status": "disk",
+  "judul": "Ruang disk tidak cukup",
+  "kalimat": "Ada 3 publikasi baru dan 2 publikasi yang direvisi BPS dari Kab. Tanah Laut. 64 publikasi lain tidak berubah. Perlu sekitar 81,6 MB (unduhan + cadangan 20%), sisa ruang hanya 40,0 MB.",
+  "nilai": [
+   "5 publikasi",
+   "68,0 MB",
+   "±3 menit",
+   "40,0 MB"
+  ],
+  "kolom": 2,
+  "baris": 2,
+  "nilai_satu_baris": true,
+  "scrollWidth": 375,
+  "mulai_nonaktif": true,
+  "alasan_mulai": "Mulai pembaruan dinonaktifkan: unduhan 68,0 MB ditambah cadangan 20% (81,6 MB) lebih besar dari sisa ruang disk 40,0 MB. Kosongkan ruang disk, atau perkecil pilihan, lalu klik Cek dulu lagi.",
+  "gulir_mendatar": false
+ },
+ "1280-5-cek-semua-wilayah": {
+  "status": "besar",
+  "judul": "Penarikan besar, sebaiknya jalankan malam hari",
+  "kalimat": "Ada 3 publikasi baru dan 81 publikasi yang direvisi BPS dari Provinsi Kalimantan Selatan dan Kab. Tanah Laut. 564 publikasi lain tidak berubah. Klik Mulai pembaruan pada malam hari (sesudah pukul 01.00), dari jaringan kantor, laptop tersambung listrik.",
+  "nilai": [
+   "84 publikasi",
+   "813,3 MB",
+   "±32 menit",
+   "31,4 GB"
+  ],
+  "kolom": 4,
+  "baris": 1,
+  "nilai_satu_baris": true,
+  "scrollWidth": 1280,
+  "mulai_nonaktif": false,
+  "alasan_mulai": null,
+  "gulir_mendatar": false
+ },
+ "0375-5-cek-semua-wilayah": {
+  "status": "besar",
+  "judul": "Penarikan besar, sebaiknya jalankan malam hari",
+  "kalimat": "Ada 3 publikasi baru dan 81 publikasi yang direvisi BPS dari Provinsi Kalimantan Selatan dan Kab. Tanah Laut. 564 publikasi lain tidak berubah. Klik Mulai pembaruan pada malam hari (sesudah pukul 01.00), dari jaringan kantor, laptop tersambung listrik.",
+  "nilai": [
+   "84 publikasi",
+   "813,3 MB",
+   "±32 menit",
+   "31,4 GB"
+  ],
+  "kolom": 2,
+  "baris": 2,
+  "nilai_satu_baris": true,
+  "scrollWidth": 375,
+  "mulai_nonaktif": false,
+  "alasan_mulai": null,
+  "gulir_mendatar": false
+ }
+}
