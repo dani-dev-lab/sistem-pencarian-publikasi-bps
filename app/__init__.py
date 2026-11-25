@@ -70,6 +70,20 @@ def create_app(config_class: type[Config] = Config) -> Flask:
               f"({config_class.SESI_ADMIN_MENIT_TEKS!r}); dipakai bawaan {menit} menit.",
               flush=True)
 
+    # Reverse proxy (25 Nov 2026): dengan JUMLAH_PROXY = N > 0, alamat pengguna
+    # (request.remote_addr, dipakai penguncian login) diambil dari entri ke-N
+    # dari kanan di X-Forwarded-For. Hanya isi kalau memang ada proxy: tanpa
+    # proxy, header itu bisa dipalsukan pengguna untuk lolos dari penguncian.
+    from app.config import jumlah_proxy
+    n_proxy, sah = jumlah_proxy(config_class.JUMLAH_PROXY_TEKS)
+    if not sah:
+        print(f"PERINGATAN: JUMLAH_PROXY di .env tidak sah "
+              f"({config_class.JUMLAH_PROXY_TEKS!r}); dipakai 0 (tanpa proxy).", flush=True)
+    app.config["JUMLAH_PROXY"] = n_proxy
+    if n_proxy:
+        from werkzeug.middleware.proxy_fix import ProxyFix
+        app.wsgi_app = ProxyFix(app.wsgi_app, x_for=n_proxy)
+
     # Kolom tambahan (log_pencarian.wilayah_filter, publikasi.halaman_ocr)
     # untuk database lama. Di awal request, bukan di sini: create_app() juga
     # dipanggil skrip dan pemeriksa .bat sebelum koneksi MySQL dipastikan.

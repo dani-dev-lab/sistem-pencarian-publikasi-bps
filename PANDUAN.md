@@ -869,9 +869,42 @@ sandi lama). Jalur pemulihannya butuh akses ke server — lihat butir
   satu komputer (alamat IP), login dari komputer itu ditolak 5 menit, juga
   kalau sandinya benar. Login yang berhasil mengosongkan hitungannya.
   Catatan penguncian disimpan di memori aplikasi, jadi hilang kalau aplikasi
-  dibuka ulang. Kalau aplikasi dipasang di belakang proxy, semua pengguna
-  bisa terlihat beralamat sama; penguncian lalu berlaku untuk semuanya
-  sekaligus (bagian 7).
+  dibuka ulang. Kalau aplikasi dipasang di belakang proxy, lihat
+  `JUMLAH_PROXY` di bawah.
+
+### Aplikasi di belakang reverse proxy (`JUMLAH_PROXY`)
+
+Penguncian login mengenali komputer dari **alamat IP** yang tersambung ke
+aplikasi.
+
+- **Kalau browser petugas langsung tersambung ke aplikasi** (misalnya
+  `http://<nama-server>:5000/`), tidak ada yang perlu diisi. Ini keadaan
+  bawaan dan keadaan selama masa magang.
+- **Kalau Tim IT memasang aplikasi di belakang reverse proxy** (Nginx, IIS
+  dengan URL Rewrite/ARR, atau proxy lain yang meneruskan permintaan ke
+  aplikasi), semua permintaan datang dari alamat proxy. Akibatnya satu orang
+  yang salah sandi 5 kali mengunci login untuk **semua** petugas. Dalam
+  keadaan itu tambahkan di `.env`:
+
+  ```
+  JUMLAH_PROXY=1
+  ```
+
+  Isinya angka saja, tanpa spasi: jumlah proxy berlapis di depan aplikasi.
+  Biasanya 1, dan 2 kalau ada dua lapis (misalnya load balancer + Nginx).
+  Aplikasi lalu memakai alamat asli pengguna dari header `X-Forwarded-For`
+  yang ditambahkan proxy. **Proxy harus diatur menambahkan header itu**;
+  Nginx: `proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;`.
+- **Risiko kalau diisi padahal TIDAK ada proxy:** header `X-Forwarded-For`
+  bisa ditulis siapa saja. Dengan `JUMLAH_PROXY` > 0 tanpa proxy, orang yang
+  mencoba-coba sandi bisa mengganti "alamat"-nya di setiap percobaan, sehingga
+  penguncian tidak pernah berlaku. Jadi **biarkan kosong atau 0** kecuali
+  aplikasi benar-benar di belakang proxy, dan pastikan port aplikasi tidak
+  bisa dijangkau langsung tanpa melewati proxy itu (bagian 7, Firewall).
+- Kosong atau `0` = tidak ada proxy. Nilai yang tidak sah (bukan angka, minus,
+  atau lebih dari 10) tidak menghentikan aplikasi: dipakai 0 dan jendela hitam
+  mencetak `PERINGATAN: JUMLAH_PROXY di .env tidak sah ...`. **Buka ulang
+  aplikasi** sesudah mengubahnya.
 
 ---
 
@@ -1151,12 +1184,12 @@ atau kode:
 venv\Scripts\python.exe -u tests\uji_pipeline.py > uji_log.txt 2>&1
 ```
 
-- Lamanya ±60 menit. Run penuh terakhir, 25 November 2026: 160 uji lulus,
-  0 gagal, 0 dilewati, 3.452 detik. Bagian `J` menguji kartu ringkasan hasil
+- Lamanya ±60 menit. Run penuh terakhir, 25 November 2026: 163 uji lulus,
+  0 gagal, 0 dilewati, 3.293 detik. Bagian `J` menguji kartu ringkasan hasil
   cek: satuan, empat status, dan tombol Mulai yang nonaktif saat disk kurang.
   Bagian `X` menguji menu di kop, login dan kembali ke tujuan, sesi admin
   yang kedaluwarsa (termasuk `SESI_ADMIN_MENIT` yang tidak sah), dan
-  penguncian sesudah 5 kata sandi salah.
+  penguncian sesudah 5 kata sandi salah, termasuk `JUMLAH_PROXY`.
   Bagian `Q` menguji formulir pilihan penarikan dan `--cek-dulu`. Bagian `V` membuktikan bahwa tanpa
   kotak centang kecamatan, halaman pencarian sama persis dengan database
   tanpa publikasi kecamatan; bagian ini dilewati kalau database uji tidak

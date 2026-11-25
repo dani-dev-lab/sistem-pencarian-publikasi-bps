@@ -4,7 +4,7 @@ Cara menjalankan (dari folder proyek):
 
     venv\Scripts\python.exe -u tests\uji_pipeline.py > uji_log.txt 2>&1
 
-Semua bagian sekitar 60 menit (25 Nov 2026: 3.452 detik, 160 uji). Sebagian saja (untuk pengembang): tambahkan
+Semua bagian sekitar 60 menit (25 Nov 2026: 3.293 detik, 163 uji). Sebagian saja (untuk pengembang): tambahkan
 --hanya DKRW (huruf bagian; U dan Z selalu jalan).
 
 Kamus: salinan memakai data/kamus_sinonim.json working tree, dan bagian N
@@ -2665,6 +2665,31 @@ print('XENV ' + json.dumps({'menit': app.config['SESI_ADMIN_MENIT'], 'peringatan
 '''
 
 
+KODE_X_PROXY = r'''
+import json, io, contextlib
+from werkzeug.security import generate_password_hash
+from app import create_app
+from app.config import KonfigurasiUji
+buf = io.StringIO()
+with contextlib.redirect_stdout(buf):
+    app = create_app(KonfigurasiUji)
+app.config['ADMIN_PASSWORD_HASH'] = generate_password_hash('sandi-uji-proxy-1')
+c = app.test_client()
+def coba(xff, sandi):
+    # Semua permintaan datang dari SATU koneksi (alamat proxy 10.7.7.7); yang
+    # berbeda hanya X-Forwarded-For, alamat pengguna menurut proxy.
+    r = c.post('/admin/login', data={'sandi': sandi}, environ_base={'REMOTE_ADDR': '10.7.7.7'},
+               headers={'X-Forwarded-For': xff})
+    with c.session_transaction() as s: s.clear()
+    return r.status_code
+salah = [coba('203.0.113.1', 'salah') for _ in range(5)]
+print('XPROXY ' + json.dumps({'jumlah': app.config['JUMLAH_PROXY'],
+      'peringatan': 'JUMLAH_PROXY di .env tidak sah' in buf.getvalue(),
+      'salah_a': salah, 'benar_b': coba('203.0.113.2', 'sandi-uji-proxy-1'),
+      'benar_a': coba('203.0.113.1', 'sandi-uji-proxy-1')}))
+'''
+
+
 def bagian_x():
     """Tampilan 25 Nov 2026: menu di semua halaman, login + kembali ke tujuan,
     sesi admin kedaluwarsa (SESI_ADMIN_MENIT), penguncian sesudah 5 sandi salah."""
@@ -2730,6 +2755,27 @@ print('XLIMA', app.config['SESI_ADMIN_MENIT'], a, b)
         x5["salah"] == [200] * 4 and x5["ke5"] == [429, True] and x5["benar_saat_kunci"] == [429, True]
         and x5["tidak_masuk"] and x5["get_saat_kunci"] == [429, True] and x5["alamat_lain"] == 302
         and x5["4_menit"] == 429 and x5["5_menit_lebih"] == 302 and x5["reset"] == [200] * 4, x5)
+
+    # X6: JUMLAH_PROXY (25 Nov 2026). Lima sandi salah dengan X-Forwarded-For A,
+    # lalu sandi benar dengan X-Forwarded-For B dan A, dari koneksi yang sama.
+    px = {}
+    for nilai in ("", "0", "1", " 1 ", "abc", "-1", "1,5", "99"):
+        kode_p, keluar_p, err_p = jalan_py(KODE_X_PROXY, env_tambahan={"JUMLAH_PROXY": nilai})
+        m = re.search(r"^XPROXY (.*)$", keluar_p, re.M)
+        px[nilai] = json.loads(m.group(1)) if m else (err_p or keluar_p)[-300:]
+    print("    | " + json.dumps(px, ensure_ascii=False), flush=True)
+
+    def pola(v, jumlah, peringatan, benar_b):
+        return (isinstance(v, dict) and v["jumlah"] == jumlah and v["peringatan"] == peringatan
+                and v["salah_a"] == [200, 200, 200, 200, 429] and v["benar_b"] == benar_b and v["benar_a"] == 429)
+    cek("X6 JUMLAH_PROXY kosong/0 = perilaku sekarang: X-Forwarded-For diabaikan, satu koneksi = satu alamat "
+        "(B ikut terkunci oleh salah A)",
+        pola(px[""], 0, False, 429) and pola(px["0"], 0, False, 429), {k: px[k] for k in ("", "0")})
+    cek("X6 JUMLAH_PROXY=1: alamat dari X-Forwarded-For, A dan B dikunci terpisah (A terkunci, B tetap bisa masuk)",
+        pola(px["1"], 1, False, 302) and pola(px[" 1 "], 1, False, 302), {k: px[k] for k in ("1", " 1 ")})
+    cek("X6 JUMLAH_PROXY tidak sah (abc, -1, 1,5, 99) = 0 + PERINGATAN, berperilaku seperti 0",
+        all(pola(px[k], 0, True, 429) for k in ("abc", "-1", "1,5", "99")),
+        {k: px[k] for k in ("abc", "-1", "1,5", "99")})
 
 
 SEMUA_BAGIAN = "VFPLCHISOBGETDKRWQAJX"   # V dan F dijalankan sebelum potret s0 (lihat main)

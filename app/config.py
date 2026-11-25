@@ -36,6 +36,13 @@ class Config:
     SESI_ADMIN_MENIT_TEKS = os.getenv("SESI_ADMIN_MENIT")
     SESI_ADMIN_MENIT = None     # diisi menit_sesi_admin() di bawah kelas
 
+    # Jumlah reverse proxy (Nginx/IIS) di depan aplikasi (25 Nov 2026). 0 =
+    # tidak ada: alamat pengguna = alamat koneksi, X-Forwarded-For diabaikan.
+    # > 0: ProxyFix(x_for=N) di create_app(), supaya penguncian login memakai
+    # alamat asli. Tidak sah = 0 + peringatan, seperti SESI_ADMIN_MENIT.
+    JUMLAH_PROXY_TEKS = os.getenv("JUMLAH_PROXY")
+    JUMLAH_PROXY = None         # diisi jumlah_proxy() di bawah kelas
+
     # WebAPI BPS
     BPS_API_KEY = os.getenv("BPS_API_KEY", "")
     BPS_API_BASE_URL = os.getenv("BPS_API_BASE_URL", "https://webapi.bps.go.id/v1/api")
@@ -93,6 +100,26 @@ def menit_sesi_admin(teks):
 
 
 Config.SESI_ADMIN_MENIT = menit_sesi_admin(Config.SESI_ADMIN_MENIT_TEKS)[0]
+
+JUMLAH_PROXY_MAKS = 10
+
+
+def jumlah_proxy(teks):
+    """JUMLAH_PROXY dari .env -> (jumlah, sah).
+
+    Sah = angka bulat 0..10 (spasi di tepi diabaikan, seperti PORT). Kosong =
+    0. Selain itu ("abc", "-1", "1,5", "99") = 0 dan create_app() mencetak
+    peringatan. 0 berarti X-Forwarded-For TIDAK dipercaya.
+    """
+    if teks is None or not str(teks).strip():
+        return 0, True
+    t = str(teks).strip()
+    if t.isdigit() and int(t) <= JUMLAH_PROXY_MAKS:
+        return int(t), True
+    return 0, False
+
+
+Config.JUMLAH_PROXY = jumlah_proxy(Config.JUMLAH_PROXY_TEKS)[0]
 
 
 def program_mysql(nama, folder=None):

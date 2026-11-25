@@ -272,6 +272,10 @@ Mahasiswa Politeknik Negeri Banjarmasin.
     - Penguncian: 5 sandi salah per `remote_addr` -> 429 selama 5 menit, di
       memori proses (`_PERCOBAAN`, kunci thread); jam lewat `admin._sekarang`
       (diganti di uji).
+    - `JUMLAH_PROXY` (.env, 0-10, kosong/tidak sah = 0 + PERINGATAN):
+      > 0 -> `ProxyFix(x_for=N)` di create_app, penguncian memakai alamat
+      X-Forwarded-For. JANGAN diisi tanpa proxy (alamat bisa dipalsukan).
+      Uji X6.
     - `next`: GET = path + query; POST tanpa login = halaman asal (Referer).
     - Tombol seragam `.tombol-utama` / `.tombol-kedua` (+ `.tombol-kecil`),
       min. 44 px, cincin fokus kuning; `<details class="lipat">` bergaya tombol.
