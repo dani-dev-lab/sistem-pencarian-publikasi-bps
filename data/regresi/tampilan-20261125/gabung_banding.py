@@ -2,14 +2,21 @@
 (kiri = sebelum, kanan = sesudah), dipotong ke bagian atas halaman, JPEG.
 Hasil di layar-banding/ (yang di-commit; PNG penuh di-gitignore).
 
-  venv/Scripts/python.exe gabung_banding.py
+  venv/Scripts/python.exe gabung_banding.py [SEBELUM SESUDAH KELUAR LABEL_SEBELUM]
+
+Tanpa argumen: layar-sebelum (HEAD 70887dd) vs layar-v1 -> layar-banding.
+Revisi 25 Nov sore: layar-v1 layar-v2 layar-banding-v2 "SEBELUM (v1, menu di kop)".
 """
 import os
+import sys
 
 from PIL import Image, ImageDraw
 
 D = os.path.dirname(os.path.abspath(__file__))
-A, B, K = f"{D}/layar-sebelum", f"{D}/layar-sesudah", f"{D}/layar-banding"
+if len(sys.argv) > 4:
+    A, B, K, LABEL = (f"{D}/{sys.argv[1]}", f"{D}/{sys.argv[2]}", f"{D}/{sys.argv[3]}", sys.argv[4])
+else:
+    A, B, K, LABEL = f"{D}/layar-sebelum", f"{D}/layar-v1", f"{D}/layar-banding", "SEBELUM (HEAD 70887dd)"
 os.makedirs(K, exist_ok=True)
 n = 0
 for nama in sorted(os.listdir(B)):
@@ -23,7 +30,7 @@ for nama in sorted(os.listdir(B)):
     c.paste(x, (0, judul))
     c.paste(y, (x.width + jarak, judul))
     g = ImageDraw.Draw(c)
-    g.text((8, 6), "SEBELUM (HEAD 70887dd)", fill=(160, 0, 0))
+    g.text((8, 6), LABEL, fill=(160, 0, 0))
     g.text((x.width + jarak + 8, 6), "SESUDAH", fill=(0, 110, 0))
     g.line([(x.width + jarak // 2, 0), (x.width + jarak // 2, c.height)], fill=(200, 200, 200), width=2)
     if nama.startswith("1280"):

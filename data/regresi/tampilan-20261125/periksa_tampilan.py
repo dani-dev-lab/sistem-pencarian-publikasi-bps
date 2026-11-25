@@ -31,7 +31,7 @@ HALAMAN = ["/hasil?q=penduduk", "/hasil?q=pdrb&w=6301", "/hasil?q=penduduk&w=630
            "/hasil?q=tanah+laut", "/admin/log?semua=1", "/admin/kamus", "/admin/perbarui"]
 TOMBOL = (".tombol, .tombol-utama, .tombol-kedua, .lipat > summary, .menu-utama a, .kop-keluar button, "
           ".tombol-menu, .form-admin button, .form-sebaris button, .kotak-cari button, .varian button, "
-          ".form-terapkan button, .ke-atas")
+          ".form-terapkan button, .ke-atas, .tombol-admin, .tombol-kembali")
 hasil = {"tindih": [], "gulir_mendatar": [], "posisi_diperiksa": 0, "sentuh_kecil": [], "sentuh_diperiksa": 0}
 
 JS_TINDIH = """() => {
@@ -114,8 +114,9 @@ with sync_playwright() as p:
                 if w < 44 or h < 44:
                     hasil["sentuh_kecil"].append([lebar, u, kelas, teks, w, h])
     # 3. menu ponsel dan desktop
+    # Revisi 25 Nov 2026: menu hanya di halaman admin.
     hal.set_viewport_size({"width": 375, "height": 800})
-    hal.goto(DASAR + "/hasil?q=penduduk", wait_until="networkidle")
+    hal.goto(DASAR + "/admin/log?semua=1", wait_until="networkidle")
     m = {"awal_tertutup": not hal.locator("#menu-utama").is_visible(),
          "tombol_tampil": hal.locator(".tombol-menu").is_visible()}
     hal.click(".tombol-menu")
@@ -127,9 +128,10 @@ with sync_playwright() as p:
         hal.get_attribute(".tombol-menu", "aria-expanded") == "false"
     hal.set_viewport_size({"width": 1280, "height": 800})
     m["desktop_terbuka"] = hal.locator("#menu-utama").is_visible() and not hal.locator(".tombol-menu").is_visible()
-    tanpa = br.new_context(viewport={"width": 375, "height": 800}, java_script_enabled=False)
+    tanpa = br.new_context(viewport={"width": 375, "height": 800}, java_script_enabled=False,
+                           storage_state=ctx.storage_state())
     h2 = tanpa.new_page()
-    h2.goto(DASAR + "/hasil?q=penduduk")
+    h2.goto(DASAR + "/admin/log?semua=1")
     m["tanpa_js_terbuka"] = h2.locator("#menu-utama").is_visible() and not h2.locator(".tombol-menu").is_visible()
     h2.screenshot(path=KELUAR.replace(".json", "-menu-ponsel-tanpa-js.png"))
     tanpa.close()
@@ -175,6 +177,29 @@ with sync_playwright() as p:
     hal.keyboard.press("Shift+Tab")
     hasil["fokus"] = hal.evaluate("""() => { const e = document.activeElement, s = getComputedStyle(e);
         return [e.className, s.outlineStyle, s.outlineWidth, s.outlineColor]; }""")
+    # 7. kop halaman pencarian SATU baris (revisi 25 Nov 2026), belum dan sudah login
+    satu = {}
+    for nama, konteks in (("belum_login", br.new_context()), ("sudah_login", ctx)):
+        hp = konteks.new_page()
+        for lebar in (320, 360, 375, 412, 480, 640, 1280, 1920):
+            hp.set_viewport_size({"width": lebar, "height": 800})
+            for u in ("/", "/hasil?q=penduduk"):
+                hp.goto(DASAR + u, wait_until="networkidle")
+                satu[f"{nama}-{lebar}-{u}"] = hp.evaluate("""() => {
+                    const i = document.querySelector('.kop-identitas').getBoundingClientRect();
+                    const b = document.querySelector('.tombol-admin').getBoundingClientRect();
+                    const k = document.querySelector('.kop').getBoundingClientRect();
+                    const ins = document.querySelector('.kop-instansi');
+                    const lh = parseFloat(getComputedStyle(ins).lineHeight);
+                    return {sebaris: b.top < i.bottom && b.bottom > i.top && b.left >= i.right - 1,
+                            tinggi_kop: Math.round(k.height), baris_teks: Math.round(ins.getBoundingClientRect().height / lh),
+                            tombol: [Math.round(b.width), Math.round(b.height)],
+                            label: document.querySelector('.tombol-admin').innerText.replace(/\\s+/g, ' ').trim(),
+                            menu: !!document.querySelector('.menu-utama'),
+                            gulir_mendatar: document.documentElement.scrollWidth > innerWidth}; }""")
+        if konteks is not ctx:
+            konteks.close()
+    hasil["kop_pencarian"] = satu
     br.close()
 
 json.dump(hasil, open(KELUAR, "w", encoding="utf-8"), indent=1, ensure_ascii=False)

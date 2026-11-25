@@ -262,8 +262,13 @@ Mahasiswa Politeknik Negeri Banjarmasin.
       <= 1180 px kotak 52x56; ruang kanan dicadangkan di <= 960 px (kartu,
       info, pita, kaki, `main` admin `body.halaman-admin`).
     - Scrollbar tipis (`scrollbar-width: thin` + `::-webkit-scrollbar`).
-    - Menu di kop semua halaman (menggantikan "admin tidak ditautkan");
-      ponsel: dilipat lewat `menu.js` (tanpa JS selalu terbuka).
+    - **REVISI 25 Nov malam: admin terpisah.** Kop pencarian satu baris
+      (identitas + tombol "🔒 Halaman Admin" ke /admin/; <= 480 px "🔒 Admin",
+      "(masuk)" jadi tanda ✓ dengan teks tetap untuk pembaca layar). Menu
+      admin (4 butir + Kembali ke Pencarian + Keluar) HANYA di /admin/*
+      (`base.html`: `request.blueprint == 'admin'`); ponsel: dilipat lewat
+      `menu.js` (tanpa JS selalu terbuka). Uji X1 + X7; kop satu baris
+      diperiksa Playwright 320-1920 px, belum/sudah login.
     - Sesi: `SESI_ADMIN_MENIT` (.env, angka 1-1440, tidak sah/kosong = 120 +
       PERINGATAN, bukan SystemExit) di `config.menit_sesi_admin`; diperiksa
       `admin.periksa_sesi` sebagai app.before_request (semua halaman kecuali
@@ -282,7 +287,7 @@ Mahasiswa Politeknik Negeri Banjarmasin.
     - Uji: `uji_pipeline` bagian X (menu, login+tujuan, sesi, env, kunci).
       `potret_tampilan.py banding --isi` = banding ISI `<main>` saja.
       Pemeriksa Playwright `data/regresi/tampilan-20261125/periksa_tampilan.py`:
-      0 tindih tombol ke atas di 4.338 posisi, 0 sentuh < 44 px. Run penuh 160 lulus.
+      0 tindih tombol ke atas di 4.338 posisi, 0 sentuh < 44 px. Run penuh terakhir (revisi admin terpisah) 165 lulus.
     - **Jebakan alat:** pemeriksa tindih harus memotong kotak elemen dengan
       wadah bergulir (`overflow` bukan visible); tanpa itu tombol tabel log yang
       terpotong dilaporkan tertimpa.
@@ -1051,13 +1056,17 @@ Aturan yang berlaku:
   salah baca parser pada daftar. Jumlahnya persis sama (8) sebelum maupun
   sesudah ekstraksi badan ditambahkan, jadi BUKAN akibat kegagalan dedup;
   dedup daftar-vs-badan bekerja. Diputuskan tidak dikejar sekarang.
-- **Menu admin DITAUTKAN di kop semua halaman sejak 25 Nov 2026** (keputusan
-  mentor: aplikasi HANYA dipakai Tim PST di web internal BPS, bukan tamu).
-  Ini MENGGANTI keputusan lama "halaman admin sengaja tidak ditautkan"
-  (dulu: tombol admin dianggap mengganggu petugas). Menu: Pencarian | Kamus
-  Sinonim | Log Pencarian | Perbarui Data | Ganti Sandi, plus "Masuk sebagai
-  admin" + Keluar saat login (juga di halaman pencarian). Penjaga
-  `before_request` blueprint admin tetap; pencarian tetap tanpa login.
+- **Halaman admin TERPISAH tetapi DITAUTKAN dari halaman pencarian lewat
+  tombol "🔒 Halaman Admin" (keputusan 25 Nov 2026; aplikasi HANYA dipakai
+  Tim PST di web internal BPS).** Ini MENGGANTI keputusan lama "halaman admin
+  sengaja tidak ditautkan", dan juga versi sore 25 Nov "menu admin di kop
+  semua halaman" (dibatalkan pemilik project hari yang sama).
+  - Halaman pencarian: kop SATU baris, identitas + tombol ke /admin/ (belum
+    login -> login -> /admin/; label "Halaman Admin (masuk)" saat login;
+    tanpa Keluar, tanpa menu admin).
+  - /admin/*: menu Kamus Sinonim | Log Pencarian | Perbarui Data | Ganti
+    Sandi + "← Kembali ke Pencarian" + "Masuk sebagai admin" + Keluar.
+  - Penjaga `before_request` blueprint admin tetap; pencarian tanpa login.
   Rincian di "Tampilan 25 Nov 2026" (bagian atas). Daftar URL admin:
 
   | Halaman | URL |
@@ -1533,9 +1542,10 @@ traceback, baik dari `run.py`, dari script, maupun dari `.bat`.
   2026). `_tujuan_aman()` mengizinkan path LOKAL apa pun (bukan `//`, `\`,
   skema, atau login/logout); selain itu beranda admin (mencegah open
   redirect).
-- **Sejak 25 Nov 2026:** menu + "Masuk sebagai admin" + Keluar di kop SEMUA
-  halaman (dulu Keluar hanya di /admin). Sesi kedaluwarsa dan penguncian:
-  lihat "Tampilan 25 Nov 2026" di bagian atas.
+- **Sejak 25 Nov 2026:** halaman pencarian punya tombol "Halaman Admin"
+  (tanpa Keluar); menu admin + "Masuk sebagai admin" + Keluar hanya di
+  /admin/*. Sesi kedaluwarsa dan penguncian: lihat "Tampilan 25 Nov 2026" di
+  bagian atas.
 - Halaman pencarian (`/`, `/hasil`, `/api/saran`, `/pdf/<id>`) TIDAK butuh
   login. Diverifikasi dengan test_client dan lewat waitress sungguhan.
 
