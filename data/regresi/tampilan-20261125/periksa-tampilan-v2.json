@@ -1,0 +1,428 @@
+{
+ "tindih": [],
+ "gulir_mendatar": [],
+ "posisi_diperiksa": 4331,
+ "sentuh_kecil": [],
+ "sentuh_diperiksa": 554,
+ "menu": {
+  "awal_tertutup": true,
+  "tombol_tampil": true,
+  "terbuka": true,
+  "esc_tertutup": true,
+  "desktop_terbuka": true,
+  "tanpa_js_terbuka": true
+ },
+ "ke_atas": {
+  "375-390": false,
+  "375-410": true,
+  "375-teks": "↑ Ke atas",
+  "375-halus-60ms": 2966,
+  "375-halus-akhir": 0,
+  "375-kurangi-gerak-60ms": 0,
+  "1280-390": false,
+  "1280-410": true,
+  "1280-teks": "↑ Ke atas",
+  "1280-halus-60ms": 2966,
+  "1280-halus-akhir": 0,
+  "1280-kurangi-gerak-60ms": 0
+ },
+ "scrollbar": {
+  "width": "thin",
+  "color": "rgb(169, 182, 198) rgb(238, 241, 245)",
+  "overflow_html": "visible",
+  "overflow_body": "visible",
+  "bisa_digulir": true
+ },
+ "fokus": [
+  "tombol-kedua tombol-kecil",
+  "solid",
+  "3px",
+  "rgb(242, 169, 0)"
+ ],
+ "kop_pencarian": {
+  "belum_login-320-/": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 3,
+   "tombol": [
+    85,
+    44
+   ],
+   "label": "🔒 Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "belum_login-320-/hasil?q=penduduk": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 3,
+   "tombol": [
+    85,
+    44
+   ],
+   "label": "🔒 Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "belum_login-360-/": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    85,
+    44
+   ],
+   "label": "🔒 Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "belum_login-360-/hasil?q=penduduk": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    85,
+    44
+   ],
+   "label": "🔒 Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "belum_login-375-/": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    85,
+    44
+   ],
+   "label": "🔒 Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "belum_login-375-/hasil?q=penduduk": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    85,
+    44
+   ],
+   "label": "🔒 Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "belum_login-412-/": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    85,
+    44
+   ],
+   "label": "🔒 Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "belum_login-412-/hasil?q=penduduk": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    85,
+    44
+   ],
+   "label": "🔒 Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "belum_login-480-/": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    85,
+    44
+   ],
+   "label": "🔒 Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "belum_login-480-/hasil?q=penduduk": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    85,
+    44
+   ],
+   "label": "🔒 Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "belum_login-640-/": {
+   "sebaris": true,
+   "tinggi_kop": 68,
+   "baris_teks": 2,
+   "tombol": [
+    168,
+    44
+   ],
+   "label": "🔒 Halaman Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "belum_login-640-/hasil?q=penduduk": {
+   "sebaris": true,
+   "tinggi_kop": 68,
+   "baris_teks": 2,
+   "tombol": [
+    168,
+    44
+   ],
+   "label": "🔒 Halaman Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "belum_login-1280-/": {
+   "sebaris": true,
+   "tinggi_kop": 68,
+   "baris_teks": 2,
+   "tombol": [
+    168,
+    44
+   ],
+   "label": "🔒 Halaman Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "belum_login-1280-/hasil?q=penduduk": {
+   "sebaris": true,
+   "tinggi_kop": 68,
+   "baris_teks": 2,
+   "tombol": [
+    168,
+    44
+   ],
+   "label": "🔒 Halaman Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "belum_login-1920-/": {
+   "sebaris": true,
+   "tinggi_kop": 68,
+   "baris_teks": 2,
+   "tombol": [
+    168,
+    44
+   ],
+   "label": "🔒 Halaman Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "belum_login-1920-/hasil?q=penduduk": {
+   "sebaris": true,
+   "tinggi_kop": 68,
+   "baris_teks": 2,
+   "tombol": [
+    168,
+    44
+   ],
+   "label": "🔒 Halaman Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-320-/": {
+   "sebaris": true,
+   "tinggi_kop": 73,
+   "baris_teks": 4,
+   "tombol": [
+    98,
+    44
+   ],
+   "label": "🔒 Admin (masuk) ✓",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-320-/hasil?q=penduduk": {
+   "sebaris": true,
+   "tinggi_kop": 73,
+   "baris_teks": 4,
+   "tombol": [
+    98,
+    44
+   ],
+   "label": "🔒 Admin (masuk) ✓",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-360-/": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 3,
+   "tombol": [
+    98,
+    44
+   ],
+   "label": "🔒 Admin (masuk) ✓",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-360-/hasil?q=penduduk": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 3,
+   "tombol": [
+    98,
+    44
+   ],
+   "label": "🔒 Admin (masuk) ✓",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-375-/": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    98,
+    44
+   ],
+   "label": "🔒 Admin (masuk) ✓",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-375-/hasil?q=penduduk": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    98,
+    44
+   ],
+   "label": "🔒 Admin (masuk) ✓",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-412-/": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    98,
+    44
+   ],
+   "label": "🔒 Admin (masuk) ✓",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-412-/hasil?q=penduduk": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    98,
+    44
+   ],
+   "label": "🔒 Admin (masuk) ✓",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-480-/": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    98,
+    44
+   ],
+   "label": "🔒 Admin (masuk) ✓",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-480-/hasil?q=penduduk": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    98,
+    44
+   ],
+   "label": "🔒 Admin (masuk) ✓",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-640-/": {
+   "sebaris": true,
+   "tinggi_kop": 68,
+   "baris_teks": 2,
+   "tombol": [
+    225,
+    44
+   ],
+   "label": "🔒 Halaman Admin (masuk)",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-640-/hasil?q=penduduk": {
+   "sebaris": true,
+   "tinggi_kop": 68,
+   "baris_teks": 2,
+   "tombol": [
+    225,
+    44
+   ],
+   "label": "🔒 Halaman Admin (masuk)",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-1280-/": {
+   "sebaris": true,
+   "tinggi_kop": 68,
+   "baris_teks": 2,
+   "tombol": [
+    225,
+    44
+   ],
+   "label": "🔒 Halaman Admin (masuk)",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-1280-/hasil?q=penduduk": {
+   "sebaris": true,
+   "tinggi_kop": 68,
+   "baris_teks": 2,
+   "tombol": [
+    225,
+    44
+   ],
+   "label": "🔒 Halaman Admin (masuk)",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-1920-/": {
+   "sebaris": true,
+   "tinggi_kop": 68,
+   "baris_teks": 2,
+   "tombol": [
+    225,
+    44
+   ],
+   "label": "🔒 Halaman Admin (masuk)",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-1920-/hasil?q=penduduk": {
+   "sebaris": true,
+   "tinggi_kop": 68,
+   "baris_teks": 2,
+   "tombol": [
+    225,
+    44
+   ],
+   "label": "🔒 Halaman Admin (masuk)",
+   "menu": false,
+   "gulir_mendatar": false
+  }
+ }
+}

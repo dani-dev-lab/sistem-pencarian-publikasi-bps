@@ -1,34 +1,70 @@
 {
  "tindih": [],
  "gulir_mendatar": [],
- "posisi_diperiksa": 4331,
+ "posisi_diperiksa": 4338,
  "sentuh_kecil": [],
- "sentuh_diperiksa": 554,
- "menu": {
-  "awal_tertutup": true,
-  "tombol_tampil": true,
-  "terbuka": true,
-  "esc_tertutup": true,
-  "desktop_terbuka": true,
-  "tanpa_js_terbuka": true
+ "sentuh_diperiksa": 502,
+ "kop_admin": {
+  "375": [
+   {
+    "aria": "Kembali ke Pencarian",
+    "label_tampil": false,
+    "ikon": true,
+    "ukuran": [
+     44,
+     44
+    ]
+   },
+   {
+    "aria": "Keluar",
+    "label_tampil": false,
+    "ikon": true,
+    "ukuran": [
+     44,
+     44
+    ]
+   }
+  ],
+  "375-menu": false,
+  "1280": [
+   {
+    "aria": "Kembali ke Pencarian",
+    "label_tampil": true,
+    "ikon": true,
+    "ukuran": [
+     192,
+     44
+    ]
+   },
+   {
+    "aria": "Keluar",
+    "label_tampil": true,
+    "ikon": true,
+    "ukuran": [
+     97,
+     44
+    ]
+   }
+  ],
+  "1280-menu": false
  },
  "ke_atas": {
   "375-390": false,
   "375-410": true,
   "375-teks": "↑ Ke atas",
-  "375-halus-60ms": 2966,
+  "375-halus-60ms": 2949,
   "375-halus-akhir": 0,
   "375-kurangi-gerak-60ms": 0,
   "1280-390": false,
   "1280-410": true,
   "1280-teks": "↑ Ke atas",
-  "1280-halus-60ms": 2966,
+  "1280-halus-60ms": 2958,
   "1280-halus-akhir": 0,
   "1280-kurangi-gerak-60ms": 0
  },
  "scrollbar": {
   "width": "thin",
-  "color": "rgb(169, 182, 198) rgb(238, 241, 245)",
+  "color": "rgba(0, 0, 0, 0.25) rgba(0, 0, 0, 0)",
   "overflow_html": "visible",
   "overflow_body": "visible",
   "bisa_digulir": true
@@ -42,49 +78,73 @@
  "kop_pencarian": {
   "belum_login-320-/": {
    "sebaris": true,
-   "tinggi_kop": 64,
-   "baris_teks": 3,
+   "tinggi_kop": 73,
+   "baris_teks": 4,
    "tombol": [
-    85,
+    86,
     44
    ],
-   "label": "🔒 Admin",
+   "label": "Admin",
    "menu": false,
    "gulir_mendatar": false
   },
   "belum_login-320-/hasil?q=penduduk": {
    "sebaris": true,
+   "tinggi_kop": 73,
+   "baris_teks": 4,
+   "tombol": [
+    86,
+    44
+   ],
+   "label": "Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "belum_login-320-/admin/login": {
+   "sebaris": true,
    "tinggi_kop": 64,
    "baris_teks": 3,
    "tombol": [
-    85,
+    44,
     44
    ],
-   "label": "🔒 Admin",
+   "label": "",
    "menu": false,
    "gulir_mendatar": false
   },
   "belum_login-360-/": {
    "sebaris": true,
    "tinggi_kop": 64,
-   "baris_teks": 2,
+   "baris_teks": 3,
    "tombol": [
-    85,
+    86,
     44
    ],
-   "label": "🔒 Admin",
+   "label": "Admin",
    "menu": false,
    "gulir_mendatar": false
   },
   "belum_login-360-/hasil?q=penduduk": {
    "sebaris": true,
    "tinggi_kop": 64,
-   "baris_teks": 2,
+   "baris_teks": 3,
    "tombol": [
-    85,
+    86,
     44
    ],
-   "label": "🔒 Admin",
+   "label": "Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "belum_login-360-/admin/login": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    44,
+    44
+   ],
+   "label": "",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -93,10 +153,10 @@
    "tinggi_kop": 64,
    "baris_teks": 2,
    "tombol": [
-    85,
+    86,
     44
    ],
-   "label": "🔒 Admin",
+   "label": "Admin",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -105,10 +165,22 @@
    "tinggi_kop": 64,
    "baris_teks": 2,
    "tombol": [
-    85,
+    86,
     44
    ],
-   "label": "🔒 Admin",
+   "label": "Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "belum_login-375-/admin/login": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    44,
+    44
+   ],
+   "label": "",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -117,10 +189,10 @@
    "tinggi_kop": 64,
    "baris_teks": 2,
    "tombol": [
-    85,
+    86,
     44
    ],
-   "label": "🔒 Admin",
+   "label": "Admin",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -129,10 +201,22 @@
    "tinggi_kop": 64,
    "baris_teks": 2,
    "tombol": [
-    85,
+    86,
     44
    ],
-   "label": "🔒 Admin",
+   "label": "Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "belum_login-412-/admin/login": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    44,
+    44
+   ],
+   "label": "",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -141,10 +225,10 @@
    "tinggi_kop": 64,
    "baris_teks": 2,
    "tombol": [
-    85,
+    86,
     44
    ],
-   "label": "🔒 Admin",
+   "label": "Admin",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -153,10 +237,22 @@
    "tinggi_kop": 64,
    "baris_teks": 2,
    "tombol": [
-    85,
+    86,
     44
    ],
-   "label": "🔒 Admin",
+   "label": "Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "belum_login-480-/admin/login": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    44,
+    44
+   ],
+   "label": "",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -165,10 +261,10 @@
    "tinggi_kop": 68,
    "baris_teks": 2,
    "tombol": [
-    168,
+    159,
     44
    ],
-   "label": "🔒 Halaman Admin",
+   "label": "Halaman Admin",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -177,10 +273,22 @@
    "tinggi_kop": 68,
    "baris_teks": 2,
    "tombol": [
-    168,
+    159,
     44
    ],
-   "label": "🔒 Halaman Admin",
+   "label": "Halaman Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "belum_login-640-/admin/login": {
+   "sebaris": true,
+   "tinggi_kop": 68,
+   "baris_teks": 2,
+   "tombol": [
+    192,
+    44
+   ],
+   "label": "Kembali ke Pencarian",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -189,10 +297,10 @@
    "tinggi_kop": 68,
    "baris_teks": 2,
    "tombol": [
-    168,
+    159,
     44
    ],
-   "label": "🔒 Halaman Admin",
+   "label": "Halaman Admin",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -201,10 +309,22 @@
    "tinggi_kop": 68,
    "baris_teks": 2,
    "tombol": [
-    168,
+    159,
     44
    ],
-   "label": "🔒 Halaman Admin",
+   "label": "Halaman Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "belum_login-1280-/admin/login": {
+   "sebaris": true,
+   "tinggi_kop": 68,
+   "baris_teks": 2,
+   "tombol": [
+    192,
+    44
+   ],
+   "label": "Kembali ke Pencarian",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -213,10 +333,10 @@
    "tinggi_kop": 68,
    "baris_teks": 2,
    "tombol": [
-    168,
+    159,
     44
    ],
-   "label": "🔒 Halaman Admin",
+   "label": "Halaman Admin",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -225,10 +345,22 @@
    "tinggi_kop": 68,
    "baris_teks": 2,
    "tombol": [
-    168,
+    159,
     44
    ],
-   "label": "🔒 Halaman Admin",
+   "label": "Halaman Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "belum_login-1920-/admin/login": {
+   "sebaris": true,
+   "tinggi_kop": 68,
+   "baris_teks": 2,
+   "tombol": [
+    192,
+    44
+   ],
+   "label": "Kembali ke Pencarian",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -237,10 +369,10 @@
    "tinggi_kop": 73,
    "baris_teks": 4,
    "tombol": [
-    98,
+    86,
     44
    ],
-   "label": "🔒 Admin (masuk) ✓",
+   "label": "Admin",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -249,10 +381,46 @@
    "tinggi_kop": 73,
    "baris_teks": 4,
    "tombol": [
-    98,
+    86,
     44
    ],
-   "label": "🔒 Admin (masuk) ✓",
+   "label": "Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-320-/admin/": {
+   "sebaris": true,
+   "tinggi_kop": 86,
+   "baris_teks": 5,
+   "tombol": [
+    94,
+    44
+   ],
+   "label": "",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-320-/admin/log?semua=1": {
+   "sebaris": true,
+   "tinggi_kop": 86,
+   "baris_teks": 5,
+   "tombol": [
+    94,
+    44
+   ],
+   "label": "",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-320-/admin/sandi": {
+   "sebaris": true,
+   "tinggi_kop": 86,
+   "baris_teks": 5,
+   "tombol": [
+    94,
+    44
+   ],
+   "label": "",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -261,10 +429,10 @@
    "tinggi_kop": 64,
    "baris_teks": 3,
    "tombol": [
-    98,
+    86,
     44
    ],
-   "label": "🔒 Admin (masuk) ✓",
+   "label": "Admin",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -273,10 +441,46 @@
    "tinggi_kop": 64,
    "baris_teks": 3,
    "tombol": [
-    98,
+    86,
     44
    ],
-   "label": "🔒 Admin (masuk) ✓",
+   "label": "Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-360-/admin/": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 3,
+   "tombol": [
+    94,
+    44
+   ],
+   "label": "",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-360-/admin/log?semua=1": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 3,
+   "tombol": [
+    94,
+    44
+   ],
+   "label": "",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-360-/admin/sandi": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 3,
+   "tombol": [
+    94,
+    44
+   ],
+   "label": "",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -285,10 +489,10 @@
    "tinggi_kop": 64,
    "baris_teks": 2,
    "tombol": [
-    98,
+    86,
     44
    ],
-   "label": "🔒 Admin (masuk) ✓",
+   "label": "Admin",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -297,10 +501,46 @@
    "tinggi_kop": 64,
    "baris_teks": 2,
    "tombol": [
-    98,
+    86,
     44
    ],
-   "label": "🔒 Admin (masuk) ✓",
+   "label": "Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-375-/admin/": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 3,
+   "tombol": [
+    94,
+    44
+   ],
+   "label": "",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-375-/admin/log?semua=1": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 3,
+   "tombol": [
+    94,
+    44
+   ],
+   "label": "",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-375-/admin/sandi": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 3,
+   "tombol": [
+    94,
+    44
+   ],
+   "label": "",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -309,10 +549,10 @@
    "tinggi_kop": 64,
    "baris_teks": 2,
    "tombol": [
-    98,
+    86,
     44
    ],
-   "label": "🔒 Admin (masuk) ✓",
+   "label": "Admin",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -321,10 +561,46 @@
    "tinggi_kop": 64,
    "baris_teks": 2,
    "tombol": [
-    98,
+    86,
     44
    ],
-   "label": "🔒 Admin (masuk) ✓",
+   "label": "Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-412-/admin/": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    94,
+    44
+   ],
+   "label": "",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-412-/admin/log?semua=1": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    94,
+    44
+   ],
+   "label": "",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-412-/admin/sandi": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    94,
+    44
+   ],
+   "label": "",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -333,10 +609,10 @@
    "tinggi_kop": 64,
    "baris_teks": 2,
    "tombol": [
-    98,
+    86,
     44
    ],
-   "label": "🔒 Admin (masuk) ✓",
+   "label": "Admin",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -345,10 +621,46 @@
    "tinggi_kop": 64,
    "baris_teks": 2,
    "tombol": [
-    98,
+    86,
     44
    ],
-   "label": "🔒 Admin (masuk) ✓",
+   "label": "Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-480-/admin/": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    94,
+    44
+   ],
+   "label": "",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-480-/admin/log?semua=1": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    94,
+    44
+   ],
+   "label": "",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-480-/admin/sandi": {
+   "sebaris": true,
+   "tinggi_kop": 64,
+   "baris_teks": 2,
+   "tombol": [
+    94,
+    44
+   ],
+   "label": "",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -357,10 +669,10 @@
    "tinggi_kop": 68,
    "baris_teks": 2,
    "tombol": [
-    225,
+    159,
     44
    ],
-   "label": "🔒 Halaman Admin (masuk)",
+   "label": "Halaman Admin",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -369,10 +681,46 @@
    "tinggi_kop": 68,
    "baris_teks": 2,
    "tombol": [
-    225,
+    159,
     44
    ],
-   "label": "🔒 Halaman Admin (masuk)",
+   "label": "Halaman Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-640-/admin/": {
+   "sebaris": true,
+   "tinggi_kop": 70,
+   "baris_teks": 3,
+   "tombol": [
+    297,
+    44
+   ],
+   "label": "Kembali ke Pencarian Keluar",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-640-/admin/log?semua=1": {
+   "sebaris": true,
+   "tinggi_kop": 70,
+   "baris_teks": 3,
+   "tombol": [
+    297,
+    44
+   ],
+   "label": "Kembali ke Pencarian Keluar",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-640-/admin/sandi": {
+   "sebaris": true,
+   "tinggi_kop": 70,
+   "baris_teks": 3,
+   "tombol": [
+    297,
+    44
+   ],
+   "label": "Kembali ke Pencarian Keluar",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -381,10 +729,10 @@
    "tinggi_kop": 68,
    "baris_teks": 2,
    "tombol": [
-    225,
+    159,
     44
    ],
-   "label": "🔒 Halaman Admin (masuk)",
+   "label": "Halaman Admin",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -393,10 +741,46 @@
    "tinggi_kop": 68,
    "baris_teks": 2,
    "tombol": [
-    225,
+    159,
     44
    ],
-   "label": "🔒 Halaman Admin (masuk)",
+   "label": "Halaman Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-1280-/admin/": {
+   "sebaris": true,
+   "tinggi_kop": 68,
+   "baris_teks": 2,
+   "tombol": [
+    297,
+    44
+   ],
+   "label": "Kembali ke Pencarian Keluar",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-1280-/admin/log?semua=1": {
+   "sebaris": true,
+   "tinggi_kop": 68,
+   "baris_teks": 2,
+   "tombol": [
+    297,
+    44
+   ],
+   "label": "Kembali ke Pencarian Keluar",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-1280-/admin/sandi": {
+   "sebaris": true,
+   "tinggi_kop": 68,
+   "baris_teks": 2,
+   "tombol": [
+    297,
+    44
+   ],
+   "label": "Kembali ke Pencarian Keluar",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -405,10 +789,10 @@
    "tinggi_kop": 68,
    "baris_teks": 2,
    "tombol": [
-    225,
+    159,
     44
    ],
-   "label": "🔒 Halaman Admin (masuk)",
+   "label": "Halaman Admin",
    "menu": false,
    "gulir_mendatar": false
   },
@@ -417,10 +801,46 @@
    "tinggi_kop": 68,
    "baris_teks": 2,
    "tombol": [
-    225,
+    159,
     44
    ],
-   "label": "🔒 Halaman Admin (masuk)",
+   "label": "Halaman Admin",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-1920-/admin/": {
+   "sebaris": true,
+   "tinggi_kop": 68,
+   "baris_teks": 2,
+   "tombol": [
+    297,
+    44
+   ],
+   "label": "Kembali ke Pencarian Keluar",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-1920-/admin/log?semua=1": {
+   "sebaris": true,
+   "tinggi_kop": 68,
+   "baris_teks": 2,
+   "tombol": [
+    297,
+    44
+   ],
+   "label": "Kembali ke Pencarian Keluar",
+   "menu": false,
+   "gulir_mendatar": false
+  },
+  "sudah_login-1920-/admin/sandi": {
+   "sebaris": true,
+   "tinggi_kop": 68,
+   "baris_teks": 2,
+   "tombol": [
+    297,
+    44
+   ],
+   "label": "Kembali ke Pencarian Keluar",
    "menu": false,
    "gulir_mendatar": false
   }
