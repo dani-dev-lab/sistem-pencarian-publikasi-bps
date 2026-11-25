@@ -11,10 +11,16 @@
   {# Identitas visual mengikuti kop situs resmi BPS Provinsi Kalimantan Selatan
      (logo + dua baris nama instansi, bilah #002B6A). Hanya tampilannya yang
      diambil: tidak ada skrip, stylesheet, atau menu dari situs BPS, dan
-     logonya berkas lokal, jadi aplikasi tetap jalan tanpa internet. Nama
-     aplikasi tetap terlihat supaya jelas ini alat internal PST, bukan situs
-     resmi BPS. #}
-  <header class="kop">
+     logonya berkas lokal, jadi aplikasi tetap jalan tanpa internet. Aplikasi
+     ini hanya dipakai Tim PST di web internal BPS. #}
+  {# Kop (revisi 25 Nov 2026, keputusan pemilik project): halaman admin TERPISAH
+     dari halaman pencarian, tetapi ditautkan lewat satu tombol.
+     - Halaman pencarian: SATU baris, identitas di kiri dan tombol
+       "Halaman Admin" di kanan (ke /admin/; belum login -> login -> /admin/).
+     - Halaman admin (/admin/*): menu sendiri + "Kembali ke Pencarian" + Keluar.
+     Aplikasi hanya dipakai Tim PST di web internal BPS. #}
+  {% set halaman_admin = request.blueprint == 'admin' %}
+  <header class="kop{% if halaman_admin %} kop-admin{% else %} kop-pencarian{% endif %}">
     <div class="kop-baris">
       <a class="kop-identitas" href="{{ url_for('pencarian.halaman_pencarian') }}">
         <img class="kop-logo" src="{{ url_for('static', filename='img/logo-bps.png') }}"
@@ -24,38 +30,44 @@
           <span>Provinsi Kalimantan Selatan</span>
         </span>
       </a>
-      <span class="kop-aplikasi">Pencarian Publikasi PST</span>
-      {# Di ponsel menu dilipat di balik tombol ini (menu.js). Tanpa JavaScript
-         tombol tetap tersembunyi dan menunya selalu terbuka. #}
+      {% if halaman_admin %}
+      <span class="kop-aplikasi">Halaman Admin</span>
+      {# Di ponsel menu admin dilipat di balik tombol ini (menu.js). Tanpa
+         JavaScript tombol tetap tersembunyi dan menunya selalu terbuka. #}
       <button type="button" class="tombol-menu" aria-controls="menu-utama" aria-expanded="false" hidden>
         <span aria-hidden="true">&#9776;</span> Menu</button>
+      {% else %}
+      <a class="tombol-admin" href="{{ url_for('admin.beranda') }}"
+         {%- if not admin_masuk %} title="Perlu kata sandi admin"{% endif %}>
+        <span aria-hidden="true">&#128274;</span>
+        <span><span class="label-panjang">Halaman </span>Admin{% if admin_masuk %}<span class="label-masuk"> (masuk)</span><span class="tanda-masuk" aria-hidden="true">&#10003;</span>{% endif %}</span></a>
+      {% endif %}
     </div>
-    {# Menu di SEMUA halaman (keputusan mentor 25 Nov 2026: aplikasi hanya
-       dipakai Tim PST di web internal BPS). Menu admin tetap dijaga sandi
-       (before_request di blueprint admin): tanpa login, tautannya membuka
-       halaman login lalu kembali ke tujuan. Halaman pencarian tanpa login. #}
-    <nav class="menu-utama" id="menu-utama" aria-label="Menu utama">
+    {% if halaman_admin %}
+    <nav class="menu-utama" id="menu-utama" aria-label="Menu admin">
+      {% if admin_masuk %}
       <ul>
         {% for nama, endpoint, teks in [
-             ("pencarian", "pencarian.halaman_pencarian", "Pencarian"),
              ("kamus", "admin.kamus", "Kamus Sinonim"),
              ("log", "admin.log", "Log Pencarian"),
              ("perbarui", "admin.perbarui", "Perbarui Data"),
              ("sandi", "admin.ganti_sandi", "Ganti Sandi")] %}
         <li><a href="{{ url_for(endpoint) }}"
-               {%- if menu_aktif == nama %} aria-current="page"{% endif %}
-               {%- if nama != "pencarian" and not admin_masuk %} title="Perlu kata sandi admin"{% endif %}>{{ teks }}</a></li>
+               {%- if menu_aktif == nama %} aria-current="page"{% endif %}>{{ teks }}</a></li>
         {% endfor %}
       </ul>
-      {% if admin_masuk %}
+      {% endif %}
       <div class="status-admin">
+        <a class="tombol-kembali" href="{{ url_for('pencarian.halaman_pencarian') }}">&larr; Kembali ke Pencarian</a>
+        {% if admin_masuk %}
         <span class="penanda-admin">Masuk sebagai admin</span>
         <form method="post" action="{{ url_for('admin.logout') }}" class="kop-keluar">
           <button type="submit">Keluar</button>
         </form>
+        {% endif %}
       </div>
-      {% endif %}
     </nav>
+    {% endif %}
   </header>
 
   <main>

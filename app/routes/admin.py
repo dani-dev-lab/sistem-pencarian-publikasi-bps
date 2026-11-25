@@ -96,10 +96,11 @@ def periksa_sesi():
 
 
 def konteks_menu():
-    """context_processor (dipasang create_app): menu kop di semua halaman."""
-    ep = request.endpoint or ""
-    aktif = "pencarian" if ep.startswith("pencarian.") else MENU_ENDPOINT.get(ep)
-    return {"menu_aktif": aktif, "admin_masuk": bool(session.get(KUNCI_SESSION))}
+    """context_processor (dipasang create_app): kop semua halaman. Halaman
+    pencarian memakai admin_masuk untuk label tombol "Halaman Admin"; halaman
+    admin memakai menu_aktif untuk menandai menu admin yang sedang dibuka."""
+    return {"menu_aktif": MENU_ENDPOINT.get(request.endpoint or ""),
+            "admin_masuk": bool(session.get(KUNCI_SESSION))}
 
 
 @bp.before_request

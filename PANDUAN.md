@@ -70,17 +70,21 @@ Ada dua jenis halaman:
 | Pencarian | `http://localhost:5000/` | Petugas PST | Tidak |
 | Admin | `http://localhost:5000/admin/` | Pengelola kamus | Ya, kata sandi bersama |
 
-**Menu di atas setiap halaman** (sejak 25 November 2026, keputusan mentor:
-aplikasi ini hanya dipakai Tim PST di web internal BPS):
-**Pencarian | Kamus Sinonim | Log Pencarian | Perbarui Data | Ganti Sandi**.
-Menu yang sedang dibuka bergaris kuning. Di layar ponsel menunya dilipat di
-balik tombol **Menu**.
+**Halaman pencarian dan halaman admin terpisah, tetapi saling ditautkan**
+(keputusan 25 November 2026: aplikasi ini hanya dipakai Tim PST di web
+internal BPS).
 
-- Pencarian tidak perlu login.
-- Empat menu lainnya memakai kata sandi admin. Kalau belum masuk, menu itu
-  membuka halaman login dulu, lalu kembali ke halaman yang tadi dipilih.
-- Selama masuk, di kanan menu tampil **Masuk sebagai admin** dan tombol
-  **Keluar**, juga di halaman pencarian.
+- **Halaman pencarian** punya satu tombol di kanan atas: **🔒 Halaman Admin**
+  (di ponsel tertulis **🔒 Admin**). Tombol ini membuka halaman utama admin
+  (`/admin/`) di tab yang sama. Kalau belum masuk, halaman login muncul dulu,
+  lalu kembali ke halaman utama admin. Selama masuk, tombolnya berlabel
+  **Halaman Admin (masuk)** (di ponsel bertanda ✓) dan langsung membuka admin.
+  Halaman pencarian tidak perlu login dan tidak punya menu admin.
+- **Halaman admin** punya menu sendiri di atas:
+  **Kamus Sinonim | Log Pencarian | Perbarui Data | Ganti Sandi**, ditambah
+  tombol **← Kembali ke Pencarian**, penanda **Masuk sebagai admin**, dan
+  tombol **Keluar**. Menu yang sedang dibuka bergaris kuning. Di ponsel menunya
+  dilipat di balik tombol **Menu**.
 - Sesi admin berakhir sendiri sesudah **120 menit tidak aktif** (bisa diubah,
   bagian 6). Halaman admin lalu meminta login lagi dan menjelaskan sebabnya.
 - Sesudah **5 kali kata sandi salah** dari satu komputer, login dari komputer
@@ -457,8 +461,9 @@ Publikasi yang tidak berubah tidak dibaca ulang.
 
 1. Pastikan komputer yang menjalankan aplikasi tersambung ke internet dan
    bisa menjangkau WebAPI BPS (`webapi.bps.go.id`).
-2. Klik menu **Perbarui Data** di atas halaman (atau buka `/admin/perbarui`),
-   lalu masuk dengan kata sandi admin kalau diminta.
+2. Klik tombol **🔒 Halaman Admin** di kanan atas halaman pencarian, masuk
+   kalau diminta, lalu klik menu **Perbarui Data** (atau buka
+   `/admin/perbarui`).
 3. Baca penjelasan singkatnya. Untuk **pembaruan rutin**, formulir
    "Pilihan penarikan" dibiarkan seperti bawaannya (semua dicentang, tahun
    lalu sampai tahun ini), lalu klik **Mulai pembaruan**. Untuk menarik
@@ -783,8 +788,8 @@ mencari, varian diganti ke bentuk kanoniknya.
 
 Cara menambah:
 
-1. Klik menu **Kamus Sinonim** di atas halaman, lalu masukkan kata sandi
-   admin kalau diminta.
+1. Klik tombol **🔒 Halaman Admin** di kanan atas halaman pencarian, masukkan
+   kata sandi admin kalau diminta, lalu klik menu **Kamus Sinonim**.
 2. Halaman Kamus Sinonim terbuka.
 3. Cari dulu dengan kotak "Cari kata di kamus" — mungkin kelompoknya sudah
    ada. Kalau ada, ketik varian baru di kotak "tambah varian" pada kelompok
@@ -818,7 +823,7 @@ sebaiknya di-*commit* setelah diubah supaya tidak hilang.
 
 Halaman admin juga bisa dipakai lebih dari satu orang bergantian —
 sandinya satu untuk bersama, dan bisa diganti lewat menu **Ganti Sandi**
-(bagian 6). Tombol **Keluar** ada di kanan menu atas.
+(bagian 6). Tombol **Keluar** ada di kanan menu halaman admin.
 
 ---
 
@@ -826,7 +831,7 @@ sandinya satu untuk bersama, dan bisa diganti lewat menu **Ganti Sandi**
 
 Cukup lewat browser, tidak perlu akses ke server:
 
-1. Klik menu **Ganti Sandi** (atau buka `/admin/sandi`), lalu masuk dengan
+1. Dari halaman admin, klik menu **Ganti Sandi** (atau buka `/admin/sandi`); masuk dengan
    kata sandi yang berlaku kalau diminta.
 2. Halaman Ganti kata sandi admin terbuka.
 3. Isi kata sandi lama, kata sandi baru (minimal 8 karakter), dan ulangi
@@ -850,8 +855,9 @@ sandi lama). Jalur pemulihannya butuh akses ke server — lihat butir
 
 - **Sesi admin berakhir sesudah tidak aktif 120 menit.** Setiap halaman yang
   dibuka, termasuk halaman pencarian, menghitung ulang waktunya dari nol.
-  Sesudah berakhir, menu admin meminta login lagi dengan pesan "Sesi admin
-  berakhir karena tidak aktif lebih dari 120 menit".
+  Sesudah berakhir, halaman admin meminta login lagi dengan pesan "Sesi admin
+  berakhir karena tidak aktif lebih dari 120 menit", dan tombol di halaman
+  pencarian kembali berlabel **Halaman Admin** (tanpa "masuk").
 - **Mengubah lamanya (tim IT):** tambahkan baris di berkas `.env`, formatnya
   seperti `PORT`, berupa angka saja tanpa spasi:
 
@@ -1184,10 +1190,11 @@ atau kode:
 venv\Scripts\python.exe -u tests\uji_pipeline.py > uji_log.txt 2>&1
 ```
 
-- Lamanya ±60 menit. Run penuh terakhir, 25 November 2026: 163 uji lulus,
-  0 gagal, 0 dilewati, 3.293 detik. Bagian `J` menguji kartu ringkasan hasil
+- Lamanya ±60 menit. Run penuh terakhir, 25 November 2026: 165 uji lulus,
+  0 gagal, 0 dilewati, 3.080 detik. Bagian `J` menguji kartu ringkasan hasil
   cek: satuan, empat status, dan tombol Mulai yang nonaktif saat disk kurang.
-  Bagian `X` menguji menu di kop, login dan kembali ke tujuan, sesi admin
+  Bagian `X` menguji kop pencarian dan admin, tombol Halaman Admin, login dan
+  kembali ke tujuan, sesi admin
   yang kedaluwarsa (termasuk `SESI_ADMIN_MENIT` yang tidak sah), dan
   penguncian sesudah 5 kata sandi salah, termasuk `JUMLAH_PROXY`.
   Bagian `Q` menguji formulir pilihan penarikan dan `--cek-dulu`. Bagian `V` membuktikan bahwa tanpa

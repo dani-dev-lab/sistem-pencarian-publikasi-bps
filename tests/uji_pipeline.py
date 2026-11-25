@@ -4,7 +4,7 @@ Cara menjalankan (dari folder proyek):
 
     venv\Scripts\python.exe -u tests\uji_pipeline.py > uji_log.txt 2>&1
 
-Semua bagian sekitar 60 menit (25 Nov 2026: 3.293 detik, 163 uji). Sebagian saja (untuk pengembang): tambahkan
+Semua bagian sekitar 60 menit (25 Nov 2026: 3.080 detik, 165 uji). Sebagian saja (untuk pengembang): tambahkan
 --hanya DKRW (huruf bagian; U dan Z selalu jalan).
 
 Kamus: salinan memakai data/kamus_sinonim.json working tree, dan bagian N
@@ -2553,14 +2553,29 @@ app.config['ADMIN_PASSWORD_HASH'] = generate_password_hash('sandi-uji-x-123')
 c = app.test_client()
 JAM = {'t': time.time()}
 A._sekarang = lambda: JAM['t']
-MENU = [('/', 'Pencarian'), ('/admin/kamus', 'Kamus Sinonim'), ('/admin/log', 'Log Pencarian'),
+from urllib.parse import unquote
+# Revisi 25 Nov 2026: halaman admin terpisah. Menu admin HANYA di /admin/*;
+# halaman pencarian hanya punya tombol "Halaman Admin".
+MENU = [('/admin/kamus', 'Kamus Sinonim'), ('/admin/log', 'Log Pencarian'),
         ('/admin/perbarui', 'Perbarui Data'), ('/admin/sandi', 'Ganti Sandi')]
 def kop(h):
-    nav = re.search(r'<nav class="menu-utama".*?</nav>', h, re.S)
+    hd = re.search(r'<header class="kop[^"]*">.*?</header>', h, re.S)
+    hd = hd.group(0) if hd else ''
+    nav = re.search(r'<nav class="menu-utama".*?</nav>', hd, re.S)
     nav = nav.group(0) if nav else ''
-    return {'menu': re.findall(r'<li><a href="([^"]+)"[^>]*>([^<]+)</a></li>', nav),
+    t = re.search(r'(<a class="tombol-admin"[^>]*>)(.*?)</a>', hd, re.S)
+    # Label yang dibaca pembaca layar: tanpa tag dan tanpa ikon (🔒, ✓ hanya hiasan).
+    label = ' '.join(re.sub(r'<span class="tanda-masuk"[^>]*>.*?</span>|<[^>]+>|&#\d+;', ' ',
+                            t.group(2)).split()).replace(' )', ')') if t else None
+    return {'jenis': 'admin' if 'kop-admin' in hd[:60] else 'pencarian',
+            'menu': re.findall(r'<li><a href="([^"]+)"[^>]*>([^<]+)</a></li>', nav),
             'aktif': re.findall(r'<a href="([^"]+)" aria-current="page"', nav),
-            'admin': 'Masuk sebagai admin' in nav and 'action="/admin/logout"' in nav}
+            'tombol_admin': [re.search(r'href="([^"]+)"', t.group(1)).group(1), label,
+                             'target=' in t.group(1)] if t else None,
+            'kembali': re.findall(r'<a class="tombol-kembali" href="([^"]+)"', hd),
+            'keluar': 'action="/admin/logout"' in hd,
+            'admin': ('Masuk sebagai admin' in nav and 'action="/admin/logout"' in nav)
+                     or bool(label and '(masuk)' in label)}
 def masuk(alamat='127.0.0.1', sandi='sandi-uji-x-123', nxt=''):
     return c.post('/admin/login', data={'sandi': sandi, 'next': nxt}, environ_base={'REMOTE_ADDR': alamat})
 def keluar():
@@ -2575,6 +2590,19 @@ for u in ('/', '/hasil?q=penduduk', '/admin/', '/admin/kamus', '/admin/log', '/a
           '/admin/perbarui', '/admin/sandi'):
     r = c.get(u); dengan[u] = (r.status_code, kop(r.get_data(as_text=True)))
 hasil['x1'] = {'tanpa': tanpa, 'dengan': dengan, 'menu_harap': MENU}
+keluar()
+
+# X7: tombol "Halaman Admin" di halaman pencarian -> login -> kembali ke /admin/
+k0 = kop(c.get('/').get_data(as_text=True))['tombol_admin']
+r1 = c.get(k0[0])
+lok = r1.headers.get('Location', '')
+r2 = masuk(nxt=unquote(re.search(r'next=([^&]+)', lok).group(1)) if 'next=' in lok else '')
+r3 = c.get(r2.headers.get('Location', '/x'))
+k1 = kop(c.get('/hasil?q=penduduk').get_data(as_text=True))['tombol_admin']
+r4 = c.get(k1[0])
+hasil['x7'] = {'tombol_awal': k0, 'klik': [r1.status_code, lok], 'login': [r2.status_code, r2.headers.get('Location')],
+               'admin': [r3.status_code, kop(r3.get_data(as_text=True))['jenis']], 'tombol_masuk': k1,
+               'klik_masuk': [r4.status_code, r4.headers.get('Location')]}
 keluar()
 
 # X2: tanpa login, menu admin -> login -> kembali ke tujuan (termasuk query)
@@ -2703,16 +2731,36 @@ def bagian_x():
     print("    | " + json.dumps(h, ensure_ascii=False)[:2500], flush=True)
     menu = [list(x) for x in h["x1"]["menu_harap"]]
     t, d = h["x1"]["tanpa"], h["x1"]["dengan"]
-    cek("X1 menu 5 butir di semua halaman (pencarian, login, admin), tanpa login tanpa penanda admin",
-        all(v[0] == 200 and v[1]["menu"] == menu and not v[1]["admin"] for v in t.values())
-        and all(v[0] == 200 and v[1]["menu"] == menu and v[1]["admin"] for v in d.values()),
-        {u: (v[0], len(v[1]["menu"]), v[1]["admin"]) for u, v in {**t, **d}.items()})
-    harap_aktif = {"/": ["/"], "/hasil?q=penduduk": ["/"], "/admin/": [], "/admin/kamus": ["/admin/kamus"],
+    cari = ("/", "/hasil?q=penduduk", "/hasil?q=zzqqxx")
+    adm = [u for u in d if u.startswith("/admin")]
+    cek("X1 halaman pencarian: kop tanpa menu admin dan tanpa Keluar, satu tombol 'Halaman Admin' ke /admin/ "
+        "(tab yang sama); saat login berlabel 'Halaman Admin (masuk)'",
+        all(t[u][0] == 200 and t[u][1]["jenis"] == "pencarian" and t[u][1]["menu"] == [] and not t[u][1]["keluar"]
+            and t[u][1]["kembali"] == [] and t[u][1]["tombol_admin"] == ["/admin/", "Halaman Admin", False] for u in cari)
+        and all(d[u][0] == 200 and d[u][1]["jenis"] == "pencarian" and d[u][1]["menu"] == [] and not d[u][1]["keluar"]
+                and d[u][1]["tombol_admin"] == ["/admin/", "Halaman Admin (masuk)", False] for u in cari if u in d),
+        {u: (v[1]["jenis"], v[1]["menu"], v[1]["tombol_admin"], v[1]["keluar"]) for u, v in {**t, **d}.items()
+         if not u.startswith("/admin")})
+    cek("X1 halaman admin: menu 4 butir (Kamus, Log, Perbarui, Ganti Sandi) + 'Kembali ke Pencarian' + Keluar + "
+        "penanda admin; login (belum masuk): hanya 'Kembali ke Pencarian'",
+        all(d[u][0] == 200 and d[u][1]["jenis"] == "admin" and d[u][1]["menu"] == menu and d[u][1]["kembali"] == ["/"]
+            and d[u][1]["keluar"] and d[u][1]["admin"] and d[u][1]["tombol_admin"] is None for u in adm)
+        and t["/admin/login"][1]["jenis"] == "admin" and t["/admin/login"][1]["menu"] == []
+        and t["/admin/login"][1]["kembali"] == ["/"] and not t["/admin/login"][1]["keluar"],
+        {u: (v[1]["jenis"], len(v[1]["menu"]), v[1]["kembali"], v[1]["keluar"]) for u, v in {**t, **d}.items()
+         if u.startswith("/admin")})
+    harap_aktif = {"/admin/": [], "/admin/kamus": ["/admin/kamus"],
                    "/admin/log": ["/admin/log"], "/admin/log/periksa?q=p0": ["/admin/log"],
                    "/admin/perbarui": ["/admin/perbarui"], "/admin/sandi": ["/admin/sandi"]}
-    cek("X1 menu aktif ditandai aria-current (tepat satu, sesuai halaman; beranda admin dan login tanpa tanda)",
-        all(d[u][1]["aktif"] == a for u, a in harap_aktif.items()) and t["/admin/login"][1]["aktif"] == [],
-        {u: d[u][1]["aktif"] for u in d})
+    cek("X1 menu admin aktif ditandai aria-current (tepat satu, sesuai halaman; beranda admin tanpa tanda)",
+        all(d[u][1]["aktif"] == a for u, a in harap_aktif.items()), {u: d[u][1]["aktif"] for u in adm})
+    x7 = h["x7"]
+    cek("X7 tombol 'Halaman Admin': belum login -> login (next=/admin/) -> masuk -> kembali ke /admin/ (200); "
+        "sudah login -> label '(masuk)' dan langsung masuk (200)",
+        x7["tombol_awal"] == ["/admin/", "Halaman Admin", False]
+        and x7["klik"] == [302, "/admin/login?next=/admin/"] and x7["login"] == [302, "/admin/"]
+        and x7["admin"] == [200, "admin"] and x7["tombol_masuk"] == ["/admin/", "Halaman Admin (masuk)", False]
+        and x7["klik_masuk"] == [200, None], x7)
     x2 = h["x2"]
     cek("X2 tanpa login: menu admin -> login (next = tujuan + query) -> kembali ke tujuan, HTTP 200",
         all(v[0] == 302 and v[1] == u and v[2] == 302 and v[3] == u and v[4] == 200
