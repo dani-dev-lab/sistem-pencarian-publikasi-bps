@@ -10,7 +10,14 @@ Angka "N ms" di halaman hasil disamarkan; selebihnya dibandingkan byte demi
 byte.
 
   python tests/potret_tampilan.py simpan <keluar.json> --db salinan|uji
-  python tests/potret_tampilan.py banding <a.json> <b.json> [--buang-widget] [--buang-tombol-atas] [--buang-sampul]
+  python tests/potret_tampilan.py banding <a.json> <b.json> [--buang-widget] [--buang-tombol-atas] [--buang-sampul] [--isi]
+
+--isi (25 Nov 2026): bandingkan ISI saja, bukan tampilan. Dari tiap halaman
+HTML hanya <main> yang diambil, lalu semua tag dibuang KECUALI href tautan dan
+src gambar (ditulis sebagai [href=...] / [src=...]); spasi diringkas. Kelas,
+atribut gaya, kop/menu, dan tombol ke atas tidak ikut. JSON /api/ tetap byte
+demi byte. Dipakai saat tampilan SENGAJA diubah: judul, tipe, nomor, halaman,
+skor, urutan kartu, dan tautan PDF harus tetap sama.
 
 --db salinan = db_pencarian_bps_salinan_uji (salinan produksi tanpa
 kecamatan); --db uji = db_pencarian_bps_uji. Produksi TIDAK PERNAH dipakai:
@@ -116,6 +123,26 @@ def buang_sampul(u, teks, salah, hitung):
     return teks
 
 
+RE_MAIN = re.compile(r"<main>([\s\S]*?)</main>")
+RE_TAUTAN = re.compile(r'<(?:a|img)\b[^>]*?\s(href|src)="([^"]*)"[^>]*>')
+RE_BLOK = re.compile(r"<(article|section|h[1-6]|p|li|div|form)\b")
+RE_TAG = re.compile(r"<[^>]+>")
+
+
+def isi_saja(u, teks):
+    """Isi <main> tanpa tampilan (lihat --isi). Satu baris per blok (kartu,
+    paragraf, judul), supaya beda yang dilaporkan menunjuk blok yang tepat."""
+    if u.startswith("/api/"):
+        return teks
+    m = RE_MAIN.search(teks)
+    if not m:
+        return "(tanpa <main>)"
+    isi = RE_TAUTAN.sub(lambda x: f" [{x.group(1)}={x.group(2)}] ", m.group(1))
+    isi = RE_BLOK.sub(lambda x: "\n<" + x.group(1), isi)
+    isi = RE_TAG.sub(" ", isi)
+    return "\n".join(b for b in (" ".join(x.split()) for x in isi.splitlines()) if b)
+
+
 def daftar_url():
     from ukur_kinerja import KUERI, KUERI_WILAYAH
     url = ["/", "/?w=6301"]
@@ -139,9 +166,12 @@ def simpan(keluar, db):
     print(f"{len(hasil)} URL ({db}) -> {keluar}")
 
 
-def banding(a, b, buang_widget=False, buang_tombol=False, buang_sampul_=False):
+def banding(a, b, buang_widget=False, buang_tombol=False, buang_sampul_=False, hanya_isi=False):
     pa = json.load(open(a, encoding="utf-8"))["potret"]
     pb = json.load(open(b, encoding="utf-8"))["potret"]
+    if hanya_isi:
+        pa = {u: {**v, "isi": isi_saja(u, v["isi"])} for u, v in pa.items()}
+        pb = {u: {**v, "isi": isi_saja(u, v["isi"])} for u, v in pb.items()}
     salah = []
     if buang_sampul_:
         hitung = [0]
@@ -173,4 +203,5 @@ if __name__ == "__main__":
         simpan(sys.argv[2], sys.argv[sys.argv.index("--db") + 1])
     else:
         sys.exit(0 if banding(sys.argv[2], sys.argv[3], "--buang-widget" in sys.argv,
-                                "--buang-tombol-atas" in sys.argv, "--buang-sampul" in sys.argv) else 1)
+                                "--buang-tombol-atas" in sys.argv, "--buang-sampul" in sys.argv,
+                                "--isi" in sys.argv) else 1)

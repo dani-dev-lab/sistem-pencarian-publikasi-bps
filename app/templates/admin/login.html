@@ -3,22 +3,23 @@
 
 {% block konten %}
 <h1 class="judul-admin">Masuk ke halaman admin</h1>
-<p class="ringan">Halaman ini untuk perawatan kamus sinonim dan review log pencarian.
-  Petugas PST tidak perlu masuk ke sini untuk mencari publikasi.</p>
+<p class="ringan">Kamus Sinonim, Log Pencarian, Perbarui Data, dan Ganti Sandi memakai
+  kata sandi admin bersama. Pencarian publikasi tidak perlu masuk.</p>
 
 {% with pesan = get_flashed_messages(with_categories=true) %}
   {% for kategori, teks in pesan %}
     <p class="kabar kabar-{{ kategori }}">{{ teks }}</p>
   {% endfor %}
 {% endwith %}
-{% if salah %}
-  <p class="kabar kabar-gagal">Kata sandi salah.</p>
+{% if galat %}
+  <p class="kabar kabar-gagal" role="alert">{{ galat }}</p>
 {% endif %}
 
 <form method="post" action="{{ url_for('admin.login') }}" class="form-admin">
   <input type="hidden" name="next" value="{{ next }}">
   <label>Kata sandi admin
-    <input type="password" name="sandi" required autofocus autocomplete="current-password"></label>
-  <button type="submit">Masuk</button>
+    <input type="password" name="sandi" required autofocus autocomplete="current-password"
+           {%- if terkunci %} disabled{% endif %}></label>
+  <button type="submit"{% if terkunci %} disabled{% endif %}>Masuk</button>
 </form>
 {% endblock %}

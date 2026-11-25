@@ -6,13 +6,18 @@ merawat kamus. Halaman pencarian untuk petugas PST tetap terbuka tanpa login.
 """
 
 import json
+import math
 import os
+import threading
+import time
+from urllib.parse import urlsplit
 
 from flask import (
     Blueprint,
     Response,
     current_app,
     flash,
+    g,
     redirect,
     render_template,
     request,
@@ -39,8 +44,63 @@ AMBANG_KUERI_LEMAH = 75
 
 
 # --------------------------------------------------------------------------
-# Autentikasi
+# Autentikasi dan sesi (diperluas 25 Nov 2026: menu admin di semua halaman,
+# sesi kedaluwarsa, penguncian sesudah sandi salah berulang)
 # --------------------------------------------------------------------------
+
+# Waktu aktif terakhir (detik epoch) di session; diperbarui tiap permintaan.
+KUNCI_AKTIF = "admin_aktif"
+# Penguncian login: sesudah BATAS_SALAH sandi salah berturut-turut dari satu
+# alamat, login dari alamat itu ditolak LAMA_KUNCI_DETIK.
+BATAS_SALAH = 5
+LAMA_KUNCI_DETIK = 5 * 60
+# alamat -> {"salah": n, "sampai": epoch}. Di memori proses: hilang kalau
+# aplikasi dijalankan ulang, dan semua thread waitress berbagi satu kamus.
+_PERCOBAAN = {}
+_KUNCI_PERCOBAAN = threading.Lock()
+
+# Menu di kop (base.html): endpoint -> nama menu yang ditandai aktif.
+MENU_ENDPOINT = {
+    "admin.kamus": "kamus", "admin.tambah_varian": "kamus", "admin.tambah_kelompok": "kamus",
+    "admin.hapus_varian": "kamus", "admin.terapkan": "kamus",
+    "admin.log": "log", "admin.periksa": "log",
+    "admin.perbarui": "perbarui", "admin.perbarui_mulai": "perbarui",
+    "admin.ganti_sandi": "sandi",
+}
+
+
+def _sekarang():
+    """Jam yang dipakai sesi dan penguncian (satu tempat, supaya bisa diuji)."""
+    return time.time()
+
+
+def periksa_sesi():
+    """app.before_request (dipasang create_app): sesi admin yang tidak aktif
+    lebih dari SESI_ADMIN_MENIT menit diakhiri; yang masih berlaku diperbarui
+    waktunya. Berlaku untuk SEMUA halaman, termasuk pencarian, supaya penanda
+    "Masuk sebagai admin" di kop ikut hilang. Berkas statis tidak dihitung.
+    Session tanpa waktu aktif (misalnya dari versi lama) dianggap kedaluwarsa.
+    """
+    if request.endpoint == "static" or not session.get(KUNCI_SESSION):
+        return None
+    aktif = session.get(KUNCI_AKTIF)
+    sekarang = _sekarang()
+    batas = current_app.config["SESI_ADMIN_MENIT"] * 60
+    if not isinstance(aktif, (int, float)) or sekarang - aktif > batas:
+        session.pop(KUNCI_SESSION, None)
+        session.pop(KUNCI_AKTIF, None)
+        g.sesi_berakhir = True
+        return None
+    session[KUNCI_AKTIF] = int(sekarang)
+    return None
+
+
+def konteks_menu():
+    """context_processor (dipasang create_app): menu kop di semua halaman."""
+    ep = request.endpoint or ""
+    aktif = "pencarian" if ep.startswith("pencarian.") else MENU_ENDPOINT.get(ep)
+    return {"menu_aktif": aktif, "admin_masuk": bool(session.get(KUNCI_SESSION))}
+
 
 @bp.before_request
 def wajib_login():
@@ -49,47 +109,110 @@ def wajib_login():
     Dipasang di blueprint, bukan per-route, supaya route baru yang ditambah
     nanti otomatis ikut terlindungi - tidak bergantung pada ingatan untuk
     memasang dekorator.
+
+    Tujuan sesudah login: halaman yang diminta (path + query). Untuk kiriman
+    POST yang ditolak (misalnya sesi habis saat menyimpan kamus), tujuannya
+    halaman asal kiriman itu, karena URL POST tidak bisa dibuka dengan GET.
     """
     if request.endpoint == "admin.login":
         return None
     if session.get(KUNCI_SESSION):
         return None
-    return redirect(url_for("admin.login", next=request.path))
+    if g.get("sesi_berakhir"):
+        flash(f"Sesi admin berakhir karena tidak aktif lebih dari "
+              f"{current_app.config['SESI_ADMIN_MENIT']} menit. Silakan masuk lagi.", "gagal")
+    if request.method == "GET":
+        tujuan = request.full_path.rstrip("?")
+    else:
+        asal = urlsplit(request.referrer or "")
+        tujuan = (asal.path + (f"?{asal.query}" if asal.query else "")
+                  if asal.netloc == request.host else "")
+    return redirect(url_for("admin.login", next=_tujuan_aman(tujuan)))
 
 
 def _tujuan_aman(next_url):
-    """Hanya izinkan kembali ke path lokal di bawah /admin/.
+    """Hanya izinkan kembali ke path LOKAL aplikasi ini.
 
     Parameter `next` datang dari URL dan bisa diisi siapa saja; tanpa
-    pemeriksaan ini halaman login bisa dipakai melempar orang ke situs lain.
+    pemeriksaan ini halaman login bisa dipakai melempar orang ke situs lain
+    ("//situs-lain", "/\\situs-lain", "http://..."). Halaman login/keluar
+    sendiri tidak dipakai sebagai tujuan.
     """
-    if next_url and next_url.startswith("/admin") and not next_url.startswith("//"):
-        return next_url
+    u = (next_url or "").strip()
+    if (u.startswith("/") and not u.startswith("//") and "\\" not in u
+            and not urlsplit(u).scheme and not urlsplit(u).netloc
+            and not u.startswith(("/admin/login", "/admin/logout"))):
+        return u
     return url_for("admin.beranda")
+
+
+def _sisa_kunci(alamat, sekarang):
+    """Detik sisa penguncian alamat ini (0 = tidak terkunci)."""
+    with _KUNCI_PERCOBAAN:
+        p = _PERCOBAAN.get(alamat)
+        if p and p.get("sampai"):
+            if sekarang < p["sampai"]:
+                return p["sampai"] - sekarang
+            _PERCOBAAN.pop(alamat, None)     # penguncian selesai: hitungan mulai lagi
+    return 0
+
+
+def _catat_salah(alamat, sekarang):
+    """Catat sandi salah; kembalikan sisa percobaan (0 = baru saja dikunci)."""
+    with _KUNCI_PERCOBAAN:
+        p = _PERCOBAAN.setdefault(alamat, {"salah": 0, "sampai": None})
+        p["salah"] += 1
+        if p["salah"] >= BATAS_SALAH:
+            p.update(salah=0, sampai=sekarang + LAMA_KUNCI_DETIK)
+            return 0
+        return BATAS_SALAH - p["salah"]
+
+
+def _teks_menit(detik):
+    menit = max(1, math.ceil(detik / 60))
+    return f"{menit} menit"
 
 
 @bp.route("/login", methods=["GET", "POST"])
 def login():
+    tujuan = _tujuan_aman(request.values.get("next"))
     if session.get(KUNCI_SESSION):
-        return redirect(url_for("admin.beranda"))
+        return redirect(tujuan)
 
-    salah = False
-    if request.method == "POST":
+    alamat = request.remote_addr or "?"
+    sekarang = _sekarang()
+    galat, status = None, 200
+    sisa = _sisa_kunci(alamat, sekarang)
+    if sisa:
+        galat = (f"Terlalu banyak kata sandi salah dari komputer ini. Login dikunci "
+                 f"sementara; coba lagi dalam {_teks_menit(sisa)}.")
+        status = 429
+    elif request.method == "POST":
         sandi = request.form.get("sandi") or ""
-        if sandi and check_password_hash(current_app.config["ADMIN_PASSWORD_HASH"],
-                                         sandi):
+        if sandi and check_password_hash(current_app.config["ADMIN_PASSWORD_HASH"], sandi):
+            with _KUNCI_PERCOBAAN:
+                _PERCOBAAN.pop(alamat, None)
             session.clear()
             session[KUNCI_SESSION] = True
-            return redirect(_tujuan_aman(request.form.get("next")))
-        salah = True
+            session[KUNCI_AKTIF] = int(sekarang)
+            return redirect(tujuan)
+        sisa_coba = _catat_salah(alamat, sekarang)
+        if sisa_coba:
+            galat = f"Kata sandi salah. Sisa percobaan sebelum login dikunci: {sisa_coba}."
+        else:
+            galat = (f"Kata sandi salah {BATAS_SALAH} kali. Login dari komputer ini dikunci "
+                     f"{_teks_menit(LAMA_KUNCI_DETIK)}.")
+            status = 429
 
-    return render_template("admin/login.html", salah=salah,
-                           next=request.values.get("next") or "")
+    return render_template("admin/login.html", galat=galat, terkunci=status == 429,
+                           next=request.values.get("next") or ""), status
 
 
 @bp.post("/logout")
 def logout():
     session.pop(KUNCI_SESSION, None)
+    session.pop(KUNCI_AKTIF, None)
+    flash("Anda sudah keluar dari admin.", "sukses")
     return redirect(url_for("admin.login"))
 
 

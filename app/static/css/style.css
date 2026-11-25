@@ -43,13 +43,15 @@ body {
   position: sticky;
   top: 0;
   z-index: 30;
+  background: var(--kop-bps);
+  color: #fff;
+}
+.kop-baris {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 8px 18px;
-  background: var(--kop-bps);
-  color: #fff;
-  padding: 12px 24px;
+  padding: 10px 24px;
 }
 .kop-identitas {
   display: flex;
@@ -85,15 +87,54 @@ body {
 }
 .kop-identitas:focus-visible { outline: 2px solid #fff; outline-offset: 4px; border-radius: 2px; }
 
+/* Menu di bawah identitas (25 Nov 2026), di semua halaman. Menu aktif:
+   aria-current="page" (garis kuning + latar terang). Tinggi tiap butir 44 px. */
+.menu-utama {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  padding: 0 24px;
+  background: rgba(0, 0, 0, .2);
+  border-top: 1px solid rgba(255, 255, 255, .14);
+}
+.menu-utama ul { display: flex; flex-wrap: wrap; gap: 2px; margin: 0; padding: 0; list-style: none; }
+.menu-utama a {
+  display: flex; align-items: center; min-height: 44px; padding: 0 12px;
+  color: #fff; text-decoration: none; font-size: 14px; font-weight: 600;
+  border-bottom: 3px solid transparent; border-top: 3px solid transparent;
+}
+.menu-utama a:hover { background: rgba(255, 255, 255, .1); }
+.menu-utama a[aria-current="page"] { border-bottom-color: #f2a900; background: rgba(255, 255, 255, .14); }
+.menu-utama a:focus-visible { outline: 3px solid #f2a900; outline-offset: -3px; }
+.status-admin { margin-left: auto; display: flex; align-items: center; gap: 10px; padding: 4px 0; }
+.penanda-admin {
+  font-size: 13px; font-weight: 700; color: #002B6A; background: #f2a900;
+  padding: 3px 10px; border-radius: 999px; white-space: nowrap;
+}
+.tombol-menu { display: none; }
+
 @media (max-width: 640px) {
-  .kop { padding: 10px 14px; gap: 6px 12px; }
+  .kop-baris { padding: 10px 14px; gap: 6px 12px; }
   .kop-instansi { font-size: 14px; }
   /* Baris kecil di bawah identitas, rata kiri dengan teks instansi. */
-  /* flex 1: mengisi baris kedua sendirian, atau berbagi dengan Keluar
-     (admin) supaya kop sticky tidak bertambah satu baris lagi. */
   .kop-aplikasi { margin-left: 0; flex: 1 1 auto; padding: 0; border: 0;
                   font-size: 12px; opacity: .9; }
-  .kop-keluar button { padding: 3px 10px; font-size: 12px; }
+  /* Menu tersusun ke bawah, selebar layar. Dengan JavaScript (menu.js) menu
+     dilipat di balik tombol "Menu"; tanpa JavaScript selalu terbuka. */
+  .menu-utama { display: block; padding: 0 14px 6px; }
+  .menu-utama ul { flex-direction: column; gap: 0; }
+  .menu-utama a { border-top: 0; border-bottom: 0; border-left: 4px solid transparent; }
+  .menu-utama a[aria-current="page"] { border-left-color: #f2a900; }
+  .status-admin { padding: 6px 0 2px; flex-wrap: wrap; }
+  .menu-js .tombol-menu {
+    display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px;
+    margin-left: auto; font: inherit; font-size: 14px; font-weight: 600; color: #fff;
+    background: transparent; border: 1px solid rgba(255, 255, 255, .7); border-radius: 6px; cursor: pointer;
+  }
+  .menu-js .tombol-menu[aria-expanded="true"] { background: rgba(255, 255, 255, .16); }
+  .menu-js .menu-utama { display: none; }
+  .menu-js.menu-terbuka .menu-utama { display: block; }
 }
 
 /* Kolom pencarian sengaja TIDAK di dalam kop - diberi ruang putih di bawahnya
@@ -226,12 +267,7 @@ main { flex: 1; width: 100%; max-width: 1180px; margin: 0 auto; padding: 28px 20
   color: #fff; background: var(--kuning); padding: 2px 7px; border-radius: 3px;
 }
 .pita-teks { flex: 1 1 260px; }
-.pita-batal {
-  font-size: 13px; font-weight: 600; color: var(--kuning);
-  border: 1px solid var(--kuning); border-radius: 4px; padding: 3px 10px;
-  text-decoration: none; white-space: nowrap; background: #fff;
-}
-.pita-batal:hover { background: var(--kuning); color: #fff; }
+.pita-batal { white-space: nowrap; }
 .pita-info { background: #f4f6f9; border-color: var(--garis); border-left-color: var(--redup); }
 
 /* ---------------------------- halaman awal ----------------------------
@@ -252,6 +288,8 @@ main { flex: 1; width: 100%; max-width: 1180px; margin: 0 auto; padding: 28px 20
 
 /* Baris yang terlalu lebar sulit dibaca. */
 .keterangan { color: var(--redup); max-width: 460px; margin: 0 auto 26px; }
+/* Di halaman admin keterangan rata kiri seperti isi lainnya (25 Nov 2026). */
+.halaman-admin .keterangan { max-width: 720px; margin: 0 0 16px; }
 .peringatan { color: var(--kuning); font-weight: 600; }
 
 /* Kolom pencarian adalah elemen paling menonjol di halaman ini. */
@@ -338,6 +376,7 @@ section + section .seksi { margin-top: 34px; }
 .kartu:last-child { margin-bottom: 0; }
 
 .kartu-pub { border-left-color: var(--biru-tua); background: #f7fafd; }
+.kartu-pub:last-child { margin-bottom: 0; }
 .kartu-tabel { border-left-color: var(--hijau); }
 .kartu-gambar { border-left-color: var(--kuning); }
 .kartu-lampiran { border-left-color: var(--ungu); }
@@ -347,19 +386,41 @@ section + section .seksi { margin-top: 34px; }
    sampulnya ada: sampul di kiri, judul dan keterangan di kanan. Lebar tetap,
    tinggi mengikuti rasio asli (atribut width/height = ukuran asli, jadi ruang
    sudah dipesan sebelum gambar dimuat). Di ponsel sampul mengecil. */
-.kartu.ada-sampul { display: flex; align-items: flex-start; gap: 14px; }
+.kartu.ada-sampul { display: flex; align-items: flex-start; gap: 22px; }
 .ada-sampul .sampul {
   flex: 0 0 auto;
-  width: 96px;
+  width: 220px;
   height: auto;
   border: 1px solid var(--garis);
-  border-radius: 2px;
+  border-radius: 3px;
   background: #fff;
+  box-shadow: 0 1px 4px rgba(16, 34, 56, .12);
 }
 .ada-sampul .kartu-badan { flex: 1 1 auto; min-width: 0; }
+
+/* Kartu PUBLIKASI diperbesar (25 Nov 2026), meniru daftar publikasi situs
+   BPS: sampul ±220 px, judul dan teks lebih besar, jarak lebih lega. Kartu
+   tabel/bab/gambar/lampiran tidak berubah ukurannya. */
+.kartu-pub { padding: 18px 20px; margin-bottom: 14px; }
+.kartu-pub .kartu-judul { font-size: 19px; line-height: 1.35; margin-bottom: 10px; }
+.kartu-pub .lokasi { margin-bottom: 10px; }
+.kartu-pub .lokasi span { font-size: 13px; padding: 3px 9px; }
+.kartu-pub .cuplikan { font-size: 15px; line-height: 1.6; margin-bottom: 14px;
+                       -webkit-line-clamp: 5; line-clamp: 5; }
+.kartu-pub .skor { font-size: 13px; }
+.kartu-pub .tombol-pdf { display: inline-flex; align-items: center; min-height: 44px;
+                         padding: 0 18px; font-size: 14px; border-radius: 6px; }
+@media (max-width: 760px) {
+  .ada-sampul .sampul { width: 160px; }
+}
+/* Ponsel: sampul di atas judul, selebar kartu tetapi tidak lebih dari 240 px. */
 @media (max-width: 640px) {
-  .kartu.ada-sampul { gap: 10px; }
-  .ada-sampul .sampul { width: 64px; }
+  .kartu.ada-sampul { flex-direction: column; gap: 14px; }
+  .ada-sampul .sampul { width: 100%; max-width: 240px; }
+  .ada-sampul .kartu-badan { width: 100%; }
+  .kartu-pub { padding: 14px 14px 16px; }
+  .kartu-pub .kartu-judul { font-size: 17px; }
+  .kartu-pub .cuplikan { font-size: 14px; }
 }
 
 .kartu-judul { margin: 0 0 8px; font-size: 15px; line-height: 1.38; }
@@ -466,7 +527,7 @@ mark { background: #fff2a8; color: inherit; padding: 0 1px; border-radius: 2px; 
 .judul-admin .ringan { font-size: 14px; font-weight: 400; }
 .ringan { color: var(--redup); font-weight: 400; }
 .mono { font-family: Consolas, monospace; font-size: 12px; }
-.tautan-balik { margin: 0 0 8px; font-size: 13px; }
+.tautan-balik { margin: 0 0 12px; }
 .catatan-admin { margin-top: 28px; font-size: 13px; color: var(--kuning); }
 .catatan-admin code { font-family: Consolas, monospace; font-size: 12px; }
 
@@ -475,12 +536,6 @@ mark { background: #fff2a8; color: inherit; padding: 0 1px; border-radius: 2px; 
   background: #fff8e1; border: 1px solid #f0d78c; border-left: 4px solid var(--kuning);
   color: #5c3d00; padding: 10px 12px; border-radius: 5px; font-size: 14px; margin: 12px 0;
 }
-.tombol-utama {
-  padding: 10px 20px; background: var(--biru); color: #fff; border: none;
-  border-radius: 4px; cursor: pointer; font-size: 14px; font-weight: 600;
-}
-.tombol-utama:hover { background: var(--biru-tua); }
-.tombol-utama:disabled { background: #9aa7b8; cursor: not-allowed; }
 .log-pembaruan {
   background: #1e2430; color: #d6dbe4; font-family: Consolas, monospace;
   font-size: 12px; line-height: 1.4; padding: 10px 12px; border-radius: 6px;
@@ -515,16 +570,16 @@ mark { background: #fff2a8; color: inherit; padding: 0 1px; border-radius: 2px; 
 .form-terapkan { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .form-terapkan span:first-child { flex: 1; min-width: 240px; }
 .form-terapkan button {
-  padding: 8px 16px; background: var(--hijau); color: #fff; white-space: nowrap;
-  border: none; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: 600;
+  min-height: 44px; padding: 0 18px; background: var(--hijau); color: #fff; white-space: nowrap;
+  border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600;
 }
 .form-terapkan button:hover { opacity: .9; }
 .kop-keluar { margin: 0; }
 .kop-aplikasi + .kop-keluar { margin-left: 0; }
 .kop-keluar button {
-  padding: 5px 12px; background: transparent; color: #fff;
-  border: 1px solid rgba(255,255,255,.6); border-radius: 4px;
-  cursor: pointer; font-size: 13px;
+  min-height: 44px; padding: 0 16px; background: transparent; color: #fff;
+  border: 1px solid rgba(255,255,255,.7); border-radius: 6px;
+  cursor: pointer; font: inherit; font-size: 14px; font-weight: 600;
 }
 .kop-keluar button:hover { background: rgba(255,255,255,.15); }
 
@@ -533,11 +588,12 @@ mark { background: #fff2a8; color: inherit; padding: 0 1px; border-radius: 2px; 
 .form-admin { display: grid; gap: 8px; margin-top: 10px; max-width: 460px; }
 .form-admin label { font-size: 13px; display: grid; gap: 3px; }
 .form-admin input { padding: 7px 9px; border: 1px solid var(--garis); border-radius: 4px; }
-.form-admin button, .form-sebaris button {
-  padding: 7px 14px; background: var(--biru); color: #fff;
-  border: none; border-radius: 4px; cursor: pointer; font-size: 13px;
+.form-admin button, .form-sebaris button, .kotak-cari.kecil button {
+  min-height: 44px; padding: 0 18px; background: var(--biru); color: #fff;
+  border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600;
 }
 .form-admin button { justify-self: start; }
+.form-admin button:disabled, .form-admin input:disabled { opacity: .55; cursor: not-allowed; }
 
 .kelompok-sinonim {
   border: 1px solid var(--garis); border-radius: 6px;
@@ -546,20 +602,21 @@ mark { background: #fff2a8; color: inherit; padding: 0 1px; border-radius: 2px; 
 .kelompok-sinonim h3 { margin: 0 0 6px; font-size: 15px; }
 .varian-daftar { margin: 0 0 8px; display: flex; flex-wrap: wrap; gap: 5px; }
 .varian {
-  display: inline-flex; align-items: center; gap: 3px;
+  display: inline-flex; align-items: center; gap: 0; min-height: 44px;
   background: var(--biru-muda); color: var(--biru);
-  padding: 2px 4px 2px 8px; border-radius: 4px; font-size: 13px;
+  padding: 0 0 0 12px; border-radius: 6px; font-size: 14px;
 }
-.varian-kanonik { background: var(--biru); color: #fff; padding-right: 8px; font-weight: 600; }
+.varian-kanonik { background: var(--biru); color: #fff; padding-right: 12px; font-weight: 600; }
 .sebaris { display: inline; }
 .varian button {
   border: none; background: none; cursor: pointer; color: inherit;
-  opacity: .5; font-size: 14px; line-height: 1; padding: 0 2px;
+  opacity: .6; font-size: 18px; line-height: 1; padding: 0; min-width: 44px; min-height: 44px;
+  border-radius: 6px;
 }
 .varian button:hover { opacity: 1; color: var(--merah); }
 .form-sebaris { display: flex; gap: 6px; }
 .form-sebaris input {
-  flex: 1; padding: 6px 9px; border: 1px solid var(--garis);
+  flex: 1; min-width: 0; padding: 6px 9px; border: 1px solid var(--garis);
   border-radius: 4px; font-size: 13px;
 }
 
@@ -572,7 +629,6 @@ mark { background: #fff2a8; color: inherit; padding: 0 1px; border-radius: 2px; 
 }
 .tabel-log .ka { text-align: right; }
 .baris-nol { background: #fffaf5; }
-.tautan-kecil { font-size: 12px; margin-right: 6px; }
 
 .hasil-periksa {
   border: 1px solid var(--garis); border-radius: 6px; padding: 14px; margin-top: 14px;
@@ -584,39 +640,104 @@ code.besar { font-size: 15px; background: #eef2f7; padding: 4px 8px; border-radi
 .kaki { border-top: 1px solid var(--garis); padding: 16px 24px; text-align: center; }
 .notice { margin: 0; font-size: 13px; color: var(--redup); }
 
-/* ------------------------- tombol "Kembali ke atas" -------------------------
-   (19 Nov 2026) Pojok kanan bawah, warna kop BPS. Disembunyikan atribut hidden
-   sampai halaman digulir lebih dari satu layar (ke-atas.js); tanpa JavaScript
-   tetap tersembunyi. 44x44 px = area sentuh minimal. */
+/* ------------------------- tombol "Ke atas" -------------------------
+   (19 Nov 2026; diperbesar 25 Nov 2026) Berlabel "↑ Ke atas", warna kop BPS
+   dengan tepi putih dan bayangan supaya terlihat di atas latar apa pun.
+   Disembunyikan atribut hidden sampai halaman digulir > 400 px (ke-atas.js);
+   tanpa JavaScript tetap tersembunyi.
+   - Layar >= 1181 px: kapsul di margin kosong kanan. Isi halaman maksimal
+     880 px di tengah, jadi kapsul tidak pernah di atas isi.
+   - Layar <= 1180 px: kotak ringkas 52x56 px (panah di atas tulisan) di
+     pojok kanan bawah; sisi kanan kartu, kotak info, pita, kaki, dan <main>
+     halaman admin diberi ruang kosong selebar tombol, jadi tombol tidak
+     pernah di atas tombol lain (diuji Playwright, lihat
+     data/regresi/tampilan-20261125.md). */
 .ke-atas {
   position: fixed;
-  right: 6px;
-  bottom: 16px;
+  right: 20px;
+  bottom: 24px;
   z-index: 50;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border: 0;
-  border-radius: 50%;
+  gap: 6px;
+  min-height: 48px;
+  padding: 0 18px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  border: 2px solid #fff;
+  border-radius: 999px;
   background: var(--kop-bps);
   color: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, .28);
+  box-shadow: 0 4px 14px rgba(0, 22, 60, .38);
   cursor: pointer;
 }
+.ke-atas-panah { font-size: 19px; line-height: 1; }
 .ke-atas[hidden] { display: none; }
 .ke-atas:hover { background: var(--biru-tua); }
 .ke-atas:focus-visible { outline: 3px solid #f2a900; outline-offset: 2px; }
-/* Layar <= 960 px: celah tepi halaman lebih sempit dari tombol, jadi sisi kanan
-   kartu, kotak info, pita, dan notice di kaki diberi ruang kosong selebar
-   tombol. Tombol lalu berada di atas ruang kosong itu, tidak di atas isi kartu
-   atau tombol "Buka PDF" (diuji Playwright di 360-1366 px). */
+@media (max-width: 1180px) {
+  .ke-atas {
+    right: 4px; bottom: 12px; width: 52px; height: 56px; min-height: 0; padding: 0;
+    flex-direction: column; gap: 1px; border-radius: 12px; font-size: 11px;
+  }
+  .ke-atas-panah { font-size: 20px; }
+}
+/* Di atas 960 px isi (maks. 880 px) sudah berjarak dari tepi layar, jadi ruang
+   cadangan hanya perlu di layar yang lebih sempit. */
 @media (max-width: 960px) {
-  .kartu { padding-right: 38px; }
-  .info-kecamatan, .pita-wilayah { padding-right: 38px; }
-  .kaki .notice { padding: 0 48px; }
+  .kartu { padding-right: 46px; }
+  .info-kecamatan, .pita-wilayah, .kosong-total, .lebih { padding-right: 46px; }
+  .kaki .notice { padding: 0 56px; }
+  body.halaman-admin main { padding-right: 66px; }
+}
+
+/* ------------------------------ scroll bar ------------------------------
+   (25 Nov 2026) Tipis dan berwarna lembut, TIDAK dihilangkan: tetap terlihat
+   dan bisa diseret. Firefox/Chrome baru: scrollbar-width/scrollbar-color;
+   Chrome/Edge lama: ::-webkit-scrollbar. */
+html { scrollbar-width: thin; scrollbar-color: #a9b6c6 #eef1f5; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #eef1f5; }
+::-webkit-scrollbar-thumb { background: #a9b6c6; border-radius: 6px; border: 2px solid #eef1f5; }
+::-webkit-scrollbar-thumb:hover { background: #8193a8; }
+.log-pembaruan { scrollbar-color: #5b6677 #1e2430; }
+
+/* ------------------------------- tombol -------------------------------
+   (25 Nov 2026) Satu gaya tombol untuk seluruh aplikasi: tinggi sentuh
+   minimal 44 px, sudut 6 px, cincin fokus kuning yang terlihat saat
+   dipakai dengan papan ketik. .tombol-utama = isi biru; .tombol-kedua =
+   garis biru. Dipakai untuk tautan yang berfungsi sebagai tombol. */
+.tombol, .tombol-utama, .tombol-kedua {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  min-height: 44px; padding: 0 18px; font: inherit; font-size: 14px; font-weight: 600;
+  line-height: 1.2; border-radius: 6px; text-decoration: none; cursor: pointer;
+  text-align: center;
+}
+.tombol-utama { background: var(--biru); color: #fff; border: 1px solid var(--biru); }
+.tombol-utama:hover { background: var(--biru-tua); border-color: var(--biru-tua); }
+.tombol-utama:disabled { background: #9aa7b8; border-color: #9aa7b8; cursor: not-allowed; }
+.tombol-kedua { background: #fff; color: var(--biru); border: 1px solid var(--biru); }
+.tombol-kedua:hover { background: var(--biru-muda); }
+.tombol-kecil { min-height: 44px; padding: 0 12px; font-size: 13px; }
+a:focus-visible, button:focus-visible, summary:focus-visible, select:focus-visible,
+input[type="checkbox"]:focus-visible { outline: 3px solid #f2a900; outline-offset: 2px; }
+.baris-tombol { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0 0 12px; }
+.tabel-log .sel-tombol { flex-wrap: nowrap; margin: 0; }
+
+/* Lipatan <details> di admin tampil sebagai tombol (panah berputar). */
+.lipat > summary {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px;
+  border: 1px solid var(--biru); border-radius: 6px; background: #fff; color: var(--biru);
+  font-size: 14px; font-weight: 600; cursor: pointer; list-style: none;
+}
+.lipat > summary::-webkit-details-marker { display: none; }
+.lipat > summary::before { content: "\25B8"; font-size: 12px; transition: transform .15s; }
+.lipat[open] > summary::before { transform: rotate(90deg); }
+.lipat > summary:hover { background: var(--biru-muda); }
+@media (prefers-reduced-motion: reduce) {
+  .lipat > summary::before { transition: none; }
 }
 
 /* -------------------- formulir pilihan penarikan --------------------
@@ -644,11 +765,6 @@ code.besar { font-size: 15px; background: #eef2f7; padding: 4px 8px; border-radi
   column-gap: 16px; margin-top: 2px;
 }
 .form-pembaruan .aksi-centang { margin: 2px 0 6px; display: flex; gap: 8px; flex-wrap: wrap; }
-.form-pembaruan .tombol-kecil {
-  padding: 4px 10px; font-size: 13px; background: #fff; color: var(--biru);
-  border: 1px solid var(--biru); border-radius: 4px; cursor: pointer;
-}
-.form-pembaruan .tombol-kecil:hover { background: var(--biru-muda); }
 .form-pembaruan .tidak-berlaku { opacity: .55; }
 .form-pembaruan .baris-tahun { display: flex; gap: 16px; flex-wrap: wrap; font-size: 14px; }
 .form-pembaruan .baris-tahun select {
@@ -657,11 +773,6 @@ code.besar { font-size: 15px; background: #eef2f7; padding: 4px 8px; border-radi
 }
 .form-pembaruan .keterangan-pilihan { font-size: 13px; margin: 6px 0 0; }
 .form-pembaruan .tombol-pembaruan { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
-.form-pembaruan .tombol-kedua {
-  padding: 10px 20px; background: #fff; color: var(--biru); border: 1px solid var(--biru);
-  border-radius: 4px; cursor: pointer; font-size: 14px; font-weight: 600;
-}
-.form-pembaruan .tombol-kedua:hover { background: var(--biru-muda); }
 .form-pembaruan .daftar-galat { margin: 6px 0 0; padding-left: 20px; }
 .hasil-cek {
   border: 1px solid var(--garis); border-left: 4px solid var(--biru); border-radius: 6px;
@@ -672,9 +783,6 @@ code.besar { font-size: 15px; background: #eef2f7; padding: 4px 8px; border-radi
 .gulir-tabel { overflow-x: auto; }
 .hasil-cek .tabel-cek tfoot th { background: #f7f9fc; }
 .hasil-cek .daftar-peringatan { margin: 4px 0 6px; padding-left: 20px; }
-@media (max-width: 960px) {
-  .form-pembaruan, .hasil-cek { padding-right: 38px; }
-}
 @media (max-width: 640px) {
   .form-pembaruan .tombol-pembaruan button { flex: 1 1 140px; }
 }
@@ -721,15 +829,10 @@ code.besar { font-size: 15px; background: #eef2f7; padding: 4px 8px; border-radi
 .panel-ringkasan .satuan-angka { font-size: 14px; font-weight: 600; color: var(--redup); }
 .panel-ringkasan .ket-angka { display: block; font-size: 12px; color: var(--redup); }
 .alasan-mulai { margin: 10px 0 0; }
-/* Ruang kanan untuk tombol "Kembali ke atas": kartu di dalam .hasil-cek sudah
-   mendapatkannya dari kotak luarnya, jadi tidak dipasang dua kali. */
-@media (max-width: 960px) {
-  .panel-ringkasan { padding-right: 38px; }
-  .hasil-cek .panel-ringkasan { padding-right: 16px; }
-}
+/* Ruang kanan untuk tombol "Ke atas" di halaman admin dicadangkan sekali di
+   <main> (body.halaman-admin, 25 Nov 2026), tidak per kotak. */
 @media (max-width: 640px) {
-  .panel-ringkasan { padding-left: 12px; }
-  .hasil-cek .panel-ringkasan { padding-right: 12px; }
+  .panel-ringkasan { padding-left: 12px; padding-right: 12px; }
   .panel-ringkasan .angka-ringkasan { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
   .panel-ringkasan .kotak-angka { padding: 8px 10px; }
   .panel-ringkasan .nilai-angka { font-size: 20px; }

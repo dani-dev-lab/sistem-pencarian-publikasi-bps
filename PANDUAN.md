@@ -70,8 +70,26 @@ Ada dua jenis halaman:
 | Pencarian | `http://localhost:5000/` | Petugas PST | Tidak |
 | Admin | `http://localhost:5000/admin/` | Pengelola kamus | Ya, kata sandi bersama |
 
-Halaman admin sengaja **tidak ditautkan** dari halaman pencarian. Alamatnya
-diketik langsung di browser.
+**Menu di atas setiap halaman** (sejak 25 November 2026, keputusan mentor:
+aplikasi ini hanya dipakai Tim PST di web internal BPS):
+**Pencarian | Kamus Sinonim | Log Pencarian | Perbarui Data | Ganti Sandi**.
+Menu yang sedang dibuka bergaris kuning. Di layar ponsel menunya dilipat di
+balik tombol **Menu**.
+
+- Pencarian tidak perlu login.
+- Empat menu lainnya memakai kata sandi admin. Kalau belum masuk, menu itu
+  membuka halaman login dulu, lalu kembali ke halaman yang tadi dipilih.
+- Selama masuk, di kanan menu tampil **Masuk sebagai admin** dan tombol
+  **Keluar**, juga di halaman pencarian.
+- Sesi admin berakhir sendiri sesudah **120 menit tidak aktif** (bisa diubah,
+  bagian 6). Halaman admin lalu meminta login lagi dan menjelaskan sebabnya.
+- Sesudah **5 kali kata sandi salah** dari satu komputer, login dari komputer
+  itu ditolak **5 menit**. Pesannya menyebut sisa waktunya. Komputer lain
+  tidak ikut terkunci.
+
+Dulu (sampai 24 November 2026) halaman admin sengaja tidak ditautkan dan
+hanya dibuka dengan mengetik alamatnya. Itu tidak pernah menjadi pengamanan;
+pengamanannya tetap kata sandi itu.
 
 Angka `5000` di alamat itu adalah **port** bawaan. Kalau port diganti (bagian
 3 dan 7), semua alamat di panduan ini ikut berubah — misalnya port 8080
@@ -439,8 +457,8 @@ Publikasi yang tidak berubah tidak dibaca ulang.
 
 1. Pastikan komputer yang menjalankan aplikasi tersambung ke internet dan
    bisa menjangkau WebAPI BPS (`webapi.bps.go.id`).
-2. Buka `http://localhost:5000/admin/`, masuk, klik kartu **Perbarui Data**
-   (atau buka `/admin/perbarui`).
+2. Klik menu **Perbarui Data** di atas halaman (atau buka `/admin/perbarui`),
+   lalu masuk dengan kata sandi admin kalau diminta.
 3. Baca penjelasan singkatnya. Untuk **pembaruan rutin**, formulir
    "Pilihan penarikan" dibiarkan seperti bawaannya (semua dicentang, tahun
    lalu sampai tahun ini), lalu klik **Mulai pembaruan**. Untuk menarik
@@ -765,8 +783,9 @@ mencari, varian diganti ke bentuk kanoniknya.
 
 Cara menambah:
 
-1. Buka `http://localhost:5000/admin/`, masukkan kata sandi admin.
-2. Klik **Kamus Sinonim**.
+1. Klik menu **Kamus Sinonim** di atas halaman, lalu masukkan kata sandi
+   admin kalau diminta.
+2. Halaman Kamus Sinonim terbuka.
 3. Cari dulu dengan kotak "Cari kata di kamus" — mungkin kelompoknya sudah
    ada. Kalau ada, ketik varian baru di kotak "tambah varian" pada kelompok
    itu dan klik **Tambah**. Kalau belum ada, buka "Tambah kelompok baru",
@@ -781,11 +800,12 @@ Cara menambah:
 Untuk menghapus varian, klik tanda `×` di sebelah katanya, lalu Terapkan ke
 data lagi.
 
-Dari mana tahu istilah apa yang perlu ditambah? Menu **Review Log
-Pencarian** di admin menampilkan kata kunci yang sering dicari petugas tapi
-hasilnya kosong atau lemah. Itulah kandidat sinonim berikutnya. Menu
-**Periksa** (`/admin/log/periksa?q=...`) memperlihatkan bagaimana sebuah
-kata kunci diolah aplikasi — berguna untuk menebak kenapa ia tidak ketemu.
+Dari mana tahu istilah apa yang perlu ditambah? Menu **Log Pencarian**
+menampilkan kata kunci yang sering dicari petugas tapi hasilnya kosong atau
+lemah. Itulah kandidat sinonim berikutnya. Di tiap baris, tombol **Coba**
+membuka hasil pencariannya, dan tombol **Periksa**
+(`/admin/log/periksa?q=...`) memperlihatkan bagaimana kata kunci itu diolah
+aplikasi. Itu berguna untuk menebak kenapa ia tidak ketemu.
 
 Dua aturan dari pengalaman:
 
@@ -797,8 +817,8 @@ Kamus tersimpan di `data/kamus_sinonim.json`. Berkas ini ikut di Git, jadi
 sebaiknya di-*commit* setelah diubah supaya tidak hilang.
 
 Halaman admin juga bisa dipakai lebih dari satu orang bergantian —
-sandinya satu untuk bersama, dan bisa diganti dari kartu **Ganti Kata Sandi**
-(bagian 6). Tombol **Keluar** ada di pojok kanan atas.
+sandinya satu untuk bersama, dan bisa diganti lewat menu **Ganti Sandi**
+(bagian 6). Tombol **Keluar** ada di kanan menu atas.
 
 ---
 
@@ -806,8 +826,9 @@ sandinya satu untuk bersama, dan bisa diganti dari kartu **Ganti Kata Sandi**
 
 Cukup lewat browser, tidak perlu akses ke server:
 
-1. Masuk ke `http://localhost:5000/admin/` dengan kata sandi yang berlaku.
-2. Klik kartu **Ganti Kata Sandi** (atau buka `/admin/sandi`).
+1. Klik menu **Ganti Sandi** (atau buka `/admin/sandi`), lalu masuk dengan
+   kata sandi yang berlaku kalau diminta.
+2. Halaman Ganti kata sandi admin terbuka.
 3. Isi kata sandi lama, kata sandi baru (minimal 8 karakter), dan ulangi
    kata sandi baru. Klik **Ganti kata sandi**.
 4. Anda langsung dikeluarkan dan diminta masuk lagi. Masuk dengan sandi
@@ -824,6 +845,33 @@ semua kasus itu tidak ada yang berubah.
 **Kalau sandi lama lupa**, halaman ini tidak bisa dipakai (ia mensyaratkan
 sandi lama). Jalur pemulihannya butuh akses ke server — lihat butir
 "Pemulihan kata sandi admin" di bagian 7.
+
+### Lama sesi admin (`SESI_ADMIN_MENIT`) dan penguncian login
+
+- **Sesi admin berakhir sesudah tidak aktif 120 menit.** Setiap halaman yang
+  dibuka, termasuk halaman pencarian, menghitung ulang waktunya dari nol.
+  Sesudah berakhir, menu admin meminta login lagi dengan pesan "Sesi admin
+  berakhir karena tidak aktif lebih dari 120 menit".
+- **Mengubah lamanya (tim IT):** tambahkan baris di berkas `.env`, formatnya
+  seperti `PORT`, berupa angka saja tanpa spasi:
+
+  ```
+  SESI_ADMIN_MENIT=60
+  ```
+
+  Angka yang berlaku 1 sampai 1440 (24 jam). Kosong, bukan angka, 0, atau
+  lebih dari 1440 **tidak** membuat aplikasi berhenti. Aplikasi memakai
+  bawaan 120 menit dan mencetak `PERINGATAN: SESI_ADMIN_MENIT di .env tidak
+  sah ...` di jendela hitamnya. **Buka ulang aplikasi** (tutup jendela hitam,
+  jalankan lagi `jalankan-aplikasi.bat`) sesudah mengubahnya; `.env` hanya
+  dibaca saat aplikasi mulai.
+- **Penguncian login:** sesudah 5 kali kata sandi salah berturut-turut dari
+  satu komputer (alamat IP), login dari komputer itu ditolak 5 menit, juga
+  kalau sandinya benar. Login yang berhasil mengosongkan hitungannya.
+  Catatan penguncian disimpan di memori aplikasi, jadi hilang kalau aplikasi
+  dibuka ulang. Kalau aplikasi dipasang di belakang proxy, semua pengguna
+  bisa terlihat beralamat sama; penguncian lalu berlaku untuk semuanya
+  sekaligus (bagian 7).
 
 ---
 
@@ -1103,9 +1151,12 @@ atau kode:
 venv\Scripts\python.exe -u tests\uji_pipeline.py > uji_log.txt 2>&1
 ```
 
-- Lamanya ±60 menit. Run penuh terakhir, 25 November 2026: 152 uji lulus,
-  0 gagal, 0 dilewati, 3.485 detik. Bagian `J` menguji kartu ringkasan hasil
+- Lamanya ±60 menit. Run penuh terakhir, 25 November 2026: 160 uji lulus,
+  0 gagal, 0 dilewati, 3.452 detik. Bagian `J` menguji kartu ringkasan hasil
   cek: satuan, empat status, dan tombol Mulai yang nonaktif saat disk kurang.
+  Bagian `X` menguji menu di kop, login dan kembali ke tujuan, sesi admin
+  yang kedaluwarsa (termasuk `SESI_ADMIN_MENIT` yang tidak sah), dan
+  penguncian sesudah 5 kata sandi salah.
   Bagian `Q` menguji formulir pilihan penarikan dan `--cek-dulu`. Bagian `V` membuktikan bahwa tanpa
   kotak centang kecamatan, halaman pencarian sama persis dengan database
   tanpa publikasi kecamatan; bagian ini dilewati kalau database uji tidak

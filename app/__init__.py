@@ -51,11 +51,24 @@ def create_app(config_class: type[Config] = Config) -> Flask:
     from app.services import sampul
     app.add_template_global(sampul.info, "info_sampul")
 
+    from app.config import menit_sesi_admin
     from app.routes.admin import bp as bp_admin
+    from app.routes.admin import konteks_menu, periksa_sesi
     from app.routes.pencarian import bp as bp_pencarian
 
     app.register_blueprint(bp_pencarian)
     app.register_blueprint(bp_admin, url_prefix="/admin")
+
+    # Sesi admin (25 Nov 2026): kedaluwarsa sesudah tidak aktif, diperiksa di
+    # SEMUA halaman (menu admin ada di kop tiap halaman). Didaftarkan sebelum
+    # pastikan_kolom supaya urutannya: sesi dulu, lalu penjaga blueprint admin.
+    app.before_request(periksa_sesi)
+    app.context_processor(konteks_menu)
+    menit, sah = menit_sesi_admin(config_class.SESI_ADMIN_MENIT_TEKS)
+    if not sah:
+        print(f"PERINGATAN: SESI_ADMIN_MENIT di .env tidak sah "
+              f"({config_class.SESI_ADMIN_MENIT_TEKS!r}); dipakai bawaan {menit} menit.",
+              flush=True)
 
     # Kolom tambahan (log_pencarian.wilayah_filter, publikasi.halaman_ocr)
     # untuk database lama. Di awal request, bukan di sini: create_app() juga

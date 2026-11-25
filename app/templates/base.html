@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   {% block kepala %}{% endblock %}
 </head>
-<body class="{% block kelas_body %}{% endblock %}">
+<body class="{% block kelas_body %}{% endblock %}{% if request.blueprint == 'admin' %} halaman-admin{% endif %}">
   {# Identitas visual mengikuti kop situs resmi BPS Provinsi Kalimantan Selatan
      (logo + dua baris nama instansi, bilah #002B6A). Hanya tampilannya yang
      diambil: tidak ada skrip, stylesheet, atau menu dari situs BPS, dan
@@ -15,23 +15,47 @@
      aplikasi tetap terlihat supaya jelas ini alat internal PST, bukan situs
      resmi BPS. #}
   <header class="kop">
-    <a class="kop-identitas" href="{{ url_for('pencarian.halaman_pencarian') }}">
-      <img class="kop-logo" src="{{ url_for('static', filename='img/logo-bps.png') }}"
-           width="62" height="48" alt="Logo BPS">
-      <span class="kop-instansi">
-        <span>Badan Pusat Statistik</span>
-        <span>Provinsi Kalimantan Selatan</span>
-      </span>
-    </a>
-    <span class="kop-aplikasi">Pencarian Publikasi PST</span>
-    {# Halaman admin SENGAJA tidak ditautkan di sini. UI ini untuk petugas PST;
-       /admin/ diakses lewat URL langsung. Lihat CLAUDE.md. Tombol Keluar hanya
-       muncul di dalam /admin/ setelah login - tidak pernah di halaman pencarian. #}
-    {% if session.get('admin_masuk') and request.path.startswith('/admin') %}
-    <form method="post" action="{{ url_for('admin.logout') }}" class="kop-keluar">
-      <button type="submit">Keluar</button>
-    </form>
-    {% endif %}
+    <div class="kop-baris">
+      <a class="kop-identitas" href="{{ url_for('pencarian.halaman_pencarian') }}">
+        <img class="kop-logo" src="{{ url_for('static', filename='img/logo-bps.png') }}"
+             width="62" height="48" alt="Logo BPS">
+        <span class="kop-instansi">
+          <span>Badan Pusat Statistik</span>
+          <span>Provinsi Kalimantan Selatan</span>
+        </span>
+      </a>
+      <span class="kop-aplikasi">Pencarian Publikasi PST</span>
+      {# Di ponsel menu dilipat di balik tombol ini (menu.js). Tanpa JavaScript
+         tombol tetap tersembunyi dan menunya selalu terbuka. #}
+      <button type="button" class="tombol-menu" aria-controls="menu-utama" aria-expanded="false" hidden>
+        <span aria-hidden="true">&#9776;</span> Menu</button>
+    </div>
+    {# Menu di SEMUA halaman (keputusan mentor 25 Nov 2026: aplikasi hanya
+       dipakai Tim PST di web internal BPS). Menu admin tetap dijaga sandi
+       (before_request di blueprint admin): tanpa login, tautannya membuka
+       halaman login lalu kembali ke tujuan. Halaman pencarian tanpa login. #}
+    <nav class="menu-utama" id="menu-utama" aria-label="Menu utama">
+      <ul>
+        {% for nama, endpoint, teks in [
+             ("pencarian", "pencarian.halaman_pencarian", "Pencarian"),
+             ("kamus", "admin.kamus", "Kamus Sinonim"),
+             ("log", "admin.log", "Log Pencarian"),
+             ("perbarui", "admin.perbarui", "Perbarui Data"),
+             ("sandi", "admin.ganti_sandi", "Ganti Sandi")] %}
+        <li><a href="{{ url_for(endpoint) }}"
+               {%- if menu_aktif == nama %} aria-current="page"{% endif %}
+               {%- if nama != "pencarian" and not admin_masuk %} title="Perlu kata sandi admin"{% endif %}>{{ teks }}</a></li>
+        {% endfor %}
+      </ul>
+      {% if admin_masuk %}
+      <div class="status-admin">
+        <span class="penanda-admin">Masuk sebagai admin</span>
+        <form method="post" action="{{ url_for('admin.logout') }}" class="kop-keluar">
+          <button type="submit">Keluar</button>
+        </form>
+      </div>
+      {% endif %}
+    </nav>
   </header>
 
   <main>
@@ -43,10 +67,11 @@
     <p class="notice">Layanan ini menggunakan API Badan Pusat Statistik (BPS)</p>
   </footer>
 
-  <button type="button" class="ke-atas" aria-label="Kembali ke atas" title="Kembali ke atas" hidden>
-    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M12 5l-7 7 1.4 1.4 4.6-4.6V19h2V8.8l4.6 4.6L19 12z" fill="currentColor"/></svg>
+  <button type="button" class="ke-atas" aria-label="Kembali ke atas" hidden>
+    <span class="ke-atas-panah" aria-hidden="true">&uarr;</span> <span class="ke-atas-teks">Ke atas</span>
   </button>
   <script src="{{ url_for('static', filename='js/ke-atas.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='js/menu.js') }}" defer></script>
 
   <!-- Peningkatan opsional. Kolom pencarian tetap berfungsi tanpa berkas ini. -->
   <script src="{{ url_for('static', filename='js/saran.js') }}" defer></script>

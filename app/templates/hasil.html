@@ -89,7 +89,7 @@
       <strong>{{ kc.jumlah }}</strong> bagian cocok{% if kc.jumlah > kc.hasil|length %}, {{ kc.hasil|length }} teratas ditampilkan{% endif %}.</p>
     {% for h in kc.hasil %}{{ kartu_entri(h) }}{% endfor %}
     {% if kc.jumlah > kc.hasil|length %}
-    <p class="lebih"><a href="{{ url_kecamatan_semua }}">Tampilkan semua {{ kc.jumlah }} bagian dari publikasi kecamatan</a></p>
+    <p class="lebih"><a class="tombol-kedua" href="{{ url_kecamatan_semua }}">Tampilkan semua {{ kc.jumlah }} bagian dari publikasi kecamatan</a></p>
     {% elif not kc.jumlah %}
     <p class="kosong-seksi">Tidak ada bagian publikasi kecamatan yang cocok.</p>
     {% endif %}
@@ -111,7 +111,7 @@
 {% macro info_kecamatan() %}
 <div class="info-kecamatan" id="info-kecamatan" data-url="{{ url_jumlah_kecamatan }}">
   <span class="info-teks">Cari juga di publikasi Kecamatan Dalam Angka (rincian per desa).</span>
-  <a class="tombol-kecamatan" href="{{ url_kecamatan }}">Tampilkan</a>
+  <a class="tombol-kedua tombol-kecil tombol-kecamatan" href="{{ url_kecamatan }}">Tampilkan</a>
 </div>
 {%- endmacro %}
 
@@ -128,7 +128,7 @@
   <span class="pita-label">Dipasang otomatis</span>
   <span class="pita-teks">Hanya publikasi <strong>{{ filter.nama }}</strong>, dari kata
     &ldquo;{{ filter.teks }}&rdquo;. Kata itu tidak ikut dicocokkan ke judul tabel.</span>
-  <a class="pita-batal" href="{{ url_for('pencarian.hasil_pencarian', q=kueri, abaikan=filter.kode) }}">Batalkan</a>
+  <a class="tombol-kedua tombol-kecil pita-batal" href="{{ url_for('pencarian.hasil_pencarian', q=kueri, abaikan=filter.kode) }}">Batalkan</a>
 </div>
 {% elif filter.lebih_dari_satu and not filter.kode %}
 <div class="pita-wilayah pita-info" role="status">
@@ -160,7 +160,7 @@
   <div class="kosong-total">
     <h2>Tidak ada hasil untuk &ldquo;{{ kueri }}&rdquo;{% if filter.nama %} di {{ filter.nama }}{% endif %}</h2>
     {% if filter.kode %}
-    <p><a href="{{ url_for('pencarian.hasil_pencarian', q=kueri, abaikan=filter.kode) }}">Cari
+    <p><a class="tombol-kedua" href="{{ url_for('pencarian.hasil_pencarian', q=kueri, abaikan=filter.kode) }}">Cari
       &ldquo;{{ kueri }}&rdquo; di semua wilayah</a></p>
     {% endif %}
     <p>Coba kata kunci yang lebih umum:</p>
@@ -171,7 +171,7 @@
           alih-alih <em>warga</em>.</li>
       <li>Hilangkan tahun atau nama daerah dari kata kunci.</li>
     </ul>
-    <p><a href="{{ url_for('pencarian.halaman_pencarian') }}">Mulai pencarian baru</a></p>
+    <p><a class="tombol-kedua" href="{{ url_for('pencarian.halaman_pencarian') }}">Mulai pencarian baru</a></p>
   </div>{% if hasil.kecamatan %}
 {{ seksi_kecamatan(hasil.kecamatan) }}{% endif %}
 {% else %}

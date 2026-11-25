@@ -1,6 +1,7 @@
 /* Tombol "Kembali ke atas" (19 Nov 2026).
  *
- * - Muncul hanya setelah halaman digulir lebih dari satu layar.
+ * - Muncul setelah halaman digulir lebih dari BATAS px (25 Nov 2026: 400 px;
+ *   dulu satu tinggi layar).
  * - Diklik: gulir halus ke atas; kalau pengguna memilih "kurangi animasi"
  *   (prefers-reduced-motion), langsung lompat.
  * - Sesudahnya fokus dipindah ke kop, supaya pengguna keyboard melanjutkan
@@ -11,10 +12,11 @@
   "use strict";
   var tombol = document.querySelector(".ke-atas");
   if (!tombol) return;
+  var BATAS = 400;
   var kurangiGerak = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
 
   function periksa() {
-    var tampil = window.scrollY > window.innerHeight;
+    var tampil = window.scrollY > BATAS;
     if (tombol.hidden === tampil) tombol.hidden = !tampil;
   }
 

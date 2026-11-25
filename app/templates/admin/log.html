@@ -2,7 +2,7 @@
 {% block judul %}Review Log Pencarian &mdash; Admin{% endblock %}
 
 {% block konten %}
-<p class="tautan-balik"><a href="{{ url_for('admin.beranda') }}">&larr; Admin</a></p>
+<p class="tautan-balik"><a class="tombol-kedua tombol-kecil" href="{{ url_for('admin.beranda') }}">&larr; Beranda admin</a></p>
 <h1 class="judul-admin">Review Log Pencarian</h1>
 
 <p class="keterangan">
@@ -11,20 +11,20 @@
   untuk memperkaya kamus sinonim.
 </p>
 
-<p class="ringan">
-  {{ total_log }} pencarian tercatat &middot;
+<p class="ringan baris-tombol">
+  <span>{{ total_log }} pencarian tercatat &middot;
+  {% if hanya_gagal %}menampilkan yang lemah saja{% else %}menampilkan semua{% endif %}</span>
   {% if hanya_gagal %}
-    menampilkan yang lemah saja &middot;
-    <a href="{{ url_for('admin.log', semua=1) }}">tampilkan semua</a>
+    <a class="tombol-kedua tombol-kecil" href="{{ url_for('admin.log', semua=1) }}">Tampilkan semua</a>
   {% else %}
-    menampilkan semua &middot;
-    <a href="{{ url_for('admin.log') }}">tampilkan yang lemah saja</a>
+    <a class="tombol-kedua tombol-kecil" href="{{ url_for('admin.log') }}">Tampilkan yang lemah saja</a>
   {% endif %}
 </p>
 
 {% if not baris %}
   <p class="ringan">Belum ada kueri yang cocok.</p>
 {% else %}
+<div class="gulir-tabel">
 <table class="tabel-log">
   <thead>
     <tr>
@@ -43,13 +43,16 @@
       <td class="ka">{{ '%.1f'|format(b.skor_terbaik) if b.skor_terbaik else '—' }}</td>
       <td class="ringan">{{ b.terakhir.strftime('%d/%m %H:%M') if b.terakhir else '—' }}</td>
       <td>
-        <a class="tautan-kecil" href="{{ url_for('pencarian.hasil_pencarian', q=b.keyword) }}"
-           target="_blank" rel="noopener">coba</a>
-        <a class="tautan-kecil" href="{{ url_for('admin.periksa', q=b.keyword) }}">periksa</a>
+        <span class="baris-tombol sel-tombol">
+        <a class="tombol-kedua tombol-kecil" href="{{ url_for('pencarian.hasil_pencarian', q=b.keyword) }}"
+           target="_blank" rel="noopener">Coba</a>
+        <a class="tombol-kedua tombol-kecil" href="{{ url_for('admin.periksa', q=b.keyword) }}">Periksa</a>
+        </span>
       </td>
     </tr>
   {% endfor %}
   </tbody>
 </table>
+</div>
 {% endif %}
 {% endblock %}

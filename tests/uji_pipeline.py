@@ -4,7 +4,7 @@ Cara menjalankan (dari folder proyek):
 
     venv\Scripts\python.exe -u tests\uji_pipeline.py > uji_log.txt 2>&1
 
-Semua bagian sekitar 60 menit (25 Nov 2026: 3.485 detik, 152 uji). Sebagian saja (untuk pengembang): tambahkan
+Semua bagian sekitar 60 menit (25 Nov 2026: 3.452 detik, 160 uji). Sebagian saja (untuk pengembang): tambahkan
 --hanya DKRW (huruf bagian; U dan Z selalu jalan).
 
 Kamus: salinan memakai data/kamus_sinonim.json working tree, dan bagian N
@@ -1398,7 +1398,7 @@ url = dict((p, u) for p, _, u in semua)['{contoh_id}']
 path = f'{{U}}/{DOMAIN}/{contoh_id}.pdf'
 os.replace(path, path + '.x'); r = c.get('/pdf/{contoh_id}'); print('HILANG', r.status_code, r.headers.get('Location') == url); os.replace(path + '.x', path)
 print('TAK_ADA', c.get('/pdf/..%2f..%2fapp').status_code, c.get('/pdf/tidakada').status_code)
-with c.session_transaction() as s: s['admin_masuk'] = True
+with c.session_transaction() as s: s['admin_masuk'] = True; s['admin_aktif'] = int(__import__('time').time())
 F = r'{UJI}/data/pembaruan_terakhir-uji.json'
 contoh = {{
  'sebagian': {{'status':'sebagian','selesai_pada':'2026-11-05T01:00:00+00:00','jaringan':False,'jumlah_publikasi':80,'publikasi_baru':[{{'pub_id':'x','judul':'Judul Baru <b>','entri':5,'wilayah':'Kab. Tapin'}}],'entri_sebelum':10,'entri_sesudah':15,'durasi_detik':60,'durasi_tahap':{{'ambil_metadata':1.5,'unduh':2.5,'ekstraksi':3.5,'muat':0.5}},
@@ -1466,7 +1466,7 @@ import time
 from app import create_app
 from app.config import KonfigurasiUji
 app = create_app(KonfigurasiUji); c = app.test_client()
-with c.session_transaction() as s: s['admin_masuk'] = True
+with c.session_transaction() as s: s['admin_masuk'] = True; s['admin_aktif'] = int(__import__('time').time())
 r = c.post('/admin/perbarui/mulai'); print('MULAI', r.status_code)
 r = c.post('/admin/perbarui/mulai'); h = c.get('/admin/perbarui').get_data(as_text=True); print('KEDUA_NONAKTIF', 'sedang berjalan' in h)
 t = time.time()
@@ -1907,7 +1907,7 @@ from app import create_app
 from app.config import KonfigurasiUji
 from app.services import pembaruan, pilihan_pembaruan as P
 app = create_app(KonfigurasiUji); c = app.test_client()
-with c.session_transaction() as s: s['admin_masuk'] = True
+with c.session_transaction() as s: s['admin_masuk'] = True; s['admin_aktif'] = int(__import__('time').time())
 hasil = {}
 b = P.bawaan()
 hasil['bawaan_tanpa_argumen'] = b.argumen() == [] and P.dari_formulir(MultiDict()) == b
@@ -2338,7 +2338,7 @@ R.sisa_ruang_mb = lambda path=None: SISA['mb']
 dimulai = []
 pembaruan.mulai = lambda uji=False, pilihan=None, cek=False: dimulai.append((cek, pilihan.argumen())) or True
 app = create_app(KonfigurasiUji); c = app.test_client()
-with c.session_transaction() as s: s['admin_masuk'] = True
+with c.session_transaction() as s: s['admin_masuk'] = True; s['admin_aktif'] = int(__import__('time').time())
 def halaman(data, sisa):
     SISA['mb'] = sisa
     data = copy.deepcopy(data); data['selesai_pada'] = selesai
@@ -2422,7 +2422,7 @@ from app import create_app
 from app.config import KonfigurasiUji
 from app.services import pembaruan, pilihan_pembaruan as P
 app = create_app(KonfigurasiUji); c = app.test_client()
-with c.session_transaction() as s: s['admin_masuk'] = True
+with c.session_transaction() as s: s['admin_masuk'] = True; s['admin_aktif'] = int(__import__('time').time())
 b = P.bawaan()
 data = [('formulir', '1'), ('dari', str(b.dari)), ('sampai', str(b.sampai)), ('aksi', 'cek'), ('wilayah', '{DOMAIN}')]
 data += [('jenis', j) for j in b.jenis]
@@ -2541,7 +2541,198 @@ def bagian_j(per_id):
         and web[0]["rincian"] and web[1]["rincian"], web)
 
 
-SEMUA_BAGIAN = "VFPLCHISOBGETDKRWQAJ"   # V dan F dijalankan sebelum potret s0 (lihat main)
+KODE_X = r'''
+import json, re, sys, time
+from werkzeug.security import generate_password_hash
+from app import create_app
+from app.config import Config, KonfigurasiUji, menit_sesi_admin
+from app.routes import admin as A
+hasil = {}
+app = create_app(KonfigurasiUji)
+app.config['ADMIN_PASSWORD_HASH'] = generate_password_hash('sandi-uji-x-123')
+c = app.test_client()
+JAM = {'t': time.time()}
+A._sekarang = lambda: JAM['t']
+MENU = [('/', 'Pencarian'), ('/admin/kamus', 'Kamus Sinonim'), ('/admin/log', 'Log Pencarian'),
+        ('/admin/perbarui', 'Perbarui Data'), ('/admin/sandi', 'Ganti Sandi')]
+def kop(h):
+    nav = re.search(r'<nav class="menu-utama".*?</nav>', h, re.S)
+    nav = nav.group(0) if nav else ''
+    return {'menu': re.findall(r'<li><a href="([^"]+)"[^>]*>([^<]+)</a></li>', nav),
+            'aktif': re.findall(r'<a href="([^"]+)" aria-current="page"', nav),
+            'admin': 'Masuk sebagai admin' in nav and 'action="/admin/logout"' in nav}
+def masuk(alamat='127.0.0.1', sandi='sandi-uji-x-123', nxt=''):
+    return c.post('/admin/login', data={'sandi': sandi, 'next': nxt}, environ_base={'REMOTE_ADDR': alamat})
+def keluar():
+    with c.session_transaction() as s: s.clear()
+
+# X1: menu di semua halaman, menu aktif, penanda admin hanya saat login
+tanpa = {u: (c.get(u).status_code, kop(c.get(u).get_data(as_text=True)))
+         for u in ('/', '/hasil?q=penduduk', '/hasil?q=zzqqxx', '/admin/login')}
+masuk()
+dengan = {}
+for u in ('/', '/hasil?q=penduduk', '/admin/', '/admin/kamus', '/admin/log', '/admin/log/periksa?q=p0',
+          '/admin/perbarui', '/admin/sandi'):
+    r = c.get(u); dengan[u] = (r.status_code, kop(r.get_data(as_text=True)))
+hasil['x1'] = {'tanpa': tanpa, 'dengan': dengan, 'menu_harap': MENU}
+keluar()
+
+# X2: tanpa login, menu admin -> login -> kembali ke tujuan (termasuk query)
+x2 = {}
+for u in ('/admin/kamus', '/admin/log?semua=1', '/admin/perbarui', '/admin/sandi', '/admin/log/periksa?q=p0+penduduk'):
+    keluar()
+    r = c.get(u)
+    lok = r.headers.get('Location', '')
+    nxt = re.search(r'next=([^&]+)', lok)
+    from urllib.parse import unquote
+    nxt = unquote(nxt.group(1)) if nxt else None
+    r2 = masuk(nxt=nxt)
+    r3 = c.get(r2.headers.get('Location', '/x'))
+    x2[u] = [r.status_code, nxt, r2.status_code, r2.headers.get('Location'), r3.status_code]
+# kiriman POST saat belum login: tujuan = halaman asal (Referer)
+keluar()
+r = c.post('/admin/kamus/tambah-varian', data={'kanonik': 'x', 'varian': 'y'},
+           headers={'Referer': 'http://localhost/admin/kamus?q=pdrb'})
+x2['post'] = [r.status_code, r.headers.get('Location')]
+# tujuan berbahaya diganti beranda admin
+bahaya = {}
+for n in ('//situs-lain.example', 'http://situs-lain.example/', '/\\situs-lain', 'javascript:alert(1)', '/admin/logout'):
+    keluar()
+    bahaya[n] = masuk(nxt=n).headers.get('Location')
+x2['bahaya'] = bahaya
+hasil['x2'] = x2
+keluar()
+
+# X3: sesi kedaluwarsa (bawaan 120 menit), waktu diperbarui tiap permintaan
+x3 = {'menit': app.config['SESI_ADMIN_MENIT']}
+masuk()
+with c.session_transaction() as s: s['admin_aktif'] = JAM['t'] - 119 * 60
+r = c.get('/admin/kamus')
+with c.session_transaction() as s: x3['diperbarui'] = s.get('admin_aktif') == int(JAM['t'])
+x3['119_menit'] = r.status_code
+with c.session_transaction() as s: s['admin_aktif'] = JAM['t'] - 121 * 60
+r = c.get('/admin/kamus')
+x3['121_menit'] = [r.status_code, r.headers.get('Location')]
+h = c.get(r.headers['Location']).get_data(as_text=True)
+x3['pesan'] = 'Sesi admin berakhir karena tidak aktif lebih dari 120 menit' in h
+x3['kop_sesudah'] = kop(c.get('/hasil?q=penduduk').get_data(as_text=True))['admin']
+# kedaluwarsa juga dari halaman pencarian: penanda admin hilang
+masuk()
+with c.session_transaction() as s: s['admin_aktif'] = JAM['t'] - 121 * 60
+x3['pencarian_kedaluwarsa'] = [kop(c.get('/').get_data(as_text=True))['admin'], c.get('/admin/').status_code]
+# session tanpa waktu aktif (versi lama) dianggap kedaluwarsa
+keluar()
+with c.session_transaction() as s: s['admin_masuk'] = True
+x3['tanpa_waktu'] = c.get('/admin/').status_code
+hasil['x3'] = x3
+keluar()
+
+# X5: penguncian sesudah 5 sandi salah dari satu alamat
+x5 = {}
+x5['salah'] = [(masuk('10.9.9.1', 'salah').status_code) for _ in range(4)]
+r = masuk('10.9.9.1', 'salah')
+x5['ke5'] = [r.status_code, 'dikunci 5 menit' in r.get_data(as_text=True)]
+r = masuk('10.9.9.1')
+x5['benar_saat_kunci'] = [r.status_code, 'coba lagi dalam 5 menit' in r.get_data(as_text=True)]
+with c.session_transaction() as s: x5['tidak_masuk'] = not s.get('admin_masuk')
+r = c.get('/admin/login', environ_base={'REMOTE_ADDR': '10.9.9.1'})
+x5['get_saat_kunci'] = [r.status_code, ' disabled' in r.get_data(as_text=True)]
+x5['alamat_lain'] = masuk('10.9.9.2').status_code
+keluar()
+JAM['t'] += 4 * 60
+x5['4_menit'] = masuk('10.9.9.1').status_code
+JAM['t'] += 61
+x5['5_menit_lebih'] = masuk('10.9.9.1').status_code
+keluar()
+# sukses mengosongkan hitungan: 4 salah, benar, 4 salah lagi = belum terkunci
+for _ in range(4): masuk('10.9.9.3', 'salah')
+masuk('10.9.9.3'); keluar()
+x5['reset'] = [masuk('10.9.9.3', 'salah').status_code for _ in range(4)]
+hasil['x5'] = x5
+print('XHASIL ' + json.dumps(hasil, ensure_ascii=False))
+'''
+
+KODE_X_ENV = r'''
+import json
+from app.config import Config, menit_sesi_admin
+from app import create_app
+from app.config import KonfigurasiUji
+import io, contextlib
+buf = io.StringIO()
+with contextlib.redirect_stdout(buf):
+    app = create_app(KonfigurasiUji)
+print('XENV ' + json.dumps({'menit': app.config['SESI_ADMIN_MENIT'], 'peringatan': 'SESI_ADMIN_MENIT di .env tidak sah' in buf.getvalue()}))
+'''
+
+
+def bagian_x():
+    """Tampilan 25 Nov 2026: menu di semua halaman, login + kembali ke tujuan,
+    sesi admin kedaluwarsa (SESI_ADMIN_MENIT), penguncian sesudah 5 sandi salah."""
+    print("\n=== X. MENU, LOGIN, SESI ADMIN, PENGUNCIAN ===", flush=True)
+    kode, keluar, err = jalan_py(KODE_X, timeout=600)
+    m = re.search(r"^XHASIL (.*)$", keluar, re.M)
+    if not m:
+        cek("X0 potongan uji berjalan", False, (err or keluar)[-800:])
+        return
+    h = json.loads(m.group(1))
+    print("    | " + json.dumps(h, ensure_ascii=False)[:2500], flush=True)
+    menu = [list(x) for x in h["x1"]["menu_harap"]]
+    t, d = h["x1"]["tanpa"], h["x1"]["dengan"]
+    cek("X1 menu 5 butir di semua halaman (pencarian, login, admin), tanpa login tanpa penanda admin",
+        all(v[0] == 200 and v[1]["menu"] == menu and not v[1]["admin"] for v in t.values())
+        and all(v[0] == 200 and v[1]["menu"] == menu and v[1]["admin"] for v in d.values()),
+        {u: (v[0], len(v[1]["menu"]), v[1]["admin"]) for u, v in {**t, **d}.items()})
+    harap_aktif = {"/": ["/"], "/hasil?q=penduduk": ["/"], "/admin/": [], "/admin/kamus": ["/admin/kamus"],
+                   "/admin/log": ["/admin/log"], "/admin/log/periksa?q=p0": ["/admin/log"],
+                   "/admin/perbarui": ["/admin/perbarui"], "/admin/sandi": ["/admin/sandi"]}
+    cek("X1 menu aktif ditandai aria-current (tepat satu, sesuai halaman; beranda admin dan login tanpa tanda)",
+        all(d[u][1]["aktif"] == a for u, a in harap_aktif.items()) and t["/admin/login"][1]["aktif"] == [],
+        {u: d[u][1]["aktif"] for u in d})
+    x2 = h["x2"]
+    cek("X2 tanpa login: menu admin -> login (next = tujuan + query) -> kembali ke tujuan, HTTP 200",
+        all(v[0] == 302 and v[1] == u and v[2] == 302 and v[3] == u and v[4] == 200
+            for u, v in x2.items() if u.startswith("/admin")), {u: v for u, v in x2.items() if u.startswith("/")})
+    cek("X2 kiriman POST tanpa login -> login dengan next = halaman asal; next berbahaya -> beranda admin",
+        x2["post"][0] == 302 and x2["post"][1].endswith("next=/admin/kamus?q%3Dpdrb")
+        and all(v == "/admin/" for v in x2["bahaya"].values()), [x2["post"], x2["bahaya"]])
+    x3 = h["x3"]
+    cek("X3 sesi bawaan 120 menit: 119 menit tidak aktif masih masuk (waktu diperbarui), 121 menit keluar + pesan; "
+        "penanda admin hilang juga di halaman pencarian; session tanpa waktu aktif = keluar",
+        x3["menit"] == 120 and x3["119_menit"] == 200 and x3["diperbarui"]
+        and x3["121_menit"][0] == 302 and x3["121_menit"][1] == "/admin/login?next=/admin/kamus"
+        and x3["pesan"] and x3["kop_sesudah"] is False and x3["pencarian_kedaluwarsa"] == [False, 302]
+        and x3["tanpa_waktu"] == 302, x3)
+    env = {}
+    for nilai in ("5", " 30 ", "1440", "abc", "0", "-3", "1,5", "99999", ""):
+        kode_e, keluar_e, err_e = jalan_py(KODE_X_ENV, env_tambahan={"SESI_ADMIN_MENIT": nilai})
+        m = re.search(r"^XENV (.*)$", keluar_e, re.M)
+        env[nilai] = json.loads(m.group(1)) if m else (err_e or keluar_e)[-200:]
+    harap = {"5": [5, False], " 30 ": [30, False], "1440": [1440, False], "abc": [120, True], "0": [120, True],
+             "-3": [120, True], "1,5": [120, True], "99999": [120, True], "": [120, False]}
+    cek("X4 SESI_ADMIN_MENIT dari lingkungan/.env: angka 1-1440 dipakai; tidak sah = bawaan 120 + peringatan "
+        "(aplikasi tetap jalan); kosong = 120",
+        all(isinstance(env[k], dict) and [env[k]["menit"], env[k]["peringatan"]] == v for k, v in harap.items()),
+        env)
+    kode5, keluar5, err5 = jalan_py(KODE_X.replace("hasil['x1']", "hasil['_']").split("# X1:")[0] + r'''
+masuk()
+with c.session_transaction() as s: s['admin_aktif'] = JAM['t'] - 4 * 60
+a = c.get('/admin/').status_code
+with c.session_transaction() as s: s['admin_aktif'] = JAM['t'] - 6 * 60
+b = c.get('/admin/').status_code
+print('XLIMA', app.config['SESI_ADMIN_MENIT'], a, b)
+''', env_tambahan={"SESI_ADMIN_MENIT": "5"})
+    cek("X4 SESI_ADMIN_MENIT=5 berlaku: 4 menit tidak aktif masih masuk, 6 menit keluar",
+        "XLIMA 5 200 302" in keluar5, (keluar5 + err5)[-300:])
+    x5 = h["x5"]
+    cek("X5 penguncian: 4 salah = 200, ke-5 = 429 dikunci 5 menit; sandi benar saat terkunci ditolak (tidak masuk), "
+        "formulir nonaktif; alamat lain tidak terkunci; 4 menit masih terkunci, > 5 menit boleh; sukses "
+        "mengosongkan hitungan",
+        x5["salah"] == [200] * 4 and x5["ke5"] == [429, True] and x5["benar_saat_kunci"] == [429, True]
+        and x5["tidak_masuk"] and x5["get_saat_kunci"] == [429, True] and x5["alamat_lain"] == 302
+        and x5["4_menit"] == 429 and x5["5_menit_lebih"] == 302 and x5["reset"] == [200] * 4, x5)
+
+
+SEMUA_BAGIAN = "VFPLCHISOBGETDKRWQAJX"   # V dan F dijalankan sebelum potret s0 (lihat main)
 
 
 def main():
@@ -2590,6 +2781,7 @@ def main():
             if b == "Q": bagian_q(per_id)
             if b == "A": bagian_a(kecil, per_id)
             if b == "J": bagian_j(per_id)
+            if b == "X": bagian_x()
     finally:
         srv.shutdown()
 

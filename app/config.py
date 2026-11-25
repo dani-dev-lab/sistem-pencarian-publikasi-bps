@@ -30,6 +30,12 @@ class Config:
     # salah ketik ("80800", "lima ribu") ditolak dengan pesan, bukan traceback.
     PORT = (os.getenv("PORT") or "5000").strip()
 
+    # Sesi admin berakhir sesudah tidak aktif sekian menit (25 Nov 2026).
+    # Format seperti PORT: angka saja. Kosong atau tidak sah = bawaan 120,
+    # BUKAN SystemExit: salah ketik di sini tidak boleh mematikan pencarian.
+    SESI_ADMIN_MENIT_TEKS = os.getenv("SESI_ADMIN_MENIT")
+    SESI_ADMIN_MENIT = None     # diisi menit_sesi_admin() di bawah kelas
+
     # WebAPI BPS
     BPS_API_KEY = os.getenv("BPS_API_KEY", "")
     BPS_API_BASE_URL = os.getenv("BPS_API_BASE_URL", "https://webapi.bps.go.id/v1/api")
@@ -65,6 +71,28 @@ class Config:
     # hanya KonfigurasiUji di bawah, supaya pemeriksaan route /hasil tidak
     # mengisi log dengan kueri buatan.
     CATAT_LOG_PENCARIAN = True
+
+
+SESI_ADMIN_MENIT_BAWAAN = 120
+SESI_ADMIN_MENIT_MAKS = 1440        # 24 jam
+
+
+def menit_sesi_admin(teks):
+    """SESI_ADMIN_MENIT dari .env -> (menit, sah).
+
+    Sah = angka bulat 1..1440 (spasi di tepi diabaikan, seperti PORT). Selain
+    itu (kosong, "abc", "0", "-5", "1,5", "99999") memakai bawaan 120 menit;
+    create_app() lalu mencetak peringatan, tidak menolak berjalan.
+    """
+    if teks is None or not str(teks).strip():
+        return SESI_ADMIN_MENIT_BAWAAN, True
+    t = str(teks).strip()
+    if t.isdigit() and 1 <= int(t) <= SESI_ADMIN_MENIT_MAKS:
+        return int(t), True
+    return SESI_ADMIN_MENIT_BAWAAN, False
+
+
+Config.SESI_ADMIN_MENIT = menit_sesi_admin(Config.SESI_ADMIN_MENIT_TEKS)[0]
 
 
 def program_mysql(nama, folder=None):

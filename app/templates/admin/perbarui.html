@@ -220,8 +220,8 @@
     <fieldset class="kelompok-pilihan">
       <legend>Wilayah</legend>
       <p class="aksi-centang" hidden>
-        <button type="button" class="tombol-kecil" data-centang="semua">Pilih semua</button>
-        <button type="button" class="tombol-kecil" data-centang="kosong">Hapus semua</button>
+        <button type="button" class="tombol-kedua tombol-kecil" data-centang="semua">Pilih semua</button>
+        <button type="button" class="tombol-kedua tombol-kecil" data-centang="kosong">Hapus semua</button>
       </p>
       {% for w in f_provinsi %}
       <label class="pilihan-centang pilihan-provinsi"><input type="checkbox" name="wilayah"
@@ -276,7 +276,7 @@
 {% endmacro %}
 
 {% block konten %}
-<p class="tautan-balik"><a href="{{ url_for('admin.beranda') }}">&larr; Admin</a></p>
+<p class="tautan-balik"><a class="tombol-kedua tombol-kecil" href="{{ url_for('admin.beranda') }}">&larr; Beranda admin</a></p>
 <h1 class="judul-admin">Perbarui data publikasi</h1>
 
 {% with pesan = get_flashed_messages(with_categories=true) %}
