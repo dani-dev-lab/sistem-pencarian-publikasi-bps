@@ -59,14 +59,6 @@ LAMA_KUNCI_DETIK = 5 * 60
 _PERCOBAAN = {}
 _KUNCI_PERCOBAAN = threading.Lock()
 
-# Menu di kop (base.html): endpoint -> nama menu yang ditandai aktif.
-MENU_ENDPOINT = {
-    "admin.kamus": "kamus", "admin.tambah_varian": "kamus", "admin.tambah_kelompok": "kamus",
-    "admin.hapus_varian": "kamus", "admin.terapkan": "kamus",
-    "admin.log": "log", "admin.periksa": "log",
-    "admin.perbarui": "perbarui", "admin.perbarui_mulai": "perbarui",
-    "admin.ganti_sandi": "sandi",
-}
 
 
 def _sekarang():
@@ -97,10 +89,9 @@ def periksa_sesi():
 
 def konteks_menu():
     """context_processor (dipasang create_app): kop semua halaman. Halaman
-    pencarian memakai admin_masuk untuk label tombol "Halaman Admin"; halaman
-    admin memakai menu_aktif untuk menandai menu admin yang sedang dibuka."""
-    return {"menu_aktif": MENU_ENDPOINT.get(request.endpoint or ""),
-            "admin_masuk": bool(session.get(KUNCI_SESSION))}
+    pencarian memakai admin_masuk untuk ikon gembok tombol "Halaman Admin";
+    halaman admin untuk menampilkan tombol Keluar."""
+    return {"admin_masuk": bool(session.get(KUNCI_SESSION))}
 
 
 @bp.before_request

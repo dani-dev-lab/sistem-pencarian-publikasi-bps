@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_ikon.html" import ikon %}
 {% block judul %}Perbarui Data &mdash; Admin{% endblock %}
 
 {% block kepala %}
@@ -288,11 +289,11 @@
 {% if berjalan %}
   {# ------------------------- sedang berjalan ------------------------- #}
   {% if jenis_proses == "cek" %}
-  <p class="kabar kabar-sukses">&#9203; <strong>Cek sedang berjalan</strong>
+  <p class="kabar kabar-sukses">{{ ikon("jam", 18) }} <strong>Cek sedang berjalan</strong>
     sejak {{ waktu_mulai }}: hanya membaca daftar publikasi BPS, tidak mengunduh PDF
     dan tidak mengubah database. Baris baru muncul di bawah selama proses berjalan.</p>
   {% else %}
-  <p class="kabar kabar-sukses">&#9203; <strong>Pembaruan sedang berjalan</strong>
+  <p class="kabar kabar-sukses">{{ ikon("jam", 18) }} <strong>Pembaruan sedang berjalan</strong>
     sejak {{ waktu_mulai }}. Baris baru muncul di bawah selama proses berjalan.</p>
   {% endif %}
   <p class="peringatan">Menutup halaman ini <strong>tidak</strong> menghentikan
@@ -308,7 +309,7 @@
 
 {% elif pid_lain %}
   {# ------------- berjalan dari .bat / terminal, bukan dari sini ------------- #}
-  <p class="kabar kabar-sukses">&#9203; <strong>Pembaruan sedang berjalan</strong>
+  <p class="kabar kabar-sukses">{{ ikon("jam", 18) }} <strong>Pembaruan sedang berjalan</strong>
     dari jendela terminal / <code>perbarui-data.bat</code> (proses {{ pid_lain }}).
     Kemajuannya hanya terlihat di jendela itu; halaman ini akan bisa dipakai lagi
     begitu proses itu selesai.</p>

@@ -1,28 +1,31 @@
 {% extends "base.html" %}
+{% from "_ikon.html" import ikon %}
 {% block judul %}Admin &mdash; Pencarian Publikasi BPS{% endblock %}
 
 {% block konten %}
 <h1 class="judul-admin">Administrasi</h1>
 
+{# Navigasi antarfitur admin lewat kartu ini (25 Nov 2026: kop admin tanpa
+   baris menu). Ikon garis SVG satu warna dari _ikon.html. #}
 <div class="kartu-admin">
   <a href="{{ url_for('admin.kamus') }}">
-    <h2>Kamus Sinonim</h2>
+    <h2>{{ ikon("buku") }} Kamus Sinonim</h2>
     <p class="angka">{{ jumlah_kelompok }}</p>
     <p class="ket">kelompok kanonik &middot; {{ jumlah_varian }} kata</p>
   </a>
   <a href="{{ url_for('admin.log') }}">
-    <h2>Review Log Pencarian</h2>
+    <h2>{{ ikon("daftar") }} Review Log Pencarian</h2>
     <p class="angka">{{ jumlah_lemah }}</p>
     <p class="ket">kueri lemah dari {{ jumlah_log }} pencarian</p>
   </a>
   <a href="{{ url_for('admin.perbarui') }}">
-    <h2>Perbarui Data</h2>
-    <p class="angka">{% if pembaruan_berjalan %}&#9203;{% else %}&#8635;{% endif %}</p>
+    <h2>{{ ikon("segarkan") }} Perbarui Data</h2>
+    <p class="angka">{{ ikon("jam" if pembaruan_berjalan else "segarkan", 30) }}</p>
     <p class="ket">{% if pembaruan_berjalan %}sedang berjalan{% else %}ambil publikasi baru dari BPS{% endif %}</p>
   </a>
   <a href="{{ url_for('admin.ganti_sandi') }}">
-    <h2>Ganti Kata Sandi</h2>
-    <p class="angka">&#128273;</p>
+    <h2>{{ ikon("kunci") }} Ganti Kata Sandi</h2>
+    <p class="angka">{{ ikon("kunci", 30) }}</p>
     <p class="ket">satu sandi bersama untuk semua pengelola</p>
   </a>
 </div>

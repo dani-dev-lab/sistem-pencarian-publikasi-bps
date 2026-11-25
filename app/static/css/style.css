@@ -74,106 +74,46 @@ body {
   line-height: 1.2;
   letter-spacing: .01em;
 }
-/* Nama aplikasi di sisi kanan: penanda bahwa ini alat internal PST. */
-.kop-aplikasi {
-  margin-left: auto;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: .02em;
-  padding: 4px 11px;
-  border: 1px solid rgba(255, 255, 255, .55);
-  border-radius: 999px;
-  white-space: nowrap;
-}
 .kop-identitas:focus-visible { outline: 2px solid #fff; outline-offset: 4px; border-radius: 2px; }
 
-/* Menu di bawah identitas (25 Nov 2026), di semua halaman. Menu aktif:
-   aria-current="page" (garis kuning + latar terang). Tinggi tiap butir 44 px. */
-.menu-utama {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 4px 16px;
-  padding: 0 24px;
-  background: rgba(0, 0, 0, .2);
-  border-top: 1px solid rgba(255, 255, 255, .14);
+/* Kop SATU baris di semua halaman (desain final 25 Nov 2026). Di kanan:
+   tombol bergaris tipis putih, latar transparan, teks putih, tinggi 44 px,
+   ikon garis SVG. Halaman pencarian: "Halaman Admin"; halaman admin:
+   "Kembali ke Pencarian" + "Keluar". Baris tidak pernah dipecah: di layar
+   sempit logo dan huruf instansi mengecil dan teks instansi boleh membungkus
+   di kolomnya sendiri. */
+.kop-baris { flex-wrap: nowrap; }
+.kop-identitas { flex: 1 1 auto; }
+.kop-instansi { min-width: 0; }
+.kop-tombol { flex: none; margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.kop-keluar { margin: 0; display: flex; }
+.tombol-kop {
+  display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+  min-height: 44px; min-width: 44px; padding: 0 14px;
+  font: inherit; font-size: 14px; font-weight: 600; line-height: 1; color: #fff;
+  background: transparent; border: 1px solid rgba(255, 255, 255, .5); border-radius: 6px;
+  text-decoration: none; white-space: nowrap; cursor: pointer;
 }
-.menu-utama ul { display: flex; flex-wrap: wrap; gap: 2px; margin: 0; padding: 0; list-style: none; }
-.menu-utama a {
-  display: flex; align-items: center; min-height: 44px; padding: 0 12px;
-  color: #fff; text-decoration: none; font-size: 14px; font-weight: 600;
-  border-bottom: 3px solid transparent; border-top: 3px solid transparent;
-}
-.menu-utama a:hover { background: rgba(255, 255, 255, .1); }
-.menu-utama a[aria-current="page"] { border-bottom-color: #f2a900; background: rgba(255, 255, 255, .14); }
-.menu-utama a:focus-visible { outline: 3px solid #f2a900; outline-offset: -3px; }
-.status-admin { margin-left: auto; display: flex; align-items: center; gap: 10px; padding: 4px 0; }
-.penanda-admin {
-  font-size: 13px; font-weight: 700; color: #002B6A; background: #f2a900;
-  padding: 3px 10px; border-radius: 999px; white-space: nowrap;
-}
-.tombol-menu { display: none; }
-
-/* Kop halaman PENCARIAN (revisi 25 Nov 2026): satu baris, identitas di kiri,
-   tombol "Halaman Admin" di kanan. Baris tidak pernah dipecah: di layar
-   sempit logo dan huruf instansi mengecil, kata "Halaman" disembunyikan, dan
-   teks instansi boleh membungkus di kolomnya sendiri. */
-.kop-pencarian .kop-baris { flex-wrap: nowrap; }
-.kop-pencarian .kop-identitas { flex: 1 1 auto; }
-.kop-pencarian .kop-instansi { min-width: 0; }
-.tombol-admin {
-  flex: none; margin-left: auto;
-  display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 16px;
-  font-size: 14px; font-weight: 700; color: var(--kop-bps); background: #fff;
-  border: 2px solid #fff; border-radius: 6px; text-decoration: none; white-space: nowrap;
-}
-.tombol-admin:hover { background: #fde9b8; border-color: #fde9b8; }
-.tombol-admin:focus-visible { outline: 3px solid #f2a900; outline-offset: 2px; }
-/* Halaman admin: kembali ke pencarian, bergaya tombol garis putih. */
-.tombol-kembali {
-  display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px;
-  font-size: 14px; font-weight: 600; color: #fff; text-decoration: none; white-space: nowrap;
-  border: 1px solid rgba(255, 255, 255, .7); border-radius: 6px;
-}
-.tombol-kembali:hover { background: rgba(255, 255, 255, .15); }
-/* Di dalam menu admin: jangan ikut gaya butir menu (garis atas/bawah). */
-.menu-utama .tombol-kembali { border: 1px solid rgba(255, 255, 255, .7); border-radius: 6px; }
-.tombol-kembali:focus-visible { outline: 3px solid #f2a900; outline-offset: 2px; }
-.tombol-admin .tanda-masuk { display: none; }
-@media (max-width: 480px) {
-  .kop-pencarian .kop-baris { gap: 6px; }
-  .kop-pencarian .kop-logo { height: 40px; }
-  .kop-pencarian .kop-identitas { gap: 8px; }
-  .kop-pencarian .kop-instansi { font-size: 11px; letter-spacing: 0; }
-  .tombol-admin { padding: 0 9px; font-size: 13px; gap: 4px; }
-  .tombol-admin .label-panjang { display: none; }
-  /* "(masuk)" tetap dibacakan pembaca layar, tampil sebagai tanda centang. */
-  .tombol-admin .label-masuk { position: absolute; width: 1px; height: 1px; overflow: hidden;
-                               clip: rect(0 0 0 0); white-space: nowrap; }
-  .tombol-admin .tanda-masuk { display: inline; margin-left: 4px; color: var(--hijau); }
-}
+.tombol-kop:hover { background: rgba(255, 255, 255, .12); border-color: rgba(255, 255, 255, .8); }
+.tombol-kop:focus-visible { outline: 3px solid #f2a900; outline-offset: 2px; }
+.tombol-kop .ikon { flex: none; }
 
 @media (max-width: 640px) {
-  .kop-baris { padding: 10px 14px; gap: 6px 12px; }
+  .kop-baris { padding: 10px 14px; gap: 8px; }
   .kop-instansi { font-size: 14px; }
-  /* Baris kecil di bawah identitas, rata kiri dengan teks instansi. */
-  .kop-aplikasi { margin-left: 0; flex: 1 1 auto; padding: 0; border: 0;
-                  font-size: 12px; opacity: .9; }
-  /* Menu tersusun ke bawah, selebar layar. Dengan JavaScript (menu.js) menu
-     dilipat di balik tombol "Menu"; tanpa JavaScript selalu terbuka. */
-  .menu-utama { display: block; padding: 0 14px 6px; }
-  .menu-utama ul { flex-direction: column; gap: 0; }
-  .menu-utama a { border-top: 0; border-bottom: 0; border-left: 4px solid transparent; }
-  .menu-utama a[aria-current="page"] { border-left-color: #f2a900; }
-  .status-admin { padding: 6px 0 2px; flex-wrap: wrap; }
-  .menu-js .tombol-menu {
-    display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px;
-    margin-left: auto; font: inherit; font-size: 14px; font-weight: 600; color: #fff;
-    background: transparent; border: 1px solid rgba(255, 255, 255, .7); border-radius: 6px; cursor: pointer;
-  }
-  .menu-js .tombol-menu[aria-expanded="true"] { background: rgba(255, 255, 255, .16); }
-  .menu-js .menu-utama { display: none; }
-  .menu-js.menu-terbuka .menu-utama { display: block; }
+}
+/* <= 480 px: logo dan huruf mengecil. Pencarian: ikon + "Admin"; admin: ikon
+   saja (nama tombol tetap dari aria-label untuk pembaca layar). */
+@media (max-width: 480px) {
+  .kop-baris { gap: 6px; }
+  .kop-logo { height: 40px; }
+  .kop-identitas { gap: 8px; }
+  .kop-instansi { font-size: 11px; letter-spacing: 0; }
+  .kop-tombol { gap: 6px; }
+  .tombol-kop { padding: 0 10px; font-size: 13px; gap: 5px; }
+  .tombol-admin .label-panjang { display: none; }
+  .kop-admin .tombol-kop { padding: 0; width: 44px; }
+  .kop-admin .tombol-kop .label-kop { display: none; }
 }
 
 /* Kolom pencarian sengaja TIDAK di dalam kop - diberi ruang putih di bawahnya
@@ -594,11 +534,13 @@ mark { background: #fff2a8; color: inherit; padding: 0 1px; border-radius: 2px; 
   border: 1px solid var(--garis); border-left: 4px solid var(--biru); border-radius: 6px;
 }
 .kartu-admin a:hover { background: var(--biru-muda); }
-.kartu-admin h2 { margin: 0; font-size: 15px; color: var(--biru); }
+.kartu-admin h2 { margin: 0; font-size: 15px; color: var(--biru); display: flex; align-items: center; gap: 8px; }
+.kartu-admin .angka .ikon { display: block; color: var(--biru); }
 .kartu-admin .angka { margin: 6px 0 2px; font-size: 30px; font-weight: 700; }
 .kartu-admin .ket { margin: 0; font-size: 13px; color: var(--redup); }
 
 .kabar { padding: 9px 12px; border-radius: 5px; font-size: 14px; }
+.kabar .ikon { vertical-align: -3px; }
 .kabar-sukses { background: var(--hijau-muda); color: var(--hijau); }
 .kabar-gagal { background: #fdeaea; color: var(--merah); }
 
@@ -613,14 +555,6 @@ mark { background: #fff2a8; color: inherit; padding: 0 1px; border-radius: 2px; 
   border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600;
 }
 .form-terapkan button:hover { opacity: .9; }
-.kop-keluar { margin: 0; }
-.kop-aplikasi + .kop-keluar { margin-left: 0; }
-.kop-keluar button {
-  min-height: 44px; padding: 0 16px; background: transparent; color: #fff;
-  border: 1px solid rgba(255,255,255,.7); border-radius: 6px;
-  cursor: pointer; font: inherit; font-size: 14px; font-weight: 600;
-}
-.kop-keluar button:hover { background: rgba(255,255,255,.15); }
 
 .lipat { margin: 12px 0; }
 .lipat summary { cursor: pointer; font-weight: 600; font-size: 14px; color: var(--biru); }
@@ -733,15 +667,23 @@ code.besar { font-size: 15px; background: #eef2f7; padding: 4px 8px; border-radi
 }
 
 /* ------------------------------ scroll bar ------------------------------
-   (25 Nov 2026) Tipis dan berwarna lembut, TIDAK dihilangkan: tetap terlihat
-   dan bisa diseret. Firefox/Chrome baru: scrollbar-width/scrollbar-color;
-   Chrome/Edge lama: ::-webkit-scrollbar. */
-html { scrollbar-width: thin; scrollbar-color: #a9b6c6 #eef1f5; }
+   (25 Nov 2026; desain final) Tipis, TIDAK dihilangkan: tetap terlihat dan
+   bisa diseret. Lintasan transparan, pegangan abu-abu semi-transparan.
+   scrollbar-gutter: stable memesan ruang scrollbar juga di halaman pendek,
+   jadi kop, judul, dan kartu tidak bergeser antara halaman pendek dan
+   panjang. Firefox/Chrome baru: scrollbar-width/scrollbar-color (tanpa warna
+   hover; standar CSS belum punya); Chrome/Edge lama: ::-webkit-scrollbar
+   (pegangan lebih gelap saat hover). */
+html {
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, .25) transparent;
+}
 ::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: #eef1f5; }
-::-webkit-scrollbar-thumb { background: #a9b6c6; border-radius: 6px; border: 2px solid #eef1f5; }
-::-webkit-scrollbar-thumb:hover { background: #8193a8; }
-.log-pembaruan { scrollbar-color: #5b6677 #1e2430; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, .25); border-radius: 6px; border: 2px solid transparent; background-clip: padding-box; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0, 0, 0, .45); border: 2px solid transparent; background-clip: padding-box; }
+.log-pembaruan { scrollbar-color: rgba(255, 255, 255, .3) transparent; }
 
 /* ------------------------------- tombol -------------------------------
    (25 Nov 2026) Satu gaya tombol untuk seluruh aplikasi: tinggi sentuh
