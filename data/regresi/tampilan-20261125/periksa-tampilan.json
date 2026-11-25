@@ -1,0 +1,42 @@
+{
+ "tindih": [],
+ "gulir_mendatar": [],
+ "posisi_diperiksa": 4338,
+ "sentuh_kecil": [],
+ "sentuh_diperiksa": 621,
+ "menu": {
+  "awal_tertutup": true,
+  "tombol_tampil": true,
+  "terbuka": true,
+  "esc_tertutup": true,
+  "desktop_terbuka": true,
+  "tanpa_js_terbuka": true
+ },
+ "ke_atas": {
+  "375-390": false,
+  "375-410": true,
+  "375-teks": "↑ Ke atas",
+  "375-halus-60ms": 2958,
+  "375-halus-akhir": 0,
+  "375-kurangi-gerak-60ms": 0,
+  "1280-390": false,
+  "1280-410": true,
+  "1280-teks": "↑ Ke atas",
+  "1280-halus-60ms": 2958,
+  "1280-halus-akhir": 0,
+  "1280-kurangi-gerak-60ms": 0
+ },
+ "scrollbar": {
+  "width": "thin",
+  "color": "rgb(169, 182, 198) rgb(238, 241, 245)",
+  "overflow_html": "visible",
+  "overflow_body": "visible",
+  "bisa_digulir": true
+ },
+ "fokus": [
+  "tombol-kedua tombol-kecil",
+  "solid",
+  "3px",
+  "rgb(242, 169, 0)"
+ ]
+}

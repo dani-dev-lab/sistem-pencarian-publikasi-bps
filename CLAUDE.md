@@ -254,6 +254,34 @@ Mahasiswa Politeknik Negeri Banjarmasin.
     1 GB = 1024 MB. Rincian per wilayah di `<details>`. Uji: bagian J
     (diuji dengan cacat tertanam: J2/J3 gagal). Halaman pencarian: HTML 28/28,
     piksel 12/12 identik. Run penuh: 152 lulus, 0 gagal, 3.485 detik.
+  - **Tampilan 25 Nov 2026 (masukan pemilik project), BELUM di-push.** Laporan
+    `data/regresi/tampilan-20261125.md`.
+    - Kartu PUBLIKASI diperbesar (sampul 220 px; ponsel: sampul di atas judul,
+      maks. 240 px); kartu entri tidak berubah ukuran di desktop.
+    - Tombol "↑ Ke atas": muncul > 400 px. >= 1181 px kapsul di margin;
+      <= 1180 px kotak 52x56; ruang kanan dicadangkan di <= 960 px (kartu,
+      info, pita, kaki, `main` admin `body.halaman-admin`).
+    - Scrollbar tipis (`scrollbar-width: thin` + `::-webkit-scrollbar`).
+    - Menu di kop semua halaman (menggantikan "admin tidak ditautkan");
+      ponsel: dilipat lewat `menu.js` (tanpa JS selalu terbuka).
+    - Sesi: `SESI_ADMIN_MENIT` (.env, angka 1-1440, tidak sah/kosong = 120 +
+      PERINGATAN, bukan SystemExit) di `config.menit_sesi_admin`; diperiksa
+      `admin.periksa_sesi` sebagai app.before_request (semua halaman kecuali
+      static), waktu diperbarui tiap permintaan; session tanpa `admin_aktif` =
+      kedaluwarsa (potongan uji lama ikut memasangnya).
+    - Penguncian: 5 sandi salah per `remote_addr` -> 429 selama 5 menit, di
+      memori proses (`_PERCOBAAN`, kunci thread); jam lewat `admin._sekarang`
+      (diganti di uji).
+    - `next`: GET = path + query; POST tanpa login = halaman asal (Referer).
+    - Tombol seragam `.tombol-utama` / `.tombol-kedua` (+ `.tombol-kecil`),
+      min. 44 px, cincin fokus kuning; `<details class="lipat">` bergaya tombol.
+    - Uji: `uji_pipeline` bagian X (menu, login+tujuan, sesi, env, kunci).
+      `potret_tampilan.py banding --isi` = banding ISI `<main>` saja.
+      Pemeriksa Playwright `data/regresi/tampilan-20261125/periksa_tampilan.py`:
+      0 tindih tombol ke atas di 4.338 posisi, 0 sentuh < 44 px. Run penuh 160 lulus.
+    - **Jebakan alat:** pemeriksa tindih harus memotong kotak elemen dengan
+      wadah bergulir (`overflow` bukan visible); tanpa itu tombol tabel log yang
+      terpotong dilaporkan tertimpa.
   - `.bat` memanggil `%SystemRoot%\System32\find.exe` dengan jalur lengkap:
     `find` Git di PATH tidak mengenal `/i`.
   - **Jebakan alat:** heredoc di Bash tool memakan backslash (`\\n`, `\` di
@@ -1019,10 +1047,14 @@ Aturan yang berlaku:
   salah baca parser pada daftar. Jumlahnya persis sama (8) sebelum maupun
   sesudah ekstraksi badan ditambahkan, jadi BUKAN akibat kegagalan dedup;
   dedup daftar-vs-badan bekerja. Diputuskan tidak dikejar sekarang.
-- **Halaman admin SENGAJA tidak ditautkan dari UI utama.** Tidak ada tombol
-  "Admin" di header - UI ini untuk petugas PST, dan tombol admin di tiap
-  halaman mengganggu serta berisiko terklik. Halamannya tetap ada dan
-  berfungsi, diakses lewat URL langsung:
+- **Menu admin DITAUTKAN di kop semua halaman sejak 25 Nov 2026** (keputusan
+  mentor: aplikasi HANYA dipakai Tim PST di web internal BPS, bukan tamu).
+  Ini MENGGANTI keputusan lama "halaman admin sengaja tidak ditautkan"
+  (dulu: tombol admin dianggap mengganggu petugas). Menu: Pencarian | Kamus
+  Sinonim | Log Pencarian | Perbarui Data | Ganti Sandi, plus "Masuk sebagai
+  admin" + Keluar saat login (juga di halaman pencarian). Penjaga
+  `before_request` blueprint admin tetap; pencarian tetap tanpa login.
+  Rincian di "Tampilan 25 Nov 2026" (bagian atas). Daftar URL admin:
 
   | Halaman | URL |
   |---|---|
@@ -1042,8 +1074,8 @@ Aturan yang berlaku:
   fungsi yang sama dengan `scripts/isi_normalisasi.py`.
 - **Autentikasi admin = satu kata sandi bersama**, bukan akun per orang
   (tabel `petugas` di ERD tetap tidak dipakai). Lihat bagian "Persiapan
-  serah terima" di bawah. Tidak ditautkannya halaman admin dari UI BUKAN
-  pengamanan - pengamanannya adalah login itu.
+  serah terima" di bawah. Pengamanannya adalah login itu (ditambah sesi
+  kedaluwarsa dan penguncian sejak 25 Nov 2026), bukan tersembunyinya tautan.
 - **Sekitar 2,5-2,9% entri dari jalur `badan` cacat ringan.** Pemeriksaan manual 40
   entri acak menemukan 1 yang tercampur teks badan ("...di Jawa Barat 8.
   Pemberian atribut"). Diterima apa adanya. Catatan: audit heuristik otomatis
@@ -1493,10 +1525,13 @@ traceback, baik dari `run.py`, dari script, maupun dari `.bat`.
 - Penjaga dipasang sebagai `@bp.before_request` di blueprint admin, bukan
   dekorator per-route, supaya route baru otomatis ikut terlindungi.
   Pengecualian hanya endpoint `admin.login`.
-- Session Flask, kunci `admin_masuk`. `_tujuan_aman()` hanya mengizinkan
-  `next` yang diawali `/admin` (mencegah open redirect).
-- Tombol "Keluar" dirender di `base.html` HANYA kalau session admin aktif DAN
-  path diawali `/admin` - halaman pencarian tidak pernah memperlihatkannya.
+- Session Flask, kunci `admin_masuk` + `admin_aktif` (detik epoch, 25 Nov
+  2026). `_tujuan_aman()` mengizinkan path LOKAL apa pun (bukan `//`, `\`,
+  skema, atau login/logout); selain itu beranda admin (mencegah open
+  redirect).
+- **Sejak 25 Nov 2026:** menu + "Masuk sebagai admin" + Keluar di kop SEMUA
+  halaman (dulu Keluar hanya di /admin). Sesi kedaluwarsa dan penguncian:
+  lihat "Tampilan 25 Nov 2026" di bagian atas.
 - Halaman pencarian (`/`, `/hasil`, `/api/saran`, `/pdf/<id>`) TIDAK butuh
   login. Diverifikasi dengan test_client dan lewat waitress sungguhan.
 
