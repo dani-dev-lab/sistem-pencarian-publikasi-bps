@@ -292,10 +292,39 @@ Mahasiswa Politeknik Negeri Banjarmasin.
     - Uji: `uji_pipeline` bagian X (menu, login+tujuan, sesi, env, kunci).
       `potret_tampilan.py banding --isi` = banding ISI `<main>` saja.
       Pemeriksa Playwright `data/regresi/tampilan-20261125/periksa_tampilan.py`:
-      0 tindih tombol ke atas di 4.338 posisi, 0 sentuh < 44 px. Run penuh terakhir (revisi admin terpisah) 165 lulus.
+      0 tindih tombol ke atas di 4.338 posisi, 0 sentuh < 44 px. Run penuh terakhir (26 Nov, revisi kecil) 169 lulus.
     - **Jebakan alat:** pemeriksa tindih harus memotong kotak elemen dengan
       wadah bergulir (`overflow` bukan visible); tanpa itu tombol tabel log yang
       terpotong dilaporkan tertimpa.
+  - **Revisi kecil sebelum pembekuan (26 Nov 2026), BELUM di-push.** Laporan:
+    bagian terakhir `data/regresi/tampilan-20261125.md`.
+    - Kartu beranda admin dari data: Perbarui Data = tanggal `selesai_pada`
+      `pembaruan_terakhir(-uji).json` ("25 Nov", "(gagal)" kalau gagal) +
+      jumlah publikasi di DB, "belum pernah" tanpa berkas; Ganti Kata Sandi =
+      `teks_lama_sesi(SESI_ADMIN_MENIT)` ("2 jam"). Ikon kecil di judul,
+      tinggi kartu sama (`grid-auto-rows: 1fr`).
+    - Login: pesan "Sisa N percobaan sebelum login dikunci 5 menit". Terkunci
+      = `data-sisa` (detik, dihitung SERVER) + `js/login-kunci.js` (mm:ss,
+      habis -> aktif tanpa muat ulang, "Silakan coba lagi.", fokus ke sandi).
+      aria-live polite berubah SEKALI (di akhir); hitung mundur aria-hidden.
+      Tanpa JS: teks "X menit Y detik" + `<noscript>` meta refresh tepat saat
+      habis (GET, `next` terjaga). Penguncian tetap ditegakkan server (429).
+    - Uji: X8 (kartu), X9 (pesan, sisa 300/278, meta refresh, paksa = 429);
+      Playwright `periksa_kunci.py` + `server_kunci.py PORT DETIK
+      [tanpa-riwayat]` (penguncian pendek HANYA di proses alat), 9/9; cacat
+      tertanam di JS tertangkap.
+    - **Jebakan alat:** Playwright dengan `java_script_enabled=False` macet di
+      `evaluate`/`add_style_tag`; potret tanpa JS langsung `screenshot`.
+    - **PANDUAN bagian 12 "Saran pengembangan"** (A pencarian, B pembacaan
+      PDF, C tampilan/pengelolaan): salah ketik satu kata ("inflsi" = 0
+      kartu, "inflasi" 152 di DB uji), embeddings sesudah kamus, isi sel
+      tabel, deteksi nama kecamatan, pengecualian Sastrawi ("menikah" ->
+      "meni"); cacat judul 2,5-2,9%, Sensus Pertanian 2023 Tahap II (1.240
+      tabel tanpa tombol), kembar/tanpa halaman, `--gpu` di perbarui.py;
+      filter tahun, kartu edisi berulang (Kintap 3x dari tiga edisi MFD),
+      jadwal Task Scheduler (.bat tanpa `pause`), log per kelompok + klik
+      `/pdf/<id>` (seksi kecamatan belum dihitung di `_catat_log`), penguncian
+      persisten di DB.
   - `.bat` memanggil `%SystemRoot%\System32\find.exe` dengan jalur lengkap:
     `find` Git di PATH tidak mengenal `/i`.
   - **Jebakan alat:** heredoc di Bash tool memakan backslash (`\\n`, `\` di

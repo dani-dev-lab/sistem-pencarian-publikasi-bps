@@ -26,6 +26,7 @@ Isi panduan:
 9. Database uji dan cara menguji aplikasi
 10. Pemecahan masalah
 11. Keterbatasan yang diketahui dan utang teknis
+12. Saran pengembangan
 
 ---
 
@@ -88,9 +89,15 @@ internal BPS).
   itu.
 - Sesi admin berakhir sendiri sesudah **120 menit tidak aktif** (bisa diubah,
   bagian 6). Halaman admin lalu meminta login lagi dan menjelaskan sebabnya.
-- Sesudah **5 kali kata sandi salah** dari satu komputer, login dari komputer
-  itu ditolak **5 menit**. Pesannya menyebut sisa waktunya. Komputer lain
-  tidak ikut terkunci.
+- Kartu **Perbarui Data** menunjukkan tanggal pembaruan terakhir dan jumlah
+  publikasi di database ("belum pernah" kalau belum ada pembaruan tercatat);
+  kartu **Ganti Kata Sandi** menunjukkan lama sesi admin.
+- Setiap kata sandi salah diberi tahu sisa percobaannya ("Sisa 2 percobaan
+  sebelum login dikunci 5 menit"). Sesudah **5 kali kata sandi salah** dari
+  satu komputer, login dari komputer itu ditolak **5 menit**. Halaman login
+  menghitung mundur ("Coba lagi dalam 04:37"); begitu habis, kotak sandi dan
+  tombol Masuk aktif lagi sendiri dengan pesan "Silakan coba lagi", tanpa
+  memuat ulang halaman. Komputer lain tidak ikut terkunci.
 
 Dulu (sampai 24 November 2026) halaman admin sengaja tidak ditautkan dan
 hanya dibuka dengan mengetik alamatnya. Itu tidak pernah menjadi pengamanan;
@@ -875,6 +882,11 @@ sandi lama). Jalur pemulihannya butuh akses ke server — lihat butir
 - **Penguncian login:** sesudah 5 kali kata sandi salah berturut-turut dari
   satu komputer (alamat IP), login dari komputer itu ditolak 5 menit, juga
   kalau sandinya benar. Login yang berhasil mengosongkan hitungannya.
+  Sisa waktunya dihitung server; hitung mundur di halaman hanya
+  menampilkannya. Mengaktifkan tombol Masuk secara paksa (misalnya lewat alat
+  pengembang browser) tidak menolong: server tetap menolak sampai waktunya
+  habis. Di browser tanpa JavaScript, halaman menulis sisa waktunya ("4 menit
+  37 detik") dan memuat ulang sendiri tepat saat penguncian berakhir.
   Catatan penguncian disimpan di memori aplikasi, jadi hilang kalau aplikasi
   dibuka ulang. Kalau aplikasi dipasang di belakang proxy, lihat
   `JUMLAH_PROXY` di bawah.
@@ -1191,11 +1203,11 @@ atau kode:
 venv\Scripts\python.exe -u tests\uji_pipeline.py > uji_log.txt 2>&1
 ```
 
-- Lamanya ±60 menit. Run penuh terakhir, 25 November 2026: 165 uji lulus,
-  0 gagal, 0 dilewati, 3.634 detik. Bagian `J` menguji kartu ringkasan hasil
+- Lamanya ±60 menit. Run penuh terakhir, 26 November 2026: 169 uji lulus,
+  0 gagal, 0 dilewati, 3.279 detik. Bagian `J` menguji kartu ringkasan hasil
   cek: satuan, empat status, dan tombol Mulai yang nonaktif saat disk kurang.
   Bagian `X` menguji kop pencarian dan admin, tombol Halaman Admin, login dan
-  kembali ke tujuan, sesi admin
+  kembali ke tujuan, kartu beranda admin, hitung mundur login terkunci, sesi admin
   yang kedaluwarsa (termasuk `SESI_ADMIN_MENIT` yang tidak sah), dan
   penguncian sesudah 5 kata sandi salah, termasuk `JUMLAH_PROXY`.
   Bagian `Q` menguji formulir pilihan penarikan dan `--cek-dulu`. Bagian `V` membuktikan bahwa tanpa
@@ -1414,3 +1426,91 @@ Rincian teknis yang lebih dalam (cara kerja pembaca PDF, rumus skor, riwayat
 keputusan) ada di `CLAUDE.md` di folder yang sama, dan laporan tiap
 pemeriksaan ada di `data/regresi/` — ditulis untuk pengembang, bukan untuk
 operasional.
+
+## 12. Saran pengembangan
+
+Usulan untuk pengembang berikutnya, dikumpulkan sampai pembekuan 27 November
+2026. Belum ada yang dikerjakan. Tiap butir: masalahnya, lalu arah
+penyelesaian yang diusulkan. Angka hanya dikutip dari laporan
+`data/regresi/` yang disebut.
+
+### A. Mutu pencarian
+
+- **Salah ketik pada kata kunci satu kata.** "inflsi" tidak menemukan apa
+  pun, padahal "inflasi" menemukan banyak tabel (diperiksa di database uji,
+  26 November 2026, `tampilan-20261125.md`). Arahnya: kalau kata kunci satu
+  kata tidak menghasilkan apa pun, cari kata terdekat di kosakata data lalu
+  tawarkan "Mungkin maksud Anda: inflasi", bukan diam-diam mengganti kata
+  kuncinya.
+- **Kata kunci yang berbeda kata dengan judul tabel.** "konsumsi listrik"
+  tidak menemukan tabel listrik, karena judulnya memakai "listrik terjual"
+  atau "kWh" (`validasi-ambang-20261117.md`). Arahnya: lengkapi kamus sinonim
+  lebih dulu (bagian 5); pencarian berbasis makna (embeddings) baru
+  dipertimbangkan sesudah kata kunci asli petugas di Review Log Pencarian
+  menunjukkan kamus tidak cukup.
+- **Isi sel tabel tidak dicari**, hanya judul tabel/gambar/lampiran/bab
+  (bagian 11), jadi nama komoditas atau desa yang hanya ada di baris tabel
+  tidak bisa ditemukan. Arahnya: baca teks tabel per halaman menjadi indeks
+  terpisah yang menunjuk halaman PDF; ukur dulu tambahan memori dan waktu
+  cari, seperti saat publikasi kecamatan ditambahkan.
+- **Nama kecamatan di kata kunci tidak dikenali.** Hasil kecamatan hanya
+  tampil kalau kotak centang kecamatan dipilih; ini keputusan rancangan
+  18 November 2026 (`rancangan-tampilan-kecamatan-20261118.md`). Arahnya:
+  kenali nama kecamatan per kata utuh, seperti nama kabupaten/kota, dengan
+  pita "dipasang otomatis" yang bisa dibatalkan.
+- **Pemotongan kata dasar (Sastrawi) kadang terlalu jauh.** "menikah"
+  menjadi "meni", sehingga kamus sinonim harus ditulis dengan bentuk yang
+  tidak dikenali pengelola. Arahnya: daftar pengecualian kata utuh → kata
+  dasar yang dibaca sebelum Sastrawi, dirawat seperti kamus sinonim.
+
+### B. Mutu pembacaan PDF
+
+- **Judul dengan cacat ringan.** Sekitar 2,5–2,9% entri dari badan dokumen
+  tercampur sepotong teks di sekitarnya, dan sebagian entri menggabung
+  beberapa judul tabel (bagian 11, `CLAUDE.md` "Utang teknis: 764 entri
+  terlalu panjang"). Arahnya: pecah blok gabungan di program pembaca PDF,
+  lalu ukur dengan regresi per kunci dan sampel acak yang dibaca manual.
+- **Tata letak Sensus Pertanian 2023 Tahap II** (6 publikasi, rilis 2024,
+  baru ada di database uji): keterangan tabelnya tidak dikenali, sehingga
+  1.240 tabel tidak punya tombol halaman PDF
+  (`tarik-kecil-20261124/penilaian-sampel.md`). Arahnya: tambahkan pola
+  keterangan ini di pembacaan badan dokumen sebelum publikasi rilis 2024
+  ditarik ke database utama, dengan syarat 0 bagian lama hilang.
+- **Bagian kembar dan bagian tanpa nomor halaman.** Ada nomor tabel yang
+  muncul dua kali dalam satu publikasi (8 kelompok saat diperiksa pada 72
+  publikasi pertama, `CLAUDE.md`), dan sebagian bagian tidak punya nomor
+  halaman sama sekali (bagian 11). Arahnya: periksa per publikasi; salah
+  baca diperbaiki di program, kesalahan di PDF sumber dicatat saja.
+- **OCR lambat di CPU** (±18 detik per halaman pada uji 5 halaman), dan
+  tombol admin serta `perbarui-data.bat` selalu memakai CPU
+  (`ocr-gpu-20261118.md`). Arahnya: kalau server BPS punya kartu grafis
+  NVIDIA, pasang venv GPU (bagian 7.2) dan tambahkan pilihan `--gpu` ke
+  `perbarui.py`, yang sekarang hanya ada di `isi_cache_ocr.py`; pada uji itu
+  GPU ±5 kali lebih cepat.
+
+### C. Tampilan dan pengelolaan
+
+- **Belum ada filter tahun di halaman pencarian.** Hasil mencampur semua
+  tahun rilis. Arahnya: daftar pilihan tahun rilis di samping pilihan
+  wilayah, disaring di korpus yang sudah ada di memori.
+- **Bagian yang sama dari beberapa edisi tampil berulang.** Contohnya "Peta
+  Wilayah Kecamatan Kintap" tampil 3 kali, dari tiga edisi Master File Desa
+  dengan nomor dan halaman yang sama (database uji, 26 November 2026).
+  Arahnya: satukan bagian dengan judul dan nomor sama dari seri publikasi
+  yang sama menjadi satu kartu edisi terbaru, dengan tautan "edisi lain".
+- **Pembaruan data masih dijalankan manual.** Arahnya: jadwalkan lewat Task
+  Scheduler Windows pada dini hari (bagian 4 menjelaskan alasannya), dengan
+  varian `perbarui-data.bat` tanpa `pause` di akhir supaya tidak menunggu
+  tombol. Kunci pembaruan sudah mencegah dua pembaruan berjalan bersamaan,
+  dan hasilnya tetap tampil di halaman Perbarui Data.
+- **Log pencarian belum mencatat semua yang berguna.** Skor tertinggi sudah
+  diambil dari hasil publikasi, bagian, dan bagian provinsi, tetapi hasil di
+  seksi kecamatan tidak ikut dihitung, skor per kelompok tidak disimpan, dan
+  hasil mana yang dibuka petugas tidak tercatat. Arahnya: catat jumlah dan
+  skor per kelompok, serta klik "Buka PDF" (alamat `/pdf/<id>` sudah lewat
+  server), supaya ambang skor bisa ditentukan dari hasil yang benar-benar
+  dipakai.
+- **Penguncian login hilang kalau aplikasi dibuka ulang**, karena
+  catatannya hanya di memori aplikasi (bagian 6). Arahnya: simpan catatan
+  penguncian di database, supaya bertahan saat aplikasi dibuka ulang dan
+  berlaku sama kalau aplikasi dijalankan lebih dari satu proses.

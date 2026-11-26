@@ -1,0 +1,10 @@
+GAGAL pesan sisa percobaan 4/3/2/1, lalu terkunci
+LULUS terkunci: formulir nonaktif, hitung mundur tampak, kalimat statis disembunyikan visual
+LULUS diaktifkan paksa + sandi benar: server 429, tetap di login, tetap terkunci
+LULUS hitung mundur mm:ss turun per detik, tanpa lompatan
+GAGAL akhir: tanpa muat ulang, kotak+tombol aktif, fokus sandi, 'Silakan coba lagi.', hitung mundur hilang
+GAGAL aria-live berubah tepat sekali (di akhir)
+LULUS sesudah habis sandi benar -> tujuan semula /admin/log (next terjaga)
+LULUS JS mati: meta refresh tepat saat berakhir, formulir nonaktif
+LULUS JS mati: dimuat ulang sendiri (GET) saat berakhir, formulir aktif, tanpa kotak kunci
+6/9

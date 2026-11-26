@@ -1,0 +1,151 @@
+{
+ "A_pesan_salah": [
+  "Kata sandi salah. Sisa 4 percobaan sebelum login dikunci 1 menit.",
+  "Kata sandi salah. Sisa 3 percobaan sebelum login dikunci 1 menit.",
+  "Kata sandi salah. Sisa 2 percobaan sebelum login dikunci 1 menit.",
+  "Kata sandi salah. Sisa 1 percobaan sebelum login dikunci 1 menit.",
+  "Kata sandi salah 5 kali. Login dari komputer ini dikunci sementara. Coba lagi dalam 10 detik. Coba lagi dalam 00:10"
+ ],
+ "A_terkunci": {
+  "url": "/admin/login",
+  "input_aktif": false,
+  "tombol_aktif": false,
+  "fokus_sandi": false,
+  "kotak": "kabar kabar-gagal kotak-kunci",
+  "data_sisa": "10",
+  "pesan": "Kata sandi salah 5 kali. Login dari komputer ini dikunci sementara. Coba lagi dalam 10 detik.",
+  "hitung_tampak": true,
+  "hitung": "Coba lagi dalam 00:10",
+  "statis_tampak": false,
+  "meta": []
+ },
+ "A_paksa_status": 429,
+ "A_paksa": {
+  "url": "/admin/login",
+  "input_aktif": false,
+  "tombol_aktif": false,
+  "fokus_sandi": false,
+  "kotak": "kabar kabar-gagal kotak-kunci",
+  "data_sisa": "10",
+  "pesan": "Terlalu banyak kata sandi salah dari komputer ini. Login dikunci sementara. Coba lagi dalam 10 detik.",
+  "hitung_tampak": true,
+  "hitung": "Coba lagi dalam 00:10",
+  "statis_tampak": false,
+  "meta": []
+ },
+ "A_detak": [
+  [
+   0.0,
+   "Coba lagi dalam 00:10",
+   false
+  ],
+  [
+   1.01,
+   "Coba lagi dalam 00:09",
+   false
+  ],
+  [
+   2.02,
+   "Coba lagi dalam 00:08",
+   false
+  ],
+  [
+   3.03,
+   "Coba lagi dalam 00:07",
+   false
+  ],
+  [
+   4.04,
+   "Coba lagi dalam 00:06",
+   false
+  ],
+  [
+   5.05,
+   "Coba lagi dalam 00:05",
+   false
+  ],
+  [
+   6.06,
+   "Coba lagi dalam 00:04",
+   false
+  ],
+  [
+   7.07,
+   "Coba lagi dalam 00:03",
+   false
+  ],
+  [
+   8.08,
+   "Coba lagi dalam 00:02",
+   false
+  ],
+  [
+   9.09,
+   "Coba lagi dalam 00:01",
+   false
+  ],
+  [
+   10.1,
+   "Coba lagi dalam 00:01",
+   true
+  ]
+ ],
+ "A_akhir": {
+  "url": "/admin/login",
+  "input_aktif": true,
+  "tombol_aktif": true,
+  "fokus_sandi": true,
+  "kotak": "kabar kotak-kunci kabar-sukses",
+  "data_sisa": "10",
+  "pesan": "Silakan coba lagi.",
+  "hitung_tampak": false,
+  "hitung": "Coba lagi dalam 00:01",
+  "statis_tampak": null,
+  "meta": []
+ },
+ "A_penanda": "halaman-sama",
+ "A_mutasi": [
+  "Silakan coba lagi."
+ ],
+ "A_masuk": "/admin/log",
+ "B_pesan_salah": [
+  "Kata sandi salah. Sisa 4 percobaan sebelum login dikunci 1 menit.",
+  "Kata sandi salah. Sisa 3 percobaan sebelum login dikunci 1 menit.",
+  "Kata sandi salah. Sisa 2 percobaan sebelum login dikunci 1 menit.",
+  "Kata sandi salah. Sisa 1 percobaan sebelum login dikunci 1 menit.",
+  "Kata sandi salah 5 kali. Login dari komputer ini dikunci sementara. Coba lagi dalam 10 detik."
+ ],
+ "B_terkunci": {
+  "url": "/admin/login",
+  "input_aktif": false,
+  "tombol_aktif": false,
+  "fokus_sandi": false,
+  "kotak": "kabar kabar-gagal kotak-kunci",
+  "data_sisa": "10",
+  "pesan": "Kata sandi salah 5 kali. Login dari komputer ini dikunci sementara. Coba lagi dalam 10 detik.",
+  "hitung_tampak": false,
+  "hitung": "Coba lagi dalam",
+  "statis_tampak": true,
+  "meta": [
+   "10;url=/admin/login?next=/admin/log"
+  ]
+ },
+ "B_muat_ulang_detik": 10.02,
+ "B_sesudah": {
+  "url": "/admin/login?next=/admin/log",
+  "input_aktif": true,
+  "tombol_aktif": true,
+  "fokus_sandi": true,
+  "kotak": null,
+  "data_sisa": null,
+  "pesan": null,
+  "hitung_tampak": null,
+  "hitung": null,
+  "statis_tampak": null,
+  "meta": []
+ },
+ "B_permintaan_terakhir": [
+  "GET",
+  "/admin/login?next=/admin/log"
+ ]
+}
