@@ -22,6 +22,7 @@ Isi panduan:
 5. Menambah istilah pendek / sinonim lewat halaman admin
 6. Mengganti kata sandi admin
 7. Yang perlu disiapkan tim IT untuk pemasangan di jaringan kantor
+   (7.4: memindahkan aplikasi ke server, Windows dan Linux)
 8. Mengelola daftar wilayah
 9. Database uji dan cara menguji aplikasi
 10. Pemecahan masalah
@@ -264,15 +265,17 @@ beberapa jam.
 
 #### Jalur A (disarankan): dari berkas serah terima
 
-Pengembang menyerahkan empat hal, selain `.env` dan kata sandi admin yang
-diserahkan terpisah:
+Pengembang menyerahkan hal-hal berikut, selain `.env` dan kata sandi admin
+yang diserahkan terpisah. Ukuran terbaru dan cara membungkusnya dengan `tar`
+ada di bagian 7.4 ("Memindahkan aplikasi ke server").
 
 | Yang diserahkan | Ditaruh di |
 |---|---|
 | Cadangan database (satu berkas `.sql`, dibuat dengan perintah `mysqldump` di bagian 7, pada hari yang sama dengan salinan folder PDF) | dipulihkan ke MySQL, langkah 1–3 |
-| Folder PDF `publikasi_pdf` (±3 GB) | `data\publikasi_pdf\` |
-| Folder cache OCR `ocr_cache` (±22 MB) | `data\ocr_cache\` |
-| Berkas `wilayah.json` | `data\wilayah.json` (sudah ikut di Git; pakai yang diserahkan kalau isinya berbeda) |
+| Folder PDF `publikasi_pdf` (±3 GB pada 14 November; 6,4 GB pada 26 November 2026 sesudah kecamatan masuk) | `data\publikasi_pdf\` |
+| Folder sampul `sampul` (75 MB pada 26 November 2026) | `data\sampul\` |
+| Folder cache OCR `ocr_cache` (±22 MB pada 14 November; 45 MB pada 26 November 2026) | `data\ocr_cache\` |
+| Berkas `wilayah.json` dan `kamus_sinonim.json` | `data\` (sudah ikut di Git; pakai yang diserahkan kalau isinya berbeda) |
 
 Langkahnya, di **Command Prompt** (bukan PowerShell, karena tanda `<` di
 langkah 3 tidak dikenal PowerShell), dari folder tempat berkas cadangan
@@ -321,9 +324,13 @@ berganti, lalu:
   (bagian 7.2; 1.192 halaman × ±15 detik ≈ 5 jam). Kalau OCR tidak
   dipasang, kedelapan publikasi itu kehilangan rincian tabelnya.
 
-Aplikasi tidak punya perintah untuk memeriksa hal ini saja: pembaruan
-pertama langsung membaca ulang PDF yang tanggalnya berubah. Karena itu
-periksa sendiri sesudah menyalin (butir "Sesudah menyalin" di bawah tabel).
+Pembaruan pertama langsung membaca ulang PDF yang tanggalnya berubah. Karena
+itu periksa sesudah menyalin, sebelum pembaruan pertama. Sejak 26 November
+2026 ada pemeriksa yang hanya membaca (tidak mengubah apa pun):
+`venv\Scripts\python.exe scripts\periksa_sidik.py`. Ia membandingkan ukuran
+dan waktu ubah setiap PDF dan cache OCR dengan yang tercatat di database;
+hasil yang benar `SEMUA COCOK` (bagian 7.4). Butir "Sesudah menyalin" di
+bawah tabel tetap berlaku sebagai pemeriksaan tangan.
 
 Diuji 17 November 2026 di laptop pengembang, antarfolder di drive NTFS yang
 sama (5 PDF + 100 berkas cache OCR, dibandingkan sampai ke detik):
@@ -1074,6 +1081,252 @@ OCR yang sudah ada di database tetap bisa dicari.
 
 ---
 
+### 7.4 Memindahkan aplikasi ke server
+
+**Status pengujian (26 November 2026).**
+
+- **Windows: teruji di Windows 11** (laptop pengembang). Ini mencakup
+  aplikasi, pembaruan data, `uji_pipeline.py`, dan skrip `.sh` yang
+  dijalankan dengan bash Git for Windows.
+- **Linux: MENUNGGU UJI.** Semua langkah Linux di bawah ini ditulis dari
+  kode dan dokumentasi program, tetapi belum dijalankan di mesin Linux.
+  Tandai bagian ini teruji sesudah uji Linux selesai (laporan
+  `data/regresi/portabilitas-20261126.md`).
+
+Aplikasinya sama di kedua sistem; yang berbeda hanya cara memasang dan
+menjalankannya. Padanan berkas `.bat` untuk Linux:
+
+| Windows | Linux | Kegunaan |
+|---|---|---|
+| `jalankan-aplikasi.bat [port]` | `./jalankan-aplikasi.sh [port]` | menjalankan aplikasi dari terminal |
+| `perbarui-data.bat [pilihan]` | `./perbarui-data.sh [pilihan]` | memperbarui data dari BPS |
+| `jalankan-aplikasi-uji.bat [port]` | `./jalankan-aplikasi-uji.sh [port]` | aplikasi dengan database uji |
+| `tarik-kecamatan-uji.bat`, `periksa-kecamatan-uji.bat` | `./tarik-kecamatan-uji.sh`, `./periksa-kecamatan-uji.sh` | khusus database uji |
+
+- Pesan dan kalimat penutupnya sama. Port dibaca dari `.env` dengan aturan
+  yang sama: `PORT=angka`, tanpa spasi di sekitar `=`.
+- Bedanya, skrip `.sh` mengembalikan kode keluar `perbarui.py` (0 selesai,
+  1 gagal, 2 pembaruan lain sedang berjalan, 3 selesai sebagian), sedangkan
+  `.bat` selalu berakhir dengan kode 0.
+- Skrip `.sh` hanya menunggu Enter di akhir kalau dijalankan dari
+  terminal.
+
+#### Dua cara mengisi data di server baru
+
+| | **Cara A: tarik ulang dari nol** | **Cara B: paket serah terima** (disarankan) |
+|---|---|---|
+| Sama dengan | jalur B di bagian 2 | jalur A di bagian 2 |
+| Butuh internet ke BPS | ya, ±3–6 GB | tidak (hanya untuk pembaruan sesudahnya) |
+| Lama | berjam-jam (5,0 jam untuk 13 kab/kota, 9–10 November 2026), ditambah ±5 jam kalau OCR dipasang | menyalin ±6,5 GB + memulihkan database (±1,5 detik pada 14 November 2026) |
+| Riwayat pencarian petugas (`log_pencarian`) dan kamus hasil kerja pengelola | **hilang**, kecuali `data/kamus_sinonim.json` disalin | ikut |
+| Teruji | bagian-bagiannya saja (bagian 2) | Windows → Windows: memulihkan database dan menyalin folder di satu laptop; ke Linux: **menunggu uji** |
+
+**Isi paket serah terima (cara B).** Dibuat di komputer lama pada hari yang
+sama:
+
+| Isi | Ukuran (26 Nov 2026) | Keterangan |
+|---|---|---|
+| Cadangan database `.sql` | 16 MB | perintah `mysqldump` di bagian 7. Contoh: `data/serah_terima/db_pencarian_bps-20261126.sql` (folder ini dan semua `*.sql` tidak masuk Git: isinya memuat riwayat pencarian petugas) |
+| `data/publikasi_pdf/` | 6,4 GB, 649 PDF | wajib, dengan **waktu ubah berkas tetap** (lihat bawah) |
+| `data/sampul/` | 75 MB, 649 gambar | sampul di kartu publikasi; tanpa ini kartu tampil tanpa sampul sampai diisi ulang (bagian 4) |
+| `data/ocr_cache/` | 45 MB, 4.000 berkas | hasil OCR; tanpa ini 8 publikasi tanpa lapisan teks perlu OCR ulang (bagian 7.2) |
+| `data/kamus_sinonim.json`, `data/wilayah.json` | beberapa KB | ikut di Git; salin juga kalau pengelola mengubahnya sesudah commit terakhir |
+| `data/pembaruan_terakhir.json` (opsional) | 17 KB | supaya kartu Perbarui Data di beranda admin langsung menunjukkan tanggal pembaruan terakhir |
+
+Hitungan PDF dan sampul di atas termasuk 27 publikasi Tanah Laut rilis
+2024 yang hanya ada di database uji (bagian 4). Folder-folder itu boleh ikut
+tanpa masalah.
+
+**Menjaga waktu ubah berkas.** Aplikasi mengenali PDF dari ukuran dan
+detik waktu ubahnya (bagian 2, jalur A). Bungkus folder dengan `tar`, jangan
+dengan ZIP:
+
+```
+tar -cf paket.tar -C data publikasi_pdf sampul ocr_cache kamus_sinonim.json wilayah.json pembaruan_terakhir.json
+```
+
+Perintah ini sama di Command Prompt Windows dan di Linux. Membukanya di
+server baru, dari folder proyek: `tar -xf paket.tar -C data`.
+
+- Diuji 26 November 2026: arsip dari `tar` bawaan Windows (bsdtar 3.8.9),
+  dibuka dengan GNU tar 1.35 (tar yang dipakai Linux), memberi 1.574 berkas
+  dengan 0 sidik berbeda.
+- Arsip itu dibuka di NTFS, bukan di sistem berkas Linux: ekstraksi di
+  Linux **menunggu uji**.
+- GNU tar di Linux mengembalikan waktu ubah secara bawaan. Jangan pakai
+  pilihan `-m` atau `--touch`.
+
+Sesudah menyalin dan memulihkan database, **sebelum pembaruan pertama**,
+jalankan pemeriksa sidik. Ia hanya membaca, tidak mengubah apa pun:
+
+```
+Windows : venv\Scripts\python.exe scripts\periksa_sidik.py
+Linux   : venv/bin/python scripts/periksa_sidik.py
+```
+
+Hasil yang benar: `SEMUA COCOK`, dengan `PDF berbeda : 0` dan
+`cache OCR berbeda : 0`. Pada produksi 26 November 2026 hasilnya 622 PDF
+cocok, 34 cache OCR cocok, dan 649 sampul. Kalau ada yang berbeda, jangan
+jalankan pembaruan; salin ulang dengan `tar`.
+
+#### Memasang di Windows (teruji di Windows 11)
+
+1. Pasang Python 3.12 atau lebih baru (pengembang memakai 3.14.6), MySQL
+   8.0 (Laragon atau MySQL Installer), lalu ikuti bagian 2 ("Memasang
+   program", lalu jalur A atau B).
+2. Jalankan `jalankan-aplikasi.bat` sekali untuk memastikan semuanya
+   berjalan (bagian 3).
+3. **Sebagai layanan**, supaya berjalan sendiri saat komputer menyala:
+   - **Task Scheduler** (bawaan Windows): buat tugas "At startup", jalankan
+     dengan akun yang punya hak tulis ke folder proyek, dengan
+     - Program: `C:\folder\proyek\venv\Scripts\python.exe`
+     - Arguments: `run.py --host 127.0.0.1 --port 5000`
+     - Start in: `C:\folder\proyek`
+
+     Jangan daftarkan `jalankan-aplikasi.bat`: skrip itu membuka browser
+     dan menunggu tombol ditekan.
+   - **NSSM** (program luar, nssm.cc), kalau ingin muncul di daftar
+     Services:
+     ```
+     nssm install PencarianBPS C:\folder\proyek\venv\Scripts\python.exe run.py --host 127.0.0.1 --port 5000
+     nssm set PencarianBPS AppDirectory C:\folder\proyek
+     nssm start PencarianBPS
+     ```
+   - Kedua cara ini **belum dicoba** di laptop pengembang. Perintahnya sama
+     dengan yang dijalankan `jalankan-aplikasi.bat`.
+4. Pembaruan terjadwal: Task Scheduler menjalankan
+   `venv\Scripts\python.exe scripts\perbarui.py` (Start in: folder proyek),
+   misalnya tiap Senin pukul 02.00. Jangan jadwalkan `perbarui-data.bat`,
+   karena skrip itu menunggu tombol ditekan di akhir.
+
+#### Memasang di Linux (MENUNGGU UJI)
+
+Contoh untuk Ubuntu Server 24.04 / Debian 12. Sesuaikan nama paket untuk
+distribusi lain.
+
+1. **Paket sistem:**
+   ```
+   sudo apt install python3 python3-venv python3-pip git tar mysql-server
+   ```
+   Butuh **MySQL 8.0**, bukan MariaDB. Tabel `versi_data` di cadangan
+   memakai collation `utf8mb4_0900_ai_ci`, yang hanya dikenal MySQL 8. Di
+   Debian, paket `mysql-server` bisa berarti MariaDB; pasang MySQL dari
+   repositori resmi MySQL (dev.mysql.com). Aplikasi belum pernah dicoba di
+   MariaDB.
+2. **Pengguna dan folder.** Jalankan aplikasi dengan pengguna biasa,
+   misalnya `bps`, pemilik folder proyek:
+   ```
+   sudo useradd --system --create-home --shell /bin/bash bps
+   sudo -u bps git clone <alamat repositori> /home/bps/sistem-pencarian-bps
+   ```
+   Perintah apa pun (`./perbarui-data.sh`, skrip di `scripts/`) juga
+   dijalankan sebagai `bps` (`sudo -u bps ...`). Kalau dijalankan sebagai
+   pengguna lain, berkas di `data/` bisa tidak bisa ditulis oleh layanan.
+3. **Python:** di folder proyek,
+   ```
+   python3 -m venv venv
+   venv/bin/pip install -r requirements.txt
+   ```
+   OCR (opsional): `venv/bin/pip install -r requirements-ocr.txt`.
+4. **MySQL:** buat database dan akun khusus aplikasi. Di Ubuntu, `root`
+   MySQL masuk lewat `auth_socket` dan tidak bisa dipakai lewat
+   `DATABASE_URL`.
+   ```
+   sudo mysql -e "CREATE DATABASE db_pencarian_bps CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci"
+   sudo mysql -e "CREATE USER 'bps'@'localhost' IDENTIFIED BY 'SANDI-KUAT'"
+   sudo mysql -e "GRANT ALL ON db_pencarian_bps.* TO 'bps'@'localhost'"
+   ```
+   - Cara B: pulihkan cadangan dengan
+     `mysql -u bps -p --default-character-set=utf8mb4 db_pencarian_bps < db_pencarian_bps-20261126.sql`,
+     lalu buka paket `tar` (di atas).
+   - Cara A: jalankan `venv/bin/python scripts/perbarui.py --hanya-periksa`,
+     lalu `./perbarui-data.sh` (bagian 2, jalur B).
+   - Untuk database uji (bagian 9), akun yang sama butuh juga
+     `GRANT ALL ON db_pencarian_bps_uji.* TO 'bps'@'localhost'`.
+5. **`.env`:** salin `.env.example` ke `.env`, isi seperti tabel di bagian
+   2, lalu batasi hak bacanya: `chmod 600 .env`.
+   - `DATABASE_URL=mysql+pymysql://bps:SANDI-KUAT@localhost:3306/db_pencarian_bps`.
+   - `MYSQL_BIN` biasanya dikosongkan: `mysql` dan `mysqldump` sudah ada di
+     `/usr/bin`.
+   - Format `PORT=angka` sama dengan di Windows.
+6. **Coba dari terminal:** `./jalankan-aplikasi.sh`, lalu buka
+   `http://localhost:5000/` dari komputer itu (misalnya `curl -I
+   http://localhost:5000/`). Hentikan dengan Ctrl+C.
+7. **Sebagai layanan systemd**, berkas
+   `/etc/systemd/system/pencarian-bps.service`:
+   ```
+   [Unit]
+   Description=Pencarian Publikasi BPS Kalsel
+   After=network-online.target mysql.service
+   Wants=network-online.target
+
+   [Service]
+   User=bps
+   WorkingDirectory=/home/bps/sistem-pencarian-bps
+   Environment=PYTHONUTF8=1
+   ExecStart=/home/bps/sistem-pencarian-bps/venv/bin/python run.py --host 127.0.0.1 --port 5000
+   Restart=on-failure
+
+   [Install]
+   WantedBy=multi-user.target
+   ```
+   Lalu: `sudo systemctl daemon-reload && sudo systemctl enable --now
+   pencarian-bps` dan periksa dengan `systemctl status pencarian-bps` serta
+   `journalctl -u pencarian-bps`.
+
+   **Berbeda dengan Windows:** menghentikan layanan (`systemctl stop`)
+   juga menghentikan pembaruan yang sedang berjalan dari tombol admin, karena
+   systemd menghentikan semua proses layanan. Di Windows, pembaruan itu tetap
+   berjalan sampai selesai. Akibatnya aman: tiap tahap `perbarui.py`
+   menulis atomik, kuncinya dianggap basi, dan pembaruan berikutnya
+   mengulang yang belum selesai.
+8. **Pembaruan terjadwal** (opsional): pasangan berkas
+   `/etc/systemd/system/perbarui-bps.service` dan `perbarui-bps.timer`:
+   ```
+   # perbarui-bps.service
+   [Unit]
+   Description=Perbarui data Pencarian BPS
+   [Service]
+   Type=oneshot
+   User=bps
+   WorkingDirectory=/home/bps/sistem-pencarian-bps
+   Environment=PYTHONUTF8=1
+   ExecStart=/home/bps/sistem-pencarian-bps/venv/bin/python scripts/perbarui.py
+
+   # perbarui-bps.timer
+   [Unit]
+   Description=Jadwal pembaruan data Pencarian BPS
+   [Timer]
+   OnCalendar=Mon 02:00
+   Persistent=true
+   [Install]
+   WantedBy=timers.target
+   ```
+   Lalu `sudo systemctl enable --now perbarui-bps.timer`.
+   - Kode keluar 2 berarti pembaruan lain sedang berjalan (misalnya dari
+     tombol admin). Pengamannya sama dengan di Windows.
+   - Linux tidak punya pencegah tidur seperti di Windows. Server memang
+     tidak tidur. Di laptop Linux, jalankan pembaruan panjang dengan
+     `systemd-inhibit ./perbarui-data.sh`.
+
+#### Jaringan dan proxy (kedua sistem)
+
+- **Akses keluar:** server harus bisa membuka `https://webapi.bps.go.id`
+  (port 443), dan DNS-nya harus mengarahkan nama itu ke alamat publik BPS,
+  bukan ke alamat internal yang menolak koneksi (bagian 10).
+  - Periksa di Windows dengan `Resolve-DnsName webapi.bps.go.id`, di Linux
+    dengan `getent hosts webapi.bps.go.id`.
+  - Lalu `curl -I https://webapi.bps.go.id/`.
+  - Ini hanya untuk pembaruan data. Pencarian tidak butuh internet.
+- **Diakses dari komputer lain:** biarkan aplikasi mendengarkan
+  `127.0.0.1`, lalu pasang *reverse proxy* dengan HTTPS di depannya: IIS
+  atau Caddy di Windows, nginx atau Caddy di Linux (bagian 7, tabel di
+  atas).
+- **`JUMLAH_PROXY`** (bagian 6): isi `JUMLAH_PROXY=1` di `.env` **hanya**
+  kalau aplikasi memang di belakang satu reverse proxy. Tanpa itu,
+  penguncian login menghitung alamat proxy, bukan alamat petugas. Tanpa
+  proxy, biarkan kosong: alamat bisa dipalsukan.
+
 ## 8. Mengelola daftar wilayah
 
 Daftar wilayah ada di `data/wilayah.json`, berkas teks yang bisa dibuka
@@ -1210,13 +1463,17 @@ atau kode:
 venv\Scripts\python.exe -u tests\uji_pipeline.py > uji_log.txt 2>&1
 ```
 
-- Lamanya ±60 menit. Run penuh terakhir, 26 November 2026: 172 uji lulus,
-  0 gagal, 0 dilewati, 3.202 detik. Bagian `J` menguji kartu ringkasan hasil
+- Lamanya ±60 menit. Run penuh terakhir, 26 November 2026 sore: 184 uji lulus,
+  0 gagal, 0 dilewati, 3.524 detik. Bagian `J` menguji kartu ringkasan hasil
   cek: satuan, empat status, dan tombol Mulai yang nonaktif saat disk kurang.
   Bagian `X` menguji kop pencarian dan admin, tombol Halaman Admin, login dan
   kembali ke tujuan, Kembali ke Pencarian (alamat terakhir, tanpa log, alamat berbahaya ditolak), kartu beranda admin, hitung mundur login terkunci, sesi admin
   yang kedaluwarsa (termasuk `SESI_ADMIN_MENIT` yang tidak sah), dan
   penguncian sesudah 5 kata sandi salah, termasuk `JUMLAH_PROXY`.
+  Bagian `W` juga menjalankan skrip `.sh` (padanan Linux) dengan bash; di
+  Windows dipakai bash Git for Windows, dan uji itu dilewati kalau bash tidak
+  ada. Bagian `Y` menguji portabilitas: pesan per sistem operasi, cek proses
+  di Linux, dan `scripts\periksa_sidik.py`.
   Bagian `Q` menguji formulir pilihan penarikan dan `--cek-dulu`. Bagian `V` membuktikan bahwa tanpa
   kotak centang kecamatan, halaman pencarian sama persis dengan database
   tanpa publikasi kecamatan; bagian ini dilewati kalau database uji tidak

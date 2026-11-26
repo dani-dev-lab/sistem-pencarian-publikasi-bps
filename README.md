@@ -28,6 +28,7 @@ Keadaan data 17 November 2026: 307 publikasi dan 24.532 bagian terindeks;
 - `tests/` — `uji_pipeline.py`, uji pipeline ujung ke ujung di database uji
   (PANDUAN.md bagian 9); berkas `test_*.py` masih kerangka kosong
 - `jalankan-aplikasi.bat`, `perbarui-data.bat` — pintu masuk klik-dua-kali
+  (Windows); padanannya untuk Linux `jalankan-aplikasi.sh`, `perbarui-data.sh`
 
 ## Menjalankan (ringkas)
 
@@ -53,6 +54,11 @@ Sesudah itu `jalankan-aplikasi.bat` membuka `http://localhost:5000/`.
 
 Mode pengembangan (debugger + auto-reload, jangan di jaringan kantor):
 `venv\Scripts\python.exe run.py --dev`
+
+Di Linux (MENUNGGU UJI): `python3 -m venv venv`, `venv/bin/pip install -r
+requirements.txt`, lalu `./perbarui-data.sh` dan `./jalankan-aplikasi.sh`.
+Pemasangan di server Windows atau Linux, termasuk layanan systemd dan paket
+serah terima: PANDUAN.md bagian 7.4.
 
 OCR untuk PDF tanpa lapisan teks bersifat opsional
 (`requirements-ocr.txt`, PANDUAN.md bagian 7.2).

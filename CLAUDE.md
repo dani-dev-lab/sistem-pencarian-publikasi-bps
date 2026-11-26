@@ -292,7 +292,7 @@ Mahasiswa Politeknik Negeri Banjarmasin.
     - Uji: `uji_pipeline` bagian X (menu, login+tujuan, sesi, env, kunci).
       `potret_tampilan.py banding --isi` = banding ISI `<main>` saja.
       Pemeriksa Playwright `data/regresi/tampilan-20261125/periksa_tampilan.py`:
-      0 tindih tombol ke atas di 4.338 posisi, 0 sentuh < 44 px. Run penuh terakhir (26 Nov siang, Kembali ke pencarian) 172 lulus.
+      0 tindih tombol ke atas di 4.338 posisi, 0 sentuh < 44 px. Run penuh terakhir (26 Nov sore, portabilitas) 184 lulus.
     - **Jebakan alat:** pemeriksa tindih harus memotong kotak elemen dengan
       wadah bergulir (`overflow` bukan visible); tanpa itu tombol tabel log yang
       terpotong dilaporkan tertimpa.
@@ -353,6 +353,34 @@ Mahasiswa Politeknik Negeri Banjarmasin.
       X1/X7 mengikuti href `?dari=` (url_for membiarkan "/" dan "?" di
       nilai query). Playwright `periksa_kembali.py` + `server_kunci.py PORT
       300 catat-log` (log hidup ke DB UJI; baris alat dihapus), 11/11.
+  - **Portabilitas Windows + Linux (26 Nov 2026 sore), BELUM di-push.**
+    Laporan `data/regresi/portabilitas-20261126.md` (tabel audit + yang
+    belum bisa dipastikan tanpa Linux). Perilaku Windows tidak berubah.
+    - `config.teks_os(teks)`: pesan ditulis bentuk Windows; di Windows
+      dikembalikan apa adanya, di Linux `venv/bin/python`, `./perbarui-data.sh`,
+      "/" (pesan .env, perbarui.py, isi_cache_ocr, flash admin, perbarui.html
+      lewat global Jinja `teks_os`).
+    - Cek PID non-Windows (3 salinan: perbarui, pembaruan, isi_cache_ocr):
+      `PermissionError` = proses milik pengguna lain = HIDUP (dulu dianggap
+      mati -> dua pembaruan bisa jalan bersamaan di Linux).
+    - `*.sh` padanan tiap `.bat` (bash, `set -euo pipefail`, ASCII, LF,
+      100755, shellcheck 0 temuan); jeda akhir hanya kalau stdin terminal;
+      kode keluar = kode perbarui.py/run.py. **.bat selalu berakhir kode 0**
+      (diukur), sengaja tidak diubah. `.gitattributes`: `*.sh eol=lf`,
+      `*.bat eol=crlf` (indeks .bat LF; CRLF di sini hanya karena
+      core.autocrlf=true).
+    - `scripts/periksa_sidik.py [--db-uji]`: hanya membaca; sidik PDF + cache
+      OCR vs database sesudah memindahkan folder (produksi: 622/622, 34/34).
+    - Paket serah terima: `data/serah_terima/` + `*.sql` di-gitignore;
+      `db_pencarian_bps-20261126.sql` (16 MB) dipulihkan ke DB sementara 6/6
+      sama. tar Windows (bsdtar) -> GNU tar: 1.574 berkas, 0 sidik beda.
+    - `versi_data` ber-collation `utf8mb4_0900_ai_ci` = MySQL 8 saja (bukan
+      MariaDB). `cryptography` kini eksplisit di requirements (PyMySQL +
+      caching_sha2_password; sudah terpasang lewat pdfminer.six).
+    - uji_pipeline: cabang Linux (p.kill, symlink, st_dev), W7-W14 + Q7b
+      menjalankan .sh sungguhan (Windows: bash Git for Windows, BUKAN WSL),
+      bagian Y (teks_os, cek PID tiruan, periksa_sidik).
+    - PANDUAN 7.4 "Memindahkan aplikasi ke server": Linux = MENUNGGU UJI.
   - `.bat` memanggil `%SystemRoot%\System32\find.exe` dengan jalur lengkap:
     `find` Git di PATH tidak mengenal `/i`.
   - **Jebakan alat:** heredoc di Bash tool memakan backslash (`\\n`, `\` di

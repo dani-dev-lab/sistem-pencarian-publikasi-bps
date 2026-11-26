@@ -1,0 +1,41 @@
+Cadangan database uji: 17.6 MB, 6 tabel; produksi 6 tabel
+Database uji: db_pencarian_bps_uji | produksi (hanya dibaca): db_pencarian_bps | domain uji: 6305
+
+=== U. PENGAMAN DATABASE UJI ===
+  [LULUS] U1 KonfigurasiUji yang menunjuk nama produksi ditolak (SystemExit)  -- DITOLAK True
+  [LULUS] U2 baris pertama perbarui.py = database uji  -- Database tujuan: db_pencarian_bps_uji @ localhost:3306 (UJI - bukan produksi)
+  [LULUS] U4 tanpa BPS: url_cover/url_pdf database uji semuanya ke server tiruan; alamat luar diblokir proxy mati (tidak sampai ke BPS); server tiruan tetap terjangkau  -- URL luar di DB 0; LUAR DIBLOKIR | TIRUAN 200 image/jpeg
+  [LULUS] U3 ringkasan ke pembaruan_terakhir-uji.json, berkas produksi tidak dibuat  -- exit 0, 16 d
+
+=== N. KAMUS SALINAN DITERAPKAN KE DATABASE UJI ===
+  [LULUS] N1 kamus salinan diterapkan: hanya teks_ternormalisasi yang berubah, penerapan kedua mengubah 0  -- entri diubah 67, publikasi diubah 1, 47 publikasi terkena, domain uji: ['1d520ab0', '37274162', '42732c61']
+
+(--hanya W: bagian lain dilewati)
+
+=== W. TOMBOL WEB + .BAT SUNGGUHAN (keduanya --db-uji) ===
+    | MULAI 302
+    | KEDUA_NONAKTIF True
+    | SEBAGIAN_TAMPIL True JUDUL_GAGAL True UJI True 
+  [LULUS] W1 tombol web (KonfigurasiUji): berjalan ke DB uji, POST kedua ditolak, ringkasan 'sebagian' + judul gagal
+  [LULUS] W2 .bat tetap ASCII + CRLF
+  [LULUS] W3 .bat exit 3 -> SELESAI SEBAGIAN  -- ['RINGKASAN PEMBARUAN', 'PEMBARUAN SELESAI SEBAGIAN - sebagian wilayah/publikasi gagal.']
+  [LULUS] W4 .bat exit 0 -> PEMBARUAN SELESAI., cek MySQL ke database uji  -- ['RINGKASAN PEMBARUAN', 'PEMBARUAN SELESAI.', 'database: db_pencarian_bps_uji']
+  [LULUS] W5 .bat exit 1 -> PEMBARUAN GAGAL + pesan jaringan  -- ['RINGKASAN PEMBARUAN', 'PEMBARUAN GAGAL - baca pesan di atas.']
+  [LULUS] W6 .bat saat terkunci -> TIDAK DIJALANKAN  -- ['TIDAK DIJALANKAN: pembaruan lain sedang berjalan.']
+    | bash: C:\Program Files\Git\usr\bin\bash.EXE
+  [LULUS] W7 skrip .sh: ASCII, LF, +x di Git, bash + set -euo pipefail, satu per .bat; .gitattributes *.sh eol=lf, *.bat eol=crlf  -- {'jalankan-aplikasi.sh': [], 'perbarui-data.sh': [], 'jalankan-aplikasi-uji.sh': [], 'tarik-kecamatan-uji.sh': [], 'periksa-kecamatan-uji.sh': []}
+  [LULUS] W8 perbarui-data.sh: perbarui.py exit 3 -> SELESAI SEBAGIAN, kode keluar 3  -- [3, 'RINGKASAN PEMBARUAN', 'PEMBARUAN SELESAI SEBAGIAN - sebagian wilayah/publikasi gagal.']
+  [LULUS] W9 perbarui-data.sh: exit 0 -> PEMBARUAN SELESAI., cek MySQL ke database uji, kode 0  -- [0, 'RINGKASAN PEMBARUAN', 'PEMBARUAN SELESAI.', 'database: db_pencarian_bps_uji']
+  [LULUS] W10 perbarui-data.sh: exit 1 -> PEMBARUAN GAGAL + pesan jaringan, kode 1  -- [1, 'RINGKASAN PEMBARUAN', 'PEMBARUAN GAGAL - baca pesan di atas.']
+  [LULUS] W11 perbarui-data.sh saat terkunci -> TIDAK DIJALANKAN, kode 2  -- [2, 'TIDAK DIJALANKAN: pembaruan lain sedang berjalan.']
+  [LULUS] W12 perbarui-data.sh --cek-dulu -> CEK SELESAI, kode 0  -- [0, 'CEK SELESAI - tidak ada PDF yang diunduh, database tidak diubah.']
+  [LULUS] W13 jalankan-aplikasi.sh: PORT dari .env (abaikan #, CRLF), argumen menimpa, port terpakai -> pesan + kode 1; jalankan-aplikasi-uji.sh memeriksa database uji  -- [1, ['[GAGAL] Port 59117 sudah dipakai.'], 1, ['[GAGAL] Port 59118 sudah dipakai.'], 1, ['Database: db_pencarian_bps_uji']]
+  [LULUS] W14 skrip .sh tanpa venv: '[GAGAL] Folder venv tidak ditemukan.', kode 1  -- {'jalankan-aplikasi.sh': [1, ['[GAGAL] Folder venv tidak ditemukan.']], 'perbarui-data.sh': [1, ['[GAGAL] Folder venv tidak ditemukan.']], 'jalankan-aplikasi-uji.sh': [1, ['[GAGAL] Folder venv tidak ditemukan. Lihat PANDUAN.md.']]}
+
+=== Z. PEMULIHAN DAN BUKTI ===
+  [LULUS] Z1 database uji dipulihkan, CHECKSUM TABLE sama dengan awal  -- []
+  [LULUS] Z2 produksi tidak berubah (CHECKSUM TABLE awal = akhir)  -- []
+  [LULUS] Z3 folder sementara dibersihkan
+
+=== TOTAL: 22 lulus, 0 gagal, 0 dilewati (840 detik) ===
+kode 0

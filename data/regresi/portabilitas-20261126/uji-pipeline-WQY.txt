@@ -1,0 +1,77 @@
+Cadangan database uji: 17.6 MB, 6 tabel; produksi 6 tabel
+Database uji: db_pencarian_bps_uji | produksi (hanya dibaca): db_pencarian_bps | domain uji: 6305
+
+=== U. PENGAMAN DATABASE UJI ===
+  [LULUS] U1 KonfigurasiUji yang menunjuk nama produksi ditolak (SystemExit)  -- DITOLAK True
+  [LULUS] U2 baris pertama perbarui.py = database uji  -- Database tujuan: db_pencarian_bps_uji @ localhost:3306 (UJI - bukan produksi)
+  [LULUS] U4 tanpa BPS: url_cover/url_pdf database uji semuanya ke server tiruan; alamat luar diblokir proxy mati (tidak sampai ke BPS); server tiruan tetap terjangkau  -- URL luar di DB 0; LUAR DIBLOKIR | TIRUAN 200 image/jpeg
+  [LULUS] U3 ringkasan ke pembaruan_terakhir-uji.json, berkas produksi tidak dibuat  -- exit 0, 10 d
+
+=== N. KAMUS SALINAN DITERAPKAN KE DATABASE UJI ===
+  [LULUS] N1 kamus salinan diterapkan: hanya teks_ternormalisasi yang berubah, penerapan kedua mengubah 0  -- entri diubah 67, publikasi diubah 1, 47 publikasi terkena, domain uji: ['1d520ab0', '37274162', '42732c61']
+
+(--hanya WQY: bagian lain dilewati)
+
+=== W. TOMBOL WEB + .BAT SUNGGUHAN (keduanya --db-uji) ===
+    | MULAI 302
+    | KEDUA_NONAKTIF True
+    | SEBAGIAN_TAMPIL True JUDUL_GAGAL True UJI True 
+  [LULUS] W1 tombol web (KonfigurasiUji): berjalan ke DB uji, POST kedua ditolak, ringkasan 'sebagian' + judul gagal
+  [LULUS] W2 .bat tetap ASCII + CRLF
+  [LULUS] W3 .bat exit 3 -> SELESAI SEBAGIAN  -- ['RINGKASAN PEMBARUAN', 'PEMBARUAN SELESAI SEBAGIAN - sebagian wilayah/publikasi gagal.']
+  [LULUS] W4 .bat exit 0 -> PEMBARUAN SELESAI., cek MySQL ke database uji  -- ['RINGKASAN PEMBARUAN', 'PEMBARUAN SELESAI.', 'database: db_pencarian_bps_uji']
+  [LULUS] W5 .bat exit 1 -> PEMBARUAN GAGAL + pesan jaringan  -- ['RINGKASAN PEMBARUAN', 'PEMBARUAN GAGAL - baca pesan di atas.']
+  [LULUS] W6 .bat saat terkunci -> TIDAK DIJALANKAN  -- ['TIDAK DIJALANKAN: pembaruan lain sedang berjalan.']
+    | bash: C:\Program Files\Git\usr\bin\bash.EXE
+  [LULUS] W7 skrip .sh: ASCII, LF, +x di Git, bash + set -euo pipefail, satu per .bat; .gitattributes *.sh eol=lf, *.bat eol=crlf  -- {'jalankan-aplikasi.sh': [], 'perbarui-data.sh': [], 'jalankan-aplikasi-uji.sh': [], 'tarik-kecamatan-uji.sh': [], 'periksa-kecamatan-uji.sh': []}
+  [LULUS] W8 perbarui-data.sh: perbarui.py exit 3 -> SELESAI SEBAGIAN, kode keluar 3  -- [3, 'RINGKASAN PEMBARUAN', 'PEMBARUAN SELESAI SEBAGIAN - sebagian wilayah/publikasi gagal.']
+  [LULUS] W9 perbarui-data.sh: exit 0 -> PEMBARUAN SELESAI., cek MySQL ke database uji, kode 0  -- [0, 'RINGKASAN PEMBARUAN', 'PEMBARUAN SELESAI.', 'database: db_pencarian_bps_uji']
+  [LULUS] W10 perbarui-data.sh: exit 1 -> PEMBARUAN GAGAL + pesan jaringan, kode 1  -- [1, 'RINGKASAN PEMBARUAN', 'PEMBARUAN GAGAL - baca pesan di atas.']
+  [LULUS] W11 perbarui-data.sh saat terkunci -> TIDAK DIJALANKAN, kode 2  -- [2, 'TIDAK DIJALANKAN: pembaruan lain sedang berjalan.']
+  [LULUS] W12 perbarui-data.sh --cek-dulu -> CEK SELESAI, kode 0  -- [0, 'CEK SELESAI - tidak ada PDF yang diunduh, database tidak diubah.']
+  [GAGAL] W13 jalankan-aplikasi.sh: PORT dari .env (abaikan #, CRLF), argumen menimpa, port terpakai -> pesan + kode 1; jalankan-aplikasi-uji.sh memeriksa database uji  -- [1, ['[GAGAL] Port 58897 sudah dipakai.'], 1, ['[GAGAL] Port 58898 sudah dipakai.'], 2, ['Database: db_pencarian_bps_uji']]
+  [LULUS] W14 skrip .sh tanpa venv: '[GAGAL] Folder venv tidak ditemukan.', kode 1  -- {'jalankan-aplikasi.sh': [1, ['[GAGAL] Folder venv tidak ditemukan.']], 'perbarui-data.sh': [1, ['[GAGAL] Folder venv tidak ditemukan.']], 'jalankan-aplikasi-uji.sh': [1, ['[GAGAL] Folder venv tidak ditemukan. Lihat PANDUAN.md.']]}
+
+=== Q. PILIHAN PENARIKAN (wilayah / jenis / tahun / cek dulu) ===
+  [LULUS] Q0 tanpa pilihan, tanpa perubahan: 2 wilayah dibaca, 0 PDF, 0 sampul, status tidak_ada_baru; ringkasan mencatat pilihan bawaan  -- exit 0, tidak_ada_baru, pilihan {'wilayah': ['6300', '6305'], 'nama_wilayah': ['Provinsi Kalimantan Selatan', 'Kab. Tapin'], 'jenis': ['kabkota', 'kecamatan'], 'tahun_dari': 2025, 'tahun_sampai': 2026, 'bawaan': True}
+  [LULUS] Q1 kode lama benar-benar versi 4c57072 (tanpa --cek-dulu) dan bekerja: 1 baru + 1 direvisi  -- exit 0, {'status': 'sukses', 'diproses': 2, 'diunduh': 2, 'baru': ['qqqqrrrrsssstttt6300baru'], 'domain': [('6300', 'sukses', 1, 1, 0, 0, 0), ('6305', 'sukses', 1, 1, 0, 0, 0)]}
+  [LULUS] Q1 tanpa pilihan = kode sebelumnya: permintaan daftar+PDF sama PERSIS (urutan), database sama per kunci, ringkasan inti sama  -- permintaan 15/15, beda DB []
+  [LULUS] Q1 keluaran layar sama (angka/waktu dan baris sampul diabaikan)  -- []
+  [LULUS] Q1 satu-satunya beda yang DISENGAJA: sampul publikasi direvisi ikut diunduh ulang (keputusan 24 Nov)  -- lama ['qqqqrrrrsssstttt6300baru'], baru ['34232029fdd831e30af08728', 'qqqqrrrrsssstttt6300baru'], kunci baru ['pilihan']
+  [LULUS] Q2a --wilayah 6305 --jenis kecamatan: hanya Kecamatan Dalam Angka yang direvisi diproses; publikasi kab/kota dan provinsi tidak disentuh (metadata pun tidak); daftar 6300 tidak diminta  -- exit 0, pdf ['9a372c014595658158e170b9'], daftar ['6305']
+  [LULUS] Q2a publikasi di luar pilihan jenis tidak dilaporkan 'tidak lagi di daftar'; ringkasan mencatat pilihan  -- {'wilayah': ['6305'], 'nama_wilayah': ['Kab. Tapin'], 'jenis': ['kecamatan'], 'tahun_dari': 2025, 'tahun_sampai': 2026, 'bawaan': False}
+  [LULUS] Q2b --jenis kabkota: hanya publikasi kab/kota yang direvisi; tidak_di_daftar kosong  -- exit 0, pdf ['1d00e98fc8211bf401d37078']
+  [LULUS] Q2c --wilayah 6300 --tahun-min 2025 --tahun-maks 2025: hanya rilis 2025 diproses, rilis 2026 tidak disentuh; tidak_di_daftar kosong  -- exit 0, pdf ['b28314d9b49b5d9a6e0b8f96'], tidak_di_daftar 0
+  [LULUS] Q2d tahun tanpa publikasi (2024): 0 lolos BUKAN kegagalan selama database juga tidak punya publikasi 2024; data provinsi tidak berubah  -- exit 0, tidak_ada_baru, None
+  [LULUS] Q2e lalu tanpa pilihan: sisa revisi (provinsi 2026) diproses  -- exit 0, pdf ['70d54ffed4ab46df969baefd']
+  [LULUS] Q2 jeda antar-permintaan ke WebAPI/PDF/sampul >= ~1 detik di semua run berpilihan  -- [1.0, 1.02, 1.02, 1.01]
+  [LULUS] Q2f --lokal --paksa --wilayah 6305 --jenis kecamatan: tepat 24 publikasi kecamatan dibaca ulang, kab/kota dan provinsi tidak; 0 permintaan jaringan  -- exit 0, diproses 24, permintaan 0
+  [LULUS] Q3 pilihan tidak sah di perbarui.py: semua exit 1 + DITOLAK, 0 permintaan, database dan ringkasan tidak berubah  -- 11 ditolak
+  [LULUS] Q4 formulir: 9 kiriman tidak sah ditolak server (HTTP 400 + pesan), tidak ada proses dimulai  -- 9
+  [LULUS] Q4 bawaan formulir = tanpa argumen (perintah sama dengan tombol lama); POST tanpa formulir = bawaan  -- ['C:\\Users\\Dani\\AppData\\Local\\Temp\\uji_pipeline_bps\\uji\\scripts\\perbarui.py', '--db-uji']
+  [LULUS] Q4 pilihan tahun = tahun_min_pilihan .. tahun berjalan (tahun yang belum tiba tidak ada)  -- ['2020', '2021', '2022', '...', '2025', '2026']
+  [LULUS] Q4 'Cek dulu' dari formulir: jalur perbarui.py yang sama, pilihan sampai ke proses, hasil tampil, formulir terisi pilihan yang sama  -- {'cek_kode': 0, 'cek_baris_pilihan': ['Pilihan: wilayah: Kab. Tapin; jenis (kab/kota): Kecamatan Dalam Angka; tahun rilis 2025-2026'], 'formulir_terisi': ['6305', 'kecamatan']}
+  [LULUS] Q4 cek dari formulir: hanya daftar 6305 diminta, 0 PDF/sampul; database dan ringkasan pembaruan tidak berubah
+  [LULUS] Q5 --cek-dulu: baru 1, direvisi 1, baca ulang 1, sisanya tidak berubah; unduh 3 PDF  -- exit 0, {'di_daftar': 42, 'baru': 1, 'direvisi': 1, 'baca_ulang': 1, 'tetap': 39, 'unduh': 3, 'mb_unduh': 3.5}
+  [LULUS] Q5 --cek-dulu --jenis kabkota: kecamatan yang direvisi tidak dihitung  -- 0
+  [LULUS] Q5 --cek-dulu tidak mengunduh (0 PDF, 0 sampul, berkas baru tidak ada), database dan ringkasan pembaruan tidak berubah  -- 10 permintaan
+  [LULUS] Q5 peringatan penarikan besar (> 30 menit / > 1 GB, dari wilayah.json) + catatan PDF lama (< 2025); kecil tanpa peringatan  -- PK True 2 2 False 1
+
+  [LULUS] Q6 saat terkunci: cek dan pembaruan berpilihan berhenti (exit 2), 0 permintaan  -- [2, 2]
+  [LULUS] Q7 .bat --wilayah 6305,6300 --jenis kecamatan --cek-dulu: pilihan sampai utuh, penutup 'CEK SELESAI'  -- ['Pilihan: wilayah: semua wilayah aktif; jenis (kab/kota): Kecamatan Dalam Angka; tahun rilis 2025-2026', 'CEK SELESAI - tidak ada PDF yang diunduh, database tidak diubah.']
+  [LULUS] Q7 .bat pilihan tidak sah: DITOLAK -> PEMBARUAN GAGAL (bukan 'pembaruan lain sedang berjalan')
+  [LULUS] Q7b .sh: pilihan sampai utuh + 'CEK SELESAI' (kode 0); pilihan tidak sah -> DITOLAK + PEMBARUAN GAGAL (kode 1)  -- [0, 1, 'CEK SELESAI - tidak ada PDF yang diunduh, database tidak diubah.', 'PEMBARUAN GAGAL - baca pesan di atas.']
+
+=== Y. PORTABILITAS (WINDOWS + LINUX) ===
+    | {"os": "nt", "windows_identik": [true, true, true, true, true], "linux": {"skema": ["venv/bin/python scripts/migrasi_multidomain.py"], "paksa": ["./perbarui-data.sh --lokal --paksa", "Hasil OCR diambil dari cache data/ocr_cache; EasyOCR tidak perlu"], "hash": ["venv/bin/python scripts/buat_hash_sandi.py"], "sisa_backslash": [false, false, false, false, false], "sisa_windows": [false, false, false, false, false]}, "pid": {"hidup": [true, true, true], "tidak_ada": [false, false, false], "pengguna_lain": [true, true, true], "lain": [false, false, false]}}
+  [LULUS] Y1 teks_os: di Windows 5 pesan identik byte demi byte; tiruan Linux: venv/bin/python, ./perbarui-data.sh, data/ocr_cache, tanpa '\', .exe, .bat, Scripts  -- {'os': 'nt', 'windows_identik': [True, True, True, True, True], 'linux': {'skema': ['venv/bin/python scripts/migrasi_multidomain.py'], 'paksa': ['./perbarui-data.sh --lokal --paksa', 'Hasil OCR diambil dari cache data/ocr_cache; EasyOCR tidak perlu'], 'hash': ['venv/bin/python scripts/buat_hash_sandi.py'], 'sisa_backslash': [False, False, False, False, False], 'sisa_windows': [False, False, False, False, False]}, 'pid': {'hidup': [True, True, True], 'tidak_ada': [False, False, False], 'pengguna_lain': [True, True, True], 'lain': [False, False, False]}}
+  [LULUS] Y2 cek PID non-Windows (3 salinan fungsi): ada = hidup, ProcessLookupError = mati, PermissionError (milik pengguna lain) = HIDUP, OSError lain = mati  -- {'hidup': [True, True, True], 'tidak_ada': [False, False, False], 'pengguna_lain': [True, True, True], 'lain': [False, False, False]}
+  [LULUS] Y3 periksa_sidik.py: waktu ubah +2 detik pada satu PDF -> 'PDF berbeda' +1 dengan 'selisih waktu +2 detik', kode 1; dikembalikan -> sama dengan awal  -- {'awal': {'PDF cocok': 121, 'PDF berbeda': 0, 'cache OCR berbeda': 0}, 'geser': {'PDF cocok': 120, 'PDF berbeda': 1, 'cache OCR berbeda': 0}, 'kembali': {'PDF cocok': 121, 'PDF berbeda': 0, 'cache OCR berbeda': 0}, 'kode': [1, 1]}
+
+=== Z. PEMULIHAN DAN BUKTI ===
+  [LULUS] Z1 database uji dipulihkan, CHECKSUM TABLE sama dengan awal  -- []
+  [LULUS] Z2 produksi tidak berubah (CHECKSUM TABLE awal = akhir)  -- []
+  [LULUS] Z3 folder sementara dibersihkan
+
+=== TOTAL: 51 lulus, 1 gagal, 0 dilewati (1175 detik) ===
+  GAGAL: W13 jalankan-aplikasi.sh: PORT dari .env (abaikan #, CRLF), argumen menimpa, port terpakai -> pesan + kode 1; jalankan-aplikasi-uji.sh memeriksa database uji
