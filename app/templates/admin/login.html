@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 {% block judul %}Masuk Admin &mdash; Pencarian Publikasi BPS{% endblock %}
 
+{% block kepala %}
+  {# Login terkunci, tanpa JavaScript: halaman dimuat ulang (GET) tepat saat
+     penguncian berakhir. Dengan JavaScript, login-kunci.js menghitung mundur
+     dan mengaktifkan formulir tanpa memuat ulang; <noscript> tidak berlaku. #}
+  {% if sisa_kunci %}<noscript><meta http-equiv="refresh" content="{{ sisa_kunci }};url={{ url_for('admin.login', next=next or None) }}"></noscript>{% endif %}
+{% endblock %}
+
 {% block konten %}
 <h1 class="judul-admin">Masuk ke halaman admin</h1>
 <p class="ringan">Kamus Sinonim, Log Pencarian, Perbarui Data, dan Ganti Sandi memakai
@@ -11,7 +18,16 @@
     <p class="kabar kabar-{{ kategori }}">{{ teks }}</p>
   {% endfor %}
 {% endwith %}
-{% if galat %}
+{% if sisa_kunci %}
+  {# Sisa waktu dihitung server (data-sisa, detik). Wilayah aria-live hanya
+     berubah SEKALI, saat penguncian selesai; hitung mundur per detik ada di
+     luar wilayah itu dan disembunyikan dari pembaca layar. #}
+  <div class="kabar kabar-gagal kotak-kunci" id="kotak-kunci" data-sisa="{{ sisa_kunci }}">
+    <p class="pesan-kunci" id="pesan-kunci" role="status" aria-live="polite">{{ galat }}
+      <span class="sisa-statis">Coba lagi dalam {{ teks_sisa }}.</span></p>
+    <p class="hitung-mundur" aria-hidden="true" hidden>Coba lagi dalam <strong class="sisa-waktu"></strong></p>
+  </div>
+{% elif galat %}
   <p class="kabar kabar-gagal" role="alert">{{ galat }}</p>
 {% endif %}
 
@@ -22,4 +38,8 @@
            {%- if terkunci %} disabled{% endif %}></label>
   <button type="submit"{% if terkunci %} disabled{% endif %}>Masuk</button>
 </form>
+{% endblock %}
+
+{% block skrip %}
+{% if sisa_kunci %}<script src="{{ url_for('static', filename='js/login-kunci.js') }}" defer></script>{% endif %}
 {% endblock %}

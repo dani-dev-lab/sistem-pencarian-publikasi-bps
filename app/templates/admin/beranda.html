@@ -18,15 +18,25 @@
     <p class="angka">{{ jumlah_lemah }}</p>
     <p class="ket">kueri lemah dari {{ jumlah_log }} pencarian</p>
   </a>
+  {# 26 Nov 2026: angka besar = tanggal pembaruan terakhir dan lama sesi,
+     dihitung route dari data (bukan ikon besar yang dobel dengan ikon judul). #}
   <a href="{{ url_for('admin.perbarui') }}">
     <h2>{{ ikon("segarkan") }} Perbarui Data</h2>
-    <p class="angka">{{ ikon("jam" if pembaruan_berjalan else "segarkan", 30) }}</p>
-    <p class="ket">{% if pembaruan_berjalan %}sedang berjalan{% else %}ambil publikasi baru dari BPS{% endif %}</p>
+    {% if pembaruan_berjalan %}
+    <p class="angka">Berjalan</p>
+    <p class="ket">pembaruan sedang berjalan &middot; {{ jumlah_publikasi }} publikasi</p>
+    {% elif tanggal_pembaruan %}
+    <p class="angka">{{ tanggal_pembaruan }}</p>
+    <p class="ket">pembaruan terakhir{% if pembaruan_gagal %} (gagal){% endif %} &middot; {{ jumlah_publikasi }} publikasi</p>
+    {% else %}
+    <p class="angka angka-teks">belum pernah</p>
+    <p class="ket">belum ada pembaruan tercatat &middot; {{ jumlah_publikasi }} publikasi</p>
+    {% endif %}
   </a>
   <a href="{{ url_for('admin.ganti_sandi') }}">
     <h2>{{ ikon("kunci") }} Ganti Kata Sandi</h2>
-    <p class="angka">{{ ikon("kunci", 30) }}</p>
-    <p class="ket">satu sandi bersama untuk semua pengelola</p>
+    <p class="angka">{{ lama_sesi }}</p>
+    <p class="ket">sesi otomatis berakhir bila tidak aktif</p>
   </a>
 </div>
 {% endblock %}

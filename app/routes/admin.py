@@ -27,7 +27,7 @@ from flask import (
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from app.config import PANJANG_SANDI_MINIMAL, tulis_admin_hash
-from app.models import LogPencarian, db
+from app.models import LogPencarian, Publikasi, db
 from app.services import pembaruan, pilihan_pembaruan, ringkasan_pembaruan
 from app.services.pilihan_pembaruan import PilihanTidakSah
 from app.services.normalisasi_data import jalankan as terapkan_normalisasi
@@ -165,6 +165,14 @@ def _teks_menit(detik):
     return f"{menit} menit"
 
 
+def teks_sisa_kunci(detik):
+    """Sisa penguncian untuk pembaca tanpa JavaScript: 277 -> "4 menit 37 detik",
+    300 -> "5 menit", 37 -> "37 detik"."""
+    menit, det = divmod(int(detik), 60)
+    bagian = ([f"{menit} menit"] if menit else []) + ([f"{det} detik"] if det or not menit else [])
+    return " ".join(bagian)
+
+
 @bp.route("/login", methods=["GET", "POST"])
 def login():
     tujuan = _tujuan_aman(request.values.get("next"))
@@ -173,11 +181,13 @@ def login():
 
     alamat = request.remote_addr or "?"
     sekarang = _sekarang()
-    galat, status = None, 200
+    galat, status, sisa_kunci = None, 200, None
     sisa = _sisa_kunci(alamat, sekarang)
     if sisa:
-        galat = (f"Terlalu banyak kata sandi salah dari komputer ini. Login dikunci "
-                 f"sementara; coba lagi dalam {_teks_menit(sisa)}.")
+        # Sisa dihitung server (detik bulat ke atas); halaman hanya
+        # menampilkannya. Penguncian tetap ditegakkan di sini (429).
+        sisa_kunci = math.ceil(sisa)
+        galat = "Terlalu banyak kata sandi salah dari komputer ini. Login dikunci sementara."
         status = 429
     elif request.method == "POST":
         sandi = request.form.get("sandi") or ""
@@ -190,13 +200,17 @@ def login():
             return redirect(tujuan)
         sisa_coba = _catat_salah(alamat, sekarang)
         if sisa_coba:
-            galat = f"Kata sandi salah. Sisa percobaan sebelum login dikunci: {sisa_coba}."
-        else:
-            galat = (f"Kata sandi salah {BATAS_SALAH} kali. Login dari komputer ini dikunci "
+            galat = (f"Kata sandi salah. Sisa {sisa_coba} percobaan sebelum login dikunci "
                      f"{_teks_menit(LAMA_KUNCI_DETIK)}.")
+        else:
+            sisa_kunci = LAMA_KUNCI_DETIK
+            galat = (f"Kata sandi salah {BATAS_SALAH} kali. Login dari komputer ini dikunci "
+                     f"sementara.")
             status = 429
 
     return render_template("admin/login.html", galat=galat, terkunci=status == 429,
+                           sisa_kunci=sisa_kunci,
+                           teks_sisa=teks_sisa_kunci(sisa_kunci) if sisa_kunci else None,
                            next=request.values.get("next") or ""), status
 
 
@@ -302,6 +316,7 @@ def _tulis_kamus(kamus):
 @bp.get("/")
 def beranda():
     kamus = _baca_kamus()
+    ringkasan = pembaruan.ringkasan_terakhir(_mode_uji())
     return render_template(
         "admin/beranda.html",
         jumlah_kelompok=len(kamus),
@@ -311,7 +326,32 @@ def beranda():
             db.or_(LogPencarian.jumlah_hasil == 0,
                    LogPencarian.skor_tertinggi < AMBANG_KUERI_LEMAH)).count(),
         pembaruan_berjalan=pembaruan.sedang_berjalan(),
+        # Kartu Perbarui Data dan Ganti Kata Sandi (26 Nov 2026): angka dari
+        # data, bukan ditulis tetap di template.
+        tanggal_pembaruan=_tanggal_singkat(ringkasan["selesai_pada"]) if ringkasan else None,
+        pembaruan_gagal=bool(ringkasan and ringkasan.get("status") == "gagal"),
+        jumlah_publikasi=db.session.query(db.func.count(Publikasi.id)).scalar(),
+        lama_sesi=teks_lama_sesi(current_app.config["SESI_ADMIN_MENIT"]),
     )
+
+
+BULAN_SINGKAT = ("Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des")
+
+
+def _tanggal_singkat(dt):
+    """Waktu UTC -> "25 Nov" (zona waktu komputer), untuk kartu beranda admin."""
+    if not dt:
+        return None
+    lokal = dt.astimezone()
+    return f"{lokal.day} {BULAN_SINGKAT[lokal.month - 1]}"
+
+
+def teks_lama_sesi(menit):
+    """120 -> "2 jam", 90 -> "1 jam 30 menit", 45 -> "45 menit"."""
+    jam, sisa = divmod(int(menit), 60)
+    if not jam:
+        return f"{sisa} menit"
+    return f"{jam} jam" + (f" {sisa} menit" if sisa else "")
 
 
 # --------------------------------------------------------------------------

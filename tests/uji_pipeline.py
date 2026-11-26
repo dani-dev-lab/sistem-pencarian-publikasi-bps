@@ -4,7 +4,7 @@ Cara menjalankan (dari folder proyek):
 
     venv\Scripts\python.exe -u tests\uji_pipeline.py > uji_log.txt 2>&1
 
-Semua bagian sekitar 60 menit (25 Nov 2026: 3.634 detik, 165 uji). Sebagian saja (untuk pengembang): tambahkan
+Semua bagian sekitar 60 menit (26 Nov 2026: 3.279 detik, 169 uji). Sebagian saja (untuk pengembang): tambahkan
 --hanya DKRW (huruf bagian; U dan Z selalu jalan).
 
 Kamus: salinan memakai data/kamus_sinonim.json working tree, dan bagian N
@@ -2663,9 +2663,9 @@ keluar()
 x5 = {}
 x5['salah'] = [(masuk('10.9.9.1', 'salah').status_code) for _ in range(4)]
 r = masuk('10.9.9.1', 'salah')
-x5['ke5'] = [r.status_code, 'dikunci 5 menit' in r.get_data(as_text=True)]
+x5['ke5'] = [r.status_code, 'Login dari komputer ini dikunci sementara.' in r.get_data(as_text=True) and 'data-sisa="300"' in r.get_data(as_text=True)]
 r = masuk('10.9.9.1')
-x5['benar_saat_kunci'] = [r.status_code, 'coba lagi dalam 5 menit' in r.get_data(as_text=True)]
+x5['benar_saat_kunci'] = [r.status_code, 'Coba lagi dalam 5 menit.' in r.get_data(as_text=True)]
 with c.session_transaction() as s: x5['tidak_masuk'] = not s.get('admin_masuk')
 r = c.get('/admin/login', environ_base={'REMOTE_ADDR': '10.9.9.1'})
 x5['get_saat_kunci'] = [r.status_code, ' disabled' in r.get_data(as_text=True)]
@@ -2694,6 +2694,72 @@ buf = io.StringIO()
 with contextlib.redirect_stdout(buf):
     app = create_app(KonfigurasiUji)
 print('XENV ' + json.dumps({'menit': app.config['SESI_ADMIN_MENIT'], 'peringatan': 'SESI_ADMIN_MENIT di .env tidak sah' in buf.getvalue()}))
+'''
+
+
+KODE_X_KARTU = r'''
+import json, os, re, time
+from werkzeug.security import generate_password_hash
+from app import create_app
+from app.config import KonfigurasiUji
+from app.models import Publikasi, db
+from app.routes import admin as A
+hasil = {}
+app = create_app(KonfigurasiUji)
+app.config['ADMIN_PASSWORD_HASH'] = generate_password_hash('sandi-uji-x9-123')
+c = app.test_client()
+JAM = {'t': time.time()}
+A._sekarang = lambda: JAM['t']
+
+# X8: kartu beranda admin dari data (dengan dan tanpa riwayat pembaruan)
+with c.session_transaction() as s: s['admin_masuk'] = True; s['admin_aktif'] = int(JAM['t'])
+def kartu():
+    h = c.get('/admin/').get_data(as_text=True)
+    return [[' '.join(x.split()) for x in m] for m in re.findall(
+        r'<h2>.*?</svg>\s*([^<]*)</h2>\s*<p class="(angka[^"]*)">([^<]*)</p>\s*<p class="ket">(.*?)</p>', h, re.S)]
+F = r'{UJI}/data/pembaruan_terakhir-uji.json'
+asli = open(F, 'rb').read() if os.path.exists(F) else None
+with app.app_context():
+    n_pub = db.session.query(db.func.count(Publikasi.id)).scalar()
+json.dump({'status': 'sukses', 'selesai_pada': '2026-11-25T03:00:00+00:00'}, open(F, 'w', encoding='utf-8'))
+hasil['dengan'] = kartu()
+json.dump({'status': 'gagal', 'selesai_pada': '2026-11-03T03:00:00+00:00', 'jaringan': True}, open(F, 'w', encoding='utf-8'))
+hasil['gagal'] = kartu()
+os.remove(F)
+hasil['tanpa'] = kartu()
+if asli is not None:
+    open(F, 'wb').write(asli)
+hasil['n_pub'] = n_pub
+hasil['lama_sesi'] = [A.teks_lama_sesi(m) for m in (120, 90, 45, 60, 1440, 5)]
+with c.session_transaction() as s: s.clear()
+
+# X9: login terkunci - sisa dari server, pesan, meta refresh, tetap ditolak server
+def masuk(sandi, nxt=''):
+    return c.post('/admin/login', data={'sandi': sandi, 'next': nxt}, environ_base={'REMOTE_ADDR': '10.9.8.7'})
+def lihat(r):
+    h = r.get_data(as_text=True)
+    p = re.search(r'<p class="pesan-kunci".*?</p>', h, re.S)
+    return {'status': r.status_code,
+            'sisa': re.findall(r'data-sisa="(\d+)"', h),
+            'refresh': re.findall(r'<meta http-equiv="refresh" content="([^"]+)"', h),
+            'pesan': ' '.join(re.sub(r'<[^>]+>', ' ', p.group(0)).split()) if p else None,
+            'alert': re.findall(r'role="alert">([^<]*)', h),
+            'skrip': 'js/login-kunci.js' in h,
+            'nonaktif': bool(re.search(r'name="sandi"[^>]*disabled', h)) and bool(re.search(r'<button type="submit" disabled>Masuk', h))}
+salah = [lihat(masuk('salah')) for _ in range(4)]
+hasil['salah'] = [[x['status'], x['alert']] for x in salah]
+hasil['ke5'] = lihat(masuk('salah', '/admin/log'))
+JAM['t'] += 22.4
+hasil['22_detik'] = lihat(c.get('/admin/login', environ_base={'REMOTE_ADDR': '10.9.8.7'}))
+r = masuk('sandi-uji-x9-123')        # tombol "diaktifkan paksa": kiriman benar saat terkunci
+with c.session_transaction() as s: masuk_paksa = bool(s.get('admin_masuk'))
+hasil['paksa'] = [r.status_code, masuk_paksa]
+JAM['t'] += 300
+hasil['habis'] = lihat(c.get('/admin/login', environ_base={'REMOTE_ADDR': '10.9.8.7'}))
+r = masuk('sandi-uji-x9-123')
+hasil['sesudah_habis'] = [r.status_code, r.headers.get('Location')]
+hasil['teks_sisa'] = [A.teks_sisa_kunci(d) for d in (277, 300, 37, 60, 1)]
+print('XKARTU ' + json.dumps(hasil, ensure_ascii=False))
 '''
 
 
@@ -2809,6 +2875,50 @@ print('XLIMA', app.config['SESI_ADMIN_MENIT'], a, b)
         x5["salah"] == [200] * 4 and x5["ke5"] == [429, True] and x5["benar_saat_kunci"] == [429, True]
         and x5["tidak_masuk"] and x5["get_saat_kunci"] == [429, True] and x5["alamat_lain"] == 302
         and x5["4_menit"] == 429 and x5["5_menit_lebih"] == 302 and x5["reset"] == [200] * 4, x5)
+
+    # X8-X9 (26 Nov 2026): kartu beranda admin dari data; login terkunci.
+    kode_k, keluar_k, err_k = jalan_py(KODE_X_KARTU.replace("{UJI}", UJI))
+    m = re.search(r"^XKARTU (.*)$", keluar_k, re.M)
+    if not m:
+        cek("X8 potongan uji berjalan", False, (err_k or keluar_k)[-600:])
+    else:
+        k = json.loads(m.group(1))
+        print("    | " + json.dumps(k, ensure_ascii=False)[:1800], flush=True)
+        n = k["n_pub"]
+        dua = [["Kamus Sinonim"], ["Review Log Pencarian"]]
+        def kartu34(isi):
+            return [x for x in isi if x[0] in ("Perbarui Data", "Ganti Kata Sandi")]
+        sandi = ["Ganti Kata Sandi", "angka", "2 jam", "sesi otomatis berakhir bila tidak aktif"]
+        cek("X8 kartu beranda admin: Perbarui Data = tanggal pembaruan terakhir + jumlah publikasi dari "
+            "database ('gagal' ditandai), 'belum pernah' tanpa riwayat; Ganti Kata Sandi = lama sesi dari "
+            "SESI_ADMIN_MENIT; tanpa ikon besar; 4 kartu",
+            len(k["dengan"]) == 4 and len(k["tanpa"]) == 4
+            and kartu34(k["dengan"]) == [["Perbarui Data", "angka", "25 Nov", f"pembaruan terakhir &middot; {n} publikasi"], sandi]
+            and kartu34(k["gagal"]) == [["Perbarui Data", "angka", "3 Nov", f"pembaruan terakhir (gagal) &middot; {n} publikasi"], sandi]
+            and kartu34(k["tanpa"]) == [["Perbarui Data", "angka angka-teks", "belum pernah",
+                                         f"belum ada pembaruan tercatat &middot; {n} publikasi"], sandi]
+            and k["lama_sesi"] == ["2 jam", "1 jam 30 menit", "45 menit", "1 jam", "24 jam", "5 menit"],
+            {x: k[x] for x in ("dengan", "gagal", "tanpa", "lama_sesi", "n_pub")})
+        cek("X9 sandi salah sebelum terkunci: 'Kata sandi salah. Sisa N percobaan sebelum login dikunci 5 menit.'",
+            k["salah"] == [[200, [f"Kata sandi salah. Sisa {s} percobaan sebelum login dikunci 5 menit."]]
+                           for s in (4, 3, 2, 1)], k["salah"])
+        k5, k22 = k["ke5"], k["22_detik"]
+        cek("X9 terkunci: sisa dari server (data-sisa 300, lalu 278 sesudah 22,4 detik), teks tanpa JavaScript "
+            "('5 menit', '4 menit 38 detik'), meta refresh tepat saat berakhir (GET login, next terjaga), "
+            "formulir nonaktif, skrip hitung mundur dimuat",
+            k5["status"] == 429 and k5["sisa"] == ["300"] and k5["refresh"] == ["300;url=/admin/login?next=/admin/log"]
+            and k5["pesan"] == "Kata sandi salah 5 kali. Login dari komputer ini dikunci sementara. Coba lagi dalam 5 menit."
+            and k5["nonaktif"] and k5["skrip"]
+            and k22["status"] == 429 and k22["sisa"] == ["278"] and k22["refresh"] == ["278;url=/admin/login"]
+            and k22["pesan"] == ("Terlalu banyak kata sandi salah dari komputer ini. Login dikunci sementara. "
+                                 "Coba lagi dalam 4 menit 38 detik.") and k22["nonaktif"]
+            and k["teks_sisa"] == ["4 menit 37 detik", "5 menit", "37 detik", "1 menit", "1 detik"],
+            {x: k[x] for x in ("ke5", "22_detik", "teks_sisa")})
+        cek("X9 penguncian tetap ditegakkan server: sandi benar dikirim saat terkunci (tombol diaktifkan paksa) = "
+            "429, tidak masuk; sesudah habis: formulir aktif tanpa hitung mundur, sandi benar masuk",
+            k["paksa"] == [429, False] and k["habis"]["status"] == 200 and k["habis"]["sisa"] == []
+            and k["habis"]["refresh"] == [] and not k["habis"]["nonaktif"] and not k["habis"]["skrip"]
+            and k["sesudah_habis"] == [302, "/admin/"], {x: k[x] for x in ("paksa", "habis", "sesudah_habis")})
 
     # X6: JUMLAH_PROXY (25 Nov 2026). Lima sandi salah dengan X-Forwarded-For A,
     # lalu sandi benar dengan X-Forwarded-For B dan A, dari koneksi yang sama.
