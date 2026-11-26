@@ -26,7 +26,7 @@ from flask import (
 )
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from app.config import PANJANG_SANDI_MINIMAL, tulis_admin_hash
+from app.config import PANJANG_SANDI_MINIMAL, teks_os, tulis_admin_hash
 from app.models import LogPencarian, Publikasi, db
 from app.services import alamat_kembali, pembaruan, pilihan_pembaruan, ringkasan_pembaruan
 from app.services.pilihan_pembaruan import PilihanTidakSah
@@ -498,7 +498,7 @@ def terapkan():
         return redirect(url_for("admin.kamus"))
 
     if ringkasan is None:
-        flash("Database masih kosong - jalankan perbarui-data.bat dulu.", "gagal")
+        flash(teks_os("Database masih kosong - jalankan perbarui-data.bat dulu."), "gagal")
     else:
         flash(f"Kamus diterapkan ke data dalam {ringkasan['waktu_detik']:.1f} detik: "
               f"{ringkasan['entri_diubah']} dari {ringkasan['entri_total']} entri "

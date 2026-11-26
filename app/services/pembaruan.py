@@ -46,8 +46,13 @@ def _pid_hidup(pid):
     """Sama seperti perbarui._proses_hidup - diduplikasi supaya paket app tidak
     perlu mengimpor dari folder scripts/."""
     if os.name != "nt":
+        # PermissionError = proses ada, milik pengguna lain: tetap berjalan.
         try:
             os.kill(pid, 0)
+            return True
+        except ProcessLookupError:
+            return False
+        except PermissionError:
             return True
         except OSError:
             return False

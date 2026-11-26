@@ -51,7 +51,7 @@ import sqlalchemy as sa
 from sqlalchemy.engine import make_url
 
 from app import create_app
-from app.config import Config, KonfigurasiUji
+from app.config import Config, KonfigurasiUji, teks_os
 from app.models import EntriDokumen, Publikasi, db
 from app.services import pilihan_pembaruan, pipeline_data, ringkasan_pembaruan, sampul, sumber_bps, versi_data
 from app.services.normalisasi_data import bersihkan_html
@@ -188,22 +188,24 @@ def info_jaringan():
 
     SSID Wi-Fi (Windows, lewat netsh) dan alamat IP webapi.bps.go.id menurut
     DNS yang dipakai - DNS kantor pernah mengarahkannya ke 10.0.11.232 yang
-    menolak koneksi (lihat CLAUDE.md, Catatan lingkungan).
+    menolak koneksi (lihat CLAUDE.md, Catatan lingkungan). Di Linux SSID
+    tidak dicari (server berkabel; netsh tidak ada) dan tetap None.
     """
     import socket
     import subprocess
     info = {"ssid": None, "webapi_ip": None}
-    try:
-        keluaran = subprocess.run(["netsh", "wlan", "show", "interfaces"],
-                                  capture_output=True, text=True, timeout=10,
-                                  errors="replace").stdout
-        for baris in keluaran.splitlines():
-            kiri, _, kanan = baris.partition(":")
-            if kiri.strip() == "SSID":
-                info["ssid"] = kanan.strip()
-                break
-    except (OSError, subprocess.SubprocessError):
-        pass
+    if os.name == "nt":
+        try:
+            keluaran = subprocess.run(["netsh", "wlan", "show", "interfaces"],
+                                      capture_output=True, text=True, timeout=10,
+                                      errors="replace").stdout
+            for baris in keluaran.splitlines():
+                kiri, _, kanan = baris.partition(":")
+                if kiri.strip() == "SSID":
+                    info["ssid"] = kanan.strip()
+                    break
+        except (OSError, subprocess.SubprocessError):
+            pass
     try:
         info["webapi_ip"] = socket.gethostbyname("webapi.bps.go.id")
     except OSError:
@@ -213,7 +215,9 @@ def info_jaringan():
 
 def jaga_tetap_bangun(aktif):
     """Cegah Windows tidur selama pembaruan berjalan (tidak mencegah tutup layar
-    laptop kalau setelan 'tutup layar = tidur'). Tanpa efek di sistem lain."""
+    laptop kalau setelan 'tutup layar = tidur'). Tanpa efek di sistem lain:
+    server Linux tidak tidur sendiri; di laptop Linux jalankan pembaruan lewat
+    `systemd-inhibit ./perbarui-data.sh` kalau perlu (PANDUAN)."""
     if os.name != "nt":
         return
     import ctypes
@@ -258,8 +262,15 @@ def _proses_hidup(pid):
     diterjemahkan menjadi TerminateProcess - "memeriksa" berarti MEMBUNUH.
     """
     if os.name != "nt":
+        # Linux/Unix: sinyal 0 hanya memeriksa, tidak mengirim apa pun.
+        # PermissionError = proses ADA tetapi milik pengguna lain (misalnya
+        # layanan aplikasi vs tim IT di terminal): tetap dianggap berjalan.
         try:
             os.kill(pid, 0)
+            return True
+        except ProcessLookupError:
+            return False
+        except PermissionError:
             return True
         except OSError:
             return False
@@ -329,7 +340,7 @@ def pastikan_skema():
     db.create_all()
     kolom = {k["name"] for k in sa.inspect(db.engine).get_columns("publikasi")}
     if "domain" not in kolom:
-        print(PESAN_SKEMA)
+        print(teks_os(PESAN_SKEMA))
         sys.exit(KODE_GAGAL)
     # Penanda versi untuk korpus pencarian di memori. DDL di sini, SEBELUM
     # transaksi penulis mana pun (CREATE TABLE memaksa commit di MySQL).
@@ -934,7 +945,7 @@ def jalankan_pembaruan(opsi):
     if terancam:
         daftar = "".join(f"    - [{p['domain']} {p['pub_id'][:8]}] {p['judul']} "
                          f"({p['halaman_ocr']} halaman OCR)\n" for p in terancam)
-        print(PESAN_PAKSA_TANPA_OCR.format(n=len(terancam), daftar=daftar))
+        print(teks_os(PESAN_PAKSA_TANPA_OCR).format(n=len(terancam), daftar=daftar))
         tulis_ringkasan("gagal", tahap="pemeriksaan pilihan", jaringan=False,
                         pesan=f"--paksa dan --tanpa-ocr tidak boleh dipakai bersamaan: "
                               f"{len(terancam)} publikasi hasil OCR akan kehilangan rincian "
@@ -955,12 +966,12 @@ def jalankan_pembaruan(opsi):
     # disentuh; tanpa ini petunjuknya terselip di rincian tiap wilayah.
     if terhalang and len(terhalang) == len(aktif):
         alasan = "; ".join(sorted(set(terhalang.values())))
-        print(PESAN_SEMUA_TERHALANG.format(n=len(aktif), alasan=alasan))
+        print(teks_os(PESAN_SEMUA_TERHALANG).format(n=len(aktif), alasan=alasan))
         tulis_ringkasan("gagal", tahap="pemeriksaan wilayah", jaringan=False,
                         pesan=f"Semua wilayah aktif ({len(aktif)}) belum punya data dan belum "
                               f"boleh dimuat ({alasan}). Tim IT perlu menjalankan sekali: "
-                              "venv\\Scripts\\python.exe scripts\\perbarui.py --hanya-periksa "
-                              "- lalu pembaruan diulang.",
+                              + teks_os("venv\\Scripts\\python.exe scripts\\perbarui.py --hanya-periksa ")
+                              + "- lalu pembaruan diulang.",
                         durasi_detik=round(time.time() - mulai))
         return KODE_GAGAL
     jaringan_dipakai = {} if opsi.lokal else info_jaringan()

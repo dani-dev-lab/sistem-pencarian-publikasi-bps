@@ -10,6 +10,25 @@ from sqlalchemy.engine import make_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / ".env")
 
+def teks_os(teks):
+    """Teks petunjuk untuk sistem operasi ini (26 Nov 2026, portabilitas).
+
+    Pesan di kode ditulis dalam bentuk Windows ("venv\\Scripts\\python.exe
+    scripts\\perbarui.py", "perbarui-data.bat", "data\\ocr_cache"). Di Windows
+    teks dikembalikan APA ADANYA, jadi perilaku Windows tidak berubah. Di
+    sistem lain diganti padanan Linux: venv/bin/python, ./perbarui-data.sh,
+    dan garis miring "/".
+    """
+    if os.name == "nt":
+        return teks
+    for windows, linux in (("venv\\Scripts\\python.exe", "venv/bin/python"),
+                           ("venv\\Scripts\\pip.exe", "venv/bin/pip"),
+                           ("perbarui-data.bat", "./perbarui-data.sh"),
+                           ("jalankan-aplikasi.bat", "./jalankan-aplikasi.sh")):
+        teks = teks.replace(windows, linux)
+    return teks.replace("\\", "/")
+
+
 # Nilai yang dulu dipakai sebagai fallback pengembangan. Sekarang ditolak:
 # kalau masih ini, siapa pun yang membaca kode sumber bisa memalsukan session.
 SECRET_KEY_LAMA = "kunci-pengembangan-lokal"
@@ -139,9 +158,11 @@ def program_mysql(nama, folder=None):
     ketemu = shutil.which(nama)
     if ketemu:
         return ketemu
+    contoh = ("C:/laragon/bin/mysql/mysql-8.0.30-winx64/bin" if os.name == "nt"
+              else "/usr/bin")
     raise SystemExit(
         f"Program {nama} tidak ditemukan di PATH. Tambahkan ke .env baris seperti:\n"
-        "  MYSQL_BIN=C:/laragon/bin/mysql/mysql-8.0.30-winx64/bin\n"
+        f"  MYSQL_BIN={contoh}\n"
         "(sesuaikan dengan folder bin MySQL di komputer ini).")
 
 
@@ -239,9 +260,9 @@ def periksa_konfigurasi(config_class=Config):
     periksa_database_uji(config_class)
     masalah = []
     if not config_class.SECRET_KEY or config_class.SECRET_KEY == SECRET_KEY_LAMA:
-        masalah.append(PESAN_SECRET_KEY)
+        masalah.append(teks_os(PESAN_SECRET_KEY))
     if not config_class.ADMIN_PASSWORD_HASH:
-        masalah.append(PESAN_ADMIN_HASH)
+        masalah.append(teks_os(PESAN_ADMIN_HASH))
     if not (config_class.PORT.isdigit() and 1 <= int(config_class.PORT) <= 65535):
         masalah.append(
             f"PORT di .env tidak valid: {config_class.PORT!r}.\n\n"

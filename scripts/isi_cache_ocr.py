@@ -36,8 +36,13 @@ KEMAJUAN = os.path.join(DIR_LOG, "kemajuan.txt")
 def _proses_hidup(pid):
     """Sama dengan perbarui._proses_hidup: di Windows JANGAN os.kill(pid, 0)."""
     if os.name != "nt":
+        # PermissionError = proses ada, milik pengguna lain: tetap berjalan.
         try:
             os.kill(pid, 0)
+            return True
+        except ProcessLookupError:
+            return False
+        except PermissionError:
             return True
         except OSError:
             return False
@@ -86,12 +91,12 @@ def main():
 
     if os.path.exists(KUNCI):
         try:
-            pid_lain = int(open(KUNCI).read().strip() or 0)
+            pid_lain = int(open(KUNCI, encoding="utf-8").read().strip() or 0)
         except ValueError:
             pid_lain = 0
         if pid_lain and _proses_hidup(pid_lain):
             raise SystemExit(f"TIDAK DIJALANKAN: isi_cache_ocr sudah berjalan (PID {pid_lain}).")
-    open(KUNCI, "w").write(str(os.getpid()))
+    open(KUNCI, "w", encoding="utf-8").write(str(os.getpid()))
 
     berkas_log = open(os.path.join(DIR_LOG, f"{datetime.now():%Y%m%d-%H%M%S}.log"), "a", encoding="utf-8")
 
@@ -109,7 +114,9 @@ def main():
     try:
         from app.services import ocr
         if not ocr.tersedia():
-            raise SystemExit("EasyOCR tidak terpasang: venv\\Scripts\\python.exe -m pip install -r requirements-ocr.txt")
+            from app.config import teks_os
+            raise SystemExit("EasyOCR tidak terpasang: "
+                             + teks_os("venv\\Scripts\\python.exe -m pip install -r requirements-ocr.txt"))
         if opsi.gpu:
             import torch
             if not torch.cuda.is_available():

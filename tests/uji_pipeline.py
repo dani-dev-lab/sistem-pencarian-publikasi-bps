@@ -4,7 +4,7 @@ Cara menjalankan (dari folder proyek):
 
     venv\Scripts\python.exe -u tests\uji_pipeline.py > uji_log.txt 2>&1
 
-Semua bagian sekitar 60 menit (26 Nov 2026: 3.202 detik, 172 uji). Sebagian saja (untuk pengembang): tambahkan
+Semua bagian sekitar 60 menit (26 Nov 2026: 3.524 detik, 184 uji). Sebagian saja (untuk pengembang): tambahkan
 --hanya DKRW (huruf bagian; U dan Z selalu jalan).
 
 Kamus: salinan memakai data/kamus_sinonim.json working tree, dan bagian N
@@ -58,7 +58,7 @@ sys.path.insert(0, ASLI)
 import sqlalchemy as sa  # noqa: E402
 from sqlalchemy.engine import make_url  # noqa: E402
 
-from app.config import Config, KonfigurasiUji, program_mysql  # noqa: E402
+from app.config import Config, KonfigurasiUji, program_mysql, teks_os  # noqa: E402
 
 KODE_LULUS, KODE_GAGAL, KODE_LINGKUNGAN = 0, 1, 2
 # --kamus-head: salinan memakai data/kamus_sinonim.json versi commit terakhir
@@ -153,7 +153,7 @@ def periksa_lingkungan():
         raise LingkunganBelumSiap(f"MySQL tidak bisa dihubungi ({e}). Laragon sudah Start All?") from None
     if not sql(f"SHOW DATABASES LIKE '{DB_UJI}'"):
         raise LingkunganBelumSiap(f"database uji {DB_UJI} belum ada. Jalankan dulu: "
-                                  r"venv\Scripts\python.exe scripts\siapkan_db_uji.py")
+                                  + teks_os(r"venv\Scripts\python.exe scripts\siapkan_db_uji.py"))
     pdf = glob.glob(f"{ASLI}/data/publikasi_pdf/{DOMAIN}/*.pdf")
     if not pdf:
         raise LingkunganBelumSiap(f"PDF domain {DOMAIN} tidak ada di data/publikasi_pdf/{DOMAIN}")
@@ -161,8 +161,13 @@ def periksa_lingkungan():
     if int(n_db) != len(pdf):
         raise LingkunganBelumSiap(f"database uji punya {n_db} publikasi domain {DOMAIN}, "
                                   f"di disk {len(pdf)} PDF")
-    if os.path.splitdrive(tempfile.gettempdir())[0].lower() != os.path.splitdrive(ASLI)[0].lower():
-        raise LingkunganBelumSiap("folder sementara beda drive dengan proyek (hardlink tidak bisa)")
+    if os.name == "nt":
+        if os.path.splitdrive(tempfile.gettempdir())[0].lower() != os.path.splitdrive(ASLI)[0].lower():
+            raise LingkunganBelumSiap("folder sementara beda drive dengan proyek (hardlink tidak bisa)")
+    elif os.stat(tempfile.gettempdir()).st_dev != os.stat(ASLI).st_dev:
+        # Linux: /tmp sering tmpfs (sistem berkas lain) -> hardlink gagal (EXDEV).
+        raise LingkunganBelumSiap("folder sementara beda sistem berkas dengan proyek (hardlink tidak bisa); "
+                                  "jalankan dengan TMPDIR=<folder di disk yang sama dengan proyek>")
     with socket.socket() as s:
         if s.connect_ex(("127.0.0.1", PORT)) == 0:
             raise LingkunganBelumSiap(f"port {PORT} untuk server tiruan sudah dipakai")
@@ -1186,7 +1191,10 @@ def bagian_t(per_id, x, kecil):
     t0 = time.time()
     while time.time() - t0 < 120 and not any("/pdf/" in q for _, q in PERMINTAAN):
         time.sleep(0.05)
-    subprocess.run(["taskkill", "/F", "/PID", str(p.pid)], capture_output=True)
+    if os.name == "nt":
+        subprocess.run(["taskkill", "/F", "/PID", str(p.pid)], capture_output=True)
+    else:
+        p.kill()                         # SIGKILL = padanan taskkill /F
     p.wait()
     kunci = f"{UJI}/data/pembaruan.lock"
     cek("T2 proses dibunuh: kunci basi tertinggal", os.path.exists(kunci), f"setelah {time.time() - t0:.1f} d")
@@ -1447,7 +1455,7 @@ def siapkan_bat():
         jalur = os.path.dirname(PY).replace("/", chr(92))
         f.write('@set "PATH=' + jalur + ';%PATH%"' + chr(13) + chr(10))
     shutil.copy2(f"{ASLI}/perbarui-data.bat", f"{UJI}/perbarui-data.bat")
-    open(f"{UJI}/.env", "w").write("# kosong: nilai uji datang dari variabel lingkungan\n")
+    open(f"{UJI}/.env", "w", encoding="utf-8").write("# kosong: nilai uji datang dari variabel lingkungan\n")
 
 
 def bat(*arg):
@@ -1456,6 +1464,145 @@ def bat(*arg):
                        env=ENV, stdin=subprocess.DEVNULL, capture_output=True, text=True, encoding="utf-8",
                        errors="replace", timeout=600)
     return r.stdout + r.stderr
+
+
+SKRIP_SH = ("jalankan-aplikasi.sh", "perbarui-data.sh", "jalankan-aplikasi-uji.sh",
+            "tarik-kecamatan-uji.sh", "periksa-kecamatan-uji.sh")
+
+
+def program_bash():
+    """bash untuk menjalankan skrip .sh (26 Nov 2026). Linux: bash di PATH.
+    Windows: bash Git for Windows, BUKAN bash.exe WSL (System32/WindowsApps),
+    yang menjalankan Linux lain tanpa venv dan MySQL ini."""
+    if os.name != "nt":
+        return shutil.which("bash")
+    for calon in (shutil.which("bash"), r"C:\Program Files\Git\bin\bash.exe",
+                  r"C:\Program Files\Git\usr\bin\bash.exe"):
+        if calon and os.path.isfile(calon) and not re.search(r"system32|windowsapps", calon, re.I):
+            return calon
+    return None
+
+
+def siapkan_sh():
+    """Skrip .sh sungguhan di salinan. venv/bin/python = pembungkus sh yang
+    memanggil Python uji ini (venv asli tidak disalin)."""
+    os.makedirs(f"{UJI}/venv/bin", exist_ok=True)
+    with open(f"{UJI}/venv/bin/python", "w", encoding="utf-8", newline="\n") as f:
+        f.write('#!/bin/sh\nexec "' + PY.replace(chr(92), "/") + '" "$@"\n')
+    os.chmod(f"{UJI}/venv/bin/python", 0o755)
+    for n in SKRIP_SH:
+        shutil.copy2(f"{ASLI}/{n}", f"{UJI}/{n}")
+        os.chmod(f"{UJI}/{n}", 0o755)
+
+
+def sh(bash, skrip, *arg, cwd=None, env_tambah=None):
+    """Skrip .sh di salinan (stdin bukan terminal: tanpa jeda di akhir).
+    Mengembalikan (kode keluar, keluaran)."""
+    r = subprocess.run([bash, skrip, *arg], cwd=cwd or UJI, env={**ENV, **(env_tambah or {})},
+                       stdin=subprocess.DEVNULL, capture_output=True, text=True, encoding="utf-8",
+                       errors="replace", timeout=600)
+    return r.returncode, r.stdout + r.stderr
+
+
+def uji_sh(per_id, v):
+    """W7-W14 (26 Nov 2026): padanan Linux .bat dijalankan sungguhan dengan bash
+    (di Windows: bash Git for Windows). Pesan penutup sama dengan .bat; kode
+    keluar = kode perbarui.py / run.py."""
+    bash = program_bash()
+    if not bash:
+        for n in ("W7", "W8", "W9", "W10", "W11", "W12", "W13", "W14"):
+            lewati(f"{n} skrip .sh", "bash tidak ditemukan")
+        return
+    print(f"    | bash: {bash}", flush=True)
+    masalah = {}
+    for n in SKRIP_SH:
+        b = open(f"{ASLI}/{n}", "rb").read()
+        mode = subprocess.run(["git", "-C", ASLI, "ls-files", "-s", n], capture_output=True, text=True).stdout.split()
+        masalah[n] = [x for x, ok in (
+            ("ASCII", all(c < 128 for c in b)), ("LF", b"\r" not in b),
+            ("+x di Git", bool(mode) and mode[0] == "100755"),
+            ("shebang", b.startswith(b"#!/usr/bin/env bash\n")),
+            ("set -euo pipefail", b"\nset -euo pipefail\n" in b),
+            ("padanan .bat", os.path.exists(f"{ASLI}/{n[:-3]}.bat"))) if not ok]
+    atribut = open(f"{ASLI}/.gitattributes", encoding="utf-8").read()
+    cek("W7 skrip .sh: ASCII, LF, +x di Git, bash + set -euo pipefail, satu per .bat; "
+        ".gitattributes *.sh eol=lf, *.bat eol=crlf",
+        all(not m for m in masalah.values()) and len(masalah) == len(glob.glob(f"{ASLI}/*.bat"))
+        and "*.sh  text eol=lf" in atribut and "*.bat text eol=crlf" in atribut, masalah)
+
+    siapkan_sh()
+
+    def baris(k, kata):
+        return [b.strip() for b in k.splitlines() if kata in b][:2]
+
+    per_id[v]["updt_date"] = "2026-12-20"
+    KEADAAN["mode_pdf"][v] = "500"
+    rc, k = sh(bash, "perbarui-data.sh", "--db-uji")
+    cek("W8 perbarui-data.sh: perbarui.py exit 3 -> SELESAI SEBAGIAN, kode keluar 3",
+        rc == 3 and "PEMBARUAN SELESAI SEBAGIAN" in k and "PEMBARUAN GAGAL" not in k, [rc] + baris(k, "PEMBARUAN"))
+    del KEADAAN["mode_pdf"][v]
+    rc, k = sh(bash, "perbarui-data.sh", "--db-uji")
+    cek("W9 perbarui-data.sh: exit 0 -> PEMBARUAN SELESAI., cek MySQL ke database uji, kode 0",
+        rc == 0 and "PEMBARUAN SELESAI." in k and "SEBAGIAN" not in k and f"database: {DB_UJI}" in k,
+        [rc] + baris(k, "PEMBARUAN") + baris(k, "database:"))
+    KEADAAN["gagal_domain"][DOMAIN] = "putus"
+    rc, k = sh(bash, "perbarui-data.sh", "--db-uji")
+    cek("W10 perbarui-data.sh: exit 1 -> PEMBARUAN GAGAL + pesan jaringan, kode 1",
+        rc == 1 and "PEMBARUAN GAGAL" in k and "tidak bisa dihubungi" in k, [rc] + baris(k, "PEMBARUAN"))
+    del KEADAAN["gagal_domain"][DOMAIN]
+    per_id[v]["updt_date"] = "2026-12-19"            # run pertama diberi kerja supaya pasti masih berjalan
+    p = popen_perbarui()
+    t0 = time.time()
+    while time.time() - t0 < 60 and not os.path.exists(f"{UJI}/data/pembaruan.lock"):
+        time.sleep(0.05)
+    rc, k = sh(bash, "perbarui-data.sh", "--db-uji")
+    p.wait()
+    cek("W11 perbarui-data.sh saat terkunci -> TIDAK DIJALANKAN, kode 2",
+        rc == 2 and "TIDAK DIJALANKAN" in k, [rc] + baris(k, "DIJALANKAN"))
+    rc, k = sh(bash, "perbarui-data.sh", "--db-uji", "--cek-dulu")
+    cek("W12 perbarui-data.sh --cek-dulu -> CEK SELESAI, kode 0",
+        rc == 0 and "CEK SELESAI" in k and "PEMBARUAN SELESAI" not in k, [rc] + baris(k, "SELESAI"))
+
+    # W13: jalankan-aplikasi.sh membaca PORT seperti .bat (baris #, CRLF), argumen
+    # menimpa .env, port terpakai -> berhenti dengan pesan, kode 1. Pemeriksaan
+    # MySQL diarahkan ke database UJI (DATABASE_URL = URL uji).
+    env_asli = open(f"{UJI}/.env", "rb").read()
+    db_uji = {"DATABASE_URL": URL_UJI.render_as_string(hide_password=False)}
+    soket = [socket.socket() for _ in range(2)]
+    try:
+        for s in soket:
+            s.bind(("127.0.0.1", 0))
+            s.listen(50)                 # beberapa run memeriksa port yang sama; backlog 1 penuh -> ditolak
+        p1, p2 = (s.getsockname()[1] for s in soket)
+        with open(f"{UJI}/.env", "wb") as f:
+            f.write(f"# komentar\r\n#PORT=1\r\nPORT={p1}\r\nLAIN=x=y\r\n".encode())
+        rc1, k1 = sh(bash, "jalankan-aplikasi.sh", env_tambah=db_uji)
+        rc2, k2 = sh(bash, "jalankan-aplikasi.sh", str(p2), env_tambah=db_uji)
+        rc3, k3 = sh(bash, "jalankan-aplikasi-uji.sh", str(p2))
+    finally:
+        for s in soket:
+            s.close()
+        with open(f"{UJI}/.env", "wb") as f:
+            f.write(env_asli)
+    cek("W13 jalankan-aplikasi.sh: PORT dari .env (abaikan #, CRLF), argumen menimpa, port terpakai -> "
+        "pesan + kode 1; jalankan-aplikasi-uji.sh memeriksa database uji",
+        rc1 == 1 and f"[GAGAL] Port {p1} sudah dipakai." in k1 and "MySQL aktif." in k1
+        and rc2 == 1 and f"[GAGAL] Port {p2} sudah dipakai." in k2
+        and rc3 == 1 and f"Database: {DB_UJI}" in k3 and f"[GAGAL] Port {p2} sudah dipakai." in k3,
+        [rc1, baris(k1, "GAGAL"), rc2, baris(k2, "GAGAL"), rc3, baris(k3, "Database")])
+
+    # W14: tanpa venv -> pesan yang sama dengan .bat, kode 1 (folder kosong).
+    kosong = f"{SP}/sh_tanpa_venv"
+    shutil.rmtree(kosong, ignore_errors=True)
+    os.makedirs(kosong)
+    hasil = {}
+    for n in ("jalankan-aplikasi.sh", "perbarui-data.sh", "jalankan-aplikasi-uji.sh"):
+        shutil.copy2(f"{ASLI}/{n}", f"{kosong}/{n}")
+        hasil[n] = sh(bash, n, cwd=kosong)
+    shutil.rmtree(kosong, ignore_errors=True)
+    cek("W14 skrip .sh tanpa venv: '[GAGAL] Folder venv tidak ditemukan.', kode 1",
+        all(rc == 1 and "[GAGAL] Folder venv tidak ditemukan." in k for rc, k in hasil.values()),
+        {n: [rc, baris(k, "GAGAL")] for n, (rc, k) in hasil.items()})
 
 
 def bagian_w(per_id, v):
@@ -1484,36 +1631,41 @@ print('SEBAGIAN_TAMPIL', 'selesai sebagian' in h, 'JUDUL_GAGAL', {per_id[v]['tit
         and "SEBAGIAN_TAMPIL True JUDUL_GAGAL True UJI True" in keluar)
     del KEADAAN["mode_pdf"][v]
 
-    siapkan_bat()
-    isi_bat = open(f"{ASLI}/perbarui-data.bat", "rb").read()
-    cek("W2 .bat tetap ASCII + CRLF", all(x < 128 for x in isi_bat) and b"\n" not in isi_bat.replace(b"\r\n", b""))
+    if os.name == "nt":
+        siapkan_bat()
+        isi_bat = open(f"{ASLI}/perbarui-data.bat", "rb").read()
+        cek("W2 .bat tetap ASCII + CRLF", all(x < 128 for x in isi_bat) and b"\n" not in isi_bat.replace(b"\r\n", b""))
 
-    def baris(k, kata):
-        return [b.strip() for b in k.splitlines() if kata in b][:2]
+        def baris(k, kata):
+            return [b.strip() for b in k.splitlines() if kata in b][:2]
 
-    per_id[v]["updt_date"] = "2026-12-22"
-    KEADAAN["mode_pdf"][v] = "500"
-    k = bat()
-    cek("W3 .bat exit 3 -> SELESAI SEBAGIAN", "PEMBARUAN SELESAI SEBAGIAN" in k and "PEMBARUAN GAGAL" not in k,
-        baris(k, "PEMBARUAN"))
-    del KEADAAN["mode_pdf"][v]
-    k = bat()
-    cek("W4 .bat exit 0 -> PEMBARUAN SELESAI., cek MySQL ke database uji",
-        "PEMBARUAN SELESAI." in k and "SEBAGIAN" not in k and f"database: {DB_UJI}" in k,
-        baris(k, "PEMBARUAN") + baris(k, "database:"))
-    KEADAAN["gagal_domain"][DOMAIN] = "putus"
-    k = bat()
-    cek("W5 .bat exit 1 -> PEMBARUAN GAGAL + pesan jaringan", "PEMBARUAN GAGAL" in k and "tidak bisa dihubungi" in k,
-        baris(k, "PEMBARUAN"))
-    del KEADAAN["gagal_domain"][DOMAIN]
-    per_id[v]["updt_date"] = "2026-12-21"            # run pertama diberi kerja supaya pasti masih berjalan
-    p = popen_perbarui()
-    t0 = time.time()
-    while time.time() - t0 < 60 and not os.path.exists(f"{UJI}/data/pembaruan.lock"):
-        time.sleep(0.05)
-    k = bat()
-    cek("W6 .bat saat terkunci -> TIDAK DIJALANKAN", "TIDAK DIJALANKAN" in k, baris(k, "DIJALANKAN"))
-    p.wait()
+        per_id[v]["updt_date"] = "2026-12-22"
+        KEADAAN["mode_pdf"][v] = "500"
+        k = bat()
+        cek("W3 .bat exit 3 -> SELESAI SEBAGIAN", "PEMBARUAN SELESAI SEBAGIAN" in k and "PEMBARUAN GAGAL" not in k,
+            baris(k, "PEMBARUAN"))
+        del KEADAAN["mode_pdf"][v]
+        k = bat()
+        cek("W4 .bat exit 0 -> PEMBARUAN SELESAI., cek MySQL ke database uji",
+            "PEMBARUAN SELESAI." in k and "SEBAGIAN" not in k and f"database: {DB_UJI}" in k,
+            baris(k, "PEMBARUAN") + baris(k, "database:"))
+        KEADAAN["gagal_domain"][DOMAIN] = "putus"
+        k = bat()
+        cek("W5 .bat exit 1 -> PEMBARUAN GAGAL + pesan jaringan", "PEMBARUAN GAGAL" in k and "tidak bisa dihubungi" in k,
+            baris(k, "PEMBARUAN"))
+        del KEADAAN["gagal_domain"][DOMAIN]
+        per_id[v]["updt_date"] = "2026-12-21"            # run pertama diberi kerja supaya pasti masih berjalan
+        p = popen_perbarui()
+        t0 = time.time()
+        while time.time() - t0 < 60 and not os.path.exists(f"{UJI}/data/pembaruan.lock"):
+            time.sleep(0.05)
+        k = bat()
+        cek("W6 .bat saat terkunci -> TIDAK DIJALANKAN", "TIDAK DIJALANKAN" in k, baris(k, "DIJALANKAN"))
+        p.wait()
+    else:
+        for n in ("W2", "W3", "W4", "W5", "W6"):
+            lewati(f"{n} .bat", "bukan Windows: .bat tidak bisa dijalankan; padanannya diuji di W7-W14")
+    uji_sh(per_id, v)
 
 
 KODE_BAGIAN_V = r'''
@@ -2006,8 +2158,11 @@ def bagian_q(per_id):
             os.makedirs(os.path.dirname(f"{lama}/{f}"), exist_ok=True)
             open(f"{lama}/{f}", "wb").write(subprocess.run(
                 ["git", "-C", ASLI, "show", f"{KODE_SEBELUM_FORMULIR}:{f}"], capture_output=True, check=True).stdout)
-        subprocess.run(["cmd", "/c", "mklink", "/J", os.path.normpath(sambungan), os.path.normpath(f"{UJI}/data")],
-                       capture_output=True, check=True)
+        if os.name == "nt":
+            subprocess.run(["cmd", "/c", "mklink", "/J", os.path.normpath(sambungan),
+                            os.path.normpath(f"{UJI}/data")], capture_output=True, check=True)
+        else:                            # Linux: symlink folder (padanan junction)
+            os.symlink(f"{UJI}/data", sambungan, target_is_directory=True)
         skrip_lama = f"{lama}/scripts/perbarui.py"
         lama_asli = "--cek-dulu" not in open(skrip_lama, encoding="utf-8").read()
 
@@ -2035,7 +2190,9 @@ def bagian_q(per_id):
         kode_b, keluar_b, minta_b = jalan_catat()
         r_b, s_b = ringkasan(), potret()
     finally:
-        if os.path.isdir(sambungan):
+        if os.path.islink(sambungan):    # Linux: symlink, dihapus sebagai tautan saja
+            os.unlink(sambungan)
+        elif os.path.isdir(sambungan):
             os.rmdir(sambungan)          # hanya sambungannya; isi data/ salinan tidak disentuh
         shutil.rmtree(lama, ignore_errors=True)
 
@@ -2223,7 +2380,7 @@ def bagian_q(per_id):
     per_id[C]["updt_date"] = BARU
 
     # Q6: kunci satu pembaruan juga untuk pilihan dan cek
-    open(f"{UJI}/data/pembaruan.lock", "w").write(str(os.getpid()))      # PID hidup = proses uji ini
+    open(f"{UJI}/data/pembaruan.lock", "w", encoding="utf-8").write(str(os.getpid()))      # PID hidup = proses uji ini
     try:
         hasil = [jalan_catat(*a) for a in (["--wilayah", DOMAIN, "--cek-dulu"], ["--wilayah", DOMAIN, "--jenis", "kabkota"])]
     finally:
@@ -2232,17 +2389,35 @@ def bagian_q(per_id):
         all(k == 2 and "SUDAH BERJALAN" in o and not m for k, o, m in hasil), [h[0] for h in hasil])
 
     # Q7: perbarui-data.bat sungguhan dengan pilihan (koma lewat %* utuh)
-    siapkan_bat()
-    # Dua kode = semua wilayah aktif salinan; kalau koma terpotong di %*, kodenya
-    # tidak dikenal dan DITOLAK.
-    k = bat("--wilayah", f"{DOMAIN},6300", "--jenis", "kecamatan", "--cek-dulu")
-    cek("Q7 .bat --wilayah 6305,6300 --jenis kecamatan --cek-dulu: pilihan sampai utuh, penutup 'CEK SELESAI'",
-        "Pilihan: wilayah: semua wilayah aktif; jenis (kab/kota): Kecamatan Dalam Angka" in k
-        and "HASIL CEK" in k and "CEK SELESAI" in k
-        and "PEMBARUAN SELESAI" not in k, [b.strip() for b in k.splitlines() if "Pilihan" in b or "SELESAI" in b][:3])
-    k = bat("--wilayah", "9999")
-    cek("Q7 .bat pilihan tidak sah: DITOLAK -> PEMBARUAN GAGAL (bukan 'pembaruan lain sedang berjalan')",
-        "DITOLAK" in k and "PEMBARUAN GAGAL" in k and "TIDAK DIJALANKAN" not in k)
+    if os.name == "nt":
+        siapkan_bat()
+        # Dua kode = semua wilayah aktif salinan; kalau koma terpotong di %*, kodenya
+        # tidak dikenal dan DITOLAK.
+        k = bat("--wilayah", f"{DOMAIN},6300", "--jenis", "kecamatan", "--cek-dulu")
+        cek("Q7 .bat --wilayah 6305,6300 --jenis kecamatan --cek-dulu: pilihan sampai utuh, penutup 'CEK SELESAI'",
+            "Pilihan: wilayah: semua wilayah aktif; jenis (kab/kota): Kecamatan Dalam Angka" in k
+            and "HASIL CEK" in k and "CEK SELESAI" in k
+            and "PEMBARUAN SELESAI" not in k, [b.strip() for b in k.splitlines() if "Pilihan" in b or "SELESAI" in b][:3])
+        k = bat("--wilayah", "9999")
+        cek("Q7 .bat pilihan tidak sah: DITOLAK -> PEMBARUAN GAGAL (bukan 'pembaruan lain sedang berjalan')",
+            "DITOLAK" in k and "PEMBARUAN GAGAL" in k and "TIDAK DIJALANKAN" not in k)
+    else:
+        lewati("Q7 .bat", "bukan Windows: padanannya diuji di Q7b")
+    # Q7b (26 Nov 2026): perbarui-data.sh dengan pilihan yang sama ("$@" utuh).
+    bash = program_bash()
+    if bash:
+        siapkan_sh()
+        rc, k = sh(bash, "perbarui-data.sh", "--db-uji", "--wilayah", f"{DOMAIN},6300", "--jenis", "kecamatan",
+                   "--cek-dulu")
+        rc2, k2 = sh(bash, "perbarui-data.sh", "--db-uji", "--wilayah", "9999")
+        cek("Q7b .sh: pilihan sampai utuh + 'CEK SELESAI' (kode 0); pilihan tidak sah -> DITOLAK + "
+            "PEMBARUAN GAGAL (kode 1)",
+            rc == 0 and "Pilihan: wilayah: semua wilayah aktif; jenis (kab/kota): Kecamatan Dalam Angka" in k
+            and "HASIL CEK" in k and "CEK SELESAI" in k and "PEMBARUAN SELESAI" not in k
+            and rc2 == 1 and "DITOLAK" in k2 and "PEMBARUAN GAGAL" in k2 and "TIDAK DIJALANKAN" not in k2,
+            [rc, rc2] + [b.strip() for b in (k + k2).splitlines() if "SELESAI" in b or "GAGAL" in b][:4])
+    else:
+        lewati("Q7b .sh", "bash tidak ditemukan")
 
     # selesai: kembali ke satu wilayah uji
     for p in (K, C):
@@ -3066,7 +3241,114 @@ print('XLIMA', app.config['SESI_ADMIN_MENIT'], a, b)
         {k: px[k] for k in ("abc", "-1", "1,5", "99")})
 
 
-SEMUA_BAGIAN = "VFPLCHISOBGETDKRWQAJX"   # V dan F dijalankan sebelum potret s0 (lihat main)
+KODE_Y = r'''
+import json, os, sys
+sys.path.insert(0, os.path.join(sys.path[0], "scripts"))
+import app.config as C
+import perbarui as P
+from app.services import pembaruan as PB
+import isi_cache_ocr as O
+hasil = {}
+PESAN = [C.PESAN_SECRET_KEY, C.PESAN_ADMIN_HASH, P.PESAN_SKEMA, P.PESAN_PAKSA_TANPA_OCR, P.PESAN_SEMUA_TERHALANG]
+nama_asli = os.name
+hasil["os"] = nama_asli
+hasil["windows_identik"] = [C.teks_os(t) == t for t in PESAN] if nama_asli == "nt" else None
+# Tiru Linux untuk teks dan cabang cek PID (os.kill ditiru, tidak ada sinyal sungguhan).
+os.name = "posix"
+try:
+    hasil["linux"] = {
+        "skema": [b.strip() for b in C.teks_os(P.PESAN_SKEMA).splitlines() if "python" in b],
+        "paksa": [b.strip() for b in C.teks_os(P.PESAN_PAKSA_TANPA_OCR).splitlines() if ".sh" in b or "ocr_cache" in b],
+        "hash": [b.strip() for b in C.teks_os(C.PESAN_ADMIN_HASH).splitlines() if "python" in b],
+        "sisa_backslash": [chr(92) in C.teks_os(t) for t in PESAN],
+        "sisa_windows": [any(x in C.teks_os(t) for x in (".exe", ".bat", "Scripts")) for t in PESAN],
+    }
+    kill_asli = os.kill
+    def tiru(galat):
+        def k(pid, sinyal):
+            assert sinyal == 0, "cek PID hanya boleh sinyal 0"
+            if galat:
+                raise galat
+        return k
+    cabang = {}
+    for nama, galat in (("hidup", None), ("tidak_ada", ProcessLookupError()),
+                        ("pengguna_lain", PermissionError()), ("lain", OSError())):
+        os.kill = tiru(galat)
+        cabang[nama] = [P._proses_hidup(1234), PB._pid_hidup(1234), O._proses_hidup(1234)]
+    os.kill = kill_asli
+    hasil["pid"] = cabang
+finally:
+    os.name = nama_asli
+print("XY " + json.dumps(hasil, ensure_ascii=False))
+'''
+
+
+def bagian_y():
+    """Y (26 Nov 2026): portabilitas Windows + Linux.
+    Y1 teks_os: Windows identik, Linux tanpa jalur Windows. Y2 cabang cek PID
+    non-Windows (os.kill ditiru). Y3 periksa_sidik.py menangkap waktu ubah PDF
+    yang bergeser (salinan, bukan hardlink: berkas asli tidak disentuh)."""
+    print("\n=== Y. PORTABILITAS (WINDOWS + LINUX) ===", flush=True)
+    kode, keluar, err = jalan_py(KODE_Y)
+    m = re.search(r"^XY (.*)$", keluar, re.M)
+    if not m:
+        cek("Y0 potongan uji berjalan", False, (err or keluar)[-600:])
+        return
+    y = json.loads(m.group(1))
+    print("    | " + json.dumps(y, ensure_ascii=False)[:1500], flush=True)
+    lx = y["linux"]
+    cek("Y1 teks_os: di Windows 5 pesan identik byte demi byte; tiruan Linux: venv/bin/python, "
+        "./perbarui-data.sh, data/ocr_cache, tanpa '\\', .exe, .bat, Scripts",
+        (y["os"] != "nt" or y["windows_identik"] == [True] * 5)
+        and lx["skema"] == ["venv/bin/python scripts/migrasi_multidomain.py"]
+        and lx["hash"] == ["venv/bin/python scripts/buat_hash_sandi.py"]
+        and "./perbarui-data.sh --lokal --paksa" in lx["paksa"]
+        and any("data/ocr_cache" in b for b in lx["paksa"])
+        and not any(lx["sisa_backslash"]) and not any(lx["sisa_windows"]), y)
+    pid = y["pid"]
+    cek("Y2 cek PID non-Windows (3 salinan fungsi): ada = hidup, ProcessLookupError = mati, "
+        "PermissionError (milik pengguna lain) = HIDUP, OSError lain = mati",
+        pid == {"hidup": [True] * 3, "tidak_ada": [False] * 3, "pengguna_lain": [True] * 3,
+                "lain": [False] * 3}, pid)
+
+    # Y3: periksa_sidik.py di salinan (database uji). Salinan hanya punya PDF
+    # domain uji, jadi "tidak ada" banyak; yang dinilai: cocok/berbeda.
+    def jalan_sidik():
+        kode, keluar, _ = jalan("periksa_sidik.py", "--db-uji")
+        angka = {k: int(v) for k, v in re.findall(r"^(PDF cocok|PDF berbeda|cache OCR berbeda)\s*: (\d+)", keluar, re.M)}
+        return kode, angka, keluar
+    _, a0, _ = jalan_sidik()
+    sasaran = None
+    for baris in sql(f"SELECT id, sidik_ukuran, sidik_mtime FROM publikasi WHERE domain='{DOMAIN}' "
+                     "AND (halaman_ocr IS NULL OR halaman_ocr = 0) ORDER BY id", DB_UJI).splitlines():
+        pid_, uk, mt = baris.split("\t")
+        st = os.stat(path_uji(pid_))
+        if uk.isdigit() and mt.isdigit() and (st.st_size, int(st.st_mtime)) == (int(uk), int(mt)):
+            sasaran = pid_
+            break
+    if not sasaran:
+        cek("Y3 periksa_sidik: ada PDF domain uji yang sidiknya cocok", False, a0)
+        return
+    path = path_uji(sasaran)
+    salin = path + ".salin"
+    shutil.copy2(path, salin)            # putus hardlink dulu: PDF asli proyek tidak disentuh
+    os.replace(salin, path)
+    st = os.stat(path)
+    try:
+        os.utime(path, (st.st_atime, st.st_mtime + 2))
+        k1, a1, keluar1 = jalan_sidik()
+    finally:
+        os.utime(path, (st.st_atime, st.st_mtime))
+    k2, a2, _ = jalan_sidik()
+    cek("Y3 periksa_sidik.py: waktu ubah +2 detik pada satu PDF -> 'PDF berbeda' +1 dengan "
+        "'selisih waktu +2 detik', kode 1; dikembalikan -> sama dengan awal",
+        a0.get("PDF cocok", 0) > 0 and a1.get("PDF berbeda") == a0.get("PDF berbeda", 0) + 1
+        and a1.get("PDF cocok") == a0["PDF cocok"] - 1 and "selisih waktu +2 detik" in keluar1
+        and f"{DOMAIN}/{sasaran}.pdf" in keluar1 and k1 == 1 and a2 == a0,
+        {"awal": a0, "geser": a1, "kembali": a2, "kode": [k1, k2]})
+
+
+SEMUA_BAGIAN = "VFPLCHISOBGETDKRWQAJXY"   # V dan F dijalankan sebelum potret s0 (lihat main)
 
 
 def main():
@@ -3116,6 +3398,7 @@ def main():
             if b == "A": bagian_a(kecil, per_id)
             if b == "J": bagian_j(per_id)
             if b == "X": bagian_x()
+            if b == "Y": bagian_y()
     finally:
         srv.shutdown()
 

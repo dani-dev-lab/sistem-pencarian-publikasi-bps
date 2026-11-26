@@ -1,9 +1,10 @@
 # Dependensi OPSIONAL untuk OCR halaman tanpa lapisan teks (EasyOCR, CPU).
 # Aplikasi web dan pipeline tetap jalan tanpa ini; halaman tanpa teks lalu
 # dilewati dan dicatat. Pasang ke venv proyek:
-#   venv\Scripts\python.exe -m pip install -r requirements-ocr.txt
+#   Windows: venv\Scripts\python.exe -m pip install -r requirements-ocr.txt
+#   Linux  : venv/bin/python -m pip install -r requirements-ocr.txt
 # Ukuran +-1,1 GB, ditambah model +-94 MB yang diunduh otomatis saat OCR
-# pertama dijalankan (ke %USERPROFILE%\.EasyOCR). Torch versi CPU dari indeks
+# pertama dijalankan (ke %USERPROFILE%\.EasyOCR di Windows, ~/.EasyOCR di Linux). Torch versi CPU dari indeks
 # PyTorch supaya tidak mengunduh paket CUDA (+-2,5 GB).
 --extra-index-url https://download.pytorch.org/whl/cpu
 torch==2.15.0+cpu

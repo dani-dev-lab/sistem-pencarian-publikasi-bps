@@ -19,6 +19,7 @@ from collections import Counter
 
 import sqlalchemy as sa
 
+from app.config import teks_os
 from app.models import EntriDokumen, Publikasi, db
 from app.services import versi_data
 from app.services.preprocessing import kamus_default, normalisasi, stem_kata
@@ -102,7 +103,7 @@ def jalankan(cetak=_diam):
     kamus = kamus_default()
     total = EntriDokumen.query.count()
     if not total:
-        cetak("Tabel entri_dokumen kosong - jalankan perbarui-data.bat dulu.")
+        cetak(teks_os("Tabel entri_dokumen kosong - jalankan perbarui-data.bat dulu."))
         return None
 
     cetak(f"Menormalkan {total} entri (kamus: {len(kamus)} pemetaan varian)")

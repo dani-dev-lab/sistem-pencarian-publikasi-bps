@@ -51,7 +51,10 @@ def create_app(config_class: type[Config] = Config) -> Flask:
     from app.services import sampul
     app.add_template_global(sampul.info, "info_sampul")
 
-    from app.config import menit_sesi_admin
+    from app.config import menit_sesi_admin, teks_os
+    # Petunjuk di halaman (26 Nov 2026): "perbarui-data.bat" di Windows,
+    # "./perbarui-data.sh" di Linux.
+    app.add_template_global(teks_os, "teks_os")
     from app.routes.admin import bp as bp_admin
     from app.routes.admin import konteks_menu, periksa_sesi
     from app.routes.pencarian import bp as bp_pencarian

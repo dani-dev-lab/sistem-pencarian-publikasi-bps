@@ -310,7 +310,7 @@
 {% elif pid_lain %}
   {# ------------- berjalan dari .bat / terminal, bukan dari sini ------------- #}
   <p class="kabar kabar-sukses">{{ ikon("jam", 18) }} <strong>Pembaruan sedang berjalan</strong>
-    dari jendela terminal / <code>perbarui-data.bat</code> (proses {{ pid_lain }}).
+    dari jendela terminal / <code>{{ teks_os("perbarui-data.bat") }}</code> (proses {{ pid_lain }}).
     Kemajuannya hanya terlihat di jendela itu; halaman ini akan bisa dipakai lagi
     begitu proses itu selesai.</p>
   <form method="post" action="{{ url_for('admin.perbarui_mulai') }}">
