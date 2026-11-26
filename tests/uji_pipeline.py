@@ -4,7 +4,7 @@ Cara menjalankan (dari folder proyek):
 
     venv\Scripts\python.exe -u tests\uji_pipeline.py > uji_log.txt 2>&1
 
-Semua bagian sekitar 60 menit (26 Nov 2026: 3.279 detik, 169 uji). Sebagian saja (untuk pengembang): tambahkan
+Semua bagian sekitar 60 menit (26 Nov 2026: 3.202 detik, 172 uji). Sebagian saja (untuk pengembang): tambahkan
 --hanya DKRW (huruf bagian; U dan Z selalu jalan).
 
 Kamus: salinan memakai data/kamus_sinonim.json working tree, dan bagian N
@@ -50,6 +50,7 @@ Sifat (13 Nov 2026):
 import copy, glob, hashlib, json, os, re, shutil, socket, subprocess, sys, tempfile, threading, time
 from collections import Counter
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from urllib.parse import quote
 
 ASLI = os.path.dirname(os.path.dirname(os.path.abspath(__file__))).replace(os.sep, "/")
 sys.path.insert(0, ASLI)
@@ -2569,7 +2570,7 @@ def kop(h):
         label = ' '.join(re.sub(r'<svg.*?</svg>|<[^>]+>', ' ', isi, flags=re.S).split())
         tombol.append([href.group(1) if href else 'POST', aria.group(1) if aria else None, label,
                        ik.group(1) if ik else None, 'target=' in attr])
-    adm = [x for x in tombol if x[0] == '/admin/']
+    adm = [x for x in tombol if x[0].split('?')[0] == '/admin/']
     main = re.search(r'<main>.*?</main>', h, re.S)
     main = main.group(0) if main else ''
     return {'jenis': 'admin' if 'kop-admin' in hd[:60] else 'pencarian',
@@ -2763,6 +2764,92 @@ print('XKARTU ' + json.dumps(hasil, ensure_ascii=False))
 '''
 
 
+KODE_X_KEMBALI = r'''
+import html, json, re
+from urllib.parse import quote
+from werkzeug.security import generate_password_hash
+from app import create_app
+from app.config import KonfigurasiUji
+from app.models import LogPencarian, db
+from app.services.alamat_kembali import alamat_aman
+
+class KonfigurasiUjiLog(KonfigurasiUji):
+    CATAT_LOG_PENCARIAN = True      # database uji; dipulihkan di akhir uji_pipeline
+
+hasil = {}
+app = create_app(KonfigurasiUjiLog)
+app.config['ADMIN_PASSWORD_HASH'] = generate_password_hash('sandi-uji-x10-123')
+c = app.test_client()
+ALAMAT = '/hasil?q=penduduk&w=6301&kec=1'
+
+def n_log():
+    with app.app_context():
+        return db.session.query(db.func.count(LogPencarian.id)).scalar()
+def href(h, pola):
+    m = re.search(pola, h)
+    return html.unescape(m.group(1)) if m else None
+def admin_href(h): return href(h, r'<a class="tombol-kop tombol-admin" href="([^"]+)"')
+def kembali_href(h): return href(h, r'<a class="tombol-kop" href="([^"]+)" aria-label="Kembali ke Pencarian">')
+def isi_main(h):
+    m = re.search(r'<main>(.*)</main>', h, re.S)
+    return re.sub(r'\d+ ms', 'N ms', m.group(1)) if m else None
+def simpanan():
+    with c.session_transaction() as s: return s.get('kembali_pencarian')
+
+# 1. Pencarian biasa (wilayah + kecamatan): tercatat; tombol membawa alamatnya.
+n0 = n_log()
+r = c.get(ALAMAT); h1 = r.get_data(as_text=True)
+hasil['cari'] = [r.status_code, n_log() - n0, admin_href(h1), 'data-pulihkan-gulir' in h1]
+hasil['beranda_admin_href'] = admin_href(c.get('/').get_data(as_text=True))
+# 2. Halaman Admin, belum login -> login; alamat sudah tersimpan.
+r = c.get(admin_href(h1))
+hasil['ke_admin'] = [r.status_code, r.headers.get('Location'), simpanan()]
+r = c.get(r.headers['Location']); hl = r.get_data(as_text=True)
+hasil['login_kembali'] = kembali_href(hl)
+nxt = re.search(r'name="next" value="([^"]*)"', hl).group(1)
+r = c.post('/admin/login', data={'sandi': 'sandi-uji-x10-123', 'next': html.unescape(nxt)})
+hasil['masuk'] = [r.status_code, r.headers.get('Location'), simpanan()]
+c.get(r.headers['Location'])
+# 3. Pindah ke Kamus (tanpa dari): alamat bertahan.
+hk = c.get('/admin/kamus').get_data(as_text=True)
+hasil['kamus'] = [kembali_href(hk), simpanan()]
+# 4. Kembali ke Pencarian: hasil sama, penanda pulihkan gulir, log tidak bertambah.
+n1 = n_log()
+r = c.get(kembali_href(hk))
+hasil['kembali'] = [r.status_code, r.headers.get('Location')]
+r = c.get(r.headers['Location']); h2 = r.get_data(as_text=True)
+hasil['tiba'] = [r.status_code, n_log() - n1, 'data-pulihkan-gulir' in h2, isi_main(h2) == isi_main(h1),
+                 len(isi_main(h2) or '')]
+# 5. Dimuat ulang / dicari lagi: tercatat seperti biasa (penanda sekali pakai).
+r = c.get(ALAMAT); h3 = r.get_data(as_text=True)
+hasil['muat_ulang'] = [n_log() - n1, 'data-pulihkan-gulir' in h3]
+c.get('/hasil?q=inflasi')
+hasil['cari_lain'] = n_log() - n1
+# 6. Keluar: alamat tetap; halaman login tetap menawarkan Kembali ke sana.
+r = c.post('/admin/logout')
+hasil['keluar'] = [simpanan(), kembali_href(c.get('/admin/login').get_data(as_text=True))]
+# 7. Alamat berbahaya lewat ?dari= : ditolak, alamat lama dibuang, Kembali -> "/".
+BAHAYA = ['//evil.com', 'http://evil.com/', 'https://evil.com/hasil?q=a', '/admin/log', '/admin/',
+          '/\\evil.com', '/hasil/../admin/log', 'hasil?q=a', '/%2F%2Fevil.com', '/hasil#x', '/pdf/1',
+          'javascript:alert(1)', ' //evil.com', '/hasil?q=a\r\nLocation: http://evil.com', '/kembali',
+          '/hasil?q=' + 'a' * 2000]
+tolak = []
+for bahaya in BAHAYA:
+    c.get('/admin/login?dari=' + quote(ALAMAT, safe=''))          # alamat sah dulu
+    sah = simpanan()
+    r = c.get('/admin/login?dari=' + quote(bahaya, safe=''))
+    k = kembali_href(r.get_data(as_text=True))
+    r2 = c.get('/kembali')
+    tolak.append([bahaya[:40], sah == ALAMAT, simpanan(), k, r2.headers.get('Location')])
+hasil['tolak'] = tolak
+# Nilai session yang diubah langsung (bukan lewat dari) juga ditolak /kembali.
+with c.session_transaction() as s: s['kembali_pencarian'] = '//evil.com'
+hasil['session_rusak'] = c.get('/kembali').headers.get('Location')
+hasil['aman'] = [alamat_aman(x) for x in ('/', '/hasil', ALAMAT, '/hasil?q=ekspor+impor&w=6300&kec=1')]
+print('XKEMBALI ' + json.dumps(hasil, ensure_ascii=False))
+'''
+
+
 KODE_X_PROXY = r'''
 import json, io, contextlib
 from werkzeug.security import generate_password_hash
@@ -2802,16 +2889,22 @@ def bagian_x():
     t, d = h["x1"]["tanpa"], h["x1"]["dengan"]
     cari = ("/", "/hasil?q=penduduk", "/hasil?q=zzqqxx")
     adm = [u for u in d if u.startswith("/admin")]
-    BELUM = ["/admin/", "Halaman Admin (belum masuk, perlu kata sandi)", "Halaman Admin", "gembok-tutup", False]
-    SUDAH = ["/admin/", "Halaman Admin (sudah masuk)", "Halaman Admin", "gembok-buka", False]
+    # Sejak 26 Nov 2026 tombol membawa alamat halamannya (?dari=, lihat X10);
+    # url_for membiarkan "/" dan "?" di nilai query, "=" dan "&" dikodekan.
+    def BELUM(u):
+        return ["/admin/?dari=" + quote(u, safe="/?"), "Halaman Admin (belum masuk, perlu kata sandi)",
+                "Halaman Admin", "gembok-tutup", False]
+    def SUDAH(u):
+        return ["/admin/?dari=" + quote(u, safe="/?"), "Halaman Admin (sudah masuk)", "Halaman Admin",
+                "gembok-buka", False]
     KEMBALI = ["/", "Kembali ke Pencarian", "Kembali ke Pencarian", "panah-kiri", False]
     KELUAR = ["POST", "Keluar", "Keluar", "keluar", False]
     cek("X1 halaman pencarian: kop satu baris tanpa menu, satu tombol 'Halaman Admin' ke /admin/ (tab yang sama); "
         "gembok tertutup sebelum login, terbuka sesudah login, status di aria-label, label tetap 'Halaman Admin'",
         all(t[u][0] == 200 and t[u][1]["jenis"] == "pencarian" and not t[u][1]["menu"] and not t[u][1]["keluar"]
-            and t[u][1]["tombol"] == [BELUM] for u in cari)
+            and t[u][1]["tombol"] == [BELUM(u)] for u in cari)
         and all(d[u][0] == 200 and d[u][1]["jenis"] == "pencarian" and not d[u][1]["menu"] and not d[u][1]["keluar"]
-                and d[u][1]["tombol"] == [SUDAH] for u in cari if u in d),
+                and d[u][1]["tombol"] == [SUDAH(u)] for u in cari if u in d),
         {u: (v[1]["jenis"], v[1]["tombol"]) for u, v in {**t, **d}.items() if not u.startswith("/admin")})
     cek("X1 halaman admin: kop satu baris tanpa baris menu dan tanpa lencana, hanya 'Kembali ke Pencarian' + 'Keluar' "
         "(ikon + aria-label); login (belum masuk): hanya 'Kembali ke Pencarian'",
@@ -2827,11 +2920,11 @@ def bagian_x():
         all(d[u][1]["beranda_admin"] for u in sub) and not d["/admin/"][1]["beranda_admin"]
         and not t["/admin/login"][1]["beranda_admin"], {u: d[u][1]["beranda_admin"] for u in adm})
     x7 = h["x7"]
-    cek("X7 tombol 'Halaman Admin': belum login (gembok tertutup) -> login (next=/admin/) -> masuk -> kembali ke "
-        "/admin/ (200); sudah login -> gembok terbuka, langsung masuk (200)",
-        x7["tombol_awal"] == BELUM
-        and x7["klik"] == [302, "/admin/login?next=/admin/"] and x7["login"] == [302, "/admin/"]
-        and x7["admin"] == [200, "admin"] and x7["tombol_masuk"] == SUDAH
+    cek("X7 tombol 'Halaman Admin': belum login (gembok tertutup) -> login (next=/admin/?dari=/) -> masuk -> "
+        "kembali ke /admin/ (200); sudah login -> gembok terbuka, langsung masuk (200)",
+        x7["tombol_awal"] == BELUM("/")
+        and x7["klik"] == [302, "/admin/login?next=/admin/?dari%3D/"] and x7["login"] == [302, "/admin/?dari=/"]
+        and x7["admin"] == [200, "admin"] and x7["tombol_masuk"] == SUDAH("/hasil?q=penduduk")
         and x7["klik_masuk"] == [200, None], x7)
     x2 = h["x2"]
     cek("X2 tanpa login: menu admin -> login (next = tujuan + query) -> kembali ke tujuan, HTTP 200",
@@ -2885,7 +2978,7 @@ print('XLIMA', app.config['SESI_ADMIN_MENIT'], a, b)
         k = json.loads(m.group(1))
         print("    | " + json.dumps(k, ensure_ascii=False)[:1800], flush=True)
         n = k["n_pub"]
-        dua = [["Kamus Sinonim"], ["Review Log Pencarian"]]
+        dua = [["Kamus Sinonim"], ["Log Pencarian"]]
         def kartu34(isi):
             return [x for x in isi if x[0] in ("Perbarui Data", "Ganti Kata Sandi")]
         sandi = ["Ganti Kata Sandi", "angka", "2 jam", "sesi otomatis berakhir bila tidak aktif"]
@@ -2919,6 +3012,37 @@ print('XLIMA', app.config['SESI_ADMIN_MENIT'], a, b)
             k["paksa"] == [429, False] and k["habis"]["status"] == 200 and k["habis"]["sisa"] == []
             and k["habis"]["refresh"] == [] and not k["habis"]["nonaktif"] and not k["habis"]["skrip"]
             and k["sesudah_habis"] == [302, "/admin/"], {x: k[x] for x in ("paksa", "habis", "sesudah_habis")})
+
+    # X10 (26 Nov 2026): Kembali ke Pencarian ke hasil terakhir, tanpa menambah log.
+    kode_b, keluar_b, err_b = jalan_py(KODE_X_KEMBALI)
+    m = re.search(r"^XKEMBALI (.*)$", keluar_b, re.M)
+    if not m:
+        cek("X10 potongan uji berjalan", False, (err_b or keluar_b)[-600:])
+    else:
+        b = json.loads(m.group(1))
+        print("    | " + json.dumps(b, ensure_ascii=False)[:2400], flush=True)
+        alamat = "/hasil?q=penduduk&w=6301&kec=1"
+        dari = "/admin/?dari=/hasil?q%3Dpenduduk%26w%3D6301%26kec%3D1"
+        cek("X10 Halaman Admin membawa alamat pencarian (path + query) dan menyimpannya sebelum login; "
+            "alamat bertahan melewati login dan pindah ke Kamus; Kembali = /kembali",
+            b["cari"] == [200, 1, dari, False] and b["beranda_admin_href"] == "/admin/?dari=/"
+            and b["ke_admin"][0] == 302 and b["ke_admin"][1].startswith("/admin/login?next=")
+            and b["ke_admin"][2] == alamat and b["login_kembali"] == "/kembali"
+            and b["masuk"] == [302, dari, alamat] and b["kamus"] == ["/kembali", alamat],
+            {x: b[x] for x in ("cari", "beranda_admin_href", "ke_admin", "login_kembali", "masuk", "kamus")})
+        cek("X10 Kembali ke Pencarian: ke hasil yang sama (isi <main> identik), penanda pulihkan gulir, "
+            "log TIDAK bertambah; dimuat ulang / pencarian lain tetap tercatat; Keluar tidak membuang alamat",
+            b["kembali"] == [302, alamat] and b["tiba"][:4] == [200, 0, True, True] and b["tiba"][4] > 1000
+            and b["muat_ulang"] == [1, False] and b["cari_lain"] == 2
+            and b["keluar"] == [alamat, "/kembali"],
+            {x: b[x] for x in ("kembali", "tiba", "muat_ulang", "cari_lain", "keluar")})
+        cek("X10 alamat berbahaya ditolak (//evil.com, http(s)://, /admin/..., backslash, ../, tanpa '/', "
+            "%2F%2F, fragmen, /pdf, javascript:, CRLF, /kembali, terlalu panjang): alamat lama dibuang, "
+            "Kembali dan /kembali menuju '/'; session yang diubah langsung juga ditolak; alamat sah diterima",
+            len(b["tolak"]) == 16 and all(t[1] and t[2] is None and t[3] == "/" and t[4] == "/" for t in b["tolak"])
+            and b["session_rusak"] == "/"
+            and b["aman"] == ["/", "/hasil", alamat, "/hasil?q=ekspor+impor&w=6300&kec=1"],
+            {x: b[x] for x in ("tolak", "session_rusak", "aman")})
 
     # X6: JUMLAH_PROXY (25 Nov 2026). Lima sandi salah dengan X-Forwarded-For A,
     # lalu sandi benar dengan X-Forwarded-For B dan A, dari koneksi yang sama.

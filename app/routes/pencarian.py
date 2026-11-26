@@ -6,16 +6,18 @@ from flask import (
     Blueprint,
     abort,
     current_app,
+    g,
     jsonify,
     redirect,
     render_template,
     request,
     send_from_directory,
+    session,
     url_for,
 )
 
 from app.models import EntriDokumen, LogPencarian, Publikasi, db
-from app.services import pencarian_wilayah, sampul
+from app.services import alamat_kembali, pencarian_wilayah, sampul
 from app.services.mesin_pencari import AMBANG_DITEMUKAN, AMBANG_SARAN
 from app.services.preprocessing import normalisasi_token
 from app.services.wilayah import DOMAIN_PROVINSI, wilayah_aktif
@@ -234,8 +236,39 @@ def api_saran():
     return jsonify({"saran": saran})
 
 
+def _tandai_dari_admin():
+    """g.dari_admin = halaman ini dibuka lewat tombol "Kembali ke Pencarian"
+    (penanda sekali pakai dari /kembali, untuk alamat yang SAMA persis).
+    Penanda selalu dibuang di sini, supaya tidak tertinggal ke pencarian
+    berikutnya."""
+    if alamat_kembali.KUNCI_DARI_ADMIN not in session:
+        g.dari_admin = False
+        return
+    penanda = session.pop(alamat_kembali.KUNCI_DARI_ADMIN)
+    g.dari_admin = penanda == request.full_path.rstrip("?")
+
+
+@bp.get("/kembali")
+def kembali_ke_pencarian():
+    """Tombol "Kembali ke Pencarian" di kop admin (26 Nov 2026): ke halaman
+    pencarian terakhir sebelum masuk admin (session, disimpan admin dari
+    `?dari=`), atau ke halaman awal kalau tidak ada / tidak sah.
+
+    Penanda sekali pakai membuat halaman tujuan tidak menulis log pencarian
+    (kueri itu sudah tercatat saat pertama dicari) dan memulihkan posisi
+    gulir. Penanda hanya dipasang di sini; pencarian biasa tetap tercatat.
+    Tidak perlu login: tujuannya hanya halaman pencarian.
+    """
+    tujuan = alamat_kembali.alamat_aman(session.get(alamat_kembali.KUNCI_ALAMAT))
+    if not tujuan:
+        return redirect(url_for("pencarian.halaman_pencarian"))
+    session[alamat_kembali.KUNCI_DARI_ADMIN] = tujuan
+    return redirect(request.script_root + tujuan)
+
+
 @bp.get("/")
 def halaman_pencarian():
+    _tandai_dari_admin()
     w = (request.args.get("w") or "").strip()
     kec, kc, _ = _arg_kecamatan()
     return render_template("pencarian.html", daftar_wilayah=wilayah_aktif(), w=w,
@@ -244,6 +277,7 @@ def halaman_pencarian():
 
 @bp.get("/hasil")
 def hasil_pencarian():
+    _tandai_dari_admin()
     kueri = (request.args.get("q") or "").strip()
     w = (request.args.get("w") or "").strip()
     kec, kc, semua_kec = _arg_kecamatan()
@@ -257,7 +291,8 @@ def hasil_pencarian():
         wo=(request.args.get("wo") or "").strip(),
         abaikan=(request.args.get("abaikan") or "").strip(),
         kec=kec, kc=kc, semua_kec=semua_kec)
-    _catat_log(hasil, kecamatan_tersedia=_ada_kecamatan())
+    if not g.dari_admin:     # kembali dari admin: sudah tercatat saat dicari
+        _catat_log(hasil, kecamatan_tersedia=_ada_kecamatan())
 
     kc_sah = hasil["kecamatan"]["kc"] if hasil["kecamatan"] else ""
     return render_template(

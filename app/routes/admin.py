@@ -1,4 +1,4 @@
-"""Endpoint admin: kamus sinonim, review log, pembaruan data, ganti sandi.
+"""Endpoint admin: kamus sinonim, log pencarian, pembaruan data, ganti sandi.
 
 Seluruh /admin/* dilindungi SATU kata sandi bersama (hash-nya di .env sebagai
 ADMIN_PASSWORD_HASH), bukan akun per orang - cukup untuk beberapa petugas yang
@@ -28,7 +28,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 from app.config import PANJANG_SANDI_MINIMAL, tulis_admin_hash
 from app.models import LogPencarian, Publikasi, db
-from app.services import pembaruan, pilihan_pembaruan, ringkasan_pembaruan
+from app.services import alamat_kembali, pembaruan, pilihan_pembaruan, ringkasan_pembaruan
 from app.services.pilihan_pembaruan import PilihanTidakSah
 from app.services.normalisasi_data import jalankan as terapkan_normalisasi
 from app.services.preprocessing import muat_ulang_kamus, normalisasi
@@ -87,11 +87,59 @@ def periksa_sesi():
     return None
 
 
+# Halaman yang alamatnya dibawa tombol "Halaman Admin" (26 Nov 2026).
+ENDPOINT_PENCARIAN = ("pencarian.halaman_pencarian", "pencarian.hasil_pencarian")
+
+
 def konteks_menu():
-    """context_processor (dipasang create_app): kop semua halaman. Halaman
-    pencarian memakai admin_masuk untuk ikon gembok tombol "Halaman Admin";
-    halaman admin untuk menampilkan tombol Keluar."""
-    return {"admin_masuk": bool(session.get(KUNCI_SESSION))}
+    """context_processor (dipasang create_app): kop semua halaman.
+
+    - admin_masuk: ikon gembok tombol "Halaman Admin" dan tombol Keluar;
+    - url_halaman_admin: di halaman pencarian/hasil membawa alamat halaman
+      itu (`?dari=path+query`), supaya admin bisa kembali ke sana;
+    - url_kembali_pencarian: /kembali kalau ada alamat tersimpan yang sah,
+      selain itu halaman awal.
+    """
+    url_admin = url_for("admin.beranda")
+    if request.endpoint in ENDPOINT_PENCARIAN:
+        dari = alamat_kembali.alamat_aman(request.full_path.rstrip("?"))
+        if dari:
+            url_admin = url_for("admin.beranda", dari=dari)
+    if alamat_kembali.alamat_aman(session.get(alamat_kembali.KUNCI_ALAMAT)):
+        url_kembali = url_for("pencarian.kembali_ke_pencarian")
+    else:
+        url_kembali = url_for("pencarian.halaman_pencarian")
+    return {"admin_masuk": bool(session.get(KUNCI_SESSION)),
+            "url_halaman_admin": url_admin,
+            "url_kembali_pencarian": url_kembali}
+
+
+def _bersihkan_sesi():
+    """session.clear() yang mempertahankan alamat Kembali ke Pencarian:
+    alamat itu harus bertahan melewati login dan ganti sandi."""
+    alamat = session.get(alamat_kembali.KUNCI_ALAMAT)
+    session.clear()
+    if alamat_kembali.alamat_aman(alamat):
+        session[alamat_kembali.KUNCI_ALAMAT] = alamat
+
+
+@bp.before_request
+def simpan_alamat_kembali():
+    """`?dari=` dari tombol "Halaman Admin" disimpan di session, SEBELUM
+    pemeriksaan login (dipasang lebih dulu daripada wajib_login), jadi
+    bertahan walau halaman pertama yang terbuka adalah login. Alamat yang
+    tidak sah (bukan halaman pencarian aplikasi ini) diabaikan dan alamat
+    lama dibuang, sehingga Kembali menuju halaman awal. Tanpa `dari`, alamat
+    tersimpan tidak berubah (berpindah antarhalaman admin).
+    """
+    if "dari" not in request.args:
+        return None
+    alamat = alamat_kembali.alamat_aman(request.args.get("dari"))
+    if alamat:
+        session[alamat_kembali.KUNCI_ALAMAT] = alamat
+    else:
+        session.pop(alamat_kembali.KUNCI_ALAMAT, None)
+    return None
 
 
 @bp.before_request
@@ -194,7 +242,7 @@ def login():
         if sandi and check_password_hash(current_app.config["ADMIN_PASSWORD_HASH"], sandi):
             with _KUNCI_PERCOBAAN:
                 _PERCOBAAN.pop(alamat, None)
-            session.clear()
+            _bersihkan_sesi()
             session[KUNCI_SESSION] = True
             session[KUNCI_AKTIF] = int(sekarang)
             return redirect(tujuan)
@@ -277,7 +325,7 @@ def ganti_sandi():
     # Berlaku seketika untuk proses ini; .env sudah berisi hash baru untuk
     # kali berikutnya aplikasi dijalankan.
     current_app.config["ADMIN_PASSWORD_HASH"] = hash_baru
-    session.clear()
+    _bersihkan_sesi()
     flash("Kata sandi berhasil diganti. Masuk lagi dengan kata sandi baru.",
           "sukses")
     return redirect(url_for("admin.login"))
@@ -625,7 +673,7 @@ def perbarui_aliran():
 
 
 # --------------------------------------------------------------------------
-# Review log pencarian
+# Log pencarian
 # --------------------------------------------------------------------------
 
 @bp.get("/log")

@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   {% block kepala %}{% endblock %}
 </head>
-<body class="{% block kelas_body %}{% endblock %}{% if request.blueprint == 'admin' %} halaman-admin{% endif %}">
+<body class="{% block kelas_body %}{% endblock %}{% if request.blueprint == 'admin' %} halaman-admin{% endif %}"
+      {%- if g.dari_admin %} data-pulihkan-gulir{% endif %}>
   {# Identitas visual mengikuti kop situs resmi BPS Provinsi Kalimantan Selatan
      (logo + dua baris nama instansi, bilah #002B6A). Hanya tampilannya yang
      diambil: tidak ada skrip, stylesheet, atau menu dari situs BPS, dan
@@ -19,6 +20,10 @@
        masuk, terbuka = sudah masuk; status di aria-label). Belum login ->
        login -> /admin/.
      - Halaman admin: "Kembali ke Pencarian" dan (saat masuk) "Keluar".
+     - Sejak 26 Nov 2026 "Halaman Admin" membawa alamat halaman pencarian/
+       hasil (?dari=), dan "Kembali ke Pencarian" (/kembali) kembali ke sana
+       tanpa menulis log; posisi gulir dipulihkan gulir-kembali.js
+       (app/services/alamat_kembali.py).
        Navigasi antarfitur lewat kartu di beranda admin dan tombol
        "← Beranda admin" di tiap subhalaman.
      Aplikasi hanya dipakai Tim PST di web internal BPS. #}
@@ -36,7 +41,7 @@
       </a>
       <div class="kop-tombol">
       {% if halaman_admin %}
-        <a class="tombol-kop" href="{{ url_for('pencarian.halaman_pencarian') }}" aria-label="Kembali ke Pencarian">
+        <a class="tombol-kop" href="{{ url_kembali_pencarian }}" aria-label="Kembali ke Pencarian">
           {{ ikon("panah-kiri") }}<span class="label-kop">Kembali ke Pencarian</span></a>
         {% if admin_masuk %}
         <form method="post" action="{{ url_for('admin.logout') }}" class="kop-keluar">
@@ -45,7 +50,7 @@
         </form>
         {% endif %}
       {% else %}
-        <a class="tombol-kop tombol-admin" href="{{ url_for('admin.beranda') }}"
+        <a class="tombol-kop tombol-admin" href="{{ url_halaman_admin }}"
            aria-label="Halaman Admin ({% if admin_masuk %}sudah masuk{% else %}belum masuk, perlu kata sandi{% endif %})">
           {{ ikon("gembok-buka" if admin_masuk else "gembok-tutup") }}<span class="label-kop"><span class="label-panjang">Halaman </span>Admin</span></a>
       {% endif %}
@@ -66,6 +71,7 @@
     <span class="ke-atas-panah" aria-hidden="true">&uarr;</span> <span class="ke-atas-teks">Ke atas</span>
   </button>
   <script src="{{ url_for('static', filename='js/ke-atas.js') }}" defer></script>
+  {% if not halaman_admin %}<script src="{{ url_for('static', filename='js/gulir-kembali.js') }}" defer></script>{% endif %}
 
   <!-- Peningkatan opsional. Kolom pencarian tetap berfungsi tanpa berkas ini. -->
   <script src="{{ url_for('static', filename='js/saran.js') }}" defer></script>
