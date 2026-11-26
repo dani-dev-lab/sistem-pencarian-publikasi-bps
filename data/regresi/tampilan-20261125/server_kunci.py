@@ -6,9 +6,12 @@ ditambah dua pengaturan HANYA di proses alat ini:
   DETIK          lama penguncian (aplikasi: 300), supaya akhir hitung mundur
                  bisa diamati tanpa menunggu 5 menit;
   tanpa-riwayat  beranda admin seolah belum pernah ada pembaruan
-                 (ringkasan_terakhir -> None), tanpa menyentuh berkas data.
+                 (ringkasan_terakhir -> None), tanpa menyentuh berkas data;
+  catat-log      log pencarian HIDUP (ke DATABASE UJI), untuk membuktikan
+                 Kembali ke Pencarian tidak menambah baris (26 Nov 2026).
+                 Alat pemeriksanya menghapus baris yang ditambahkannya.
 
-  venv/Scripts/python.exe server_kunci.py PORT DETIK [tanpa-riwayat]
+  venv/Scripts/python.exe server_kunci.py PORT DETIK [tanpa-riwayat] [catat-log]
 """
 import os
 import sys
@@ -29,6 +32,10 @@ A.LAMA_KUNCI_DETIK = int(sys.argv[2])
 if "tanpa-riwayat" in sys.argv[3:]:
     A.pembaruan.ringkasan_terakhir = lambda uji=False: None
 
-app = create_app(KonfigurasiUji)
+class KonfigurasiUjiLog(KonfigurasiUji):
+    CATAT_LOG_PENCARIAN = True
+
+
+app = create_app(KonfigurasiUjiLog if "catat-log" in sys.argv[3:] else KonfigurasiUji)
 app.config["ADMIN_PASSWORD_HASH"] = generate_password_hash(SANDI)
 serve(app, host="127.0.0.1", port=int(sys.argv[1]), threads=4)

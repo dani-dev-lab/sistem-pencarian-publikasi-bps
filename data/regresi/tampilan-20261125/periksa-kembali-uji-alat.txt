@@ -1,0 +1,12 @@
+LULUS 1280: hasil -> Halaman Admin (belum login) -> login -> Kamus -> Kembali = alamat hasil yang sama, isi <main> sama
+GAGAL 1280: posisi gulir pulih (±2 px)
+LULUS 1280: log +1 saat mencari, +0 saat kembali
+LULUS 1280: kartu admin sejajar, judul 'Log Pencarian'
+LULUS 375: hasil -> Halaman Admin (belum login) -> login -> Kamus -> Kembali = alamat hasil yang sama, isi <main> sama
+GAGAL 375: posisi gulir pulih (±2 px)
+LULUS 375: log +1 saat mencari, +0 saat kembali
+LULUS 375: kartu admin sejajar, judul 'Log Pencarian'
+GAGAL tanpa kecamatan (kotak info berubah sesudah tampil): gulir tetap pulih
+LULUS JavaScript mati: kembali ke hasil yang sama, log +1 lalu +0
+LULUS baris log alat dihapus (jumlah = awal)
+8/11

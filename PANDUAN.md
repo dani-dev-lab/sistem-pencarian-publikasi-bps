@@ -84,9 +84,16 @@ internal BPS).
 - **Halaman admin** hanya punya dua tombol di kanan atas: **← Kembali ke
   Pencarian** dan **Keluar** (di ponsel tampil sebagai ikon panah dan ikon
   pintu keluar). Fitur admin dibuka lewat **kartu di halaman utama admin**:
-  Kamus Sinonim, Review Log Pencarian, Perbarui Data, dan Ganti Kata Sandi.
+  Kamus Sinonim, Log Pencarian, Perbarui Data, dan Ganti Kata Sandi.
   Setiap subhalaman punya tombol **← Beranda admin** untuk kembali ke kartu
   itu.
+- **← Kembali ke Pencarian** membuka lagi halaman pencarian terakhir sebelum
+  masuk admin — kata kunci, wilayah, dan pilihan kecamatan yang sama — dan
+  menggulir ke posisi semula. Ini tetap berlaku sesudah login dan sesudah
+  berpindah antarhalaman admin. Kalau admin dibuka tidak dari halaman
+  pencarian (misalnya alamatnya diketik), tombol ini menuju halaman awal.
+  Kembali dengan tombol ini tidak menambah baris di Log Pencarian, karena
+  kata kunci itu sudah tercatat saat pertama dicari.
 - Sesi admin berakhir sendiri sesudah **120 menit tidak aktif** (bisa diubah,
   bagian 6). Halaman admin lalu meminta login lagi dan menjelaskan sebabnya.
 - Kartu **Perbarui Data** menunjukkan tanggal pembaruan terakhir dan jumlah
@@ -813,7 +820,7 @@ Cara menambah:
 Untuk menghapus varian, klik tanda `×` di sebelah katanya, lalu Terapkan ke
 data lagi.
 
-Dari mana tahu istilah apa yang perlu ditambah? Kartu **Review Log Pencarian**
+Dari mana tahu istilah apa yang perlu ditambah? Kartu **Log Pencarian**
 menampilkan kata kunci yang sering dicari petugas tapi hasilnya kosong atau
 lemah. Itulah kandidat sinonim berikutnya. Di tiap baris, tombol **Coba**
 membuka hasil pencariannya, dan tombol **Periksa**
@@ -1203,11 +1210,11 @@ atau kode:
 venv\Scripts\python.exe -u tests\uji_pipeline.py > uji_log.txt 2>&1
 ```
 
-- Lamanya ±60 menit. Run penuh terakhir, 26 November 2026: 169 uji lulus,
-  0 gagal, 0 dilewati, 3.279 detik. Bagian `J` menguji kartu ringkasan hasil
+- Lamanya ±60 menit. Run penuh terakhir, 26 November 2026: 172 uji lulus,
+  0 gagal, 0 dilewati, 3.202 detik. Bagian `J` menguji kartu ringkasan hasil
   cek: satuan, empat status, dan tombol Mulai yang nonaktif saat disk kurang.
   Bagian `X` menguji kop pencarian dan admin, tombol Halaman Admin, login dan
-  kembali ke tujuan, kartu beranda admin, hitung mundur login terkunci, sesi admin
+  kembali ke tujuan, Kembali ke Pencarian (alamat terakhir, tanpa log, alamat berbahaya ditolak), kartu beranda admin, hitung mundur login terkunci, sesi admin
   yang kedaluwarsa (termasuk `SESI_ADMIN_MENIT` yang tidak sah), dan
   penguncian sesudah 5 kata sandi salah, termasuk `JUMLAH_PROXY`.
   Bagian `Q` menguji formulir pilihan penarikan dan `--cek-dulu`. Bagian `V` membuktikan bahwa tanpa
@@ -1393,7 +1400,7 @@ dihitung dari database pada 17 November 2026 (307 publikasi, 24.532 bagian).
 - **Ambang relevansi 75/50 belum diuji dengan kata kunci asli petugas.**
   Pemeriksaan 17 November 2026 memakai 18 kata kunci uji dan tidak
   menemukan alasan kuat untuk mengubahnya. Kata kunci petugas terkumpul di
-  **Review Log Pencarian** (bagian 5) begitu aplikasi dipakai.
+  **Log Pencarian** (bagian 5) begitu aplikasi dipakai.
 - **Jalur B** (mengisi data dari nol) belum diuji ujung ke ujung (bagian 2).
 - **Menyalin folder PDF dan cache OCR ke komputer lain** belum dicoba. Cara
   menyalinnya sudah diuji di satu laptop (bagian 2, jalur A).
@@ -1446,7 +1453,7 @@ penyelesaian yang diusulkan. Angka hanya dikutip dari laporan
   tidak menemukan tabel listrik, karena judulnya memakai "listrik terjual"
   atau "kWh" (`validasi-ambang-20261117.md`). Arahnya: lengkapi kamus sinonim
   lebih dulu (bagian 5); pencarian berbasis makna (embeddings) baru
-  dipertimbangkan sesudah kata kunci asli petugas di Review Log Pencarian
+  dipertimbangkan sesudah kata kunci asli petugas di Log Pencarian
   menunjukkan kamus tidak cukup.
 - **Isi sel tabel tidak dicari**, hanya judul tabel/gambar/lampiran/bab
   (bagian 11), jadi nama komoditas atau desa yang hanya ada di baris tabel

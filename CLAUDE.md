@@ -292,7 +292,7 @@ Mahasiswa Politeknik Negeri Banjarmasin.
     - Uji: `uji_pipeline` bagian X (menu, login+tujuan, sesi, env, kunci).
       `potret_tampilan.py banding --isi` = banding ISI `<main>` saja.
       Pemeriksa Playwright `data/regresi/tampilan-20261125/periksa_tampilan.py`:
-      0 tindih tombol ke atas di 4.338 posisi, 0 sentuh < 44 px. Run penuh terakhir (26 Nov, revisi kecil) 169 lulus.
+      0 tindih tombol ke atas di 4.338 posisi, 0 sentuh < 44 px. Run penuh terakhir (26 Nov siang, Kembali ke pencarian) 172 lulus.
     - **Jebakan alat:** pemeriksa tindih harus memotong kotak elemen dengan
       wadah bergulir (`overflow` bukan visible); tanpa itu tombol tabel log yang
       terpotong dilaporkan tertimpa.
@@ -325,6 +325,34 @@ Mahasiswa Politeknik Negeri Banjarmasin.
       jadwal Task Scheduler (.bat tanpa `pause`), log per kelompok + klik
       `/pdf/<id>` (seksi kecamatan belum dihitung di `_catat_log`), penguncian
       persisten di DB.
+  - **Kembali ke pencarian terakhir + "Log Pencarian" (26 Nov 2026 siang),
+    BELUM di-push.** Laporan: bagian terakhir `data/regresi/tampilan-20261125.md`.
+    - Aturan di `app/services/alamat_kembali.py`: `alamat_aman` hanya path
+      relatif "/..." (bukan "//", "\", skema, host, fragmen, kendali, > 1000
+      karakter) dengan path PERSIS "/" atau "/hasil".
+    - Kop pencarian: "Halaman Admin" = `/admin/?dari=<full_path>`
+      (`konteks_menu`, hanya endpoint pencarian/hasil). Admin
+      `simpan_alamat_kembali` (before_request SEBELUM wajib_login) menyimpan
+      di session `kembali_pencarian`; `dari` tidak sah = alamat dibuang.
+      `_bersihkan_sesi` mempertahankannya di login dan ganti sandi; Keluar
+      tidak membuangnya.
+    - "Kembali ke Pencarian" = `/kembali` (pencarian, tanpa login): penanda
+      SEKALI PAKAI `dari_admin_sekali` = alamat, lalu redirect. Halaman yang
+      full_path-nya sama -> `g.dari_admin`: `_catat_log` dilewati, body
+      `data-pulihkan-gulir`. **Bukan parameter URL**: `_url_dengan` menyalin
+      semua `request.args` ke tautan hasil, jadi penanda di URL akan
+      menular.
+    - `js/gulir-kembali.js` (halaman non-admin): simpan pageYOffset per
+      path+query di sessionStorage saat pagehide/klik Halaman Admin; pulihkan
+      hanya bila `data-pulihkan-gulir`, ulang saat tinggi halaman berubah 3
+      detik pertama (ResizeObserver) dan saat load, berhenti bila petugas
+      menggulir.
+    - Judul "Review Log Pencarian" -> "Log Pencarian" (kartu, halaman,
+      PANDUAN). Kartu admin kini sejajar (judul satu baris).
+    - Uji: X10 (alur, log +0, 16 alamat berbahaya, session diubah langsung);
+      X1/X7 mengikuti href `?dari=` (url_for membiarkan "/" dan "?" di
+      nilai query). Playwright `periksa_kembali.py` + `server_kunci.py PORT
+      300 catat-log` (log hidup ke DB UJI; baris alat dihapus), 11/11.
   - `.bat` memanggil `%SystemRoot%\System32\find.exe` dengan jalur lengkap:
     `find` Git di PATH tidak mengenal `/i`.
   - **Jebakan alat:** heredoc di Bash tool memakan backslash (`\\n`, `\` di
@@ -1108,7 +1136,7 @@ Aturan yang berlaku:
   |---|---|
   | Beranda admin | `http://localhost:5000/admin/` |
   | Kelola kamus sinonim | `http://localhost:5000/admin/kamus` |
-  | Review log pencarian | `http://localhost:5000/admin/log` |
+  | Log pencarian | `http://localhost:5000/admin/log` |
   | Periksa normalisasi kueri | `http://localhost:5000/admin/log/periksa?q=<kueri>` |
 
   | Masuk / keluar | `/admin/login` (GET+POST) / `/admin/logout` (POST) |
