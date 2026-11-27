@@ -380,7 +380,13 @@ Mahasiswa Politeknik Negeri Banjarmasin.
     - uji_pipeline: cabang Linux (p.kill, symlink, st_dev), W7-W14 + Q7b
       menjalankan .sh sungguhan (Windows: bash Git for Windows, BUKAN WSL),
       bagian Y (teks_os, cek PID tiruan, periksa_sidik).
-    - PANDUAN 7.4 "Memindahkan aplikasi ke server": Linux = MENUNGGU UJI.
+    - PANDUAN 7.4 "Memindahkan aplikasi ke server". **27 Nov 2026: Linux
+      TERUJI di Ubuntu 22.04.5 (Python 3.12.16, MySQL 8.0.33)**, uji terpisah
+      oleh pemilik project dari dump 20261126 (`portabilitas-20261126/linux/`):
+      I S V F H N L C O B E T K R J X Y lulus; A lulus kecuali A1; B2 artefak
+      urutan (OB lulus); P D W Q + G tidak selesai (batas waktu). Potret 28
+      URL Linux vs Windows dari dump yang sama: IDENTIK 28/28 (penuh + --isi,
+      berkas byte-identik). apt/systemd/tar di Linux belum diuji.
   - `.bat` memanggil `%SystemRoot%\System32\find.exe` dengan jalur lengkap:
     `find` Git di PATH tidak mengenal `/i`.
   - **Jebakan alat:** heredoc di Bash tool memakan backslash (`\\n`, `\` di

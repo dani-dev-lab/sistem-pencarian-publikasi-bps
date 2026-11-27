@@ -1083,15 +1083,32 @@ OCR yang sudah ada di database tetap bisa dicari.
 
 ### 7.4 Memindahkan aplikasi ke server
 
-**Status pengujian (26 November 2026).**
+**Status pengujian (26–27 November 2026).**
 
 - **Windows: teruji di Windows 11** (laptop pengembang). Ini mencakup
-  aplikasi, pembaruan data, `uji_pipeline.py`, dan skrip `.sh` yang
+  aplikasi, pembaruan data, `uji_pipeline.py` penuh, dan skrip `.sh` yang
   dijalankan dengan bash Git for Windows.
-- **Linux: MENUNGGU UJI.** Semua langkah Linux di bawah ini ditulis dari
-  kode dan dokumentasi program, tetapi belum dijalankan di mesin Linux.
-  Tandai bagian ini teruji sesudah uji Linux selesai (laporan
-  `data/regresi/portabilitas-20261126.md`).
+- **Linux: teruji di Ubuntu 22.04 (Python 3.12, MySQL 8.0).** Ubuntu
+  22.04.5, Python 3.12.16, MySQL 8.0.33. Laporan:
+  `data/regresi/portabilitas-20261126.md`, bagian "Hasil uji Linux".
+  - **Teruji:**
+    - memulihkan cadangan `db_pencarian_bps-20261126.sql`;
+    - `./jalankan-aplikasi.sh`;
+    - halaman pencarian, hasil, PDF, sampul, login, dan halaman admin.
+  - **Hasil pencarian** di Linux dan di Windows, dari cadangan yang sama:
+    **identik** di 28 halaman.
+  - **Bagian `uji_pipeline.py` yang dijalankan** (per kelompok, `--hanya`):
+    I, S, V, F, H, N, L, C, O, B, E, T, K, R, J, X, Y lulus.
+    - A lulus kecuali satu cek (A1).
+    - B2 gagal kalau B dijalankan tanpa O, dan lulus bersama O; artefak
+      urutan uji.
+  - **Belum dijalankan karena batas waktu di lingkungan uji** (bukan
+    karena gagal): P, D, W, Q, juga G (berhenti sebelum cek pertamanya).
+  - **Belum diuji di Linux:**
+    - pemasangan lewat `apt` dan layanan systemd (langkah 1 dan 7–8 di
+      bawah; MySQL di lingkungan uji bukan paket `apt`);
+    - membuka arsip `tar` di sistem berkas Linux;
+    - OCR.
 
 Aplikasinya sama di kedua sistem; yang berbeda hanya cara memasang dan
 menjalankannya. Padanan berkas `.bat` untuk Linux:
@@ -1105,9 +1122,11 @@ menjalankannya. Padanan berkas `.bat` untuk Linux:
 
 - Pesan dan kalimat penutupnya sama. Port dibaca dari `.env` dengan aturan
   yang sama: `PORT=angka`, tanpa spasi di sekitar `=`.
-- Bedanya, skrip `.sh` mengembalikan kode keluar `perbarui.py` (0 selesai,
-  1 gagal, 2 pembaruan lain sedang berjalan, 3 selesai sebagian), sedangkan
-  `.bat` selalu berakhir dengan kode 0.
+- **Beda kode keluar:** `.bat` selalu keluar dengan kode 0. `.sh`
+  meneruskan kode keluar `perbarui.py` (0 selesai, 1 gagal, 2 pembaruan
+  lain sedang berjalan, 3 selesai sebagian), sehingga jadwal systemd/cron
+  bisa membedakan hasilnya. `.bat` sengaja tidak diubah, supaya perilaku
+  Windows tetap sama. Pesan penutup di layar sama di keduanya.
 - Skrip `.sh` hanya menunggu Enter di akhir kalau dijalankan dari
   terminal.
 
@@ -1119,7 +1138,7 @@ menjalankannya. Padanan berkas `.bat` untuk Linux:
 | Butuh internet ke BPS | ya, ±3–6 GB | tidak (hanya untuk pembaruan sesudahnya) |
 | Lama | berjam-jam (5,0 jam untuk 13 kab/kota, 9–10 November 2026), ditambah ±5 jam kalau OCR dipasang | menyalin ±6,5 GB + memulihkan database (±1,5 detik pada 14 November 2026) |
 | Riwayat pencarian petugas (`log_pencarian`) dan kamus hasil kerja pengelola | **hilang**, kecuali `data/kamus_sinonim.json` disalin | ikut |
-| Teruji | bagian-bagiannya saja (bagian 2) | Windows → Windows: memulihkan database dan menyalin folder di satu laptop; ke Linux: **menunggu uji** |
+| Teruji | bagian-bagiannya saja (bagian 2) | Windows → Windows: memulihkan database dan menyalin folder di satu laptop. Ke Linux: memulihkan cadangan dan menjalankan aplikasi teruji di Ubuntu 22.04; membuka arsip `tar` di Linux belum |
 
 **Isi paket serah terima (cara B).** Dibuat di komputer lama pada hari yang
 sama:
@@ -1152,7 +1171,8 @@ server baru, dari folder proyek: `tar -xf paket.tar -C data`.
   dibuka dengan GNU tar 1.35 (tar yang dipakai Linux), memberi 1.574 berkas
   dengan 0 sidik berbeda.
 - Arsip itu dibuka di NTFS, bukan di sistem berkas Linux: ekstraksi di
-  Linux **menunggu uji**.
+  Linux **belum diuji**. Uji Linux 26 November 2026 tidak memakai arsip
+  ini. Tetap jalankan `periksa_sidik.py` sesudah membukanya.
 - GNU tar di Linux mengembalikan waktu ubah secara bawaan. Jangan pakai
   pilihan `-m` atau `--touch`.
 
@@ -1199,10 +1219,15 @@ jalankan pembaruan; salin ulang dengan `tar`.
    misalnya tiap Senin pukul 02.00. Jangan jadwalkan `perbarui-data.bat`,
    karena skrip itu menunggu tombol ditekan di akhir.
 
-#### Memasang di Linux (MENUNGGU UJI)
+#### Memasang di Linux (teruji di Ubuntu 22.04, kecuali langkah 1 dan 7–8)
 
-Contoh untuk Ubuntu Server 24.04 / Debian 12. Sesuaikan nama paket untuk
-distribusi lain.
+Contoh untuk Ubuntu Server 22.04/24.04 / Debian 12. Sesuaikan nama paket
+untuk distribusi lain.
+
+- Aplikasi, pemulihan cadangan, dan `./jalankan-aplikasi.sh` teruji di
+  Ubuntu 22.04 dengan Python 3.12 dan MySQL 8.0 (26 November 2026).
+- Paket `apt` (langkah 1) dan layanan systemd (langkah 7–8) belum dicoba:
+  MySQL di lingkungan uji itu tidak dipasang lewat `apt`.
 
 1. **Paket sistem:**
    ```

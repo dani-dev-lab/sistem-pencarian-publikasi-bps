@@ -1,0 +1,32 @@
+Cadangan database uji: 16.0 MB, 6 tabel; produksi 6 tabel
+Database uji: db_pencarian_bps_uji | produksi (hanya dibaca): db_pencarian_bps | domain uji: 6305
+
+=== U. PENGAMAN DATABASE UJI ===
+  [LULUS] U1 KonfigurasiUji yang menunjuk nama produksi ditolak (SystemExit)  -- DITOLAK True
+  [LULUS] U2 baris pertama perbarui.py = database uji  -- Database tujuan: db_pencarian_bps_uji @ 127.0.0.1:3307 (UJI - bukan produksi)
+  [LULUS] U4 tanpa BPS: url_cover/url_pdf database uji semuanya ke server tiruan; alamat luar diblokir proxy mati (tidak sampai ke BPS); server tiruan tetap terjangkau  -- URL luar di DB 0; LUAR DIBLOKIR | TIRUAN 200 image/jpeg
+  [LULUS] U3 ringkasan ke pembaruan_terakhir-uji.json, berkas produksi tidak dibuat  -- exit 0, 8 d
+
+=== N. KAMUS SALINAN DITERAPKAN KE DATABASE UJI ===
+  [LULUS] N1 kamus salinan diterapkan: hanya teks_ternormalisasi yang berubah, penerapan kedua mengubah 0  -- entri diubah 0, publikasi diubah 0, 0 publikasi terkena, domain uji: []
+
+(--hanya ET: bagian lain dilewati)
+
+=== E. PDF RUSAK, PDF 0 ENTRI, PDF HILANG/DIGANTI ===
+  [LULUS] E1 PDF tak terbaca: entri lama utuh, galat tercatat, exit 3  -- exit 3, entri 61/61, galat: No /Root object! - Is this really a PDF?
+  [LULUS] E2 pulih: galat terhapus, dicoba lagi otomatis  -- exit 0, galat NULL
+  [LULUS] E3 PDF sah 0 entri: tercatat diekstrak  -- exit 0, perlu diperiksa: ['1 halaman tanpa lapisan teks dilewati (E']
+  [LULUS] E4 run berikutnya TIDAK mengekstrak ulang publikasi 0 entri  -- proses 0
+  [LULUS] E5 PDF hilang di disk: diunduh ulang + diekstrak  -- exit 0, diunduh 1
+  [LULUS] E6 PDF diganti di disk: diekstrak tanpa unduh  -- proses 1, unduh 0
+  [LULUS] E7 --lokal: updt_date_diproses tak maju, tercatat menunggu  -- diproses 2025-12-30
+
+=== T. TRANSAKSI DAN KUNCI ===
+  [LULUS] T1 gagal di tengah transaksi: entri lama utuh  -- GAGAL-SEPERTI-DIHARAPKAN | jumlah 298 298
+  [LULUS] T2 proses dibunuh: kunci basi tertinggal  -- setelah 5.6 d
+  [LULUS] T2 proses dibunuh: entri & diproses belum berubah  -- 2025-10-09
+  [LULUS] T3 run berikutnya menimpa kunci basi dan menyelesaikan  -- exit 0, sukses
+  [LULUS] T4 pembaruan kedua ditolak exit 2, yang pertama tetap hidup  -- exit 2: PEMBARUAN SUDAH BERJALAN di proses lain (PID 413). Tunggu sampai seles
+  [LULUS] T4 pertama selesai normal  -- 0
+
+=== Z. PEMULIHAN DAN BUKTI ===

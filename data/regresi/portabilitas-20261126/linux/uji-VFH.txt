@@ -1,0 +1,44 @@
+Cadangan database uji: 16.0 MB, 6 tabel; produksi 6 tabel
+Database uji: db_pencarian_bps_uji | produksi (hanya dibaca): db_pencarian_bps | domain uji: 6305
+
+=== U. PENGAMAN DATABASE UJI ===
+  [LULUS] U1 KonfigurasiUji yang menunjuk nama produksi ditolak (SystemExit)  -- DITOLAK True
+  [LULUS] U2 baris pertama perbarui.py = database uji  -- Database tujuan: db_pencarian_bps_uji @ 127.0.0.1:3307 (UJI - bukan produksi)
+  [LULUS] U4 tanpa BPS: url_cover/url_pdf database uji semuanya ke server tiruan; alamat luar diblokir proxy mati (tidak sampai ke BPS); server tiruan tetap terjangkau  -- URL luar di DB 0; LUAR DIBLOKIR | TIRUAN 200 image/jpeg
+  [LULUS] U3 ringkasan ke pembaruan_terakhir-uji.json, berkas produksi tidak dibuat  -- exit 0, 7 d
+
+=== V. TAMPILAN KECAMATAN: TANPA CENTANG IDENTIK ===
+  [LULUS] V1 tanpa centang: 23 halaman (beranda + 21 kueri) identik dengan salinan tanpa kecamatan (310 publikasi), widget kecamatan dibuang  -- 23/23
+  [LULUS] V2 /api/saran tanpa kec=1: 0 saran dari publikasi kecamatan (kec=1 boleh ada)  -- tanpa kec 0, kec=1 17
+  [LULUS] V3 waktu 12 kueri tanpa centang setara (putaran tercepat, selisih <= 10%)  -- tercepat: tanpa 58 ms / uji 59 ms; per putaran: 59/59; 58/59; 59/59
+  [LULUS] V4 kotak info = jumlah di seksi bercentang; seksi tampil dengan kec=1  -- [['jumlah penduduk menurut desa', 6016, 6016, True], ['penduduk', 94, 94, True], ['tpk', 0, 0, True]]
+  [LULUS] V5 seksi Publikasi: kecamatan dipilih -> publikasi kecamatan itu paling atas berlabel Kec.; tanpa centang -> tidak ada publikasi kecamatan  -- {'dipilih': [['Kecamatan Binuang Dalam Angka 2025', 'Kec. Binuang'], ['Kecamatan Binuang Dalam Angka 2026', 'Kec. Binuang']], 'tanpa_centang': [['Kabupaten Tapin Dalam Angka 2025', None], ['Kabupaten Tapin Dalam Angka 2026', None]]}
+
+=== F. PERKIRAAN HALAMAN FISIK ===
+  [LULUS] F1 aturan perkiraan: 12 kasus sintetis  -- 12/12
+    |   perkiraan dihapus : 0
+    |   perkiraan tetap   : 0
+    | Masih tanpa halaman fisik (isi/tabel/gambar/lampiran): tanpa halaman cetak 415, tidak diperkirakan 4540
+    | DITULIS ke database.
+  [LULUS] F2 perkiraan dikosongkan lalu diisi skrip: identik per kunci dengan sebelumnya (5012 perkiraan)  -- exit 0, diisi 5012, 3 d, berbeda: []
+  [LULUS] F2 halaman fisik asli tidak berubah (jumlah baris, jumlah nilai, jumlah id*nilai)  -- 34682	3881755	750021737147 -> 34682	3881755	750021737147
+  [LULUS] F2 perkiraan hanya di entri berhalaman cetak angka  -- 0
+  [LULUS] F3 run kedua: tidak ada yang berubah  -- exit 0
+  [LULUS] F4 tanpa --db-uji/--produksi ditolak (exit 2), database tidak tersentuh  -- exit 2
+  [LULUS] F5 pembaruan lain berjalan: TIDAK DIJALANKAN (exit 2)  -- exit 2
+
+=== N. KAMUS SALINAN DITERAPKAN KE DATABASE UJI ===
+  [LULUS] N1 kamus salinan diterapkan: hanya teks_ternormalisasi yang berubah, penerapan kedua mengubah 0  -- entri diubah 0, publikasi diubah 0, 0 publikasi terkena, domain uji: []
+
+(--hanya VFH: bagian lain dilewati)
+
+=== H. BATAS HEADING DAFTAR ===
+  [LULUS] H1 Daftar Gambar Dalam Angka sesudah halaman 25 terbaca, entrinya berhalaman cetak  -- [('1d520ab0', 44), ('42732c61', 44)], gambar daftar ['14', '14']
+  [LULUS] H2 blok Daftar: halaman kosong di sela <= MAKS_HALAMAN_KOSONG tidak memutus, lebih dari itu memutus  -- [('0', '25', '2'), ('1', '26', '2'), ('2', '27', '2'), ('3', 'None', '2')]
+
+=== Z. PEMULIHAN DAN BUKTI ===
+  [LULUS] Z1 database uji dipulihkan, CHECKSUM TABLE sama dengan awal  -- []
+  [LULUS] Z2 produksi tidak berubah (CHECKSUM TABLE awal = akhir)  -- []
+  [LULUS] Z3 folder sementara dibersihkan
+
+=== TOTAL: 22 lulus, 0 gagal, 0 dilewati (116 detik) ===

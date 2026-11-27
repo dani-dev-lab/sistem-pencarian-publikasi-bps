@@ -55,7 +55,7 @@ Sesudah itu `jalankan-aplikasi.bat` membuka `http://localhost:5000/`.
 Mode pengembangan (debugger + auto-reload, jangan di jaringan kantor):
 `venv\Scripts\python.exe run.py --dev`
 
-Di Linux (MENUNGGU UJI): `python3 -m venv venv`, `venv/bin/pip install -r
+Di Linux (teruji di Ubuntu 22.04, Python 3.12, MySQL 8.0): `python3 -m venv venv`, `venv/bin/pip install -r
 requirements.txt`, lalu `./perbarui-data.sh` dan `./jalankan-aplikasi.sh`.
 Pemasangan di server Windows atau Linux, termasuk layanan systemd dan paket
 serah terima: PANDUAN.md bagian 7.4.

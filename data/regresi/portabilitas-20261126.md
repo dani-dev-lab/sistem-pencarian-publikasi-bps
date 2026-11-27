@@ -15,8 +15,11 @@ di-push.
 - Selebihnya berupa pesan bergaya Windows, skrip `.bat` tanpa padanan
   `.sh`, uji yang memanggil program Windows, dan beberapa hal pemasangan
   (collation MySQL 8, akhir baris di Git).
-- Semua sudah diperbaiki atau didokumentasikan. **Belum ada yang dijalankan
-  di Linux sungguhan**; daftar yang belum bisa dipastikan ada di akhir.
+- Semua sudah diperbaiki atau didokumentasikan. Saat laporan ini pertama
+  ditulis (26 Nov), belum ada yang dijalankan di Linux.
+- **Pembaruan 27 Nov:** uji Linux sudah dijalankan terpisah di Ubuntu
+  22.04. Hasilnya ada di bagian 7, termasuk butir bagian 6 yang kini
+  terjawab dan yang masih terbuka.
 
 ## 1. Audit
 
@@ -204,3 +207,127 @@ sebelum dan sesudah run: 6/6 tabel sama (`checksum-produksi-awal.json` =
     `JUMLAH_PROXY` sungguhan (bagian ini juga belum diuji di Windows).
 11. **NSSM / Task Scheduler** sebagai layanan Windows (tertulis "belum
     dicoba" di PANDUAN).
+
+## 7. Hasil uji Linux (dijalankan terpisah 26 Nov, dicatat 27 Nov 2026)
+
+Uji Linux dijalankan pemilik project di lingkungan terpisah. Berkasnya ada di
+`portabilitas-20261126/linux/` (`uji-*.txt`, `lingkungan-linux.txt`,
+`jalankan-aplikasi-sh.log`), dan potretnya di
+`portabilitas-20261126/potret-linux.json`.
+
+**Lingkungan** (`lingkungan-linux.txt`):
+- Ubuntu 22.04.5 LTS, Python 3.12.16, MySQL 8.0.33. MySQL berasal dari
+  conda-forge di port 3307, bukan paket `apt`.
+- Paket: Flask 3.1.3, SQLAlchemy 2.1.9, PyMySQL 1.2.4, cryptography 50.0.2,
+  pdfplumber 0.11.11, pypdfium2 5.15.2, RapidFuzz 3.14.6, waitress 3.0.2,
+  Werkzeug 3.1.9. Versinya sedikit lebih baru daripada di Windows (bagian 4),
+  tanpa OCR.
+
+**Ringkasan dari pemilik project:**
+- memulihkan cadangan `db_pencarian_bps-20261126.sql`: OK;
+- `./jalankan-aplikasi.sh`: OK (`jalankan-aplikasi-sh.log`: "Menyiapkan
+  aplikasi di http://localhost:5055/");
+- halaman pencarian, hasil, PDF, sampul, login, dan halaman admin: OK.
+
+**`uji_pipeline.py --hanya ...`**, dihitung dari berkasnya (bagian U dan N
+selalu jalan di awal setiap run):
+
+| Berkas | Bagian | Hasil |
+|---|---|---|
+| `uji-IS.txt` | I, S | TOTAL 11 lulus, 0 gagal |
+| `uji-VFH.txt` | V, F, H | TOTAL 22 lulus, 0 gagal |
+| `uji-LCO.txt` | L, C, O | 12 lulus, 0 gagal (berhenti di tengah, tanpa TOTAL) |
+| `uji-O.txt` | O | TOTAL 14 lulus, 0 gagal |
+| `uji-OB.txt` | O, B | TOTAL 18 lulus, 0 gagal (B2 lulus) |
+| `uji-OBG.txt` | O, B, G | 15 lulus, 0 gagal; berhenti di judul bagian G |
+| `uji-BG.txt` | B, G | 8 lulus, **1 gagal**: B2 "diunduh 4" (harapan 2). Tanpa O, publikasi yang dibuat usang oleh main() ikut terunduh. Bersama O (OB, OBG) lulus, jadi **artefak urutan uji** |
+| `uji-ET.txt` | E, T | 18 lulus, 0 gagal (E1-E7, T1-T4), tanpa TOTAL |
+| `uji-KR.txt` | K, R | TOTAL 17 lulus, 0 gagal |
+| `uji-J.txt` | J | TOTAL 18 lulus, 0 gagal |
+| `uji-AJ.txt` | A, J | 15 lulus, **1 gagal**: A1 "39 sampul resmi, byte identik" mendapat 37 resmi + 1 cadangan + 1 gagal. Cek A1 lain (cadangan, gagal, satu permintaan per publikasi, token tersamar) dan A2-A5 lulus. Pemilik project: artefak urutan (berjalan tanpa bagian sebelumnya). **Belum dibuktikan dengan run berurutan di Linux** |
+| `uji-XY.txt` | X, Y | TOTAL 31 lulus, 0 gagal (termasuk Y2 cek PID, Y3 `periksa_sidik.py`) |
+| `uji-G.txt`, `uji-P.txt`, `uji-Q.txt`, `uji-W.txt` | G, P, Q, W | hanya U + N (5 lulus); **berhenti di judul bagian**, tanpa satu pun cek bagian itu (batas waktu lingkungan uji) |
+
+- Bagian D tidak punya berkas, jadi tidak dijalankan.
+- Tujuh run yang selesai sampai akhir (TOTAL) semuanya memuat **Z1** (database
+  uji Linux dipulihkan) dan **Z2** (produksi Linux tidak berubah) lulus.
+
+**Kesimpulan uji bagian:**
+- Lulus: I, S, V, F, H, N, L, C, O, B, E, T, K, R, J, X, Y.
+- A lulus kecuali satu cek A1.
+- B2 gagal kalau dijalankan tanpa O, dan lulus bersama O.
+- **Tidak dijalankan sampai selesai: P, D, W, Q, dan juga G.** G tidak
+  menghasilkan satu cek pun di ketiga berkas yang memuatnya (BG, OBG, G),
+  sehingga "G sebagian besar lulus" tidak didukung berkasnya.
+- Bagian W yang tidak dijalankan berisi uji `.sh` (W7-W14 dan Q7b). Jadi
+  skrip `.sh` di Linux hanya teruji lewat `jalankan-aplikasi.sh` yang
+  dijalankan langsung. `perbarui-data.sh` (kode keluar 0/1/2/3) dan
+  `jalankan-aplikasi-uji.sh` belum dijalankan di Linux; di Windows keduanya
+  teruji lewat bash Git for Windows (bagian 3).
+
+### Perbandingan potret Linux vs Windows (27 Nov 2026)
+
+Cara (alat yang sama dengan laporan ini, `tests/potret_tampilan.py`):
+
+1. Cadangan yang sama dipulihkan di Windows ke database sementara
+   `db_pencarian_bps_lintas_uji`.
+   - sha256 `807ce7a3…3200`, sama dengan bagian 4.
+   - Hasil pulih: 6 tabel; `entri_dokumen` 44.649, `publikasi` 622,
+     `log_pencarian` 359. CHECKSUM sama dengan produksi saat cadangan dibuat.
+2. `PYTHONHASHSEED=0 tests/potret_tampilan.py simpan potret-windows-lintas.json
+   --db db_pencarian_bps_lintas_uji`: 28 URL (beranda, 21 hasil, 5
+   `/api/saran`).
+3. Dibandingkan dengan `potret-linux.json`, yang dibuat di Linux dengan
+   nama database yang sama.
+
+**Hasil:**
+
+| Perbandingan | Hasil |
+|---|---|
+| `banding` penuh (HTML byte demi byte, angka "ms" disamarkan) | **IDENTIK 28/28** (`banding-lintas-penuh.txt`) |
+| `banding --isi` | **IDENTIK 28/28** (`banding-lintas-isi.txt`) |
+| Berkas potret | **byte-identik** (`cmp`); isi 949.208 karakter di keduanya; 132 gambar sampul di keduanya |
+
+- **Uji alat** (`banding-lintas-uji-alat.txt`): satu skor diubah 86.2% ->
+  1.0% di salinan potret Linux. Hasilnya "BERBEDA 1 dari 28", menunjuk baris
+  skor yang tepat, baik penuh maupun `--isi`. Jadi IDENTIK di atas bukan
+  hasil alat yang buta.
+- Database `db_pencarian_bps_lintas_uji` **dihapus** sesudahnya. Hanya
+  database itu; yang tersisa `db_pencarian_bps`,
+  `db_pencarian_bps_salinan_uji`, `db_pencarian_bps_uji`.
+- **Produksi tidak tersentuh:** `entri_dokumen`, `kategori`, `publikasi`,
+  `publikasi_kategori`, `versi_data` CHECKSUM sama dengan 26 Nov.
+  `log_pencarian` 359 -> 363 = id 389-392, 27 Nov 08.12-08.56 WITA
+  ("ekspor impor", "publikasi"). Baris itu ditulis aplikasi produksi
+  sebelum pekerjaan ini dimulai; potret memakai turunan `KonfigurasiUji`
+  dengan log mati.
+
+Artinya, dengan data yang sama, **hasil pencarian di Linux dan Windows
+sama persis**: urutan, skor, judul, nomor, halaman, tautan PDF, sampul, dan
+JSON saran. Perbedaan `SQLAlchemy` 2.1.9 vs 2.0.52, Python 3.12 vs 3.14, dan
+MySQL 8.0.33 vs 8.0.30 tidak terlihat di keluaran.
+
+### Status butir bagian 6 sesudah uji Linux
+
+| Butir | Status |
+|---|---|
+| 1. Pemasangan paket | **terjawab** untuk paket inti di Python 3.12 (pip, tanpa OCR). Paket `apt` tidak dipakai |
+| 2. MySQL 8 lewat TCP | **terjawab sebagian:** MySQL 8.0.33 lewat TCP port 3307, pemulihan cadangan berhasil. Apakah memakai sandi tidak tercatat di berkas |
+| 3. Skrip `.sh` di bash Linux | **sebagian:** `jalankan-aplikasi.sh` berjalan. `perbarui-data.sh` dan uji W/Q7b belum |
+| 4. Cabang non-Windows | **sebagian:** T2 (`p.kill`), Y2, Y3 lulus di Linux. Q1 (symlink) tidak dijalankan; dua pengguna Linux sungguhan belum |
+| 5. systemd | terbuka |
+| 6. Sistem berkas Linux / tar | terbuka (uji Linux tidak memakai arsip tar) |
+| 7. `uji_pipeline.py` penuh | sebagian (di atas); G, P, D, W, Q belum |
+| 8. OCR | terbuka (C1 memakai cache OCR, tanpa EasyOCR) |
+| 9. Kinerja dan memori | terbuka (tidak diukur) |
+| 10. Jaringan BPS, proxy | terbuka (uji memakai WebAPI tiruan) |
+| 11. NSSM / Task Scheduler | terbuka (Windows) |
+
+**PANDUAN 7.4** kini menulis:
+- Linux "teruji di Ubuntu 22.04 (Python 3.12, MySQL 8.0)";
+- bagian uji yang dijalankan dan yang tidak (P, D, W, Q, juga G);
+- beda kode keluar `.bat` (selalu 0) dan `.sh` (meneruskan kode
+  `perbarui.py`), dengan `.bat` sengaja tidak diubah;
+- apt/systemd/tar di Linux "belum diuji".
+
+README dan CLAUDE.md disamakan.

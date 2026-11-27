@@ -1,0 +1,10 @@
+banding :
+BEDA /hasil?q=statistik+ekspor+impor
+   baris 131: '<span class="skor">Relevansi 1.0%</span>'
+          -> '<span class="skor">Relevansi 86.2%</span>'
+BERBEDA 1 dari 28
+banding --isi:
+BEDA /hasil?q=statistik+ekspor+impor
+   baris 33: 'Relevansi 1.0%'
+          -> 'Relevansi 86.2%'
+BERBEDA 1 dari 28
