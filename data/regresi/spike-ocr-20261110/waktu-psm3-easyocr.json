@@ -1,0 +1,165 @@
+{
+ "muat_easyocr_detik": 1.5,
+ "halaman": [
+  {
+   "pdf": "aafda0cf",
+   "hal": 9,
+   "tesseract_detik": 2.63,
+   "easyocr_detik": 12.17,
+   "ukuran_px": [
+    1748,
+    2481
+   ]
+  },
+  {
+   "pdf": "aafda0cf",
+   "hal": 10,
+   "tesseract_detik": 2.02,
+   "easyocr_detik": 13.16,
+   "ukuran_px": [
+    1748,
+    2481
+   ]
+  },
+  {
+   "pdf": "aafda0cf",
+   "hal": 20,
+   "tesseract_detik": 2.09,
+   "easyocr_detik": 16.01,
+   "ukuran_px": [
+    1748,
+    2481
+   ]
+  },
+  {
+   "pdf": "aafda0cf",
+   "hal": 31,
+   "tesseract_detik": 1.47,
+   "easyocr_detik": 15.12,
+   "ukuran_px": [
+    1748,
+    2481
+   ]
+  },
+  {
+   "pdf": "aafda0cf",
+   "hal": 40,
+   "tesseract_detik": 0.78,
+   "easyocr_detik": 12.25,
+   "ukuran_px": [
+    1748,
+    2481
+   ]
+  },
+  {
+   "pdf": "aafda0cf",
+   "hal": 150,
+   "tesseract_detik": 0.73,
+   "easyocr_detik": 13.64,
+   "ukuran_px": [
+    1748,
+    2481
+   ]
+  },
+  {
+   "pdf": "f338cd99",
+   "hal": 10,
+   "tesseract_detik": 1.01,
+   "easyocr_detik": 14.05,
+   "ukuran_px": [
+    2481,
+    3508
+   ]
+  },
+  {
+   "pdf": "f338cd99",
+   "hal": 11,
+   "tesseract_detik": 2.48,
+   "easyocr_detik": 19.02,
+   "ukuran_px": [
+    2481,
+    3508
+   ]
+  },
+  {
+   "pdf": "47c94280",
+   "hal": 11,
+   "tesseract_detik": 0.75,
+   "easyocr_detik": 12.68,
+   "ukuran_px": [
+    1749,
+    2481
+   ]
+  },
+  {
+   "pdf": "47c94280",
+   "hal": 13,
+   "tesseract_detik": 1.26,
+   "easyocr_detik": 15.99,
+   "ukuran_px": [
+    1749,
+    2481
+   ]
+  },
+  {
+   "pdf": "8db55ef6",
+   "hal": 9,
+   "tesseract_detik": 2.43,
+   "easyocr_detik": 16.24,
+   "ukuran_px": [
+    2150,
+    3036
+   ]
+  },
+  {
+   "pdf": "8db55ef6",
+   "hal": 13,
+   "tesseract_detik": 2.4,
+   "easyocr_detik": 21.45,
+   "ukuran_px": [
+    2150,
+    3036
+   ]
+  },
+  {
+   "pdf": "a818fdde",
+   "hal": 11,
+   "tesseract_detik": 3.07,
+   "easyocr_detik": 21.76,
+   "ukuran_px": [
+    2481,
+    3509
+   ]
+  },
+  {
+   "pdf": "182e2e58",
+   "hal": 40,
+   "tesseract_detik": 2.16,
+   "easyocr_detik": 22.73,
+   "ukuran_px": [
+    2481,
+    3509
+   ]
+  },
+  {
+   "pdf": "786645b6",
+   "hal": 11,
+   "tesseract_detik": 2.84,
+   "easyocr_detik": 21.97,
+   "ukuran_px": [
+    2481,
+    3508
+   ]
+  },
+  {
+   "pdf": "786645b6",
+   "hal": 40,
+   "tesseract_detik": 2.43,
+   "easyocr_detik": 22.54,
+   "ukuran_px": [
+    2481,
+    3509
+   ]
+  }
+ ]
+}

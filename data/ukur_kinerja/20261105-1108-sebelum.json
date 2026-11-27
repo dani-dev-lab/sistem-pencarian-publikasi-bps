@@ -1,0 +1,184 @@
+{
+  "label": "sebelum",
+  "diukur_pada": "2026-11-05T11:08:04",
+  "lingkungan": {
+    "komputer": "DESKTOP-69VFRLH",
+    "os": "Windows-11-10.0.26300-SP0",
+    "prosesor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+    "python": "3.14.6"
+  },
+  "data": {
+    "publikasi": 79,
+    "entri": 6812
+  },
+  "ulang": 20,
+  "ambil_korpus": {
+    "median_ms": 84.7,
+    "p95_ms": 109.6,
+    "min_ms": 83.3,
+    "maks_ms": 110.8
+  },
+  "per_kueri": [
+    {
+      "median_ms": 103.6,
+      "p95_ms": 128.2,
+      "min_ms": 102.2,
+      "maks_ms": 128.9,
+      "kueri": "statistik ekspor impor",
+      "dinilai": 199,
+      "hasil": 20,
+      "publikasi": 3
+    },
+    {
+      "median_ms": 103.4,
+      "p95_ms": 128.9,
+      "min_ms": 102.4,
+      "maks_ms": 129.6,
+      "kueri": "negara tujuan ekspor",
+      "dinilai": 154,
+      "hasil": 31,
+      "publikasi": 2
+    },
+    {
+      "median_ms": 132.0,
+      "p95_ms": 158.0,
+      "min_ms": 129.8,
+      "maks_ms": 158.2,
+      "kueri": "banyaknya akomodasi kabupaten kota",
+      "dinilai": 2486,
+      "hasil": 26,
+      "publikasi": 8
+    },
+    {
+      "median_ms": 144.5,
+      "p95_ms": 166.1,
+      "min_ms": 142.5,
+      "maks_ms": 171.7,
+      "kueri": "jumlah hotel kabupaten kota 2024",
+      "dinilai": 3365,
+      "hasil": 34,
+      "publikasi": 11
+    },
+    {
+      "median_ms": 102.4,
+      "p95_ms": 126.1,
+      "min_ms": 100.8,
+      "maks_ms": 127.1,
+      "kueri": "tingkat penghunian kamar",
+      "dinilai": 24,
+      "hasil": 23,
+      "publikasi": 2
+    },
+    {
+      "median_ms": 102.9,
+      "p95_ms": 127.7,
+      "min_ms": 100.9,
+      "maks_ms": 129.0,
+      "kueri": "tpk",
+      "dinilai": 24,
+      "hasil": 23,
+      "publikasi": 2
+    },
+    {
+      "median_ms": 118.3,
+      "p95_ms": 143.3,
+      "min_ms": 116.0,
+      "maks_ms": 145.8,
+      "kueri": "penduduk miskin",
+      "dinilai": 1097,
+      "hasil": 35,
+      "publikasi": 1
+    },
+    {
+      "median_ms": 137.1,
+      "p95_ms": 161.5,
+      "min_ms": 134.5,
+      "maks_ms": 161.5,
+      "kueri": "population by regency",
+      "dinilai": 2710,
+      "hasil": 23,
+      "publikasi": 3
+    },
+    {
+      "median_ms": 104.2,
+      "p95_ms": 129.6,
+      "min_ms": 102.5,
+      "maks_ms": 130.1,
+      "kueri": "ekspor batubara",
+      "dinilai": 113,
+      "hasil": 11,
+      "publikasi": 0
+    },
+    {
+      "median_ms": 149.5,
+      "p95_ms": 173.4,
+      "min_ms": 147.3,
+      "maks_ms": 176.3,
+      "kueri": "jumlah penduduk menurut kecamatan",
+      "dinilai": 4165,
+      "hasil": 21,
+      "publikasi": 3
+    },
+    {
+      "median_ms": 120.9,
+      "p95_ms": 147.6,
+      "min_ms": 118.5,
+      "maks_ms": 159.7,
+      "kueri": "penduduk tanah laut",
+      "dinilai": 1279,
+      "hasil": 20,
+      "publikasi": 0
+    },
+    {
+      "median_ms": 108.1,
+      "p95_ms": 135.0,
+      "min_ms": 106.7,
+      "maks_ms": 137.6,
+      "kueri": "luas panen padi kotabaru",
+      "dinilai": 610,
+      "hasil": 20,
+      "publikasi": 3
+    }
+  ],
+  "rata_rata_median_ms": 118.9,
+  "rata_rata_p95_ms": 143.8,
+  "berkas": {
+    "json_bytes": {
+      "baseline_ekstraksi.json": 1300927,
+      "baseline_sebelum_badan.json": 1300927,
+      "baseline_sebelum_lampiran.json": 2270313,
+      "frekuensi_kata.json": 60215,
+      "hasil_ekstraksi.json": 2646939,
+      "hasil_ekstraksi_sebelum_badan.json": 1300927,
+      "hasil_spike.json": 90035,
+      "kamus_sinonim.json": 6442,
+      "pembaruan_terakhir.json": 133,
+      "publikasi_2025_2026.json": 156822
+    },
+    "json_total_bytes": 9133680,
+    "pdf_jumlah": 79,
+    "pdf_total_bytes": 754851622
+  },
+  "tabel_mysql": {
+    "entri_dokumen": {
+      "data_bytes": 4210688,
+      "indeks_bytes": 2129920
+    },
+    "kategori": {
+      "data_bytes": 16384,
+      "indeks_bytes": 16384
+    },
+    "log_pencarian": {
+      "data_bytes": 16384,
+      "indeks_bytes": 16384
+    },
+    "publikasi": {
+      "data_bytes": 1310720,
+      "indeks_bytes": 32768
+    },
+    "publikasi_kategori": {
+      "data_bytes": 16384,
+      "indeks_bytes": 16384
+    }
+  }
+}

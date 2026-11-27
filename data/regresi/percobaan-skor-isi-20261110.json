@@ -1,0 +1,2080 @@
+{
+ "dijalankan": "2026-11-10T14:19:56",
+ "ambang": [
+  75,
+  50
+ ],
+ "kueri": {
+  "statistik ekspor impor": {
+   "filter": null,
+   "kueri_topik": "statistik ekspor impor",
+   "kandidat": 57,
+   "kandidat_isi": 36,
+   "A_sekarang": {
+    "isi_di_top10": 10,
+    "nonisi_di_top10": 0,
+    "peringkat_nonisi_pertama": null,
+    "ditemukan": 0,
+    "saran": 57,
+    "tersembunyi": 0,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 72.4 isi 2.6 EKSPOR - IMPOR",
+     " 72.4 isi 2.6 Ekspor Impor",
+     " 65.7 isi 2.6 Ekspor dan Impor",
+     " 65.7 isi 2.6 Ekspor dan Impor",
+     " 65.7 isi 2.6 Ekspor Dan Impor",
+     " 65.7 isi 2.6 Ekspor dan Impor",
+     " 65.7 isi 2.6 Ekspor Dan Impor",
+     " 65.3 isi 1. Perkembangan Ekspor Impor",
+     " 65.3 isi 1 Perkembangan Ekspor Impor",
+     " 64.6 isi BAB VI EKSPOR DAN IMPOR"
+    ]
+   },
+   "B_bobot_isi_0_9": {
+    "isi_di_top10": 9,
+    "nonisi_di_top10": 1,
+    "peringkat_nonisi_pertama": 8,
+    "ditemukan": 0,
+    "saran": 55,
+    "tersembunyi": 2,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 65.2 isi 2.6 EKSPOR - IMPOR",
+     " 65.2 isi 2.6 Ekspor Impor",
+     " 59.1 isi 2.6 Ekspor dan Impor",
+     " 59.1 isi 2.6 Ekspor dan Impor",
+     " 59.1 isi 2.6 Ekspor Dan Impor",
+     " 59.1 isi 2.6 Ekspor dan Impor",
+     " 59.1 isi 2.6 Ekspor Dan Impor",
+     " 59.0 lam Volume (Ton) Komoditas Impor dan Ekspor di Pelabuhan Banjarmasin, 2024",
+     " 58.8 isi 1. Perkembangan Ekspor Impor",
+     " 58.8 isi 1 Perkembangan Ekspor Impor"
+    ]
+   },
+   "C_tabel_dulu": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 0,
+    "saran": 57,
+    "tersembunyi": 0,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 59.0 lam Volume (Ton) Komoditas Impor dan Ekspor di Pelabuhan Banjarmasin, 2024",
+     " 58.4 tab Perkembangan Nilai Ekspor Impor Antardaerah Provinsi Kalimantan Selata",
+     " 58.2 lam Volume (Ton) Komoditas Impor dan Ekspor di Pelabuhan Banjarmasin, 2024",
+     " 57.7 lam Volume (Ton) Komoditas Impor dan Ekspor di Pelabuhan Banjarmasin Dirin",
+     " 57.7 lam Volume (Ton) Komoditas Impor dan Ekspor di Pelabuhan Banjarmasin Dirin",
+     " 57.7 lam Volume (Ton) Komoditas Impor dan Ekspor di Pelabuhan Banjarmasin Dirin",
+     " 57.5 lam Neraca Ekspor Impor Kalimantan Selatan Menurut Provinsi Asal dan KPPBC",
+     " 57.5 lam Neraca Ekspor Impor Kalimantan Selatan Menurut Provinsi Asal dan KPPBC",
+     " 57.1 lam Volume (Ton) Komoditas Impor dan Ekspor di Pelabuhan Banjarmasin Dirin",
+     " 57.1 lam Volume (Ton) Komoditas Impor dan Ekspor di Pelabuhan Banjarmasin Dirin"
+    ]
+   },
+   "A_peringkat_nonisi_tanpa_batas": 33,
+   "sapuan": {
+    "1.0": {
+     "isi_di_top10": 10,
+     "nonisi_di_top10": 0,
+     "peringkat_nonisi_pertama": null,
+     "ditemukan": 0,
+     "saran": 57,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.95": {
+     "isi_di_top10": 10,
+     "nonisi_di_top10": 0,
+     "peringkat_nonisi_pertama": 11,
+     "ditemukan": 0,
+     "saran": 56,
+     "tersembunyi": 1,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.9": {
+     "isi_di_top10": 9,
+     "nonisi_di_top10": 1,
+     "peringkat_nonisi_pertama": 8,
+     "ditemukan": 0,
+     "saran": 55,
+     "tersembunyi": 2,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.85": {
+     "isi_di_top10": 2,
+     "nonisi_di_top10": 8,
+     "peringkat_nonisi_pertama": 3,
+     "ditemukan": 0,
+     "saran": 53,
+     "tersembunyi": 4,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.8": {
+     "isi_di_top10": 2,
+     "nonisi_di_top10": 8,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 0,
+     "saran": 31,
+     "tersembunyi": 26,
+     "isi_ditemukan": 0,
+     "top10": null
+    }
+   }
+  },
+  "negara tujuan ekspor": {
+   "filter": null,
+   "kueri_topik": "negara tujuan ekspor",
+   "kandidat": 38,
+   "kandidat_isi": 19,
+   "A_sekarang": {
+    "isi_di_top10": 1,
+    "nonisi_di_top10": 9,
+    "peringkat_nonisi_pertama": 2,
+    "ditemukan": 18,
+    "saran": 20,
+    "tersembunyi": 0,
+    "isi_ditemukan": 1,
+    "top10": [
+     " 91.9 isi 2.2 Ekspor Menurut Negara Tujuan",
+     " 83.7 tab Ekspor Asal Kalimantan Selatan Menurut Negara Tujuan, 2024 – 2025",
+     " 83.7 tab Ekspor Asal Kalimantan Selatan Menurut Negara Tujuan, 2023 – 2024",
+     " 82.2 lam Ekspor Berdasarkan Pelabuhan Muat Menurut Kelompok Barang dan Negara T",
+     " 82.2 lam Ekspor Berdasarkan Pelabuhan Muat Menurut Kelompok Barang dan Negara T",
+     " 82.0 lam Ekspor Berdasarkan Provinsi Asal Menurut Kelompok Barang dan Negara Tu",
+     " 82.0 lam Ekspor Berdasarkan Provinsi Asal Menurut Kelompok Barang dan Negara Tu",
+     " 81.4 tab Ekspor Melalui Pelabuhan Muat di Kalimantan Selatan Menurut Negara Tuj",
+     " 81.4 tab Ekspor Melalui Pelabuhan Muat di Kalimantan Selatan Menurut Negara Tuj",
+     " 80.8 tab Nilai Ekspor Provinsi Kalimantan Selatan Menurut Negara Tujuan (US$), "
+    ]
+   },
+   "B_bobot_isi_0_9": {
+    "isi_di_top10": 1,
+    "nonisi_di_top10": 9,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 18,
+    "saran": 3,
+    "tersembunyi": 17,
+    "isi_ditemukan": 1,
+    "top10": [
+     " 83.7 tab Ekspor Asal Kalimantan Selatan Menurut Negara Tujuan, 2024 – 2025",
+     " 83.7 tab Ekspor Asal Kalimantan Selatan Menurut Negara Tujuan, 2023 – 2024",
+     " 82.7 isi 2.2 Ekspor Menurut Negara Tujuan",
+     " 82.2 lam Ekspor Berdasarkan Pelabuhan Muat Menurut Kelompok Barang dan Negara T",
+     " 82.2 lam Ekspor Berdasarkan Pelabuhan Muat Menurut Kelompok Barang dan Negara T",
+     " 82.0 lam Ekspor Berdasarkan Provinsi Asal Menurut Kelompok Barang dan Negara Tu",
+     " 82.0 lam Ekspor Berdasarkan Provinsi Asal Menurut Kelompok Barang dan Negara Tu",
+     " 81.4 tab Ekspor Melalui Pelabuhan Muat di Kalimantan Selatan Menurut Negara Tuj",
+     " 81.4 tab Ekspor Melalui Pelabuhan Muat di Kalimantan Selatan Menurut Negara Tuj",
+     " 80.8 tab Nilai Ekspor Provinsi Kalimantan Selatan Menurut Negara Tujuan (US$), "
+    ]
+   },
+   "C_tabel_dulu": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 18,
+    "saran": 20,
+    "tersembunyi": 0,
+    "isi_ditemukan": 1,
+    "top10": [
+     " 83.7 tab Ekspor Asal Kalimantan Selatan Menurut Negara Tujuan, 2024 – 2025",
+     " 83.7 tab Ekspor Asal Kalimantan Selatan Menurut Negara Tujuan, 2023 – 2024",
+     " 82.2 lam Ekspor Berdasarkan Pelabuhan Muat Menurut Kelompok Barang dan Negara T",
+     " 82.2 lam Ekspor Berdasarkan Pelabuhan Muat Menurut Kelompok Barang dan Negara T",
+     " 82.0 lam Ekspor Berdasarkan Provinsi Asal Menurut Kelompok Barang dan Negara Tu",
+     " 82.0 lam Ekspor Berdasarkan Provinsi Asal Menurut Kelompok Barang dan Negara Tu",
+     " 81.4 tab Ekspor Melalui Pelabuhan Muat di Kalimantan Selatan Menurut Negara Tuj",
+     " 81.4 tab Ekspor Melalui Pelabuhan Muat di Kalimantan Selatan Menurut Negara Tuj",
+     " 80.8 tab Nilai Ekspor Provinsi Kalimantan Selatan Menurut Negara Tujuan (US$), ",
+     " 80.8 tab Nilai Ekspor Provinsi Kalimantan Selatan Menurut Negara Tujuan (US$), "
+    ]
+   },
+   "A_peringkat_nonisi_tanpa_batas": 2,
+   "sapuan": {
+    "1.0": {
+     "isi_di_top10": 1,
+     "nonisi_di_top10": 9,
+     "peringkat_nonisi_pertama": 2,
+     "ditemukan": 18,
+     "saran": 20,
+     "tersembunyi": 0,
+     "isi_ditemukan": 1,
+     "top10": null
+    },
+    "0.95": {
+     "isi_di_top10": 1,
+     "nonisi_di_top10": 9,
+     "peringkat_nonisi_pertama": 2,
+     "ditemukan": 18,
+     "saran": 4,
+     "tersembunyi": 16,
+     "isi_ditemukan": 1,
+     "top10": null
+    },
+    "0.9": {
+     "isi_di_top10": 1,
+     "nonisi_di_top10": 9,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 18,
+     "saran": 3,
+     "tersembunyi": 17,
+     "isi_ditemukan": 1,
+     "top10": null
+    },
+    "0.85": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 18,
+     "saran": 3,
+     "tersembunyi": 17,
+     "isi_ditemukan": 1,
+     "top10": null
+    },
+    "0.8": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 17,
+     "saran": 4,
+     "tersembunyi": 17,
+     "isi_ditemukan": 0,
+     "top10": null
+    }
+   }
+  },
+  "banyaknya akomodasi kabupaten kota": {
+   "filter": null,
+   "kueri_topik": "banyaknya akomodasi kabupaten kota",
+   "kandidat": 1004,
+   "kandidat_isi": 53,
+   "A_sekarang": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 10,
+    "saran": 994,
+    "tersembunyi": 0,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 90.2 lam Banyaknya Akomodasi Menurut Kabupaten/Kota dan Klasifikasi",
+     " 87.9 lam Banyaknya Akomodasi Menurut Kabupaten/Kota dan Klasifikasi Hotel, 2024",
+     " 87.4 lam Banyaknya Akomodasi, Kamar, dan Tempat Tidur Menurut Kabupaten/Kota, 2",
+     " 82.7 tab Banyaknya Sarana Akomodasi Menurut Kabupaten/Kota, 2025 Number of Acom",
+     " 80.8 gam Persentase Banyaknya Hotel di Kalimantan Selatan Menurut Kabupaten/Kot",
+     " 77.9 tab Banyaknya Akomodasi Dirinci Menurut Kecamatan Dan Klasifikasi Hotel di",
+     " 77.9 tab Banyaknya Akomodasi Dirinci Menurut Kecamatan Dan Klasifikasi Hotel di",
+     " 77.3 tab Banyaknya Desa/Kelurahan dengan Keberadaan Sarana Perdagangan dan Akom",
+     " 77.1 tab Jumlah Akomodasi, Kamar, dan Tempat Tidur yang Tersedia pada Hotel Bin",
+     " 75.6 tab Jumlah Akomodasi, Kamar, dan Tempat Tidur yang Tersedia pada Hotel Non"
+    ]
+   },
+   "B_bobot_isi_0_9": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 10,
+    "saran": 951,
+    "tersembunyi": 43,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 90.2 lam Banyaknya Akomodasi Menurut Kabupaten/Kota dan Klasifikasi",
+     " 87.9 lam Banyaknya Akomodasi Menurut Kabupaten/Kota dan Klasifikasi Hotel, 2024",
+     " 87.4 lam Banyaknya Akomodasi, Kamar, dan Tempat Tidur Menurut Kabupaten/Kota, 2",
+     " 82.7 tab Banyaknya Sarana Akomodasi Menurut Kabupaten/Kota, 2025 Number of Acom",
+     " 80.8 gam Persentase Banyaknya Hotel di Kalimantan Selatan Menurut Kabupaten/Kot",
+     " 77.9 tab Banyaknya Akomodasi Dirinci Menurut Kecamatan Dan Klasifikasi Hotel di",
+     " 77.9 tab Banyaknya Akomodasi Dirinci Menurut Kecamatan Dan Klasifikasi Hotel di",
+     " 77.3 tab Banyaknya Desa/Kelurahan dengan Keberadaan Sarana Perdagangan dan Akom",
+     " 77.1 tab Jumlah Akomodasi, Kamar, dan Tempat Tidur yang Tersedia pada Hotel Bin",
+     " 75.6 tab Jumlah Akomodasi, Kamar, dan Tempat Tidur yang Tersedia pada Hotel Non"
+    ]
+   },
+   "C_tabel_dulu": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 10,
+    "saran": 994,
+    "tersembunyi": 0,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 90.2 lam Banyaknya Akomodasi Menurut Kabupaten/Kota dan Klasifikasi",
+     " 87.9 lam Banyaknya Akomodasi Menurut Kabupaten/Kota dan Klasifikasi Hotel, 2024",
+     " 87.4 lam Banyaknya Akomodasi, Kamar, dan Tempat Tidur Menurut Kabupaten/Kota, 2",
+     " 82.7 tab Banyaknya Sarana Akomodasi Menurut Kabupaten/Kota, 2025 Number of Acom",
+     " 80.8 gam Persentase Banyaknya Hotel di Kalimantan Selatan Menurut Kabupaten/Kot",
+     " 77.9 tab Banyaknya Akomodasi Dirinci Menurut Kecamatan Dan Klasifikasi Hotel di",
+     " 77.9 tab Banyaknya Akomodasi Dirinci Menurut Kecamatan Dan Klasifikasi Hotel di",
+     " 77.3 tab Banyaknya Desa/Kelurahan dengan Keberadaan Sarana Perdagangan dan Akom",
+     " 77.1 tab Jumlah Akomodasi, Kamar, dan Tempat Tidur yang Tersedia pada Hotel Bin",
+     " 75.6 tab Jumlah Akomodasi, Kamar, dan Tempat Tidur yang Tersedia pada Hotel Non"
+    ]
+   },
+   "A_peringkat_nonisi_tanpa_batas": 1,
+   "sapuan": {
+    "1.0": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 10,
+     "saran": 994,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.95": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 10,
+     "saran": 984,
+     "tersembunyi": 10,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.9": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 10,
+     "saran": 951,
+     "tersembunyi": 43,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.85": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 10,
+     "saran": 948,
+     "tersembunyi": 46,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.8": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 10,
+     "saran": 943,
+     "tersembunyi": 51,
+     "isi_ditemukan": 0,
+     "top10": null
+    }
+   }
+  },
+  "jumlah hotel kabupaten kota 2024": {
+   "filter": null,
+   "kueri_topik": "jumlah hotel kabupaten kota 2024",
+   "kandidat": 2700,
+   "kandidat_isi": 56,
+   "A_sekarang": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 16,
+    "saran": 2684,
+    "tersembunyi": 0,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 88.8 lam Banyaknya Akomodasi Menurut Kabupaten/Kota dan Klasifikasi Hotel, 2024",
+     " 81.7 gam Persentase Banyaknya Hotel di Kalimantan Selatan Menurut Kabupaten/Kot",
+     " 78.7 tab Banyaknya Akomodasi Dirinci Menurut Kecamatan Dan Klasifikasi Hotel di",
+     " 77.9 tab Jumlah Akomodasi, Kamar, dan Tempat Tidur yang Tersedia pada Hotel Bin",
+     " 77.8 tab Jumlah Usaha Jasa Pertanian Menurut Kabupaten/Kota, 2024 ix",
+     " 77.8 tab Jumlah Perusahaan Jasa Pertanian menurut Kabupaten/Kota, 2024 ix",
+     " 77.5 gam Persentase Banyaknya Hotel di Kalimantan Selatan Menurut Kabupaten/Kot",
+     " 76.8 tab Jumlah Akomodasi Hotel/Losmen Menurut Kecamatan di Kabupaten Tapin, 20",
+     " 76.4 tab Jumlah Akomodasi, Kamar, dan Tempat Tidur yang Tersedia pada Hotel Non",
+     " 75.9 lam Jumlah Kantor Polisi Menurut Kabupaten/Kota dan Wilayah Kerja, 2024"
+    ]
+   },
+   "B_bobot_isi_0_9": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 16,
+    "saran": 2634,
+    "tersembunyi": 50,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 88.8 lam Banyaknya Akomodasi Menurut Kabupaten/Kota dan Klasifikasi Hotel, 2024",
+     " 81.7 gam Persentase Banyaknya Hotel di Kalimantan Selatan Menurut Kabupaten/Kot",
+     " 78.7 tab Banyaknya Akomodasi Dirinci Menurut Kecamatan Dan Klasifikasi Hotel di",
+     " 77.9 tab Jumlah Akomodasi, Kamar, dan Tempat Tidur yang Tersedia pada Hotel Bin",
+     " 77.8 tab Jumlah Usaha Jasa Pertanian Menurut Kabupaten/Kota, 2024 ix",
+     " 77.8 tab Jumlah Perusahaan Jasa Pertanian menurut Kabupaten/Kota, 2024 ix",
+     " 77.5 gam Persentase Banyaknya Hotel di Kalimantan Selatan Menurut Kabupaten/Kot",
+     " 76.8 tab Jumlah Akomodasi Hotel/Losmen Menurut Kecamatan di Kabupaten Tapin, 20",
+     " 76.4 tab Jumlah Akomodasi, Kamar, dan Tempat Tidur yang Tersedia pada Hotel Non",
+     " 75.9 lam Jumlah Kantor Polisi Menurut Kabupaten/Kota dan Wilayah Kerja, 2024"
+    ]
+   },
+   "C_tabel_dulu": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 16,
+    "saran": 2684,
+    "tersembunyi": 0,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 88.8 lam Banyaknya Akomodasi Menurut Kabupaten/Kota dan Klasifikasi Hotel, 2024",
+     " 81.7 gam Persentase Banyaknya Hotel di Kalimantan Selatan Menurut Kabupaten/Kot",
+     " 78.7 tab Banyaknya Akomodasi Dirinci Menurut Kecamatan Dan Klasifikasi Hotel di",
+     " 77.9 tab Jumlah Akomodasi, Kamar, dan Tempat Tidur yang Tersedia pada Hotel Bin",
+     " 77.8 tab Jumlah Usaha Jasa Pertanian Menurut Kabupaten/Kota, 2024 ix",
+     " 77.8 tab Jumlah Perusahaan Jasa Pertanian menurut Kabupaten/Kota, 2024 ix",
+     " 77.5 gam Persentase Banyaknya Hotel di Kalimantan Selatan Menurut Kabupaten/Kot",
+     " 76.8 tab Jumlah Akomodasi Hotel/Losmen Menurut Kecamatan di Kabupaten Tapin, 20",
+     " 76.4 tab Jumlah Akomodasi, Kamar, dan Tempat Tidur yang Tersedia pada Hotel Non",
+     " 75.9 lam Jumlah Kantor Polisi Menurut Kabupaten/Kota dan Wilayah Kerja, 2024"
+    ]
+   },
+   "A_peringkat_nonisi_tanpa_batas": 1,
+   "sapuan": {
+    "1.0": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 16,
+     "saran": 2684,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.95": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 16,
+     "saran": 2652,
+     "tersembunyi": 32,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.9": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 16,
+     "saran": 2634,
+     "tersembunyi": 50,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.85": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 16,
+     "saran": 2631,
+     "tersembunyi": 53,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.8": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 16,
+     "saran": 2628,
+     "tersembunyi": 56,
+     "isi_ditemukan": 0,
+     "top10": null
+    }
+   }
+  },
+  "tingkat penghunian kamar": {
+   "filter": null,
+   "kueri_topik": "tingkat penghunian kamar",
+   "kandidat": 37,
+   "kandidat_isi": 2,
+   "A_sekarang": {
+    "isi_di_top10": 2,
+    "nonisi_di_top10": 8,
+    "peringkat_nonisi_pertama": 3,
+    "ditemukan": 3,
+    "saran": 34,
+    "tersembunyi": 0,
+    "isi_ditemukan": 2,
+    "top10": [
+     " 87.2 isi III. Tingkat Penghunian Kamar (TPK)",
+     " 87.2 isi III. Tingkat Penghunian Kamar (TPK)",
+     " 78.7 gam Tingkat Penghunian Kamar Hotel Bintang dan",
+     " 74.3 tab Tingkat Penghunian Kamar (TPK) Hotel Bintang dan Nonbintang, 2023 dan ",
+     " 73.7 gam TPK Hotel Bintang dan Nonbintang Menurut Bulan, 2025 xi",
+     " 73.5 tab Tingkat Penghunian Kamar (TPK) Hotel Bintang dan Nonbintang, 202 4 dan",
+     " 73.3 lam Tingkat Penghunian Kamar Hotel Bintang Menurut Bulan dan Kelas Hotel, ",
+     " 73.3 lam Tingkat Penghunian Kamar Hotel Bintang Menurut Bulan dan Kelas Hotel, ",
+     " 73.2 lam Tingkat Penghunian Kamar Hotel Menurut Bulan dan Klasifikasi Hotel, 20",
+     " 73.2 lam Tingkat Penghunian Kamar Hotel Nonbintang Menurut Bulan dan Kelas Kama"
+    ]
+   },
+   "B_bobot_isi_0_9": {
+    "isi_di_top10": 2,
+    "nonisi_di_top10": 8,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 3,
+    "saran": 34,
+    "tersembunyi": 0,
+    "isi_ditemukan": 2,
+    "top10": [
+     " 78.7 gam Tingkat Penghunian Kamar Hotel Bintang dan",
+     " 78.5 isi III. Tingkat Penghunian Kamar (TPK)",
+     " 78.5 isi III. Tingkat Penghunian Kamar (TPK)",
+     " 74.3 tab Tingkat Penghunian Kamar (TPK) Hotel Bintang dan Nonbintang, 2023 dan ",
+     " 73.7 gam TPK Hotel Bintang dan Nonbintang Menurut Bulan, 2025 xi",
+     " 73.5 tab Tingkat Penghunian Kamar (TPK) Hotel Bintang dan Nonbintang, 202 4 dan",
+     " 73.3 lam Tingkat Penghunian Kamar Hotel Bintang Menurut Bulan dan Kelas Hotel, ",
+     " 73.3 lam Tingkat Penghunian Kamar Hotel Bintang Menurut Bulan dan Kelas Hotel, ",
+     " 73.2 lam Tingkat Penghunian Kamar Hotel Menurut Bulan dan Klasifikasi Hotel, 20",
+     " 73.2 lam Tingkat Penghunian Kamar Hotel Nonbintang Menurut Bulan dan Kelas Kama"
+    ]
+   },
+   "C_tabel_dulu": {
+    "isi_di_top10": 2,
+    "nonisi_di_top10": 8,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 3,
+    "saran": 34,
+    "tersembunyi": 0,
+    "isi_ditemukan": 2,
+    "top10": [
+     " 78.7 gam Tingkat Penghunian Kamar Hotel Bintang dan",
+     " 87.2 isi III. Tingkat Penghunian Kamar (TPK)",
+     " 87.2 isi III. Tingkat Penghunian Kamar (TPK)",
+     " 74.3 tab Tingkat Penghunian Kamar (TPK) Hotel Bintang dan Nonbintang, 2023 dan ",
+     " 73.7 gam TPK Hotel Bintang dan Nonbintang Menurut Bulan, 2025 xi",
+     " 73.5 tab Tingkat Penghunian Kamar (TPK) Hotel Bintang dan Nonbintang, 202 4 dan",
+     " 73.3 lam Tingkat Penghunian Kamar Hotel Bintang Menurut Bulan dan Kelas Hotel, ",
+     " 73.3 lam Tingkat Penghunian Kamar Hotel Bintang Menurut Bulan dan Kelas Hotel, ",
+     " 73.2 lam Tingkat Penghunian Kamar Hotel Menurut Bulan dan Klasifikasi Hotel, 20",
+     " 73.2 lam Tingkat Penghunian Kamar Hotel Nonbintang Menurut Bulan dan Kelas Kama"
+    ]
+   },
+   "A_peringkat_nonisi_tanpa_batas": 3,
+   "sapuan": {
+    "1.0": {
+     "isi_di_top10": 2,
+     "nonisi_di_top10": 8,
+     "peringkat_nonisi_pertama": 3,
+     "ditemukan": 3,
+     "saran": 34,
+     "tersembunyi": 0,
+     "isi_ditemukan": 2,
+     "top10": null
+    },
+    "0.95": {
+     "isi_di_top10": 2,
+     "nonisi_di_top10": 8,
+     "peringkat_nonisi_pertama": 3,
+     "ditemukan": 3,
+     "saran": 34,
+     "tersembunyi": 0,
+     "isi_ditemukan": 2,
+     "top10": null
+    },
+    "0.9": {
+     "isi_di_top10": 2,
+     "nonisi_di_top10": 8,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 3,
+     "saran": 34,
+     "tersembunyi": 0,
+     "isi_ditemukan": 2,
+     "top10": null
+    },
+    "0.85": {
+     "isi_di_top10": 2,
+     "nonisi_di_top10": 8,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 1,
+     "saran": 36,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.8": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 1,
+     "saran": 36,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    }
+   }
+  },
+  "tpk": {
+   "filter": null,
+   "kueri_topik": "tpk",
+   "kandidat": 37,
+   "kandidat_isi": 2,
+   "A_sekarang": {
+    "isi_di_top10": 2,
+    "nonisi_di_top10": 8,
+    "peringkat_nonisi_pertama": 3,
+    "ditemukan": 3,
+    "saran": 34,
+    "tersembunyi": 0,
+    "isi_ditemukan": 2,
+    "top10": [
+     " 87.2 isi III. Tingkat Penghunian Kamar (TPK)",
+     " 87.2 isi III. Tingkat Penghunian Kamar (TPK)",
+     " 78.7 gam Tingkat Penghunian Kamar Hotel Bintang dan",
+     " 74.3 tab Tingkat Penghunian Kamar (TPK) Hotel Bintang dan Nonbintang, 2023 dan ",
+     " 73.7 gam TPK Hotel Bintang dan Nonbintang Menurut Bulan, 2025 xi",
+     " 73.5 tab Tingkat Penghunian Kamar (TPK) Hotel Bintang dan Nonbintang, 202 4 dan",
+     " 73.3 lam Tingkat Penghunian Kamar Hotel Bintang Menurut Bulan dan Kelas Hotel, ",
+     " 73.3 lam Tingkat Penghunian Kamar Hotel Bintang Menurut Bulan dan Kelas Hotel, ",
+     " 73.2 lam Tingkat Penghunian Kamar Hotel Menurut Bulan dan Klasifikasi Hotel, 20",
+     " 73.2 lam Tingkat Penghunian Kamar Hotel Nonbintang Menurut Bulan dan Kelas Kama"
+    ]
+   },
+   "B_bobot_isi_0_9": {
+    "isi_di_top10": 2,
+    "nonisi_di_top10": 8,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 3,
+    "saran": 34,
+    "tersembunyi": 0,
+    "isi_ditemukan": 2,
+    "top10": [
+     " 78.7 gam Tingkat Penghunian Kamar Hotel Bintang dan",
+     " 78.5 isi III. Tingkat Penghunian Kamar (TPK)",
+     " 78.5 isi III. Tingkat Penghunian Kamar (TPK)",
+     " 74.3 tab Tingkat Penghunian Kamar (TPK) Hotel Bintang dan Nonbintang, 2023 dan ",
+     " 73.7 gam TPK Hotel Bintang dan Nonbintang Menurut Bulan, 2025 xi",
+     " 73.5 tab Tingkat Penghunian Kamar (TPK) Hotel Bintang dan Nonbintang, 202 4 dan",
+     " 73.3 lam Tingkat Penghunian Kamar Hotel Bintang Menurut Bulan dan Kelas Hotel, ",
+     " 73.3 lam Tingkat Penghunian Kamar Hotel Bintang Menurut Bulan dan Kelas Hotel, ",
+     " 73.2 lam Tingkat Penghunian Kamar Hotel Menurut Bulan dan Klasifikasi Hotel, 20",
+     " 73.2 lam Tingkat Penghunian Kamar Hotel Nonbintang Menurut Bulan dan Kelas Kama"
+    ]
+   },
+   "C_tabel_dulu": {
+    "isi_di_top10": 2,
+    "nonisi_di_top10": 8,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 3,
+    "saran": 34,
+    "tersembunyi": 0,
+    "isi_ditemukan": 2,
+    "top10": [
+     " 78.7 gam Tingkat Penghunian Kamar Hotel Bintang dan",
+     " 87.2 isi III. Tingkat Penghunian Kamar (TPK)",
+     " 87.2 isi III. Tingkat Penghunian Kamar (TPK)",
+     " 74.3 tab Tingkat Penghunian Kamar (TPK) Hotel Bintang dan Nonbintang, 2023 dan ",
+     " 73.7 gam TPK Hotel Bintang dan Nonbintang Menurut Bulan, 2025 xi",
+     " 73.5 tab Tingkat Penghunian Kamar (TPK) Hotel Bintang dan Nonbintang, 202 4 dan",
+     " 73.3 lam Tingkat Penghunian Kamar Hotel Bintang Menurut Bulan dan Kelas Hotel, ",
+     " 73.3 lam Tingkat Penghunian Kamar Hotel Bintang Menurut Bulan dan Kelas Hotel, ",
+     " 73.2 lam Tingkat Penghunian Kamar Hotel Menurut Bulan dan Klasifikasi Hotel, 20",
+     " 73.2 lam Tingkat Penghunian Kamar Hotel Nonbintang Menurut Bulan dan Kelas Kama"
+    ]
+   },
+   "A_peringkat_nonisi_tanpa_batas": 3,
+   "sapuan": {
+    "1.0": {
+     "isi_di_top10": 2,
+     "nonisi_di_top10": 8,
+     "peringkat_nonisi_pertama": 3,
+     "ditemukan": 3,
+     "saran": 34,
+     "tersembunyi": 0,
+     "isi_ditemukan": 2,
+     "top10": null
+    },
+    "0.95": {
+     "isi_di_top10": 2,
+     "nonisi_di_top10": 8,
+     "peringkat_nonisi_pertama": 3,
+     "ditemukan": 3,
+     "saran": 34,
+     "tersembunyi": 0,
+     "isi_ditemukan": 2,
+     "top10": null
+    },
+    "0.9": {
+     "isi_di_top10": 2,
+     "nonisi_di_top10": 8,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 3,
+     "saran": 34,
+     "tersembunyi": 0,
+     "isi_ditemukan": 2,
+     "top10": null
+    },
+    "0.85": {
+     "isi_di_top10": 2,
+     "nonisi_di_top10": 8,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 1,
+     "saran": 36,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.8": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 1,
+     "saran": 36,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    }
+   }
+  },
+  "penduduk miskin": {
+   "filter": null,
+   "kueri_topik": "penduduk miskin",
+   "kandidat": 242,
+   "kandidat_isi": 121,
+   "A_sekarang": {
+    "isi_di_top10": 5,
+    "nonisi_di_top10": 5,
+    "peringkat_nonisi_pertama": 6,
+    "ditemukan": 63,
+    "saran": 179,
+    "tersembunyi": 0,
+    "isi_ditemukan": 19,
+    "top10": [
+     " 87.8 isi 7.1 Perkembangan Penduduk Miskin",
+     " 87.8 isi 7.1 Perkembangan Penduduk Miskin",
+     " 87.8 isi 7.1 Perkembangan Penduduk Miskin",
+     " 87.8 isi 7.1 Perkembangan Penduduk Miskin",
+     " 87.8 isi 7.1 Perkembangan Penduduk Miskin",
+     " 86.9 gam Persentase Penduduk Miskin Menurut",
+     " 82.0 gam Persentase Penduduk Miskin di Kabupaten Tanah Laut,",
+     " 82.0 gam Persentase Penduduk Miskin di Kabupaten Tanah Laut,",
+     " 81.0 gam Persentase Penduduk Miskin di Kota Banjarbaru 2018 - 2025",
+     " 80.7 gam Jumlah Penduduk Miskin di Kabupaten Banjar Tahun 2021-2025"
+    ]
+   },
+   "B_bobot_isi_0_9": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 49,
+    "saran": 146,
+    "tersembunyi": 47,
+    "isi_ditemukan": 5,
+    "top10": [
+     " 86.9 gam Persentase Penduduk Miskin Menurut",
+     " 82.0 gam Persentase Penduduk Miskin di Kabupaten Tanah Laut,",
+     " 82.0 gam Persentase Penduduk Miskin di Kabupaten Tanah Laut,",
+     " 81.0 gam Persentase Penduduk Miskin di Kota Banjarbaru 2018 - 2025",
+     " 80.7 gam Jumlah Penduduk Miskin di Kabupaten Banjar Tahun 2021-2025",
+     " 80.5 gam Jumlah Penduduk Miskin di Kota Banjarbaru 2018 - 2025 (Jiwa)",
+     " 80.4 tab Garis Kemiskinan, Jumlah, dan Persentase Penduduk Miskin di xxi",
+     " 80.1 gam Persentase Penduduk Miskin Kabupaten Tanah Bumbu, Tahun 2019-2024",
+     " 79.6 gam Jumlah dan Persentase Penduduk Miskin Kabupaten Kotabaru, 2020–2024",
+     " 79.6 gam Jumlah dan Persentase Penduduk Miskin di Kabupaten Tapin, 2020-2025"
+    ]
+   },
+   "C_tabel_dulu": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 63,
+    "saran": 179,
+    "tersembunyi": 0,
+    "isi_ditemukan": 19,
+    "top10": [
+     " 86.9 gam Persentase Penduduk Miskin Menurut",
+     " 82.0 gam Persentase Penduduk Miskin di Kabupaten Tanah Laut,",
+     " 82.0 gam Persentase Penduduk Miskin di Kabupaten Tanah Laut,",
+     " 81.0 gam Persentase Penduduk Miskin di Kota Banjarbaru 2018 - 2025",
+     " 80.7 gam Jumlah Penduduk Miskin di Kabupaten Banjar Tahun 2021-2025",
+     " 80.5 gam Jumlah Penduduk Miskin di Kota Banjarbaru 2018 - 2025 (Jiwa)",
+     " 80.4 tab Garis Kemiskinan, Jumlah, dan Persentase Penduduk Miskin di xxi",
+     " 80.1 gam Persentase Penduduk Miskin Kabupaten Tanah Bumbu, Tahun 2019-2024",
+     " 79.6 gam Jumlah dan Persentase Penduduk Miskin Kabupaten Kotabaru, 2020–2024",
+     " 79.6 gam Jumlah dan Persentase Penduduk Miskin di Kabupaten Tapin, 2020-2025"
+    ]
+   },
+   "A_peringkat_nonisi_tanpa_batas": 6,
+   "sapuan": {
+    "1.0": {
+     "isi_di_top10": 5,
+     "nonisi_di_top10": 5,
+     "peringkat_nonisi_pertama": 6,
+     "ditemukan": 63,
+     "saran": 179,
+     "tersembunyi": 0,
+     "isi_ditemukan": 19,
+     "top10": null
+    },
+    "0.95": {
+     "isi_di_top10": 5,
+     "nonisi_di_top10": 5,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 49,
+     "saran": 159,
+     "tersembunyi": 34,
+     "isi_ditemukan": 5,
+     "top10": null
+    },
+    "0.9": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 49,
+     "saran": 146,
+     "tersembunyi": 47,
+     "isi_ditemukan": 5,
+     "top10": null
+    },
+    "0.85": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 44,
+     "saran": 132,
+     "tersembunyi": 66,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.8": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 44,
+     "saran": 115,
+     "tersembunyi": 83,
+     "isi_ditemukan": 0,
+     "top10": null
+    }
+   }
+  },
+  "population by regency": {
+   "filter": null,
+   "kueri_topik": "population by regency",
+   "kandidat": 5798,
+   "kandidat_isi": 128,
+   "A_sekarang": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 143,
+    "saran": 5655,
+    "tersembunyi": 0,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 81.5 tab Livestock Population by Kind of Livestock in Tabalong Regency (heads),",
+     " 80.8 tab Population by Regency/Municipality in Kalimantan Selatan Province (tho",
+     " 80.7 tab of Population in Banjar Regency Who Worked by Age Group and Sectors, A",
+     " 78.5 tab Percentage of Population in Tanah Laut Regency Who Worked by Main Empl",
+     " 78.5 tab Poultry Population by Regency/Municipality and Kind of Poultry in Kali",
+     " 77.7 tab Populasi Unggas Menurut Kecamatan di Kabupaten Tapin (ekor), 2025 Popu",
+     " 77.7 tab Populasi Unggas Menurut Kecamatan di Kabupaten Tapin (ekor), 2024 Popu",
+     " 77.5 tab Populasi Ternak Besar Menurut Kecamatan di Kabupaten Banjar, 2025 Popu",
+     " 77.5 tab Populasi Ternak Besar Menurut Kecamatan di Kabupaten Banjar, 2024 Popu",
+     " 77.4 tab Populasi Ternak Kecil Menurut Kecamatan di Kabupaten Banjar, 2025 Popu"
+    ]
+   },
+   "B_bobot_isi_0_9": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 143,
+    "saran": 5574,
+    "tersembunyi": 81,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 81.5 tab Livestock Population by Kind of Livestock in Tabalong Regency (heads),",
+     " 80.8 tab Population by Regency/Municipality in Kalimantan Selatan Province (tho",
+     " 80.7 tab of Population in Banjar Regency Who Worked by Age Group and Sectors, A",
+     " 78.5 tab Percentage of Population in Tanah Laut Regency Who Worked by Main Empl",
+     " 78.5 tab Poultry Population by Regency/Municipality and Kind of Poultry in Kali",
+     " 77.7 tab Populasi Unggas Menurut Kecamatan di Kabupaten Tapin (ekor), 2025 Popu",
+     " 77.7 tab Populasi Unggas Menurut Kecamatan di Kabupaten Tapin (ekor), 2024 Popu",
+     " 77.5 tab Populasi Ternak Besar Menurut Kecamatan di Kabupaten Banjar, 2025 Popu",
+     " 77.5 tab Populasi Ternak Besar Menurut Kecamatan di Kabupaten Banjar, 2024 Popu",
+     " 77.4 tab Populasi Ternak Kecil Menurut Kecamatan di Kabupaten Banjar, 2025 Popu"
+    ]
+   },
+   "C_tabel_dulu": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 143,
+    "saran": 5655,
+    "tersembunyi": 0,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 81.5 tab Livestock Population by Kind of Livestock in Tabalong Regency (heads),",
+     " 80.8 tab Population by Regency/Municipality in Kalimantan Selatan Province (tho",
+     " 80.7 tab of Population in Banjar Regency Who Worked by Age Group and Sectors, A",
+     " 78.5 tab Percentage of Population in Tanah Laut Regency Who Worked by Main Empl",
+     " 78.5 tab Poultry Population by Regency/Municipality and Kind of Poultry in Kali",
+     " 77.7 tab Populasi Unggas Menurut Kecamatan di Kabupaten Tapin (ekor), 2025 Popu",
+     " 77.7 tab Populasi Unggas Menurut Kecamatan di Kabupaten Tapin (ekor), 2024 Popu",
+     " 77.5 tab Populasi Ternak Besar Menurut Kecamatan di Kabupaten Banjar, 2025 Popu",
+     " 77.5 tab Populasi Ternak Besar Menurut Kecamatan di Kabupaten Banjar, 2024 Popu",
+     " 77.4 tab Populasi Ternak Kecil Menurut Kecamatan di Kabupaten Banjar, 2025 Popu"
+    ]
+   },
+   "A_peringkat_nonisi_tanpa_batas": 1,
+   "sapuan": {
+    "1.0": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 143,
+     "saran": 5655,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.95": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 143,
+     "saran": 5596,
+     "tersembunyi": 59,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.9": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 143,
+     "saran": 5574,
+     "tersembunyi": 81,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.85": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 143,
+     "saran": 5557,
+     "tersembunyi": 98,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.8": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 143,
+     "saran": 5537,
+     "tersembunyi": 118,
+     "isi_ditemukan": 0,
+     "top10": null
+    }
+   }
+  },
+  "ekspor batubara": {
+   "filter": null,
+   "kueri_topik": "ekspor batubara",
+   "kandidat": 11,
+   "kandidat_isi": 4,
+   "A_sekarang": {
+    "isi_di_top10": 4,
+    "nonisi_di_top10": 6,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 0,
+    "saran": 11,
+    "tersembunyi": 0,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 55.0 gam Perkembangan Harga Komoditas Batubara ($/mt) xi",
+     " 54.7 isi BAB VI EKSPOR DAN IMPOR",
+     " 52.6 gam Harga Acuan Batubara Dunia, 2023–2024 (USD/ton)",
+     " 51.8 isi 3.6 Net Ekspor",
+     " 51.6 gam Perkembangan Harga Komoditas Batubara ($/mt) Trend in Coal Commodity P",
+     " 51.3 gam Aktivitas Operasional Pekerja Tambang Batubara di Pulau Kalimantan xi",
+     " 50.7 isi 2. Perkembangan Ekspor",
+     " 50.7 isi 2 Perkembangan Ekspor",
+     " 50.6 gam di bawah ini. Sejak awal tahun 2021 harga komoditas batubara mengalami",
+     " 50.5 tab Perkembangan Harga Komoditas Batubara (US$/mt)/ Development of Coal Co"
+    ]
+   },
+   "B_bobot_isi_0_9": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 7,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 0,
+    "saran": 7,
+    "tersembunyi": 4,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 55.0 gam Perkembangan Harga Komoditas Batubara ($/mt) xi",
+     " 52.6 gam Harga Acuan Batubara Dunia, 2023–2024 (USD/ton)",
+     " 51.6 gam Perkembangan Harga Komoditas Batubara ($/mt) Trend in Coal Commodity P",
+     " 51.3 gam Aktivitas Operasional Pekerja Tambang Batubara di Pulau Kalimantan xi",
+     " 50.6 gam di bawah ini. Sejak awal tahun 2021 harga komoditas batubara mengalami",
+     " 50.5 tab Perkembangan Harga Komoditas Batubara (US$/mt)/ Development of Coal Co",
+     " 50.1 gam P erkembangan Harga Komoditas Batubara (US$/mt)/ Development of Coal C"
+    ]
+   },
+   "C_tabel_dulu": {
+    "isi_di_top10": 3,
+    "nonisi_di_top10": 7,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 0,
+    "saran": 11,
+    "tersembunyi": 0,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 55.0 gam Perkembangan Harga Komoditas Batubara ($/mt) xi",
+     " 52.6 gam Harga Acuan Batubara Dunia, 2023–2024 (USD/ton)",
+     " 51.6 gam Perkembangan Harga Komoditas Batubara ($/mt) Trend in Coal Commodity P",
+     " 51.3 gam Aktivitas Operasional Pekerja Tambang Batubara di Pulau Kalimantan xi",
+     " 50.6 gam di bawah ini. Sejak awal tahun 2021 harga komoditas batubara mengalami",
+     " 50.5 tab Perkembangan Harga Komoditas Batubara (US$/mt)/ Development of Coal Co",
+     " 50.1 gam P erkembangan Harga Komoditas Batubara (US$/mt)/ Development of Coal C",
+     " 54.7 isi BAB VI EKSPOR DAN IMPOR",
+     " 51.8 isi 3.6 Net Ekspor",
+     " 50.7 isi 2. Perkembangan Ekspor"
+    ]
+   },
+   "A_peringkat_nonisi_tanpa_batas": 1,
+   "sapuan": {
+    "1.0": {
+     "isi_di_top10": 4,
+     "nonisi_di_top10": 6,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 0,
+     "saran": 11,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.95": {
+     "isi_di_top10": 1,
+     "nonisi_di_top10": 7,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 0,
+     "saran": 8,
+     "tersembunyi": 3,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.9": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 7,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 0,
+     "saran": 7,
+     "tersembunyi": 4,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.85": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 7,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 0,
+     "saran": 7,
+     "tersembunyi": 4,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.8": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 7,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 0,
+     "saran": 7,
+     "tersembunyi": 4,
+     "isi_ditemukan": 0,
+     "top10": null
+    }
+   }
+  },
+  "jumlah penduduk menurut kecamatan": {
+   "filter": null,
+   "kueri_topik": "jumlah penduduk menurut kecamatan",
+   "kandidat": 3259,
+   "kandidat_isi": 136,
+   "A_sekarang": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 60,
+    "saran": 3199,
+    "tersembunyi": 0,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 86.9 tab Jumlah dan Kepadatan Penduduk Kabupaten Balangan Menurut Kecamatan, 20",
+     " 86.0 gam Jumlah Penduduk Menurut Kecamatan di Kabupaten Hulu Sungai Utara, 2024",
+     " 84.2 lam Luas Wilayah, Jumlah Kecamatan, Desa/Kelurahan dan Penduduk Menurut Ka",
+     " 84.2 lam Jumlah Penduduk dan Luas Wilayah menurut Kecamatan di Kabupaten Barito",
+     " 82.5 tab Jumlah Penduduk Kabupaten Hulu Sungai Tengah Menurut Kecamatan dan Jen",
+     " 82.0 tab Jumlah Penduduk, Sex Ratio, dan Pertumbuhan Penduduk Kabupaten Barito ",
+     " 81.3 tab Jumlah Penduduk (Jiwa), Laju Pertumbuhan Penduduk, dan Rasio Jenis Kel",
+     " 80.5 tab Jumlah Penduduk dan Luas Wilayah Menurut Kecamatan di Kabupaten Hulu S",
+     " 79.9 tab Jumlah Penduduk Kabupaten Hulu Sungai Utara Menurut Kecamatan (Ribu Ji",
+     " 79.3 tab Jumlah Penduduk Menurut Kecamatan dan Agama yang Dianut di Kota Banjar"
+    ]
+   },
+   "B_bobot_isi_0_9": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 60,
+    "saran": 3093,
+    "tersembunyi": 106,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 86.9 tab Jumlah dan Kepadatan Penduduk Kabupaten Balangan Menurut Kecamatan, 20",
+     " 86.0 gam Jumlah Penduduk Menurut Kecamatan di Kabupaten Hulu Sungai Utara, 2024",
+     " 84.2 lam Luas Wilayah, Jumlah Kecamatan, Desa/Kelurahan dan Penduduk Menurut Ka",
+     " 84.2 lam Jumlah Penduduk dan Luas Wilayah menurut Kecamatan di Kabupaten Barito",
+     " 82.5 tab Jumlah Penduduk Kabupaten Hulu Sungai Tengah Menurut Kecamatan dan Jen",
+     " 82.0 tab Jumlah Penduduk, Sex Ratio, dan Pertumbuhan Penduduk Kabupaten Barito ",
+     " 81.3 tab Jumlah Penduduk (Jiwa), Laju Pertumbuhan Penduduk, dan Rasio Jenis Kel",
+     " 80.5 tab Jumlah Penduduk dan Luas Wilayah Menurut Kecamatan di Kabupaten Hulu S",
+     " 79.9 tab Jumlah Penduduk Kabupaten Hulu Sungai Utara Menurut Kecamatan (Ribu Ji",
+     " 79.3 tab Jumlah Penduduk Menurut Kecamatan dan Agama yang Dianut di Kota Banjar"
+    ]
+   },
+   "C_tabel_dulu": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 60,
+    "saran": 3199,
+    "tersembunyi": 0,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 86.9 tab Jumlah dan Kepadatan Penduduk Kabupaten Balangan Menurut Kecamatan, 20",
+     " 86.0 gam Jumlah Penduduk Menurut Kecamatan di Kabupaten Hulu Sungai Utara, 2024",
+     " 84.2 lam Luas Wilayah, Jumlah Kecamatan, Desa/Kelurahan dan Penduduk Menurut Ka",
+     " 84.2 lam Jumlah Penduduk dan Luas Wilayah menurut Kecamatan di Kabupaten Barito",
+     " 82.5 tab Jumlah Penduduk Kabupaten Hulu Sungai Tengah Menurut Kecamatan dan Jen",
+     " 82.0 tab Jumlah Penduduk, Sex Ratio, dan Pertumbuhan Penduduk Kabupaten Barito ",
+     " 81.3 tab Jumlah Penduduk (Jiwa), Laju Pertumbuhan Penduduk, dan Rasio Jenis Kel",
+     " 80.5 tab Jumlah Penduduk dan Luas Wilayah Menurut Kecamatan di Kabupaten Hulu S",
+     " 79.9 tab Jumlah Penduduk Kabupaten Hulu Sungai Utara Menurut Kecamatan (Ribu Ji",
+     " 79.3 tab Jumlah Penduduk Menurut Kecamatan dan Agama yang Dianut di Kota Banjar"
+    ]
+   },
+   "A_peringkat_nonisi_tanpa_batas": 1,
+   "sapuan": {
+    "1.0": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 60,
+     "saran": 3199,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.95": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 60,
+     "saran": 3167,
+     "tersembunyi": 32,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.9": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 60,
+     "saran": 3093,
+     "tersembunyi": 106,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.85": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 60,
+     "saran": 3082,
+     "tersembunyi": 117,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.8": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 60,
+     "saran": 3080,
+     "tersembunyi": 119,
+     "isi_ditemukan": 0,
+     "top10": null
+    }
+   }
+  },
+  "penduduk tanah laut": {
+   "filter": "6301",
+   "kueri_topik": "penduduk",
+   "kandidat": 201,
+   "kandidat_isi": 14,
+   "A_sekarang": {
+    "isi_di_top10": 10,
+    "nonisi_di_top10": 0,
+    "peringkat_nonisi_pertama": 11,
+    "ditemukan": 20,
+    "saran": 181,
+    "tersembunyi": 0,
+    "isi_ditemukan": 13,
+    "top10": [
+     " 96.7 isi Penduduk",
+     " 96.7 isi Penduduk",
+     " 87.0 isi Pengeluaran Penduduk",
+     " 87.0 isi Pengeluaran Penduduk",
+     " 85.8 isi Bab II Kependudukan",
+     " 79.8 isi 10 Pengeluaran Penduduk/Population Expenditure",
+     " 79.8 isi 10 Pengeluaran Penduduk/Population Expenditure",
+     " 77.4 isi Penduduk Bekerja Menurut Status Pekerjaan Utama",
+     " 77.4 isi Penduduk Bekerja Menurut Status Pekerjaan Utama",
+     " 77.4 isi Penduduk Bekerja Menurut Lapangan Pekerjaan Utama"
+    ]
+   },
+   "B_bobot_isi_0_9": {
+    "isi_di_top10": 5,
+    "nonisi_di_top10": 5,
+    "peringkat_nonisi_pertama": 6,
+    "ditemukan": 12,
+    "saran": 189,
+    "tersembunyi": 0,
+    "isi_ditemukan": 5,
+    "top10": [
+     " 87.0 isi Penduduk",
+     " 87.0 isi Penduduk",
+     " 78.3 isi Pengeluaran Penduduk",
+     " 78.3 isi Pengeluaran Penduduk",
+     " 77.2 isi Bab II Kependudukan",
+     " 77.0 gam Piramida Penduduk Kabupaten Tanah Laut, 2024",
+     " 76.9 gam Kepadatan Penduduk per km2 Menurut Kecamatan di",
+     " 76.1 gam Jumlah Penduduk Menurut Kabupaten/Kota di Provinsi",
+     " 76.1 gam Piramida Penduduk Kabupaten Tanah Laut, 2024 – 2025",
+     " 76.1 gam Jumlah Penduduk Menurut Kabupaten/Kota di Provinsi"
+    ]
+   },
+   "C_tabel_dulu": {
+    "isi_di_top10": 3,
+    "nonisi_di_top10": 7,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 20,
+    "saran": 181,
+    "tersembunyi": 0,
+    "isi_ditemukan": 13,
+    "top10": [
+     " 77.0 gam Piramida Penduduk Kabupaten Tanah Laut, 2024",
+     " 76.9 gam Kepadatan Penduduk per km2 Menurut Kecamatan di",
+     " 76.1 gam Jumlah Penduduk Menurut Kabupaten/Kota di Provinsi",
+     " 76.1 gam Piramida Penduduk Kabupaten Tanah Laut, 2024 – 2025",
+     " 76.1 gam Jumlah Penduduk Menurut Kabupaten/Kota di Provinsi",
+     " 75.9 gam Persentase Penduduk Miskin di Kabupaten Tanah Laut,",
+     " 75.9 gam Persentase Penduduk Miskin di Kabupaten Tanah Laut,",
+     " 96.7 isi Penduduk",
+     " 96.7 isi Penduduk",
+     " 87.0 isi Pengeluaran Penduduk"
+    ]
+   },
+   "A_peringkat_nonisi_tanpa_batas": 11,
+   "sapuan": {
+    "1.0": {
+     "isi_di_top10": 10,
+     "nonisi_di_top10": 0,
+     "peringkat_nonisi_pertama": 11,
+     "ditemukan": 20,
+     "saran": 181,
+     "tersembunyi": 0,
+     "isi_ditemukan": 13,
+     "top10": null
+    },
+    "0.95": {
+     "isi_di_top10": 5,
+     "nonisi_di_top10": 5,
+     "peringkat_nonisi_pertama": 6,
+     "ditemukan": 14,
+     "saran": 187,
+     "tersembunyi": 0,
+     "isi_ditemukan": 7,
+     "top10": null
+    },
+    "0.9": {
+     "isi_di_top10": 5,
+     "nonisi_di_top10": 5,
+     "peringkat_nonisi_pertama": 6,
+     "ditemukan": 12,
+     "saran": 189,
+     "tersembunyi": 0,
+     "isi_ditemukan": 5,
+     "top10": null
+    },
+    "0.85": {
+     "isi_di_top10": 3,
+     "nonisi_di_top10": 7,
+     "peringkat_nonisi_pertama": 3,
+     "ditemukan": 9,
+     "saran": 192,
+     "tersembunyi": 0,
+     "isi_ditemukan": 2,
+     "top10": null
+    },
+    "0.8": {
+     "isi_di_top10": 2,
+     "nonisi_di_top10": 8,
+     "peringkat_nonisi_pertama": 3,
+     "ditemukan": 9,
+     "saran": 192,
+     "tersembunyi": 0,
+     "isi_ditemukan": 2,
+     "top10": null
+    }
+   }
+  },
+  "luas panen padi kotabaru": {
+   "filter": "6302",
+   "kueri_topik": "luas panen padi",
+   "kandidat": 14,
+   "kandidat_isi": 0,
+   "A_sekarang": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 2,
+    "saran": 12,
+    "tersembunyi": 0,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 79.9 tab Luas Panen dan Produksi Padi Kabupaten Kotabaru, 2023– komoditas tanam",
+     " 79.8 tab Halaman PERTANIAN 10.1 Luas Panen dan Produksi Padi Kabupeten Kotabaru",
+     " 56.3 tab Luas Panen Tanaman Biofarmaka Menurut Jenis Tanaman di Kabupaten Kotab",
+     " 56.3 tab Luas Panen Tanaman Biofarmaka Menurut Jenis Tanaman di Kabupaten Kotab",
+     " 56.2 tab Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kabupaten Kotabaru (m",
+     " 56.2 tab Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kabupaten Kotabaru (m",
+     " 55.8 tab Luas Panen Tanaman Sayuran dan Buah-buahan Semusim Menurut Jenis Tanam",
+     " 55.8 tab Luas Panen Tanaman Sayuran dan Buah-buahan Semusim Menurut Jenis Tanam",
+     " 55.5 tab Luas Panen Tanaman Sayuran Menurut Kecamatan dan Jenis Tanaman di Kabu",
+     " 55.5 tab Luas Panen Tanaman Biofarmaka Menurut Kecamatan dan Jenis Tanaman di K"
+    ]
+   },
+   "B_bobot_isi_0_9": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 2,
+    "saran": 12,
+    "tersembunyi": 0,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 79.9 tab Luas Panen dan Produksi Padi Kabupaten Kotabaru, 2023– komoditas tanam",
+     " 79.8 tab Halaman PERTANIAN 10.1 Luas Panen dan Produksi Padi Kabupeten Kotabaru",
+     " 56.3 tab Luas Panen Tanaman Biofarmaka Menurut Jenis Tanaman di Kabupaten Kotab",
+     " 56.3 tab Luas Panen Tanaman Biofarmaka Menurut Jenis Tanaman di Kabupaten Kotab",
+     " 56.2 tab Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kabupaten Kotabaru (m",
+     " 56.2 tab Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kabupaten Kotabaru (m",
+     " 55.8 tab Luas Panen Tanaman Sayuran dan Buah-buahan Semusim Menurut Jenis Tanam",
+     " 55.8 tab Luas Panen Tanaman Sayuran dan Buah-buahan Semusim Menurut Jenis Tanam",
+     " 55.5 tab Luas Panen Tanaman Sayuran Menurut Kecamatan dan Jenis Tanaman di Kabu",
+     " 55.5 tab Luas Panen Tanaman Biofarmaka Menurut Kecamatan dan Jenis Tanaman di K"
+    ]
+   },
+   "C_tabel_dulu": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 2,
+    "saran": 12,
+    "tersembunyi": 0,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 79.9 tab Luas Panen dan Produksi Padi Kabupaten Kotabaru, 2023– komoditas tanam",
+     " 79.8 tab Halaman PERTANIAN 10.1 Luas Panen dan Produksi Padi Kabupeten Kotabaru",
+     " 56.3 tab Luas Panen Tanaman Biofarmaka Menurut Jenis Tanaman di Kabupaten Kotab",
+     " 56.3 tab Luas Panen Tanaman Biofarmaka Menurut Jenis Tanaman di Kabupaten Kotab",
+     " 56.2 tab Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kabupaten Kotabaru (m",
+     " 56.2 tab Luas Panen Tanaman Hias Menurut Jenis Tanaman di Kabupaten Kotabaru (m",
+     " 55.8 tab Luas Panen Tanaman Sayuran dan Buah-buahan Semusim Menurut Jenis Tanam",
+     " 55.8 tab Luas Panen Tanaman Sayuran dan Buah-buahan Semusim Menurut Jenis Tanam",
+     " 55.5 tab Luas Panen Tanaman Sayuran Menurut Kecamatan dan Jenis Tanaman di Kabu",
+     " 55.5 tab Luas Panen Tanaman Biofarmaka Menurut Kecamatan dan Jenis Tanaman di K"
+    ]
+   },
+   "A_peringkat_nonisi_tanpa_batas": 1,
+   "sapuan": {
+    "1.0": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 2,
+     "saran": 12,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.95": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 2,
+     "saran": 12,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.9": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 2,
+     "saran": 12,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.85": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 2,
+     "saran": 12,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.8": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 2,
+     "saran": 12,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    }
+   }
+  },
+  "penduduk miskin tala": {
+   "filter": "6301",
+   "kueri_topik": "penduduk miskin",
+   "kandidat": 16,
+   "kandidat_isi": 7,
+   "A_sekarang": {
+    "isi_di_top10": 4,
+    "nonisi_di_top10": 6,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 9,
+    "saran": 7,
+    "tersembunyi": 0,
+    "isi_ditemukan": 4,
+    "top10": [
+     " 82.0 gam Persentase Penduduk Miskin di Kabupaten Tanah Laut,",
+     " 82.0 gam Persentase Penduduk Miskin di Kabupaten Tanah Laut,",
+     " 77.8 gam Perbandingan Persentase Penduduk Miskin di Provinsi Kalimantan Selatan",
+     " 76.8 isi Kemiskinan",
+     " 76.8 isi Kemiskinan",
+     " 76.6 gam Perkembangan Jumlah Penduduk Miskin di Tanah Laut (jiwa), 2021–2025 ra",
+     " 75.8 gam Perkembangan Jumlah Penduduk penduduk yang memiliki rata-rata Miskin d",
+     " 75.2 isi Penduduk",
+     " 75.2 isi Penduduk",
+     " 73.0 tab Garis Kemiskinan, Jumlah, dan Persentase Penduduk Miskin di Kabupaten "
+    ]
+   },
+   "B_bobot_isi_0_9": {
+    "isi_di_top10": 1,
+    "nonisi_di_top10": 9,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 5,
+    "saran": 9,
+    "tersembunyi": 2,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 82.0 gam Persentase Penduduk Miskin di Kabupaten Tanah Laut,",
+     " 82.0 gam Persentase Penduduk Miskin di Kabupaten Tanah Laut,",
+     " 77.8 gam Perbandingan Persentase Penduduk Miskin di Provinsi Kalimantan Selatan",
+     " 76.6 gam Perkembangan Jumlah Penduduk Miskin di Tanah Laut (jiwa), 2021–2025 ra",
+     " 75.8 gam Perkembangan Jumlah Penduduk penduduk yang memiliki rata-rata Miskin d",
+     " 73.0 tab Garis Kemiskinan, Jumlah, dan Persentase Penduduk Miskin di Kabupaten ",
+     " 73.0 tab Garis Kemiskinan, Jumlah, dan Persentase Penduduk Miskin di Kabupaten ",
+     " 72.5 tab Jumlah Penduduk Miskin Menurut Kabupaten/Kota di Provinsi Kalimantan S",
+     " 72.5 tab Jumlah Penduduk Miskin Menurut Kabupaten/Kota di Provinsi Kalimantan S",
+     " 69.1 isi Kemiskinan"
+    ]
+   },
+   "C_tabel_dulu": {
+    "isi_di_top10": 4,
+    "nonisi_di_top10": 6,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 9,
+    "saran": 7,
+    "tersembunyi": 0,
+    "isi_ditemukan": 4,
+    "top10": [
+     " 82.0 gam Persentase Penduduk Miskin di Kabupaten Tanah Laut,",
+     " 82.0 gam Persentase Penduduk Miskin di Kabupaten Tanah Laut,",
+     " 77.8 gam Perbandingan Persentase Penduduk Miskin di Provinsi Kalimantan Selatan",
+     " 76.6 gam Perkembangan Jumlah Penduduk Miskin di Tanah Laut (jiwa), 2021–2025 ra",
+     " 75.8 gam Perkembangan Jumlah Penduduk penduduk yang memiliki rata-rata Miskin d",
+     " 76.8 isi Kemiskinan",
+     " 76.8 isi Kemiskinan",
+     " 75.2 isi Penduduk",
+     " 75.2 isi Penduduk",
+     " 73.0 tab Garis Kemiskinan, Jumlah, dan Persentase Penduduk Miskin di Kabupaten "
+    ]
+   },
+   "A_peringkat_nonisi_tanpa_batas": 1,
+   "sapuan": {
+    "1.0": {
+     "isi_di_top10": 4,
+     "nonisi_di_top10": 6,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 9,
+     "saran": 7,
+     "tersembunyi": 0,
+     "isi_ditemukan": 4,
+     "top10": null
+    },
+    "0.95": {
+     "isi_di_top10": 2,
+     "nonisi_di_top10": 8,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 5,
+     "saran": 11,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.9": {
+     "isi_di_top10": 1,
+     "nonisi_di_top10": 9,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 5,
+     "saran": 9,
+     "tersembunyi": 2,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.85": {
+     "isi_di_top10": 1,
+     "nonisi_di_top10": 9,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 5,
+     "saran": 9,
+     "tersembunyi": 2,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.8": {
+     "isi_di_top10": 1,
+     "nonisi_di_top10": 9,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 5,
+     "saran": 8,
+     "tersembunyi": 3,
+     "isi_ditemukan": 0,
+     "top10": null
+    }
+   }
+  },
+  "inflasi bjm": {
+   "filter": "6371",
+   "kueri_topik": "inflasi",
+   "kandidat": 28,
+   "kandidat_isi": 3,
+   "A_sekarang": {
+    "isi_di_top10": 3,
+    "nonisi_di_top10": 7,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 19,
+    "saran": 9,
+    "tersembunyi": 0,
+    "isi_ditemukan": 3,
+    "top10": [
+     " 85.3 gam Angka Inflasi, 2024",
+     " 81.7 isi BAB III INDEKS HARGA KONSUMEN (IHK) & LAJU INFLASI",
+     " 81.0 isi 3.2 Inflasi Kelompok Pengeluaran",
+     " 80.4 isi BAB 3 INFLASI KOTA BANJARMASIN",
+     " 78.1 gam Inflasi Kota Banjarmasin dan Nasional, 2024",
+     " 77.9 gam Inflasi Kelompok Kesehatan Kota Banjarmasin, 2024",
+     " 77.9 gam Inflasi Kelompok Pendidikan Kota Banjarmasin, 2024",
+     " 77.8 tab Tingkat Inflasi Kota Banjarmasin, 2022-2024 ix",
+     " 77.3 gam Inflasi Kelompok Transportasi Kota Banjarmasin, 2024",
+     " 77.1 gam Trend Inflasi Kota Banjarmasin dan Nasional, 2024"
+    ]
+   },
+   "B_bobot_isi_0_9": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 16,
+    "saran": 12,
+    "tersembunyi": 0,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 85.3 gam Angka Inflasi, 2024",
+     " 78.1 gam Inflasi Kota Banjarmasin dan Nasional, 2024",
+     " 77.9 gam Inflasi Kelompok Kesehatan Kota Banjarmasin, 2024",
+     " 77.9 gam Inflasi Kelompok Pendidikan Kota Banjarmasin, 2024",
+     " 77.8 tab Tingkat Inflasi Kota Banjarmasin, 2022-2024 ix",
+     " 77.3 gam Inflasi Kelompok Transportasi Kota Banjarmasin, 2024",
+     " 77.1 gam Trend Inflasi Kota Banjarmasin dan Nasional, 2024",
+     " 76.8 tab Inflasi Kota Banjarmasin menurut Kelompok Pengeluaran, 2024",
+     " 76.7 gam Perkembangan Inflasi Kota Banjarmasin (persen), 2020- 2024",
+     " 76.1 lam Inflasi Year to Date Kota Banjarmasin, 2024 (2022=100)"
+    ]
+   },
+   "C_tabel_dulu": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 19,
+    "saran": 9,
+    "tersembunyi": 0,
+    "isi_ditemukan": 3,
+    "top10": [
+     " 85.3 gam Angka Inflasi, 2024",
+     " 78.1 gam Inflasi Kota Banjarmasin dan Nasional, 2024",
+     " 77.9 gam Inflasi Kelompok Kesehatan Kota Banjarmasin, 2024",
+     " 77.9 gam Inflasi Kelompok Pendidikan Kota Banjarmasin, 2024",
+     " 77.8 tab Tingkat Inflasi Kota Banjarmasin, 2022-2024 ix",
+     " 77.3 gam Inflasi Kelompok Transportasi Kota Banjarmasin, 2024",
+     " 77.1 gam Trend Inflasi Kota Banjarmasin dan Nasional, 2024",
+     " 76.8 tab Inflasi Kota Banjarmasin menurut Kelompok Pengeluaran, 2024",
+     " 76.7 gam Perkembangan Inflasi Kota Banjarmasin (persen), 2020- 2024",
+     " 76.1 lam Inflasi Year to Date Kota Banjarmasin, 2024 (2022=100)"
+    ]
+   },
+   "A_peringkat_nonisi_tanpa_batas": 1,
+   "sapuan": {
+    "1.0": {
+     "isi_di_top10": 3,
+     "nonisi_di_top10": 7,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 19,
+     "saran": 9,
+     "tersembunyi": 0,
+     "isi_ditemukan": 3,
+     "top10": null
+    },
+    "0.95": {
+     "isi_di_top10": 2,
+     "nonisi_di_top10": 8,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 19,
+     "saran": 9,
+     "tersembunyi": 0,
+     "isi_ditemukan": 3,
+     "top10": null
+    },
+    "0.9": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 16,
+     "saran": 12,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.85": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 16,
+     "saran": 12,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.8": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 16,
+     "saran": 12,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    }
+   }
+  },
+  "pdrb hss": {
+   "filter": "6306",
+   "kueri_topik": "pdrb",
+   "kandidat": 97,
+   "kandidat_isi": 21,
+   "A_sekarang": {
+    "isi_di_top10": 9,
+    "nonisi_di_top10": 1,
+    "peringkat_nonisi_pertama": 10,
+    "ditemukan": 15,
+    "saran": 82,
+    "tersembunyi": 0,
+    "isi_ditemukan": 10,
+    "top10": [
+     " 77.6 isi 1.1 Pengertian PDRB/ Concept of GRDP",
+     " 77.6 isi 1.1 Pengertian PDRB/ Concept of GRDP",
+     " 77.2 isi 1.1 Pengertian PDRB/ Definition of GRDP",
+     " 77.1 isi 3.3 PDRB Perkapita/ GRDP Per Capita",
+     " 77.1 isi 3.3 PDRB Perkapita/ GRDP Per Capita",
+     " 76.6 isi 1.1 Pengertian Produk Domestik Regional Bruto (PDRB)/The Concept of Gr",
+     " 75.9 isi 1.2 Kegunaan Statistik PDRB/ GRDP Statistic",
+     " 75.7 isi 1.2 Kegunaan PDRB/ The Usefulness of GRDP",
+     " 75.7 isi 1.2 Kegunaan PDRB/ The Usefulness of GRDP",
+     " 75.5 tab Distribusi Produk Domestik Regional Bruto Menurut Lapangan Usaha (%), "
+    ]
+   },
+   "B_bobot_isi_0_9": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 5,
+    "saran": 92,
+    "tersembunyi": 0,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 75.5 tab Distribusi Produk Domestik Regional Bruto Menurut Lapangan Usaha (%), ",
+     " 75.5 tab Distribusi Produk Domestik Regional Bruto Menurut Lapangan Usaha (%), ",
+     " 75.4 tab Perbandingan Perubahan Konsep dan Metode Perhitungan PDRB",
+     " 75.0 tab Laju Pertumbuhan Produk Domestik Regional Bruto Menurut Lapangan Usaha",
+     " 75.0 tab Laju Pertumbuhan Produk Domestik Regional Bruto Menurut Lapangan Usaha",
+     " 70.9 tab Perbandingan Perubahan Konsep dan Metode Perhitungan PDRB Table 1.1 Co",
+     " 70.5 lam Indeks Implisit Produk Domestik Regional Bruto Kabupaten Hulu Sungai S",
+     " 70.1 tab Indeks Implisit PDRB Kabupaten Hulu Sungai Selatan Menurut Pengeluaran",
+     " 70.0 tab Produk Domestik Regional Bruto dan PDRB Per Kapita Kabupaten Hulu Sung",
+     " 69.9 tab Produk Domestik Regional Bruto dan PDRB Perkapita Kabupaten Hulu Table"
+    ]
+   },
+   "C_tabel_dulu": {
+    "isi_di_top10": 5,
+    "nonisi_di_top10": 5,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 15,
+    "saran": 82,
+    "tersembunyi": 0,
+    "isi_ditemukan": 10,
+    "top10": [
+     " 75.5 tab Distribusi Produk Domestik Regional Bruto Menurut Lapangan Usaha (%), ",
+     " 75.5 tab Distribusi Produk Domestik Regional Bruto Menurut Lapangan Usaha (%), ",
+     " 75.4 tab Perbandingan Perubahan Konsep dan Metode Perhitungan PDRB",
+     " 75.0 tab Laju Pertumbuhan Produk Domestik Regional Bruto Menurut Lapangan Usaha",
+     " 75.0 tab Laju Pertumbuhan Produk Domestik Regional Bruto Menurut Lapangan Usaha",
+     " 77.6 isi 1.1 Pengertian PDRB/ Concept of GRDP",
+     " 77.6 isi 1.1 Pengertian PDRB/ Concept of GRDP",
+     " 77.2 isi 1.1 Pengertian PDRB/ Definition of GRDP",
+     " 77.1 isi 3.3 PDRB Perkapita/ GRDP Per Capita",
+     " 77.1 isi 3.3 PDRB Perkapita/ GRDP Per Capita"
+    ]
+   },
+   "A_peringkat_nonisi_tanpa_batas": 10,
+   "sapuan": {
+    "1.0": {
+     "isi_di_top10": 9,
+     "nonisi_di_top10": 1,
+     "peringkat_nonisi_pertama": 10,
+     "ditemukan": 15,
+     "saran": 82,
+     "tersembunyi": 0,
+     "isi_ditemukan": 10,
+     "top10": null
+    },
+    "0.95": {
+     "isi_di_top10": 5,
+     "nonisi_di_top10": 5,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 5,
+     "saran": 92,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.9": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 5,
+     "saran": 92,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.85": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 5,
+     "saran": 92,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.8": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 5,
+     "saran": 92,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    }
+   }
+  },
+  "jumlah sekolah banjar": {
+   "filter": "6303",
+   "kueri_topik": "jumlah sekolah",
+   "kandidat": 24,
+   "kandidat_isi": 0,
+   "A_sekarang": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 3,
+    "saran": 21,
+    "tersembunyi": 0,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 76.7 tab dan Partisipasi Sekolah Kabupaten Banjar, 2025 Tidak/Belum Tidak Masih",
+     " 76.1 tab Karakteristik dan Partisipasi Sekolah Kabupaten Banjar, 2025 Tidak/Bel",
+     " 75.5 gam Angka Partisipasi Sekolah fasilitas pendidikan, sehingga diharapkan (A",
+     " 74.2 tab Jumlah Sekolah, Guru, dan Murid Sekolah Dasar (SD) di Bawah Kementeria",
+     " 72.1 tab Jumlah Desa1/Kelurahan yang Memiliki Fasilitas Sekolah Menurut Kecamat",
+     " 72.1 tab Jumlah Desa1/Kelurahan yang Memiliki Fasilitas Sekolah Menurut Kecamat",
+     " 70.9 tab Jumlah Sekolah, Guru, dan Murid Raudatul Athfal (RA) di Bawah Kementer",
+     " 70.9 tab Jumlah Sekolah, Guru, dan Murid Madrasah Ibtidaiyah (MI) di Bawah Keme",
+     " 70.9 tab Jumlah Sekolah, Guru, dan Murid Raudatul Athfal (RA) di Bawah Kementer",
+     " 70.9 tab Jumlah Sekolah, Guru, dan Murid Madrasah Ibtidaiyah (MI) di Bawah Keme"
+    ]
+   },
+   "B_bobot_isi_0_9": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 3,
+    "saran": 21,
+    "tersembunyi": 0,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 76.7 tab dan Partisipasi Sekolah Kabupaten Banjar, 2025 Tidak/Belum Tidak Masih",
+     " 76.1 tab Karakteristik dan Partisipasi Sekolah Kabupaten Banjar, 2025 Tidak/Bel",
+     " 75.5 gam Angka Partisipasi Sekolah fasilitas pendidikan, sehingga diharapkan (A",
+     " 74.2 tab Jumlah Sekolah, Guru, dan Murid Sekolah Dasar (SD) di Bawah Kementeria",
+     " 72.1 tab Jumlah Desa1/Kelurahan yang Memiliki Fasilitas Sekolah Menurut Kecamat",
+     " 72.1 tab Jumlah Desa1/Kelurahan yang Memiliki Fasilitas Sekolah Menurut Kecamat",
+     " 70.9 tab Jumlah Sekolah, Guru, dan Murid Raudatul Athfal (RA) di Bawah Kementer",
+     " 70.9 tab Jumlah Sekolah, Guru, dan Murid Madrasah Ibtidaiyah (MI) di Bawah Keme",
+     " 70.9 tab Jumlah Sekolah, Guru, dan Murid Raudatul Athfal (RA) di Bawah Kementer",
+     " 70.9 tab Jumlah Sekolah, Guru, dan Murid Madrasah Ibtidaiyah (MI) di Bawah Keme"
+    ]
+   },
+   "C_tabel_dulu": {
+    "isi_di_top10": 0,
+    "nonisi_di_top10": 10,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 3,
+    "saran": 21,
+    "tersembunyi": 0,
+    "isi_ditemukan": 0,
+    "top10": [
+     " 76.7 tab dan Partisipasi Sekolah Kabupaten Banjar, 2025 Tidak/Belum Tidak Masih",
+     " 76.1 tab Karakteristik dan Partisipasi Sekolah Kabupaten Banjar, 2025 Tidak/Bel",
+     " 75.5 gam Angka Partisipasi Sekolah fasilitas pendidikan, sehingga diharapkan (A",
+     " 74.2 tab Jumlah Sekolah, Guru, dan Murid Sekolah Dasar (SD) di Bawah Kementeria",
+     " 72.1 tab Jumlah Desa1/Kelurahan yang Memiliki Fasilitas Sekolah Menurut Kecamat",
+     " 72.1 tab Jumlah Desa1/Kelurahan yang Memiliki Fasilitas Sekolah Menurut Kecamat",
+     " 70.9 tab Jumlah Sekolah, Guru, dan Murid Raudatul Athfal (RA) di Bawah Kementer",
+     " 70.9 tab Jumlah Sekolah, Guru, dan Murid Madrasah Ibtidaiyah (MI) di Bawah Keme",
+     " 70.9 tab Jumlah Sekolah, Guru, dan Murid Raudatul Athfal (RA) di Bawah Kementer",
+     " 70.9 tab Jumlah Sekolah, Guru, dan Murid Madrasah Ibtidaiyah (MI) di Bawah Keme"
+    ]
+   },
+   "A_peringkat_nonisi_tanpa_batas": 1,
+   "sapuan": {
+    "1.0": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 3,
+     "saran": 21,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.95": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 3,
+     "saran": 21,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.9": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 3,
+     "saran": 21,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.85": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 3,
+     "saran": 21,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    },
+    "0.8": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 3,
+     "saran": 21,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    }
+   }
+  },
+  "penduduk kotabaru": {
+   "filter": "6302",
+   "kueri_topik": "penduduk",
+   "kandidat": 198,
+   "kandidat_isi": 18,
+   "A_sekarang": {
+    "isi_di_top10": 8,
+    "nonisi_di_top10": 2,
+    "peringkat_nonisi_pertama": 9,
+    "ditemukan": 22,
+    "saran": 176,
+    "tersembunyi": 0,
+    "isi_ditemukan": 15,
+    "top10": [
+     " 91.6 isi 3. Penduduk",
+     " 85.8 isi BAB II KEPENDUDUKAN",
+     " 85.8 isi Bab II Kependudukan",
+     " 85.2 isi 2.2 Kepadatan Penduduk",
+     " 84.2 isi 14. Pengeluaran Penduduk",
+     " 79.8 isi 10. Pengeluaran Penduduk/Population Expenditure",
+     " 79.8 isi 10. Pengeluaran Penduduk/Population Expenditure",
+     " 78.6 isi 2.4 Fertilitas Penduduk dan Keluarga Berencana",
+     " 77.7 gam Piramida Penduduk Kabupaten Kotabaru, 2024",
+     " 77.7 gam Piramida Penduduk Kabupaten Kotabaru, 2024"
+    ]
+   },
+   "B_bobot_isi_0_9": {
+    "isi_di_top10": 4,
+    "nonisi_di_top10": 6,
+    "peringkat_nonisi_pertama": 2,
+    "ditemukan": 12,
+    "saran": 186,
+    "tersembunyi": 0,
+    "isi_ditemukan": 5,
+    "top10": [
+     " 82.4 isi 3. Penduduk",
+     " 77.7 gam Piramida Penduduk Kabupaten Kotabaru, 2024",
+     " 77.7 gam Piramida Penduduk Kabupaten Kotabaru, 2024",
+     " 77.2 isi BAB II KEPENDUDUKAN",
+     " 77.2 isi Bab II Kependudukan",
+     " 76.9 gam Angka Kesakitan Penduduk Kabupaten Kotabaru, 2024",
+     " 76.8 tab Jumlah Penduduk Berumur 15 Tahun Keatas Menurut",
+     " 76.7 isi 2.2 Kepadatan Penduduk",
+     " 76.3 tab Penduduk Berumur 15 Tahun Ke Atas yang Bekerja",
+     " 76.2 tab Statistik Kependudukan Kabupaten Kotabaru Tahun 2023-2024"
+    ]
+   },
+   "C_tabel_dulu": {
+    "isi_di_top10": 3,
+    "nonisi_di_top10": 7,
+    "peringkat_nonisi_pertama": 1,
+    "ditemukan": 22,
+    "saran": 176,
+    "tersembunyi": 0,
+    "isi_ditemukan": 15,
+    "top10": [
+     " 77.7 gam Piramida Penduduk Kabupaten Kotabaru, 2024",
+     " 77.7 gam Piramida Penduduk Kabupaten Kotabaru, 2024",
+     " 76.9 gam Angka Kesakitan Penduduk Kabupaten Kotabaru, 2024",
+     " 76.8 tab Jumlah Penduduk Berumur 15 Tahun Keatas Menurut",
+     " 76.3 tab Penduduk Berumur 15 Tahun Ke Atas yang Bekerja",
+     " 76.2 tab Statistik Kependudukan Kabupaten Kotabaru Tahun 2023-2024",
+     " 76.1 tab Relative Standard Error Penduduk Usia Kerja Kabupaten Kotabaru Menurut",
+     " 91.6 isi 3. Penduduk",
+     " 85.8 isi BAB II KEPENDUDUKAN",
+     " 85.8 isi Bab II Kependudukan"
+    ]
+   },
+   "A_peringkat_nonisi_tanpa_batas": 9,
+   "sapuan": {
+    "1.0": {
+     "isi_di_top10": 8,
+     "nonisi_di_top10": 2,
+     "peringkat_nonisi_pertama": 9,
+     "ditemukan": 22,
+     "saran": 176,
+     "tersembunyi": 0,
+     "isi_ditemukan": 15,
+     "top10": null
+    },
+    "0.95": {
+     "isi_di_top10": 5,
+     "nonisi_di_top10": 5,
+     "peringkat_nonisi_pertama": 6,
+     "ditemukan": 14,
+     "saran": 184,
+     "tersembunyi": 0,
+     "isi_ditemukan": 7,
+     "top10": null
+    },
+    "0.9": {
+     "isi_di_top10": 4,
+     "nonisi_di_top10": 6,
+     "peringkat_nonisi_pertama": 2,
+     "ditemukan": 12,
+     "saran": 186,
+     "tersembunyi": 0,
+     "isi_ditemukan": 5,
+     "top10": null
+    },
+    "0.85": {
+     "isi_di_top10": 1,
+     "nonisi_di_top10": 9,
+     "peringkat_nonisi_pertama": 2,
+     "ditemukan": 8,
+     "saran": 190,
+     "tersembunyi": 0,
+     "isi_ditemukan": 1,
+     "top10": null
+    },
+    "0.8": {
+     "isi_di_top10": 0,
+     "nonisi_di_top10": 10,
+     "peringkat_nonisi_pertama": 1,
+     "ditemukan": 7,
+     "saran": 191,
+     "tersembunyi": 0,
+     "isi_ditemukan": 0,
+     "top10": null
+    }
+   }
+  }
+ }
+}

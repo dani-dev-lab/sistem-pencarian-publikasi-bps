@@ -1,0 +1,11 @@
+populasi 1374 entri di 26 publikasi OCR; seed 20261118
+#1 [ba4b6cd4] tabel 4.1.4 | hal 39 | fisik 59 | keduanya | Jumlah Murid Menurut Tingkat Pendidikan di Kecamatan Tapin Utara; 2023/2024 dan 2024/2025. Number of Pupils by Educational Level in Tapin Utara Distri
+#2 [8f34c2e7] tabel 4.3.2 | hal 39 | fisik 63 | daftar | Banyaknya Desa' /Kelurahan Menurut Jenis Bahan Bakar untuk Memasak yang Digunakan Sebagian Besar Keluarga di Kecamatan Pandawan, 2025 Number of Villag
+#3 [c4a0fdd8] isi None | hal 41 | fisik 63 (perkiraan) | daftar | 4.3 Perumahan dan Lingkungan/Housing and Environment
+#4 [b0d3817c] tabel 4.3.2 | hal 39 | fisik 63 | daftar | Banyaknya Desa' /Kelurahan Menurut Jenis Bahan Bakar untuk Memasak yang Digunakan Sebagian Besar Keluarga di Kecamatan Batang Alai Utara, 2025 Number 
+#5 [9d9fc69a] isi None | hal 25 | fisik 49 (perkiraan) | daftar | 4. Sosial dan Kesejahteraan Rakyat/Social and Welfare
+#6 [289e7b7f] tabel 7.1 | hal 74 | fisik 98 | daftar | COOPERATIVE, AND TRADE ops g0- Banyaknya Desa' /Kelurahan dengan Keberadaan Sarana Lembaga Keuangan Bank Menurut Jenis Bank di Kecamatan Barabai, 2025
+#7 [595d3a9a] tabel 4.1.1 | hal 40 | fisik 62 | keduanya | Banyaknya Desa' /Kelurahan yang Memiliki Fasilitas Sekolah Menurut Tingkat Pendidikan di Kecamatan Halong, 2022-2024. Number of Villages /Subdistricts
+#8 [8bb11354] tabel 4.4.2 | hal 44 | fisik 66 | keduanya | Banyaknya Desa' /Kelurahan yang Terdapat Korban Jiwa Akibat Bencana Alam Menurut Jenis Bencana Alam di Kecamatan Binuang; 20242 Number of Villages' /S
+#9 [d7dcf0be] tabel 4.1.6 | hal 40 | fisik 60 | daftar | Jumlah Sekolah; Guru; dan Murid Madrasah Ibtidaiyah (MI) Menurut Desa di Kecamatan Tatah Makmur, 2024/2025
+#10 [dd9c2563] tabel 4.4 | hal 43 | fisik 65 (perkiraan) | daftar | Sosial LainnyalReligion and Other Social Affairs

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_ikon.html" import ikon %}
 {% block judul %}Perbarui Data &mdash; Admin{% endblock %}
 
 {% block kepala %}
@@ -9,41 +10,274 @@
   {% if berjalan or pid_lain %}<noscript><meta http-equiv="refresh" content="5"></noscript>{% endif %}
 {% endblock %}
 
-{% macro ringkasan_hasil(r) %}
-  {% if r.status == "tidak_ada_baru" %}
-    <p class="kabar kabar-sukses">Tidak ada publikasi baru. {{ r.jumlah_publikasi }}
-      publikasi di daftar BPS semuanya sudah terindeks.
-      <span class="ringan">({{ r.durasi_detik }} detik)</span></p>
-  {% elif r.status == "sukses" %}
-    <p class="kabar kabar-sukses">Pembaruan selesai:
-      <strong>{{ r.publikasi_baru|length }} publikasi baru</strong>,
-      entri dokumen {{ r.entri_sebelum }} &rarr; {{ r.entri_sesudah }}
-      (+{{ r.entri_sesudah - r.entri_sebelum }}). Total {{ r.jumlah_publikasi }}
-      publikasi. Data baru langsung bisa dicari.
-      <span class="ringan">({{ r.durasi_detik }} detik)</span></p>
-    {% if r.publikasi_baru %}
-    <ul class="ringkasan-pembaruan">
-      {% for p in r.publikasi_baru %}
-        <li>{{ p.judul }} <span class="ringan">&mdash; {{ p.entri }} bagian terindeks</span></li>
+{% macro uraian_pilihan(p) -%}
+  {%- if p.nama_wilayah|length >= f_jumlah_wilayah -%}Semua wilayah ({{ p.nama_wilayah|length }})
+  {%- else -%}{{ p.nama_wilayah|join(", ") }}{%- endif -%}
+  {%- if p.wilayah|reject("equalto", "6300")|list %} &middot; {% for j in p.jenis %}{{ nama_jenis[j] }}{% if not loop.last %} + {% endif %}{% endfor %}{% endif %}
+  &middot; rilis {{ p.tahun_dari }}{% if p.tahun_sampai != p.tahun_dari %}&ndash;{{ p.tahun_sampai }}{% endif %}
+{%- endmacro %}
+
+{# Kartu ringkasan (25 Nov 2026): status berwarna + satu kalimat + empat angka.
+   k dari app/services/ringkasan_pembaruan.py (ringkas_cek / ringkas_pembaruan).
+   Warna tidak berdiri sendiri: judul status selalu tertulis. #}
+{% macro kartu_ringkasan(k, id) %}
+  <div class="panel-ringkasan warna-{{ k.warna }}" id="{{ id }}" data-status="{{ k.status }}">
+    <p class="status-ringkasan" role="status"><span class="titik-status" aria-hidden="true"></span>{{ k.judul }}</p>
+    {% if k.kalimat %}<p class="kalimat-ringkasan">{{ k.kalimat }}</p>{% endif %}
+    <dl class="angka-ringkasan">
+      {% for a in k.angka %}
+      <div class="kotak-angka">
+        <dt>{{ a.label }}</dt>
+        <dd><span class="nilai-angka">{{ a.nilai }}{% if a.satuan %} <span class="satuan-angka">{{ a.satuan }}</span>{% endif %}</span>
+          {% if a.ket %}<span class="ket-angka">{{ a.ket }}</span>{% endif %}</dd>
+      </div>
       {% endfor %}
+    </dl>
+  </div>
+{% endmacro %}
+
+{% macro rincian_pembaruan(r) %}
+  {% if r.pilihan %}<p class="ringan">Pilihan: {{ uraian_pilihan(r.pilihan) }}</p>{% endif %}
+  {# Ringkasan lama (sebelum multi-domain) tidak punya r.domain dan r.durasi_tahap. #}
+  {% if r.publikasi_baru %}
+  <p class="ringan">Publikasi baru:</p>
+  <ul class="ringkasan-pembaruan">
+    {% for p in r.publikasi_baru %}
+      <li>{{ p.judul }} <span class="ringan">&mdash; {% if p.wilayah %}{{ p.wilayah }}, {% endif %}{{ p.entri }} bagian terindeks</span></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% for d in r.domain or [] %}
+    {% if d.pesan %}<p class="kabar kabar-gagal"><strong>{{ d.wilayah }}:</strong> {{ d.pesan }}</p>{% endif %}
+    {% if d.gagal %}
+    <p class="ringan"><strong>{{ d.wilayah }}</strong> &mdash; publikasi yang gagal (data lamanya
+      tetap dipakai, dicoba lagi pada pembaruan berikutnya):</p>
+    <ul class="ringkasan-pembaruan">
+      {% for g in d.gagal %}<li>{{ g.judul }} <span class="ringan">&mdash; {{ g.tahap }}: {{ g.pesan }}</span></li>{% endfor %}
     </ul>
     {% endif %}
-  {% elif r.status == "gagal" %}
-    {% if r.jaringan %}
-      <p class="kabar kabar-gagal"><strong>Tidak bisa terhubung ke WebAPI BPS.</strong>
-        Pastikan komputer ini tersambung ke jaringan <strong>&ldquo;BPS - Pegawai&rdquo;</strong>
-        (jaringan &ldquo;BPS - Tamu&rdquo; memblokir akses), lalu coba lagi.
-        Data yang sudah ada tetap utuh.</p>
-    {% else %}
-      <p class="kabar kabar-gagal"><strong>Pembaruan gagal</strong> di tahap {{ r.tahap }}.
-        Data yang sudah ada tetap utuh dan pembaruan aman diulang. Kalau gagal lagi,
-        hubungi tim IT dan sertakan catatan proses di bawah.</p>
+    {% if d.tabrakan %}
+    <p class="ringan"><strong>{{ d.wilayah }}</strong> &mdash; publikasi yang sudah tercatat milik
+      wilayah lain, tidak ditimpa. Hubungi tim IT:</p>
+    <ul class="ringkasan-pembaruan">
+      {% for t in d.tabrakan %}<li>{{ t.judul_api }} <span class="ringan mono">{{ t.pub_id }}, milik {{ t.domain_lain }}</span></li>{% endfor %}
+    </ul>
     {% endif %}
+  {% endfor %}
+
+  {% if r.domain or r.durasi_tahap %}
+  {# Dilipat (25 Nov 2026); <details> bekerja tanpa JavaScript. #}
+  <details class="lipat rincian-wilayah">
+  <summary>Lihat rincian per wilayah</summary>
+  {% if r.domain %}
+  {# Dibungkus supaya di layar ponsel tabel bergulir di dalam kotaknya sendiri,
+     bukan melebarkan seluruh halaman (24 Nov 2026). #}
+  <div class="gulir-tabel">
+  <table class="tabel-log">
+    <thead>
+      <tr><th>Wilayah</th><th>Hasil</th><th class="ka">Publikasi</th>
+          <th class="ka">Diunduh</th><th class="ka">Diproses</th><th class="ka">Gagal</th></tr>
+    </thead>
+    <tbody>
+    {% for d in r.domain %}
+      <tr class="{% if d.status == 'gagal' or d.gagal %}baris-nol{% endif %}">
+        <td><strong>{{ d.wilayah }}</strong> <span class="ringan mono">{{ d.kode }}</span></td>
+        <td>{{ {"sukses": "Diperbarui", "tidak_ada_baru": "Tidak ada yang baru",
+                "sebagian": "Sebagian gagal", "gagal": "Gagal"}.get(d.status, d.status) }}</td>
+        <td class="ka">{{ d.jumlah_publikasi }}</td>
+        <td class="ka">{{ d.diunduh }}</td>
+        <td class="ka">{{ d.diproses }}</td>
+        <td class="ka">{{ d.gagal|length }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+
+  {% for d in r.domain or [] %}
+    {% if d.tidak_di_daftar %}
+    <p class="ringan"><strong>{{ d.wilayah }}</strong> &mdash; {{ d.tidak_di_daftar|length }} publikasi
+      tidak lagi ada di daftar BPS. Tetap bisa dicari, tidak dihapus.</p>
+    {% endif %}
+    {% if d.menunggu_unduhan %}
+    <p class="ringan"><strong>{{ d.wilayah }}</strong> &mdash; {{ d.menunggu_unduhan|length }} publikasi
+      punya versi lebih baru di BPS dan menunggu pembaruan online.</p>
+    {% endif %}
+  {% endfor %}
+  {% endif %}
+
+  {% if r.durasi_tahap %}
+  <p class="ringan">Waktu per tahap: ambil daftar {{ r.durasi_tahap.ambil_metadata }} detik,
+    unduh {{ r.durasi_tahap.unduh }} detik, baca PDF {{ r.durasi_tahap.ekstraksi }} detik,
+    simpan {{ r.durasi_tahap.muat }} detik.</p>
+  {% endif %}
+  </details>
   {% endif %}
 {% endmacro %}
 
+{# Ringkasan SESUDAH pembaruan (25 Nov 2026): kartu bergaya sama dengan hasil cek.
+   kartu_pembaruan dihitung route dari ringkasan yang sama. #}
+{% macro ringkasan_hasil(r) %}
+  {{ kartu_ringkasan(kartu_pembaruan, "ringkasan-pembaruan") }}
+  {% if r.status == "gagal" %}
+    {% if r.jaringan %}
+      <p class="kabar kabar-gagal"><strong>Tidak bisa terhubung ke WebAPI BPS.</strong>
+        Periksa koneksi internet komputer ini, lalu coba lagi. Kalau situs BPS
+        terbuka di browser tetapi pembaruan tetap gagal, kemungkinan DNS jaringan
+        mengarahkan <code>webapi.bps.go.id</code> ke alamat yang salah: hubungi
+        tim IT (PANDUAN.md, bagian Pemecahan masalah).
+        Data yang sudah ada tetap utuh.</p>
+    {% else %}
+      <p class="kabar kabar-gagal"><strong>Pembaruan gagal</strong>{% if r.tahap %} di tahap {{ r.tahap }}{% endif %}.
+        Data yang sudah ada tetap utuh dan pembaruan aman diulang. Kalau gagal lagi,
+        hubungi tim IT dan sertakan catatan proses di bawah.</p>
+      {% if r.pesan %}<p class="kabar kabar-gagal">{{ r.pesan }}</p>{% endif %}
+    {% endif %}
+  {% endif %}
+  {{ rincian_pembaruan(r) }}
+{% endmacro %}
+
+{% macro angka_mb(x) %}{{ "{:,.0f}".format(x or 0).replace(",", ".") }}{% endmacro %}
+
+{% macro hasil_cek(c) %}
+  {% set t = c.total %}{% set pk = c.perkiraan %}{% set dt = pk.detik %}
+  <section class="hasil-cek" id="hasil-cek" aria-labelledby="judul-hasil-cek">
+    <h2 class="judul-hasil-cek" id="judul-hasil-cek">Hasil cek
+      <span class="ringan">&mdash; belum ada yang diunduh atau diubah</span></h2>
+    {{ kartu_ringkasan(kartu_cek, "ringkasan-cek") }}
+    {% if kartu_cek.status == "besar" %}
+    <div class="peringatan">
+      <ul class="daftar-peringatan">{% for p in kartu_cek.alasan_besar %}<li>{{ p }}</li>{% endfor %}</ul>
+      Laptop tersambung listrik dan layarnya jangan ditutup. Penarikan besar bisa berjam-jam
+      dan belasan GB. Lihat PANDUAN.md bagian 4.
+    </div>
+    {% endif %}
+    <p class="ringan">Pilihan: {{ uraian_pilihan(c.pilihan) }}. Dicek {{ waktu_cek }}
+      ({{ c.durasi_detik }} detik).</p>
+    {% if pk.catatan %}
+    <ul class="ringkasan-pembaruan ringan">
+      {% for x in pk.catatan %}<li>{{ x }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+    {# Dilipat (25 Nov 2026); <details> bekerja tanpa JavaScript. #}
+    <details class="lipat rincian-wilayah">
+    <summary>Lihat rincian per wilayah</summary>
+    <div class="gulir-tabel">
+    <table class="tabel-log tabel-cek">
+      <thead>
+        <tr><th>Wilayah</th><th class="ka">Sesuai pilihan</th><th class="ka">Baru</th>
+            <th class="ka">Direvisi</th><th class="ka">Baca ulang</th>
+            <th class="ka">Tidak berubah</th><th class="ka">Unduh (MB)</th></tr>
+      </thead>
+      <tbody>
+      {% for d in c.domain %}
+        {% if d.status == "gagal" %}
+        <tr class="baris-nol"><td><strong>{{ d.wilayah }}</strong></td>
+          <td colspan="6">Gagal: {{ d.pesan }}</td></tr>
+        {% else %}
+        <tr>
+          <td><strong>{{ d.wilayah }}</strong> <span class="ringan mono">{{ d.kode }}</span>
+            {% if d.terhalang %}<br><span class="ringan">Akan dilewati: {{ d.terhalang }}</span>{% endif %}</td>
+          <td class="ka">{{ d.di_daftar }}</td><td class="ka">{{ d.baru }}</td>
+          <td class="ka">{{ d.direvisi }}</td><td class="ka">{{ d.baca_ulang }}</td>
+          <td class="ka">{{ d.tetap }}</td><td class="ka">{{ angka_mb(d.mb_unduh) }}</td>
+        </tr>
+        {% endif %}
+      {% endfor %}
+      </tbody>
+      <tfoot>
+        <tr><th>Total</th><th class="ka">{{ t.di_daftar }}</th><th class="ka">{{ t.baru }}</th>
+            <th class="ka">{{ t.direvisi }}</th><th class="ka">{{ t.baca_ulang }}</th>
+            <th class="ka">{{ t.tetap }}</th><th class="ka">{{ angka_mb(t.mb_unduh) }}</th></tr>
+      </tfoot>
+    </table>
+    </div>
+    <p class="ringan">Rincian perkiraan: memeriksa daftar {{ durasi(dt.daftar) }}, unduh
+      {{ durasi(dt.unduh) }} (pada {{ pk.laju_unduh_mb_per_detik|int }} MB/detik, terukur dari kantor),
+      membaca PDF {{ durasi(dt.baca_pdf) }}, sampul {{ durasi(dt.sampul) }}.
+      {% if t.mb_unduh %}Kalau jaringan lambat (malam pukul 20.30&ndash;00.00 pernah terukur
+      sekitar 50 KB/detik), unduhannya saja bisa {{ durasi(dt.unduh_lambat) }}.{% endif %}
+      Ukuran dari daftar BPS: per berkas bisa meleset, jumlahnya mendekati.</p>
+    </details>
+    {% if kartu_cek.boleh_mulai and kartu_cek.status != "terbaru" %}
+    <p class="ringan">Pilihan di formulir di bawah sudah terisi sama dengan cek ini.</p>
+    {% endif %}
+  </section>
+{% endmacro %}
+
+{% macro formulir_pilihan() %}
+  <form method="post" action="{{ url_for('admin.perbarui_mulai') }}" class="form-pembaruan"
+        id="form-pembaruan" novalidate>
+    <input type="hidden" name="formulir" value="1">
+    <h2 class="judul-form-pembaruan">Pilihan penarikan</h2>
+    {% if f_galat %}
+    <div class="kabar kabar-gagal" role="alert">
+      <strong>Pilihan belum bisa dipakai, tidak ada yang dijalankan:</strong>
+      <ul class="daftar-galat">{% for g in f_galat %}<li>{{ g }}</li>{% endfor %}</ul>
+    </div>
+    {% endif %}
+
+    <fieldset class="kelompok-pilihan">
+      <legend>Wilayah</legend>
+      <p class="aksi-centang" hidden>
+        <button type="button" class="tombol-kedua tombol-kecil" data-centang="semua">Pilih semua</button>
+        <button type="button" class="tombol-kedua tombol-kecil" data-centang="kosong">Hapus semua</button>
+      </p>
+      {% for w in f_provinsi %}
+      <label class="pilihan-centang pilihan-provinsi"><input type="checkbox" name="wilayah"
+        value="{{ w.kode }}"{% if w.kode in f_nilai.wilayah %} checked{% endif %}>
+        <span>{{ w.nama }}</span></label>
+      {% endfor %}
+      <div class="kisi-wilayah">
+        {% for w in f_kabkota %}
+        <label class="pilihan-centang"><input type="checkbox" name="wilayah" value="{{ w.kode }}"
+          data-kabkota="1"{% if w.kode in f_nilai.wilayah %} checked{% endif %}>
+          <span>{{ w.nama }}</span></label>
+        {% endfor %}
+      </div>
+    </fieldset>
+
+    <fieldset class="kelompok-pilihan" id="pilihan-jenis">
+      <legend>Jenis publikasi untuk kabupaten/kota terpilih</legend>
+      {% for j, nama in nama_jenis.items() %}
+      <label class="pilihan-centang"><input type="checkbox" name="jenis" value="{{ j }}"
+        {%- if j in f_nilai.jenis %} checked{% endif %}> <span>{{ nama }}</span></label>
+      {% endfor %}
+      <p class="ringan keterangan-pilihan">Kecamatan Dalam Angka dikenali dari judulnya, di
+        daftar publikasi kabupaten/kota itu. Provinsi tidak punya publikasi kecamatan, jadi
+        pilihan ini tidak berlaku untuk provinsi.</p>
+    </fieldset>
+
+    <fieldset class="kelompok-pilihan">
+      <legend>Tahun rilis</legend>
+      <div class="baris-tahun">
+        <label>Dari <select name="dari">{% for th in f_tahun %}<option value="{{ th }}"
+          {%- if th == f_nilai.dari %} selected{% endif %}>{{ th }}</option>{% endfor %}</select></label>
+        <label>Sampai <select name="sampai">{% for th in f_tahun %}<option value="{{ th }}"
+          {%- if th == f_nilai.sampai %} selected{% endif %}>{{ th }}</option>{% endfor %}</select></label>
+      </div>
+      <p class="ringan keterangan-pilihan">Tahun <strong>rilis</strong> publikasi, bukan tahun
+        data di judulnya. Pembaruan rutin: tahun lalu sampai tahun ini. Mutu pembacaan PDF
+        rilis sebelum {{ tahun_teruji }} belum pernah diuji.</p>
+    </fieldset>
+
+    <p class="ringan keterangan-pilihan">Publikasi di luar pilihan tidak disentuh dan tidak
+      dihapus. <strong>Cek dulu</strong> menghitung berapa publikasi yang akan diproses, tanpa
+      mengunduh apa pun. Penarikan besar bisa berjam-jam.</p>
+    <div class="tombol-pembaruan">
+      <button type="submit" name="aksi" value="cek" class="tombol-kedua">Cek dulu</button>
+      <button type="submit" name="aksi" value="mulai" class="tombol-utama"
+        {%- if mulai_nonaktif %} disabled aria-describedby="alasan-mulai"{% endif %}>Mulai pembaruan</button>
+    </div>
+    {% if mulai_nonaktif %}
+    <p class="kabar kabar-gagal alasan-mulai" id="alasan-mulai">{{ kartu_cek.alasan_tidak_boleh }}</p>
+    {% endif %}
+  </form>
+{% endmacro %}
+
 {% block konten %}
-<p class="tautan-balik"><a href="{{ url_for('admin.beranda') }}">&larr; Admin</a></p>
+<p class="tautan-balik"><a class="tombol-kedua tombol-kecil" href="{{ url_for('admin.beranda') }}">&larr; Beranda admin</a></p>
 <h1 class="judul-admin">Perbarui data publikasi</h1>
 
 {% with pesan = get_flashed_messages(with_categories=true) %}
@@ -54,8 +288,14 @@
 
 {% if berjalan %}
   {# ------------------------- sedang berjalan ------------------------- #}
-  <p class="kabar kabar-sukses">&#9203; <strong>Pembaruan sedang berjalan</strong>
+  {% if jenis_proses == "cek" %}
+  <p class="kabar kabar-sukses">{{ ikon("jam", 18) }} <strong>Cek sedang berjalan</strong>
+    sejak {{ waktu_mulai }}: hanya membaca daftar publikasi BPS, tidak mengunduh PDF
+    dan tidak mengubah database. Baris baru muncul di bawah selama proses berjalan.</p>
+  {% else %}
+  <p class="kabar kabar-sukses">{{ ikon("jam", 18) }} <strong>Pembaruan sedang berjalan</strong>
     sejak {{ waktu_mulai }}. Baris baru muncul di bawah selama proses berjalan.</p>
+  {% endif %}
   <p class="peringatan">Menutup halaman ini <strong>tidak</strong> menghentikan
     pembaruan &mdash; proses tetap berjalan di server dan halaman ini bisa
     dibuka lagi kapan saja untuk melihat kelanjutannya. Yang menghentikan
@@ -69,8 +309,8 @@
 
 {% elif pid_lain %}
   {# ------------- berjalan dari .bat / terminal, bukan dari sini ------------- #}
-  <p class="kabar kabar-sukses">&#9203; <strong>Pembaruan sedang berjalan</strong>
-    dari jendela terminal / <code>perbarui-data.bat</code> (proses {{ pid_lain }}).
+  <p class="kabar kabar-sukses">{{ ikon("jam", 18) }} <strong>Pembaruan sedang berjalan</strong>
+    dari jendela terminal / <code>{{ teks_os("perbarui-data.bat") }}</code> (proses {{ pid_lain }}).
     Kemajuannya hanya terlihat di jendela itu; halaman ini akan bisa dipakai lagi
     begitu proses itu selesai.</p>
   <form method="post" action="{{ url_for('admin.perbarui_mulai') }}">
@@ -82,7 +322,14 @@
   {# ------------------------------ siap ------------------------------ #}
   {# Waktu selalu ditampilkan: ringkasan bisa berasal dari run .bat yang
      dijalankan tim IT setelah run web terakhir, dan pembaca berhak tahu itu. #}
-  {% if ringkasan %}<p class="ringan">Pembaruan terakhir selesai {{ waktu_ringkasan }}.</p>{% endif %}
+  {% if ringkasan and cek_sesi_ini %}
+    {# Hasil cek sesi ini yang jadi perhatian; ringkasan pembaruan terakhir
+       dilipat supaya tidak ada dua kartu berwarna bersaing (25 Nov 2026). #}
+    <details class="lipat">
+      <summary>Pembaruan terakhir selesai {{ waktu_ringkasan }}: {{ kartu_pembaruan.judul }}</summary>
+      {{ ringkasan_hasil(ringkasan) }}
+    </details>
+  {% elif ringkasan %}<p class="ringan">Pembaruan terakhir selesai {{ waktu_ringkasan }}.</p>{% endif %}
   {% if selesai_sesi_ini %}
     {% if dari_sesi_ini %}
       {{ ringkasan_hasil(ringkasan) }}
@@ -94,30 +341,49 @@
         Data yang sudah ada tetap utuh. Lihat catatan proses di bawah; kalau
         terulang, hubungi tim IT.</p>
     {% endif %}
-  {% elif ringkasan %}
+  {% elif ringkasan and not cek_sesi_ini %}
     {{ ringkasan_hasil(ringkasan) }}
   {% endif %}
 
-  <p>Mengambil daftar publikasi terbaru dari WebAPI BPS, mengunduh PDF publikasi
-    yang belum ada, membaca strukturnya, dan memasukkannya ke database supaya
-    bisa dicari. Publikasi yang sudah ada tidak diproses ulang.</p>
+  {% if cek_sesi_ini %}
+    {% if cek and cek.status != "gagal" %}
+      {{ hasil_cek(cek) }}
+    {% elif kode_keluar == 2 %}
+      <p class="kabar kabar-gagal">Cek tidak dijalankan karena ada pembaruan lain yang
+        sedang berjalan saat itu. Coba lagi sekarang.</p>
+    {% elif cek and cek.jaringan %}
+      <p class="kabar kabar-gagal"><strong>Cek gagal: tidak bisa terhubung ke WebAPI BPS.</strong>
+        Periksa koneksi internet komputer ini (PANDUAN.md, bagian Pemecahan masalah).
+        Tidak ada yang diubah.</p>
+    {% else %}
+      <p class="kabar kabar-gagal">Cek berhenti sebelum selesai (kode {{ kode_keluar }}).
+        Tidak ada yang diubah. Lihat catatan proses di bawah.</p>
+    {% endif %}
+  {% endif %}
+
+  <p>Mengambil daftar publikasi terbaru dari WebAPI BPS untuk tiap wilayah aktif,
+    mengunduh PDF publikasi yang belum ada atau yang diperbarui BPS, membaca
+    strukturnya, dan memasukkannya ke database supaya bisa dicari. Publikasi yang
+    tidak berubah tidak diproses ulang.</p>
   <ul class="langkah-pembaruan">
-    <li><strong>Syarat:</strong> komputer ini harus tersambung ke jaringan
-      <strong>&ldquo;BPS - Pegawai&rdquo;</strong>. Jaringan &ldquo;BPS - Tamu&rdquo;
-      memblokir WebAPI BPS.</li>
-    <li><strong>Lama:</strong> sekitar 2 menit kalau tidak ada publikasi baru
-      (memeriksa 65+ halaman daftar, dengan jeda 1 detik per halaman sesuai
-      ketentuan BPS), ditambah 20&ndash;90 detik per publikasi baru.</li>
+    <li><strong>Syarat:</strong> komputer ini harus tersambung ke internet dan bisa
+      menjangkau WebAPI BPS (<code>webapi.bps.go.id</code>). Kalau gagal terhubung
+      padahal situs BPS terbuka di browser, lihat PANDUAN.md, bagian Pemecahan
+      masalah.</li>
+    <li><strong>Lama:</strong> sekitar 2 menit untuk semua 14 wilayah (diukur 16 November
+      2026: 107 detik dengan 1 publikasi baru). Hampir seluruhnya untuk memeriksa daftar
+      tiap wilayah dengan jeda 1 detik per halaman sesuai ketentuan BPS. Tiap publikasi
+      yang diproses menambah beberapa detik sampai beberapa menit, tergantung ukuran
+      PDF-nya.</li>
     <li><strong>Aman:</strong> pencarian tetap bisa dipakai selama pembaruan.
-      Kalau gagal di tengah, data lama tetap utuh dan pembaruan bisa diulang.</li>
+      Kalau satu wilayah atau publikasi gagal, yang lain tetap diproses, data lamanya
+      tetap utuh, dan pembaruan bisa diulang.</li>
   </ul>
-  <form method="post" action="{{ url_for('admin.perbarui_mulai') }}">
-    <button type="submit" class="tombol-utama">Mulai pembaruan</button>
-  </form>
+  {{ formulir_pilihan() }}
 
   {% if baris %}
   <details class="lipat">
-    <summary>Catatan proses pembaruan terakhir ({{ baris|length }} baris)</summary>
+    <summary>Catatan proses {% if cek_sesi_ini %}cek{% else %}pembaruan{% endif %} terakhir ({{ baris|length }} baris)</summary>
     <pre class="log-pembaruan">{{ baris|join("\n") }}</pre>
   </details>
   {% endif %}
@@ -127,5 +393,7 @@
 {% block skrip %}
 {% if berjalan or pid_lain %}
   <script src="{{ url_for('static', filename='js/pembaruan.js') }}" defer></script>
+{% else %}
+  <script src="{{ url_for('static', filename='js/form-pembaruan.js') }}" defer></script>
 {% endif %}
 {% endblock %}

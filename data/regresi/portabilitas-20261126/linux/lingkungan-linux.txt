@@ -1,0 +1,35 @@
+OS: PRETTY_NAME="Ubuntu 22.04.5 LTS"
+Python: Python 3.12.16
+MySQL: /sessions/rcw-01bbxfjd4gus7okkizjnbuxx/linuxuji/env/bin/mysqld  Ver 8.0.33 for Linux on x86_64 (conda-forge)
+blinker==1.9.0
+certifi==2026.11.20
+cffi==2.1.1
+charset-normalizer==3.5.3
+click==8.5.1
+cryptography==50.0.2
+Flask==3.1.3
+Flask-SQLAlchemy==3.1.1
+idna==3.20
+iniconfig==2.3.1
+itsdangerous==2.2.0
+Jinja2==3.1.6
+MarkupSafe==3.0.4
+packaging==26.4
+pdfminer.six==20260107
+pdfplumber==0.11.11
+pillow==13.0.0
+pluggy==1.7.0
+pycparser==3.12
+Pygments==2.21.0
+PyMySQL==1.2.4
+pypdfium2==5.15.2
+PySastrawi==1.2.1
+pytest==9.2.0
+python-dotenv==1.2.4
+RapidFuzz==3.14.6
+requests==2.34.2
+SQLAlchemy==2.1.9
+typing_extensions==4.16.0
+urllib3==2.8.0
+waitress==3.0.2
+Werkzeug==3.1.9

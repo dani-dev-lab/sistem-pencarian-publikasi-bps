@@ -1,0 +1,11 @@
+== produksi: sesudah perbaikan &nbsp; (tanpa tombol) vs dengan tombol, TANPA membuang tombol (harus berbeda)
+BERBEDA 23 dari 28
+== produksi: --buang-tombol-atas
+IDENTIK 28/28
+kode 0
+== uji: --buang-tombol-atas
+IDENTIK 28/28
+kode 0
+== salinan: --buang-tombol-atas
+IDENTIK 28/28
+kode 0

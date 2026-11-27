@@ -1,0 +1,6 @@
+'penduduk'                       tanpa kec: 8 saran, 0 kecamatan | kec=1: 4 saran, 1 kecamatan
+'luas pan'                       tanpa kec: 8 saran, 0 kecamatan | kec=1: 8 saran, 4 kecamatan
+'jumlah sek'                     tanpa kec: 8 saran, 0 kecamatan | kec=1: 8 saran, 4 kecamatan
+'tpk'                            tanpa kec: 8 saran, 0 kecamatan | kec=1: 8 saran, 0 kecamatan
+'ekspor'                         tanpa kec: 8 saran, 0 kecamatan | kec=1: 8 saran, 0 kecamatan
+'jumlah penduduk menurut desa'   tanpa kec: 8 saran, 0 kecamatan | kec=1: 8 saran, 8 kecamatan

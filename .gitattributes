@@ -1,0 +1,6 @@
+# Akhir baris (26 Nov 2026, portabilitas Windows + Linux).
+# Skrip bash harus LF (bash di Linux menolak CR: "$'\r': command not found");
+# skrip .bat harus CRLF (cmd.exe salah membaca label/goto pada LF). Berlaku
+# apa pun setelan core.autocrlf di komputer yang mengambil repositori.
+*.sh  text eol=lf
+*.bat text eol=crlf

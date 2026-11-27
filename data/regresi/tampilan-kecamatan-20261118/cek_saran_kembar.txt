@@ -1,0 +1,16 @@
+'penduduk'                       kec=-: 8 saran, kembar 0, kecamatan 0, 246 ms
+'penduduk'                       kec=1: 8 saran, kembar 0, kecamatan 1, 543 ms
+'luas pan'                       kec=-: 8 saran, kembar 0, kecamatan 0, 136 ms
+'luas pan'                       kec=1: 8 saran, kembar 0, kecamatan 4, 172 ms
+'jumlah sek'                     kec=-: 8 saran, kembar 0, kecamatan 0, 139 ms
+'jumlah sek'                     kec=1: 8 saran, kembar 0, kecamatan 4, 170 ms
+'tpk'                            kec=-: 8 saran, kembar 0, kecamatan 0, 151 ms
+'tpk'                            kec=1: 8 saran, kembar 0, kecamatan 0, 184 ms
+'ekspor'                         kec=-: 8 saran, kembar 0, kecamatan 0, 144 ms
+'ekspor'                         kec=1: 8 saran, kembar 0, kecamatan 0, 182 ms
+'jumlah penduduk menurut desa'   kec=-: 8 saran, kembar 0, kecamatan 0, 145 ms
+'jumlah penduduk menurut desa'   kec=1: 8 saran, kembar 0, kecamatan 8, 182 ms
+'sekolah'                        kec=-: 8 saran, kembar 0, kecamatan 0, 124 ms
+'sekolah'                        kec=1: 8 saran, kembar 0, kecamatan 0, 187 ms
+'kepala desa'                    kec=-: 8 saran, kembar 0, kecamatan 0, 149 ms
+'kepala desa'                    kec=1: 8 saran, kembar 0, kecamatan 8, 171 ms

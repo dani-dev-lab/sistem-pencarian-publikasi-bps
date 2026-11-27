@@ -1,12 +1,33 @@
 """Baca .env dan sediakan konfigurasi aplikasi (termasuk koneksi database)."""
 
 import os
+import shutil
 from pathlib import Path
 
 from dotenv import load_dotenv
+from sqlalchemy.engine import make_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / ".env")
+
+def teks_os(teks):
+    """Teks petunjuk untuk sistem operasi ini (26 Nov 2026, portabilitas).
+
+    Pesan di kode ditulis dalam bentuk Windows ("venv\\Scripts\\python.exe
+    scripts\\perbarui.py", "perbarui-data.bat", "data\\ocr_cache"). Di Windows
+    teks dikembalikan APA ADANYA, jadi perilaku Windows tidak berubah. Di
+    sistem lain diganti padanan Linux: venv/bin/python, ./perbarui-data.sh,
+    dan garis miring "/".
+    """
+    if os.name == "nt":
+        return teks
+    for windows, linux in (("venv\\Scripts\\python.exe", "venv/bin/python"),
+                           ("venv\\Scripts\\pip.exe", "venv/bin/pip"),
+                           ("perbarui-data.bat", "./perbarui-data.sh"),
+                           ("jalankan-aplikasi.bat", "./jalankan-aplikasi.sh")):
+        teks = teks.replace(windows, linux)
+    return teks.replace("\\", "/")
+
 
 # Nilai yang dulu dipakai sebagai fallback pengembangan. Sekarang ditolak:
 # kalau masih ini, siapa pun yang membaca kode sumber bisa memalsukan session.
@@ -28,10 +49,22 @@ class Config:
     # salah ketik ("80800", "lima ribu") ditolak dengan pesan, bukan traceback.
     PORT = (os.getenv("PORT") or "5000").strip()
 
+    # Sesi admin berakhir sesudah tidak aktif sekian menit (25 Nov 2026).
+    # Format seperti PORT: angka saja. Kosong atau tidak sah = bawaan 120,
+    # BUKAN SystemExit: salah ketik di sini tidak boleh mematikan pencarian.
+    SESI_ADMIN_MENIT_TEKS = os.getenv("SESI_ADMIN_MENIT")
+    SESI_ADMIN_MENIT = None     # diisi menit_sesi_admin() di bawah kelas
+
+    # Jumlah reverse proxy (Nginx/IIS) di depan aplikasi (25 Nov 2026). 0 =
+    # tidak ada: alamat pengguna = alamat koneksi, X-Forwarded-For diabaikan.
+    # > 0: ProxyFix(x_for=N) di create_app(), supaya penguncian login memakai
+    # alamat asli. Tidak sah = 0 + peringatan, seperti SESI_ADMIN_MENIT.
+    JUMLAH_PROXY_TEKS = os.getenv("JUMLAH_PROXY")
+    JUMLAH_PROXY = None         # diisi jumlah_proxy() di bawah kelas
+
     # WebAPI BPS
     BPS_API_KEY = os.getenv("BPS_API_KEY", "")
     BPS_API_BASE_URL = os.getenv("BPS_API_BASE_URL", "https://webapi.bps.go.id/v1/api")
-    BPS_DOMAIN = os.getenv("BPS_DOMAIN", "6300")  # Kalimantan Selatan
 
     # Database
     SQLALCHEMY_DATABASE_URI = os.getenv(
@@ -39,13 +72,157 @@ class Config:
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+    # Folder program mysql / mysqldump (opsional). Hanya dipakai skrip yang
+    # menyalin database (scripts/siapkan_db_uji.py, tests/uji_pipeline.py),
+    # bukan oleh aplikasi web. Kosong = cari di PATH. Lihat program_mysql().
+    MYSQL_BIN = (os.getenv("MYSQL_BIN") or "").strip()
+
     # Berkas .env yang ditulis ulang saat sandi admin diganti lewat browser.
     FILE_ENV = BASE_DIR / ".env"
 
     # Path data
     DIR_PUBLIKASI_PDF = BASE_DIR / "data" / "publikasi_pdf"
+    # Sampul publikasi (19 Nov 2026): <pub_id>.jpg = sampul resmi WebAPI,
+    # <pub_id>.cadangan.jpg = render halaman 1 PDF lokal kalau unduhan gagal.
+    # Variabel lingkungan DIR_SAMPUL hanya untuk uji (folder sementara), supaya
+    # uji tidak mengisi data/sampul/ dengan cadangan.
+    DIR_SAMPUL = Path(os.environ.get("DIR_SAMPUL") or BASE_DIR / "data" / "sampul")
     DIR_SAMPEL_PDF = BASE_DIR / "data" / "sampel_pdf"
     FILE_KAMUS_SINONIM = BASE_DIR / "data" / "kamus_sinonim.json"
+    FILE_WILAYAH = BASE_DIR / "data" / "wilayah.json"
+
+    # Rekam tiap pencarian di /hasil ke log_pencarian. Sengaja TIDAK dibaca
+    # dari .env: log ini bahan perbaikan kamus sinonim, dan satu baris salah di
+    # .env server akan mematikannya tanpa ada yang sadar. Yang mematikannya
+    # hanya KonfigurasiUji di bawah, supaya pemeriksaan route /hasil tidak
+    # mengisi log dengan kueri buatan.
+    CATAT_LOG_PENCARIAN = True
+
+
+SESI_ADMIN_MENIT_BAWAAN = 120
+SESI_ADMIN_MENIT_MAKS = 1440        # 24 jam
+
+
+def menit_sesi_admin(teks):
+    """SESI_ADMIN_MENIT dari .env -> (menit, sah).
+
+    Sah = angka bulat 1..1440 (spasi di tepi diabaikan, seperti PORT). Selain
+    itu (kosong, "abc", "0", "-5", "1,5", "99999") memakai bawaan 120 menit;
+    create_app() lalu mencetak peringatan, tidak menolak berjalan.
+    """
+    if teks is None or not str(teks).strip():
+        return SESI_ADMIN_MENIT_BAWAAN, True
+    t = str(teks).strip()
+    if t.isdigit() and 1 <= int(t) <= SESI_ADMIN_MENIT_MAKS:
+        return int(t), True
+    return SESI_ADMIN_MENIT_BAWAAN, False
+
+
+Config.SESI_ADMIN_MENIT = menit_sesi_admin(Config.SESI_ADMIN_MENIT_TEKS)[0]
+
+JUMLAH_PROXY_MAKS = 10
+
+
+def jumlah_proxy(teks):
+    """JUMLAH_PROXY dari .env -> (jumlah, sah).
+
+    Sah = angka bulat 0..10 (spasi di tepi diabaikan, seperti PORT). Kosong =
+    0. Selain itu ("abc", "-1", "1,5", "99") = 0 dan create_app() mencetak
+    peringatan. 0 berarti X-Forwarded-For TIDAK dipercaya.
+    """
+    if teks is None or not str(teks).strip():
+        return 0, True
+    t = str(teks).strip()
+    if t.isdigit() and int(t) <= JUMLAH_PROXY_MAKS:
+        return int(t), True
+    return 0, False
+
+
+Config.JUMLAH_PROXY = jumlah_proxy(Config.JUMLAH_PROXY_TEKS)[0]
+
+
+def program_mysql(nama, folder=None):
+    """Path program MySQL ("mysql" / "mysqldump").
+
+    Urutan: MYSQL_BIN di .env, lalu PATH. Path Laragon tidak ditulis mati di
+    kode (13 Nov 2026): versi MySQL di server BPS bisa berbeda. Tidak ketemu =
+    SystemExit dengan petunjuk, bukan traceback.
+    """
+    folder = Config.MYSQL_BIN if folder is None else folder
+    if folder:
+        for calon in (Path(folder) / f"{nama}.exe", Path(folder) / nama):
+            if calon.is_file():
+                return str(calon)
+        raise SystemExit(f"Program {nama} tidak ada di MYSQL_BIN ({folder}). "
+                         "Periksa baris MYSQL_BIN di .env.")
+    ketemu = shutil.which(nama)
+    if ketemu:
+        return ketemu
+    contoh = ("C:/laragon/bin/mysql/mysql-8.0.30-winx64/bin" if os.name == "nt"
+              else "/usr/bin")
+    raise SystemExit(
+        f"Program {nama} tidak ditemukan di PATH. Tambahkan ke .env baris seperti:\n"
+        f"  MYSQL_BIN={contoh}\n"
+        "(sesuaikan dengan folder bin MySQL di komputer ini).")
+
+
+def url_database_uji(url_produksi):
+    """URL database uji: server yang sama, nama database + '_uji'.
+
+    db_pencarian_bps -> db_pencarian_bps_uji. Diturunkan dari DATABASE_URL,
+    bukan ditulis terpisah di .env, supaya tidak ada isian kedua yang bisa
+    keliru diisi nama database produksi.
+    """
+    u = make_url(url_produksi)
+    if u.drivername.startswith("sqlite"):
+        p = Path(u.database)
+        u = u.set(database=str(p.with_name(f"{p.stem}_uji{p.suffix}")))
+    else:
+        u = u.set(database=f"{u.database}_uji")
+    # str(URL) menyamarkan sandi menjadi "***" di SQLAlchemy 2.x.
+    return u.render_as_string(hide_password=False)
+
+
+class KonfigurasiUji(Config):
+    """Konfigurasi untuk pengujian: database UJI terpisah, log tidak ditulis.
+
+    Database-nya salinan produksi (db_pencarian_bps_uji), dibuat dengan
+    scripts/siapkan_db_uji.py. Uji yang lewat create_app(KonfigurasiUji)
+    karena itu tidak bisa mengubah data atau skema produksi - termasuk
+    ALTER TABLE dari skema.pastikan_kolom() di awal request.
+
+    Salinan tidak ikut diperbarui sendiri: isinya keadaan produksi saat
+    salinan dibuat.
+
+    Pakai: create_app(KonfigurasiUji).
+    """
+    KONFIGURASI_UJI = True
+    SQLALCHEMY_DATABASE_URI = url_database_uji(Config.SQLALCHEMY_DATABASE_URI)
+    CATAT_LOG_PENCARIAN = False
+
+
+def periksa_database_uji(config_class):
+    """Tolak berjalan kalau konfigurasi uji menunjuk ke database produksi.
+
+    Produksi = database di DATABASE_URL (Config). Dibandingkan menurut NAMA
+    database, jadi juga menangkap subclass yang menimpa
+    SQLALCHEMY_DATABASE_URI dengan URL lain yang ujungnya sama. Dipanggil
+    dari periksa_konfigurasi() dan dari scripts/siapkan_db_uji.py.
+    """
+    if not getattr(config_class, "KONFIGURASI_UJI", False):
+        return
+    nama_uji = make_url(config_class.SQLALCHEMY_DATABASE_URI).database
+    nama_produksi = make_url(Config.SQLALCHEMY_DATABASE_URI).database
+    if not nama_uji or nama_uji == nama_produksi:
+        garis = "=" * 72
+        raise SystemExit(
+            f"\n{garis}\nKONFIGURASI UJI MENUNJUK KE DATABASE PRODUKSI - tidak dijalankan\n"
+            f"{garis}\n\n"
+            f"  {config_class.__name__} memakai database {nama_uji!r}, sama dengan\n"
+            f"  database produksi di DATABASE_URL. Uji harus memakai salinan\n"
+            f"  (lihat url_database_uji() di app/config.py dan\n"
+            f"  scripts/siapkan_db_uji.py).\n{garis}"
+        )
 
 
 PESAN_SECRET_KEY = """\
@@ -80,11 +257,12 @@ def periksa_konfigurasi(config_class=Config):
     bukan diam-diam memakai nilai bawaan - nilai bawaan yang tersimpan di
     kode sumber sama saja dengan tidak ada pengamanan.
     """
+    periksa_database_uji(config_class)
     masalah = []
     if not config_class.SECRET_KEY or config_class.SECRET_KEY == SECRET_KEY_LAMA:
-        masalah.append(PESAN_SECRET_KEY)
+        masalah.append(teks_os(PESAN_SECRET_KEY))
     if not config_class.ADMIN_PASSWORD_HASH:
-        masalah.append(PESAN_ADMIN_HASH)
+        masalah.append(teks_os(PESAN_ADMIN_HASH))
     if not (config_class.PORT.isdigit() and 1 <= int(config_class.PORT) <= 65535):
         masalah.append(
             f"PORT di .env tidak valid: {config_class.PORT!r}.\n\n"

@@ -1,0 +1,167 @@
+== pola2 -> pola3
+entri_baru             2872
+entri_lama             2873
+hal_cetak_baru         2067
+hal_cetak_lama         2010
+kunci_baru             3
+publikasi_berubah      21
+tanpa_nomor_baru       568
+tanpa_nomor_lama       572
+ubah_halaman           45
+ubah_halaman_fisik     2
+ubah_judul             53
+ubah_sumber            17
+
+-- judul (53), 53 contoh
+   ('0f907583', ('gambar', '1'), 'Peta Wilayah Kecamatan Astambul, 2024 4', 'Peta Wilayah Kecamatan Astambul, 2024')
+   ('15e138ff', ('tabel', '1.2'), '/Kelurahan di Kecamatan Sungai Pinang (km), 2026 6', 'sa/Kelurahan di Kecamatan Sungai Pinang (km), 2026')
+   ('15e138ff', ('gambar', '2'), '/Kelurahan di Kecamatan Sungai Pinang (km), 2025 4', 'sa/Kelurahan di Kecamatan Sungai Pinang (km), 2025')
+   ('213033aa', ('tabel', '1.2'), 'Kelurahan di Kecamatan Kertak Hanyar (km), 2026 .7', 'sa/Kelurahan di Kecamatan Kertak Hanyar (km), 2026')
+   ('213033aa', ('gambar', '2'), '/Kelurahan Di Kecamatan Kertak Hanyar (Km), 2026 5', 'sa/Kelurahan Di Kecamatan Kertak Hanyar (Km), 2026')
+   ('213033aa', ('gambar', '1'), 'Peta Wilayah Kecamatan Kertak Hanyar, 2026 4', 'Peta Wilayah Kecamatan Kertak Hanyar, 2026')
+   ('515f59aa', ('tabel', '5.4'), 'Produksi Tanaman Biofarmaka Menurut Jenis Tanaman', ' of Plant in Tebing Tinggi District (kg),2021–2024')
+   ('515f59aa', ('tabel', '1.2'), 'Jarak ke Ibukota Kecamatan dan Ibukota', 's/Subdistrics in Tebing Tinggi District (km), 2024')
+   ('515f59aa', ('gambar', '3'), 'Jumlah Rukun Tetangga (RT) Menurut', 'lages/Subdistricts in Tebing Tinggi District, 2024')
+   ('515f59aa', ('tabel', '2.1.1'), 'Jumlah Rukun Warga (RW) dan Rukun Tetangga (RT)', 'ages1/Subdistricts in Tebing Tinggi District, 2024')
+   ('515f59aa', ('gambar', '2'), 'Jarak ke Ibukota Kecamatan Menurut', 'ge/Subdistric in Tebing Tinggi District (km), 2024')
+   ('515f59aa', ('tabel', '4.4.2'), 'yaknya Desa 1 /Kelurahan yang Terdapat Korban Jiwa', ' Natural Disaster in Tebing Tinggi District, 20242')
+   ('515f59aa', ('tabel', '5.1'), 'Luas Panen Tanaman Sayuran dan Buah -buahan', 'of Plant in Tebing Tinggi District (ha), 2021–2024')
+   ('515f59aa', ('tabel', '4.4.1'), 'anyaknya Desa 1 /Kelurahan yang Mengalami Kejadian', ' Natural Disaster in Tebing Tinggi District, 20242')
+   ('515f59aa', ('gambar', '5'), 'Jumlah Sekolah Menurut Tingkat Pendidikan', 'ational Level in Tebing Tinggi District, 2024/2025')
+   ('515f59aa', ('tabel', '3.1'), 'enduduk, Distribusi Persentase Penduduk, Kepadatan', 'llages/Subdistrics in Tebing Tinggi District, 2024')
+   ('515f59aa', ('tabel', '4.2.1'), 'acilities in Tebing Tinggi District, 2022–2024 3 9', 'th Facilities in Tebing Tinggi District, 2022–2024')
+   ('515f59aa', ('tabel', '5.5'), 'Luas Panen Tanaman Hias Menurut Jenis Tanaman di', 'Tanaman di Kecamatan Tebing Tinggi (m2), 2021–2024')
+   ('515f59aa', ('gambar', '1'), 'Peta Wilayah Kecamatan Tebing Tinggi , 2024', ' Tinggi , 2024 Map of Tebing Tinggi District, 2024')
+   ('515f59aa', ('tabel', '1.1'), 'Luas Daerah Menurut Desa/Kelurahan di Kecamatan', 'llages/Subdistrics in Tebing Tinggi District, 2024')
+   ('515f59aa', ('tabel', '4.4.3'), 'Banyaknya Desa 1 /Kelurahan dengan Keberadaan', 'ipation/Mitigation in Tebing Tinggi District, 2024')
+   ('515f59aa', ('tabel', '5.2'), 'Produksi Tanaman Sayuran dan Buah -buahan Semusim', 'ant in Tebing Tinggi District (quintal), 2021–2024')
+   ('515f59aa', ('tabel', '4.1.1'), 'ational Level in Tebing Tinggi District, 2022–2024', 'ational Level in Tebing Tinggi District, 2022–2024')
+   ('515f59aa', ('tabel', '5.3'), 'Luas Panen Tanaman Biofarmaka Menurut Jenis', 'of Plant in Tebing Tinggi District (m2), 2021–2024')
+   ('515f59aa', ('tabel', '4.3.2'), 'ajority Family in Tebing Tinggi District, 2024 4 1', 'by Majority Family in Tebing Tinggi District, 2024')
+   ('515f59aa', ('tabel', '3.2'), 'Jumlah Penduduk Menurut Kelompok Umur dan Jenis', 'Age Groups and Sex in Tebing Tinggi District, 2024')
+   ('515f59aa', ('tabel', '7.2'), 'nis Koperasi di Kecamatan Tebing Tinggi , 2024 7 9', 't Jenis Koperasi di Kecamatan Tebing Tinggi , 2024')
+   ('515f59aa', ('tabel', '5.6'), 'Plant n Tebing Tinggi District (stalks), 2021–2024', 'Plant n Tebing Tinggi District (stalks), 2021–2024')
+   ('515f59aa', ('tabel', '6.1.1'), 'pe of Accomodation in Tebing Tinggi District, 2024', 'pe of Accomodation in Tebing Tinggi District, 2024')
+   ('540102bc', ('tabel', '1.2'), 'Kelurahan di Kecamatan Beruntung Baru (km), 2026 7', 'a/Kelurahan di Kecamatan Beruntung Baru (km), 2026')
+   ('540102bc', ('gambar', '2'), 'Kelurahan di Kecamatan Beruntung Baru (km), 2026 5', 'a/Kelurahan di Kecamatan Beruntung Baru (km), 2026')
+   ('5f8d68d3', ('gambar', '1'), 'Peta Wilayah Kecamatan Gambut 2026 .4', 'Peta Wilayah Kecamatan Gambut 2026')
+   ('6c2b07a3', ('tabel', '1.1.1'), ' Daerah Menurut Desa di Kecamatan Pengaron, 2026 6', 'as Daerah Menurut Desa di Kecamatan Pengaron, 2026')
+   ('6c2b07a3', ('gambar', '1'), 'Peta Wilayah Kecamatan Pengaron, 2025 .4', 'Peta Wilayah Kecamatan Pengaron, 2025')
+   ('7dd02f9e', ('tabel', '1.2'), 'elurahan di Kecamatan Martapura Barat (km), 2024 7', '/Kelurahan di Kecamatan Martapura Barat (km), 2024')
+   ('7dd02f9e', ('gambar', '2'), 'elurahan di Kecamatan Martapura Barat (km), 2024 5', '/Kelurahan di Kecamatan Martapura Barat (km), 2024')
+   ('a1bcf908', ('tabel', '1.2'), '/Kelurahan di Kecamatan Sungai Tabuk (km), 2025 .7', 'esa/Kelurahan di Kecamatan Sungai Tabuk (km), 2025')
+   ('a5ce0b9e', ('tabel', '1.2'), 'lurahan di Kecamatan Martapura Timur (km), 2026 .7', '/Kelurahan di Kecamatan Martapura Timur (km), 2026')
+   ('a817e441', ('gambar', '2'), 'ke Kabupaten/Kota di Kecamatan Aranio (km), 2025 5', 'a ke Kabupaten/Kota di Kecamatan Aranio (km), 2025')
+   ('ab8af54b', ('gambar', '2'), 'esa/Kelurahan di Kecamatan Mataraman (km), 2024 .5', 't Desa/Kelurahan di Kecamatan Mataraman (km), 2024')
+   ('ab8af54b', ('gambar', '1'), 'Peta Wilayah Kecamatan Mataraman, 2024 4', 'Peta Wilayah Kecamatan Mataraman, 2024')
+   ('c19781f8', ('gambar', '1'), 'Peta Wilayah Kecamatan Aluh-Aluh, 2026 4', 'Peta Wilayah Kecamatan Aluh-Aluh, 2026')
+   ('ce7e9e09', ('gambar', '1'), 'Peta Wilayah Kecamatan Paramasan, 2025 .3', 'Peta Wilayah Kecamatan Paramasan, 2025')
+   ('e386e777', ('tabel', '1.2'), 'lurahan di Kecamatan Telaga Bauntung (km), 2026 .7', '/Kelurahan di Kecamatan Telaga Bauntung (km), 2026')
+   ('e386e777', ('gambar', '2'), 'elurahan di Kecamatan Telaga Bauntung (km), 2025 5', '/Kelurahan di Kecamatan Telaga Bauntung (km), 2025')
+   ('e648c8cd', ('gambar', '2'), 'a/Kelurahan di Kecamatan Karang Intan (km), 2025 5', 'esa/Kelurahan di Kecamatan Karang Intan (km), 2025')
+   ('e7de054e', ('tabel', '1.2'), 'a/Kelurahan di Kecamatan Tatah Makmur (km), 2025 7', 'esa/Kelurahan di Kecamatan Tatah Makmur (km), 2025')
+   ('e924dd95', ('tabel', '1.2'), 'Kelurahan di Kecamatan Simpang Empat (km), 2024 .7', 'sa/Kelurahan di Kecamatan Simpang Empat (km), 2024')
+   ('e924dd95', ('gambar', '2'), '/Kelurahan di Kecamatan Simpang Empat (km), 2024 5', 'sa/Kelurahan di Kecamatan Simpang Empat (km), 2024')
+   ('e9559600', ('gambar', '1'), 'Peta Wilayah Kecamatan Martapura, 2025 .4', 'Peta Wilayah Kecamatan Martapura, 2025')
+   ('f272a348', ('gambar', '2'), 'age/Subdistric inL ampihong District (km), 2024 .7', 'illage/Subdistric inL ampihong District (km), 2024')
+   ('f272a348', ('gambar', '1'), ' Lampihong, 2024 6 Map of Lampihong District, 2024', 'an Lampihong, 2024 Map of Lampihong District, 2024')
+   ('f272a348', ('tabel', '1.1'), 'illages/Subdistrics inL ampihong District, 2024 .8', 'y Villages/Subdistrics inL ampihong District, 2024')
+
+-- halaman (45), 45 contoh
+   ('0f907583', ('gambar', '1'), None, '4')
+   ('15e138ff', ('tabel', '1.2'), None, '6')
+   ('15e138ff', ('gambar', '2'), None, '4')
+   ('213033aa', ('tabel', '1.2'), None, '7')
+   ('213033aa', ('gambar', '2'), None, '5')
+   ('213033aa', ('gambar', '1'), None, '4')
+   ('515f59aa', ('tabel', '5.4'), None, '57')
+   ('515f59aa', ('tabel', '1.2'), None, '9')
+   ('515f59aa', ('gambar', '3'), None, '15')
+   ('515f59aa', ('tabel', '2.1.1'), None, '16')
+   ('515f59aa', ('gambar', '2'), None, '7')
+   ('515f59aa', ('tabel', '4.4.2'), None, '43')
+   ('515f59aa', ('tabel', '5.1'), None, '54')
+   ('515f59aa', ('tabel', '4.4.1'), None, '42')
+   ('515f59aa', ('gambar', '5'), None, '33')
+   ('515f59aa', ('tabel', '3.1'), None, '23')
+   ('515f59aa', ('tabel', '5.5'), None, '58')
+   ('515f59aa', ('gambar', '1'), None, '6')
+   ('515f59aa', ('tabel', '1.1'), None, '8')
+   ('515f59aa', ('tabel', '4.4.3'), None, '44')
+   ('515f59aa', ('tabel', '5.2'), None, '55')
+   ('515f59aa', ('tabel', '5.3'), None, '56')
+   ('515f59aa', ('tabel', '3.2'), None, '25')
+   ('515f59aa', ('tabel', '7.2'), None, '79')
+   ('540102bc', ('tabel', '1.2'), None, '7')
+   ('540102bc', ('gambar', '2'), None, '5')
+   ('5f8d68d3', ('gambar', '1'), None, '4')
+   ('6c2b07a3', ('tabel', '1.1.1'), None, '6')
+   ('6c2b07a3', ('gambar', '1'), None, '4')
+   ('7dd02f9e', ('tabel', '1.2'), None, '7')
+   ('7dd02f9e', ('gambar', '2'), None, '5')
+   ('a1bcf908', ('tabel', '1.2'), None, '7')
+   ('a5ce0b9e', ('tabel', '1.2'), None, '7')
+   ('a817e441', ('gambar', '2'), None, '5')
+   ('ab8af54b', ('gambar', '2'), None, '5')
+   ('ab8af54b', ('gambar', '1'), None, '4')
+   ('c19781f8', ('gambar', '1'), None, '4')
+   ('ce7e9e09', ('gambar', '1'), None, '3')
+   ('e386e777', ('tabel', '1.2'), None, '7')
+   ('e386e777', ('gambar', '2'), None, '5')
+   ('e648c8cd', ('gambar', '2'), None, '5')
+   ('e7de054e', ('tabel', '1.2'), None, '7')
+   ('e924dd95', ('tabel', '1.2'), None, '7')
+   ('e924dd95', ('gambar', '2'), None, '5')
+   ('e9559600', ('gambar', '1'), None, '4')
+
+-- baru (3), 3 contoh
+   ('515f59aa', ('gambar', '7'), 'Banyaknya Desa/Kelurahan Menurut Keberadaan Kantor Pos/Pos Pembantu/Ru', '56', 88)
+   ('515f59aa', ('gambar', '6'), 'Produksi Cabai Rawit di Kecamatan Tebing Tinggi (kuintal), 2021–2024 P', '53', 75)
+   ('515f59aa', ('gambar', '4'), 'Jumlah Penduduk Menurut Kelompok Umur dan Jenis Kelamin di Kecamatan T', '22', 44)
+
+-- sumber (17), 17 contoh
+   ('515f59aa', ('tabel', '5.4'), 'badan', 'keduanya')
+   ('515f59aa', ('tabel', '1.2'), 'badan', 'keduanya')
+   ('515f59aa', ('gambar', '3'), 'badan', 'keduanya')
+   ('515f59aa', ('tabel', '2.1.1'), 'badan', 'keduanya')
+   ('515f59aa', ('gambar', '2'), 'badan', 'keduanya')
+   ('515f59aa', ('tabel', '4.4.2'), 'badan', 'keduanya')
+   ('515f59aa', ('tabel', '5.1'), 'badan', 'keduanya')
+   ('515f59aa', ('tabel', '4.4.1'), 'badan', 'keduanya')
+   ('515f59aa', ('gambar', '5'), 'badan', 'keduanya')
+   ('515f59aa', ('tabel', '3.1'), 'badan', 'keduanya')
+   ('515f59aa', ('tabel', '5.5'), 'badan', 'keduanya')
+   ('515f59aa', ('gambar', '1'), 'badan', 'keduanya')
+   ('515f59aa', ('tabel', '1.1'), 'badan', 'keduanya')
+   ('515f59aa', ('tabel', '4.4.3'), 'badan', 'keduanya')
+   ('515f59aa', ('tabel', '5.2'), 'badan', 'keduanya')
+   ('515f59aa', ('tabel', '5.3'), 'badan', 'keduanya')
+   ('515f59aa', ('tabel', '3.2'), 'badan', 'keduanya')
+
+-- halaman_fisik (2), 2 contoh
+   ('7dd02f9e', ('tabel', '1'), None, 21)
+   ('7dd02f9e', ('tabel', '2'), None, 31)
+
+== db -> pola3
+entri_baru             2872
+entri_lama             2788
+hal_cetak_baru         2067
+hal_cetak_lama         1197
+kunci_baru             47
+publikasi_berubah      22
+tanpa_nomor_baru       568
+tanpa_nomor_lama       537
+ubah_halaman           709
+ubah_halaman_fisik     30
+ubah_judul             710
+ubah_sumber            132
+
+-- baru (47), 0 contoh
+
+-- judul (710), 0 contoh
+
+-- halaman (709), 0 contoh
+
+-- halaman_fisik (30), 0 contoh
+
+-- sumber (132), 0 contoh

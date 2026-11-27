@@ -1,0 +1,2 @@
+db_pencarian_bps_uji: publikasi 618, kecamatan terisi 312, kecamatan unik 156, salah-tanda 0/0, versi 2570->2571, sinkron kedua menulis 0
+db_pencarian_bps_salinan_uji: publikasi 307, kecamatan terisi 0, kecamatan unik 0, salah-tanda 0/0, versi 509->509, sinkron kedua menulis 0

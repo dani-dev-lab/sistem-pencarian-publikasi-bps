@@ -1,0 +1,3 @@
+publikasi kecamatan: produksi 312, uji 312, sama berurutan True, sama multiset True
+entri kecamatan: produksi 19955, uji 19955, sama berurutan True, sama multiset True
+entri 5 publikasi pola 2+3: produksi 258, uji 258, sama berurutan True

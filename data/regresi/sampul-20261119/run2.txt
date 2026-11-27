@@ -1,0 +1,589 @@
+Database sumber daftar: db_pencarian_bps_uji (UJI, hanya dibaca)
+Folder sampul: C:\Users\Dani\AppData\Local\Temp\claude\b70c7cfe058bdffd\7a0bac1d-86df-4f70-8731-f36038e021fa\scratchpad\uji-sampul\folder
+618 publikasi; sudah punya berkas (dilewati) 40; dikerjakan 578 (tanpa url_cover 0); perkiraan 13 menit
+[1/578] 6300 959d9fd4 Provinsi Kalimantan Selatan Dalam Angka 2026 6 KB
+[2/578] 6300 9ab3d434 Statistik Keuangan Pemerintah Daerah Kabupat 6 KB
+[3/578] 6300 9f4c3cc4 Statistik Air Bersih Provinsi Kalimantan Sel 6 KB
+[4/578] 6300 a0c08b4a Direktori Perusahaan Konstruksi Provinsi Kal 6 KB
+[5/578] 6300 a3786941 Analisis Isu Terkini Provinsi Kalimantan Sel 6 KB
+[6/578] 6300 a3adb318 Direktori Perusahaan Industri Manufaktur Men 6 KB
+[7/578] 6300 a44895e1 Gambaran Ekonomi Makro Provinsi Kalimantan S 6 KB
+[8/578] 6300 a461e812 Indikator Pasar Tenaga Kerja Provinsi Kalima 6 KB
+[9/578] 6300 a7356ab4 Indikator Pekerjaan Layak Provinsi Kalimanta 6 KB
+[10/578] 6300 a8667ba0 Statistik Harga Produsen Gabah di Provinsi K 6 KB
+[11/578] 6300 aabde615 Statistik Perhotelan Provinsi Kalimantan Sel 6 KB
+[12/578] 6300 ac3255bf Indeks Harga Konsumen Provinsi Kalimantan Se 6 KB
+[13/578] 6300 afd64a18 Keadaan Angkatan Kerja Provinsi Kalimantan S 6 KB
+[14/578] 6300 b0b8c7ea Profil Tenaga Kerja Provinsi Kalimantan Sela 6 KB
+[15/578] 6300 b28314d9 Buklet Indikator Industri Manufaktur Menenga 6 KB
+[16/578] 6300 b4541a05 Indikator Kesejahteraan Rakyat Provinsi Kali 6 KB
+[17/578] 6300 b6748302 Buklet Perkembangan Industri Mikro dan Kecil 6 KB
+[18/578] 6300 b85c0a3e Profil Industri Mikro dan Kecil Provinsi Kal 6 KB
+[19/578] 6300 b97b3009 Statistik Perhotelan Provinsi Kalimantan Sel 6 KB
+[20/578] 6300 b99ddcad Master File Desa Provinsi Kalimantan Selatan 6 KB
+[21/578] 6300 c35054ac Statistik Daerah Provinsi Kalimantan Selatan 6 KB
+[22/578] 6300 c86b68e2 Master File Desa Provinsi Kalimantan Selatan 6 KB
+[23/578] 6300 c9e912d1 Produk Domestik Regional Bruto Provinsi Kali 6 KB
+[24/578] 6300 ca75dfe6 Produk Domestik Regional Bruto Kabupaten/Kot 6 KB
+[25/578] 6300 ceddeca5 Direktori Perusahaan Pertanian (DPP) Provins 6 KB
+[26/578] 6300 d8082cb1 Nilai Tukar Petani Provinsi Kalimantan Selat 6 KB
+[27/578] 6300 d890fb32 Buklet Statistik Industri Manufaktur Menenga 6 KB
+[28/578] 6300 dc342b31 Provinsi Kalimantan Selatan Dalam Angka 2025 6 KB
+[29/578] 6300 dcb62e21 Statistik Perhubungan Provinsi Kalimantan Se 6 KB
+[30/578] 6300 e1c7c0e4 Tinjauan Produk Domestik Regional Bruto Kabu 6 KB
+[31/578] 6300 e424ed58 Statistik Konstruksi Provinsi Kalimantan Sel 6 KB
+[32/578] 6300 e78fe914 Statistik Ekspor Impor Provinsi Kalimantan S 6 KB
+[33/578] 6300 f11b837f Produk Domestik Regional Bruto Provinsi Kali 6 KB
+[34/578] 6300 f413fcd9 Produk Domestik Regional Bruto Provinsi Kali 6 KB
+[35/578] 6300 f510ed37 Produk Domestik Regional Bruto Kabupaten/Kot 6 KB
+[36/578] 6300 faf617cb Buklet Perkembangan Industri Mikro dan Kecil 6 KB
+[37/578] 6300 fed52821 Indikator Tujuan Pembangunan Berkelanjutan ( 6 KB
+[38/578] 6300 ff0ff482 Statistik Ekspor Impor Provinsi Kalimantan S 6 KB
+[39/578] 6300 ffe587bf Buklet Survei Angkatan Kerja Provinsi Kalima 6 KB
+[40/578] 6301 054960c8 Produk Domestik Regional Bruto Kabupaten Tan 6 KB
+[41/578] 6301 122bdbc9 Kecamatan Pelaihari Dalam Angka 2026         6 KB
+[42/578] 6301 1a79b82e Statistik Daerah Kabupaten Tanah Laut 2026   6 KB
+[43/578] 6301 24e8cb19 Kecamatan Kurau Dalam Angka 2026             6 KB
+[44/578] 6301 35e0f08a Kecamatan Kintap Dalam Angka 2025            6 KB
+[45/578] 6301 360decc3 Keadaan Angkatan Kerja di Kabupaten Tanah La 6 KB
+[46/578] 6301 397c36d3 Statistik Potensi Desa Kabupaten Tanah Laut  6 KB
+[47/578] 6301 417bcf7d Indikator Kesejahteraan Rakyat Kabupaten Tan 6 KB
+[48/578] 6301 440a1956 Keadaan Angkatan Kerja di Kabupaten Tanah La 6 KB
+[49/578] 6301 452a5449 Produk Domestik Regional Bruto Kabupaten Tan 6 KB
+[50/578] 6301 5136dda2 Kecamatan Jorong Dalam Angka 2025            6 KB
+[51/578] 6301 555d6c68 Kecamatan Bumi Makmur Dalam Angka 2026       6 KB
+[52/578] 6301 58a1061b Kabupaten Tanah Laut Dalam Angka 2026        6 KB
+[53/578] 6301 5a5dc5b5 Kecamatan Takisung Dalam Angka 2025          6 KB
+[54/578] 6301 62b7bddf Kecamatan Kintap Dalam Angka 2026            cadangan (400 Client Error for url: http://x/cover.php?f=***)
+[55/578] 6301 650fbfb5 Kecamatan Bati-Bati Dalam Angka 2026         6 KB
+[56/578] 6301 6b42b24a Statistik Daerah Kabupaten Tanah Laut 2025   6 KB
+[57/578] 6301 6c17a50a Analisis Hasil Survei Kebutuhan Data BPS Kab 6 KB
+[58/578] 6301 6c5e501c Kecamatan Jorong Dalam Angka 2026            6 KB
+[59/578] 6301 735231a0 Kecamatan Pelaihari Dalam Angka 2025         6 KB
+[60/578] 6301 75b94fe4 Kecamatan Panyipatan Dalam Angka 2025        6 KB
+[61/578] 6301 7dfe9afd Kecamatan Bajuin Dalam Angka 2026            6 KB
+[62/578] 6301 7f627ab6 Produk Domestik Regional Bruto Kabupaten Tan 6 KB
+[63/578] 6301 90155dfa Booklet Survei Angkatan Kerja Nasional Kabup 6 KB
+[64/578] 6301 a32f6cc5 Kabupaten Tanah Laut Dalam Angka 2025        6 KB
+[65/578] 6301 ac1ffc6b Kecamatan Bati-Bati Dalam Angka 2025         6 KB
+[66/578] 6301 b941cc03 Kecamatan Batu Ampar Dalam Angka 2025        6 KB
+[67/578] 6301 bab14906 Kecamatan Kurau Dalam Angka 2025             6 KB
+[68/578] 6301 bf79d604 Produk Domestik Regional Bruto Kabupaten Tan 6 KB
+[69/578] 6301 c1c65be6 Kecamatan Panyipatan Dalam Angka 2026        6 KB
+[70/578] 6301 c6dc0bef Kecamatan Tambang Ulang Dalam Angka 2025     6 KB
+[71/578] 6301 cd47c002 Kecamatan Takisung Dalam Angka 2026          6 KB
+[72/578] 6301 cf5dfd9d Kecamatan Tambang Ulang Dalam Angka 2026     6 KB
+[73/578] 6301 d163b8bb Statistik Kesejahteraan Rakyat Kabupaten Tan 6 KB
+[74/578] 6301 dfaa05bf Booklet Survei Angkatan Kerja Nasional Kabup 6 KB
+[75/578] 6301 e6093b17 Kecamatan Batu Ampar Dalam Angka 2026        6 KB
+[76/578] 6301 eb93beef Kecamatan Bumi Makmur Dalam Angka 2025       6 KB
+[77/578] 6301 f2401de0 Analisis Isu Terkini Kabupaten Tanah Laut 20 6 KB
+[78/578] 6301 ff2ba0cd Kecamatan Bajuin Dalam Angka 2025            6 KB
+[79/578] 6302 00b304b4 Kecamatan Hampang Dalam Angka 2026           6 KB
+[80/578] 6302 0962886c Kecamatan Sampanahan Dalam Angka 2026        6 KB
+[81/578] 6302 0b3e7326 Kecamatan Kelumpang Hulu Dalam Angka 2025    6 KB
+[82/578] 6302 1f4cdc7d Kecamatan Pulau Laut Sigam Dalam Angka 2026  6 KB
+[83/578] 6302 20c9c2cd Kecamatan Pulau Sembilan Dalam Angka 2026    6 KB
+[84/578] 6302 22d6655d Kecamatan Kelumpang Utara Dalam Angka 2025   6 KB
+[85/578] 6302 2a780ed8 Kecamatan Pulau Laut Selatan Dalam Angka 202 6 KB
+[86/578] 6302 34b54350 Kecamatan Kelumpang Tengah Dalam Angka 2026  6 KB
+[87/578] 6302 360d1d86 Buklet Survei Angkatan Kerja Nasional Kabupa 6 KB
+[88/578] 6302 383931f8 Kecamatan Pulau Laut Timur Dalam Angka 2026  6 KB
+[89/578] 6302 3aa940e9 Kecamatan Pamukan Barat Dalam Angka 2026     6 KB
+[90/578] 6302 3ce57722 Produk Domestik Regional Bruto Kabupaten Kot 6 KB
+[91/578] 6302 406d9988 Keadaan Angkatan Kerja di Kabupaten Kotabaru 6 KB
+[92/578] 6302 418c2b5b Kecamatan Kelumpang Barat Dalam Angka 2025   6 KB
+[93/578] 6302 422cd7fa Kecamatan Pamukan Barat Dalam Angka 2025     6 KB
+[94/578] 6302 4242d52e Produk Domestik Regional Bruto Kabupaten Kot 6 KB
+[95/578] 6302 4b3aec78 Produk Domestik Regional Bruto Kabupaten Kot 6 KB
+[96/578] 6302 52a3b1a2 Kecamatan Kelumpang Selatan Dalam Angka 2026 6 KB
+[97/578] 6302 52fa6dd3 Keadaan Angkatan Kerja di Kabupaten Kotabaru 6 KB
+[98/578] 6302 548ac38d Kecamatan Sampanahan Dalam Angka 2025        6 KB
+[99/578] 6302 56e3e547 BADAS (Big Data dan Analisis Statistik) Daer 6 KB
+[100/578] 6302 5a6538aa Indikator Kesejahteraan Rakyat Kabupaten Kot 6 KB
+[101/578] 6302 5dfc08f3 Kabupaten Kotabaru Dalam Angka 2025          6 KB
+[102/578] 6302 61182d49 Kecamatan Pulau Laut Barat Dalam Angka 2026  6 KB
+[103/578] 6302 61eb6ce6 Statistik Potensi Desa Kabupaten Kotabaru 20 6 KB
+[104/578] 6302 6976e5bd Booklet Survei Angkatan Kerja Nasional Kabup 6 KB
+[105/578] 6302 6e5cd038 Kecamatan Kelumpang Hilir Dalam Angka 2026   6 KB
+[106/578] 6302 7225f51f Kecamatan Kelumpang Selatan Dalam Angka 2025 6 KB
+[107/578] 6302 72bdae27 Kecamatan Pulau Laut Tanjung Selayar Dalam A 6 KB
+[108/578] 6302 74593d35 Kecamatan Kelumpang Hilir Dalam Angka 2025   6 KB
+[109/578] 6302 76d78391 Kecamatan Kelumpang Hulu Dalam Angka 2026    6 KB
+[110/578] 6302 7825b778 Kecamatan Pamukan Selatan Dalam Angka 2025   6 KB
+[111/578] 6302 7f991ea7 Statistik Daerah Kabupaten Kotabaru 2025     6 KB
+[112/578] 6302 85c21b0a Kecamatan Sungai Durian Dalam Angka 2025     6 KB
+[113/578] 6302 86582329 Kecamatan Pulau Laut Kepulauan Dalam Angka 2 6 KB
+[114/578] 6302 8a9e0cb9 Kecamatan Pulau Laut Selatan Dalam Angka 202 6 KB
+[115/578] 6302 8d8da919 Kecamatan Pulau Sebuku Dalam Angka 2026      6 KB
+[116/578] 6302 93dcd4ee Kecamatan Kelumpang Tengah Dalam Angka 2025  6 KB
+[117/578] 6302 9a2ea6ef Analisis Hasil Survei Kebutuhan Data BPS Kab 6 KB
+[118/578] 6302 a2538068 Kecamatan Pulau Laut Utara Dalam Angka 2026  6 KB
+[119/578] 6302 a4587cdb Statistik Kesejahteraan Rakyat Kabupaten Kot 6 KB
+[120/578] 6302 b080595e Kecamatan Pamukan Utara Dalam Angka 2025     6 KB
+[121/578] 6302 b12d4b7e Kecamatan Hampang Dalam Angka 2025           6 KB
+[122/578] 6302 b5cf42c2 Kecamatan Pulau Laut Utara Dalam Angka 2025  6 KB
+[123/578] 6302 b99360b3 Kabupaten Kotabaru Dalam Angka 2026          6 KB
+[124/578] 6302 c355096e Kecamatan Pulau Laut Tengah Dalam Angka 2025 6 KB
+[125/578] 6302 c5fa8544 Kecamatan Pulau Sebuku Dalam Angka 2025      6 KB
+[126/578] 6302 c7c3183a Kecamatan Pamukan Utara Dalam Angka 2026     6 KB
+[127/578] 6302 c93f70b0 Kecamatan Sungai Durian Dalam Angka 2026     6 KB
+[128/578] 6302 cc4fa938 Kecamatan Kelumpang Barat Dalam Angka 2026   6 KB
+[129/578] 6302 d08f477a Kecamatan Pulau Laut Sigam Dalam Angka 2025  6 KB
+[130/578] 6302 d3457dfd Produk Domestik Regional Bruto Kabupaten Kot 6 KB
+[131/578] 6302 d37b6a7e Kecamatan Pulau Laut Kepulauan Dalam Angka 2 6 KB
+[132/578] 6302 dc01be14 Kecamatan Pulau Laut Tengah Dalam Angka 2026 6 KB
+[133/578] 6302 ddab472c Kecamatan Pulau Laut Tanjung Selayar Dalam A 6 KB
+[134/578] 6302 ddcdb3e6 Indeks Harga Konsumen Kabupaten Kotabaru 202 6 KB
+[135/578] 6302 eaf6609c Kecamatan Kelumpang Utara Dalam Angka 2026   6 KB
+[136/578] 6302 f0a35560 Kecamatan Pulau Sembilan Dalam Angka 2025    6 KB
+[137/578] 6302 f437153c Kecamatan Pamukan Selatan Dalam Angka 2026   6 KB
+[138/578] 6302 f89b80eb Kecamatan Pulau Laut Timur Dalam Angka 2025  6 KB
+[139/578] 6302 fd6fb01b Kecamatan Pulau Laut Barat Dalam Angka 2025  6 KB
+[140/578] 6303 06ba1fbf Kecamatan Aluh-Aluh Dalam Angka 2025         6 KB
+[141/578] 6303 09126030 Kecamatan Simpang Empat Dalam Angka 2025     6 KB
+[142/578] 6303 0f5b6089 Kecamatan Sambung Makmur Dalam Angka 2025    6 KB
+[143/578] 6303 0f8f0a76 Kecamatan Kertak Hanyar Dalam Angka 2025     6 KB
+[144/578] 6303 0f907583 Kecamatan Astambul Dalam Angka 2026          6 KB
+[145/578] 6303 15e138ff Kecamatan Sungai Pinang Dalam Angka 2026     6 KB
+[146/578] 6303 213033aa Kecamatan Kertak Hanyar Dalam Angka 2026     6 KB
+[147/578] 6303 3e559a6e Kecamatan Pengaron Dalam Angka 2025          6 KB
+[148/578] 6303 41b7302d Kecamatan Aranio Dalam Angka 2025            6 KB
+[149/578] 6303 4989ca6f Keadaan Angkatan Kerja di Kabupaten Banjar A 6 KB
+[150/578] 6303 4dfc2376 Analisis Hasil Survei Kebutuhan Data BPS Kab 6 KB
+[151/578] 6303 5013742f Produk Domestik Regional Bruto Kabupaten Ban 6 KB
+[152/578] 6303 537bdf78 Kecamatan Martapura Dalam Angka 2025         6 KB
+[153/578] 6303 540102bc Kecamatan Beruntung Baru Dalam Angka 2026    6 KB
+[154/578] 6303 544e87fe Kecamatan Astambul Dalam Angka 2025          6 KB
+[155/578] 6303 55cf0d51 Kecamatan Cintapuri Darussalam Dalam Angka 2 6 KB
+[156/578] 6303 59e9b08c Statistik Kesejahteraan Rakyat Kabupaten Ban 6 KB
+[157/578] 6303 5f8d68d3 Kecamatan Gambut Dalam Angka 2026            6 KB
+[158/578] 6303 66910b08 Kecamatan Beruntung Baru Dalam Angka 2025    6 KB
+[159/578] 6303 68b6fe34 Statistik Daerah Kabupaten Banjar Tahun 2025 6 KB
+[160/578] 6303 6c2b07a3 Kecamatan Pengaron Dalam Angka 2026          6 KB
+[161/578] 6303 763ca752 Kecamatan Gambut Dalam Angka 2025            6 KB
+[162/578] 6303 76ba4380 Kecamatan Mataraman Dalam Angka 2025         6 KB
+[163/578] 6303 7dd02f9e Kecamatan Martapura Barat Dalam Angka 2026   6 KB
+[164/578] 6303 7ee4109d Kecamatan Sambung Makmur Dalam Angka 2026    6 KB
+[165/578] 6303 82610f99 Kecamatan Martapura Timur Dalam Angka 2025   6 KB
+[166/578] 6303 84605629 Kecamatan Sungai Pinang Dalam Angka 2025     6 KB
+[167/578] 6303 84c01785 Kecamatan Sungai Tabuk Dalam Angka 2025      6 KB
+[168/578] 6303 8d333d55 Kecamatan Telaga Bauntung Dalam Angka 2025   6 KB
+[169/578] 6303 a1bcf908 Kecamatan Sungai Tabuk Dalam Angka 2026      6 KB
+[170/578] 6303 a5ce0b9e Kecamatan Martapura Timur Dalam Angka 2026   6 KB
+[171/578] 6303 a817e441 Kecamatan Aranio Dalam Angka 2026            6 KB
+[172/578] 6303 ab8af54b Kecamatan Mataraman Dalam Angka 2026         6 KB
+[173/578] 6303 ac101cb3 KEADAAN ANGKATAN KERJA DI KABUPATEN BANJAR   gagal (400 Client Error for url: http://x/cover.php?f=***; PDF lokal tidak ada atau rusak)
+[174/578] 6303 afbf86a1 Kabupaten Banjar Dalam Angka 2025            6 KB
+[175/578] 6303 b3d0bb81 Booklet Survei Angkatan Kerja Nasional Kabup 6 KB
+[176/578] 6303 c19781f8 Kecamatan Aluh-Aluh Dalam Angka 2026         6 KB
+[177/578] 6303 c92bc76e Produk Domestik Regional Bruto Kabupaten Ban 6 KB
+[178/578] 6303 caef04ac Indikator Kesejahteraan Rakyat Kabupaten Ban 6 KB
+[179/578] 6303 ce4ee2a6 Booklet Survei Angkatan Kerja Nasional Kabup 6 KB
+[180/578] 6303 ce7e9e09 Kecamatan Paramasan Dalam Angka 2026         6 KB
+[181/578] 6303 cfb4fc76 Kecamatan Martapura Barat Dalam Angka 2025   6 KB
+[182/578] 6303 d7dcf0be Kecamatan Tatah Makmur Dalam Angka 2025      6 KB
+[183/578] 6303 e04dba4c Produk Domestik Regional Bruto Kabupaten Ban 6 KB
+[184/578] 6303 e386e777 Kecamatan Telaga Bauntung Dalam Angka 2026   6 KB
+[185/578] 6303 e648c8cd Kecamatan Karang Intan Dalam Angka 2026      6 KB
+[186/578] 6303 e7de054e Kecamatan Tatah Makmur Dalam Angka 2026      6 KB
+[187/578] 6303 e853261a Statistik Potensi Desa Kabupaten Banjar 2025 6 KB
+[188/578] 6303 e924dd95 Kecamatan Simpang Empat Dalam Angka 2026     6 KB
+[189/578] 6303 e9559600 Kecamatan Martapura Dalam Angka 2026         6 KB
+[190/578] 6303 ea0d2835 Kecamatan Karang Intan Dalam Angka 2025      6 KB
+[191/578] 6303 f85ba47f Produk Domestik Regional Bruto Kabupaten Ban 6 KB
+[192/578] 6303 fb12a66b Kecamatan Cintapuri Darussalam Dalam Angka 2 6 KB
+[193/578] 6303 fc44fa59 Kecamatan Paramasan Dalam Angka 2025         6 KB
+[194/578] 6303 fd585db0 Kabupaten Banjar Dalam Angka 2026            6 KB
+[195/578] 6304 0a970f42 Produk Domestik Regional Bruto Kabupaten Bar 6 KB
+[196/578] 6304 0a9ff6ec Kecamatan Kuripan Dalam Angka 2025           6 KB
+[197/578] 6304 0ddef4f0 Analisis Isu Terkini Kabupaten Barito Kuala  6 KB
+[198/578] 6304 0ebab612 Kecamatan Alalak Dalam Angka 2026            6 KB
+[199/578] 6304 11223a7c Kecamatan Bakumpai Dalam Angka 2025          6 KB
+[200/578] 6304 217a4f7c Indikator Kesejahteraan Rakyat Kabupaten Bar 6 KB
+[201/578] 6304 23306255 Kecamatan Marabahan Dalam Angka 2025         6 KB
+[202/578] 6304 2495e612 Kecamatan Tamban Dalam Angka 2026            6 KB
+[203/578] 6304 2edf1885 Kecamatan Belawang Dalam Angka 2026          6 KB
+[204/578] 6304 2f0cd1cc Kecamatan Anjir Muara Dalam Angka 2026       6 KB
+[205/578] 6304 306d6427 Produk Domestik Regional Bruto Kabupaten Bar 6 KB
+[206/578] 6304 37e482dd Statistik Daerah Kabupaten Barito Kuala 2025 6 KB
+[207/578] 6304 3f8735e8 Kecamatan Belawang Dalam Angka 2025          6 KB
+[208/578] 6304 52f484c5 Statistik Kesejahteraan Rakyat Kabupaten Bar 6 KB
+[209/578] 6304 59f718ef Kecamatan Kuripan Dalam Angka 2026           6 KB
+[210/578] 6304 5dcb1840 Kecamatan Bakumpai Dalam Angka 2026          6 KB
+[211/578] 6304 64463e50 Kecamatan Cerbon Dalam Angka 2025            6 KB
+[212/578] 6304 6aee6303 Kecamatan Marabahan Dalam Angka 2026         6 KB
+[213/578] 6304 6ded7299 Kecamatan Tabunganen Dalam Angka 2026        6 KB
+[214/578] 6304 6e2c4652 Keadaan Angkatan Kerja di Kabupaten Barito K 6 KB
+[215/578] 6304 6ecd697e Kabupaten Barito Kuala Dalam Angka 2026      6 KB
+[216/578] 6304 71a3beab Keadaan Angkatan Kerja di Kabupaten Barito K 6 KB
+[217/578] 6304 731d89e1 Kecamatan Wanaraya Dalam Angka 2026          6 KB
+[218/578] 6304 82bfa5b8 Kecamatan Tabukan Dalam Angka 2025           6 KB
+[219/578] 6304 837883c9 Kecamatan Rantau Badauh Dalam Angka 2025     6 KB
+[220/578] 6304 873711fc Analisis Hasil Survei Kebutuhan Data BPS Kab 6 KB
+[221/578] 6304 888e62ec Kecamatan Anjir Pasar Dalam Angka 2026       6 KB
+[222/578] 6304 8a270f91 Kecamatan Mandastana Dalam Angka 2026        6 KB
+[223/578] 6304 8a2f068e Produk Domestik Regional Bruto Kabupaten Bar 6 KB
+[224/578] 6304 8d55ee45 Kecamatan Tabunganen Dalam Angka 2025        6 KB
+[225/578] 6304 8dee0be7 Statistik Potensi Desa Kabupaten Barito Kual 6 KB
+[226/578] 6304 917f98db Booklet Survei Angkatan Kerja Nasional Kabup 6 KB
+[227/578] 6304 928e1ec2 Kecamatan Alalak Dalam Angka 2025            6 KB
+[228/578] 6304 92f49f27 Kecamatan Anjir Pasar Dalam Angka 2025       6 KB
+[229/578] 6304 9518e963 Kecamatan Anjir Muara Dalam Angka 2025       6 KB
+[230/578] 6304 993473bd Kecamatan Jejangkit Dalam Angka 2026         6 KB
+[231/578] 6304 9ec8bf73 Kecamatan Mekarsari Dalam Angka 2026         6 KB
+[232/578] 6304 9eef33e4 Kecamatan Cerbon Dalam Angka 2026            6 KB
+[233/578] 6304 a49d8f2b Kecamatan Tabukan Dalam Angka 2026           6 KB
+[234/578] 6304 a859c576 Booklet Survei Angkatan Kerja Nasional Kabup 6 KB
+[235/578] 6304 aa80312f Produk Domestik Regional Bruto Kabupaten Bar 6 KB
+[236/578] 6304 aea0c697 Kabupaten Barito Kuala Dalam Angka 2025      6 KB
+[237/578] 6304 ba9c7feb Kecamatan Mekarsari Dalam Angka 2025         6 KB
+[238/578] 6304 beac7400 Kecamatan Barambai Dalam Angka 2025          6 KB
+[239/578] 6304 c1bdec25 Kecamatan Wanaraya Dalam Angka 2025          6 KB
+[240/578] 6304 d05b0151 Statistik Daerah Kabupaten Barito Kuala 2026 6 KB
+[241/578] 6304 d240516e Kecamatan Jejangkit Dalam Angka 2025         6 KB
+[242/578] 6304 d2c6b3d3 Kecamatan Mandastana Dalam Angka 2025        6 KB
+[243/578] 6304 e258e72d Kecamatan Rantau Badauh Dalam Angka 2026     6 KB
+[244/578] 6304 ea5602de Kecamatan Tamban Dalam Angka 2025            6 KB
+[245/578] 6304 eb12d667 Statistik Politik dan Keamanan Kabupaten Bar 6 KB
+[246/578] 6304 ebef728e Kecamatan Barambai Dalam Angka 2026          6 KB
+[247/578] 6305 0150218e Kecamatan Salam Babaris Dalam Angka 2025     6 KB
+[248/578] 6305 09832a6f Booklet Survei Angkatan Kerja Nasional Kabup 6 KB
+[249/578] 6305 0df22890 Kecamatan Candi Laras Selatan Dalam Angka 20 6 KB
+[250/578] 6305 182e2e58 Produk Domestik Regional Bruto Kabupaten Tap 6 KB
+[251/578] 6305 1d00e98f Profil Tenaga Kerja Kabupaten Tapin Agustus  6 KB
+[252/578] 6305 1d520ab0 Kabupaten Tapin Dalam Angka 2026             6 KB
+[253/578] 6305 1e2c3b6f Kecamatan Piani Dalam Angka 2026             6 KB
+[254/578] 6305 24ae3f0b Kecamatan Tapin Tengah Dalam Angka 2025      6 KB
+[255/578] 6305 25f03922 Produk Domestik Regional Bruto Kabupaten Tap 6 KB
+[256/578] 6305 2f5c1bca Kecamatan Piani Dalam Angka 2025             6 KB
+[257/578] 6305 34232029 Booklet Survei Angkatan Kerja Nasional Kabup 6 KB
+[258/578] 6305 37274162 Indikator Kesejahteraan Rakyat Kabupaten Tap 6 KB
+[259/578] 6305 42732c61 Kabupaten Tapin Dalam Angka 2025             6 KB
+[260/578] 6305 47c94280 Profil Tenaga Kerja Kabupaten Tapin Agustus  6 KB
+[261/578] 6305 4e7821d9 Analisis Hasil Survei Kebutuhan Data BPS Kab 6 KB
+[262/578] 6305 66fbe11b Kecamatan Tapin Tengah Dalam Angka 2026      6 KB
+[263/578] 6305 68e0309b Kecamatan Binuang Dalam Angka 2026           6 KB
+[264/578] 6305 78ea29e6 Kecamatan Tapin Selatan Dalam Angka 2026     6 KB
+[265/578] 6305 84ca1f32 Kecamatan Lokpaikat Dalam Angka 2025         6 KB
+[266/578] 6305 8bb11354 Kecamatan Binuang Dalam Angka 2025           6 KB
+[267/578] 6305 8dc65bbd Kecamatan Lokpaikat Dalam Angka 2026         6 KB
+[268/578] 6305 8f46a945 Keadaan Angkatan Kerja di Kabupaten Tapin Ag 6 KB
+[269/578] 6305 906a5b17 Keadaan Angkatan Kerja di Kabupaten Tapin Ag 6 KB
+[270/578] 6305 9a372c01 Kecamatan Tapin Utara Dalam Angka 2026       6 KB
+[271/578] 6305 aa4ec74e Kecamatan Candi Laras Utara Dalam Angka 2026 6 KB
+[272/578] 6305 ac7fdb4c Produk Domestik Regional Bruto Kabupaten Tap 6 KB
+[273/578] 6305 b38223b2 Statistik Potensi Desa Kabupaten Tapin 2025  6 KB
+[274/578] 6305 ba4b6cd4 Kecamatan Tapin Utara Dalam Angka 2025       6 KB
+[275/578] 6305 c4a0fdd8 Kecamatan Bakarangan Dalam Angka 2025        6 KB
+[276/578] 6305 c63635f7 Kecamatan Candi Laras Selatan Dalam Angka 20 6 KB
+[277/578] 6305 ca9958a7 Kecamatan Bungur Dalam Angka 2026            6 KB
+[278/578] 6305 cae4ed44 Kecamatan Hatungun Dalam Angka 2026          6 KB
+[279/578] 6305 d0dd8578 Statistik Daerah Kabupaten Tapin 2025        6 KB
+[280/578] 6305 d1f451da Kecamatan Salam Babaris Dalam Angka 2026     6 KB
+[281/578] 6305 db297c77 Kecamatan Tapin Selatan Dalam Angka 2025     6 KB
+[282/578] 6305 dc8b3a71 Kecamatan Bungur Dalam Angka 2025            6 KB
+[283/578] 6305 dd9c2563 Kecamatan Hatungun Dalam Angka 2025          6 KB
+[284/578] 6305 ec956b0e Kecamatan Candi Laras Utara Dalam Angka 2025 6 KB
+[285/578] 6305 eddeab68 Statistik Kesejahteraan Rakyat Kabupaten Tap 6 KB
+[286/578] 6305 f338cd99 Produk Domestik Regional Bruto Kabupaten Tap 6 KB
+[287/578] 6305 f35c36ee Kecamatan Bakarangan Dalam Angka 2026        6 KB
+[288/578] 6306 06ebfb81 Kecamatan Kalumpang Dalam Angka 2025         6 KB
+[289/578] 6306 0c6734a3 Keadaan Angkatan Kerja di Kabupaten Hulu Sun 6 KB
+[290/578] 6306 2420dd0c Kecamatan Simpur Dalam Angka 2025            6 KB
+[291/578] 6306 2cb93305 Kabupaten Hulu Sungai Selatan Dalam Angka 20 6 KB
+[292/578] 6306 35ba8a62 Kecamatan Sungai Raya Dalam Angka 2025       6 KB
+[293/578] 6306 37bba38b Kabupaten Hulu Sungai Selatan Dalam Angka 20 6 KB
+[294/578] 6306 390d64ef Produk Domestik Regional Bruto Kabupaten Hul 6 KB
+[295/578] 6306 44af58ef Kecamatan Angkinang Dalam Angka 2026         6 KB
+[296/578] 6306 45a1e492 Kecamatan Sungai Raya Dalam Angka 2026       6 KB
+[297/578] 6306 56c84d2c Kecamatan Kalumpang Dalam Angka 2026         6 KB
+[298/578] 6306 5fd7c555 Kecamatan Padang Batung Dalam Angka 2026     6 KB
+[299/578] 6306 678ab9ee Statistik Potensi Desa Kabupaten Hulu Sungai 6 KB
+[300/578] 6306 6f1c0ce5 Kecamatan Daha Selatan Dalam Angka 2025      6 KB
+[301/578] 6306 70aca131 Kecamatan Padang Batung Dalam Angka 2025     6 KB
+[302/578] 6306 9664b802 Kecamatan Daha Selatan Dalam Angka 2026      6 KB
+[303/578] 6306 99934bf8 Kecamatan Angkinang Dalam Angka 2025         6 KB
+[304/578] 6306 9b59ca64 Produk Domestik Regional Bruto Kabupaten Hul 6 KB
+[305/578] 6306 9f31010e Kecamatan Simpur Dalam Angka 2026            6 KB
+[306/578] 6306 a2f4dd54 Kecamatan Daha Barat Dalam Angka 2026        6 KB
+[307/578] 6306 a54b4f22 Booklet Survei Angkatan Kerja Nasional Kabup 6 KB
+[308/578] 6306 a88761e3 Kecamatan Loksado Dalam Angka 2025           6 KB
+[309/578] 6306 ab6e3797 Kecamatan Kandangan Dalam Angka 2025         6 KB
+[310/578] 6306 af4075be Booklet Survei Angkatan Kerja Nasional Kabup 6 KB
+[311/578] 6306 b08a38e5 Indikator Kesejahteraan Rakyat Kabupaten Hul 6 KB
+[312/578] 6306 b75518d1 Analisis Hasil Survei Kebutuhan Data BPS Kab 6 KB
+[313/578] 6306 b86787b0 Statistik Daerah Kabupaten Hulu Sungai Selat 6 KB
+[314/578] 6306 c25d6e08 Produk Domestik Regional Bruto Kabupaten Hul 6 KB
+[315/578] 6306 cc008256 Kecamatan Loksado Dalam Angka 2026           6 KB
+[316/578] 6306 cd75aa6b Kecamatan Daha Utara Dalam Angka 2025        6 KB
+[317/578] 6306 cd91cefa Kecamatan Daha Barat Dalam Angka 2025        6 KB
+[318/578] 6306 cecab71b Kecamatan Telaga Langsat Dalam Angka 2026    6 KB
+[319/578] 6306 d40cd4f9 Kecamatan Kandangan Dalam Angka 2026         6 KB
+[320/578] 6306 d7be935f Indikator Pasar Tenaga Kerja Kabupaten Hulu  6 KB
+[321/578] 6306 e422f1da Kecamatan Telaga Langsat Dalam Angka 2025    6 KB
+[322/578] 6306 e69babba Statistik Kesejahteraan Rakyat Kabupaten Hul 6 KB
+[323/578] 6306 e745f122 Statistik Daerah Kabupaten Hulu Sungai Selat 6 KB
+[324/578] 6306 e9dd7732 Kecamatan Daha Utara Dalam Angka 2026        6 KB
+[325/578] 6306 ec37d7d7 Produk Domestik Regional Bruto Kabupaten Hul 6 KB
+[326/578] 6306 f0c87616 Indikator Pasar Tenaga Kerja Kabupaten Hulu  6 KB
+[327/578] 6307 1158ab7e Analisis Hasil Survei Kebutuhan Data BPS Kab 6 KB
+[328/578] 6307 130bfd16 Kecamatan Labuan Amas Utara Dalam Angka 2026 6 KB
+[329/578] 6307 181ad8d5 Produk Domestik Regional Bruto Kabupaten Hul 6 KB
+[330/578] 6307 1a101ac4 Kecamatan Labuan Amas Selatan Dalam Angka 20 6 KB
+[331/578] 6307 1b1e9605 Produk Domestik Regional Bruto Kabupaten Hul 6 KB
+[332/578] 6307 21fdabeb Kecamatan Pandawan Dalam Angka 2025          6 KB
+[333/578] 6307 24823b88 Produk Domestik Regional Bruto Kabupaten Hul 6 KB
+[334/578] 6307 289e7b7f Kecamatan Barabai Dalam Angka 2026           6 KB
+[335/578] 6307 3d10fd94 Kecamatan Barabai Dalam Angka 2025           6 KB
+[336/578] 6307 3e29147e Indikator Kesejahteraan Rakyat Kabupaten Hul 6 KB
+[337/578] 6307 4ce13f41 Kecamatan Labuan Amas Selatan Dalam Angka 20 6 KB
+[338/578] 6307 4d55a446 Kecamatan Limpasu Dalam Angka 2026           6 KB
+[339/578] 6307 4e32cb83 Kecamatan Haruyan Dalam Angka 2025           6 KB
+[340/578] 6307 515bf005 Produk Domestik Regional Bruto Kabupaten Hul 6 KB
+[341/578] 6307 5360684e Kecamatan Labuan Amas Utara Dalam Angka 2025 6 KB
+[342/578] 6307 5773f745 Kecamatan Hantakan Dalam Angka 2025          6 KB
+[343/578] 6307 5e73ef61 Kecamatan Batu Benawa Dalam Angka 2025       6 KB
+[344/578] 6307 65932b6d Keadaan Angkatan Kerja Di Kabupaten Hulu Sun 6 KB
+[345/578] 6307 7f70378d Statistik Potensi Desa Kabupaten Hulu Sungai 6 KB
+[346/578] 6307 88379ee6 Kecamatan Batang Alai Selatan Dalam Angka 20 6 KB
+[347/578] 6307 8f34c2e7 Kecamatan Pandawan Dalam Angka 2026          6 KB
+[348/578] 6307 9248c870 Kecamatan Haruyan Dalam Angka 2026           6 KB
+[349/578] 6307 956df632 Kecamatan Limpasu Dalam Angka 2025           6 KB
+[350/578] 6307 9c7c6a6c Kecamatan Batang Alai Timur Dalam Angka 2025 6 KB
+[351/578] 6307 9d9fc69a Kecamatan Batang Alai Timur Dalam Angka 2026 6 KB
+[352/578] 6307 a4e0c909 Indeks Harga Konsumen Kabupaten Hulu Sungai  6 KB
+[353/578] 6307 aafda0cf Kabupaten Hulu Sungai Tengah Dalam Angka 202 6 KB
+[354/578] 6307 abf5e692 Kecamatan Hantakan Dalam Angka 2026          6 KB
+[355/578] 6307 b0d3817c Kecamatan Batang Alai Utara Dalam Angka 2026 6 KB
+[356/578] 6307 b5e6f42d Statistik Daerah Kabupaten Hulu Sungai Tenga 6 KB
+[357/578] 6307 c339abea Kabupaten Hulu Sungai Tengah Dalam Angka 202 6 KB
+[358/578] 6307 d774eb0b Kecamatan Batu Benawa Dalam Angka 2026       6 KB
+[359/578] 6307 dcdbf65f Statistik Kesejahteraan Rakyat Kabupaten Hul 6 KB
+[360/578] 6307 e08368dd Booklet Survei Angkatan Kerja Nasional Kabup 6 KB
+[361/578] 6307 e277439a Kecamatan Batang Alai Utara Dalam Angka 2025 6 KB
+[362/578] 6307 e3eb7975 Kecamatan Batang Alai Selatan Dalam Angka 20 6 KB
+[363/578] 6307 e85a707c Booklet Survei Angkatan Kerja Nasional Kabup 6 KB
+[364/578] 6307 ede6295e Keadaan Angkatan Kerja di Kabupaten Hulu Sun 6 KB
+[365/578] 6308 02bd29b1 Produk Domestik Regional Bruto Kabupaten Hul 6 KB
+[366/578] 6308 0304849d Kecamatan Amuntai Utara Dalam Angka 2026     6 KB
+[367/578] 6308 048562a7 Booklet Survei Angkatan Kerja Nasional Kabup 6 KB
+[368/578] 6308 0915b840 Kecamatan Amuntai Tengah Dalam Angka 2026    6 KB
+[369/578] 6308 100f7180 Kecamatan Banjang Dalam Angka 2026           6 KB
+[370/578] 6308 1200d288 Analisis Survei Kebutuhan Data BPS Kabupaten 6 KB
+[371/578] 6308 1529652b Statistik Politik dan Keamanan Kabupaten Hul 6 KB
+[372/578] 6308 1bbfd2ee BOOKISTRA (Booklet Data Indikator Strategis) 6 KB
+[373/578] 6308 1dd3005b Kecamatan Paminggir Dalam Angka 2026         6 KB
+[374/578] 6308 3314ebe4 Kecamatan Paminggir Dalam Angka 2025         6 KB
+[375/578] 6308 3518da87 Indikator Kesejahteraan Rakyat Kabupaten Hul 6 KB
+[376/578] 6308 39145ce3 Kecamatan Babirik Dalam Angka 2025           6 KB
+[377/578] 6308 3e7c663f Statistik Daerah Kabupaten Hulu Sungai Utara 6 KB
+[378/578] 6308 42d4a9ba Kecamatan Sungai Pandan Dalam Angka 2025     6 KB
+[379/578] 6308 4d1ac64e Statistik Kesejahteraan Rakyat Kabupaten Hul 6 KB
+[380/578] 6308 5f9ee93d Kecamatan Babirik Dalam Angka 2026           6 KB
+[381/578] 6308 6090cf84 Kecamatan Danau Panggang Dalam Angka 2026    6 KB
+[382/578] 6308 62aad47f Produk Domestik Regional Bruto Kabupaten Hul 6 KB
+[383/578] 6308 673098f5 Kecamatan Amuntai Utara Dalam Angka 2025     6 KB
+[384/578] 6308 6ba528c8 Indeks Pembangunan Manusia Kabupaten Hulu Su 6 KB
+[385/578] 6308 6daef966 Produk Domestik Regional Bruto Kabupaten Hul 6 KB
+[386/578] 6308 6dd1b845 Kecamatan Sungai Tabukan Dalam Angka 2025    6 KB
+[387/578] 6308 71d7f229 Kecamatan Amuntai Selatan Dalam Angka 2025   6 KB
+[388/578] 6308 78ed1b32 Kabupaten Hulu Sungai Utara Dalam Angka 2026 6 KB
+[389/578] 6308 8842e3a7 Produk Domestik Regional Bruto Kabupaten Hul 6 KB
+[390/578] 6308 8d11df25 Kecamatan Amuntai Tengah Dalam Angka 2025    6 KB
+[391/578] 6308 a75c33ef Kecamatan Sungai Pandan Dalam Angka 2026     6 KB
+[392/578] 6308 abd87cef Indikator Pasar Tenaga Kerja Kabupaten Hulu  6 KB
+[393/578] 6308 aeb1f250 Kecamatan Amuntai Selatan Dalam Angka 2026   6 KB
+[394/578] 6308 b0311c93 Keadaan Angkatan Kerja di Kabupaten Hulu Sun 6 KB
+[395/578] 6308 b5cf4135 Keadaan Angkatan Kerja di Kabupaten Hulu Sun 6 KB
+[396/578] 6308 ba9f4c8b Kecamatan Haur Gading Dalam Angka 2026       6 KB
+[397/578] 6308 beb94317 Booklet Survei Angkatan Kerja Nasional Kabup 6 KB
+[398/578] 6308 cab40e3d Kecamatan Danau Panggang Dalam Angka 2025    6 KB
+[399/578] 6308 cc8496f7 Kecamatan Banjang Dalam Angka 2025           6 KB
+[400/578] 6308 cf0212d7 Kecamatan Haur Gading Dalam Angka 2025       6 KB
+[401/578] 6308 dda5fe8f Kabupaten Hulu Sungai Utara Dalam Angka 2025 6 KB
+[402/578] 6308 ebc34d76 Kecamatan Sungai Tabukan Dalam Angka 2026    6 KB
+[403/578] 6308 f88065c9 Statistik Potensi Desa Kabupaten Hulu Sungai 6 KB
+[404/578] 6309 04d53e86 Kecamatan Tanjung Dalam Angka 2026           6 KB
+[405/578] 6309 066c6eb6 Kecamatan Banua Lawas Dalam Angka 2025       6 KB
+[406/578] 6309 0cca6fe0 Kecamatan Upau Dalam Angka 2026              6 KB
+[407/578] 6309 10295752 Kabupaten Tabalong Dalam Angka 2026          6 KB
+[408/578] 6309 1f05c0fe Kecamatan Upau Dalam Angka 2025              6 KB
+[409/578] 6309 23a8a52e Kecamatan Pugaan Dalam Angka 2025            6 KB
+[410/578] 6309 315cfc28 Kecamatan Haruai Dalam Angka 2026            6 KB
+[411/578] 6309 3443fca8 Booklet Survei Angkatan Kerja Nasional Kabup 6 KB
+[412/578] 6309 34936d2c Kecamatan Muara Uya Dalam Angka 2025         6 KB
+[413/578] 6309 34b2075e Kabupaten Tabalong Dalam Angka 2025          6 KB
+[414/578] 6309 3add5f3e Keadaan Angkatan Kerja di Kabupaten Tabalong 6 KB
+[415/578] 6309 403fe435 Kecamatan Jaro Dalam Angka 2026              6 KB
+[416/578] 6309 45a09950 Kecamatan Jaro Dalam Angka 2025              6 KB
+[417/578] 6309 45af79c0 Produk Domestik Regional Bruto Kabupaten Tab 6 KB
+[418/578] 6309 49bb9830 Produk Domestik Regional Bruto Kabupaten Tab 6 KB
+[419/578] 6309 5a543583 Kecamatan Muara Harus Dalam Angka 2026       6 KB
+[420/578] 6309 5cd97dd2 Kecamatan Bintang Ara Dalam Angka 2025       6 KB
+[421/578] 6309 64349db9 Inflasi Tanjung 2024                         6 KB
+[422/578] 6309 64f6b693 Kecamatan Tanta Dalam Angka 2025             6 KB
+[423/578] 6309 6c174471 Kecamatan Pugaan Dalam Angka 2026            6 KB
+[424/578] 6309 75e54785 Analisis Hasil Survei Kebutuhan Data BPS Kab 6 KB
+[425/578] 6309 786645b6 Produk Domestik Regional Bruto Kabupaten Tab 6 KB
+[426/578] 6309 80a06a47 Statistik Kesejahteraan Rakyat Kabupaten Tab 6 KB
+[427/578] 6309 854661b3 Kecamatan Haruai Dalam Angka 2025            6 KB
+[428/578] 6309 87d01172 Kecamatan Tanta Dalam Angka 2026             6 KB
+[429/578] 6309 8da9bdda Kecamatan Muara Harus Dalam Angka 2025       6 KB
+[430/578] 6309 8de24a24 Kecamatan Murung Pudak Dalam Angka 2026      6 KB
+[431/578] 6309 9a253146 Kecamatan Kelua Dalam Angka 2026             6 KB
+[432/578] 6309 9fcbcb8b Booklet Survei Angkatan Kerja Nasional Kabup 6 KB
+[433/578] 6309 ab4d7b01 Kecamatan Banua Lawas Dalam Angka 2026       6 KB
+[434/578] 6309 b465ac96 Inflasi Tanjung 2025                         6 KB
+[435/578] 6309 b474eb65 Kecamatan Murung Pudak Dalam Angka 2025      6 KB
+[436/578] 6309 b8d9e756 Kecamatan Kelua Dalam Angka 2025             6 KB
+[437/578] 6309 be1b8f6b Kecamatan Muara Uya Dalam Angka 2026         6 KB
+[438/578] 6309 cabdf383 Kecamatan Bintang Ara Dalam Angka 2026       6 KB
+[439/578] 6309 ccfdf7ba Indikator Kesejahteraan Rakyat Kabupaten Tab 6 KB
+[440/578] 6309 d2eb76d0 Kecamatan Tanjung Dalam Angka 2025           6 KB
+[441/578] 6309 ed0a6c8b Statistik Potensi Desa Kabupaten Tabalong 20 6 KB
+[442/578] 6309 f0903c0d Keadaan Angkatan Kerja di Kabupaten Tabalong 6 KB
+[443/578] 6309 f3fa3067 Statistik Daerah Kabupaten Tabalong 2025     6 KB
+[444/578] 6309 f54bec3d Produk Domestik Regional Bruto Kabupaten Tab 6 KB
+[445/578] 6310 00cdaa7d Kecamatan Angsana Dalam Angka 2025           6 KB
+[446/578] 6310 095ec964 Kecamatan Mantewe Dalam Angka 2025           6 KB
+[447/578] 6310 0ee36194 Statistik Daerah Kabupaten Tanah Bumbu 2025  6 KB
+[448/578] 6310 129f6580 Kabupaten Tanah Bumbu Dalam Angka 2025       6 KB
+[449/578] 6310 133adaca Kecamatan Karang Bintang Dalam Angka 2026    6 KB
+[450/578] 6310 1a3fa5ca Kecamatan Angsana Dalam Angka 2026           6 KB
+[451/578] 6310 1c487e18 Booklet Sakernas Agustus BPS Kabupaten Tanah 6 KB
+[452/578] 6310 21b01417 Kecamatan Sungai Loban Dalam Angka 2025      6 KB
+[453/578] 6310 32f3c6f3 Kecamatan Simpang Empat Dalam Angka 2025     6 KB
+[454/578] 6310 3a7958e8 Kecamatan Kusan Hulu Dalam Angka 2026        6 KB
+[455/578] 6310 3af94eba Statistik Potensi Desa Kabupaten Tanah Bumbu 6 KB
+[456/578] 6310 579e2194 Keadaan Angkatan Kerja di Kabupaten Tanah Bu 6 KB
+[457/578] 6310 62914e04 Analisis Hasil Survei Kebutuhan Data BPS Kab 6 KB
+[458/578] 6310 668bb489 Kecamatan Satui Dalam Angka 2026             6 KB
+[459/578] 6310 70b43849 Statistik Pertanian Terkini Kabupaten Tanah  6 KB
+[460/578] 6310 7182a9db Kecamatan Batu Licin Dalam Angka 2026        6 KB
+[461/578] 6310 7886e13d Kecamatan Kusan Hilir Dalam Angka 2025       6 KB
+[462/578] 6310 81e9f252 Kecamatan Kusan Tengah Dalam Angka 2025      6 KB
+[463/578] 6310 8208ac74 Kecamatan Sungai Loban Dalam Angka 2026      6 KB
+[464/578] 6310 85bd01ba Kecamatan Kuranji Dalam Angka 2025           6 KB
+[465/578] 6310 8832ca84 Kecamatan Kuranji Dalam Angka 2026           6 KB
+[466/578] 6310 8af98950 Produk Domestik Regional Bruto Kabupaten Tan 6 KB
+[467/578] 6310 92b7d4e8 Kecamatan Kusan Hulu Dalam Angka 2025        6 KB
+[468/578] 6310 92dca382 Kecamatan Karang Bintang Dalam Angka 2025    6 KB
+[469/578] 6310 93050e87 Kecamatan Kusan Tengah Dalam Angka 2026      6 KB
+[470/578] 6310 b561acab Kecamatan Batu Licin Dalam Angka 2025        6 KB
+[471/578] 6310 b79021f9 Kecamatan Teluk Kepayang Dalam Angka 2025    6 KB
+[472/578] 6310 c1cb1294 Kecamatan Kusan Hilir Dalam Angka 2026       6 KB
+[473/578] 6310 cb1f5a8f Kecamatan Simpang Empat Dalam Angka 2026     6 KB
+[474/578] 6310 d5cd657c Kecamatan Teluk Kepayang Dalam Angka 2026    6 KB
+[475/578] 6310 da13d721 Produk Domestik Regional Bruto Kabupaten Tan 6 KB
+[476/578] 6310 dac944b8 Produk Domestik Regional Bruto Kabupaten Tan 6 KB
+[477/578] 6310 e26ef13a Produk Domestik Regional Bruto Kabupaten Tan 6 KB
+[478/578] 6310 e569cdc3 Kecamatan Mantewe Dalam Angka 2026           6 KB
+[479/578] 6310 e6fbb469 Statistik Kesejahteraan Rakyat Kabupaten Tan 6 KB
+[480/578] 6310 e77980d4 Indikator Kesejahteraan Rakyat Kabupaten Tan 6 KB
+[481/578] 6310 f323cb1d Booklet Sakernas Agustus BPS Kabupaten Tanah 6 KB
+[482/578] 6310 f4b23ef4 Keadaan Angkatan Kerja di Kabupaten Tanah Bu 6 KB
+[483/578] 6310 f57ccb5f Kecamatan Satui Dalam Angka 2025             6 KB
+[484/578] 6310 fe5c76b4 Kabupaten Tanah Bumbu Dalam Angka 2026       6 KB
+[485/578] 6311 1d8b887a Statistik Daerah Kabupaten Balangan 2025     6 KB
+[486/578] 6311 22fbc6fe Indeks Pembangunan Manusia Kabupaten Balanga 6 KB
+[487/578] 6311 2eae0ae6 Statistik Kesejahteraan Rakyat Kabupaten Bal 6 KB
+[488/578] 6311 32467410 Kabupaten Balangan Dalam Angka 2025          6 KB
+[489/578] 6311 33ebaa45 Produk Domestik Regional Bruto Kabupaten Bal 6 KB
+[490/578] 6311 359f3aa1 Booklet Survei Angkatan Kerja Nasional Kabup 6 KB
+[491/578] 6311 35d97ef6 Kecamatan Paringin Selatan Dalam Angka 2026  6 KB
+[492/578] 6311 3e56e358 Kecamatan Awayan Dalam Angka 2025            6 KB
+[493/578] 6311 490fb0d3 Kecamatan Batu Mandi Dalam Angka 2025        6 KB
+[494/578] 6311 515f59aa Kecamatan Tebing Tinggi Dalam Angka 2025     6 KB
+[495/578] 6311 595d3a9a Kecamatan Halong Dalam Angka 2025            6 KB
+[496/578] 6311 5a7b82b1 Kecamatan Awayan Dalam Angka 2026            6 KB
+[497/578] 6311 605dc5f9 Booklet Survei Angkatan Kerja Nasional Kabup 6 KB
+[498/578] 6311 6701c75c Kecamatan Paringin Dalam Angka 2026          6 KB
+[499/578] 6311 742fbe7b Produk Domestik Regional Bruto Kabupaten Bal 6 KB
+[500/578] 6311 81f2bb7d Kecamatan Paringin Selatan Dalam Angka 2025  6 KB
+[501/578] 6311 9055652d Keadaan Angkatan Kerja di Kabupaten Balangan 6 KB
+[502/578] 6311 9735e9cc Kecamatan Juai Dalam Angka 2026              6 KB
+[503/578] 6311 9d24b6d2 Kecamatan Paringin Dalam Angka 2025          6 KB
+[504/578] 6311 a1744d73 Indikator Kesejahteraan Rakyat Kabupaten Bal 6 KB
+[505/578] 6311 a388427b Statistik Potensi Desa Kabupaten Balangan    6 KB
+[506/578] 6311 a4c0b331 Kecamatan Batu Mandi Dalam Angka 2026        6 KB
+[507/578] 6311 ada0ab88 Kecamatan Lampihong Dalam Angka 2026         6 KB
+[508/578] 6311 b68460a0 Produk Domestik Regional Bruto Kabupaten Bal 6 KB
+[509/578] 6311 cc314c14 Keadaan Angkatan Kerja di Kabupaten Balangan 6 KB
+[510/578] 6311 d9bcb43e Kecamatan Halong Dalam Angka 2026            6 KB
+[511/578] 6311 e86cfa77 Kecamatan Juai Dalam Angka 2025              6 KB
+[512/578] 6311 ec41153f Kabupaten Balangan Dalam Angka 2026          6 KB
+[513/578] 6311 eeb1b8bf Produk Domestik Regional Bruto Kabupaten Bal 6 KB
+[514/578] 6311 f272a348 Kecamatan Lampihong Dalam Angka 2025         6 KB
+[515/578] 6311 f397b9e9 Analisis Hasil Survei Kebutuhan Data BPS Kab 6 KB
+[516/578] 6311 fe50dcfe Kecamatan Tebing Tinggi Dalam Angka 2026     6 KB
+[517/578] 6371 07abee55 Indikator Ekonomi Kota Banjarmasin 2024      6 KB
+[518/578] 6371 16bf6257 Kecamatan Banjarmasin Tengah Dalam Angka 202 6 KB
+[519/578] 6371 1909a50a Kecamatan Banjarmasin Utara Dalam Angka 2026 6 KB
+[520/578] 6371 2529585e Kota Banjarmasin Dalam Angka 2025            6 KB
+[521/578] 6371 2a6aa2f9 Analisis Hasil Survei Kebutuhan Data BPS Kot 6 KB
+[522/578] 6371 33bda908 Keadaan Angkatan Kerja Kota Banjarmasin Agus 6 KB
+[523/578] 6371 4cd586a6 Kecamatan Banjarmasin Utara Dalam Angka 2025 6 KB
+[524/578] 6371 4eef35cf Kota Banjarmasin Dalam Angka 2026            6 KB
+[525/578] 6371 5a9e1f2a Direktori Perusahaan/Usaha Jasa Akomodasi Ko 6 KB
+[526/578] 6371 5ef1acc2 Kecamatan Banjarmasin Timur Dalam Angka 2026 6 KB
+[527/578] 6371 650baac0 Produk Domestik Regional Bruto Kota Banjarma 6 KB
+[528/578] 6371 791bab02 Statistik Potensi Kelurahan Kota Banjarmasin 6 KB
+[529/578] 6371 79f0b15a Indeks Pembangunan Manusia Kota Banjarmasin  6 KB
+[530/578] 6371 7e6fcb0e Kecamatan Banjarmasin Selatan Dalam Angka 20 6 KB
+[531/578] 6371 8730aa8a Keadaan Angkatan Kerja Kota Banjarmasin Agus 6 KB
+[532/578] 6371 8c6d905c Kecamatan Banjarmasin Barat Dalam Angka 2026 6 KB
+[533/578] 6371 8d65a5fe Profil Tenaga Kerja Kota Banjarmasin 2025    6 KB
+[534/578] 6371 96533bee Statistik Perhubungan Kota Banjarmasin 2024  6 KB
+[535/578] 6371 9a9fc81e Produk Domestik Regional Bruto Kota Banjarma 6 KB
+[536/578] 6371 a0d48a43 Kecamatan Banjarmasin Timur Dalam Angka 2025 6 KB
+[537/578] 6371 a77549c9 Booklet Survei Angkatan Kerja Nasional Kota  6 KB
+[538/578] 6371 a7e51c09 Produk Domestik Regional Bruto Kota Banjarma 6 KB
+[539/578] 6371 abd3ff44 Kecamatan Banjarmasin Selatan Dalam Angka 20 6 KB
+[540/578] 6371 afacb4d4 Statistik Kesejahteraan Rakyat Kota Banjarma 6 KB
+[541/578] 6371 b69d683a Kecamatan Banjarmasin Barat Dalam Angka 2025 6 KB
+[542/578] 6371 c7afe791 Produk Domestik Regional Bruto Kota Banjarma 6 KB
+[543/578] 6371 cc2cb9c6 Booklet Survei Angkatan Kerja Nasional Kota  6 KB
+[544/578] 6371 d17afac4 Profil Tenaga Kerja Kota Banjarmasin 2024    6 KB
+[545/578] 6371 d42af148 Indikator Kesejahteraan Rakyat Kota Banjarma 6 KB
+[546/578] 6371 df044fa7 Indeks Harga Konsumen Kota Banjarmasin 2024  6 KB
+[547/578] 6371 edc3d84a Direktori Perusahaan Industri Manufaktur Men 6 KB
+[548/578] 6371 f6fe00d0 Statistik Daerah Kota Banjarmasin 2025       6 KB
+[549/578] 6371 f9e21ab7 Kecamatan Banjarmasin Tengah Dalam Angka 202 6 KB
+[550/578] 6372 01ca4218 Kota Banjarbaru Dalam Angka 2025             6 KB
+[551/578] 6372 0b8f2f40 Produk Domestik Regional Bruto Kota Banjarba 6 KB
+[552/578] 6372 0c1ff611 Indikator Kesejahteraan Rakyat Kota Banjarba 6 KB
+[553/578] 6372 0df3d405 Kecamatan Landasan Ulin Dalam Angka 2026     6 KB
+[554/578] 6372 1c9d3f50 Ringkasan Eksekutif Kemiskinan Kota Banjarba 6 KB
+[555/578] 6372 326660a8 Kecamatan Cempaka Dalam Angka 2025           6 KB
+[556/578] 6372 457ae462 Kecamatan Banjarbaru Utara Dalam Angka 2025  6 KB
+[557/578] 6372 49d00744 Kecamatan Landasan Ulin Dalam Angka 2025     6 KB
+[558/578] 6372 5221de74 Kecamatan Banjar Baru Selatan Dalam Angka 20 6 KB
+[559/578] 6372 5969df81 Booklet Survei Angkatan Kerja Nasional Kota  6 KB
+[560/578] 6372 64a8b1e0 Kecamatan Cempaka Dalam Angka 2026           6 KB
+[561/578] 6372 6ab5d8f7 Kota Banjarbaru Dalam Angka 2026             6 KB
+[562/578] 6372 8db55ef6 Statistik Daerah Kota Banjarbaru 2025        6 KB
+[563/578] 6372 97ebc846 Profil Tenaga Kerja Kota Banjarbaru Tahun 20 6 KB
+[564/578] 6372 a085f052 Analisis Hasil Survei Kebutuhan Data BPS Kot 6 KB
+[565/578] 6372 a673254f Kecamatan Banjarbaru Selatan Dalam Angka 202 6 KB
+[566/578] 6372 a818fdde Produk Domestik Regional Bruto Kota Banjarba 6 KB
+[567/578] 6372 ad22d3d9 Keadaan Angkatan Kerja di Kota Banjarbaru Ag 6 KB
+[568/578] 6372 b0d9c74e Kecamatan Liang Anggang Dalam Angka 2026     6 KB
+[569/578] 6372 c0a1256b Booklet Survei Angkatan Kerja Nasional Kota  6 KB
+[570/578] 6372 c53a740b Statistik Kesejahteraan Rakyat Kota Banjarba 6 KB
+[571/578] 6372 cfd5b9b8 Produk Domestik Regional Bruto Kota Banjarba 6 KB
+[572/578] 6372 d6eac735 Kecamatan Liang Anggang Dalam Angka 2025     6 KB
+[573/578] 6372 dd163efb Kecamatan Banjarbaru Utara Dalam Angka 2026  6 KB
+[574/578] 6372 de8f107b Produk Domestik Regional Bruto Kota Banjarba 6 KB
+[575/578] 6372 e758a7f1 Keadaan Angkatan Kerja di Kota Banjarbaru Ag 6 KB
+[576/578] 6372 f1fa2e50 Buklet Indikator Strategis Kota Banjarbaru T 6 KB
+[577/578] 6372 f8a45b50 Statistik Potensi Kelurahan Kota Banjarbaru  6 KB
+[578/578] 6372 fe43180b Ringkasan Eksekutif Kinerja Ekonomi Kota Ban 6 KB
+
+RINGKASAN
+  berhasil (sampul resmi)      : 576 (3.7 MB)
+  cadangan dari halaman 1 PDF  : 1
+  gagal (tampil tanpa gambar)  : 1
+  dilewati (sudah ada)         : 40
+  waktu                        : 0.0 menit
+  Yang gagal/cadangan dicoba lagi otomatis oleh pembaruan data berikutnya.

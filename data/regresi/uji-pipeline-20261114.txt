@@ -1,0 +1,150 @@
+Cadangan database uji: 8.8 MB, 6 tabel; produksi 6 tabel
+Database uji: db_pencarian_bps_uji | produksi (hanya dibaca): db_pencarian_bps | domain uji: 6305
+
+=== U. PENGAMAN DATABASE UJI ===
+  [LULUS] U1 KonfigurasiUji yang menunjuk nama produksi ditolak (SystemExit)  -- DITOLAK True
+  [LULUS] U2 baris pertama perbarui.py = database uji  -- Database tujuan: db_pencarian_bps_uji @ localhost:3306 (UJI - bukan produksi)
+  [LULUS] U3 ringkasan ke pembaruan_terakhir-uji.json, berkas produksi tidak dibuat  -- exit 0, 2 d
+
+=== P. EKSTRAKSI PENUH DOMAIN 6305 (--lokal --paksa) ===
+    |   Unduhan      : 0 berkas, 0.0 MB, rata-rata None KB/detik; putus 0x, percobaan ulang 0x, putaran ulang 0 (pulih 0), tetap gagal 0
+    |   domain                            status          publikasi  diunduh diproses  gagal
+    |   6305 Kab. Tapin                   sukses                 17        0       17      0
+    |   Perlu diperiksa manual (1):
+    |     6305 Statistik Daerah Kabupaten Tapin 2025      hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+    | Selesai 2026-11-14 09:35:54, kode keluar 0. Log: data/log_pembaruan\20261114-093243.log
+  [LULUS] P1 17 diproses, 0 diunduh, 0 gagal, exit 0  -- exit 0, proses 17, unduh 0, 192 d, tahap {'ambil_metadata': 0.0, 'unduh': 0.0, 'ekstraksi': 190.0, 'muat': 0.9}
+  [LULUS] P2 isi database uji identik per kunci dengan sebelum (306 publikasi, semua domain)  -- berbeda: []
+  [LULUS] P3 --lokal --paksa TIDAK memajukan updt_date_diproses publikasi usang  -- {'1d00e98fc8211bf401d37078': 'NULL', '34232029fdd831e30af08728': 'NULL'}
+  [LULUS] P4 tanpa entri dengan teks_ternormalisasi NULL  -- 0
+
+=== L. MODE LOKAL (tanpa jaringan) ===
+    |   Per tahap    : ambil_metadata 0.0 d, unduh 0.0 d, ekstraksi 0.0 d, muat 0.0 d
+    |   Jaringan     : SSID None, webapi.bps.go.id -> None
+    |   Unduhan      : 0 berkas, 0.0 MB, rata-rata None KB/detik; putus 0x, percobaan ulang 0x, putaran ulang 0 (pulih 0), tetap gagal 0
+    |   domain                            status          publikasi  diunduh diproses  gagal
+    |   6305 Kab. Tapin                   tidak_ada_baru         17        0        0      0
+    | Selesai 2026-11-14 09:35:56, kode keluar 0. Log: data/log_pembaruan\20261114-093556.log
+  [LULUS] L1 --lokal: tidak ada kerja, 2 'menunggu pembaruan online'  -- exit 0, tidak_ada_baru, menunggu 2
+  [LULUS] L2 --lokal: nol permintaan ke server (tiruan maupun BPS)  -- 0
+
+=== C. OCR ===
+  [LULUS] C1 4 publikasi OCR: entri dari cache identik, halaman_ocr terisi  -- {'182e2e58': (174, 43), '25f03922': (181, 43), '47c94280': (99, 34), 'f338cd99': (99, 44)}
+  [LULUS] C2 --tanpa-ocr: halaman dilewati, masuk 'perlu diperiksa', halaman_ocr kosong  -- exit 0, 336 d, alasan: ['174 halaman tanpa lapisan teks dilewati ', '181 halaman tanpa lapisan teks dilewati ']
+  [LULUS] C2 --tanpa-ocr: publikasi bertekst tidak berubah, publikasi OCR kehilangan entri OCR  -- {'182e2e58': (43, 41), '25f03922': (43, 41), '47c94280': (34, 0), 'f338cd99': (44, 0)}
+  [LULUS] C2 OCR dinyalakan lagi: kembali identik per kunci (cache dipakai ulang)  -- exit 0, 176 d
+  [LULUS] C3 cache kurang + EasyOCR tidak ada: 3 halaman dilewati, alasan tercatat, sisanya dari cache  -- {'halaman_tanpa_teks': 99, 'dari_cache': 96, 'di_ocr': 0, 'dilewati': 3, 'alasan_dilewati': 'EasyOCR tidak terpasang', 'rasio_tanpa_teks': 0.868}
+  [LULUS] C4 PDF berganti: cache halaman lama dibuang, _meta.json memakai sidik baru  -- C4 99 0 True
+  [LULUS] C5 PDF bertekst berhalaman kosong: tidak di-OCR, tidak meninggalkan folder cache  -- 1d00e98f: 4/118 halaman kosong
+  [LULUS] C6 aplikasi web melayani pencarian tanpa memuat easyocr/torch  -- C6 [200, 200] False False
+  [LULUS] C7 OCR sungguhan 1 halaman: cache dibuat, teks >= 95% sama dengan cache semula  -- 97 kata, sama 100.0%, 12.28 d
+
+=== H. BATAS HEADING DAFTAR ===
+  [LULUS] H1 Daftar Gambar Dalam Angka sesudah halaman 25 terbaca, entrinya berhalaman cetak  -- [('1d520ab0', 44), ('42732c61', 44)], gambar daftar ['14', '14']
+  [LULUS] H2 blok Daftar: halaman kosong di sela <= MAKS_HALAMAN_KOSONG tidak memutus, lebih dari itu memutus  -- [('0', '25', '2'), ('1', '26', '2'), ('2', '27', '2'), ('3', 'None', '2')]
+
+=== O. ONLINE (server tiruan): publikasi usang diunduh ulang ===
+    | ==========================================================================
+    |   Status       : sukses
+    |   Entri dokumen: 24373 -> 24373 (+0)
+    |   Waktu        : 9 detik (0.0 jam)
+    |   Per tahap    : ambil_metadata 1.0 d, unduh 0.1 d, ekstraksi 5.1 d, muat 0.1 d
+    |   Jaringan     : SSID 'PEGASUS 5G', webapi.bps.go.id -> 203.123.60.70
+    |   Unduhan      : 2 berkas, 6.1 MB, rata-rata 92517.8 KB/detik; putus 0x, percobaan ulang 0x, putaran ulang 0 (pulih 0), tetap gagal 0
+    |   domain                            status          publikasi  diunduh diproses  gagal
+    |   6305 Kab. Tapin                   sukses                 17        2        2      0
+    | Selesai 2026-11-14 09:45:19, kode keluar 0. Log: data/log_pembaruan\20261114-094509.log
+  [LULUS] O1 tepat 2 diunduh + diproses, status sukses, exit 0  -- exit 0, sukses, unduh 2, proses 2, 10 d
+  [LULUS] O1 updt_date_diproses kini cocok dengan updt_date_api  -- 0
+  [LULUS] O1 durasi 4 tahap tercatat  -- {'ambil_metadata': 1.0, 'unduh': 0.1, 'ekstraksi': 5.1, 'muat': 0.1}
+  [LULUS] O1 jeda antar permintaan >= ~1 detik  -- minimum 1.02 d dari 4 permintaan
+  [LULUS] O1 isi identik per kunci (PDF tiruan = PDF lama)
+  [LULUS] O2 run kedua: tidak ada yang dikerjakan, tidak ada unduhan  -- tidak_ada_baru, proses 0
+
+=== B. PUBLIKASI BARU & updt_date BERUBAH ===
+  [LULUS] B1 publikasi baru: masuk, entri terisi, teks ternormalisasi terisi  -- exit 0, entri 74/74
+  [LULUS] B1 tanpa entri NULL normalisasi
+  [LULUS] B2 updt_date berubah: diunduh ulang + diproses  -- diunduh 2, diproses 2026-12-30
+  [LULUS] B3 updt_date kosong dari API: bukan perubahan, nilai lama dipertahankan  -- proses 0, api 2026-12-30
+
+=== G. UNDUHAN GAGAL (kelas bug 'publikasi tertinggal') ===
+  [LULUS] G1 unduh '500': exit 3, sebagian, data+PDF lama utuh, api tersimpan, diproses tak maju  -- exit 3, sebagian, 196 d, pesan: 500 Server Error: Internal Server Error for url: http://127.
+  [LULUS] G1 unduh 'html': exit 3, sebagian, data+PDF lama utuh, api tersimpan, diproses tak maju  -- exit 3, sebagian, 196 d, pesan: bukan PDF utuh (3600 byte)
+  [LULUS] G1 unduh 'potong': exit 3, sebagian, data+PDF lama utuh, api tersimpan, diproses tak maju  -- exit 3, sebagian, 196 d, pesan: bukan PDF utuh (50000 byte)
+  [LULUS] G2 run berikutnya memprosesnya sendiri setelah pulih  -- exit 0, sukses, diunduh 1
+
+=== E. PDF RUSAK, PDF 0 ENTRI, PDF HILANG/DIGANTI ===
+  [LULUS] E1 PDF tak terbaca: entri lama utuh, galat tercatat, exit 3  -- exit 3, entri 61/61, galat: No /Root object! - Is this really a PDF?
+  [LULUS] E2 pulih: galat terhapus, dicoba lagi otomatis  -- exit 0, galat NULL
+  [LULUS] E3 PDF sah 0 entri: tercatat diekstrak  -- exit 0, perlu diperiksa: ['0 entri sama sekali']
+  [LULUS] E4 run berikutnya TIDAK mengekstrak ulang publikasi 0 entri  -- proses 0
+  [LULUS] E5 PDF hilang di disk: diunduh ulang + diekstrak  -- exit 0, diunduh 1
+  [LULUS] E6 PDF diganti di disk: diekstrak tanpa unduh  -- proses 1, unduh 0
+  [LULUS] E7 --lokal: updt_date_diproses tak maju, tercatat menunggu  -- diproses 2025-12-30
+
+=== T. TRANSAKSI DAN KUNCI ===
+  [LULUS] T1 gagal di tengah transaksi: entri lama utuh  -- GAGAL-SEPERTI-DIHARAPKAN | jumlah 298 298
+  [LULUS] T2 proses dibunuh: kunci basi tertinggal  -- setelah 3.3 d
+  [LULUS] T2 proses dibunuh: entri & diproses belum berubah  -- 2026-12-29
+  [LULUS] T3 run berikutnya menimpa kunci basi dan menyelesaikan  -- exit 0, sukses
+  [LULUS] T4 pembaruan kedua ditolak exit 2, yang pertama tetap hidup  -- exit 2: PEMBARUAN SUDAH BERJALAN di proses lain (PID 15192). Tunggu sampai sel
+  [LULUS] T4 pertama selesai normal  -- 0
+
+=== D. MULTI-DOMAIN (domain tiruan 6399) ===
+  [LULUS] D1 domain baru tanpa --hanya-periksa: DILEWATI, domain lama tetap jalan, exit 3  -- exit 3, 6399: Dilewati: belum lolos scripts/perbarui.py --hanya-
+  [LULUS] D1 tak ada baris 6399 masuk  -- 0
+  [LULUS] D2 --hanya-periksa bersih: 15 wilayah, 0 tabrakan, exit 0  -- exit 0, 15 domain, 16 d
+  [LULUS] D2 --hanya-periksa tidak menulis DB / PDF
+  [LULUS] D3 setelah lolos: 6399 dimuat ke subfolder + wilayah benar  -- sukses, Kab. Tiruan Uji
+  [LULUS] D4 domain putus jaringan: domain lain tetap diproses, exit 3  -- exit 3, sebagian, 6305 sukses
+  [LULUS] D4 data domain yang gagal tidak disentuh
+  [LULUS] D5 halaman ke-2 gagal: domain gagal, metadata tak tersentuh  -- gagal: halaman 2: 500 Server Error: Internal Server Error for url: 
+  [LULUS] D6 0 publikasi padahal DB berisi: ditolak, data utuh  -- 0 publikasi lolos filter padahal database berisi 1 publikasi domain in
+  [LULUS] D7 --hanya-periksa: 1 pub_id di dua domain = TEPAT 1 tabrakan, exit 1  -- exit 1, 1 tabrakan
+  [LULUS] D7b tabrakan API-vs-DB terdeteksi, tepat 1  -- exit 1, 1 tabrakan
+  [LULUS] D8 pengaman: baris domain lain TIDAK ditimpa, dilaporkan, exit 3  -- exit 3, sebagian
+  [LULUS] D9 publikasi hilang dari daftar API: dilaporkan, tidak dihapus  -- 1
+
+=== K. API KEY TIDAK BOCOR ===
+  [LULUS] K0 alat uji sah: pesan galat mentah memang memuat key
+  [LULUS] K1 jaringan putus: gagal dengan pesan, key tersamar  -- exit 1
+  [LULUS] K1 periksa putus: gagal dengan pesan, key tersamar  -- exit 1
+  [LULUS] K1 key tidak ada di keluaran/ringkasan/laporan  -- []
+
+=== R. ROUTE PDF & HALAMAN ADMIN (test_client, KonfigurasiUji) ===
+    | PDF_LOKAL 20 buruk []
+    | TOMBOL 31 ok 31 LAIN 10 alih 10
+    | HILANG 302 True
+    | TAK_ADA 404 404
+    | ADMIN sebagian 200 kurang []
+    | ADMIN sukses 200 kurang []
+    | ADMIN tidak_ada_baru 200 kurang []
+    | ADMIN gagal_jaringan 200 kurang []
+    | ADMIN gagal_lain 200 kurang []
+    | ADMIN lama_sukses 200 kurang []
+    | ADMIN lama_tidak_ada 200 kurang []
+    | ADMIN tanpa_berkas 200 kurang [] 
+  [LULUS] R1 /pdf/<id> menyajikan berkas lokal untuk semua publikasi domain uji  -- PDF_LOKAL 20 buruk []
+  [LULUS] R2 tombol Buka PDF di /hasil -> berkas lokal tanpa redirect; PDF di luar salinan -> alih ke url_pdf  -- TOMBOL 31 ok 31 LAIN 10 alih 10
+  [LULUS] R3 berkas hilang -> cadangan redirect ke url_pdf
+  [LULUS] R4 id tak dikenal / path aneh -> 404
+  [LULUS] R5 /admin/perbarui (ringkasan -uji) merender semua status + format lama  -- [('sebagian', '200', '[]'), ('sukses', '200', '[]'), ('tidak_ada_baru', '200', '[]'), ('gagal_jaringan', '200', '[]'), ('gagal_lain', '200', '[]'), ('lama_sukses', '200', '[]'), ('lama_tidak_ada', '200', '[]'), ('tanpa_berkas', '200', '[]')]
+
+=== W. TOMBOL WEB + .BAT SUNGGUHAN (keduanya --db-uji) ===
+    | MULAI 302
+    | KEDUA_NONAKTIF True
+    | SEBAGIAN_TAMPIL True JUDUL_GAGAL True UJI True 
+  [LULUS] W1 tombol web (KonfigurasiUji): berjalan ke DB uji, POST kedua ditolak, ringkasan 'sebagian' + judul gagal
+  [LULUS] W2 .bat tetap ASCII + CRLF
+  [LULUS] W3 .bat exit 3 -> SELESAI SEBAGIAN  -- ['RINGKASAN PEMBARUAN', 'PEMBARUAN SELESAI SEBAGIAN - sebagian wilayah/publikasi gagal.']
+  [LULUS] W4 .bat exit 0 -> PEMBARUAN SELESAI., cek MySQL ke database uji  -- ['RINGKASAN PEMBARUAN', 'PEMBARUAN SELESAI.', 'database: db_pencarian_bps_uji']
+  [LULUS] W5 .bat exit 1 -> PEMBARUAN GAGAL + pesan jaringan  -- ['RINGKASAN PEMBARUAN', 'PEMBARUAN GAGAL - baca pesan di atas.']
+  [LULUS] W6 .bat saat terkunci -> TIDAK DIJALANKAN  -- ['TIDAK DIJALANKAN: pembaruan lain sedang berjalan.']
+
+=== Z. PEMULIHAN DAN BUKTI ===
+  [LULUS] Z1 database uji dipulihkan, CHECKSUM TABLE sama dengan awal  -- []
+  [LULUS] Z2 produksi tidak berubah (CHECKSUM TABLE awal = akhir)  -- []
+  [LULUS] Z3 folder sementara dibersihkan
+
+=== TOTAL: 78 lulus, 0 gagal, 0 dilewati (2250 detik) ===
+KODE_KELUAR=0

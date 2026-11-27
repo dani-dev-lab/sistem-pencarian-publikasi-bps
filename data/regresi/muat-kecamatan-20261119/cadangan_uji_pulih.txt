@@ -1,0 +1,6 @@
+entri_dokumen produksi=[24532 2222020900] pulih=[24532 2222020900] SAMA
+publikasi produksi=[307 3121769376] pulih=[307 3121769376] SAMA
+versi_data produksi=[1 4002252207] pulih=[1 4002252207] SAMA
+log_pencarian produksi=[143 3253808649] pulih=[143 3253808649] SAMA
+kategori produksi=[14 1501779208] pulih=[14 1501779208] SAMA
+publikasi_kategori produksi=[0 0] pulih=[0 0] SAMA

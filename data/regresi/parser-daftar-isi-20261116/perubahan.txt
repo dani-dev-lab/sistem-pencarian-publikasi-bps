@@ -1,0 +1,1311 @@
+
+### 054960c858dfaf7bc2de0599 6301 
+  - isi hal 55 | 3.5 Perkembangan Pembentukan Modal Tetap Bruto/The Trend of Gross Fixed Capital Formation 54 3.6 Perkembangan Perubahan Inventori/The Trend of Changes in Inventory
+  - isi hal ix | DAFTAR ISI/CONTENTS vii DAFTAR TABEL/LIST OF TABLES
+  - isi hal 42 | Page BAB 3 TINJAUAN PEREKONOMIAN/ECONOMIC REVIEW 39 3.1 Tinjauan PDRB Tanah Laut Menurut Pengeluaran/GRDP Overview of Tanah Laut by Expenditure
+  + isi hal 42 | 3.1 Tinjauan PDRB Tanah Laut Menurut Pengeluaran/GRDP Overview of Tanah Laut by Expenditure
+  + isi hal 54 | 3.5 Perkembangan Pembentukan Modal Tetap Bruto/The Trend of Gross Fixed Capital Formation
+  + isi hal 55 | 3.6 Perkembangan Perubahan Inventori/The Trend of Changes in Inventory
+  + isi hal 39 | BAB 3 TINJAUAN PEREKONOMIAN/ECONOMIC REVIEW
+  + isi hal vii | DAFTAR ISI/CONTENTS
+  + isi hal ix | DAFTAR TABEL/LIST OF TABLES
+
+### 09832a6f12a0c3d69b132eb0 6305 
+  - isi hal 20 | Tingkat Pengangguran Terbuka MenurutPendidikan 19 Tingkat Ketidakaktifan
+  + isi hal 20 | Tingkat Ketidakaktifan
+  + isi hal 19 | Tingkat Pengangguran Terbuka MenurutPendidikan
+
+### 0a970f4271e7afa1eef27dbd 6304 
+  UBAH ('gambar', '4.4') (HALAMAN): [('PDRB Atas Dasar Harga Berlaku (ADHB) dan Atas Dasar Harga Konstan (ADHK) Kategori Pengadaan Listrik dan Gas di Kabupaten Barito Kuala (miliar rupiah), 2021–2025 GRDP at Current Price (ADHB) and Constant Price (ADHK) of Electricity and Procurement Industry in Barito Kuala Regency (billion rupiah), 2021–2025 115', '', '135', 'keduanya')] -> [('PDRB Atas Dasar Harga Berlaku (ADHB) dan Atas Dasar Harga Konstan (ADHK) Kategori Pengadaan Listrik dan Gas di Kabupaten Barito Kuala (miliar rupiah), 2021–2025 GRDP at Current Price (ADHB) and Constant Price (ADHK) of Electricity and Procurement Industry in Barito Kuala Regency (billion rupiah), 2021–2025', '115', '135', 'keduanya')]
+  UBAH ('lampiran', '3') (HALAMAN): [('Distribusi Persentase Produk Domestik Regional Bruto Kabupaten Barito Kuala Atas Dasar Harga Berlaku Menurut Lapangan Usaha (persen), 2021–2025 Percentage Distribution of Gross Regional Domestic Product of Kabupaten Barito Kuala at Current Market Prices by Industry (percent), 2021–2025 141', '', '161', 'keduanya')] -> [('Distribusi Persentase Produk Domestik Regional Bruto Kabupaten Barito Kuala Atas Dasar Harga Berlaku Menurut Lapangan Usaha (persen), 2021–2025 Percentage Distribution of Gross Regional Domestic Product of Kabupaten Barito Kuala at Current Market Prices by Industry (percent), 2021–2025', '141', '161', 'keduanya')]
+  - isi hal 80 | 2.14 Administrasi Pemerintah, Pertahanan dan Jaminan Sosial Wajib/Public Administration, Defence and Compulsory Social Security 79 2.15 Jasa Pendidikan/Education
+  - isi hal 129 | 4.14 Administrasi Pemerintah, Pertahanan dan Jaminan Sosial Wajib/Public Administration, Defence and Compulsory Social Security 128 4.15 Jasa Pendidikan/Education
+  + isi hal 79 | 2.14 Administrasi Pemerintah, Pertahanan dan Jaminan Sosial Wajib/Public Administration, Defence and Compulsory Social Security
+  + isi hal 80 | 2.15 Jasa Pendidikan/Education
+  + isi hal 128 | 4.14 Administrasi Pemerintah, Pertahanan dan Jaminan Sosial Wajib/Public Administration, Defence and Compulsory Social Security
+  + isi hal 129 | 4.15 Jasa Pendidikan/Education
+
+### 10295752ec171e074fea363a 6309 
+  UBAH ('gambar', '13.1'): [('Halaman Figure Page Laju Pertumbuhan Ekonomi Kabupaten/ Kota se-Kalimantan Selatan (%), 2025 Economic Growth Rate of Regencies/Cities in South Kalimantan (%), 2025 Indeks Pembangunan Manusia Kabupaten', '246', '335', 'daftar')] -> [('Laju Pertumbuhan Ekonomi Kabupaten/ Kota se-Kalimantan Selatan (%), 2025 Economic Growth Rate of Regencies/Cities in South Kalimantan (%), 2025 Indeks Pembangunan Manusia Kabupaten', '246', '335', 'daftar')]
+
+### 129f6580a7f2c30c5ed84ef3 6310 
+  UBAH ('tabel', '13.4'): [('Halaman Table Page Number of Poor Population by Regency in Kalimantan Selatan Province (thousand people), 2020–2024 Indeks Pembangunan Manusia Menurut Kabupaten di Provinsi Kalimantan Selatan, 2020–2024 Human Development Index by Regency in Kalimantan Selatan', '341', '374', 'daftar')] -> [('Number of Poor Population by Regency in Kalimantan Selatan Province (thousand people), 2020–2024 Indeks Pembangunan Manusia Menurut Kabupaten di Provinsi Kalimantan Selatan, 2020–2024 Human Development Index by Regency in Kalimantan Selatan', '341', '374', 'daftar')]
+
+### 172b31dadf396597e64afd5c 6300 
+  - isi hal 48 | 2.14 Administrasi Pemerintah, Pertahanan dan Jaminan Sosial
+  - isi hal 49 | Wajib 2.15 Jasa Pendidikan
+  + isi hal 48 | 2.14 Administrasi Pemerintah, Pertahanan dan Jaminan Sosial Wajib
+  + isi hal 49 | 2.15 Jasa Pendidikan
+
+### 18e4b6e4fc187b3e23c165f3 6300 
+  UBAH ('gambar', '8'): [('Halaman Figure Page Peta Sebaran Produksi Padi di Provinsi Kalimantan Selatan, 2024 Map of Paddy Production Distribution in Kalimantan Selatan Province, 2024 9 Infografis Luas Panen dan Produksi Padi di Provinsi Kalimantan Selatan (Angka Tetap) Infografic of Paddy Harvested Area and Paddy Production in Kalimantan', '37', '', 'daftar')] -> [('Peta Sebaran Produksi Padi di Provinsi Kalimantan Selatan, 2024 Map of Paddy Production Distribution in Kalimantan Selatan Province, 2024 9 Infografis Luas Panen dan Produksi Padi di Provinsi Kalimantan Selatan (Angka Tetap) Infografic of Paddy Harvested Area and Paddy Production in Kalimantan', '37', '', 'daftar')]
+
+### 19b4856cba230b2b46985fba 6300 
+  UBAH ('lampiran', '1'): [('Halaman Appendices Pages Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kabupaten/Kota1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by Regency/Municaplity1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '145', '', 'daftar')] -> [('Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kabupaten/Kota1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by Regency/Municaplity1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '145', '', 'daftar')]
+
+### 1b1e9605a8238dc10099e860 6307 
+  UBAH ('lampiran', '6') (HALAMAN): [('Laju Pertumbuhan Produk Domestik Regional Bruto Atas Dasar Harga Konstan (2010=100) Kabupaten Hulu Sungai Tengah (persen), 2021–2025/Growth of Gross Regional Domestic Product at Constant Prices of Hulu Sungai Tengah Regency (percent), 2021–2025 80', '', '95', 'daftar')] -> [('Laju Pertumbuhan Produk Domestik Regional Bruto Atas Dasar Harga Konstan (2010=100) Kabupaten Hulu Sungai Tengah (persen), 2021–2025/Growth of Gross Regional Domestic Product at Constant Prices of Hulu Sungai Tengah Regency (percent), 2021–2025', '80', '95', 'daftar')]
+  - isi hal 55 | 3.5 Perkembangan Pembentukan Modal Tetap Bruto/The Trend of Gross Fixed Capital Formation 54 3.6 Perkembangan Perubahan Inventori/The Trend of Changes in Inventory
+  - isi hal ix | DAFTAR ISI/CONTENTS vii DAFTAR TABEL/LIST OF TABLES
+  - isi hal 39 | Page BAB 3 TINJAUAN EKONOMI/ECONOMIC REVIEW
+  + isi hal 54 | 3.5 Perkembangan Pembentukan Modal Tetap Bruto/The Trend of Gross Fixed Capital Formation
+  + isi hal 55 | 3.6 Perkembangan Perubahan Inventori/The Trend of Changes in Inventory
+  + isi hal 39 | BAB 3 TINJAUAN EKONOMI/ECONOMIC REVIEW
+  + isi hal vii | DAFTAR ISI/CONTENTS
+  + isi hal ix | DAFTAR TABEL/LIST OF TABLES
+
+### 1bc84df2238512203e3d0c58 6300 kata baru muncul ['Pustaka']; kata hilang ['Indeks', 'Pembangunan', 'Manusia', 'Provinsi', 'Kalimantan', 'Selatan', 'Volume', 'Pustaka.']
+  - isi hal  | 1.1 Konsep Pembangunan Manusia 01 1.2 Sejarah Indeks Pembangunan Manusia 02 1.3 Teknik Perhitungan IPM di Indonesia 04 2. Capaian IPM Kalimantan Selatan 13 2.1 Gambaran IPM Kalimantan Selatan 13 2.2 Capaian pada Dimensi Kesehatan 15 2.3 Capaian pada Dimensi Pendidikan 18 2.4 Capaian pada Dimensi Ekonomi 20
+  - isi hal  | 2025 Volume 6, 2026 Hal. Kata Pengantar v Daftar Isi vii Daftar Tabel ix Daftar Gambar xi 1. Pembangunan Manusia Seutuhnya 01
+  - isi hal  | 3. Capaian IPM Kabupaten/Kota 23 3.1 Indeks Pembangunan Manusia (IPM) Kabupaten/Kota se-Kalimantan Selatan 24 3.2 Ketimpangan Indeks Pembangunan Manusia (IPM) Kabupaten/Kota se-Kalimantan Selatan 31 4. Investasi Pendidikan Hari Ini dan Capaian Pendidikan di Masa Depan: Analisis HLS dan RLS di Kalimantan Selatan 37
+  - isi hal  | 4.1 Pendidikan sebagai Fondasi Pembangunan Manusia 37 4.2 Harapan dan Capaian Pendidikan 39 4.3 Pendidikan Daerah dalam Perspektif Waktu 41 4.4 Menangkap Dinamika Pendidikan dengan Model Panel 44 4.5 Hubungan Jangka Panjang dan Interaksi Jangka Pendek antara Harapan dan Capaian
+  - isi hal v | Indeks Pembangunan Manusia Provinsi Kalimantan Selatan
+  - isi hal vii | Pendidikan 47 4.6 Penutup 49 Daftar Pustaka. 53
+  + isi hal 01 | 1.1 Konsep Pembangunan Manusia
+  + isi hal 02 | 1.2 Sejarah Indeks Pembangunan Manusia
+  + isi hal 04 | 1.3 Teknik Perhitungan IPM di Indonesia
+  + isi hal 13 | 2. Capaian IPM Kalimantan Selatan
+  + isi hal 13 | 2.1 Gambaran IPM Kalimantan Selatan
+  + isi hal 15 | 2.2 Capaian pada Dimensi Kesehatan
+  + isi hal 18 | 2.3 Capaian pada Dimensi Pendidikan
+  + isi hal 20 | 2.4 Capaian pada Dimensi Ekonomi
+  + isi hal 23 | 3. Capaian IPM Kabupaten/Kota
+  + isi hal 24 | 3.1 Indeks Pembangunan Manusia (IPM) Kabupaten/Kota se-Kalimantan Selatan
+  + isi hal 31 | 3.2 Ketimpangan Indeks Pembangunan Manusia (IPM) Kabupaten/Kota se-Kalimantan Selatan
+  + isi hal 37 | 4. Investasi Pendidikan Hari Ini dan Capaian Pendidikan di Masa Depan: Analisis HLS dan RLS di Kalimantan Selatan
+  + isi hal 37 | 4.1 Pendidikan sebagai Fondasi Pembangunan Manusia
+  + isi hal 39 | 4.2 Harapan dan Capaian Pendidikan
+  + isi hal 41 | 4.3 Pendidikan Daerah dalam Perspektif Waktu
+  + isi hal 44 | 4.4 Menangkap Dinamika Pendidikan dengan Model Panel
+  + isi hal 47 | 4.5 Hubungan Jangka Panjang dan Interaksi Jangka Pendek antara Harapan dan Capaian Pendidikan
+  + isi hal 49 | 4.6 Penutup
+  + isi hal 53 | Daftar Pustaka
+  + isi hal 01 | Daftar Tabel ix Daftar Gambar xi 1. Pembangunan Manusia Seutuhnya
+  + isi hal vii | Kata Pengantar v Daftar Isi
+
+### 1c487e18e53c39fe5dbabbc0 6310 
+  - isi hal 17 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama 16 Penduduk Bekerja Menurut Status Formal dan Informal
+  - isi hal 20 | Tingkat Pengangguran Terbuka Menurut Pendidikan 19 Tingkat Ketidakaktifan
+  + isi hal 16 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama
+  + isi hal 17 | Penduduk Bekerja Menurut Status Formal dan Informal
+  + isi hal 20 | Tingkat Ketidakaktifan
+  + isi hal 19 | Tingkat Pengangguran Terbuka Menurut Pendidikan
+
+### 1c688dd3f6c8ca630a9a3190 6300 
+  - isi hal vii | Volume 13, Nomor 2, 2026 Hal. Kata Pengantar v Daftar Isi
+  - tabel hal 72 | Hal. 54 Nilai Tukar Usaha Rumah Tangga Pertanian per Subsektor di Provinsi Kalimantan Selatan (2018=100), Januari–Maret 2026 xii xiii
+  + isi hal vii | Volume 13, Nomor 2, 2026 Kata Pengantar v Daftar Isi
+  + tabel hal 72 | 54 Nilai Tukar Usaha Rumah Tangga Pertanian per Subsektor di Provinsi Kalimantan Selatan (2018=100), Januari–Maret 2026 xii xiii
+
+### 1d8b887aa61bd303d1f70dec 6311 
+  - isi hal 37 | BAB 17. Perdagangan 35 BAB 18. Pengeluaran Penduduk
+  + isi hal 35 | BAB 17. Perdagangan
+  + isi hal 37 | BAB 18. Pengeluaran Penduduk
+
+### 2529585ee3b8f772cce0a6e4 6371 
+  UBAH ('gambar', '13.2'): [('Halaman Figure Page Jumlah Penduduk Miskin Menurut Kabupaten/Kota di Kalimantan Selatan (ribu orang), 2024 Population of Poor by Regency/Municipality in Kalimantan Selatan Province (thousand people), 2024 xlvi BANJARMASIN MUNICIPALITY IN FIGURES 2025', '457', '509', 'daftar')] -> [('Jumlah Penduduk Miskin Menurut Kabupaten/Kota di Kalimantan Selatan (ribu orang), 2024 Population of Poor by Regency/Municipality in Kalimantan Selatan Province (thousand people), 2024 xlvi BANJARMASIN MUNICIPALITY IN FIGURES 2025', '457', '509', 'daftar')]
+  UBAH ('tabel', '13.1.4'): [('Halaman Table Page Indeks Pembangunan Manusia Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan, 2020-2024 Human Development Index by Regency/Municipality in Kalimantan Selatan Province, 2020-2024 xli', '461', '513', 'daftar')] -> [('Indeks Pembangunan Manusia Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan, 2020-2024 Human Development Index by Regency/Municipality in Kalimantan Selatan Province, 2020-2024 xli', '461', '513', 'daftar')]
+
+### 2eae0ae6f44417f75f69e36f 6311 
+  UBAH ('lampiran', '14') (HALAMAN): [('Relative Standard Error (RSE) Persentase Penduduk Berumur 0–23 Bulan (Baduta) yang Pernah Diberi ASI dan Rata-Rata Lama Pemberian ASI Menurut Karakteristik Kabupaten Balangan, 2025 98', '', '118', 'keduanya')] -> [('Relative Standard Error (RSE) Persentase Penduduk Berumur 0–23 Bulan (Baduta) yang Pernah Diberi ASI dan Rata-Rata Lama Pemberian ASI Menurut Karakteristik Kabupaten Balangan, 2025', '98', '118', 'keduanya')]
+  UBAH ('lampiran', '15') (HALAMAN): [('Relative Standard Error (RSE) Persentase Perempuan Pernah Kawin Berumur 15–49 Tahun yang Pernah Melahirkan Anak Lahir Hidup (ALH) dalam Dua Tahun Terakhir di Fasilitas Kesehatan Tempat Kelahiran ALH yang Terakhir Menurut Karakteristik Kabupaten Balangan, 2025 99', '', '119', 'daftar')] -> [('Relative Standard Error (RSE) Persentase Perempuan Pernah Kawin Berumur 15–49 Tahun yang Pernah Melahirkan Anak Lahir Hidup (ALH) dalam Dua Tahun Terakhir di Fasilitas Kesehatan Tempat Kelahiran ALH yang Terakhir Menurut Karakteristik Kabupaten Balangan, 2025', '99', '119', 'daftar')]
+  UBAH ('lampiran', '22') (HALAMAN): [('Relative Standard Error (RSE) Persentase Rumah Tangga Menurut Karakteristik, Kepemilikan, dan Penggunaan Fasilitas Tempat Buang Air Besar Kabupaten Balangan, 2025 106 xiv', '', '126', 'keduanya')] -> [('Relative Standard Error (RSE) Persentase Rumah Tangga Menurut Karakteristik, Kepemilikan, dan Penggunaan Fasilitas Tempat Buang Air Besar Kabupaten Balangan, 2025 xiv', '106', '126', 'keduanya')]
+  UBAH ('tabel', '4.4') (HALAMAN): [('Persentase Penduduk Berumur 15 Tahun ke Atas yang Merokok Tembakau selama Sebulan Terakhir Menurut Karakteristik Kabupaten Balangan, 2025 32', '', '52', 'daftar')] -> [('Persentase Penduduk Berumur 15 Tahun ke Atas yang Merokok Tembakau selama Sebulan Terakhir Menurut Karakteristik Kabupaten Balangan, 2025', '32', '52', 'daftar')]
+  - lampiran hal  | Halaman x4
+  - tabel hal  | Halaman x3
+
+### 306d642700298757982b2a30 6304 
+  - isi hal 37 | Page BAB 3 TINJAUAN EKONOMI/ECONOMIC REVIEW
+  + isi hal 37 | BAB 3 TINJAUAN EKONOMI/ECONOMIC REVIEW
+
+### 34232029fdd831e30af08728 6305 
+  - isi hal 15 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama 14 Penduduk Bekerja Menurut Status Formal dan Informal
+  - isi hal 18 | Tingkat Pengangguran Terbuka Menurut Pendidikan 17 Tingkat Ketidakaktifan
+  + isi hal 14 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama
+  + isi hal 15 | Penduduk Bekerja Menurut Status Formal dan Informal
+  + isi hal 18 | Tingkat Ketidakaktifan
+  + isi hal 17 | Tingkat Pengangguran Terbuka Menurut Pendidikan
+
+### 3443fca8ec56f26385996ec5 6309 
+  - isi hal 20 | Tingkat Pengangguran Terbuka Menurut Pendidikan 19 Setengah Pengangguran
+  + isi hal 20 | Setengah Pengangguran
+  + isi hal 19 | Tingkat Pengangguran Terbuka Menurut Pendidikan
+
+### 359f3aa1ab77d5714db832dd 6311 
+  - isi hal 10 | Penduduk Bekerja Menurut Status Pekerjaan Utama 8 Penduduk Bekerja Menurut Lapangan Pekerjaan Utama 9 Penduduk Bekerja Menurut Status Formal dan Informal
+  - isi hal iv | Relative Standard Error 19
+  - isi hal 7 | Tingkat Partisipasi Angkatan Kerja (TPAK) 6 Employment to Population Ratio (EPR)
+  - isi hal 13 | Tingkat Pengangguran Terbuka Menurut Pendidikan 12 Tingkat Ketidakaktifan
+  + isi hal 7 | Employment to Population Ratio (EPR)
+  + isi hal 9 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama
+  + isi hal 10 | Penduduk Bekerja Menurut Status Formal dan Informal
+  + isi hal 8 | Penduduk Bekerja Menurut Status Pekerjaan Utama
+  + isi hal 19 | Relative Standard Error
+  + isi hal 13 | Tingkat Ketidakaktifan
+  + isi hal 6 | Tingkat Partisipasi Angkatan Kerja (TPAK)
+  + isi hal 12 | Tingkat Pengangguran Terbuka Menurut Pendidikan
+
+### 38778154d51012af9aa474be 6300 kata baru muncul ['39']
+  UBAH ('gambar', '36') (HALAMAN): [('Tingkat Ketidakaktifan (persen), Agustus 2022–Agustus 2024 71 xiv Indikator Pasar Tenaga Kerja Provinsi Kalimantan Selatan Agustus 2024', '', '89', 'keduanya')] -> [('Tingkat Ketidakaktifan (persen), Agustus 2022–Agustus 2024 xiv Indikator Pasar Tenaga Kerja Provinsi Kalimantan Selatan Agustus 2024', '71', '89', 'keduanya')]
+  UBAH ('gambar', '8') (HALAMAN): [('EPR Menurut Kelompok Usia (persen), Agustus 2024 38', '', '56', 'keduanya')] -> [('EPR Menurut Kelompok Usia (persen), Agustus 2024', '38', '56', 'keduanya')]
+  UBAH ('gambar', '9') (HALAMAN): [('EPR Menurut Kabupaten/Kota (persen), Agustus 2024 3.3 KILM 3. PENDUDUK BEKERJA MENURUT STATUS PEKERJAAN UTAMA', '', '57', 'keduanya')] -> [('EPR Menurut Kabupaten/Kota (persen), Agustus 2024 3.3 KILM 3. PENDUDUK BEKERJA MENURUT STATUS PEKERJAAN UTAMA', '39', '57', 'keduanya')]
+
+### 390d64efde3eede5d7a9286b 6306 
+  - isi hal 43 | 2.5 Pengadaan Air, Pengelolaan Sampah, Limbah dan Daur Ulang/ Water Supply,
+  - isi hal 47 | 2.7 Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor/ Wholesale and
+  - isi hal 56 | 2.9 Penyediaan Akomodasi dan Makan Minum/ Accommodation and Food Service
+  - isi hal 59 | Activities 2.10 Informasi dan Komunikasi/ Information and Communication
+  - isi hal 91 | HULU SUNGAI SELATAN REGENCY 3.1 Struktur Ekonomi/ Economic Structure
+  - isi hal 89 | III. TINJAUAN EKONOMI KABUPATEN HULU SUNGAI SELATAN/ ECONOMIC REVIEW OF
+  - isi hal 105 | INDUSTRY 4.1 Pertanian, Kehutanan, dan Perikanan / Agriculture, Forestry And Fishing
+  - isi hal 103 | IV. PERKEMBANGAN PDRB MENURUT LAPANGAN USAHA/ DEVELOPMENT OF GRDP BY
+  - isi hal 50 | Retail Trade; Repair of Motor Vehicles and Motorcycles 2.8 Transportasi dan Pergudangan/ Transportation and Storage
+  - isi hal 44 | Sewerage, Waste Management and Remediation Activities 2.6 Konstruksi/ Construction
+  + isi hal 59 | 2.10 Informasi dan Komunikasi/ Information and Communication
+  + isi hal 43 | 2.5 Pengadaan Air, Pengelolaan Sampah, Limbah dan Daur Ulang/ Water Supply, Sewerage, Waste Management and Remediation Activities
+  + isi hal 44 | 2.6 Konstruksi/ Construction
+  + isi hal 47 | 2.7 Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor/ Wholesale and Retail Trade; Repair of Motor Vehicles and Motorcycles
+  + isi hal 50 | 2.8 Transportasi dan Pergudangan/ Transportation and Storage
+  + isi hal 56 | 2.9 Penyediaan Akomodasi dan Makan Minum/ Accommodation and Food Service Activities
+  + isi hal 91 | 3.1 Struktur Ekonomi/ Economic Structure
+  + isi hal 105 | 4.1 Pertanian, Kehutanan, dan Perikanan / Agriculture, Forestry And Fishing
+  + isi hal 89 | III. TINJAUAN EKONOMI KABUPATEN HULU SUNGAI SELATAN/ ECONOMIC REVIEW OF HULU SUNGAI SELATAN REGENCY
+  + isi hal 103 | IV. PERKEMBANGAN PDRB MENURUT LAPANGAN USAHA/ DEVELOPMENT OF GRDP BY INDUSTRY
+
+### 397c36d32b0b0059e7453ac4 6301 
+  UBAH ('lampiran', '1'): [('Halaman Appendices Pages Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '143', '', 'daftar')] -> [('Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '143', '', 'daftar')]
+
+### 3af94ebab1c1172567545d9e 6310 
+  UBAH ('lampiran', '1'): [('Halaman Appendices Pages Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '143', '', 'daftar')] -> [('Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '143', '', 'daftar')]
+
+### 3ce577220df045457cb62d0b 6302 
+  - gambar hal  | Halaman/ Page x2
+  - isi hal 5 | 1.3 Perubahan Tahun Dasar Produk Domestik Regional Bruto/Base
+  - isi hal 78 | 2.14 Administrasi Pemerintahan, Pertahanan dan Jaminan Sosial
+  - isi hal 80 | 2.16 Jasa Kesehatan dan Kegiatan Sosial/Human Health and Social
+  - isi hal 43 | 2.5 Pengadaan Air, Pengelolaan Sampah, Limbah dan Daur Ulang/
+  - isi hal 46 | 2.7 Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda
+  - isi hal 56 | 2.9 Penyediaan Akomodasi dan Makan Minum/Accommodation
+  - isi hal 117 | 4.16 Jasa Kesehatan dan Kegiatan Sosial/Human Health and Social
+  - isi hal 106 | 4.5 Pengadaan Air, Pengelolaan Sampah, Limbah dan Daur Ulang/
+  - isi hal 108 | 4.7 Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda
+  - isi hal 110 | 4.9 Penyediaan Akomodasi dan Makan Minum/Accommodation
+  - isi hal 15 | ESTIMATION 2.1 Pertanian, Kehutanan, dan Perikanan/Agriculture, Forestry And
+  - isi hal 24 | Fishing 2.2 Pertambangan dan Penggalian/Mining and Quarrying
+  - isi hal 101 | Fishing 4.2 Pertambangan dan Penggalian/Mining and Quarrying
+  - isi hal 75 | Halaman/ Page 2.13 Jasa Perusahaan/Businnes Activities
+  - isi hal 115 | Halaman/ Page 4.14 Administrasi Pemerintahan, Pertahanan dan Jaminan Sosial
+  - isi hal 87 | III. TINJAUAN EKONOMI KABUPATEN KOTABARU/ECONOMIC REVIEW OF
+  - isi hal 97 | IV. PERTUMBUHAN DAN PERANAN PDRB KABUPATEN KOTABARU
+  - isi hal 89 | KOTABARU REGENCY 3.1 Struktur Ekonomi/Economic Structure
+  - isi hal 99 | MENURUT LAPANGAN USAHA/GROWTH AND SHARE OF GDRP KOTABARU REGENCY BY INDUSTRY 4.1 Pertanian, Kehutanan, dan Perikanan/Agriculture, Forestry And
+  - isi hal 49 | Motor/Wholesale and Retail Trade; Repair of Motor Vehicles and Motorcycles 2.8 Transportasi dan Pergudangan/Transportation and Storage
+  - isi hal 109 | Motor/Wholesale and Retail Trade; Repair of Motor Vehicles and Motorcycles 4.8 Transportasi dan Pergudangan/Transportation and Storage
+  - isi hal 79 | Wajib/Public Administration and Defence, Compulsory Social Security 2.15 Jasa Pendidikan/Education
+  - isi hal 116 | Wajib/Public Administration and Defence, Compulsory Social Security 4.15 Jasa Pendidikan/Education
+  - isi hal 44 | Water Supply, Sewerage, Waste Management and Remediation Activities 2.6 Konstruksi/Construction
+  - isi hal 107 | Water Supply, Sewerage, Waste Management and Remediation Activities 4.6 Konstruksi/Construction
+  - isi hal 81 | Work Activitie 2.17 Jasa Lainnya/Other Services Activities
+  - isi hal 118 | Work Activities 4.17 Jasa Lainnya/Other Services Activities
+  - isi hal 58 | and Food Service Activities 2.10 Informasi dan Komunikasi/Information and Communication
+  - isi hal 111 | and Food Service Activities 4.10 Informasi dan Komunikasi/Information and Communication
+  - isi hal 13 | year Change of GRDP II RUANG LINGKUP DAN METODE PENGHITUNGAN/COVERAGE &
+  + isi hal 5 | 1.3 Perubahan Tahun Dasar Produk Domestik Regional Bruto/Base year Change of GRDP
+  + isi hal 15 | 2.1 Pertanian, Kehutanan, dan Perikanan/Agriculture, Forestry And Fishing
+  + isi hal 58 | 2.10 Informasi dan Komunikasi/Information and Communication
+  + isi hal 75 | 2.13 Jasa Perusahaan/Businnes Activities
+  + isi hal 78 | 2.14 Administrasi Pemerintahan, Pertahanan dan Jaminan Sosial Wajib/Public Administration and Defence, Compulsory Social Security
+  + isi hal 79 | 2.15 Jasa Pendidikan/Education
+  + isi hal 80 | 2.16 Jasa Kesehatan dan Kegiatan Sosial/Human Health and Social Work Activitie
+  + isi hal 81 | 2.17 Jasa Lainnya/Other Services Activities
+  + isi hal 24 | 2.2 Pertambangan dan Penggalian/Mining and Quarrying
+  + isi hal 43 | 2.5 Pengadaan Air, Pengelolaan Sampah, Limbah dan Daur Ulang/ Water Supply, Sewerage, Waste Management and Remediation Activities
+  + isi hal 44 | 2.6 Konstruksi/Construction
+  + isi hal 46 | 2.7 Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor/Wholesale and Retail Trade; Repair of Motor Vehicles and Motorcycles
+  + isi hal 49 | 2.8 Transportasi dan Pergudangan/Transportation and Storage
+  + isi hal 56 | 2.9 Penyediaan Akomodasi dan Makan Minum/Accommodation and Food Service Activities
+  + isi hal 89 | 3.1 Struktur Ekonomi/Economic Structure
+  + isi hal 99 | 4.1 Pertanian, Kehutanan, dan Perikanan/Agriculture, Forestry And Fishing
+  + isi hal 111 | 4.10 Informasi dan Komunikasi/Information and Communication
+  + isi hal 115 | 4.14 Administrasi Pemerintahan, Pertahanan dan Jaminan Sosial Wajib/Public Administration and Defence, Compulsory Social Security
+  + isi hal 116 | 4.15 Jasa Pendidikan/Education
+  + isi hal 117 | 4.16 Jasa Kesehatan dan Kegiatan Sosial/Human Health and Social Work Activities
+  + isi hal 118 | 4.17 Jasa Lainnya/Other Services Activities
+  + isi hal 101 | 4.2 Pertambangan dan Penggalian/Mining and Quarrying
+  + isi hal 106 | 4.5 Pengadaan Air, Pengelolaan Sampah, Limbah dan Daur Ulang/ Water Supply, Sewerage, Waste Management and Remediation Activities
+  + isi hal 107 | 4.6 Konstruksi/Construction
+  + isi hal 108 | 4.7 Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor/Wholesale and Retail Trade; Repair of Motor Vehicles and Motorcycles
+  + isi hal 109 | 4.8 Transportasi dan Pergudangan/Transportation and Storage
+  + isi hal 110 | 4.9 Penyediaan Akomodasi dan Makan Minum/Accommodation and Food Service Activities
+  + isi hal 13 | II RUANG LINGKUP DAN METODE PENGHITUNGAN/COVERAGE & ESTIMATION
+  + isi hal 87 | III. TINJAUAN EKONOMI KABUPATEN KOTABARU/ECONOMIC REVIEW OF KOTABARU REGENCY
+  + isi hal 97 | IV. PERTUMBUHAN DAN PERANAN PDRB KABUPATEN KOTABARU MENURUT LAPANGAN USAHA/GROWTH AND SHARE OF GDRP KOTABARU REGENCY BY INDUSTRY
+
+### 3e7c663f9292cb72b9532dd9 6308 
+  - isi hal 27 | 13. Hotel dan Pariwisata 25 14. Transportasi dan Komunikasi
+  + isi hal 25 | 13. Hotel dan Pariwisata
+  + isi hal 27 | 14. Transportasi dan Komunikasi
+
+### 4242d52edd5bd5dd45efa4e7 6302 
+  - isi hal 15 | (Rebasing) II METODE ESTIMASI DAN SUMBER DATA/ESTIMATION METHODS AND
+  - isi hal 9 | 1.3 Perubahan Tahun Dasar (Rebasing)/Change in Base Year
+  - isi hal 79 | 4.2 Perbandingan Pengeluaran Konsumsi Akhir Rumah Tangga
+  - isi hal 86 | 4.8 Average Propensity to Consume (APC) dan Average Propensity
+  - isi hal 22 | Consumption 2.2 Pengeluaran Konsumsi Akhir Lembaga Non-profit yang
+  - isi hal 31 | Consumption 2.4 Pembentukan Modal Tetap Bruto (PMTB)/Gross Fixed Capital
+  - isi hal vii | Consumption Expenditure
+  - isi hal 17 | DATA SOURCE 2.1 Pengeluaran Konsumsi Akhir Rumah Tangga/Household Final
+  - isi hal 39 | Formation (GFCF) 2.5 Perubahan Inventori/Change in Inventory
+  - isi hal 66 | Government Final Consumption Expenditure 3.5 Perkembangan Pembentukan Modal Tetap Bruto/Trend of
+  - isi hal 69 | Gross Fixed Capital Formation 3.6 Perkembangan Perubahan Inventori/Trend of Change in
+  - isi hal 65 | Halaman/ Page 3.4 Perkembangan Konsumsi Akhir Pemerintah/Trend of
+  - isi hal 64 | Household Final Consumption Expenditure 3.3 Perkembangan Konsumsi Akhir LNPRT/Trend of NPISHs Final
+  - isi hal 49 | III. TINJAUAN EKONOMI KABUPATEN KOTABARU/ECONOMIC REVIEW OF
+  - isi hal 75 | IV. PERKEMBANGAN AGREGAT PDRB KABUPATEN KOTABARU MENURUT
+  - isi hal 70 | Inventory 3.7 Perkembangan Ekspor/Trend of Export
+  - isi hal 51 | KOTABARU REGENCY 3.1 Tinjauan Agregat PDRB Kabupaten Kotabaru menurut
+  - isi hal 27 | Melayani Rumah Tangga/Non-profit Institution Serving Household Final Consumption 2.3 Pengeluaran Konsumsi Akhir Pemerintah/Government Final
+  - isi hal 91 | Output Ratio (ICOR) V. PENUTUP
+  - isi hal 77 | PENGELUARAN/TREND OF AGGREGATE GRDP OF KOTABARU REGENCY BY EXPENDITURE 4.1 PDRB (Nominal)/GRDP (Nominal)
+  - isi hal 59 | Pengeluaran/Overview Aggregate GRDP of Kotabaru Regency by Expenditure 3.2 Perkembangan Konsumsi Akhir Rumah Tangga/Trend of
+  - isi hal v | Produk Domestik Regional Bruto Kabupaten Kotabaru Menurut Pengeluaran 2020–2024 Gross Regional Domestic Product of Kotabaru Regency by Expenditure 2020–2024 Volume 15, 2025 Halaman/ Page KATA PENGANTAR/PREFACE
+  - isi hal 81 | Ratio of Household Final Consumption To GFCF 4.4 Proporsi Konsumsi Akhir Terhadap PDRB/Share of Final Con-
+  - isi hal 83 | Ratio to GFCF 4.6 Perbandingan PDRB Terhadap Impor/Ratio of GRDP to Import
+  - isi hal 80 | Terhadap Ekspor/Ratio of Household Final Consumption Expen- diture To Export 4.3 Perbandingan Konsumsi Akhir Rumah Tangga Terhadap PMTB/
+  - isi hal 82 | sumption to GRDP 4.5 Perkembangan Rasio Ekspor Terhadap PMTB/Trend of Export
+  - isi hal 88 | to Save (APS)/Average Propensity to Consume (APC) and Average Propensity to Save (APS) 4.9 Increamental Capital Output Ratio (ICOR)/Increamental Capital
+  - tabel hal  | Halaman/ Page
+  + isi hal 9 | 1.3 Perubahan Tahun Dasar (Rebasing)/Change in Base Year (Rebasing)
+  + isi hal 17 | 2.1 Pengeluaran Konsumsi Akhir Rumah Tangga/Household Final Consumption
+  + isi hal 22 | 2.2 Pengeluaran Konsumsi Akhir Lembaga Non-profit yang Melayani Rumah Tangga/Non-profit Institution Serving Household Final Consumption
+  + isi hal 27 | 2.3 Pengeluaran Konsumsi Akhir Pemerintah/Government Final Consumption
+  + isi hal 31 | 2.4 Pembentukan Modal Tetap Bruto (PMTB)/Gross Fixed Capital Formation (GFCF)
+  + isi hal 39 | 2.5 Perubahan Inventori/Change in Inventory
+  + isi hal 51 | 3.1 Tinjauan Agregat PDRB Kabupaten Kotabaru menurut Pengeluaran/Overview Aggregate GRDP of Kotabaru Regency by Expenditure
+  + isi hal 59 | 3.2 Perkembangan Konsumsi Akhir Rumah Tangga/Trend of Household Final Consumption Expenditure
+  + isi hal 64 | 3.3 Perkembangan Konsumsi Akhir LNPRT/Trend of NPISHs Final Consumption Expenditure
+  + isi hal 65 | 3.4 Perkembangan Konsumsi Akhir Pemerintah/Trend of Government Final Consumption Expenditure
+  + isi hal 66 | 3.5 Perkembangan Pembentukan Modal Tetap Bruto/Trend of Gross Fixed Capital Formation
+  + isi hal 69 | 3.6 Perkembangan Perubahan Inventori/Trend of Change in Inventory
+  + isi hal 70 | 3.7 Perkembangan Ekspor/Trend of Export
+  + isi hal 77 | 4.1 PDRB (Nominal)/GRDP (Nominal)
+  + isi hal 79 | 4.2 Perbandingan Pengeluaran Konsumsi Akhir Rumah Tangga Terhadap Ekspor/Ratio of Household Final Consumption Expen- diture To Export
+  + isi hal 80 | 4.3 Perbandingan Konsumsi Akhir Rumah Tangga Terhadap PMTB/ Ratio of Household Final Consumption To GFCF
+  + isi hal 81 | 4.4 Proporsi Konsumsi Akhir Terhadap PDRB/Share of Final Con- sumption to GRDP
+  + isi hal 82 | 4.5 Perkembangan Rasio Ekspor Terhadap PMTB/Trend of Export Ratio to GFCF
+  + isi hal 83 | 4.6 Perbandingan PDRB Terhadap Impor/Ratio of GRDP to Import
+  + isi hal 86 | 4.8 Average Propensity to Consume (APC) dan Average Propensity to Save (APS)/Average Propensity to Consume (APC) and Average Propensity to Save (APS)
+  + isi hal 88 | 4.9 Increamental Capital Output Ratio (ICOR)/Increamental Capital Output Ratio (ICOR)
+  + isi hal 15 | II METODE ESTIMASI DAN SUMBER DATA/ESTIMATION METHODS AND DATA SOURCE
+  + isi hal 49 | III. TINJAUAN EKONOMI KABUPATEN KOTABARU/ECONOMIC REVIEW OF KOTABARU REGENCY
+  + isi hal 75 | IV. PERKEMBANGAN AGREGAT PDRB KABUPATEN KOTABARU MENURUT PENGELUARAN/TREND OF AGGREGATE GRDP OF KOTABARU REGENCY BY EXPENDITURE
+  + isi hal v | Produk Domestik Regional Bruto Kabupaten Kotabaru Menurut Pengeluaran 2020–2024 Gross Regional Domestic Product of Kotabaru Regency by Expenditure 2020–2024 Volume 15, 2025 KATA PENGANTAR/PREFACE
+  + isi hal 91 | V. PENUTUP
+
+### 440a1956914a6cf1c4afccb3 6301 
+  - lampiran hal 75 | Halaman Appendices Pages 1 Kesalahan Baku Relatif Angkatan Kerja Agustus 2025 Relative Standard Error Labour Force, August 2025 2 Kuesioner Sakernas Agustus 2025 Sakernas Questionnaire, August 2025 78 xx
+  - tabel hal  | Halaman Tables Pages xix
+  + lampiran hal 75 | 1 Kesalahan Baku Relatif Angkatan Kerja Agustus 2025 Relative Standard Error Labour Force, August 2025 2 Kuesioner Sakernas Agustus 2025 Sakernas Questionnaire, August 2025 78 xx
+
+### 45af79c09790935e3ab63a5b 6309 
+  - gambar hal  | Figures Hal./Page 2021–2025
+  - gambar hal  | Figures Hal./Page
+  - isi hal 84 | Hal./Page 2.17 Jasa Lainnya/Other Services Activities
+  - tabel hal  | Tables Hal./Page x2
+  + gambar hal  | 2021–2025
+  + isi hal 84 | 2.17 Jasa Lainnya/Other Services Activities
+
+### 4989ca6f5c2053742bef91d8 6303 
+  - isi hal 31 | PENJELASAN/EXPLANATORY NOTES 21 1.1 LATAR BELAKANG
+  + isi hal 31 | 1.1 LATAR BELAKANG
+  + isi hal 21 | PENJELASAN/EXPLANATORY NOTES
+
+### 49bb983097fcbd6fcabfee14 6309 
+  - isi hal 73 | Halaman/Page IV. PERKEMBANGAN AGREGAT PRDB MENURUT PENGELUARAN KABUPATEN TABALONG TAHUN 2020–2024/TREND AGGREGATE GRDP TABALONG BY
+  - tabel hal  | Halaman/Page
+  + isi hal 73 | IV. PERKEMBANGAN AGREGAT PRDB MENURUT PENGELUARAN KABUPATEN TABALONG TAHUN 2020–2024/TREND AGGREGATE GRDP TABALONG BY
+
+### 49c5df1bd1381fa594485be4 6300 kata baru muncul ['2']; kata hilang ['Gambaran', 'Ekonomi', 'Makro', 'Provinsi', 'Kalimantan', 'Selatan', 'Triwulan', 'II-2025']
+  UBAH ('tabel', '1') (HALAMAN): [('PDRB Provinsi Kalimantan Selatan Atas Dasar Harga Berlaku (ADHB) Menurut Lapangan Usaha (miliar rupiah), Triwulan III-2024 – Triwulan II-2025 Triwulan Triwulan Triwulan I - Triwulan II - Kategori Lapangan Usaha', '', '20', 'keduanya')] -> [('PDRB Provinsi Kalimantan Selatan Atas Dasar Harga Berlaku (ADHB) Menurut Lapangan Usaha (miliar rupiah), Triwulan III-2024 – Triwulan II-2025 Triwulan Triwulan Triwulan I - Triwulan II - Kategori Lapangan Usaha', '2', '20', 'keduanya')]
+  - isi hal vii | 11. Indeks Pembangunan Manusia 61 12. NTP dan Inflasi Perdesaan 67 Daftar Pustaka 73
+  - isi hal  | 3. Ekspor-Impor 19 4. Hotel 25 5. Transportasi 29 6. Indeks Kemahalan Konstruksi 33 7. Kependudukan 35 8. Ketenagakerjaan 37 9. Kemiskinan 51 10. Gini Ratio 57
+  - isi hal v | Gambaran Ekonomi Makro Provinsi Kalimantan Selatan Triwulan II-2025 (April–Juni)
+  - isi hal  | Volume 10, Nomor 3, 2025 Hal. Kata Pengantar v Daftar Isi vii Daftar Tabel ix Penjelasan Umum xv 1. PDRB 1 2. Inflasi 11
+  + isi hal 11 | 1. PDRB 1 2. Inflasi
+  + isi hal 57 | 10. Gini Ratio
+  + isi hal 61 | 11. Indeks Pembangunan Manusia
+  + isi hal 67 | 12. NTP dan Inflasi Perdesaan
+  + isi hal 19 | 3. Ekspor-Impor
+  + isi hal 25 | 4. Hotel
+  + isi hal 29 | 5. Transportasi
+  + isi hal 33 | 6. Indeks Kemahalan Konstruksi
+  + isi hal 35 | 7. Kependudukan
+  + isi hal 37 | 8. Ketenagakerjaan
+  + isi hal 51 | 9. Kemiskinan
+  + isi hal 73 | Daftar Pustaka
+  + isi hal ix | Daftar Tabel
+  + isi hal vii | Kata Pengantar v Daftar Isi
+  + isi hal xv | Penjelasan Umum
+
+### 4b3aec787aa28b1dede912fe 6302 
+  - gambar hal  | Halaman/ Page x2
+  - isi hal 5 | 1.3 Perubahan Tahun Dasar Produk Domestik Regional Bruto/Base
+  - isi hal 78 | 2.14 Administrasi Pemerintahan, Pertahanan dan Jaminan Sosial
+  - isi hal 80 | 2.16 Jasa Kesehatan dan Kegiatan Sosial/Human Health and Social
+  - isi hal 43 | 2.5 Pengadaan Air, Pengelolaan Sampah, Limbah dan Daur Ulang/
+  - isi hal 46 | 2.7 Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda
+  - isi hal 56 | 2.9 Penyediaan Akomodasi dan Makan Minum/Accommodation
+  - isi hal 117 | 4.16 Jasa Kesehatan dan Kegiatan Sosial/Human Health and Social
+  - isi hal 106 | 4.5 Pengadaan Air, Pengelolaan Sampah, Limbah dan Daur Ulang/
+  - isi hal 108 | 4.7 Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda
+  - isi hal 110 | 4.9 Penyediaan Akomodasi dan Makan Minum/Accommodation
+  - isi hal 15 | ESTIMATION 2.1 Pertanian, Kehutanan, dan Perikanan / Agriculture, Forestry And
+  - isi hal 24 | Fishing 2.2 Pertambangan dan Penggalian/Mining and Quarrying
+  - isi hal 101 | Fishing 4.2 Pertambangan dan Penggalian/Mining and Quarrying
+  - isi hal 75 | Halaman/ Page 2.13 Jasa Perusahaan/Businnes Activities
+  - isi hal 115 | Halaman/ Page 4.14 Administrasi Pemerintahan, Pertahanan dan Jaminan Sosial
+  - isi hal 87 | III. TINJAUAN EKONOMI KABUPATEN KOTABARU/ECONOMIC REVIEW OF
+  - isi hal 97 | IV. PERTUMBUHAN DAN PERANAN PDRB KABUPATEN KOTABARU
+  - isi hal 89 | KOTABARU REGENCY 3.1 Struktur Ekonomi/Economic Structure
+  - isi hal 99 | MENURUT LAPANGAN USAHA/GROWTH AND SHARE OF GDRP KOTABARU REGENCY BY INDUSTRY 4.1 Pertanian, Kehutanan, dan Perikanan/Agriculture, Forestry And
+  - isi hal 49 | Motor/Wholesale and Retail Trade; Repair of Motor Vehicles and Motorcycles 2.8 Transportasi dan Pergudangan/Transportation and Storage
+  - isi hal 109 | Motor/Wholesale and Retail Trade; Repair of Motor Vehicles and Motorcycles 4.8 Transportasi dan Pergudangan/Transportation and Storage
+  - isi hal v | Produk Domestik Regional Bruto Kabupaten Kotabaru Menurut Lapangan Usaha 2020–2024 Gross Regional Domestic Product of Kotabaru Regency by Industry 2020–2024 Volume 15, 2025 Halaman/ Page KATA PENGANTAR/PREFACE
+  - isi hal 79 | Wajib/Public Administration and Defence, Compulsory Social Security 2.15 Jasa Pendidikan/Education
+  - isi hal 116 | Wajib/Public Administration and Defence, Compulsory Social Security 4.15 Jasa Pendidikan/Education
+  - isi hal 44 | Water Supply, Sewerage, Waste Management and Remediation Activities 2.6 Konstruksi/Construction
+  - isi hal 107 | Water Supply, Sewerage, Waste Management and Remediation Activities 4.6 Konstruksi/Construction
+  - isi hal 81 | Work Activitie 2.17 Jasa Lainnya/Other Services Activities
+  - isi hal 118 | Work Activities 4.17 Jasa Lainnya/Other Services Activities
+  - isi hal 58 | and Food Service Activities 2.10 Informasi dan Komunikasi/Information and Communication
+  - isi hal 111 | and Food Service Activities 4.10 Informasi dan Komunikasi/Information and Communication
+  - isi hal 13 | year Change of GRDP II RUANG LINGKUP DAN METODE PENGHITUNGAN/COVERAGE &
+  + isi hal 5 | 1.3 Perubahan Tahun Dasar Produk Domestik Regional Bruto/Base year Change of GRDP
+  + isi hal 15 | 2.1 Pertanian, Kehutanan, dan Perikanan / Agriculture, Forestry And Fishing
+  + isi hal 58 | 2.10 Informasi dan Komunikasi/Information and Communication
+  + isi hal 75 | 2.13 Jasa Perusahaan/Businnes Activities
+  + isi hal 78 | 2.14 Administrasi Pemerintahan, Pertahanan dan Jaminan Sosial Wajib/Public Administration and Defence, Compulsory Social Security
+  + isi hal 79 | 2.15 Jasa Pendidikan/Education
+  + isi hal 80 | 2.16 Jasa Kesehatan dan Kegiatan Sosial/Human Health and Social Work Activitie
+  + isi hal 81 | 2.17 Jasa Lainnya/Other Services Activities
+  + isi hal 24 | 2.2 Pertambangan dan Penggalian/Mining and Quarrying
+  + isi hal 43 | 2.5 Pengadaan Air, Pengelolaan Sampah, Limbah dan Daur Ulang/ Water Supply, Sewerage, Waste Management and Remediation Activities
+  + isi hal 44 | 2.6 Konstruksi/Construction
+  + isi hal 46 | 2.7 Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor/Wholesale and Retail Trade; Repair of Motor Vehicles and Motorcycles
+  + isi hal 49 | 2.8 Transportasi dan Pergudangan/Transportation and Storage
+  + isi hal 56 | 2.9 Penyediaan Akomodasi dan Makan Minum/Accommodation and Food Service Activities
+  + isi hal 89 | 3.1 Struktur Ekonomi/Economic Structure
+  + isi hal 99 | 4.1 Pertanian, Kehutanan, dan Perikanan/Agriculture, Forestry And Fishing
+  + isi hal 111 | 4.10 Informasi dan Komunikasi/Information and Communication
+  + isi hal 115 | 4.14 Administrasi Pemerintahan, Pertahanan dan Jaminan Sosial Wajib/Public Administration and Defence, Compulsory Social Security
+  + isi hal 116 | 4.15 Jasa Pendidikan/Education
+  + isi hal 117 | 4.16 Jasa Kesehatan dan Kegiatan Sosial/Human Health and Social Work Activities
+  + isi hal 118 | 4.17 Jasa Lainnya/Other Services Activities
+  + isi hal 101 | 4.2 Pertambangan dan Penggalian/Mining and Quarrying
+  + isi hal 106 | 4.5 Pengadaan Air, Pengelolaan Sampah, Limbah dan Daur Ulang/ Water Supply, Sewerage, Waste Management and Remediation Activities
+  + isi hal 107 | 4.6 Konstruksi/Construction
+  + isi hal 108 | 4.7 Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor/Wholesale and Retail Trade; Repair of Motor Vehicles and Motorcycles
+  + isi hal 109 | 4.8 Transportasi dan Pergudangan/Transportation and Storage
+  + isi hal 110 | 4.9 Penyediaan Akomodasi dan Makan Minum/Accommodation and Food Service Activities
+  + isi hal 13 | II RUANG LINGKUP DAN METODE PENGHITUNGAN/COVERAGE & ESTIMATION
+  + isi hal 87 | III. TINJAUAN EKONOMI KABUPATEN KOTABARU/ECONOMIC REVIEW OF KOTABARU REGENCY
+  + isi hal 97 | IV. PERTUMBUHAN DAN PERANAN PDRB KABUPATEN KOTABARU MENURUT LAPANGAN USAHA/GROWTH AND SHARE OF GDRP KOTABARU REGENCY BY INDUSTRY
+  + isi hal v | Produk Domestik Regional Bruto Kabupaten Kotabaru Menurut Lapangan Usaha 2020–2024 Gross Regional Domestic Product of Kotabaru Regency by Industry 2020–2024 Volume 15, 2025 KATA PENGANTAR/PREFACE
+
+### 4d1ac64e36c43a642ed54e2f 6308 kata baru muncul ['95']
+  UBAH ('lampiran', '14') (HALAMAN): [('Relative Standard Error (RSE) Persentase Penduduk Berumur 0–23 Bulan (Baduta) yang Pernah Diberi ASI dan Rata-Rata Lama Pemberian ASI Menurut Karakteristik Kabupaten Hulu Sungai Utara, 2025 94', '', '114', 'keduanya')] -> [('Relative Standard Error (RSE) Persentase Penduduk Berumur 0–23 Bulan (Baduta) yang Pernah Diberi ASI dan Rata-Rata Lama Pemberian ASI Menurut Karakteristik Kabupaten Hulu Sungai Utara, 2025', '94', '114', 'keduanya')]
+  UBAH ('lampiran', '15') (HALAMAN): [('Relative Standard Error (RSE) Persentase Perempuan Pernah Kawin Berumur 15–49 Tahun yang Pernah Melahirkan Anak Lahir Hidup (ALH) dalam Dua Tahun Terakhir di Fasilitas Kesehatan Tempat Kelahiran ALH yang Terakhir Menurut Karakteristik Kabupaten Hulu Sungai Utara, 2025 Karakteristik Melahirkan di Fasilitas Kesehatan', '', '115', 'keduanya')] -> [('Relative Standard Error (RSE) Persentase Perempuan Pernah Kawin Berumur 15–49 Tahun yang Pernah Melahirkan Anak Lahir Hidup (ALH) dalam Dua Tahun Terakhir di Fasilitas Kesehatan Tempat Kelahiran ALH yang Terakhir Menurut Karakteristik Kabupaten Hulu Sungai Utara, 2025 Karakteristik Melahirkan di Fasilitas Kesehatan', '95', '115', 'keduanya')]
+  - lampiran hal  | Halaman x4
+  - tabel hal  | Halaman x3
+
+### 4eef35cf57d2d79d5d76ca3b 6371 
+  UBAH ('gambar', '13.2'): [('Halaman Figure Page Jumlah Penduduk Miskin Menurut Kabupaten/Kota di Kalimantan Selatan (ribu orang), 2025 Population of Poor by Regency/Municipality in Kalimantan Selatan Province (thousand people), 2025 xlviii BANJARMASIN MUNICIPALITY IN FIGURES 2026', '493', '547', 'daftar')] -> [('Jumlah Penduduk Miskin Menurut Kabupaten/Kota di Kalimantan Selatan (ribu orang), 2025 Population of Poor by Regency/Municipality in Kalimantan Selatan Province (thousand people), 2025 xlviii BANJARMASIN MUNICIPALITY IN FIGURES 2026', '493', '547', 'daftar')]
+
+### 5013742f61bd26a80f0e1596 6303 kata hilang ['3.8']
+  KUNCI BARU ('tabel', '3.8'): [('Perkembangan Pengeluaran Konsumsi Pemerintah Kabupaten Banjar, 2021–2025/Trend of General Government Final Consumption Expenditure of Banjar Regency, 2021–2025', '50', '66', 'daftar')]
+  UBAH ('tabel', '3.7') (HALAMAN): [('Perkembangan Pengeluaran Konsumsi LNPRT Kabupaten Banjar, 2021–2025/Trend of NPISHs Final Consumption Expenditure of Banjar Regency, 2021–2025 49 Perkembangan Pengeluaran Konsumsi Pemerintah Kabupaten Banjar, 2021–2025/Trend of 3.8 General Government Final Consumption Expenditure of Banjar Regency, 2021–2025', '50', '65', 'daftar')] -> [('Perkembangan Pengeluaran Konsumsi LNPRT Kabupaten Banjar, 2021–2025/Trend of NPISHs Final Consumption Expenditure of Banjar Regency, 2021–2025', '49', '65', 'daftar')]
+  UBAH ('tabel', '4.1') (HALAMAN): [('Produk Domestik Regional Bruto dan PDRB Per Kapita Kabupaten Banjar, 2021–2025/Gross Regional Domestic Product and GRDP per Capita of Banjar Regency, 2021–2025 57 ix', '', '73', 'daftar')] -> [('Produk Domestik Regional Bruto dan PDRB Per Kapita Kabupaten Banjar, 2021–2025/Gross Regional Domestic Product and GRDP per Capita of Banjar Regency, 2021–2025', '57', '73', 'daftar')]
+  UBAH ('tabel', '4.2'): [('Halaman Table Page Perbandingan Pengeluaran Konsumsi Rumah Tangga Terhadap PMTB Kabupaten Banjar, 2021–2025/Ratio of Household Final Consumption Expenditure to GFCF of Banjar Regency, 2021–2025 Proporsi Total Pengeluaran Konsumsi Terhadap PDRB Kabupaten Banjar, 2021–2025/Share 4.3', '59', '75', 'daftar')] -> [('Perbandingan Pengeluaran Konsumsi Rumah Tangga Terhadap PMTB Kabupaten Banjar, 2021–2025/Ratio of Household Final Consumption Expenditure to GFCF of Banjar Regency, 2021–2025 Proporsi Total Pengeluaran Konsumsi Terhadap PDRB Kabupaten Banjar, 2021–2025/Share 4.3', '59', '75', 'daftar')]
+  - isi hal 42 | BAB 3 TINJAUAN PEREKONOMIAN/ECONOMIC REVIEW 39 3.1 Tinjauan PDRB Malang Menurut Pengeluaran/GRDP Overview of Malang by Expenditure
+  - isi hal ix | DAFTAR ISI/CONTENTS vii DAFTAR TABEL/LIST OF TABLES
+  - isi hal 30 | Page 2.5 Perubahan Inventori/Changes in Inventory
+  + isi hal 30 | 2.5 Perubahan Inventori/Changes in Inventory
+  + isi hal 42 | 3.1 Tinjauan PDRB Malang Menurut Pengeluaran/GRDP Overview of Malang by Expenditure
+  + isi hal 39 | BAB 3 TINJAUAN PEREKONOMIAN/ECONOMIC REVIEW
+  + isi hal vii | DAFTAR ISI/CONTENTS
+  + isi hal ix | DAFTAR TABEL/LIST OF TABLES
+
+### 515bf005e84d1a784a70b54d 6307 
+  - isi hal vi | ISSN 2714-6499 CONTENTS Gross Regional Domestic Product of Hulu Sungai Tengah Regency By Expenditure 2020–2024 Volume 12, 2025 Page PREFACE
+  + isi hal vi | ISSN 2714-6499 CONTENTS Gross Regional Domestic Product of Hulu Sungai Tengah Regency By Expenditure 2020–2024 Volume 12, 2025 PREFACE
+
+### 52f484c555095addbc04a3ec 6304 
+  UBAH ('gambar', '8.1'): [('Halaman Persentase Penduduk 15 tahun ke Atas Menurut Karakteristik dan Pendidikan Tertinggi di Kabupaten Barito Kuala, 2025 xiii', '74', '96', 'keduanya')] -> [('Persentase Penduduk 15 tahun ke Atas Menurut Karakteristik dan Pendidikan Tertinggi di Kabupaten Barito Kuala, 2025 xiii', '74', '96', 'keduanya')]
+
+### 52fa6dd323cf7c993f859c93 6302 
+  - lampiran hal 93 | Halaman Appendice Pages s 1 Kesalahan Baku Relatif Angkatan Kerja, Agustus 2025 Relative Standard Error Labour Force, August 2025 2 Kuesioner Sakernas, Agustus 2025 Sakernas Questionnaire, August 2025 95 xxi
+  + lampiran hal 93 | Appendice Pages s 1 Kesalahan Baku Relatif Angkatan Kerja, Agustus 2025 Relative Standard Error Labour Force, August 2025 2 Kuesioner Sakernas, Agustus 2025 Sakernas Questionnaire, August 2025 95 xxi
+
+### 56e3e5478f642e9234e6ccf4 6302 
+  - gambar hal  | Halaman
+  - tabel hal  | Halaman
+
+### 579e21941c4e11b3bfe19e06 6310 
+  - lampiran hal 117 | Halaman Appendices Pages 1 Kesalahan Baku Relatif Angkatan Kerja Agustus 2025 Relative Standard Error Labour Force, August 2025 2 Kuesioner Sakernas Agustus 2025 Sakernas Questionnaire, August 2025 120 xxvii
+  - tabel hal 109 | Halaman Tables Pages 84 Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Laki-laki, Agustus 2025 Population 15 Years of Age and Over by Age Group, Unemployment, and Part Time Unemployment Category for Male, August 2025 85 Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Perempuan, Agustus 2025
+  + lampiran hal 117 | 1 Kesalahan Baku Relatif Angkatan Kerja Agustus 2025 Relative Standard Error Labour Force, August 2025 2 Kuesioner Sakernas Agustus 2025 Sakernas Questionnaire, August 2025 120 xxvii
+  + tabel hal 109 | 84 Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Laki-laki, Agustus 2025 Population 15 Years of Age and Over by Age Group, Unemployment, and Part Time Unemployment Category for Male, August 2025 85 Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Perempuan, Agustus 2025
+
+### 5969df810d5eba297e211d7d 6372 
+  - isi hal 15 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama 14 Penduduk Bekerja Menurut Status Formal dan Informal
+  - isi hal 18 | Tingkat Pengangguran Terbuka Menurut Pendidikan 17 Tingkat Ketidakaktifan
+  + isi hal 14 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama
+  + isi hal 15 | Penduduk Bekerja Menurut Status Formal dan Informal
+  + isi hal 18 | Tingkat Ketidakaktifan
+  + isi hal 17 | Tingkat Pengangguran Terbuka Menurut Pendidikan
+
+### 59e9b08c963e248cdf3d19fb 6303 
+  - lampiran hal  | Halaman x4
+  - tabel hal  | Halaman x3
+
+### 5dfc08f3f843fb674bcfb400 6302 
+  UBAH ('tabel', '13.4'): [('Halaman Table Page Indeks Pembangunan Manusia Menurut Kabupaten/ Kota di Provinsi Kalimantan Selatan, 2020–2024 Human Development Index by Regency/Municipality in Kalimantan Selatan Province, 2020–2024 xxvi', '289', '325', 'daftar')] -> [('Indeks Pembangunan Manusia Menurut Kabupaten/ Kota di Provinsi Kalimantan Selatan, 2020–2024 Human Development Index by Regency/Municipality in Kalimantan Selatan Province, 2020–2024 xxvi', '289', '325', 'daftar')]
+
+### 605dc5f957fea854fad5871f 6311 
+  - isi hal 15 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama 14 Penduduk Bekerja Menurut Jumlah Jam Kerja
+  - isi hal 28 | Tingkat Pengangguran Terbuka Menurut Pendidikan 17 Tingkat Ketidakaktifan
+  + isi hal 15 | Penduduk Bekerja Menurut Jumlah Jam Kerja
+  + isi hal 14 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama
+  + isi hal 28 | Tingkat Ketidakaktifan
+  + isi hal 17 | Tingkat Pengangguran Terbuka Menurut Pendidikan
+
+### 6062f26c3be97a311651cc58 6300 
+  UBAH ('lampiran', '6') (HALAMAN): [('Persentase Penyelesaian Tindak Kejahatan (Crime Clearance Rate) Menurut Kabupaten/Kota, 2021 40', '', '54', 'keduanya')] -> [('Persentase Penyelesaian Tindak Kejahatan (Crime Clearance Rate) Menurut Kabupaten/Kota, 2021', '40', '54', 'keduanya')]
+
+### 61eb6ce6c1f48ce0463ca04c 6302 
+  UBAH ('lampiran', '1'): [('Halaman Appendices Pages Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '143', '', 'daftar')] -> [('Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '143', '', 'daftar')]
+
+### 62914e04bd19e3552af22ccf 6310 
+  - isi hal 41 | Gap Analysis 4.1 Penerapan Perilaku Anti Korupsi pada Pelayanan PST BPS 4.2 Anal is i.s. .K e s e.n j.a n g a.n .( ). .K e p u a s.a n .K o n s.u m e n
+  - isi hal vii | dalam Penerapan Perilaku Anti Korupsi terhadap Pelayanan BPS
+  + isi hal 41 | Gap Analysis 4.1 Penerapan Perilaku Anti Korupsi pada Pelayanan PST BPS 4.2 Anal is i.s. .K e s e.n j.a n g a.n .( ). .K e p u a s.a n .K o n s.u m e n dalam Penerapan Perilaku Anti Korupsi terhadap Pelayanan BPS
+
+### 650baac02fc1bfd19a8c3fae 6371 
+  - isi hal 93 | Halaman/Page IV. PERKEMBANGAN PDRB MENURUT LAPANGAN USAHA/DEVELOPMENT OF GDRP BY INDUSTRY
+  - tabel hal  | Halaman/Page
+  + isi hal 93 | IV. PERKEMBANGAN PDRB MENURUT LAPANGAN USAHA/DEVELOPMENT OF GDRP BY INDUSTRY
+
+### 678ab9ee5d4c7ebe8a58b105 6306 
+  UBAH ('lampiran', '1'): [('Halaman Appendices Pages Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '143', '', 'daftar')] -> [('Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '143', '', 'daftar')]
+
+### 6976e5bda67a536dd16f9ea5 6302 
+  - isi hal 15 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama 14 Penduduk Bekerja Menurut Status Formal dan Informal
+  - isi hal 18 | Tingkat Pengangguran Terbuka Menurut Pendidikan 17 Tingkat Ketidakaktifan
+  + isi hal 14 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama
+  + isi hal 15 | Penduduk Bekerja Menurut Status Formal dan Informal
+  + isi hal 18 | Tingkat Ketidakaktifan
+  + isi hal 17 | Tingkat Pengangguran Terbuka Menurut Pendidikan
+
+### 6a0ad2d41da81a43156ee6b5 6300 kata baru muncul ['44']
+  UBAH ('lampiran', '2.5') (HALAMAN): [('Arus Bongkar Muat Barang Angkutan Antar Pulau Per Bulan pada Pelabuhan di Kalimantan Selatan, 2024 (ton) Barang Bulan Bongkar Muat', '', '62', 'keduanya')] -> [('Arus Bongkar Muat Barang Angkutan Antar Pulau Per Bulan pada Pelabuhan di Kalimantan Selatan, 2024 (ton) Barang Bulan Bongkar Muat', '44', '62', 'keduanya')]
+  - gambar hal  | Halaman xi
+  - lampiran hal  | Halaman x3
+  - tabel hal  | Halaman x2
+
+### 6daef96685aa3fab853a7044 6308 
+  KUNCI BARU ('lampiran', '2'): [('Produk Domestik Regional Bruto Atas Dasar Harga Konstan (2010=100) Kabupaten Hulu Sungai Utara (miliar rupiah), 2021–2025/Gross Regional Domestic Product at Constant Prices of Hulu Sungai Utara Regency (billion rupiah), 2021–2025', '70', '86', 'daftar')]
+  UBAH ('lampiran', '1') (HALAMAN): [('Produk Domestik Regional Bruto Atas Dasar Harga Berlaku Kabupaten Hulu Sungai Utara (miliar rupiah), 2021–2025/Gross Regional Domestic Product at Current Prices of Hulu Sungai Utara Regency (billion rupiah), 2021–2025 69 Produk Domestik Regional Bruto Atas Dasar Harga Konstan (2010=100) Kabupaten Hulu 2 Sungai Utara (miliar rupiah), 2021–2025/Gross Regional Domestic Product at Constant Prices of Hulu Sungai Utara Regency (billion rupiah), 2021–2025', '70', '85', 'daftar')] -> [('Produk Domestik Regional Bruto Atas Dasar Harga Berlaku Kabupaten Hulu Sungai Utara (miliar rupiah), 2021–2025/Gross Regional Domestic Product at Current Prices of Hulu Sungai Utara Regency (billion rupiah), 2021–2025', '69', '85', 'daftar')]
+  UBAH ('tabel', '4.1') (HALAMAN): [('Produk Domestik Regional Bruto dan PDRB Per Kapita Kabupaten Hulu Sungai Utara, 2021–2025/Gross Regional Domestic Product and GRDP per Capita of Hulu Sungai Utara Regency, 2021–2025 57 ix', '', '73', 'daftar')] -> [('Produk Domestik Regional Bruto dan PDRB Per Kapita Kabupaten Hulu Sungai Utara, 2021–2025/Gross Regional Domestic Product and GRDP per Capita of Hulu Sungai Utara Regency, 2021–2025', '57', '73', 'daftar')]
+  UBAH ('tabel', '4.2'): [('Halaman Table Page Perbandingan Pengeluaran Konsumsi Rumah Tangga Terhadap PMTB Kabupaten Hulu Sungai Utara, 2021–2025/Ratio of Household Final Consumption Expenditure to GFCF of Hulu Sungai Utara Regency, 2021–2025 Proporsi Total Pengeluaran Konsumsi Terhadap PDRB Kabupaten Hulu Sungai Utara, 4.3', '59', '75', 'daftar')] -> [('Perbandingan Pengeluaran Konsumsi Rumah Tangga Terhadap PMTB Kabupaten Hulu Sungai Utara, 2021–2025/Ratio of Household Final Consumption Expenditure to GFCF of Hulu Sungai Utara Regency, 2021–2025 Proporsi Total Pengeluaran Konsumsi Terhadap PDRB Kabupaten Hulu Sungai Utara, 4.3', '59', '75', 'daftar')]
+  - isi hal 52 | 3.5 Perkembangan Pembentukan Modal Tetap Bruto/The Trend of Gross Fixed Capital Formation 51 3.6 Perkembangan Perubahan Inventori/The Trend of Changes in Inventory
+  - isi hal ix | DAFTAR ISI/CONTENTS vii DAFTAR TABEL/LIST OF TABLES
+  - isi hal 42 | Page BAB 3 TINJAUAN PEREKONOMIAN/ECONOMIC REVIEW 39 3.1 Tinjauan PDRB Kabupaten Hulu Sungai Utara Menurut Pengeluaran/GRDP Overview of Hulu Sungai Utara Regency by Expenditure
+  + isi hal 42 | 3.1 Tinjauan PDRB Kabupaten Hulu Sungai Utara Menurut Pengeluaran/GRDP Overview of Hulu Sungai Utara Regency by Expenditure
+  + isi hal 51 | 3.5 Perkembangan Pembentukan Modal Tetap Bruto/The Trend of Gross Fixed Capital Formation
+  + isi hal 52 | 3.6 Perkembangan Perubahan Inventori/The Trend of Changes in Inventory
+  + isi hal 39 | BAB 3 TINJAUAN PEREKONOMIAN/ECONOMIC REVIEW
+  + isi hal vii | DAFTAR ISI/CONTENTS
+  + isi hal ix | DAFTAR TABEL/LIST OF TABLES
+
+### 6e2c46528e5311013f61e783 6304 
+  UBAH ('lampiran', '1'): [('Halaman Appendix Page K esalahan Baku Relatif Angkatan Kerja Kabupaten Barito Kuala, Agustus 2025 Relative Standard Error Labour Force in Barito Kuala Regency, August 2025 2 K uesioner Sakernas, Agustus 2025 Sakernas Questionnaire, August 2025 93 xxiii', '91', '133', 'daftar')] -> [('K esalahan Baku Relatif Angkatan Kerja Kabupaten Barito Kuala, Agustus 2025 Relative Standard Error Labour Force in Barito Kuala Regency, August 2025 2 K uesioner Sakernas, Agustus 2025 Sakernas Questionnaire, August 2025 93 xxiii', '91', '133', 'daftar')]
+  UBAH ('tabel', '70'): [('Halaman Table Page P enduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Laki-Laki di Kabupaten Barito Kuala, Agustus 2025 Population 15 Years of Age and Over by Age Group, Unemployment, and Part Time Unemployment Category for Male in Barito Kuala Regency, August 2025 71 P enduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Perempuan di Kabupaten Barito Kuala, Agustus 2025', '82', '124', 'daftar')] -> [('P enduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Laki-Laki di Kabupaten Barito Kuala, Agustus 2025 Population 15 Years of Age and Over by Age Group, Unemployment, and Part Time Unemployment Category for Male in Barito Kuala Regency, August 2025 71 P enduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Perempuan di Kabupaten Barito Kuala, Agustus 2025', '82', '124', 'daftar')]
+
+### 6ecd697eac966a627e5ff3f4 6304 
+  UBAH ('gambar', '13.1'): [('Halaman Figure Page Jumlah Penduduk Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (ribu), 2026 Population by Regency/Municipality in Kalimantan Selatan Province (thousand), 2026 13.2 Indeks Pembangunan Manusia Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan, 2025', '410', '458', 'daftar')] -> [('Jumlah Penduduk Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (ribu), 2026 Population by Regency/Municipality in Kalimantan Selatan Province (thousand), 2026 13.2 Indeks Pembangunan Manusia Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan, 2025', '410', '458', 'daftar')]
+
+### 71a3beabf2633a46d01353d4 6304 
+  UBAH ('lampiran', '21.3'): [('Halaman Appendix Page Relative Standard Error (RSE) Jumlah Pengangguran, Setengah Pengangguran dan Pekerja Paruh Waktu Terhadap Jumlah Angkatan Kerja Menurut Golongan Umur, Agustus 2024 Relative Standard Error (RSE) Number of Labor Force in Barito Kuala Regency Who Categorized Unemployment, Underemployment and Part-time Worker by Age Group, August 2024 xxvi', '141', '179', 'daftar')] -> [('Relative Standard Error (RSE) Jumlah Pengangguran, Setengah Pengangguran dan Pekerja Paruh Waktu Terhadap Jumlah Angkatan Kerja Menurut Golongan Umur, Agustus 2024 Relative Standard Error (RSE) Number of Labor Force in Barito Kuala Regency Who Categorized Unemployment, Underemployment and Part-time Worker by Age Group, August 2024 xxvi', '141', '179', 'daftar')]
+
+### 742fbe7b12c5ad2ddb5a1315 6311 
+  - isi hal v | Produk Domestik Regional Bruto Kabupaten Balangan Menurut Lapangan Usaha 2021–2025 Gross Regional Domestic Product of Balangan Regency by Industry 2021–2025 Volume 10, 2026 Halaman/Page KATA PENGANTAR/PREFACE
+  + isi hal v | Produk Domestik Regional Bruto Kabupaten Balangan Menurut Lapangan Usaha 2021–2025 Gross Regional Domestic Product of Balangan Regency by Industry 2021–2025 Volume 10, 2026 KATA PENGANTAR/PREFACE
+
+### 75e54785c55a5e8a79816e41 6309 
+  UBAH ('lampiran', '14') (HALAMAN): [('Surat Rekomendasi Perbaikan Pelayanan Publik Berdasarkan Hasil Analisis Survei Kebutuhan Data BPS Kabupaten Tabalong 2025 103', '', '119', 'daftar')] -> [('Surat Rekomendasi Perbaikan Pelayanan Publik Berdasarkan Hasil Analisis Survei Kebutuhan Data BPS Kabupaten Tabalong 2025', '103', '119', 'daftar')]
+  UBAH ('lampiran', '15') (HALAMAN): [('Rencana Tindak Lanjut Hasil Pembahasan Survei Kebutuhan Data BPS Kabupaten Tabalong 2025 107 x xiiiiii', '', '123', 'daftar')] -> [('Rencana Tindak Lanjut Hasil Pembahasan Survei Kebutuhan Data BPS Kabupaten Tabalong 2025 x xiiiiii', '107', '123', 'daftar')]
+
+### 791bab0276bf84fa5b543d40 6371 
+  UBAH ('lampiran', '1'): [('Halaman Appendices Pages Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '143', '', 'daftar')] -> [('Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '143', '', 'daftar')]
+
+### 7d1c21c1e8e72b51d55d64e7 6300 
+  - isi hal vii | Volume 14, Nomor 3, 2026 Hal. Kata Pengantar v Daftar Isi
+  - tabel hal 72 | Hal. 54 Nilai Tukar Usaha Rumah Tangga Pertanian per Subsektor di Provinsi Kalimantan Selatan (2018=100), April–Juni 2026 xii xiii
+  + isi hal vii | Volume 14, Nomor 3, 2026 Kata Pengantar v Daftar Isi
+  + tabel hal 72 | 54 Nilai Tukar Usaha Rumah Tangga Pertanian per Subsektor di Provinsi Kalimantan Selatan (2018=100), April–Juni 2026 xii xiii
+
+### 7f991ea738341de3bbbb62b4 6302 
+  UBAH ('tabel', '10'): [('Halaman PERTANIAN 10.1 Luas Panen dan Produksi Padi Kabupeten Kotabaru, 2023-2024 x', '21', '', 'daftar')] -> [('PERTANIAN 10.1 Luas Panen dan Produksi Padi Kabupeten Kotabaru, 2023-2024 x', '21', '', 'daftar')]
+
+### 80a06a477296384ae642b32c 6309 
+  UBAH ('lampiran', '14') (HALAMAN): [('Relative Standard Error (RSE) Persentase Penduduk Berumur 0–23 Bulan (Baduta) yang Pernah Diberi ASI dan Rata-Rata Lama Pemberian ASI Menurut Karakteristik Kabupaten Tabalong, 2025 96', '', '118', 'daftar')] -> [('Relative Standard Error (RSE) Persentase Penduduk Berumur 0–23 Bulan (Baduta) yang Pernah Diberi ASI dan Rata-Rata Lama Pemberian ASI Menurut Karakteristik Kabupaten Tabalong, 2025', '96', '118', 'daftar')]
+  UBAH ('lampiran', '15') (HALAMAN): [('Relative Standard Error (RSE) Persentase Perempuan Pernah Kawin Berumur 15–49 Tahun yang Pernah Melahirkan Anak Lahir Hidup (ALH) dalam Dua Tahun Terakhir di Fasilitas Kesehatan Tempat Kelahiran ALH yang Terakhir Menurut Karakteristik Kabupaten Tabalong, 2025 97', '', '119', 'daftar')] -> [('Relative Standard Error (RSE) Persentase Perempuan Pernah Kawin Berumur 15–49 Tahun yang Pernah Melahirkan Anak Lahir Hidup (ALH) dalam Dua Tahun Terakhir di Fasilitas Kesehatan Tempat Kelahiran ALH yang Terakhir Menurut Karakteristik Kabupaten Tabalong, 2025', '97', '119', 'daftar')]
+  UBAH ('lampiran', '22') (HALAMAN): [('Relative Standard Error (RSE) Persentase Rumah Tangga Menurut Karakteristik, Kepemilikan, dan Penggunaan Fasilitas Tempat Buang Air Besar Kabupaten Tabalong, 2025 104 xvi', '', '126', 'keduanya')] -> [('Relative Standard Error (RSE) Persentase Rumah Tangga Menurut Karakteristik, Kepemilikan, dan Penggunaan Fasilitas Tempat Buang Air Besar Kabupaten Tabalong, 2025 xvi', '104', '126', 'keduanya')]
+  UBAH ('tabel', '4.4') (HALAMAN): [('Persentase Penduduk Berumur 15 Tahun ke Atas yang Merokok Tembakau selama Sebulan Terakhir Menurut Karakteristik Kabupaten Tabalong, 2025 32', '', '54', 'daftar')] -> [('Persentase Penduduk Berumur 15 Tahun ke Atas yang Merokok Tembakau selama Sebulan Terakhir Menurut Karakteristik Kabupaten Tabalong, 2025', '32', '54', 'daftar')]
+  UBAH ('tabel', '4.5') (HALAMAN): [('Persentase Penduduk Berumur 0–59 Bulan (Balita) Menurut Karakteristik dan Jenis Imunisasi yang Pernah Didapatkan Kabupaten Tabalong, 2025 33', '', '55', 'daftar')] -> [('Persentase Penduduk Berumur 0–59 Bulan (Balita) Menurut Karakteristik dan Jenis Imunisasi yang Pernah Didapatkan Kabupaten Tabalong, 2025', '33', '55', 'daftar')]
+
+### 83fff1db70f5f0c604c0191f 6300 
+  - tabel hal 127 | Halaman Tables Pages 101 Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Perempuan, Februari 2025 Population 15 Years of Age and Over by Age Group, Unemployment, and Part Time Unemployment Category for Female, February 2025 xxvii
+  + tabel hal 127 | 101 Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Perempuan, Februari 2025 Population 15 Years of Age and Over by Age Group, Unemployment, and Part Time Unemployment Category for Female, February 2025 xxvii
+
+### 856e507e98d6b1d97343a2ea 6300 kata baru muncul ['Pustaka']; kata hilang ['Gambaran', 'Ekonomi', 'Makro', 'Provinsi', 'Kalimantan', 'Selatan', 'Triwulan', 'IV-2025']
+  - isi hal vii | 11. Indeks Pembangunan Manusia 61 12. NTP dan Inflasi Perdesaan 67 Daftar Pustaka. 73
+  - isi hal  | 3. Ekspor-Impor 19 4. Hotel 25 5. Transportasi 29 6. Indeks Kemahalan Konstruksi 33 7. Kependudukan 35 8. Ketenagakerjaan 37 9. Kemiskinan 51 10. Gini Ratio 57
+  - isi hal v | Gambaran Ekonomi Makro Provinsi Kalimantan Selatan Triwulan IV-2025 (Oktober–Desember)
+  - isi hal  | Volume 8, Nomor 1, 2026 Hal. Kata Pengantar v Daftar Isi vii Daftar Tabel ix Penjelasan Umum xv 1. PDRB 1 2. Inflasi 11
+  + isi hal 11 | 1. PDRB 1 2. Inflasi
+  + isi hal 57 | 10. Gini Ratio
+  + isi hal 61 | 11. Indeks Pembangunan Manusia
+  + isi hal 67 | 12. NTP dan Inflasi Perdesaan
+  + isi hal 19 | 3. Ekspor-Impor
+  + isi hal 25 | 4. Hotel
+  + isi hal 29 | 5. Transportasi
+  + isi hal 33 | 6. Indeks Kemahalan Konstruksi
+  + isi hal 35 | 7. Kependudukan
+  + isi hal 37 | 8. Ketenagakerjaan
+  + isi hal 51 | 9. Kemiskinan
+  + isi hal 73 | Daftar Pustaka
+  + isi hal ix | Daftar Tabel
+  + isi hal vii | Kata Pengantar v Daftar Isi
+  + isi hal xv | Penjelasan Umum
+
+### 8730aa8aacf3ad397b10a760 6371 
+  - lampiran hal 73 | Halaman Appendices Pages 1 Kesalahan Baku Relatif Angkatan Kerja Agustus 2025 Relative Standard Error Labour Force, August 2025 2 Kuesioner Sakernas Agustus 2025 Sakernas Questionnaire, August 2025 76 xvii
+  + lampiran hal 73 | 1 Kesalahan Baku Relatif Angkatan Kerja Agustus 2025 Relative Standard Error Labour Force, August 2025 2 Kuesioner Sakernas Agustus 2025 Sakernas Questionnaire, August 2025 76 xvii
+
+### 873711fc8fc096b7a487892e 6304 
+  UBAH ('gambar', '5.5'): [('Halaman Persentase Konsumen yang Puas terhadap Kualitas Data di PST BPS Kabupaten Barito Kuala, 2025 Monitoring 5.6 Persentase Konsumen K/L/OPD menurut Wilayah PST dan Penggunaan Data BPS untuk Perencanaan, , dan Evaluasi Pembangunan di PST BPS Kabupaten Barito Kuala, 2025 61 xv', '60', '80', 'keduanya')] -> [('Persentase Konsumen yang Puas terhadap Kualitas Data di PST BPS Kabupaten Barito Kuala, 2025 Monitoring 5.6 Persentase Konsumen K/L/OPD menurut Wilayah PST dan Penggunaan Data BPS untuk Perencanaan, , dan Evaluasi Pembangunan di PST BPS Kabupaten Barito Kuala, 2025 61 xv', '60', '80', 'keduanya')]
+
+### 8af98950f23da9525d06775b 6310 
+  - isi hal 120 | (APS)/ Average Propensity to Consume (APC) and Average Propensity To Save (APS) 4.9 Incremental Capital Output Ratio (ICOR)/ Incremental Capital Output Ratio
+  - isi hal 50 | (GFCF) 2.5 Perubahan Inventori / Change in Inventory
+  - isi hal 127 | (ICOR) V. PENUTUP / CLOSING
+  - isi hal 107 | 4.2 Perbandingan Pengeluaran Konsumsi Akhir Rumah Tangga Terhadap
+  - isi hal 118 | 4.8 Average Propensity to Consume (APC) dan Average Propensity To Save
+  - isi hal 77 | Aggregate GRDP of Tanah Bumbu By Expenditure 3.2 Perkembangan Konsumsi Akhir Rumah Tangga / The Trend of Household
+  - isi hal 94 | Capital Formation 3.6 Perkembangan Perubahan Inventori /The Trend of Change in Inventory
+  - isi hal 27 | Consumption Expenditure 2.2 Pengeluaran Konsumsi Akhir Lembaga Non-profit yang Melayani Rumah
+  - isi hal 86 | Consumption Expenditure 3.4 Perkembangan Konsumsi Akhir Pemerintah / Trend of Government Final
+  - isi hal 90 | Consumption Expenditure 3.5 Perkembangan Pembentukan Modal Tetap Bruto / The Trend of Gross Fixed
+  - isi hal 19 | DATA SOURCES 2.1 Pengeluaran Konsumsi Akhir Rumah Tangga / Household Final
+  - isi hal 109 | Ekspor / Ratio of Household Final Consumption Expenditure To Export 4.3 Perbandingan Konsumsi Akhir Rumah Tangga Terhadap PMTB / Ratio of
+  - isi hal 39 | Expenditure 2.4 Pembentukan Modal Tetap Bruto (PMTB)/ Gross Fixed Capital Formation
+  - isi hal 85 | Final Consumption Expenditure 3.3 Perkembangan Konsumsi Akhir LNPRT /The Trend of NPISHs Final
+  - isi hal 114 | GFCF 4.6 Perbandingan PDRB Terhadap Impor / Ratio of GRDP to Import
+  - isi hal 112 | GRDP 4.5 Perkembangan Rasio Ekspor Terhadap PMTB / Trend of Export Ratio to
+  - isi hal 111 | Household Final Consumption To GFCF 4.4 Proporsi Konsumsi Akhir Terhadap PDRB / Share of Final Consumption to
+  - isi hal 19 | II. METODE ESTIMASI DAN SUMBER DATA / ESTIMATION METHODS AND
+  - isi hal 67 | III. TINJAUAN EKONOMI KABUPATEN TANAH BUMBU/ ECONOMIC REVIEW OF
+  - isi hal 105 | IV. PERKEMBANGAN AGREGAT PDRB TANAH BUMBU MENURUT
+  - isi hal 105 | PENGELUARAN / TREND OF AGGREGATE GRDP OF TANAH BUMBU BY EXPENDITURE 4.1 PDRB (Nominal) / GRDP (Nominal)
+  - isi hal 68 | TANAH BUMBU REGENCY 3.1 Tinjauan Agregat PDRB Tanah Bumbu Menurut Pengeluaran / Overview
+  - isi hal 33 | Tangga / Non-profit Institution Serving Household Final Consumption Expenditure 2.3 Pengeluaran Konsumsi Akhir Pemerintah / Government Final Consumption
+  + isi hal 19 | 2.1 Pengeluaran Konsumsi Akhir Rumah Tangga / Household Final Consumption Expenditure
+  + isi hal 27 | 2.2 Pengeluaran Konsumsi Akhir Lembaga Non-profit yang Melayani Rumah Tangga / Non-profit Institution Serving Household Final Consumption Expenditure
+  + isi hal 33 | 2.3 Pengeluaran Konsumsi Akhir Pemerintah / Government Final Consumption Expenditure
+  + isi hal 39 | 2.4 Pembentukan Modal Tetap Bruto (PMTB)/ Gross Fixed Capital Formation (GFCF)
+  + isi hal 50 | 2.5 Perubahan Inventori / Change in Inventory
+  + isi hal 68 | 3.1 Tinjauan Agregat PDRB Tanah Bumbu Menurut Pengeluaran / Overview Aggregate GRDP of Tanah Bumbu By Expenditure
+  + isi hal 77 | 3.2 Perkembangan Konsumsi Akhir Rumah Tangga / The Trend of Household Final Consumption Expenditure
+  + isi hal 85 | 3.3 Perkembangan Konsumsi Akhir LNPRT /The Trend of NPISHs Final Consumption Expenditure
+  + isi hal 86 | 3.4 Perkembangan Konsumsi Akhir Pemerintah / Trend of Government Final Consumption Expenditure
+  + isi hal 90 | 3.5 Perkembangan Pembentukan Modal Tetap Bruto / The Trend of Gross Fixed Capital Formation
+  + isi hal 94 | 3.6 Perkembangan Perubahan Inventori /The Trend of Change in Inventory
+  + isi hal 105 | 4.1 PDRB (Nominal) / GRDP (Nominal)
+  + isi hal 107 | 4.2 Perbandingan Pengeluaran Konsumsi Akhir Rumah Tangga Terhadap Ekspor / Ratio of Household Final Consumption Expenditure To Export
+  + isi hal 109 | 4.3 Perbandingan Konsumsi Akhir Rumah Tangga Terhadap PMTB / Ratio of Household Final Consumption To GFCF
+  + isi hal 111 | 4.4 Proporsi Konsumsi Akhir Terhadap PDRB / Share of Final Consumption to GRDP
+  + isi hal 112 | 4.5 Perkembangan Rasio Ekspor Terhadap PMTB / Trend of Export Ratio to GFCF
+  + isi hal 114 | 4.6 Perbandingan PDRB Terhadap Impor / Ratio of GRDP to Import
+  + isi hal 118 | 4.8 Average Propensity to Consume (APC) dan Average Propensity To Save (APS)/ Average Propensity to Consume (APC) and Average Propensity To Save (APS)
+  + isi hal 120 | 4.9 Incremental Capital Output Ratio (ICOR)/ Incremental Capital Output Ratio (ICOR)
+  + isi hal 19 | II. METODE ESTIMASI DAN SUMBER DATA / ESTIMATION METHODS AND DATA SOURCES
+  + isi hal 67 | III. TINJAUAN EKONOMI KABUPATEN TANAH BUMBU/ ECONOMIC REVIEW OF TANAH BUMBU REGENCY
+  + isi hal 105 | IV. PERKEMBANGAN AGREGAT PDRB TANAH BUMBU MENURUT PENGELUARAN / TREND OF AGGREGATE GRDP OF TANAH BUMBU BY EXPENDITURE
+  + isi hal 127 | V. PENUTUP / CLOSING
+
+### 8b097d5899f32c7f41466de9 6300 kata baru muncul ['2']; kata hilang ['Gambaran', 'Ekonomi', 'Makro', 'Provinsi', 'Kalimantan', 'Selatan', 'Triwulan', 'III-2025']
+  UBAH ('tabel', '1') (HALAMAN): [('PDRB Provinsi Kalimantan Selatan Atas Dasar Harga Berlaku (ADHB) Menurut Lapangan Usaha (miliar rupiah), Triwulan IV-2024 – Triwulan III-2025 Triwulan IV- Triwulan I- Triwulan II- Triwulan Kategori Lapangan Usaha', '', '20', 'keduanya')] -> [('PDRB Provinsi Kalimantan Selatan Atas Dasar Harga Berlaku (ADHB) Menurut Lapangan Usaha (miliar rupiah), Triwulan IV-2024 – Triwulan III-2025 Triwulan IV- Triwulan I- Triwulan II- Triwulan Kategori Lapangan Usaha', '2', '20', 'keduanya')]
+  - isi hal vii | 11. Indeks Pembangunan Manusia 61 12. NTP dan Inflasi Perdesaan 67 Daftar Pustaka 73
+  - isi hal  | 3. Ekspor-Impor 19 4. Hotel 25 5. Transportasi 29 6. Indeks Kemahalan Konstruksi 33 7. Kependudukan 35 8. Ketenagakerjaan 37 9. Kemiskinan 51 10. Gini Ratio 57
+  - isi hal v | Gambaran Ekonomi Makro Provinsi Kalimantan Selatan Triwulan III-2025 (Juli–September)
+  - isi hal  | Volume 8, Nomor 4, 2025 Hal. Kata Pengantar v Daftar Isi vii Daftar Tabel ix Penjelasan Umum xv 1. PDRB 1 2. Inflasi 11
+  + isi hal 11 | 1. PDRB 1 2. Inflasi
+  + isi hal 57 | 10. Gini Ratio
+  + isi hal 61 | 11. Indeks Pembangunan Manusia
+  + isi hal 67 | 12. NTP dan Inflasi Perdesaan
+  + isi hal 19 | 3. Ekspor-Impor
+  + isi hal 25 | 4. Hotel
+  + isi hal 29 | 5. Transportasi
+  + isi hal 33 | 6. Indeks Kemahalan Konstruksi
+  + isi hal 35 | 7. Kependudukan
+  + isi hal 37 | 8. Ketenagakerjaan
+  + isi hal 51 | 9. Kemiskinan
+  + isi hal 73 | Daftar Pustaka
+  + isi hal ix | Daftar Tabel
+  + isi hal vii | Kata Pengantar v Daftar Isi
+  + isi hal xv | Penjelasan Umum
+
+### 8dee0be77508198543f530cd 6304 
+  UBAH ('lampiran', '1'): [('Halaman Appendix Pages Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan di Kabupaten Barito Kuala1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 2 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Questionnaire of Village Development Data Update 2025 (Village Potential', '139', '28', 'keduanya')] -> [('Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan di Kabupaten Barito Kuala1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 2 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Questionnaire of Village Development Data Update 2025 (Village Potential', '139', '28', 'keduanya')]
+
+### 906a5b17e5a79f07540c4901 6305 
+  - lampiran hal 115 | Halaman Appendices Pages 1 Kesalahan Baku Relatif Angkatan Kerja Agustus 2025 Relative Standard Error Labour Force, August 2025 2 Kuesioner Sakernas Agustus 2025 Sakernas Questionnaire, August 2025 118 xxvi
+  + lampiran hal 115 | 1 Kesalahan Baku Relatif Angkatan Kerja Agustus 2025 Relative Standard Error Labour Force, August 2025 2 Kuesioner Sakernas Agustus 2025 Sakernas Questionnaire, August 2025 118 xxvi
+
+### 917f98dbf7dab81f6fbf8d8d 6304 
+  - isi hal 15 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama 14 Penduduk Bekerja Menurut Status Formal dan Informal
+  - isi hal 18 | Tingkat Pengangguran Terbuka Menurut Pendidikan 17 Tingkat Ketidakaktifan
+  + isi hal 14 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama
+  + isi hal 15 | Penduduk Bekerja Menurut Status Formal dan Informal
+  + isi hal 18 | Tingkat Ketidakaktifan
+  + isi hal 17 | Tingkat Pengangguran Terbuka Menurut Pendidikan
+
+### 9a9fc81e8c4e43010c864200 6371 
+  - isi hal 93 | Halaman/Page IV. PERKEMBANGAN PDRB MENURUT LAPANGAN USAHA/DEVELOPMENT OF GDRP BY INDUSTRY
+  - tabel hal  | Halaman/Page
+  + isi hal 93 | IV. PERKEMBANGAN PDRB MENURUT LAPANGAN USAHA/DEVELOPMENT OF GDRP BY INDUSTRY
+
+### 9b59ca64313f18d561ca0c50 6306 
+  - isi hal 43 | 2.5 Pengadaan Air, Pengelolaan Sampah, Limbah dan Daur Ulang/ Water Supply,
+  - isi hal 47 | 2.7 Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor/ Wholesale
+  - isi hal 56 | 2.9 Penyediaan Akomodasi dan Makan Minum/ Accommodation and Food Service
+  - isi hal 128 | 4.16 Jasa Kesehatan dan Kegiatan Sosial/ Human Health and Social Work
+  - isi hal 59 | Activities 2.10 Informasi dan Komunikasi/ Information and Communication
+  - isi hal 129 | Activities 4.17 Jasa Lainnya/ Other Services Activities
+  - isi hal 105 | BY INDUSTRY 4.1 Pertanian, Kehutanan, dan Perikanan / Agriculture, Forestry And Fishing
+  - isi hal 81 | Halaman/Page 2.15 Jasa Pendidikan/ Education
+  - isi hal 87 | III. TINJAUAN EKONOMI KABUPATEN HULU SUNGAI SELATAN/ ECONOMIC REVIEW
+  - isi hal 103 | IV. PERKEMBANGAN PDRB MENURUT LAPANGAN USAHA/ DEVELOPMENT OF GRDP
+  - isi hal 91 | OF HULU SUNGAI SELATAN REGENCY 3.1 Struktur Ekonomi/ Economic Structure
+  - isi hal 44 | Sewerage, Waste Management and Remediation Activities 2.6 Konstruksi/ Construction
+  - isi hal 50 | and Retail Trade; Repair of Motor Vehicles and Motorcycles 2.8 Transportasi dan Pergudangan/ Transportation and Storage
+  + isi hal 59 | 2.10 Informasi dan Komunikasi/ Information and Communication
+  + isi hal 81 | 2.15 Jasa Pendidikan/ Education
+  + isi hal 43 | 2.5 Pengadaan Air, Pengelolaan Sampah, Limbah dan Daur Ulang/ Water Supply, Sewerage, Waste Management and Remediation Activities
+  + isi hal 44 | 2.6 Konstruksi/ Construction
+  + isi hal 47 | 2.7 Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor/ Wholesale and Retail Trade; Repair of Motor Vehicles and Motorcycles
+  + isi hal 50 | 2.8 Transportasi dan Pergudangan/ Transportation and Storage
+  + isi hal 56 | 2.9 Penyediaan Akomodasi dan Makan Minum/ Accommodation and Food Service Activities
+  + isi hal 91 | 3.1 Struktur Ekonomi/ Economic Structure
+  + isi hal 105 | 4.1 Pertanian, Kehutanan, dan Perikanan / Agriculture, Forestry And Fishing
+  + isi hal 128 | 4.16 Jasa Kesehatan dan Kegiatan Sosial/ Human Health and Social Work Activities
+  + isi hal 129 | 4.17 Jasa Lainnya/ Other Services Activities
+  + isi hal 87 | III. TINJAUAN EKONOMI KABUPATEN HULU SUNGAI SELATAN/ ECONOMIC REVIEW OF HULU SUNGAI SELATAN REGENCY
+  + isi hal 103 | IV. PERKEMBANGAN PDRB MENURUT LAPANGAN USAHA/ DEVELOPMENT OF GRDP BY INDUSTRY
+
+### 9fcbcb8b1a57601c543bad3a 6309 
+  - isi hal 20 | Tingkat Pengangguran Terbuka Menurut Pendidikan 19 Tingkat Ketidakaktifan
+  + isi hal 20 | Tingkat Ketidakaktifan
+  + isi hal 19 | Tingkat Pengangguran Terbuka Menurut Pendidikan
+
+### a085f0527c4e549133702b18 6372 kata baru muncul [',', 'Monitoring']; kata hilang ['Monitoring,']
+  UBAH ('gambar', '1.1') (HALAMAN): [('Diagram Cartesius Importance and Performance Analysis 13', '', '29', 'daftar')] -> [('Diagram Cartesius Importance and Performance Analysis', '13', '29', 'daftar')]
+  UBAH ('gambar', '2.1') (HALAMAN): [('Persentase Responden menurut Metode Pengumpulan Data 22', '', '38', 'daftar')] -> [('Persentase Responden menurut Metode Pengumpulan Data', '22', '38', 'daftar')]
+  UBAH ('gambar', '2.2') (HALAMAN): [('Persentase Konsumen di PST BPS Kota Banjarbaru Menurut Jenis Kelamin 23', '', '39', 'daftar')] -> [('Persentase Konsumen di PST BPS Kota Banjarbaru Menurut Jenis Kelamin', '23', '39', 'daftar')]
+  UBAH ('gambar', '2.3') (HALAMAN): [('Persentase Konsumen di PST BPS Kota Banjarbaru Menurut Pendidikan Tertinggi yang Ditamatkan 24', '', '40', 'daftar')] -> [('Persentase Konsumen di PST BPS Kota Banjarbaru Menurut Pendidikan Tertinggi yang Ditamatkan', '24', '40', 'daftar')]
+  UBAH ('gambar', '2.4') (HALAMAN): [('Persentase Konsumen di PST BPS Kota Banjarbaru Menurut Pekerjaan Utama tahunan 25', '', '41', 'daftar')] -> [('Persentase Konsumen di PST BPS Kota Banjarbaru Menurut Pekerjaan Utama tahunan', '25', '41', 'daftar')]
+  UBAH ('gambar', '2.5') (HALAMAN): [('Persentase Konsumen di PST BPS Kota Banjarbaru Menurut Instansi/Institusi 26', '', '42', 'daftar')] -> [('Persentase Konsumen di PST BPS Kota Banjarbaru Menurut Instansi/Institusi', '26', '42', 'daftar')]
+  UBAH ('gambar', '2.6') (HALAMAN): [('Persentase Konsumen di PST BPS Kota Banjarbaru Menurut Pemanfaatan Hasil Kunjungan 27', '', '43', 'daftar')] -> [('Persentase Konsumen di PST BPS Kota Banjarbaru Menurut Pemanfaatan Hasil Kunjungan', '27', '43', 'daftar')]
+  UBAH ('gambar', '2.7') (HALAMAN): [('Persentase Konsumen di PST BPS Kota Banjarbaru Menurut Jenis Layanan yang Digunakan 28', '', '44', 'daftar')] -> [('Persentase Konsumen di PST BPS Kota Banjarbaru Menurut Jenis Layanan yang Digunakan', '28', '44', 'daftar')]
+  UBAH ('gambar', '2.8') (HALAMAN): [('Persentase Konsumen di PST BPS Kota Banjarbaru Menurut Fasilitas Utama yang Digunakan untuk Memperoleh Data BPS 29', '', '45', 'daftar')] -> [('Persentase Konsumen di PST BPS Kota Banjarbaru Menurut Fasilitas Utama yang Digunakan untuk Memperoleh Data BPS', '29', '45', 'daftar')]
+  UBAH ('gambar', '3.1') (HALAMAN): [('Persentase Konsumen yang Puas Terhadap Pelayanan di PST BPS Kota Banjarbaru 33', '', '49', 'daftar')] -> [('Persentase Konsumen yang Puas Terhadap Pelayanan di PST BPS Kota Banjarbaru', '33', '49', 'daftar')]
+  UBAH ('gambar', '3.2') (HALAMAN): [('Persentase Konsumen yang Puas Terhadap Pelayanan PST BPS Kota Banjarbaru Menurut Atribut Pelayanan 34', '', '50', 'daftar')] -> [('Persentase Konsumen yang Puas Terhadap Pelayanan PST BPS Kota Banjarbaru Menurut Atribut Pelayanan', '34', '50', 'daftar')]
+  UBAH ('gambar', '3.3') (HALAMAN): [('Persentase Konsumen yang Puas Terhadap Akses Data di PST BPS Kota Banjarbaru 35', '', '51', 'daftar')] -> [('Persentase Konsumen yang Puas Terhadap Akses Data di PST BPS Kota Banjarbaru', '35', '51', 'daftar')]
+  UBAH ('gambar', '3.4') (HALAMAN): [('Persentase Konsumen yang Puas Terhadap Sarana Prasarana di PST BPS Kota Banjarbaru 36', '', '52', 'daftar')] -> [('Persentase Konsumen yang Puas Terhadap Sarana Prasarana di PST BPS Kota Banjarbaru', '36', '52', 'daftar')]
+  UBAH ('gambar', '3.5') (HALAMAN): [('Tingkat Kepentingan dan Tingkat Kepuasan Pelayanan di PST BPS Kota Banjarbaru 37 xi', '', '53', 'daftar')] -> [('Tingkat Kepentingan dan Tingkat Kepuasan Pelayanan di PST BPS Kota Banjarbaru xi', '37', '53', 'daftar')]
+  UBAH ('gambar', '3.6') (HALAMAN): [('Importance and Performance Analysis (IPA) Pelayanan di PST BPS Kota Banjarbaru 41', '', '57', 'daftar')] -> [('Importance and Performance Analysis (IPA) Pelayanan di PST BPS Kota Banjarbaru', '41', '57', 'daftar')]
+  UBAH ('gambar', '4.2') (HALAMAN): [('Perkembangan Indeks Persepsi Anti Korupsi (IPAK) BPS Kota Banjarbaru Tahun 2022-2025 48', '', '64', 'daftar')] -> [('Perkembangan Indeks Persepsi Anti Korupsi (IPAK) BPS Kota Banjarbaru Tahun 2022-2025', '48', '64', 'daftar')]
+  UBAH ('gambar', '5.1') (HALAMAN): [('Persentase Pencarian Data di PST BPS Kota Banjarbaru Menurut Level Data 52', '', '68', 'daftar')] -> [('Persentase Pencarian Data di PST BPS Kota Banjarbaru Menurut Level Data', '52', '68', 'daftar')]
+  UBAH ('gambar', '5.2') (HALAMAN): [('Persentase Pencarian Data di PST BPS Kota Banjarbaru Menurut Periode Data 53', '', '69', 'daftar')] -> [('Persentase Pencarian Data di PST BPS Kota Banjarbaru Menurut Periode Data', '53', '69', 'daftar')]
+  UBAH ('gambar', '5.3') (HALAMAN): [('Persentase Pencarian Data di PST BPS Kota Banjarbaru Menurut Jenis Perolehan Data 54', '', '70', 'daftar')] -> [('Persentase Pencarian Data di PST BPS Kota Banjarbaru Menurut Jenis Perolehan Data', '54', '70', 'daftar')]
+  UBAH ('gambar', '5.4') (HALAMAN): [('Persentase Data yang Dibutuhkan di PST BPS Kota Banjarbaru Menurut Ragam Data 55', '', '71', 'daftar')] -> [('Persentase Data yang Dibutuhkan di PST BPS Kota Banjarbaru Menurut Ragam Data', '55', '71', 'daftar')]
+  UBAH ('gambar', '5.5') (HALAMAN): [('Jumlah Perolehan Data Menurut Jenis Sumber Data pada PST BPS Kota Banjarbaru 57 xii', '', '73', 'daftar')] -> [('Jumlah Perolehan Data Menurut Jenis Sumber Data pada PST BPS Kota Banjarbaru xii', '57', '73', 'daftar')]
+  UBAH ('lampiran', '1') (HALAMAN): [('Realisasi Jumlah Responden menurut Wilayah PST dan Metode Pengumpulan Data 71', '', '87', 'keduanya')] -> [('Realisasi Jumlah Responden menurut Wilayah PST dan Metode Pengumpulan Data', '71', '87', 'keduanya')]
+  UBAH ('lampiran', '10') (HALAMAN): [('Persentase Konsumen yang Puas terhadap Sarana dan Prasarana menurut Wilayah PST 80', '', '96', 'keduanya')] -> [('Persentase Konsumen yang Puas terhadap Sarana dan Prasarana menurut Wilayah PST', '80', '96', 'keduanya')]
+  UBAH ('lampiran', '11') (HALAMAN): [('Indeks Kepuasan Konsumen (IKK) terhadap Pelayanan BPS Menurut Wilayah PST 81', '', '97', 'keduanya')] -> [('Indeks Kepuasan Konsumen (IKK) terhadap Pelayanan BPS Menurut Wilayah PST', '81', '97', 'keduanya')]
+  UBAH ('lampiran', '12') (HALAMAN): [('Indeks Persepsi Anti Korupsi (IPAK) Menurut Wilayah PST 82', '', '98', 'keduanya')] -> [('Indeks Persepsi Anti Korupsi (IPAK) Menurut Wilayah PST', '82', '98', 'keduanya')]
+  UBAH ('lampiran', '13') (HALAMAN): [('Kuosioner VKD25 83', '', '', 'daftar')] -> [('Kuosioner VKD25', '83', '', 'daftar')]
+  UBAH ('lampiran', '15') (HALAMAN): [('Rencana Tindak Lanjut 90 xiii', '', '106', 'daftar')] -> [('Rencana Tindak Lanjut xiii', '90', '106', 'daftar')]
+  UBAH ('lampiran', '2') (HALAMAN): [('Persentase Konsumen menurut Wilayah PST dan Jenis Kelamin 72', '', '88', 'keduanya')] -> [('Persentase Konsumen menurut Wilayah PST dan Jenis Kelamin', '72', '88', 'keduanya')]
+  UBAH ('lampiran', '4') (HALAMAN): [('Persentase Konsumen menurut Wilayah PST dan Pemanfaatan Hasil Kunjungan 74', '', '90', 'keduanya')] -> [('Persentase Konsumen menurut Wilayah PST dan Pemanfaatan Hasil Kunjungan', '74', '90', 'keduanya')]
+  UBAH ('lampiran', '5') (HALAMAN): [('Persentase Konsumen menurut Wilayah PST dan Jenis Layanan yang Digunakan 75', '', '91', 'keduanya')] -> [('Persentase Konsumen menurut Wilayah PST dan Jenis Layanan yang Digunakan', '75', '91', 'keduanya')]
+  UBAH ('lampiran', '6') (HALAMAN): [('Persentase Konsumen K/L/OPD yang Menggunakan Data BPS untuk Perencanaan, Monitoring, dan Evaluasi Pembangunan menurut Wilayah PST 76', '', '92', 'keduanya')] -> [('Persentase Konsumen K/L/OPD yang Menggunakan Data BPS untuk Perencanaan, Monitoring , dan Evaluasi Pembangunan menurut Wilayah PST', '76', '92', 'keduanya')]
+  UBAH ('lampiran', '7') (HALAMAN): [('Persentase Konsumen yang Puas terhadap Kualitas Data menurut Wilayah Penyedia Data 77', '', '93', 'keduanya')] -> [('Persentase Konsumen yang Puas terhadap Kualitas Data menurut Wilayah Penyedia Data', '77', '93', 'keduanya')]
+  UBAH ('lampiran', '8') (HALAMAN): [('Persentase Konsumen yang Puas terhadap Pelayanan Data dan Informasi Statistik BPS menurut Wilayah PST 78', '', '94', 'keduanya')] -> [('Persentase Konsumen yang Puas terhadap Pelayanan Data dan Informasi Statistik BPS menurut Wilayah PST', '78', '94', 'keduanya')]
+  UBAH ('lampiran', '9') (HALAMAN): [('Persentase Konsumen yang Puas terhadap Akses Data menurut Wilayah PST 79', '', '95', 'keduanya')] -> [('Persentase Konsumen yang Puas terhadap Akses Data menurut Wilayah PST', '79', '95', 'keduanya')]
+  UBAH ('tabel', '1.1') (HALAMAN): [('Nilai Kinerja Unit Pelayanan 16', '', '32', 'daftar')] -> [('Nilai Kinerja Unit Pelayanan', '16', '32', 'daftar')]
+  UBAH ('tabel', '3.2') (HALAMAN): [('Tingkat Kepuasan, Tingkat Kepentingan, dan Tingkat Kesesuaian Menurut Atribut Pelayanan di PST BPS Kota Banjarbaru 39', '', '55', 'daftar')] -> [('Tingkat Kepuasan, Tingkat Kepentingan, dan Tingkat Kesesuaian Menurut Atribut Pelayanan di PST BPS Kota Banjarbaru', '39', '55', 'daftar')]
+  UBAH ('tabel', '4.1') (HALAMAN): [('Tingkat Kepuasan, Tingkat Kepentingan, dan Gap menurut Atribut Pelayanan dalam Penerapan Perilaku Anti Korupsi di PST BPS Kota Banjarbaru 47', '', '63', 'daftar')] -> [('Tingkat Kepuasan, Tingkat Kepentingan, dan Gap menurut Atribut Pelayanan dalam Penerapan Perilaku Anti Korupsi di PST BPS Kota Banjarbaru', '47', '63', 'daftar')]
+  UBAH ('tabel', '5.2') (HALAMAN): [('Enam Subjek Data dengan Pencarian Terbanyak di PST BPS Kota Banjarbaru 56 ix', '', '72', 'daftar')] -> [('Enam Subjek Data dengan Pencarian Terbanyak di PST BPS Kota Banjarbaru ix', '56', '72', 'daftar')]
+
+### a388427b81c6742e38276d0e 6311 
+  UBAH ('lampiran', '1'): [('Halaman Appendices Pages Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '143', '', 'daftar')] -> [('Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '143', '', 'daftar')]
+
+### a44895e17f6202db16fd5cb6 6300 kata baru muncul ['2']; kata hilang ['Gambaran', 'Ekonomi', 'Makro', 'Provinsi', 'Kalimantan', 'Selatan', 'Triwulan', 'I–2025']
+  UBAH ('tabel', '1') (HALAMAN): [('PDRB Provinsi Kalimantan Selatan Atas Dasar Harga Berlaku (ADHB) Menurut Lapangan Usaha (miliar rupiah), Triwulan II 2024 – Triwulan I 2025 Triwulan II Triwulan III Triwulan IV Triwulan Kategori Lapangan Usaha', '', '20', 'keduanya')] -> [('PDRB Provinsi Kalimantan Selatan Atas Dasar Harga Berlaku (ADHB) Menurut Lapangan Usaha (miliar rupiah), Triwulan II 2024 – Triwulan I 2025 Triwulan II Triwulan III Triwulan IV Triwulan Kategori Lapangan Usaha', '2', '20', 'keduanya')]
+  - isi hal  | 5. Transportasi 29 6. Indeks Kemahalan Konstruksi 33 7. Kependudukan 35 8. Ketenagakerjaan 37 9. Kemiskinan 51 10. Gini Ratio 57 11. Indeks Pembangunan Manusia 61 12. NTP dan Inflasi Perdesaan 67
+  - isi hal vii | Daftar Pustaka 73
+  - isi hal v | Gambaran Ekonomi Makro Provinsi Kalimantan Selatan Triwulan I–2025 (Januari–Maret)
+  - isi hal  | Volume 9, Nomor 2, 2025 Hal. Kata Pengantar v Penjelasan Umum xv 1. PDRB 1 2. Inflasi 11 3. Ekspor-Impor 19 4. Hotel 25
+  + isi hal 11 | 1. PDRB 1 2. Inflasi
+  + isi hal 57 | 10. Gini Ratio
+  + isi hal 61 | 11. Indeks Pembangunan Manusia
+  + isi hal 67 | 12. NTP dan Inflasi Perdesaan
+  + isi hal 19 | 3. Ekspor-Impor
+  + isi hal 25 | 4. Hotel
+  + isi hal 29 | 5. Transportasi
+  + isi hal 33 | 6. Indeks Kemahalan Konstruksi
+  + isi hal 35 | 7. Kependudukan
+  + isi hal 37 | 8. Ketenagakerjaan
+  + isi hal 51 | 9. Kemiskinan
+  + isi hal 73 | Daftar Pustaka
+
+### a4587cdb6cccac46f13e6717 6302 kata baru muncul ['91']
+  UBAH ('lampiran', '15') (HALAMAN): [('Relative Standard Error (RSE) Persentase Perempuan Pernah Kawin Berumur 15–49 Tahun yang Pernah Melahirkan Anak Lahir Hidup (ALH) dalam Dua Tahun Terakhir di Fasilitas Kesehatan Tempat Kelahiran ALH yang Terakhir Menurut Karakteristik Kabupaten Kotabaru, 2025 Karakteristik Melahirkan di Fasilitas Kesehatan', '', '111', 'keduanya')] -> [('Relative Standard Error (RSE) Persentase Perempuan Pernah Kawin Berumur 15–49 Tahun yang Pernah Melahirkan Anak Lahir Hidup (ALH) dalam Dua Tahun Terakhir di Fasilitas Kesehatan Tempat Kelahiran ALH yang Terakhir Menurut Karakteristik Kabupaten Kotabaru, 2025 Karakteristik Melahirkan di Fasilitas Kesehatan', '91', '111', 'keduanya')]
+  UBAH ('lampiran', '18') (HALAMAN): [('Relative Standard Error (RSE) Persentase Rumah Tangga Menurut Karakteristik dan Status Kepemilikan Bangunan Tempat Tinggal yang Ditempati Kabupaten Kotabaru, 2025 94', '', '114', 'keduanya')] -> [('Relative Standard Error (RSE) Persentase Rumah Tangga Menurut Karakteristik dan Status Kepemilikan Bangunan Tempat Tinggal yang Ditempati Kabupaten Kotabaru, 2025', '94', '114', 'keduanya')]
+  - lampiran hal  | Halaman x4
+  - tabel hal  | Halaman x3
+
+### a54b4f2220f70fff6156c355 6306 
+  - isi hal 20 | Tingkat Pengangguran Terbuka Menurut Pendidikan 19 Tingkat Ketidakaktifan
+  + isi hal 20 | Tingkat Ketidakaktifan
+  + isi hal 19 | Tingkat Pengangguran Terbuka Menurut Pendidikan
+
+### a77549c90eda83710956ae1b 6371 
+  - isi hal 15 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama 14 Penduduk Bekerja Menurut Status Formal dan Informal
+  - isi hal 18 | Tingkat Pengangguran Terbuka Menurut Pendidikan 17 Tingkat Ketidakaktifan
+  + isi hal 14 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama
+  + isi hal 15 | Penduduk Bekerja Menurut Status Formal dan Informal
+  + isi hal 18 | Tingkat Ketidakaktifan
+  + isi hal 17 | Tingkat Pengangguran Terbuka Menurut Pendidikan
+
+### a7e51c0959da40d99f1f40d7 6371 kata hilang ['3.5', '3.5']
+  KUNCI BARU ('gambar', '3.5'): [('Laju Pertumbuhan PDRB Kota Banjarmasin Menurut Atas Dasar Harga Konstan (2010=100) Menurut Pengeluaran (persen), 2021–2025/GRDP of Banjarmasin Municipality at Constant Prices by Expenditure (percent), 2021–2025', '47', '65', 'daftar')]
+  KUNCI BARU ('tabel', '3.5'): [('Indeks Implisit PDRB Kota Banjarmasin Menurut Pengeluaran, 2021–2025/Implicit Indices of Banjarmasin Municapility by Expenditure, 2021–2025', '48', '66', 'daftar')]
+  UBAH ('gambar', '3.4') (HALAMAN): [('Distribusi PDRB Kota Banjarmasin Atas Dasar Harga Berlaku Menurut Pengeluaran (persen), 2021–2025/GRDP Distribution of Banjarmasin Municipality at Current Prices by Expenditure (percent), 2021–2025 46 Laju Pertumbuhan PDRB Kota Banjarmasin Menurut Atas Dasar Harga Konstan (2010=100) 3.5 Menurut Pengeluaran (persen), 2021–2025/GRDP of Banjarmasin Municipality at Constant Prices by Expenditure (percent), 2021–2025 47', '', '64', 'daftar')] -> [('Distribusi PDRB Kota Banjarmasin Atas Dasar Harga Berlaku Menurut Pengeluaran (persen), 2021–2025/GRDP Distribution of Banjarmasin Municipality at Current Prices by Expenditure (percent), 2021–2025', '46', '64', 'daftar')]
+  UBAH ('tabel', '3.4') (HALAMAN): [('Laju Pertumbuhan PDRB Kota Banjarmasin Menurut Atas Dasar Harga Konstan (2010=100) Menurut Pengeluaran (persen), 2021–2025/GRDP of Banjarmasin Municapility at Constant Prices by Expenditure (percent), 2021–2025 47 Indeks Implisit PDRB Kota Banjarmasin Menurut Pengeluaran, 2021–2025/Implicit Indices 3.5 of Banjarmasin Municapility by Expenditure, 2021–2025 48 Perkembangan Pengeluaran Konsumsi Rumah Tangga Kota Banjarmasin, 2021–2025/', '', '65', 'daftar')] -> [('Laju Pertumbuhan PDRB Kota Banjarmasin Menurut Atas Dasar Harga Konstan (2010=100) Menurut Pengeluaran (persen), 2021–2025/GRDP of Banjarmasin Municapility at Constant Prices by Expenditure (percent), 2021–2025', '47', '65', 'daftar')]
+  UBAH ('tabel', '3.6'): [('Trend of Household Final Consumption Expenditure of Banjarmasin Municapility, 2021– 2025', '49', '67', 'daftar')] -> [('Perkembangan Pengeluaran Konsumsi Rumah Tangga Kota Banjarmasin, 2021–2025/ Trend of Household Final Consumption Expenditure of Banjarmasin Municapility, 2021– 2025', '49', '67', 'daftar')]
+  - isi hal 57 | 3.5 Perkembangan Pembentukan Modal Tetap Bruto/The Trend of Gross Fixed Capital Formation 55 3.6 Perkembangan Perubahan Inventori/The Trend of Changes in Inventory
+  - isi hal 42 | BAB 3 TINJAUAN PEREKONOMIAN/ECONOMIC REVIEW 39 3.1 Tinjauan PDRB Kota Banjarmasin Menurut Pengeluaran/GRDP Overview of Banjarmasin Munici- pality by Expenditure
+  - isi hal ix | DAFTAR ISI/CONTENTS vii DAFTAR TABEL/LIST OF TABLES
+  - isi hal 35 | Page 2.6 Ekspor dan Impor/Export and Import
+  + isi hal 35 | 2.6 Ekspor dan Impor/Export and Import
+  + isi hal 42 | 3.1 Tinjauan PDRB Kota Banjarmasin Menurut Pengeluaran/GRDP Overview of Banjarmasin Munici- pality by Expenditure
+  + isi hal 55 | 3.5 Perkembangan Pembentukan Modal Tetap Bruto/The Trend of Gross Fixed Capital Formation
+  + isi hal 57 | 3.6 Perkembangan Perubahan Inventori/The Trend of Changes in Inventory
+  + isi hal 39 | BAB 3 TINJAUAN PEREKONOMIAN/ECONOMIC REVIEW
+  + isi hal vii | DAFTAR ISI/CONTENTS
+  + isi hal ix | DAFTAR TABEL/LIST OF TABLES
+
+### a859c5762c6caceb26664857 6304 
+  - isi hal 15 | Employment to Population Ratio (EPR) 14 Penduduk Bekerja Menurut Status Pekerjaan Utama
+  - isi hal 20 | Tingkat Pengangguran Terbuka Menurut Pendidikan 19 Tingkat Ketidakaktifan
+  + isi hal 14 | Employment to Population Ratio (EPR)
+  + isi hal 15 | Penduduk Bekerja Menurut Status Pekerjaan Utama
+  + isi hal 20 | Tingkat Ketidakaktifan
+  + isi hal 19 | Tingkat Pengangguran Terbuka Menurut Pendidikan
+
+### a8667ba0385aecd150f2de92 6300 kata baru muncul ['9']
+  UBAH ('gambar', '4.1.1') (HALAMAN): [('Jumlah Observasi Harga Gabah Kering Panen Menurut Kabupaten, Januari – Desember 2024 Masih tingginya transaksi penjualan gabah dalam bentuk Gabah Kering Panen (GKP) oleh petani umumnya disebabkan oleh berbagai kendala yang dihadapi di tingkat petani, seperti keterbatasan fasilitas penjemuran, ketiadaan mesin', '', '25', 'keduanya')] -> [('Jumlah Observasi Harga Gabah Kering Panen Menurut Kabupaten, Januari – Desember 2024 Masih tingginya transaksi penjualan gabah dalam bentuk Gabah Kering Panen (GKP) oleh petani umumnya disebabkan oleh berbagai kendala yang dihadapi di tingkat petani, seperti keterbatasan fasilitas penjemuran, ketiadaan mesin', '9', '25', 'keduanya')]
+  UBAH ('gambar', '4.1.2') (HALAMAN): [('Jumlah Observasi Harga Gabah Kering Panen Menurut Bulan, Januari Desember 2024 10 xxii', '', '26', 'daftar')] -> [('Jumlah Observasi Harga Gabah Kering Panen Menurut Bulan, Januari Desember 2024 xxii', '10', '26', 'daftar')]
+  UBAH ('lampiran', '10') (HALAMAN): [('Rata-Rata Observasi Harga Gabah Kering Panen, Kadar Air, dan Kadar Hampa/Kotoran Menurut Kabupaten, Bulan Oktober 2024 26', '', '42', 'daftar')] -> [('Rata-Rata Observasi Harga Gabah Kering Panen, Kadar Air, dan Kadar Hampa/Kotoran Menurut Kabupaten, Bulan Oktober 2024', '26', '42', 'daftar')]
+  UBAH ('lampiran', '11') (HALAMAN): [('Rata-Rata Observasi Harga Gabah Kering Panen, Kadar Air, dan Kadar Hampa/Kotoran Menurut Kabupaten, Bulan November 2024 27', '', '43', 'daftar')] -> [('Rata-Rata Observasi Harga Gabah Kering Panen, Kadar Air, dan Kadar Hampa/Kotoran Menurut Kabupaten, Bulan November 2024', '27', '43', 'daftar')]
+  UBAH ('lampiran', '12') (HALAMAN): [('Rata-Rata Observasi Harga Gabah Kering Panen, Kadar Air, dan Kadar Hampa/Kotoran Menurut Kabupaten, Bulan Desember 2024 28 xxiiiiii', '', '44', 'daftar')] -> [('Rata-Rata Observasi Harga Gabah Kering Panen, Kadar Air, dan Kadar Hampa/Kotoran Menurut Kabupaten, Bulan Desember 2024 xxiiiiii', '28', '44', 'daftar')]
+  UBAH ('lampiran', '5') (HALAMAN): [('Rata-Rata Observasi Harga Gabah Kering Panen, Kadar Air, dan Kadar Hampa/Kotoran Menurut Kabupaten, Bulan Mei 2024 21', '', '37', 'daftar')] -> [('Rata-Rata Observasi Harga Gabah Kering Panen, Kadar Air, dan Kadar Hampa/Kotoran Menurut Kabupaten, Bulan Mei 2024', '21', '37', 'daftar')]
+  UBAH ('lampiran', '6') (HALAMAN): [('Rata-Rata Observasi Harga Gabah Kering Panen, Kadar Air, dan Kadar Hampa/Kotoran Menurut Kabupaten, Bulan Juni 2024 22', '', '38', 'daftar')] -> [('Rata-Rata Observasi Harga Gabah Kering Panen, Kadar Air, dan Kadar Hampa/Kotoran Menurut Kabupaten, Bulan Juni 2024', '22', '38', 'daftar')]
+  UBAH ('lampiran', '9') (HALAMAN): [('Rata-Rata Observasi Harga Gabah Kering Panen, Kadar Air, dan Kadar Hampa/Kotoran Menurut Kabupaten, Bulan September 2024 25', '', '41', 'daftar')] -> [('Rata-Rata Observasi Harga Gabah Kering Panen, Kadar Air, dan Kadar Hampa/Kotoran Menurut Kabupaten, Bulan September 2024', '25', '41', 'daftar')]
+
+### aa80312f735cecd7975466b9 6304 
+  UBAH ('lampiran', '3') (HALAMAN): [('Distribusi Persentase Produk Domestik Regional Bruto Kabupaten Barito Kuala Atas Dasar Harga Berlaku Menurut Lapangan Usaha (persen), 2020–2024 Percentage Distribution of Gross Regional Domestic Product of Kabupaten Barito Kuala at Current Market Prices by Industry (percent), 2020–2024 137', '', '157', 'keduanya')] -> [('Distribusi Persentase Produk Domestik Regional Bruto Kabupaten Barito Kuala Atas Dasar Harga Berlaku Menurut Lapangan Usaha (persen), 2020–2024 Percentage Distribution of Gross Regional Domestic Product of Kabupaten Barito Kuala at Current Market Prices by Industry (percent), 2020–2024', '137', '157', 'keduanya')]
+  - isi hal 61 | 2.10 Informasi dan Komunikasi/Information and Communication 58 2.11 Jasa Keuangan dan Asuransi/Financial and Insurance Activities
+  - isi hal 79 | 2.13 Jasa Perusahaan/Business Activities 76 2.14 Administrasi Pemerintah, Pertahanan dan Jaminan Sosial Wajib/Public Administration, Defence and Compulsory Social Security
+  - isi hal 39 | 2.3 Industri Pengolahan/Manufacturing 28 2.4 Pengadaan Listrik dan Gas/Electricity and Gas
+  - isi hal 123 | 4.10 Informasi dan Komunikasi/Information and Communication 122 4.11 Jasa Keuangan dan Asuransi/Financial and Insurance Activities
+  - isi hal 126 | 4.13 Jasa Perusahaan/Business Activities 125 4.14 Administrasi Pemerintah, Pertahanan dan Jaminan Sosial Wajib/Public Administration, Defence and Compulsory Social Security
+  - isi hal 112 | 4.3 Industri Pengolahan/Manufacturing 110 4.4 Pengadaan Listrik dan Gas/Electricity and Gas
+  + isi hal 58 | 2.10 Informasi dan Komunikasi/Information and Communication
+  + isi hal 61 | 2.11 Jasa Keuangan dan Asuransi/Financial and Insurance Activities
+  + isi hal 76 | 2.13 Jasa Perusahaan/Business Activities
+  + isi hal 79 | 2.14 Administrasi Pemerintah, Pertahanan dan Jaminan Sosial Wajib/Public Administration, Defence and Compulsory Social Security
+  + isi hal 28 | 2.3 Industri Pengolahan/Manufacturing
+  + isi hal 39 | 2.4 Pengadaan Listrik dan Gas/Electricity and Gas
+  + isi hal 122 | 4.10 Informasi dan Komunikasi/Information and Communication
+  + isi hal 123 | 4.11 Jasa Keuangan dan Asuransi/Financial and Insurance Activities
+  + isi hal 125 | 4.13 Jasa Perusahaan/Business Activities
+  + isi hal 126 | 4.14 Administrasi Pemerintah, Pertahanan dan Jaminan Sosial Wajib/Public Administration, Defence and Compulsory Social Security
+  + isi hal 110 | 4.3 Industri Pengolahan/Manufacturing
+  + isi hal 112 | 4.4 Pengadaan Listrik dan Gas/Electricity and Gas
+
+### ac101cb3ecf77273005c324d 6303 
+  - lampiran hal 112 | Halaman Appendices Pages 1 Kesalahan Baku Relatif Angkatan Kerja Agustus 2025 Relative Standard Error Labor Force, August 2025 2 Kuesioner Sakernas Agustus 2025 Sakernas Questionnaire, August 2025 115 xxiv
+  + lampiran hal 112 | 1 Kesalahan Baku Relatif Angkatan Kerja Agustus 2025 Relative Standard Error Labor Force, August 2025 2 Kuesioner Sakernas Agustus 2025 Sakernas Questionnaire, August 2025 115 xxiv
+
+### ac7fdb4ceaa361f0251e656f 6305 
+  - isi hal v | PRODUK DOMESTIK REGIONAL BRUTO KABUPATEN TAPIN MENURUT PENGELUARAN 2020–2024 GROSS REGIONAL DOMESTIC PRODUCT OF TAPIN REGENCY BY EXPENDITURE 2020–2024 Volume 13, 2025 Halaman/Page Kata Pengantar/Preface
+  + isi hal v | PRODUK DOMESTIK REGIONAL BRUTO KABUPATEN TAPIN MENURUT PENGELUARAN 2020–2024 GROSS REGIONAL DOMESTIC PRODUCT OF TAPIN REGENCY BY EXPENDITURE 2020–2024 Volume 13, 2025 Kata Pengantar/Preface
+
+### ad22d3d9af903e46ae9ae002 6372 
+  - lampiran hal 115 | Halaman Appendices Pages 1 Kesalahan Baku Relatif Angkatan Kerja Agustus 2025 Relative Standard Error Labour Force, August 2025 2 Kuesioner Sakernas Agustus 2025 Sakernas Questionnaire, August 2025 118 xxvi
+  - tabel hal 108 | Halaman Tables Pages 85 Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Perempuan, Agustus 2025 Population 15 Years of Age and Over by Age Group, Unemployment, and Part Time Unemployment Category for Female, August 2025 xxiv
+  + lampiran hal 115 | 1 Kesalahan Baku Relatif Angkatan Kerja Agustus 2025 Relative Standard Error Labour Force, August 2025 2 Kuesioner Sakernas Agustus 2025 Sakernas Questionnaire, August 2025 118 xxvi
+  + tabel hal 108 | 85 Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Perempuan, Agustus 2025 Population 15 Years of Age and Over by Age Group, Unemployment, and Part Time Unemployment Category for Female, August 2025 xxiv
+
+### aea0c6974b6bcf93bf0c78d9 6304 
+  UBAH ('gambar', '13.1'): [('Halaman Figure Page Jumlah Penduduk menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (ribu), 2025 Population by Regency/Municipality in Kalimantan Selatan Province (thousand), 2025 13.2 Indeks Pembangunan Manusia menurut Kabupaten/Kota di Provinsi Kalimantan Selatan, 2024', '410', '458', 'daftar')] -> [('Jumlah Penduduk menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (ribu), 2025 Population by Regency/Municipality in Kalimantan Selatan Province (thousand), 2025 13.2 Indeks Pembangunan Manusia menurut Kabupaten/Kota di Provinsi Kalimantan Selatan, 2024', '410', '458', 'daftar')]
+
+### af4075be972539c6f8610049 6306 
+  - isi hal 15 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama 14 Penduduk Bekerja Menurut Status Formal dan Informal
+  - isi hal 18 | Tingkat Pengangguran Terbuka Menurut Pendidikan 17 Tingkat Ketidakaktifan
+  + isi hal 14 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama
+  + isi hal 15 | Penduduk Bekerja Menurut Status Formal dan Informal
+  + isi hal 18 | Tingkat Ketidakaktifan
+  + isi hal 17 | Tingkat Pengangguran Terbuka Menurut Pendidikan
+
+### afbf86a1df9d8477d6528ac3 6303 kata hilang ['4.2.14']
+  KUNCI BARU ('tabel', '4.2.14'): [('Kegiatan Radiologi Pada RSU Ratu Zalecha Martapura Setiap Bulan, 2024 Radiology Activity at Ratu Zalecha General Hospital per Month, 2024', '146', '196', 'daftar')]
+  UBAH ('tabel', '13.3'): [('Halaman Table Page Jumlah Penduduk Miskin Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (Ribu), 2020-2024 Number of Poor People by Regency/Municipality in Kalimantan Selatan Province (Thousand), 2020-2024 Indeks Pembangunan Manusia Menurut Kabupaten/', '413', '463', 'daftar')] -> [('Jumlah Penduduk Miskin Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan (Ribu), 2020-2024 Number of Poor People by Regency/Municipality in Kalimantan Selatan Province (Thousand), 2020-2024 Indeks Pembangunan Manusia Menurut Kabupaten/', '413', '463', 'daftar')]
+  UBAH ('tabel', '4.2.13') (HALAMAN): [('Jumlah Kelahiran Hidup dan Kelahiran Mati Pada RSU Ratu Zalecha Martapura Setiap Bulan, 2024 Number of Life Birth and Stillbirth at Ratu Zalecha General Hospital per Month, 2024 145 Kegiatan Radiologi Pada RSU Ratu Zalecha 4.2.14 Martapura Setiap Bulan, 2024', '', '195', 'daftar')] -> [('Jumlah Kelahiran Hidup dan Kelahiran Mati Pada RSU Ratu Zalecha Martapura Setiap Bulan, 2024 Number of Life Birth and Stillbirth at Ratu Zalecha General Hospital per Month, 2024', '145', '195', 'daftar')]
+  - tabel hal 146 | Radiology Activity at Ratu Zalecha General Hospital per Month, 2024
+
+### afd64a18ea70c4de51b8b03f 6300 
+  - lampiran hal 207 | Halaman Appendices Pages 1 Kesalahan Baku Relatif Angkatan Kerja Agustus 2025 Relative Standard Error Labour Force, August 2025 2 Kuesioner Sakernas Agustus 2025 Sakernas Questionnaire, August 2025 210 xxxvii
+  - tabel hal 164 | Halaman Tables Pages 137 Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Perempuan, Agustus 2025 Population 15 Years of Age and Over by Age Group, Unemployment, and Part Time Unemployment Category for Female, August 2025 xxxv
+  + lampiran hal 207 | 1 Kesalahan Baku Relatif Angkatan Kerja Agustus 2025 Relative Standard Error Labour Force, August 2025 2 Kuesioner Sakernas Agustus 2025 Sakernas Questionnaire, August 2025 210 xxxvii
+  + tabel hal 164 | 137 Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Perempuan, Agustus 2025 Population 15 Years of Age and Over by Age Group, Unemployment, and Part Time Unemployment Category for Female, August 2025 xxxv
+
+### b0311c9362a2fa4e6aff8c81 6308 
+  - lampiran hal 115 | Halaman Appendices Pages 1 Kesalahan Baku Relatif Angkatan Kerja Agustus 2025 Relative Standard Error Labour Force, August 2025 2 Kuesioner Sakernas Agustus 2025 Sakernas Questionnaire, August 2025 118 xxi
+  + lampiran hal 115 | 1 Kesalahan Baku Relatif Angkatan Kerja Agustus 2025 Relative Standard Error Labour Force, August 2025 2 Kuesioner Sakernas Agustus 2025 Sakernas Questionnaire, August 2025 118 xxi
+
+### b0b8c7ea69d496329b06e86c 6300 
+  - isi hal 56 | 2.4.1 Persentase Penduduk Bekerja
+  - isi hal 60 | Penduduk Bekerja Menurut Tingkat 2.4.2 Pendidikan
+  + isi hal 56 | 2.4.1 Persentase Penduduk Bekerja Penduduk Bekerja Menurut Tingkat
+  + isi hal 60 | 2.4.2 Pendidikan
+
+### b38223b227ed8e9bd6672b80 6305 
+  UBAH ('lampiran', '1'): [('Halaman Appendices Pages Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '151', '', 'daftar')] -> [('Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '151', '', 'daftar')]
+
+### b3d0bb81826e2a2426296a67 6303 
+  - isi hal 17 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama 16 Penduduk Bekerja Menurut Status Formal dan Informal
+  - isi hal 20 | Tingkat Pengangguran Terbuka Menurut Pendidikan 19 Tingkat Ketidakaktifan
+  + isi hal 16 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama
+  + isi hal 17 | Penduduk Bekerja Menurut Status Formal dan Informal
+  + isi hal 20 | Tingkat Ketidakaktifan
+  + isi hal 19 | Tingkat Pengangguran Terbuka Menurut Pendidikan
+
+### b68460a0a21c293bdb4b6e4c 6311 
+  - isi hal v | Produk Domestik Regional Bruto Kabupaten Balangan Menurut Lapangan Usaha 2020–2024 Gross Regional Domestic Product of Balangan Regency by Industry 2020–2024 Volume 9, 2025 Halaman/Page KATA PENGANTAR/PREFACE
+  + isi hal v | Produk Domestik Regional Bruto Kabupaten Balangan Menurut Lapangan Usaha 2020–2024 Gross Regional Domestic Product of Balangan Regency by Industry 2020–2024 Volume 9, 2025 KATA PENGANTAR/PREFACE
+
+### beb943177b87c4aaad8383af 6308 
+  - isi hal 15 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama 14 Penduduk Bekerja Menurut Status Formal dan Informal
+  - isi hal 18 | Tingkat Pengangguran Terbuka Menurut Pendidikan 17 Tingkat Ketidakaktifan
+  + isi hal 14 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama
+  + isi hal 15 | Penduduk Bekerja Menurut Status Formal dan Informal
+  + isi hal 18 | Tingkat Ketidakaktifan
+  + isi hal 17 | Tingkat Pengangguran Terbuka Menurut Pendidikan
+
+### c0a1256bb53cc80534937af0 6372 
+  - isi hal 20 | Tingkat Pengangguran Terbuka Menurut Pendidikan 19 Tingkat Ketidakaktifan
+  + isi hal 20 | Tingkat Ketidakaktifan
+  + isi hal 19 | Tingkat Pengangguran Terbuka Menurut Pendidikan
+
+### c25d6e088abdc46ce7a5cdeb 6306 
+  - isi hal 11 | DATA SOURCE 2.1 Pengeluaran Konsumsi Akhir Rumah Tangga/Households Final Consumption Expenditure
+  - isi hal 9 | II. METODE ESTIMASI DAN SUMBER DATA/ESTIMATION METHOD AND
+  - isi hal v | PRODUK DOMESTIK REGIONAL BRUTO KABUPATEN HULU SUNGAI SELATAN MENURUT PENGELUARAN 2020–2024/ GROSS REGIONAL DOMESTIC PRODUCT OF HULU SUNGAI SELATAN REGENCY BY EXPENDITURE 2020–2024 VOLUME 11, 2025 Halaman/Page KATA PENGANTAR/ PREFACE
+  - tabel hal  | Halaman/Page
+  + isi hal 11 | 2.1 Pengeluaran Konsumsi Akhir Rumah Tangga/Households Final Consumption Expenditure
+  + isi hal 9 | II. METODE ESTIMASI DAN SUMBER DATA/ESTIMATION METHOD AND DATA SOURCE
+  + isi hal v | PRODUK DOMESTIK REGIONAL BRUTO KABUPATEN HULU SUNGAI SELATAN MENURUT PENGELUARAN 2020–2024/ GROSS REGIONAL DOMESTIC PRODUCT OF HULU SUNGAI SELATAN REGENCY BY EXPENDITURE 2020–2024 VOLUME 11, 2025 KATA PENGANTAR/ PREFACE
+
+### c339abeab74cfe8c276e5249 6307 kata hilang ['4.2.4']
+  KUNCI BARU ('tabel', '4.2.4'): [('Jumlah Kasus 10 Penyakit Terbanyak Rawat Jalan di RSUD H. Damanhuri, 2024 Number of Cases 10 Most Outpatient Diseases in H. Damanhuri Hospital, 2024', '111', '149', 'daftar')]
+  UBAH ('tabel', '13.6'): [('Halaman Table Page Tingkat Pengangguran Terbuka Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan, 2020-2024 Unemployment Rate by Regency/Municipality in Kalimantan Selatan Province, 2020-2024 xxxi', '294', '332', 'daftar')] -> [('Tingkat Pengangguran Terbuka Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan, 2020-2024 Unemployment Rate by Regency/Municipality in Kalimantan Selatan Province, 2020-2024 xxxi', '294', '332', 'daftar')]
+  UBAH ('tabel', '4.2.3') (HALAMAN): [('Jumlah Tenaga Kesehatan Menurut Unit Kerja di Kabupaten Hulu Sungai Tengah, 2024 Number of Health Workers by District in Hulu Sungai Tengah Regency, 2024 107 Jumlah Kasus 10 Penyakit Terbanyak Rawat Jalan di RSUD H. 4.2.4 Damanhuri, 2024', '', '145', 'daftar')] -> [('Jumlah Tenaga Kesehatan Menurut Unit Kerja di Kabupaten Hulu Sungai Tengah, 2024 Number of Health Workers by District in Hulu Sungai Tengah Regency, 2024', '107', '145', 'daftar')]
+  - tabel hal 111 | Number of Cases 10 Most Outpatient Diseases in H. Damanhuri Hospital, 2024
+
+### c53a740b48d952b0061c92fb 6372 
+  UBAH ('lampiran', '14') (HALAMAN): [('Relative Standard Error (RSE) Persentase Penduduk Berumur 0–23 Bulan (Baduta) yang Pernah Diberi ASI dan Rata-Rata Lama Pemberian ASI Menurut Karakteristik Kota Banjarbaru, 2025 100', '', '122', 'keduanya')] -> [('Relative Standard Error (RSE) Persentase Penduduk Berumur 0–23 Bulan (Baduta) yang Pernah Diberi ASI dan Rata-Rata Lama Pemberian ASI Menurut Karakteristik Kota Banjarbaru, 2025', '100', '122', 'keduanya')]
+  UBAH ('lampiran', '15') (HALAMAN): [('Relative Standard Error (RSE) Persentase Perempuan Pernah Kawin Berumur 15–49 Tahun yang Pernah Melahirkan Anak Lahir Hidup (ALH) dalam Dua Tahun Terakhir di Fasilitas Kesehatan Tempat Kelahiran ALH yang Terakhir Menurut Karakteristik Kota Banjarbaru, 2025 101', '', '123', 'keduanya')] -> [('Relative Standard Error (RSE) Persentase Perempuan Pernah Kawin Berumur 15–49 Tahun yang Pernah Melahirkan Anak Lahir Hidup (ALH) dalam Dua Tahun Terakhir di Fasilitas Kesehatan Tempat Kelahiran ALH yang Terakhir Menurut Karakteristik Kota Banjarbaru, 2025', '101', '123', 'keduanya')]
+  UBAH ('tabel', '5.1') (HALAMAN): [('Persentase Rumah Tangga Menurut Karakteristik dan Status Kepemilikan Bangunan Tempat Tinggal yang Ditempati Kota Banjarbaru, 2025 43', '', '65', 'keduanya')] -> [('Persentase Rumah Tangga Menurut Karakteristik dan Status Kepemilikan Bangunan Tempat Tinggal yang Ditempati Kota Banjarbaru, 2025', '43', '65', 'keduanya')]
+  - gambar hal  | Halaman
+  - lampiran hal  | Halaman x4
+  - tabel hal  | Halaman x3
+
+### c7afe7917cecb29537b233e6 6371 kata baru muncul ['R']; kata hilang ['.R']
+  UBAH ('tabel', '4.2') (HALAMAN): [('Proporsi Total Pengeluaran Konsumsi Akhir Terhadap PDRB Kota Banjarmasin, 2In0c2r0em–2e0n2ta4l .C a p i t a l .O u t p u t .R a t.i o 50', '', '66', 'keduanya')] -> [('Proporsi Total Pengeluaran Konsumsi Akhir Terhadap PDRB Kota Banjarmasin, 2In0c2r0em–2e0n2ta4l .C a p i t a l .O u t p u t R a t.i o', '50', '66', 'keduanya')]
+
+### c92bc76edccde7ea4bb59a04 6303 
+  - gambar hal  | Page
+
+### cc2cb9c6ebac120bcfa2fb2a 6371 
+  - isi hal 20 | Tingkat Pengangguran Terbuka Menurut Pendidikan 19 Tingkat Ketidakaktifan
+  + isi hal 20 | Tingkat Ketidakaktifan
+  + isi hal 19 | Tingkat Pengangguran Terbuka Menurut Pendidikan
+
+### cc314c146259ae573d92a3b2 6311 
+  - lampiran hal 103 | Halaman Appendices Pages 1 Kesalahan Baku Relatif Angkatan Kerja Agustus 2025 Relative Standard Error Labour Force, August 2025 2 Kuesioner Sakernas Agustus 2025 Sakernas Questionnaire, August 2025 105 xix
+  + lampiran hal 103 | 1 Kesalahan Baku Relatif Angkatan Kerja Agustus 2025 Relative Standard Error Labour Force, August 2025 2 Kuesioner Sakernas Agustus 2025 Sakernas Questionnaire, August 2025 105 xix
+
+### ce4ee2a6b9a6d9598a933799 6303 
+  - isi hal 20 | Tingkat Pengangguran Terbuka Menurut Pendidikan 19 Tingkat Ketidakaktifan
+  + isi hal 20 | Tingkat Ketidakaktifan
+  + isi hal 19 | Tingkat Pengangguran Terbuka Menurut Pendidikan
+
+### cfd5b9b823752ce62c4220b6 6372 
+  - gambar hal  | Halaman/Page
+  - isi hal 84 | Halaman/Page 2.15 Jasa Pendidikan/Education
+  - tabel hal  | Halaman/Page
+  + isi hal 84 | 2.15 Jasa Pendidikan/Education
+
+### d163b8bb2f8b9ed034f6cdcd 6301 
+  UBAH ('lampiran', '15') (HALAMAN): [('Relative Standard Error (RSE) Persentase Perempuan Pernah Kawin Berumur 15–49 Tahun yang Pernah Melahirkan Anak Lahir Hidup (ALH) dalam Dua Tahun Terakhir di Fasilitas Kesehatan Tempat Kelahiran ALH yang Terakhir Menurut Karakteristik Kabupaten Tanah Laut, 2025 97', '', '119', 'daftar')] -> [('Relative Standard Error (RSE) Persentase Perempuan Pernah Kawin Berumur 15–49 Tahun yang Pernah Melahirkan Anak Lahir Hidup (ALH) dalam Dua Tahun Terakhir di Fasilitas Kesehatan Tempat Kelahiran ALH yang Terakhir Menurut Karakteristik Kabupaten Tanah Laut, 2025', '97', '119', 'daftar')]
+  UBAH ('lampiran', '18') (HALAMAN): [('Relative Standard Error (RSE) Persentase Rumah Tangga Menurut Karakteristik dan Status Kepemilikan Bangunan Tempat Tinggal yang Ditempati Kabupaten Tanah Laut, 2025 100', '', '122', 'keduanya')] -> [('Relative Standard Error (RSE) Persentase Rumah Tangga Menurut Karakteristik dan Status Kepemilikan Bangunan Tempat Tinggal yang Ditempati Kabupaten Tanah Laut, 2025', '100', '122', 'keduanya')]
+  UBAH ('lampiran', '22') (HALAMAN): [('Relative Standard Error (RSE) Persentase Rumah Tangga Menurut Karakteristik, Kepemilikan, dan Penggunaan Fasilitas Tempat Buang Air Besar Kabupaten Tanah Laut, 2025 104 xvi', '', '126', 'keduanya')] -> [('Relative Standard Error (RSE) Persentase Rumah Tangga Menurut Karakteristik, Kepemilikan, dan Penggunaan Fasilitas Tempat Buang Air Besar Kabupaten Tanah Laut, 2025 xvi', '104', '126', 'keduanya')]
+  UBAH ('tabel', '4.5') (HALAMAN): [('Persentase Penduduk Berumur 0–59 Bulan (Balita) Menurut Karakteristik dan Jenis Imunisasi yang Pernah Didapatkan Kabupaten Tanah Laut, 2025 33', '', '55', 'daftar')] -> [('Persentase Penduduk Berumur 0–59 Bulan (Balita) Menurut Karakteristik dan Jenis Imunisasi yang Pernah Didapatkan Kabupaten Tanah Laut, 2025', '33', '55', 'daftar')]
+  UBAH ('tabel', '5.1') (HALAMAN): [('Persentase Rumah Tangga Menurut Karakteristik dan Status Kepemilikan Bangunan Tempat Tinggal yang Ditempati Kabupaten Tanah Laut, 2025 43', '', '65', 'keduanya')] -> [('Persentase Rumah Tangga Menurut Karakteristik dan Status Kepemilikan Bangunan Tempat Tinggal yang Ditempati Kabupaten Tanah Laut, 2025', '43', '65', 'keduanya')]
+  - gambar hal  | Halaman
+  - lampiran hal  | Halaman x4
+  - tabel hal  | Halaman x3
+
+### d3457dfd8364d6e50ea5f64d 6302 kata hilang ['3.8']
+  KUNCI BARU ('tabel', '3.8'): [('Perkembangan Pengeluaran Konsumsi Pemerintah Kabupaten Kotabaru, 2021–2025/ Trend of General Government Final Consumption Expenditure of Kotabaru Regency, 2021–2025', '50', '66', 'daftar')]
+  UBAH ('tabel', '3.7') (HALAMAN): [('Perkembangan Pengeluaran Konsumsi LNPRT Kabupaten Kotabaru, 2021–2025/Trend of NPISHs Final Consumption Expenditure of Kotabaru Regency, 2021–2025 49 Perkembangan Pengeluaran Konsumsi Pemerintah Kabupaten Kotabaru, 2021–2025/ 3.8 Trend of General Government Final Consumption Expenditure of Kotabaru Regency, 2021–2025', '50', '65', 'daftar')] -> [('Perkembangan Pengeluaran Konsumsi LNPRT Kabupaten Kotabaru, 2021–2025/Trend of NPISHs Final Consumption Expenditure of Kotabaru Regency, 2021–2025', '49', '65', 'daftar')]
+  - isi hal 52 | 3.5 Perkembangan Pembentukan Modal Tetap Bruto/The Trend of Gross Fixed Capital Formation 51 3.6 Perkembangan Perubahan Inventori/The Trend of Changes in Inventory
+  - isi hal vii | BAB 3 TINJAUAN PEREKONOMIAN/ECONOMIC REVIEW 39
+  - isi hal ix | DAFTAR ISI/CONTENTS vii DAFTAR TABEL/LIST OF TABLES
+  - isi hal 47 | Page Expenditure
+  + isi hal 51 | 3.5 Perkembangan Pembentukan Modal Tetap Bruto/The Trend of Gross Fixed Capital Formation
+  + isi hal 52 | 3.6 Perkembangan Perubahan Inventori/The Trend of Changes in Inventory
+  + isi hal 39 | BAB 3 TINJAUAN PEREKONOMIAN/ECONOMIC REVIEW
+  + isi hal vii | DAFTAR ISI/CONTENTS
+  + isi hal ix | DAFTAR TABEL/LIST OF TABLES
+  + isi hal 47 | Expenditure
+
+### da13d7219b4fa354e8377a01 6310 
+  - isi hal 6 | 1.3 Perubahan Tahun Dasar Produk Domestik Regional Bruto/ Base year
+  - isi hal 95 | 2.14 Administrasi Pemerintahan, Pertahanan dan Jaminan Sosial Wajib/ Public
+  - isi hal 97 | 2.16 Jasa Kesehatan dan Kegiatan Sosial/ Human Health and Social Work
+  - isi hal 51 | 2.5 Pengadaan Air, Pengelolaan Sampah, Limbah dan Daur Ulang/ Water
+  - isi hal 55 | 2.7 Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor/
+  - isi hal 67 | 2.9 Penyediaan Akomodasi dan Makan Minum/ Accommodation and Food
+  - isi hal 137 | 4.14 Administrasi Pemerintahan, Pertahanan dan Jaminan Sosial Wajib/ Public
+  - isi hal 139 | 4.16 Jasa Kesehatan dan Kegiatan Sosial/ Human Health and Social Work
+  - isi hal 125 | 4.5 Pengadaan Air, Pengelolaan Sampah, Limbah dan Daur Ulang/ Water
+  - isi hal 128 | 4.7 Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor/
+  - isi hal 131 | 4.9 Penyediaan Akomodasi dan Makan Minum/ Accommodation and Food
+  - isi hal 99 | Activities 2.17 Jasa Lainnya/ Other Services Activities
+  - isi hal 140 | Activities 4.17 Jasa Lainnya/ Other Services Activities
+  - isi hal 96 | Administration and Defence, Compulsory Social Security 2.15 Jasa Pendidikan/ Education
+  - isi hal 138 | Administration and Defence, Compulsory Social Security 4.15 Jasa Pendidikan/ Education
+  - isi hal 15 | Change of GRDP ii. RUANG LINGKUP DAN METODE PENGHITUNGAN/ COVERAGE &
+  - isi hal 17 | ESTIMATION 2.1 Pertanian, Kehutanan, dan Perikanan / Agriculture, Forestry And
+  - isi hal 27 | Fishing 2.2 Pertambangan dan Penggalian/ Mining and Quarrying
+  - isi hal 122 | Fishing 4.2 Pertambangan dan Penggalian/ Mining and Quarrying
+  - isi hal 105 | III. TINJAUAN EKONOMI KABUPATEN TANAH BUMBU/ ECONOMIC REVIEW OF
+  - isi hal 117 | IV. PERTUMBUHAN DAN PERANAN PDRB KABUPATEN TANAH BUMBU
+  - isi hal 120 | MENURUT LAPANGAN USAHA/ GROWTH AND SHARE OF GRDP TANAH BUMBU REGENCY BY INDUSTRY 4.1 Pertanian, Kehutanan, dan Perikanan / Agriculture, Forestry And
+  - isi hal 70 | Service Activities 2.10 Informasi dan Komunikasi/ Information and Communication
+  - isi hal 132 | Service Activities 4.10 Informasi dan Komunikasi/ Information and Communication
+  - isi hal 52 | Supply, Sewerage, Waste Management and Remediation Activities 2.6 Konstruksi/ Construction
+  - isi hal 127 | Supply, Sewerage, Waste Management and Remediation Activities 4.6 Konstruksi/ Construction
+  - isi hal 107 | TANAH BUMBU REGENCY 3.1 Struktur Ekonomi/ Economic Structure
+  - isi hal 58 | Wholesale and Retail Trade; Repair of Motor Vehicles and Motorcycles 2.8 Transportasi dan Pergudangan/ Transportation and Storage
+  - isi hal 129 | Wholesale and Retail Trade; Repair of Motor Vehicles and Motorcycles 4.8 Transportasi dan Pergudangan/ Transportation and Warehousing
+  + isi hal 6 | 1.3 Perubahan Tahun Dasar Produk Domestik Regional Bruto/ Base year Change of GRDP
+  + isi hal 70 | 2.10 Informasi dan Komunikasi/ Information and Communication
+  + isi hal 95 | 2.14 Administrasi Pemerintahan, Pertahanan dan Jaminan Sosial Wajib/ Public Administration and Defence, Compulsory Social Security
+  + isi hal 96 | 2.15 Jasa Pendidikan/ Education
+  + isi hal 97 | 2.16 Jasa Kesehatan dan Kegiatan Sosial/ Human Health and Social Work Activities
+  + isi hal 99 | 2.17 Jasa Lainnya/ Other Services Activities
+  + isi hal 27 | 2.2 Pertambangan dan Penggalian/ Mining and Quarrying
+  + isi hal 51 | 2.5 Pengadaan Air, Pengelolaan Sampah, Limbah dan Daur Ulang/ Water Supply, Sewerage, Waste Management and Remediation Activities
+  + isi hal 52 | 2.6 Konstruksi/ Construction
+  + isi hal 55 | 2.7 Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor/ Wholesale and Retail Trade; Repair of Motor Vehicles and Motorcycles
+  + isi hal 58 | 2.8 Transportasi dan Pergudangan/ Transportation and Storage
+  + isi hal 67 | 2.9 Penyediaan Akomodasi dan Makan Minum/ Accommodation and Food Service Activities
+  + isi hal 107 | 3.1 Struktur Ekonomi/ Economic Structure
+  + isi hal 120 | 4.1 Pertanian, Kehutanan, dan Perikanan / Agriculture, Forestry And Fishing
+  + isi hal 132 | 4.10 Informasi dan Komunikasi/ Information and Communication
+  + isi hal 137 | 4.14 Administrasi Pemerintahan, Pertahanan dan Jaminan Sosial Wajib/ Public Administration and Defence, Compulsory Social Security
+  + isi hal 138 | 4.15 Jasa Pendidikan/ Education
+  + isi hal 139 | 4.16 Jasa Kesehatan dan Kegiatan Sosial/ Human Health and Social Work Activities
+  + isi hal 140 | 4.17 Jasa Lainnya/ Other Services Activities
+  + isi hal 122 | 4.2 Pertambangan dan Penggalian/ Mining and Quarrying
+  + isi hal 125 | 4.5 Pengadaan Air, Pengelolaan Sampah, Limbah dan Daur Ulang/ Water Supply, Sewerage, Waste Management and Remediation Activities
+  + isi hal 127 | 4.6 Konstruksi/ Construction
+  + isi hal 128 | 4.7 Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor/ Wholesale and Retail Trade; Repair of Motor Vehicles and Motorcycles
+  + isi hal 129 | 4.8 Transportasi dan Pergudangan/ Transportation and Warehousing
+  + isi hal 131 | 4.9 Penyediaan Akomodasi dan Makan Minum/ Accommodation and Food Service Activities
+  + isi hal 17 | ESTIMATION 2.1 Pertanian, Kehutanan, dan Perikanan / Agriculture, Forestry And Fishing
+  + isi hal 105 | III. TINJAUAN EKONOMI KABUPATEN TANAH BUMBU/ ECONOMIC REVIEW OF TANAH BUMBU REGENCY
+  + isi hal 117 | IV. PERTUMBUHAN DAN PERANAN PDRB KABUPATEN TANAH BUMBU MENURUT LAPANGAN USAHA/ GROWTH AND SHARE OF GRDP TANAH BUMBU REGENCY BY INDUSTRY
+  + isi hal 15 | ii. RUANG LINGKUP DAN METODE PENGHITUNGAN/ COVERAGE &
+
+### dac944b8a053b04bc15fb5a2 6310 
+  - isi hal 52 | 3.5 Perkembangan Pembentukan Modal Tetap Bruto/The Trend of Gross Fixed Capital Formation 51 3.6 Perkembangan Perubahan Inventori/The Trend of Changes in Inventory
+  - isi hal ix | DAFTAR ISI/CONTENTS vii DAFTAR TABEL/LIST OF TABLES
+  - isi hal 42 | Page BAB 3 TINJAUAN PEREKONOMIAN/ECONOMIC REVIEW 39 3.1 Tinjauan PDRB Tanah Bumbu Menurut Pengeluaran/GRDP Overview of Tanah Bumbu by Expen- diture
+  + isi hal 42 | 3.1 Tinjauan PDRB Tanah Bumbu Menurut Pengeluaran/GRDP Overview of Tanah Bumbu by Expen- diture
+  + isi hal 51 | 3.5 Perkembangan Pembentukan Modal Tetap Bruto/The Trend of Gross Fixed Capital Formation
+  + isi hal 52 | 3.6 Perkembangan Perubahan Inventori/The Trend of Changes in Inventory
+  + isi hal 39 | BAB 3 TINJAUAN PEREKONOMIAN/ECONOMIC REVIEW
+  + isi hal vii | DAFTAR ISI/CONTENTS
+  + isi hal ix | DAFTAR TABEL/LIST OF TABLES
+
+### dc342b31a1e2000c0b099c56 6300 
+  UBAH ('gambar', '14.1'): [('Halaman Figure Page Gross Regional Domestic Product at Constant 2010 Prices by Regency/ Municipality in Kalimantan Selatan Province (billion rupiah), 2024 Laju Pertumbuhan Produk Domestik Regional Bruto Atas Dasar Harga Konstan 2010 Menurut Provinsi di Pulau Kalimantan (persen), 2020-2024 Growth Rate of Gross Regional Domestic Products at 2010 Constant Market', '749', '861', 'daftar')] -> [('Gross Regional Domestic Product at Constant 2010 Prices by Regency/ Municipality in Kalimantan Selatan Province (billion rupiah), 2024 Laju Pertumbuhan Produk Domestik Regional Bruto Atas Dasar Harga Konstan 2010 Menurut Provinsi di Pulau Kalimantan (persen), 2020-2024 Growth Rate of Gross Regional Domestic Products at 2010 Constant Market', '749', '861', 'daftar')]
+
+### dcdbf65f65d6bdf5152ddfbf 6307 
+  UBAH ('lampiran', '22') (HALAMAN): [('Relative Standard Error (RSE) Persentase Rumah Tangga Menurut Karakteristik, Kepemilikan, dan Penggunaan Fasilitas Tempat Buang Air Besar Kabupaten Hulu Sungai Tengah, 2025 104 xiv', '', '124', 'keduanya')] -> [('Relative Standard Error (RSE) Persentase Rumah Tangga Menurut Karakteristik, Kepemilikan, dan Penggunaan Fasilitas Tempat Buang Air Besar Kabupaten Hulu Sungai Tengah, 2025 xiv', '104', '124', 'keduanya')]
+  UBAH ('tabel', '5.1') (HALAMAN): [('Persentase Rumah Tangga Menurut Karakteristik dan Status Kepemilikan Bangunan Tempat Tinggal yang Ditempati Kabupaten Hulu Sungai Tengah, 2025 43', '', '63', 'keduanya')] -> [('Persentase Rumah Tangga Menurut Karakteristik dan Status Kepemilikan Bangunan Tempat Tinggal yang Ditempati Kabupaten Hulu Sungai Tengah, 2025', '43', '63', 'keduanya')]
+  - lampiran hal  | Halaman x4
+  - tabel hal  | Halaman x3
+
+### de8f107bdd805e091ea1d27f 6372 kata hilang ['3.8']
+  KUNCI BARU ('tabel', '3.8'): [('Perkembangan Pengeluaran Konsumsi Pemerintah Kota Banjarbaru, 2021–2025/Trend of General Government Final Consumption Expenditure of Banjarbaru Municapility, 2021– 2025', '58', '79', 'daftar')]
+  UBAH ('tabel', '3.7') (HALAMAN): [('Perkembangan Pengeluaran Konsumsi LNPRT Kota Banjarbaru, 2021–2025/Trend of NPISHs Final Consumption Expenditure of Banjarbaru Municapility, 2021–2025 56 Perkembangan Pengeluaran Konsumsi Pemerintah Kota Banjarbaru, 2021–2025/Trend of 3.8 General Government Final Consumption Expenditure of Banjarbaru Municapility, 2021– 2025', '58', '77', 'daftar')] -> [('Perkembangan Pengeluaran Konsumsi LNPRT Kota Banjarbaru, 2021–2025/Trend of NPISHs Final Consumption Expenditure of Banjarbaru Municapility, 2021–2025', '56', '77', 'daftar')]
+  - isi hal 44 | BAB 3 TINJAUAN PEREKONOMIAN/ECONOMIC REVIEW 41 3.1 Tinjauan PDRB Banjarbaru Menurut Pengeluaran/GRDP Overview of Banjarbaru by Expenditure
+  - isi hal ix | DAFTAR ISI/CONTENTS vii DAFTAR TABEL/LIST OF TABLES
+  - isi hal 32 | Page 2.5 Perubahan Inventori/Changes in Inventory
+  + isi hal 32 | 2.5 Perubahan Inventori/Changes in Inventory
+  + isi hal 44 | 3.1 Tinjauan PDRB Banjarbaru Menurut Pengeluaran/GRDP Overview of Banjarbaru by Expenditure
+  + isi hal 41 | BAB 3 TINJAUAN PEREKONOMIAN/ECONOMIC REVIEW
+  + isi hal vii | DAFTAR ISI/CONTENTS
+  + isi hal ix | DAFTAR TABEL/LIST OF TABLES
+
+### dfaa05bf8f556562b3a1a726 6301 
+  - isi hal 17 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama 16 Penduduk Bekerja Menurut Status Formal dan Informal
+  - isi hal 20 | Tingkat Pengangguran Terbuka Menurut Pendidikan 19 Tingkat Ketidakaktifan
+  + isi hal 16 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama
+  + isi hal 17 | Penduduk Bekerja Menurut Status Formal dan Informal
+  + isi hal 20 | Tingkat Ketidakaktifan
+  + isi hal 19 | Tingkat Pengangguran Terbuka Menurut Pendidikan
+
+### e04dba4c42093d3bb74cf62d 6303 
+  UBAH ('gambar', '3.1'): [('Halaman Perbandingan PDRB Menurut Pengeluaran Atas Dasar Harga Berlaku dan Atas Dasar Harga Konstan 2010 Kabupaten Banjar, 2020-2024 (Juta Rupiah)/ Comparison of GRDP by Expenditure at Current Prices and Constant Prices 2010 of Banjar Regency,2 020-2024 (Million Rupiah) 3.2. Pertumbuhan PDRB Menurut Pengeluaran Atas Dasar Harga Konstan Kabupaten Banjar, 2020-2024 (Persen)/', '46', '62', 'keduanya')] -> [('Perbandingan PDRB Menurut Pengeluaran Atas Dasar Harga Berlaku dan Atas Dasar Harga Konstan 2010 Kabupaten Banjar, 2020-2024 (Juta Rupiah)/ Comparison of GRDP by Expenditure at Current Prices and Constant Prices 2010 of Banjar Regency,2 020-2024 (Million Rupiah) 3.2. Pertumbuhan PDRB Menurut Pengeluaran Atas Dasar Harga Konstan Kabupaten Banjar, 2020-2024 (Persen)/', '46', '62', 'keduanya')]
+
+### e08368dddf57a9b37f880b24 6307 
+  - isi hal 16 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama 15 Penduduk Bekerja Menurut Status Formal dan Informal
+  - isi hal 19 | Tingkat Pengangguran Terbuka Menurut Pendidikan 18 Tingkat Ketidakaktifan
+  + isi hal 15 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama
+  + isi hal 16 | Penduduk Bekerja Menurut Status Formal dan Informal
+  + isi hal 19 | Tingkat Ketidakaktifan
+  + isi hal 18 | Tingkat Pengangguran Terbuka Menurut Pendidikan
+
+### e26ef13aab256dec06331dc5 6310 
+  - isi hal 6 | 1.3 Perubahan Tahun Dasar Produk Domestik Regional Bruto/Base year
+  - isi hal 95 | 2.14 Administrasi Pemerintahan, Pertahanan dan Jaminan Sosial Wajib/Public
+  - isi hal 97 | 2.16 Jasa Kesehatan dan Kegiatan Sosial/Human Health and Social Work
+  - isi hal 51 | 2.5 Pengadaan Air, Pengelolaan Sampah, Limbah dan Daur Ulang/Water
+  - isi hal 55 | 2.7 Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda
+  - isi hal 67 | 2.9 Penyediaan Akomodasi dan Makan Minum/Accommodation and Food
+  - isi hal 137 | 4.14 Administrasi Pemerintahan, Pertahanan dan Jaminan Sosial Wajib/Public
+  - isi hal 139 | 4.16 Jasa Kesehatan dan Kegiatan Sosial/Human Health and Social Work
+  - isi hal 126 | 4.5 Pengadaan Air, Pengelolaan Sampah, Limbah dan Daur Ulang/Water
+  - isi hal 128 | 4.7 Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda
+  - isi hal 131 | 4.9 Penyediaan Akomodasi dan Makan Minum/Accommodation and Food
+  - isi hal 99 | Activities 2.17 Jasa Lainnya/Other Services Activities
+  - isi hal 140 | Activities 4.17 Jasa Lainnya/Other Services Activities
+  - isi hal 138 | Administration and Defence, Compulsory Social Security 4.15 Jasa Pendidikan/Education
+  - isi hal vii | Administration and Defence, Compulsory Social Security
+  - isi hal 15 | Change of GRDP II. RUANG LINGKUP DAN METODE PENGHITUNGAN/COVERAGE & ESTIMATION
+  - isi hal 105 | III. TINJAUAN EKONOMI KABUPATEN TANAH BUMBU/ECONOMIC REVIEW OF
+  - isi hal 117 | IV. PERTUMBUHAN DAN PERANAN PDRB KABUPATEN TANAH BUMBU
+  - isi hal 120 | MENURUT LAPANGAN USAHA/GROWTH AND SHARE OF GRDP TANAH BUMBU REGENCY BY INDUSTRY 4.1 Pertanian, Kehutanan, dan Perikanan /Agriculture, Forestry And Fishing
+  - isi hal 58 | Motor/Wholesale and Retail Trade; Repair of Motor Vehicles and Motorcycles 2.8 Transportasi dan Pergudangan/Transportation and Storage
+  - isi hal 130 | Motor/Wholesale and Retail Trade; Repair of Motor Vehicles and Motorcycles 4.8 Transportasi dan Pergudangan/Transportation and Warehousing
+  - isi hal 70 | Service Activities 2.10 Informasi dan Komunikasi/Information and Communication
+  - isi hal 132 | Service Activities 4.10 Informasi dan Komunikasi/Information and Communication
+  - isi hal 52 | Supply, Sewerage, Waste Management and Remediation Activities 2.6 Konstruksi/Construction
+  - isi hal 127 | Supply, Sewerage, Waste Management and Remediation Activities 4.6 Konstruksi/Construction
+  - isi hal 107 | TANAH BUMBU REGENCY 3.1 Struktur Ekonomi/Economic Structure
+  + isi hal 6 | 1.3 Perubahan Tahun Dasar Produk Domestik Regional Bruto/Base year Change of GRDP
+  + isi hal 70 | 2.10 Informasi dan Komunikasi/Information and Communication
+  + isi hal 95 | 2.14 Administrasi Pemerintahan, Pertahanan dan Jaminan Sosial Wajib/Public Administration and Defence, Compulsory Social Security
+  + isi hal 97 | 2.16 Jasa Kesehatan dan Kegiatan Sosial/Human Health and Social Work Activities
+  + isi hal 99 | 2.17 Jasa Lainnya/Other Services Activities
+  + isi hal 51 | 2.5 Pengadaan Air, Pengelolaan Sampah, Limbah dan Daur Ulang/Water Supply, Sewerage, Waste Management and Remediation Activities
+  + isi hal 52 | 2.6 Konstruksi/Construction
+  + isi hal 55 | 2.7 Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor/Wholesale and Retail Trade; Repair of Motor Vehicles and Motorcycles
+  + isi hal 58 | 2.8 Transportasi dan Pergudangan/Transportation and Storage
+  + isi hal 67 | 2.9 Penyediaan Akomodasi dan Makan Minum/Accommodation and Food Service Activities
+  + isi hal 107 | 3.1 Struktur Ekonomi/Economic Structure
+  + isi hal 120 | 4.1 Pertanian, Kehutanan, dan Perikanan /Agriculture, Forestry And Fishing
+  + isi hal 132 | 4.10 Informasi dan Komunikasi/Information and Communication
+  + isi hal 137 | 4.14 Administrasi Pemerintahan, Pertahanan dan Jaminan Sosial Wajib/Public Administration and Defence, Compulsory Social Security
+  + isi hal 138 | 4.15 Jasa Pendidikan/Education
+  + isi hal 139 | 4.16 Jasa Kesehatan dan Kegiatan Sosial/Human Health and Social Work Activities
+  + isi hal 140 | 4.17 Jasa Lainnya/Other Services Activities
+  + isi hal 126 | 4.5 Pengadaan Air, Pengelolaan Sampah, Limbah dan Daur Ulang/Water Supply, Sewerage, Waste Management and Remediation Activities
+  + isi hal 127 | 4.6 Konstruksi/Construction
+  + isi hal 128 | 4.7 Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor/Wholesale and Retail Trade; Repair of Motor Vehicles and Motorcycles
+  + isi hal 130 | 4.8 Transportasi dan Pergudangan/Transportation and Warehousing
+  + isi hal 131 | 4.9 Penyediaan Akomodasi dan Makan Minum/Accommodation and Food Service Activities
+  + isi hal 15 | II. RUANG LINGKUP DAN METODE PENGHITUNGAN/COVERAGE & ESTIMATION
+  + isi hal 105 | III. TINJAUAN EKONOMI KABUPATEN TANAH BUMBU/ECONOMIC REVIEW OF TANAH BUMBU REGENCY
+  + isi hal 117 | IV. PERTUMBUHAN DAN PERANAN PDRB KABUPATEN TANAH BUMBU MENURUT LAPANGAN USAHA/GROWTH AND SHARE OF GRDP TANAH BUMBU REGENCY BY INDUSTRY
+
+### e69babba1d0600778a0dc9d2 6306 kata baru muncul ['33']
+  UBAH ('lampiran', '14') (HALAMAN): [('Relative Standard Error (RSE) Persentase Penduduk Berumur 0–23 Bulan (Baduta) yang Pernah Diberi ASI dan Rata-Rata Lama Pemberian ASI Menurut Karakteristik Kabupaten Hulu Sungai Selatan, 2025 96', '', '', 'daftar')] -> [('Relative Standard Error (RSE) Persentase Penduduk Berumur 0–23 Bulan (Baduta) yang Pernah Diberi ASI dan Rata-Rata Lama Pemberian ASI Menurut Karakteristik Kabupaten Hulu Sungai Selatan, 2025', '96', '', 'daftar')]
+  UBAH ('tabel', '4.4') (HALAMAN): [('Persentase Penduduk Berumur 15 Tahun ke Atas yang Merokok Tembakau selama Sebulan Terakhir Menurut Karakteristik Kabupaten Hulu Sungai Selatan,2025 32', '', '52', 'daftar')] -> [('Persentase Penduduk Berumur 15 Tahun ke Atas yang Merokok Tembakau selama Sebulan Terakhir Menurut Karakteristik Kabupaten Hulu Sungai Selatan,2025', '32', '52', 'daftar')]
+  UBAH ('tabel', '4.5') (HALAMAN): [('Persentase Penduduk Berumur 0 – 59 Bulan (Balita) Menurut Karakteristik dan Jenis Imunisasi yang Pernah Didapatkan Kabupaten Hulu Sungai Selatan, 2025 Jenis Imunisasi Karakteristik Campak- Hepatitis', '', '53', 'keduanya')] -> [('Persentase Penduduk Berumur 0 – 59 Bulan (Balita) Menurut Karakteristik dan Jenis Imunisasi yang Pernah Didapatkan Kabupaten Hulu Sungai Selatan, 2025 Jenis Imunisasi Karakteristik Campak- Hepatitis', '33', '53', 'keduanya')]
+  - lampiran hal  | Halaman x4
+  - tabel hal  | Halaman x3
+
+### e6fbb4695a4733bf098d36b3 6310 kata baru muncul ['102', '93']
+  UBAH ('lampiran', '14') (HALAMAN): [('Relative Standard Error (RSE) Persentase Penduduk Berumur 0–23 Bulan (Baduta) yang Pernah Diberi ASI dan Rata-Rata Lama Pemberian ASI Menurut Karakteristik Kabupaten Tanah Bumbu, 2025 92', '', '113', 'keduanya')] -> [('Relative Standard Error (RSE) Persentase Penduduk Berumur 0–23 Bulan (Baduta) yang Pernah Diberi ASI dan Rata-Rata Lama Pemberian ASI Menurut Karakteristik Kabupaten Tanah Bumbu, 2025', '92', '113', 'keduanya')]
+  UBAH ('lampiran', '15') (HALAMAN): [('Relative Standard Error (RSE) Persentase Perempuan Pernah Kawin Berumur 15–49 Tahun yang Pernah Melahirkan Anak Lahir Hidup (ALH) dalam Dua Tahun Terakhir di Fasilitas Kesehatan Tempat Kelahiran ALH yang Terakhir Menurut Karakteristik Kabupaten Tanah Bumbu, 2025 Karakteristik Melahirkan di Fasilitas Kesehatan', '', '114', 'keduanya')] -> [('Relative Standard Error (RSE) Persentase Perempuan Pernah Kawin Berumur 15–49 Tahun yang Pernah Melahirkan Anak Lahir Hidup (ALH) dalam Dua Tahun Terakhir di Fasilitas Kesehatan Tempat Kelahiran ALH yang Terakhir Menurut Karakteristik Kabupaten Tanah Bumbu, 2025 Karakteristik Melahirkan di Fasilitas Kesehatan', '93', '114', 'keduanya')]
+  UBAH ('lampiran', '18') (HALAMAN): [('Relative Standard Error (RSE) Persentase Rumah Tangga Menurut Karakteristik dan Status Kepemilikan Bangunan Tempat Tinggal yang Ditempati Kabupaten Tanah Bumbu, 2025 96', '', '117', 'keduanya')] -> [('Relative Standard Error (RSE) Persentase Rumah Tangga Menurut Karakteristik dan Status Kepemilikan Bangunan Tempat Tinggal yang Ditempati Kabupaten Tanah Bumbu, 2025', '96', '117', 'keduanya')]
+  UBAH ('lampiran', '22') (HALAMAN): [('Relative Standard Error (RSE) Persentase Rumah Tangga Menurut Karakteristik, Kepemilikan, dan Penggunaan Fasilitas Tempat Buang Air Besar Kabupaten Tanah Bumbu, 2025 100 xiv', '', '121', 'keduanya')] -> [('Relative Standard Error (RSE) Persentase Rumah Tangga Menurut Karakteristik, Kepemilikan, dan Penggunaan Fasilitas Tempat Buang Air Besar Kabupaten Tanah Bumbu, 2025 xiv', '100', '121', 'keduanya')]
+  UBAH ('lampiran', '24') (HALAMAN): [('Relative Standard Error (RSE) Persentase Rumah Tangga yang Memiliki Fasilitas Tempat Buang Air Besar dengan Penggunaan Sendiri, Bersama Rumah Tangga Tertentu, atau di MCK Komunal Menurut Karakteristik dan Tempat Pembuangan Akhir Tinja Kabupaten Tanah Bumbu, 2025 Karakteristik Tangki Septik, IPAL Lainnya 1', '', '123', 'keduanya')] -> [('Relative Standard Error (RSE) Persentase Rumah Tangga yang Memiliki Fasilitas Tempat Buang Air Besar dengan Penggunaan Sendiri, Bersama Rumah Tangga Tertentu, atau di MCK Komunal Menurut Karakteristik dan Tempat Pembuangan Akhir Tinja Kabupaten Tanah Bumbu, 2025 Karakteristik Tangki Septik, IPAL Lainnya 1', '102', '123', 'keduanya')]
+  UBAH ('tabel', '4.1') (HALAMAN): [('Angka Kesakitan Menurut Karakteristik Kabupaten Tanah Bumbu, 2025 29', '', '49', 'keduanya')] -> [('Angka Kesakitan Menurut Karakteristik Kabupaten Tanah Bumbu, 2025', '29', '49', 'keduanya')]
+  UBAH ('tabel', '5.1') (HALAMAN): [('Persentase Rumah Tangga Menurut Karakteristik dan Status Kepemilikan Bangunan Tempat Tinggal yang Ditempati Kabupaten Tanah Bumbu, 2025 43', '', '63', 'keduanya')] -> [('Persentase Rumah Tangga Menurut Karakteristik dan Status Kepemilikan Bangunan Tempat Tinggal yang Ditempati Kabupaten Tanah Bumbu, 2025', '43', '63', 'keduanya')]
+  - lampiran hal  | Halaman x4
+  - tabel hal  | Halaman x3
+
+### e78fe914f8766a7a09000a47 6300 
+  - gambar hal  | Halaman
+  - lampiran hal  | Halaman
+
+### e853261af9196407df620ebd 6303 
+  UBAH ('lampiran', '1'): [('Halaman Appendices Pages Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '143', '', 'daftar')] -> [('Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '143', '', 'daftar')]
+
+### e85a707c24084a135ef8cd8b 6307 
+  - isi hal 13 | Indikator Ketenagakerjaan 12 Tingkat Partisipasi Angkatan Kerja (TPAK)
+  - isi hal 20 | Tingkat Pengangguran Terbuka Menurut Pendidikan 19 Tingkat Ketidakaktifan
+  + isi hal 12 | Indikator Ketenagakerjaan
+  + isi hal 20 | Tingkat Ketidakaktifan
+  + isi hal 13 | Tingkat Partisipasi Angkatan Kerja (TPAK)
+  + isi hal 19 | Tingkat Pengangguran Terbuka Menurut Pendidikan
+
+### ec37d7d7c8401b4d238378ba 6306 
+  - isi hal 53 | 3.5 Perkembangan Pembentukan Modal Tetap Bruto/The Trend of Gross Fixed Capital Formation 52 3.6 Perkembangan Perubahan Inventori/The Trend of Changes in Inventory
+  - isi hal ix | DAFTAR ISI/CONTENTS vii DAFTAR TABEL/LIST OF TABLES
+  - isi hal 42 | Page BAB 3 TINJAUAN PEREKONOMIAN/ECONOMIC REVIEW 39 3.1 Tinjauan PDRB Kabupaten Hulu Sungai Selatan Menurut Pengeluaran/GRDP Overview of Hulu Sungai Selatan Regency by Expenditure
+  + isi hal 42 | 3.1 Tinjauan PDRB Kabupaten Hulu Sungai Selatan Menurut Pengeluaran/GRDP Overview of Hulu Sungai Selatan Regency by Expenditure
+  + isi hal 52 | 3.5 Perkembangan Pembentukan Modal Tetap Bruto/The Trend of Gross Fixed Capital Formation
+  + isi hal 53 | 3.6 Perkembangan Perubahan Inventori/The Trend of Changes in Inventory
+  + isi hal 39 | BAB 3 TINJAUAN PEREKONOMIAN/ECONOMIC REVIEW
+  + isi hal vii | DAFTAR ISI/CONTENTS
+  + isi hal ix | DAFTAR TABEL/LIST OF TABLES
+
+### ec41153f14ebc61ee37df69f 6311 
+  - tabel hal  | Halaman Table Page xxiv
+
+### ed0a6c8b8c8d1029c28af41c 6309 
+  UBAH ('lampiran', '1'): [('Halaman Appendices Pages Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '143', '26', 'keduanya')] -> [('Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '143', '26', 'keduanya')]
+
+### eddeab6825dc2b31fa0301a7 6305 kata baru muncul ['104']
+  UBAH ('lampiran', '22') (HALAMAN): [('Relative Standard Error (RSE) Persentase Rumah Tangga Menurut Karakteristik, Kepemilikan, dan Penggunaan Fasilitas Tempat Buang Air Besar Kabupaten Tapin, 2025 Ada Fasilitas, Karakteristik Lainnya 1 Digunakan Sendiri', '', '125', 'keduanya')] -> [('Relative Standard Error (RSE) Persentase Rumah Tangga Menurut Karakteristik, Kepemilikan, dan Penggunaan Fasilitas Tempat Buang Air Besar Kabupaten Tapin, 2025 Ada Fasilitas, Karakteristik Lainnya 1 Digunakan Sendiri', '104', '125', 'keduanya')]
+  UBAH ('tabel', '5.1') (HALAMAN): [('Persentase Rumah Tangga Menurut Karakteristik dan Status Kepemilikan Bangunan Tempat Tinggal yang Ditempati Kabupaten Tapin, 2025 43', '', '64', 'keduanya')] -> [('Persentase Rumah Tangga Menurut Karakteristik dan Status Kepemilikan Bangunan Tempat Tinggal yang Ditempati Kabupaten Tapin, 2025', '43', '64', 'keduanya')]
+  UBAH ('tabel', '5.6') (HALAMAN): [('Persentase Rumah Tangga yang Memiliki Fasilitas Tempat Buang Air Besar dengan Penggunaan Sendiri, Bersama Rumah Tangga Tertentu, atau di MCK Komunal Menurut Karakteristik dan Jenis Kloset yang Digunakan Kabupaten Tapin, 2025 48', '', '69', 'keduanya')] -> [('Persentase Rumah Tangga yang Memiliki Fasilitas Tempat Buang Air Besar dengan Penggunaan Sendiri, Bersama Rumah Tangga Tertentu, atau di MCK Komunal Menurut Karakteristik dan Jenis Kloset yang Digunakan Kabupaten Tapin, 2025', '48', '69', 'keduanya')]
+  - lampiran hal  | Halaman x4
+  - tabel hal  | Halaman x3
+
+### eeb1b8bf1e9f6becfbeaa828 6311 
+  KUNCI BARU ('lampiran', '6'): [('Laju Pertumbuhan Produk Domestik Regional Bruto Atas Dasar Harga Konstan (2010=100) Kabupaten Balangan (persen), 2021–2025/Growth of Gross Regional Domestic Product at Constant Prices of Balangan Regency (percent), 2021–2025', '78', '96', 'daftar')]
+  UBAH ('lampiran', '5') (HALAMAN): [('Laju Pertumbuhan Produk Domestik Regional Bruto Atas Dasar Harga Berlaku Kabupaten Balangan (persen), 2021–2025/Growth of Gross Regional Domestic Product at Current Prices of Balangan Regency (percent), 2021–2025 77 Laju Pertumbuhan Produk Domestik Regional Bruto Atas Dasar Harga Konstan (2010=100) 6 Kabupaten Balangan (persen), 2021–2025/Growth of Gross Regional Domestic Product at Constant Prices of Balangan Regency (percent), 2021–2025', '78', '95', 'daftar')] -> [('Laju Pertumbuhan Produk Domestik Regional Bruto Atas Dasar Harga Berlaku Kabupaten Balangan (persen), 2021–2025/Growth of Gross Regional Domestic Product at Current Prices of Balangan Regency (percent), 2021–2025', '77', '95', 'daftar')]
+  - isi hal vii | 2.6 Ekspor dan Impor/Export and Import 35
+  - isi hal 54 | 3.5 Perkembangan Pembentukan Modal Tetap Bruto/The Trend of Gross Fixed Capital Formation 53 3.6 Perkembangan Perubahan Inventori/The Trend of Changes in Inventory
+  - isi hal ix | DAFTAR ISI/CONTENTS vii DAFTAR TABEL/LIST OF TABLES
+  - isi hal 42 | Page BAB 3 TINJAUAN PEREKONOMIAN/ECONOMIC REVIEW 39 3.1 Tinjauan PDRB Kabupaten Balangan Menurut Pengeluaran/GRDP Overview of Balangan Regency by Expenditure
+  + isi hal 35 | 2.6 Ekspor dan Impor/Export and Import
+  + isi hal 42 | 3.1 Tinjauan PDRB Kabupaten Balangan Menurut Pengeluaran/GRDP Overview of Balangan Regency by Expenditure
+  + isi hal 53 | 3.5 Perkembangan Pembentukan Modal Tetap Bruto/The Trend of Gross Fixed Capital Formation
+  + isi hal 54 | 3.6 Perkembangan Perubahan Inventori/The Trend of Changes in Inventory
+  + isi hal 39 | BAB 3 TINJAUAN PEREKONOMIAN/ECONOMIC REVIEW
+  + isi hal vii | DAFTAR ISI/CONTENTS
+  + isi hal ix | DAFTAR TABEL/LIST OF TABLES
+
+### f0903c0d2559a78eb8f633eb 6309 
+  - lampiran hal 207 | Halaman Appendices Pages 1 Kesalahan Baku Relatif Angkatan Kerja Agustus 2025 Relative Standard Error Labour Force, August 2025 2 Kuesioner Sakernas Agustus 2025 Sakernas Questionnaire, August 2025 210 xxxv
+  - tabel hal 164 | Halaman Tables Pages 137 Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Perempuan, Agustus 2025 Population 15 Years of Age and Over by Age Group, Unemployment, and Part Time Unemployment Category for Female, August 2025 xxxiii
+  + lampiran hal 207 | 1 Kesalahan Baku Relatif Angkatan Kerja Agustus 2025 Relative Standard Error Labour Force, August 2025 2 Kuesioner Sakernas Agustus 2025 Sakernas Questionnaire, August 2025 210 xxxv
+  + tabel hal 164 | 137 Penduduk Berumur 15 Tahun ke Atas Menurut Kelompok Umur, Pengangguran, dan Kategori Pekerja Tidak Penuh pada Perempuan, Agustus 2025 Population 15 Years of Age and Over by Age Group, Unemployment, and Part Time Unemployment Category for Female, August 2025 xxxiii
+
+### f11b837fbb40e656df4f77a2 6300 kata hilang ['3.9']
+  KUNCI BARU ('lampiran', '2'): [('Produk Domestik Regional Bruto Atas Dasar Harga Konstan (2010=100) Provinsi Kalimantan Selatan (miliar rupiah), 2021–2025/Gross Regional Domestic Product at Constant Prices of Kalimantan Selatan Province (billion rupiah), 2021–2025', '114', '128', 'daftar')]
+  KUNCI BARU ('tabel', '3.9'): [('Pertumbuhan Implisit (Indeks Harga) Pengeluaran Konsumsi Akhir Rumah Tangga Kalimantan Selatan (Persen), 2021–2025/Growth of Implicit Price Indices of Households Final Consumption Expenditure of Kalimantan Selatan Province (percent), 2021–2025', '55', '68', 'daftar')]
+  UBAH ('lampiran', '1') (HALAMAN): [('Produk Domestik Regional Bruto Atas Dasar Harga Berlaku Provinsi Kalimantan Selatan (miliar rupiah), 2021–2025/Gross Regional Domestic Product at Current Prices of Kalimantan Selatan Province (billion rupiah), 2021–2025 113 Produk Domestik Regional Bruto Atas Dasar Harga Konstan (2010=100) Provinsi 2 Kalimantan Selatan (miliar rupiah), 2021–2025/Gross Regional Domestic Product at Constant Prices of Kalimantan Selatan Province (billion rupiah), 2021–2025', '114', '127', 'daftar')] -> [('Produk Domestik Regional Bruto Atas Dasar Harga Berlaku Provinsi Kalimantan Selatan (miliar rupiah), 2021–2025/Gross Regional Domestic Product at Current Prices of Kalimantan Selatan Province (billion rupiah), 2021–2025', '113', '127', 'daftar')]
+  UBAH ('tabel', '3.8') (HALAMAN): [('Pertumbuhan Riil Konsumsi Akhir Rumah Tangga Provinsi Kalimantan Selatan (persen), 2021–2025/Real Growth of Household Final Consumption Expenditure of Kalimantan Selatan Province (percent), 2021–2025 53 Pertumbuhan Implisit (Indeks Harga) Pengeluaran Konsumsi Akhir Rumah Tangga 3.9 Kalimantan Selatan (Persen), 2021–2025/Growth of Implicit Price Indices of Households Final Consumption Expenditure of Kalimantan Selatan Province (percent), 2021–2025', '55', '67', 'daftar')] -> [('Pertumbuhan Riil Konsumsi Akhir Rumah Tangga Provinsi Kalimantan Selatan (persen), 2021–2025/Real Growth of Household Final Consumption Expenditure of Kalimantan Selatan Province (percent), 2021–2025', '53', '67', 'daftar')]
+  - isi hal vii | 2.3 Pengeluaran Konsumsi Akhir Pemerintah/Government Final Consumption Expenditure 21
+  - isi hal ix | DAFTAR ISI/CONTENTS vii DAFTAR TABEL/LIST OF TABLES
+  - isi hal 42 | Page BAB 3 TINJAUAN PEREKONOMIAN/ECONOMIC REVIEW 39 3.1 Tinjauan PDRB Kalimantan Selatan Menurut Pengeluaran/Overview GRDP of Kalimantan Selatan by Expenditure
+  + isi hal 21 | 2.3 Pengeluaran Konsumsi Akhir Pemerintah/Government Final Consumption Expenditure
+  + isi hal 42 | 3.1 Tinjauan PDRB Kalimantan Selatan Menurut Pengeluaran/Overview GRDP of Kalimantan Selatan by Expenditure
+  + isi hal 39 | BAB 3 TINJAUAN PEREKONOMIAN/ECONOMIC REVIEW
+  + isi hal vii | DAFTAR ISI/CONTENTS
+  + isi hal ix | DAFTAR TABEL/LIST OF TABLES
+
+### f323cb1da8d4565e9bdb397a 6310 
+  - isi hal 20 | Tingkat Pengangguran Terbuka menurut Pendidikan 19 Tingkat Ketidakaktifan
+  + isi hal 20 | Tingkat Ketidakaktifan
+  + isi hal 19 | Tingkat Pengangguran Terbuka menurut Pendidikan
+
+### f338cd99104699dbbd49256a 6305 
+  UBAH ('tabel', '4.2'): [('Halaman Table Page Perbandingan Pengeluaran Konsumsi Rumah Tangga Terhadap PMTB Kabupaten Tapin; 2021-2025 Ratio of Household Final Consumption Expenditure to GFCF of Tapin Regency; 2021-2025. Proporsi Total Pengeluaran Konsumsi Terhadap PDRB Kabupaten Tapin, 2021-2025/Share 4.3', '67', '79', 'daftar')] -> [('Perbandingan Pengeluaran Konsumsi Rumah Tangga Terhadap PMTB Kabupaten Tapin; 2021-2025 Ratio of Household Final Consumption Expenditure to GFCF of Tapin Regency; 2021-2025. Proporsi Total Pengeluaran Konsumsi Terhadap PDRB Kabupaten Tapin, 2021-2025/Share 4.3', '67', '79', 'daftar')]
+  - isi hal 38 | Page BAB 3 TINJAUAN PEREKONOMIAN/ ECONOMIC REVIEW
+  - isi hal vii | Produk Domestik Regional Bruto Kabupaten Tapin Menurut Pengeluaran Gross Regional Domestic Product of Tapin Regency by Expenditure 2021-2025 Volume 14,2026 9 Halaman Page KATA PENGANTAR/ PREFACE_ DAFTAR ISI/ CONTENTS
+  - lampiran hal 81 | Halaman Appendix Page Produk Domestik Regional Bruto Atas Dasar Harga Berlaku Kabupaten Tapin (miliar rupiah) 2021-2025/ Gross Regional Domestic Product at Current Prices of Tapin Regency (billion rupiah) 2021-2025. Produk Domestik Regional Bruto Atas Dasar Harga Konstan (2010-100) Kabupaten Tapin (miliar rupiah) 2021-2025/Gross Regional Domestic Product at Constant Prices of Tapin Regency (billion rupiah), 2021-2025. 82
+  + isi hal 38 | BAB 3 TINJAUAN PEREKONOMIAN/ ECONOMIC REVIEW
+  + isi hal vii | Produk Domestik Regional Bruto Kabupaten Tapin Menurut Pengeluaran Gross Regional Domestic Product of Tapin Regency by Expenditure 2021-2025 Volume 14,2026 9 Halaman KATA PENGANTAR/ PREFACE_ DAFTAR ISI/ CONTENTS
+  + lampiran hal 81 | Produk Domestik Regional Bruto Atas Dasar Harga Berlaku Kabupaten Tapin (miliar rupiah) 2021-2025/ Gross Regional Domestic Product at Current Prices of Tapin Regency (billion rupiah) 2021-2025. Produk Domestik Regional Bruto Atas Dasar Harga Konstan (2010-100) Kabupaten Tapin (miliar rupiah) 2021-2025/Gross Regional Domestic Product at Constant Prices of Tapin Regency (billion rupiah), 2021-2025. 82
+
+### f54bec3dbe9eb5d3115ab973 6309 
+  - isi hal 41 | BAB 3 TINJAUAN PEREKONOMIAN/ECONOMIC REVIEW 39 3.1 Tinjauan PDRB Tabalong Menurut Pengeluaran/GRDP Overview of Tabalong by Expenditure
+  - isi hal ix | DAFTAR ISI/CONTENTS vii DAFTAR TABEL/LIST OF TABLES
+  - isi hal 48 | Page 3.2 Perkembangan Pengeluaran Konsumsi Rumah Tangga/The Trend of Household Final Consump- tion Expenditure
+  + isi hal 41 | 3.1 Tinjauan PDRB Tabalong Menurut Pengeluaran/GRDP Overview of Tabalong by Expenditure
+  + isi hal 48 | 3.2 Perkembangan Pengeluaran Konsumsi Rumah Tangga/The Trend of Household Final Consump- tion Expenditure
+  + isi hal 39 | BAB 3 TINJAUAN PEREKONOMIAN/ECONOMIC REVIEW
+  + isi hal vii | DAFTAR ISI/CONTENTS
+  + isi hal ix | DAFTAR TABEL/LIST OF TABLES
+
+### f85ba47fd8fc6973b0e6303a 6303 
+  UBAH ('gambar', '3.1'): [('Halaman Perbandingan PDRB Menurut Pengeluaran Atas Dasar Harga Berlaku dan Atas Dasar Harga Konstan 2010 Kabupaten Banjar, 2020-2024 (Juta Rupiah)/ Comparison of GRDP by Expenditure at Current Prices and Constant Prices 2010 of Banjar Regency,2 020-2024 (Million Rupiah) 3.2. Pertumbuhan PDRB Menurut Pengeluaran Atas Dasar Harga Konstan Kabupaten Banjar, 2020-2024 (Persen)/', '46', '62', 'keduanya')] -> [('Perbandingan PDRB Menurut Pengeluaran Atas Dasar Harga Berlaku dan Atas Dasar Harga Konstan 2010 Kabupaten Banjar, 2020-2024 (Juta Rupiah)/ Comparison of GRDP by Expenditure at Current Prices and Constant Prices 2010 of Banjar Regency,2 020-2024 (Million Rupiah) 3.2. Pertumbuhan PDRB Menurut Pengeluaran Atas Dasar Harga Konstan Kabupaten Banjar, 2020-2024 (Persen)/', '46', '62', 'keduanya')]
+
+### f88065c953567eebc6dfd181 6308 
+  UBAH ('lampiran', '1'): [('Halaman Appendices Pages Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '143', '', 'daftar')] -> [('Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '143', '', 'daftar')]
+
+### f8a45b5037811da36c4ec86e 6372 
+  UBAH ('lampiran', '1'): [('Halaman Appendices Pages Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '135', '', 'daftar')] -> [('Realisasi Cakupan Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) Menurut Kecamatan1 Realisation of the Coverage of Village Development Data Update 2025 (Village Potential 2025) by District1 Kuesioner Pemutakhiran Data Perkembangan Desa 2025 (Potensi Desa 2025) 2', '135', '26', 'daftar')]
+
+### fd585db02c55711f890b5a61 6303 
+  - tabel hal  | Halaman Table Page xli
+
+### ff0ff482f84e322c69615f75 6300 
+  - gambar hal  | Halaman
+  - lampiran hal  | Halaman
+  - tabel hal  | Halaman
+
+### ffe587bf34a60a325909d460 6300 
+  - isi hal 15 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama 14 Penduduk Bekerja Menurut Jumlah Jam Kerja
+  - isi hal 20 | Tingkat Pengangguran Terbuka Menurut Pendidikan 19 Setengah Pengangguran
+  + isi hal 15 | Penduduk Bekerja Menurut Jumlah Jam Kerja
+  + isi hal 14 | Penduduk Bekerja Menurut Lapangan Pekerjaan Utama
+  + isi hal 20 | Setengah Pengangguran
+  + isi hal 19 | Tingkat Pengangguran Terbuka Menurut Pendidikan

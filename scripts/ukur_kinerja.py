@@ -11,7 +11,10 @@ yang sedang berjalan di laptop. Panggilan pertama dibuang sebagai pemanasan
 (memuat kamus dan cache stemmer).
 
 Waktu dipecah dua supaya kelihatan bagian mana yang membesar:
-  - ambil korpus : query SELECT seluruh entri dari MySQL
+  - ambil korpus : query SELECT seluruh entri dari MySQL. Sejak 10 Nov 2026
+                   korpus disimpan di memori (mesin_pencari.korpus()), jadi
+                   biaya ini hanya terjadi saat korpus dimuat ulang sesudah
+                   data berubah, tidak lagi di setiap pencarian
   - total cari() : ambil korpus + normalisasi + skor + urutkan
 
 Hasil ditulis ke data/ukur_kinerja/<tanggal>-<label>.json. Jalankan dengan
@@ -19,6 +22,9 @@ label berbeda sebelum dan sesudah revisi, lalu bandingkan kedua berkasnya.
 
 TIDAK menulis ke log_pencarian (memanggil cari() langsung, bukan lewat
 halaman /hasil), jadi log kueri petugas tidak tercemar kueri uji.
+
+--db-uji mengukur database uji (KonfigurasiUji); tanpa itu, produksi (hanya
+dibaca).
 
 Jalankan:  venv/Scripts/python.exe scripts/ukur_kinerja.py --label sebelum
            venv/Scripts/python.exe scripts/ukur_kinerja.py --label sesudah --ulang 30
@@ -40,7 +46,7 @@ import sqlalchemy as sa
 
 from app import create_app
 from app.models import EntriDokumen, Publikasi, db
-from app.services import mesin_pencari
+from app.services import mesin_pencari, pencarian_wilayah
 from app.services.mesin_pencari import cari
 
 DIR_HASIL = os.path.join(DIR_PROYEK, "data", "ukur_kinerja")
@@ -62,6 +68,23 @@ KUERI = [
     "jumlah penduduk menurut kecamatan",
     "penduduk tanah laut",
     "luas panen padi kotabaru",
+]
+
+# Filter wilayah (10 Nov 2026): diukur lewat pencarian_wilayah.cari(), jalur
+# yang sama dengan halaman /hasil (deteksi wilayah + kueri tanpa kata wilayah
+# + bagian "Juga ada di publikasi provinsi"). Daftar terpisah supaya KUERI di
+# atas tetap sama untuk perbandingan lama.
+#   (kueri, w)   w kosong = Semua wilayah (deteksi otomatis bekerja)
+KUERI_WILAYAH = [
+    ("penduduk tanah laut", ""),          # otomatis, nama lengkap
+    ("penduduk miskin tala", ""),         # otomatis, singkatan
+    ("luas panen padi kotabaru", ""),
+    ("inflasi bjm", ""),
+    ("tanah laut", ""),                   # nama wilayah saja
+    ("penduduk", "6301"),                 # dropdown dipilih petugas
+    ("jumlah penduduk menurut kecamatan", "6371"),   # domain kab/kota terbesar
+    ("banyaknya akomodasi kabupaten kota", "6372"),
+    ("population by regency", "6300"),    # provinsi saja
 ]
 
 
@@ -92,9 +115,10 @@ def ukuran_berkas():
     json_ = {n: os.path.getsize(os.path.join(data, n))
              for n in sorted(os.listdir(data)) if n.endswith(".json")}
     dir_pdf = os.path.join(data, "publikasi_pdf")
-    pdf = [os.path.getsize(os.path.join(dir_pdf, n))
-           for n in os.listdir(dir_pdf) if n.lower().endswith(".pdf")] \
-        if os.path.isdir(dir_pdf) else []
+    # os.walk: PDF tersimpan per domain di subfolder.
+    pdf = [os.path.getsize(os.path.join(akar, n))
+           for akar, _, nama in os.walk(dir_pdf)
+           for n in nama if n.lower().endswith(".pdf")]
     return {
         "json_bytes": json_,
         "json_total_bytes": sum(json_.values()),
@@ -131,12 +155,19 @@ def main():
     arg = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     arg.add_argument("--label", default="ukur",
                      help="Penanda pengukuran, misalnya 'sebelum' atau 'sesudah'.")
+    arg.add_argument("--db-uji", action="store_true",
+                     help="Ukur database UJI (KonfigurasiUji), bukan produksi.")
     arg.add_argument("--ulang", type=int, default=20,
                      help="Berapa kali tiap kueri dijalankan (default 20).")
     opsi = arg.parse_args()
 
-    app = create_app()
+    if opsi.db_uji:
+        from app.config import KonfigurasiUji
+        app = create_app(KonfigurasiUji)
+    else:
+        app = create_app()
     with app.app_context():
+        print(f"Database  : {db.engine.url.database}")
         n_pub = Publikasi.query.count()
         n_entri = EntriDokumen.query.count()
 
@@ -171,6 +202,29 @@ def main():
               f"{statistics.mean(semua_p95):>7.0f}ms")
         print(f"{'TERLAMBAT':<38}{max(semua_median):>7.0f}ms{max(semua_p95):>7.0f}ms")
 
+        print()
+        print(f"{'dengan filter wilayah (kueri | w)':<38}{'median':>9}{'p95':>9}{'filter':>8}{'hasil':>7}")
+        print("-" * 72)
+        per_kueri_wilayah = []
+        for k, w in KUERI_WILAYAH:
+            hasil = pencarian_wilayah.cari(k, w=w)
+            r = ringkas(ukur(lambda k=k, w=w: pencarian_wilayah.cari(k, w=w), opsi.ulang))
+            r.update(kueri=k, w=w, filter=hasil["filter"]["kode"],
+                     sumber_filter=hasil["filter"]["sumber"],
+                     dinilai=hasil["jumlah_dinilai"],
+                     hasil=len(hasil["ditemukan"]) + len(hasil["saran"]),
+                     provinsi=len(hasil["provinsi"]),
+                     publikasi=len(hasil["publikasi"]))
+            per_kueri_wilayah.append(r)
+            label = f"{k} | {w or 'semua'}"
+            print(f"{label[:37]:<38}{r['median_ms']:>7.0f}ms{r['p95_ms']:>7.0f}ms"
+                  f"{r['filter'] or '-':>8}{r['hasil']:>7}")
+        print("-" * 72)
+        print(f"{'TERLAMBAT (filter wilayah)':<38}"
+              f"{max(r['median_ms'] for r in per_kueri_wilayah):>7.0f}ms"
+              f"{max(r['p95_ms'] for r in per_kueri_wilayah):>7.0f}ms")
+        print()
+
         berkas = ukuran_berkas()
         tabel = ukuran_tabel()
 
@@ -188,6 +242,7 @@ def main():
     sekarang = datetime.now()
     keluaran = {
         "label": opsi.label,
+        "database": "uji" if opsi.db_uji else "produksi",
         "diukur_pada": sekarang.isoformat(timespec="seconds"),
         "lingkungan": {
             "komputer": platform.node(),
@@ -199,6 +254,7 @@ def main():
         "ulang": opsi.ulang,
         "ambil_korpus": korpus,
         "per_kueri": per_kueri,
+        "per_kueri_wilayah": per_kueri_wilayah,
         "rata_rata_median_ms": round(statistics.mean(semua_median), 1),
         "rata_rata_p95_ms": round(statistics.mean(semua_p95), 1),
         "berkas": berkas,

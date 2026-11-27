@@ -1,0 +1,151 @@
+{
+ "log_awal": [
+  67,
+  74
+ ],
+ "js_1280": {
+  "alamat_tiba": "/hasil?q=penduduk&w=6301&kec=1",
+  "alamat_awal": "/hasil?q=penduduk&w=6301&kec=1",
+  "isi_sama": true,
+  "panjang_isi": 22564,
+  "gulir_sebelum": 2400,
+  "gulir_sesudah": 2400,
+  "penanda": true,
+  "log_cari": 1,
+  "log_kembali": 0,
+  "url_login": "/admin/login?next=/admin/?dari%3D/hasil?q%253Dpenduduk%2526w%253D6301%2526kec%253D1",
+  "url_beranda": "/admin/?dari=/hasil?q%3Dpenduduk%26w%3D6301%26kec%3D1",
+  "url_kamus": "/admin/kamus",
+  "href_kembali": "/kembali",
+  "kartu": [
+   {
+    "judul": "Kamus Sinonim",
+    "x": 215,
+    "atas": 147,
+    "tinggi": 153,
+    "lebar": 200,
+    "h2": 19,
+    "angka": 48,
+    "ket": 95,
+    "tinggi_h2": 23
+   },
+   {
+    "judul": "Log Pencarian",
+    "x": 429,
+    "atas": 147,
+    "tinggi": 153,
+    "lebar": 200,
+    "h2": 19,
+    "angka": 48,
+    "ket": 95,
+    "tinggi_h2": 23
+   },
+   {
+    "judul": "Perbarui Data",
+    "x": 642,
+    "atas": 147,
+    "tinggi": 153,
+    "lebar": 200,
+    "h2": 19,
+    "angka": 48,
+    "ket": 95,
+    "tinggi_h2": 23
+   },
+   {
+    "judul": "Ganti Kata Sandi",
+    "x": 856,
+    "atas": 147,
+    "tinggi": 153,
+    "lebar": 200,
+    "h2": 19,
+    "angka": 48,
+    "ket": 95,
+    "tinggi_h2": 23
+   }
+  ],
+  "log_judul": [
+   "Log Pencarian",
+   "Log Pencarian — Admin"
+  ]
+ },
+ "js_375": {
+  "alamat_tiba": "/hasil?q=penduduk&w=6301&kec=1",
+  "alamat_awal": "/hasil?q=penduduk&w=6301&kec=1",
+  "isi_sama": true,
+  "panjang_isi": 22564,
+  "gulir_sebelum": 2400,
+  "gulir_sesudah": 2400,
+  "penanda": true,
+  "log_cari": 1,
+  "log_kembali": 0,
+  "url_login": "/admin/login?next=/admin/?dari%3D/hasil?q%253Dpenduduk%2526w%253D6301%2526kec%253D1",
+  "url_beranda": "/admin/?dari=/hasil?q%3Dpenduduk%26w%3D6301%26kec%3D1",
+  "url_kamus": "/admin/kamus",
+  "href_kembali": "/kembali",
+  "kartu": [
+   {
+    "judul": "Kamus Sinonim",
+    "x": 14,
+    "atas": 143,
+    "tinggi": 133,
+    "lebar": 285,
+    "h2": 19,
+    "angka": 48,
+    "ket": 95,
+    "tinggi_h2": 23
+   },
+   {
+    "judul": "Log Pencarian",
+    "x": 14,
+    "atas": 290,
+    "tinggi": 133,
+    "lebar": 285,
+    "h2": 19,
+    "angka": 48,
+    "ket": 95,
+    "tinggi_h2": 23
+   },
+   {
+    "judul": "Perbarui Data",
+    "x": 14,
+    "atas": 437,
+    "tinggi": 133,
+    "lebar": 285,
+    "h2": 19,
+    "angka": 48,
+    "ket": 95,
+    "tinggi_h2": 23
+   },
+   {
+    "judul": "Ganti Kata Sandi",
+    "x": 14,
+    "atas": 584,
+    "tinggi": 133,
+    "lebar": 285,
+    "h2": 19,
+    "angka": 48,
+    "ket": 95,
+    "tinggi_h2": 23
+   }
+  ],
+  "log_judul": [
+   "Log Pencarian",
+   "Log Pencarian — Admin"
+  ]
+ },
+ "tanpa_kec": {
+  "alamat_tiba": "/hasil?q=jumlah+penduduk",
+  "gulir_sebelum": 1500,
+  "gulir_sesudah": 1500,
+  "info": "Ada 1.231 bagian lain dari publikasi Kecamatan Dalam Angka (rincian per desa).\n  Tampilkan"
+ },
+ "tanpa_js": {
+  "alamat_tiba": "/hasil?q=penduduk&w=6301&kec=1",
+  "log_cari": 1,
+  "log_kembali": 0
+ },
+ "log_akhir": [
+  67,
+  74
+ ]
+}

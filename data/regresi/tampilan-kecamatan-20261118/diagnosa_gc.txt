@@ -1,0 +1,6 @@
+normal  salinan  entri 24532 + kec 0: rata-rata median  120.5 ms
+normal  uji      entri 24500 + kec 19955: rata-rata median  123.3 ms
+mati    salinan  entri 24532 + kec 0: rata-rata median  121.7 ms
+mati    uji      entri 24500 + kec 19955: rata-rata median  122.5 ms
+freeze  salinan  entri 24532 + kec 0: rata-rata median  122.5 ms
+freeze  uji      entri 24500 + kec 19955: rata-rata median  122.0 ms

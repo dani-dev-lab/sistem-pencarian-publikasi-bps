@@ -1,0 +1,149 @@
+3726 entri; sampel 25, seed 20261124
+====================================================================================================
+#1 id 340787 | 096c06d8 Statistik Potensi Desa Kabupaten Tanah Laut 2024
+   isi | nomor None | hal 'xxv' | fisik None | daftar
+   judul: Penjelasan Teknis Pendataan Potensi Desa 2024/Technical Notes of Village Potential Census 2024
+====================================================================================================
+#2 id 340797 | 096c06d8 Statistik Potensi Desa Kabupaten Tanah Laut 2024
+   isi | nomor None | hal '119' | fisik 149 | daftar
+   judul: BAB 10 Keuangan dan Aset Desa /Village Financial and Assets
+   -- hal PDF 149/288 (49 baris). tepi: ['Keuangan dan Aset Desa', 'Penjelasan Teknis Technical Notes'] ... ['119', 'Village Financial and Assets']
+====================================================================================================
+#3 id 340965 | 0f905fa3 Kecamatan Batu Ampar dalam Angka 2024
+   tabel | nomor '5.11' | hal '98' | fisik 126 | keduanya
+   judul: Produksi Daging Ternak Unggas di Kecamatan Batu Ampar (kg), 2020–2023
+   -- hal PDF 126/156 (34 baris). tepi: ['KECAMATAN BATU AMPAR DALAM ANGKA 2024', 'Tabel 5.11 Produksi Daging Ternak Unggas di Kecamatan Batu Ampar'] ... ['h', '98']
+      > Tabel 5.11 Produksi Daging Ternak Unggas di Kecamatan Batu Ampar
+   -- Daftar: baris tidak ditemukan otomatis (periksa manual)
+====================================================================================================
+#4 id 341093 | 1d63b32f Statistik Kesejahteraan Rakyat Kabupaten Tanah Laut 2024
+   tabel | nomor '5.1' | hal '45' | fisik 67 | keduanya
+   judul: Persentase Rumah Tangga Menurut Karakteristik dan Status Kepemilikan Bangunan Tempat Tinggal yang Ditempati di Kabupaten Tanah Laut, 2024 Status Kepemilikan Bangunan Karakteristik Milik Sendiri Lainnya 1
+   -- hal PDF 67/196 (41 baris). tepi: ['Persentase Rumah Tangga Menurut Karakteristik dan Status', 'Tabel 5.1 Kepemilikan Bangunan Tempat Tinggal yang Ditempati di'] ... ['Sumber: Badan Pusat Statistik, Survei Sosial Ekonomi Nasional (Susenas) Maret', 'Perumahan 45']
+      > Persentase Rumah Tangga Menurut Karakteristik dan Status
+      > Tabel 5.1 Kepemilikan Bangunan Tempat Tinggal yang Ditempati di
+   -- Daftar: baris tidak ditemukan otomatis (periksa manual)
+====================================================================================================
+#5 id 341347 | 4544fb10 Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II: Usaha Perta
+   tabel | nomor '4.54' | hal '318' | fisik 376 (PERKIRAAN) | daftar
+   judul: Jumlah Usaha Pertanian Perorangan Menurut Kecamatan dan Lokasi Lahan Padang Rumput Permanen Terluas yang Dikuasai di Kabupaten Tanah Laut (unit), 2023 Number of Individual Agricultural Holdings by District and the Main Location of Permanent Meadow Land Utilized in Tanah Laut Regency (units), 2023
+   -- hal PDF 376/762 (50 baris). tepi: ['Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II', 'Usaha Pertanian Perorangan (UTP) Kehutanan Kabupaten Tanah Laut'] ... ['318 Complete Enumeration Results of the 2023 Census of Agriculture - Edition 2', 'Forestry Individual Agricultural Holdings Tanah Laut Regency']
+      > Tabel Jumlah Usaha Pertanian Perorangan Menurut Kecamatan dan Lokasi Lahan
+   -- Daftar: baris tidak ditemukan otomatis (periksa manual)
+====================================================================================================
+#6 id 341449 | 4544fb10 Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II: Usaha Perta
+   tabel | nomor '5.27.10' | hal '472' | fisik None | daftar
+   judul: Jumlah Rumah Tangga Usaha, Jumlah Usaha Pertanian Perorangan, dan Jumlah Satwa Liar pada Usaha Penangkaran Rusa/Menjangan/Kancil/ Kijang Menurut Kecamatan di Kabupaten Tanah Laut, 2023 Number of Households, Number of Individual Agricultural Holdings, and Number of Wild Animals of Deer/Stag/Mouse Deer/Barking Deer Captive Breeding by District in Tanah Laut Regency, 2023
+   -- Daftar: baris tidak ditemukan otomatis (periksa manual)
+====================================================================================================
+#7 id 341492 | 4544fb10 Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II: Usaha Perta
+   tabel | nomor '5.34.2' | hal '536' | fisik None | daftar
+   judul: Jumlah Rumah Tangga Usaha Penangkaran Cactus Hibrida Menurut Kecamatan dan Pemanfaatan Produksi di Kabupaten Tanah Laut (rumah tangga), 2023 Number of Hybrid Cactus Captive Breeding Households by District and Product Utilization in Tanah Laut Regency (households), 2023
+   -- Daftar: baris tidak ditemukan otomatis (periksa manual)
+====================================================================================================
+#8 id 341791 | 592e6064 Kecamatan Bumi Makmur dalam Angka 2024
+   isi | nomor None | hal '77' | fisik 105 | daftar
+   judul: 5. Pertanian
+   -- hal PDF 105/152 (33 baris). tepi: ['PERTANIAN', 'd'] ... ['h', '5. Pertanian']
+====================================================================================================
+#9 id 342521 | aeb3b69e Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II: Usaha Perta
+   tabel | nomor '4.18' | hal '219' | fisik 279 (PERKIRAAN) | daftar
+   judul: Jumlah Rumah Tangga Usaha Pertanian Menurut Kecamatan dan Kelompok Luas Lahan Tanaman Semusim Bukan Sawah yang Dikuasai di Kabupaten Tanah Laut, 2023 Number of Agricultural Households by District and Classification of non-Rice Field for Temporary Crops Area Utilized in Tanah Laut Regency, 2023
+   -- hal PDF 279/756 (48 baris). tepi: ['Lahan Pertanian', 'Tabel Jumlah Rumah Tangga Usaha Pertanian Menurut Kecamatan dan Kelompok'] ... ['h', 'Agricultural Land 219']
+      > Tabel Jumlah Rumah Tangga Usaha Pertanian Menurut Kecamatan dan Kelompok
+   -- Daftar: baris tidak ditemukan otomatis (periksa manual)
+====================================================================================================
+#10 id 342578 | aeb3b69e Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II: Usaha Perta
+   tabel | nomor '5.7.3' | hal '377' | fisik None | daftar
+   judul: Jumlah Rumah Tangga Usaha Tanaman Cabai Rawit Menurut Kecamatan dan Jenis Usaha di Kabupaten Tanah Laut (rumah tangga), 2023 Number of Cayenne Pepper Households by District and Type of Activities in Tanah Laut Regency (households), 2023
+   -- Daftar: baris tidak ditemukan otomatis (periksa manual)
+====================================================================================================
+#11 id 342688 | aeb3b69e Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II: Usaha Perta
+   tabel | nomor '5.13.11' | hal '487' | fisik None | daftar
+   judul: Jumlah Rumah Tangga Usaha Tanaman Jahe Putih Besar Menurut Kecamatan dan Penyebab Utama Luas Panen Lebih Kecil dari Luas Tanam di Kabupaten Tanah Laut (rumah tangga), 2023 Number of Big White Ginger Households by District and the Main Cause of the Harvest Area Smaller than the Planting Area in Tanah Laut Regency (households), 2023
+   -- Daftar: baris tidak ditemukan otomatis (periksa manual)
+====================================================================================================
+#12 id 342788 | aeb3b69e Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II: Usaha Perta
+   tabel | nomor '5.27.6' | hal '591' | fisik None | daftar
+   judul: Jumlah Usaha Pertanian Perorangan Tanaman Pepaya Menurut Kecamatan dan Kondisi Utama Tanaman di Kabupaten Tanah Laut (unit), 2023 Number of Papaya Individual Agricultural Holdings by District and Main Condition of Crops in Tanah Laut Regency (units), 2023
+   -- Daftar: baris tidak ditemukan otomatis (periksa manual)
+====================================================================================================
+#13 id 343111 | bd2aaa6f Kabupaten Tanah Laut dalam Angka 2024
+   tabel | nomor '8.1.4' | hal '447' | fisik 503 | keduanya
+   judul: Panjang Jalan Menurut Kecamatan dan Jenis Permukaan Jalan di bawah Kelola Pemerintah Kabupaten di Kabupaten Tanah Laut (km), 2023 Length of Roads by District and Type of Road Surface under Regency Governance in Tanah Laut Regency (km), 2023
+   -- hal PDF 503/598 (40 baris). tepi: ['TRANSPORTASI DAN KOMUNIKASI', 'Tabel 8.1.4 Panjang Jalan Menurut Kecamatan dan Jenis Permukaan'] ... ['Land Agency of Tanah Laut Regency', 'TRANSPORTATION AND COMMUNICATION 447']
+      > Tabel 8.1.4 Panjang Jalan Menurut Kecamatan dan Jenis Permukaan
+   -- Daftar: baris tidak ditemukan otomatis (periksa manual)
+====================================================================================================
+#14 id 343265 | bde68e87 Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II: Usaha Perta
+   tabel | nomor '4.42' | hal '306' | fisik 354 (PERKIRAAN) | daftar
+   judul: Jumlah Rumah Tangga Usaha Pertanian Menurut Kecamatan dan Lokasi Lahan Padang Rumput Sementara Terluas yang Dikuasai di Kabupaten Tanah Laut (rumah tangga), 2023 Number of Agricultural Households by District and the Main Location of Temporary Meadow Land Utilized in Tanah Laut Regency (households), 2023
+   -- hal PDF 354/694 (55 baris). tepi: ['Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II', 'Usaha Pertanian Perorangan (UTP) Tanaman Pangan Kabupaten Tanah Laut'] ... ['306 Complete Enumeration Results of the 2023 Census of Agriculture - Edition 2', 'Food Crops Individual Agricultural Holdings Tanah Laut Regency']
+      > Tabel Jumlah Rumah Tangga Usaha Pertanian Menurut Kecamatan dan Lokasi
+   -- Daftar: baris tidak ditemukan otomatis (periksa manual)
+====================================================================================================
+#15 id 343536 | c33c4a65 Kecamatan Bajuin dalam Angka 2024
+   tabel | nomor '4.3.4' | hal '58' | fisik 86 | keduanya
+   judul: Banyaknya Desa/Kelurahan Menurut Penggunaan Fasilitas Tempat Buang Air Besar Sebagian Besar Keluarga di Kecamatan Bajuin, 2021–2023
+   -- hal PDF 86/150 (36 baris). tepi: ['KECAMATAN BAJUIN DALAM ANGKA 2024', 'Tabel 4.3.4 Banyaknya Desa/Kelurahan Menurut Penggunaan'] ... ['h', '58']
+      > Tabel 4.3.4 Banyaknya Desa/Kelurahan Menurut Penggunaan
+   -- Daftar: baris tidak ditemukan otomatis (periksa manual)
+====================================================================================================
+#16 id 343549 | c33c4a65 Kecamatan Bajuin dalam Angka 2024
+   tabel | nomor '5.2' | hal '83' | fisik 111 | keduanya
+   judul: Produksi Tanaman Sayuran dan Buah-buahan Semusim Menurut Jenis Tanaman di Kecamatan Bajuin (kuintal), 2020–2023
+   -- hal PDF 111/150 (37 baris). tepi: ['PERTANIAN', 'Tabel 5.2 Produksi Tanaman Sayuran dan Buah-buahan Semusim'] ... ['Sumber: Badan Pusat Statistik, Statistik Pertanian Hortikultura SPH-SBS', '83']
+      > Tabel 5.2 Produksi Tanaman Sayuran dan Buah-buahan Semusim
+   -- Daftar: baris tidak ditemukan otomatis (periksa manual)
+====================================================================================================
+#17 id 343615 | c4e6a652 Statistik Daerah Kabupaten Tanah Laut 2024
+   gambar | nomor '14.3' | hal None | fisik 33 | badan
+   judul: Jumlah Kendaraan Bermotor di
+   -- hal PDF 33/46 (68 baris). tepi: ['TRANSPORTASI &', '14'] ... ['19', 'StatistikDaerahKabupatenTanahLaut2024']
+      > Gambar 14.3 Jumlah Kendaraan Bermotor di
+====================================================================================================
+#18 id 343751 | c54b0ec3 Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II: Usaha Perta
+   tabel | nomor '5.5.4' | hal '370' | fisik None | daftar
+   judul: Jumlah Rumah Tangga Usaha Tanaman Kapas menurut Kecamatan dan Jenis Usaha di Kabupaten Tanah Laut (rumah tangga), 2023 Number of Cotton Households by District and Type of Activities in Tanah Laut Regency (households), 2023
+   -- Daftar: baris tidak ditemukan otomatis (periksa manual)
+====================================================================================================
+#19 id 343895 | c54b0ec3 Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II: Usaha Perta
+   tabel | nomor '5.24.3' | hal '517' | fisik None | daftar
+   judul: Jumlah Tanaman Karet menurut Kecamatan dan Kategori Tanaman di Kabupaten Tanah Laut (pohon), 2023 Number of Rubber by District and Plantation Crop Category in Tanah Laut Regency (trees), 2023
+   -- Daftar: baris tidak ditemukan otomatis (periksa manual)
+====================================================================================================
+#20 id 343963 | c54b0ec3 Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II: Usaha Perta
+   tabel | nomor '6.15' | hal '609' | fisik None | daftar
+   judul: Jumlah Rumah Tangga Usaha Pertanian Menurut Kecamatan dan Penggunaan Pupuk di Kabupaten Tanah Laut (rumah tangga), 2023 Number of Agricultural Households by District and Fertilizer Use in Tanah Laut Regency (households), 2023
+   -- Daftar: baris tidak ditemukan otomatis (periksa manual)
+====================================================================================================
+#21 id 344046 | d4295a1f Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II: Usaha Perta
+   tabel | nomor '3.29' | hal '136' | fisik 180 (PERKIRAAN) | daftar
+   judul: Jumlah Anggota Rumah Tangga Usaha Pertanian Berjenis Kelamin Perempuan Berumur 10 Tahun ke Atas Menurut Kecamatan dan Aktivitas Ekonomi yang Dilakukan di Kabupaten Tanah Laut (orang), 2023 Number of Female Agricultural Household Members Aged 10 Years and Above by District and Economic Activity in Tanah Laut Regency (person), 2023
+   -- hal PDF 180/620 (52 baris). tepi: ['Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II', 'Usaha Pertanian Perorangan (UTP) Peternakan Kabupaten Tanah Laut'] ... ['136 Complete Enumeration Results of the 2023 Census of Agriculture - Edition 2', 'Livestock Individual Agricultural Holdings Tanah Laut Regency']
+      > Tabel Jumlah Anggota Rumah Tangga Usaha Pertanian Berjenis Kelamin
+   -- Daftar: baris tidak ditemukan otomatis (periksa manual)
+====================================================================================================
+#22 id 344056 | d4295a1f Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II: Usaha Perta
+   tabel | nomor '4.9' | hal '189' | fisik 233 (PERKIRAAN) | daftar
+   judul: Rata-Rata Luas Lahan yang Dikuasai Rumah Tangga Usaha Pertanian Pengguna Lahan Pertanian Menurut Kecamatan Domisili Pengelola dan Jenis Lahan di Kabupaten Tanah Laut (m2), 2023 Average Land Area Utilized by Agricultural Households Utilizing Agricultural Land by Domicile District of Holders and Type of Land in Tanah Laut Regency (m2), 2023
+   -- hal PDF 233/620 (53 baris). tepi: ['Lahan Pertanian', 'Tabel Rata-Rata Luas Lahan yang Dikuasai Rumah Tangga Usaha Pertanian'] ... ['h', 'Agricultural Land 189']
+      > Tabel Rata-Rata Luas Lahan yang Dikuasai Rumah Tangga Usaha Pertanian
+   -- Daftar: baris tidak ditemukan otomatis (periksa manual)
+====================================================================================================
+#23 id 344157 | d4295a1f Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II: Usaha Perta
+   tabel | nomor '5.13.1' | hal '416' | fisik None | daftar
+   judul: Jumlah Usaha Pertanian Perorangan Peternakan Sapi Potong Menurut Kecamatan dan Jenis Produksi di Kabupaten Tanah Laut (unit), 2023 Number of Beef Cattle Livestock Individual Agricultural Holdings by District and Type of Production in Tanah Laut Regency (units), 2023
+   -- Daftar: baris tidak ditemukan otomatis (periksa manual)
+====================================================================================================
+#24 id 344214 | d4295a1f Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tahap II: Usaha Perta
+   tabel | nomor '5.34.4' | hal '501' | fisik None | daftar
+   judul: Jumlah Usaha Pertanian Perorangan Peternakan Babi Menurut Kecamatan dan Jumlah Ternak yang Diusahakan di Kabupaten Tanah Laut (unit), 2023 Number of Pig Livestock Individual Agricultural Holdings by District and Number of Livestock Cultivated in Tanah Laut Regency (units), 2023
+   -- Daftar: baris tidak ditemukan otomatis (periksa manual)
+====================================================================================================
+#25 id 344377 | e7bc191e Kecamatan Kintap dalam Angka 2024
+   tabel | nomor '4.1.2' | hal '53' | fisik 81 | keduanya
+   judul: Jumlah Sekolah Menurut Tingkat Pendidikan di Kecamatan Kintap, 2023/2024
+   -- hal PDF 81/156 (37 baris). tepi: ['SOSAL DAN KESEJAHTERAAN RAKYAT', 'Tabel 4.1.2 Jumlah Sekolah Menurut Tingkat Pendidikan di Kecamatan'] ... ['laporan sampai dengan 30 November 2023', '53']
+      > Tabel 4.1.2 Jumlah Sekolah Menurut Tingkat Pendidikan di Kecamatan
+   -- Daftar: baris tidak ditemukan otomatis (periksa manual)

@@ -1,0 +1,167 @@
+Database tujuan: db_pencarian_bps @ localhost:3306 (PRODUKSI)
+Pemeriksaan: 138 target, 168 bukan target (= database uji per kunci: 168), 1 d
+Pemeriksaan LULUS.
+  [  1/138] muat 054960c858dfaf7bc2de0599  55 entri     8 d  Produk Domestik Regional Bruto Kabupaten Tanah Laut Men
+  [  2/138] muat 09832a6f12a0c3d69b132eb0  16 entri     1 d  Booklet Survei Angkatan Kerja Nasional Kabupaten Tapin 
+  [  3/138] muat 0a970f4271e7afa1eef27dbd  73 entri    14 d  Produk Domestik Regional Bruto Kabupaten Barito Kuala M
+  [  4/138] muat 10295752ec171e074fea363a  147 entri    58 d  Kabupaten Tabalong Dalam Angka 2026
+  [  5/138] muat 129f6580a7f2c30c5ed84ef3  117 entri    15 d  Kabupaten Tanah Bumbu Dalam Angka 2025
+  [  6/138] muat 172b31dadf396597e64afd5c  104 entri    16 d  Produk Domestik Regional Bruto Kabupaten/Kota di Provin
+  [  7/138] muat 18e4b6e4fc187b3e23c165f3  32 entri    19 d  Ringkasan Eksekutif Luas Panen dan Produksi Padi di Pro
+  [  8/138] muat 19b4856cba230b2b46985fba  85 entri    11 d  Statistik Potensi Desa Provinsi Kalimantan Selatan 2025
+  [  9/138] muat 1b1e9605a8238dc10099e860  54 entri     5 d  Produk Domestik Regional Bruto Kabupaten Hulu Sungai Te
+  [ 10/138] muat 1bc84df2238512203e3d0c58  40 entri     4 d  Indeks Pembangunan Manusia Provinsi Kalimantan Selatan 
+  [ 11/138] muat 1c487e18e53c39fe5dbabbc0  17 entri     1 d  Booklet Sakernas Agustus BPS Kabupaten Tanah Bumbu Tahu
+  [ 12/138] muat 1c688dd3f6c8ca630a9a3190  71 entri     6 d  Gambaran Ekonomi Makro Provinsi Kalimantan Selatan Triw
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+  [ 13/138] muat 1d8b887aa61bd303d1f70dec  25 entri     8 d  Statistik Daerah Kabupaten Balangan 2025
+  [ 14/138] muat 2529585ee3b8f772cce0a6e4  255 entri    21 d  Kota Banjarmasin Dalam Angka 2025
+  [ 15/138] muat 2eae0ae6f44417f75f69e36f  87 entri     9 d  Statistik Kesejahteraan Rakyat Kabupaten Balangan 2025
+  [ 16/138] muat 306d642700298757982b2a30  55 entri     6 d  Produk Domestik Regional Bruto Kabupaten Barito Kuala M
+  [ 17/138] muat 34232029fdd831e30af08728  17 entri     1 d  Booklet Survei Angkatan Kerja Nasional Kabupaten Tapin 
+  [ 18/138] muat 3443fca8ec56f26385996ec5  19 entri     1 d  Booklet Survei Angkatan Kerja Nasional Kabupaten Tabalo
+  [ 19/138] muat 359f3aa1ab77d5714db832dd  15 entri     1 d  Booklet Survei Angkatan Kerja Nasional Kabupaten Balang
+  [ 20/138] muat 38778154d51012af9aa474be  83 entri    10 d  Indikator Pasar Tenaga Kerja Provinsi Kalimantan Selata
+  [ 21/138] muat 390d64efde3eede5d7a9286b  77 entri    15 d  Produk Domestik Regional Bruto Kabupaten Hulu Sungai Se
+  [ 22/138] muat 397c36d32b0b0059e7453ac4  81 entri    10 d  Statistik Potensi Desa Kabupaten Tanah Laut 2025
+  [ 23/138] muat 3af94ebab1c1172567545d9e  83 entri    11 d  Statistik Potensi Desa Kabupaten Tanah Bumbu 2025
+  [ 24/138] muat 3ce577220df045457cb62d0b  86 entri    10 d  Produk Domestik Regional Bruto Kabupaten Kotabaru Menur
+  [ 25/138] muat 3e7c663f9292cb72b9532dd9  45 entri     3 d  Statistik Daerah Kabupaten Hulu Sungai Utara 2025
+  [ 26/138] muat 4242d52edd5bd5dd45efa4e7  66 entri     6 d  Produk Domestik Regional Bruto Kabupaten Kotabaru Menur
+  [ 27/138] muat 440a1956914a6cf1c4afccb3  64 entri    13 d  Keadaan Angkatan Kerja di Kabupaten Tanah Laut Agustus 
+  [ 28/138] muat 45af79c09790935e3ab63a5b  89 entri    20 d  Produk Domestik Regional Bruto Kabupaten Tabalong Menur
+  [ 29/138] muat 4989ca6f5c2053742bef91d8  150 entri     8 d  Keadaan Angkatan Kerja di Kabupaten Banjar Agustus 2024
+  [ 30/138] muat 49bb983097fcbd6fcabfee14  53 entri    10 d  Produk Domestik Regional Bruto Kabupaten Tabalong Menur
+  [ 31/138] muat 49c5df1bd1381fa594485be4  69 entri     6 d  Gambaran Ekonomi Makro Provinsi Kalimantan Selatan Triw
+  [ 32/138] muat 4b3aec787aa28b1dede912fe  85 entri    10 d  Produk Domestik Regional Bruto Kabupaten Kotabaru Menur
+  [ 33/138] muat 4d1ac64e36c43a642ed54e2f  87 entri    12 d  Statistik Kesejahteraan Rakyat Kabupaten Hulu Sungai Ut
+  [ 34/138] muat 4eef35cf57d2d79d5d76ca3b  284 entri    90 d  Kota Banjarmasin Dalam Angka 2026
+  [ 35/138] muat 5013742f61bd26a80f0e1596  54 entri     7 d  Produk Domestik Regional Bruto Kabupaten Banjar Menurut
+  [ 36/138] muat 515bf005e84d1a784a70b54d  105 entri     8 d  Produk Domestik Regional Bruto Kabupaten Hulu Sungai Te
+  [ 37/138] muat 52f484c555095addbc04a3ec  98 entri     6 d  Statistik Kesejahteraan Rakyat Kabupaten Barito Kuala 2
+  [ 38/138] muat 52fa6dd323cf7c993f859c93  81 entri    14 d  Keadaan Angkatan Kerja di Kabupaten Kotabaru Agustus 20
+  [ 39/138] muat 56e3e5478f642e9234e6ccf4  15 entri     2 d  BADAS (Big Data dan Analisis Statistik) Daerah di Kabup
+  [ 40/138] muat 579e21941c4e11b3bfe19e06  101 entri    14 d  Keadaan Angkatan Kerja di Kabupaten Tanah Bumbu Agustus
+  [ 41/138] muat 5969df810d5eba297e211d7d  17 entri     1 d  Booklet Survei Angkatan Kerja Nasional Kota Banjarbaru 
+  [ 42/138] muat 59e9b08c963e248cdf3d19fb  89 entri     9 d  Statistik Kesejahteraan Rakyat Kabupaten Banjar 2025
+  [ 43/138] muat 5dfc08f3f843fb674bcfb400  146 entri    14 d  Kabupaten Kotabaru Dalam Angka 2025
+  [ 44/138] muat 605dc5f957fea854fad5871f  16 entri     1 d  Booklet Survei Angkatan Kerja Nasional Kabupaten Balang
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+  [ 45/138] muat 6062f26c3be97a311651cc58  47 entri     9 d  Statistik Politik dan Keamanan Provinsi Kalimantan Sela
+  [ 46/138] muat 61eb6ce6c1f48ce0463ca04c  83 entri    10 d  Statistik Potensi Desa Kabupaten Kotabaru 2025
+  [ 47/138] muat 62914e04bd19e3552af22ccf  71 entri     5 d  Analisis Hasil Survei Kebutuhan Data BPS Kabupaten Tana
+  [ 48/138] muat 650baac02fc1bfd19a8c3fae  72 entri    11 d  Produk Domestik Regional Bruto Kota Banjarmasin Menurut
+  [ 49/138] muat 678ab9ee5d4c7ebe8a58b105  83 entri    11 d  Statistik Potensi Desa Kabupaten Hulu Sungai Selatan 20
+  [ 50/138] muat 6976e5bda67a536dd16f9ea5  17 entri     1 d  Booklet Survei Angkatan Kerja Nasional Kabupaten Kotaba
+  [ 51/138] muat 6a0ad2d41da81a43156ee6b5  97 entri     6 d  Statistik Perhubungan Provinsi Kalimantan Selatan 2024
+  [ 52/138] muat 6daef96685aa3fab853a7044  54 entri     6 d  Produk Domestik Regional Bruto Kabupaten Hulu Sungai Ut
+  [ 53/138] muat 6e2c46528e5311013f61e783  87 entri     7 d  Keadaan Angkatan Kerja di Kabupaten Barito Kuala Agustu
+  [ 54/138] muat 6ecd697eac966a627e5ff3f4  238 entri    65 d  Kabupaten Barito Kuala Dalam Angka 2026
+  [ 55/138] muat 71a3beabf2633a46d01353d4  139 entri    11 d  Keadaan Angkatan Kerja di Kabupaten Barito Kuala Agustu
+  [ 56/138] muat 742fbe7b12c5ad2ddb5a1315  88 entri    15 d  Produk Domestik Regional Bruto Kabupaten Balangan Menur
+  [ 57/138] muat 75e54785c55a5e8a79816e41  82 entri     6 d  Analisis Hasil Survei Kebutuhan Data BPS Kabupaten Taba
+  [ 58/138] muat 791bab0276bf84fa5b543d40  89 entri     9 d  Statistik Potensi Kelurahan Kota Banjarmasin 2025
+  [ 59/138] muat 7d1c21c1e8e72b51d55d64e7  71 entri     7 d  Gambaran Ekonomi Makro Provinsi Kalimantan Selatan Triw
+  [ 60/138] muat 7f991ea738341de3bbbb62b4  68 entri     2 d  Statistik Daerah Kabupaten Kotabaru 2025
+  [ 61/138] muat 80a06a477296384ae642b32c  89 entri     7 d  Statistik Kesejahteraan Rakyat Kabupaten Tabalong 2025
+  [ 62/138] muat 83fff1db70f5f0c604c0191f  114 entri    20 d  Keadaan Angkatan Kerja Provinsi Kalimantan Selatan Febr
+  [ 63/138] muat 856e507e98d6b1d97343a2ea  69 entri     7 d  Gambaran Ekonomi Makro Provinsi Kalimantan Selatan Triw
+  [ 64/138] muat 8730aa8aacf3ad397b10a760  63 entri    13 d  Keadaan Angkatan Kerja Kota Banjarmasin Agustus 2025
+  [ 65/138] muat 873711fc8fc096b7a487892e  70 entri     5 d  Analisis Hasil Survei Kebutuhan Data BPS Kabupaten Bari
+  [ 66/138] muat 8af98950f23da9525d06775b  70 entri    12 d  Produk Domestik Regional Bruto Kabupaten Tanah Bumbu Me
+  [ 67/138] muat 8b097d5899f32c7f41466de9  69 entri     6 d  Gambaran Ekonomi Makro Provinsi Kalimantan Selatan Triw
+  [ 68/138] muat 8dee0be77508198543f530cd  83 entri    11 d  Statistik Potensi Desa Kabupaten Barito Kuala 2025
+  [ 69/138] muat 906a5b17e5a79f07540c4901  99 entri    17 d  Keadaan Angkatan Kerja di Kabupaten Tapin Agustus 2025
+  [ 70/138] muat 917f98dbf7dab81f6fbf8d8d  17 entri     1 d  Booklet Survei Angkatan Kerja Nasional Kabupaten Barito
+  [ 71/138] muat 9a9fc81e8c4e43010c864200  72 entri    15 d  Produk Domestik Regional Bruto Kota Banjarmasin Menurut
+  [ 72/138] muat 9b59ca64313f18d561ca0c50  58 entri    17 d  Produk Domestik Regional Bruto Kabupaten Hulu Sungai Se
+  [ 73/138] muat 9fcbcb8b1a57601c543bad3a  16 entri     1 d  Booklet Survei Angkatan Kerja Nasional Kabupaten Tabalo
+  [ 74/138] muat a085f0527c4e549133702b18  90 entri     6 d  Analisis Hasil Survei Kebutuhan Data BPS Kota Banjarbar
+  [ 75/138] muat a388427b81c6742e38276d0e  83 entri    10 d  Statistik Potensi Desa Kabupaten Balangan
+  [ 76/138] muat a44895e17f6202db16fd5cb6  66 entri     4 d  Gambaran Ekonomi Makro Provinsi Kalimantan Selatan Triw
+  [ 77/138] muat a4587cdb6cccac46f13e6717  87 entri    10 d  Statistik Kesejahteraan Rakyat Kabupaten Kotabaru 2025
+  [ 78/138] muat a54b4f2220f70fff6156c355  16 entri     1 d  Booklet Survei Angkatan Kerja Nasional Kabupaten Hulu S
+  [ 79/138] muat a77549c90eda83710956ae1b  16 entri     1 d  Booklet Survei Angkatan Kerja Nasional Kota Banjarmasin
+  [ 80/138] muat a7e51c0959da40d99f1f40d7  60 entri     6 d  Produk Domestik Regional Bruto Kota Banjarmasin Menurut
+  [ 81/138] muat a859c5762c6caceb26664857  16 entri     1 d  Booklet Survei Angkatan Kerja Nasional Kabupaten Barito
+  [ 82/138] muat a8667ba0385aecd150f2de92  38 entri     2 d  Statistik Harga Produsen Gabah di Provinsi Kalimantan S
+  [ 83/138] muat aa80312f735cecd7975466b9  73 entri    10 d  Produk Domestik Regional Bruto Kabupaten Barito Kuala M
+  [ 84/138] muat ac101cb3ecf77273005c324d  98 entri    17 d  KEADAAN ANGKATAN KERJA DI KABUPATEN BANJAR
+  [ 85/138] muat ac7fdb4ceaa361f0251e656f  61 entri     8 d  Produk Domestik Regional Bruto Kabupaten Tapin Menurut 
+  [ 86/138] muat ad22d3d9af903e46ae9ae002  100 entri    17 d  Keadaan Angkatan Kerja di Kota Banjarbaru Agustus 2025
+  [ 87/138] muat aea0c6974b6bcf93bf0c78d9  232 entri    20 d  Kabupaten Barito Kuala Dalam Angka 2025
+  [ 88/138] muat af4075be972539c6f8610049  17 entri     1 d  Booklet Survei Angkatan Kerja Nasional Kabupaten Hulu S
+  [ 89/138] muat afbf86a1df9d8477d6528ac3  244 entri    33 d  Kabupaten Banjar Dalam Angka 2025
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+  [ 90/138] muat afd64a18ea70c4de51b8b03f  152 entri    31 d  Keadaan Angkatan Kerja Provinsi Kalimantan Selatan Agus
+  [ 91/138] muat b0311c9362a2fa4e6aff8c81  99 entri    17 d  Keadaan Angkatan Kerja di Kabupaten Hulu Sungai Utara A
+  [ 92/138] muat b0b8c7ea69d496329b06e86c  46 entri     5 d  Profil Tenaga Kerja Provinsi Kalimantan Selatan Februar
+  [ 93/138] muat b38223b227ed8e9bd6672b80  83 entri    11 d  Statistik Potensi Desa Kabupaten Tapin 2025
+  [ 94/138] muat b3d0bb81826e2a2426296a67  17 entri     1 d  Booklet Survei Angkatan Kerja Nasional Kabupaten Banjar
+  [ 95/138] muat b68460a0a21c293bdb4b6e4c  88 entri    16 d  Produk Domestik Regional Bruto Kabupaten Balangan Menur
+  [ 96/138] muat beb943177b87c4aaad8383af  17 entri     1 d  Booklet Survei Angkatan Kerja Nasional Kabupaten Hulu S
+  [ 97/138] muat c0a1256bb53cc80534937af0  16 entri     1 d  Booklet Survei Angkatan Kerja Nasional Kota Banjarbaru 
+  [ 98/138] muat c25d6e088abdc46ce7a5cdeb  45 entri    13 d  Produk Domestik Regional Bruto Kabupaten Hulu Sungai Se
+  [ 99/138] muat c339abeab74cfe8c276e5249  162 entri    24 d  Kabupaten Hulu Sungai Tengah Dalam Angka 2025
+  [100/138] muat c53a740b48d952b0061c92fb  94 entri    11 d  Statistik Kesejahteraan Rakyat Kota Banjarbaru 2025
+  [101/138] muat c7afe7917cecb29537b233e6  50 entri     6 d  Produk Domestik Regional Bruto Kota Banjarmasin Menurut
+  [102/138] muat c92bc76edccde7ea4bb59a04  78 entri    15 d  Produk Domestik Regional Bruto Kabupaten Banjar Menurut
+  [103/138] muat cc2cb9c6ebac120bcfa2fb2a  15 entri     1 d  Booklet Survei Angkatan Kerja Nasional Kota Banjarmasin
+  [104/138] muat cc314c146259ae573d92a3b2  89 entri    23 d  Keadaan Angkatan Kerja di Kabupaten Balangan Agustus 20
+  [105/138] muat ce4ee2a6b9a6d9598a933799  16 entri     1 d  Booklet Survei Angkatan Kerja Nasional Kabupaten Banjar
+  [106/138] muat cfd5b9b823752ce62c4220b6  88 entri    19 d  Produk Domestik Regional Bruto Kota Banjarbaru Menurut 
+  [107/138] muat d163b8bb2f8b9ed034f6cdcd  90 entri    10 d  Statistik Kesejahteraan Rakyat Kabupaten Tanah Laut 202
+  [108/138] muat d3457dfd8364d6e50ea5f64d  53 entri     8 d  Produk Domestik Regional Bruto Kabupaten Kotabaru Menur
+  [109/138] muat da13d7219b4fa354e8377a01  87 entri    19 d  Produk Domestik Regional Bruto Kabupaten Tanah Bumbu Me
+  [110/138] muat dac944b8a053b04bc15fb5a2  54 entri     8 d  Produk Domestik Regional Bruto Kabupaten Tanah Bumbu Me
+  [111/138] muat dc342b31a1e2000c0b099c56  375 entri    71 d  Provinsi Kalimantan Selatan Dalam Angka 2025
+  [112/138] muat dcdbf65f65d6bdf5152ddfbf  87 entri     7 d  Statistik Kesejahteraan Rakyat Kabupaten Hulu Sungai Te
+  [113/138] muat de8f107bdd805e091ea1d27f  54 entri    10 d  Produk Domestik Regional Bruto Kota Banjarbaru Menurut 
+  [114/138] muat dfaa05bf8f556562b3a1a726  17 entri     1 d  Booklet Survei Angkatan Kerja Nasional Kabupaten Tanah 
+  [115/138] muat e04dba4c42093d3bb74cf62d  57 entri    13 d  Produk Domestik Regional Bruto Kabupaten Banjar Menurut
+  [116/138] muat e08368dddf57a9b37f880b24  16 entri    22 d  Booklet Survei Angkatan Kerja Nasional Kabupaten Hulu S
+  [117/138] muat e26ef13aab256dec06331dc5  76 entri    16 d  Produk Domestik Regional Bruto Kabupaten Tanah Bumbu Me
+  [118/138] muat e69babba1d0600778a0dc9d2  87 entri     8 d  Statistik Kesejahteraan Rakyat Kabupaten Hulu Sungai Se
+  [119/138] muat e6fbb4695a4733bf098d36b3  86 entri     7 d  Statistik Kesejahteraan Rakyat Kabupaten Tanah Bumbu 20
+  [120/138] muat e78fe914f8766a7a09000a47  64 entri    40 d  Statistik Ekspor Impor Provinsi Kalimantan Selatan 2024
+  [121/138] muat e853261af9196407df620ebd  83 entri    13 d  Statistik Potensi Desa Kabupaten Banjar 2025
+  [122/138] muat e85a707c24084a135ef8cd8b  17 entri     2 d  Booklet Survei Angkatan Kerja Nasional Kabupaten Hulu S
+  [123/138] muat ec37d7d7c8401b4d238378ba  54 entri     6 d  Produk Domestik Regional Bruto Kabupaten Hulu Sungai Se
+  [124/138] muat ec41153f14ebc61ee37df69f  127 entri    39 d  Kabupaten Balangan Dalam Angka 2026
+  [125/138] muat ed0a6c8b8c8d1029c28af41c  83 entri    11 d  Statistik Potensi Desa Kabupaten Tabalong 2025
+  [126/138] muat eddeab6825dc2b31fa0301a7  89 entri     8 d  Statistik Kesejahteraan Rakyat Kabupaten Tapin 2025
+  [127/138] muat eeb1b8bf1e9f6becfbeaa828  58 entri     6 d  Produk Domestik Regional Bruto Kabupaten Balangan Menur
+  [128/138] muat f0903c0d2559a78eb8f633eb  152 entri    27 d  Keadaan Angkatan Kerja di Kabupaten Tabalong Agustus 20
+  [129/138] muat f11b837fbb40e656df4f77a2  77 entri    50 d  Produk Domestik Regional Bruto Provinsi Kalimantan Sela
+  [130/138] muat f323cb1da8d4565e9bdb397a  16 entri     1 d  Booklet Sakernas Agustus BPS Kabupaten Tanah Bumbu Tahu
+  [131/138] muat f338cd99104699dbbd49256a  44 entri     0 d  Produk Domestik Regional Bruto Kabupaten Tapin Menurut 
+  [132/138] muat f54bec3dbe9eb5d3115ab973  51 entri     7 d  Produk Domestik Regional Bruto Kabupaten Tabalong Menur
+  [133/138] muat f85ba47fd8fc6973b0e6303a  57 entri    13 d  Produk Domestik Regional Bruto Kabupaten Banjar Menurut
+  [134/138] muat f88065c953567eebc6dfd181  83 entri    11 d  Statistik Potensi Desa Kabupaten Hulu Sungai Utara 2025
+  [135/138] muat f8a45b5037811da36c4ec86e  79 entri     9 d  Statistik Potensi Kelurahan Kota Banjarbaru 2025
+  [136/138] muat fd585db02c55711f890b5a61  237 entri    24 d  Kabupaten Banjar Dalam Angka 2026
+  [137/138] muat ff0ff482f84e322c69615f75  58 entri    39 d  Statistik Ekspor Impor Provinsi Kalimantan Selatan 2025
+  [138/138] muat ffe587bf34a60a325909d460  20 entri     1 d  Buklet Survei Angkatan Kerja Provinsi Kalimantan Selata
+Selesai: 138 publikasi, 1676 d.
+exit 0

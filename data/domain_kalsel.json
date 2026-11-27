@@ -1,0 +1,20 @@
+{
+  "_catatan": "Salinan jawaban WebAPI BPS domain/type/kabbyprov/prov/6300, diambil lewat browser 2026-11-05 12:52 WITA. domain_name apa adanya dari API (tanpa awalan Kab./Kota).",
+  "status": "OK",
+  "total": 13,
+  "domain": [
+    {"domain_id": "6301", "domain_name": "Tanah Laut", "domain_url": "https://tanahlautkab.bps.go.id"},
+    {"domain_id": "6302", "domain_name": "Kota Baru", "domain_url": "https://kotabarukab.bps.go.id"},
+    {"domain_id": "6303", "domain_name": "Banjar", "domain_url": "https://banjarkab.bps.go.id"},
+    {"domain_id": "6304", "domain_name": "Barito Kuala", "domain_url": "https://baritokualakab.bps.go.id"},
+    {"domain_id": "6305", "domain_name": "Tapin", "domain_url": "https://tapinkab.bps.go.id"},
+    {"domain_id": "6306", "domain_name": "Hulu Sungai Selatan", "domain_url": "https://hulusungaiselatankab.bps.go.id"},
+    {"domain_id": "6307", "domain_name": "Hulu Sungai Tengah", "domain_url": "https://hulusungaitengahkab.bps.go.id"},
+    {"domain_id": "6308", "domain_name": "Hulu Sungai Utara", "domain_url": "https://hulusungaiutarakab.bps.go.id"},
+    {"domain_id": "6309", "domain_name": "Tabalong", "domain_url": "https://tabalongkab.bps.go.id"},
+    {"domain_id": "6310", "domain_name": "Tanah Bumbu", "domain_url": "https://tanahbumbukab.bps.go.id"},
+    {"domain_id": "6311", "domain_name": "Balangan", "domain_url": "https://balangankab.bps.go.id"},
+    {"domain_id": "6371", "domain_name": "Banjarmasin", "domain_url": "https://banjarmasinkota.bps.go.id"},
+    {"domain_id": "6372", "domain_name": "Banjar Baru", "domain_url": "https://banjarbarukota.bps.go.id"}
+  ]
+}

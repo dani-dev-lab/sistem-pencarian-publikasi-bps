@@ -1,0 +1,32 @@
+Cadangan database uji: 16.0 MB, 6 tabel; produksi 6 tabel
+Database uji: db_pencarian_bps_uji | produksi (hanya dibaca): db_pencarian_bps | domain uji: 6305
+
+=== U. PENGAMAN DATABASE UJI ===
+  [LULUS] U1 KonfigurasiUji yang menunjuk nama produksi ditolak (SystemExit)  -- DITOLAK True
+  [LULUS] U2 baris pertama perbarui.py = database uji  -- Database tujuan: db_pencarian_bps_uji @ 127.0.0.1:3307 (UJI - bukan produksi)
+  [LULUS] U4 tanpa BPS: url_cover/url_pdf database uji semuanya ke server tiruan; alamat luar diblokir proxy mati (tidak sampai ke BPS); server tiruan tetap terjangkau  -- URL luar di DB 0; LUAR DIBLOKIR | TIRUAN 200 image/jpeg
+  [LULUS] U3 ringkasan ke pembaruan_terakhir-uji.json, berkas produksi tidak dibuat  -- exit 0, 8 d
+
+=== N. KAMUS SALINAN DITERAPKAN KE DATABASE UJI ===
+  [LULUS] N1 kamus salinan diterapkan: hanya teks_ternormalisasi yang berubah, penerapan kedua mengubah 0  -- entri diubah 0, publikasi diubah 0, 0 publikasi terkena, domain uji: []
+
+(--hanya AJ: bagian lain dilewati)
+
+=== A. SAMPUL PUBLIKASI ===
+  [GAGAL] A1 sampul ada: 39 sampul resmi dari server tiruan, byte identik  -- exit 3, 119 d, {'resmi': 37, 'cadangan': 1, 'cadangan_lama': 0, 'gagal': 1, 'diperbarui': 2, 'lama_dipertahankan': 0, 'byte': 249171, 'detik': 41.3}
+  [LULUS] A1 cadangan PDF: unduhan 400 -> <id>.cadangan.jpg lebar 500 dari halaman 1, tanpa <id>.jpg  -- (500, 352)
+  [LULUS] A1 sampul gagal (unduhan 400, PDF tidak ada): tanpa berkas, dicatat; status domain hanya dipengaruhi unduhan PDF, bukan sampul  -- status sebagian, gagal ['8f46a945e36141a21806452b']
+  [LULUS] A1 satu permintaan sampul per publikasi (400 tidak diulang), jeda >= ~1 detik  -- 41 permintaan, jeda minimum 1.00 d
+  [LULUS] A1 token sampul tidak tercetak di keluaran (pesan galat memuat f=***)
+    |   sampul: 39 publikasi belum punya sampul resmi, dikerjakan
+    |   sampul: 2 publikasi direvisi BPS, sampulnya diunduh ulang
+    |     sampul Booklet Survei Angkatan Kerja Nasional Kabupat cadangan (400 Client Error: Bad Request for url: http://127.0.0.1:5981/cover.php?f=***)
+    |     sampul Keadaan Angkatan Kerja di Kabupaten Tapin Agus gagal (400 Client Error: Bad Request for url: http://127.0.0.1:5981/cover.php?f=***; PDF lokal ti)
+    |   sampul: resmi 37, cadangan PDF 1, cadangan lama dipertahankan 0, gagal 1; revisi: diperbarui 2, sampul lama dipertahankan 0
+    |   Sampul       : resmi 37 (0.2 MB), cadangan PDF 1, cadangan lama dipertahankan 0, gagal 1, 41 detik; revisi: diperbarui 2, lama dipertahankan 0
+  [LULUS] A2 run berikutnya: hanya 2 yang belum punya sampul resmi diminta; cadangan diganti resmi  -- exit 0, permintaan 2, {'resmi': 2, 'cadangan': 0, 'cadangan_lama': 0, 'gagal': 0, 'diperbarui': 0, 'lama_dipertahankan': 0, 'byte': 12778, 'detik': 2.0}
+  [LULUS] A3 --lokal: 0 permintaan, publikasi tanpa berkas mendapat cadangan PDF  -- 0 permintaan, {'resmi': 0, 'cadangan': 1, 'cadangan_lama': 0, 'gagal': 0, 'diperbarui': 0, 'lama_dipertahankan': 0, 'byte': 0, 'detik': 0.1}
+  [LULUS] A4 sampul ada: 16 kartu publikasi bergambar lewat route lokal, width/height 500x709, alt 'Sampul <judul>', lazy; gambar = berkas  -- 16 kartu
+  [LULUS] A4 sampul tidak ada: kartu tanpa <img>, tanpa kelas/pembungkus sampul (markup lama); /sampul -> 404  -- {'img': False, 'kelas': False, 'div': 0}
+  [LULUS] A4 kartu tabel/gambar/lampiran/bab tidak pernah bersampul; id tidak sah -> 404  -- 50 kartu entri, id jahat 404
+  [LULUS] A5 sepanjang uji tidak ada URL luar di database uji (url_cover/url_pdf)

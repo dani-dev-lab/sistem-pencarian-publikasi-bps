@@ -1,0 +1,60 @@
+{
+ "publikasi": "(622, Decimal('312'), Decimal('34'), datetime.date(2025, 1, 10), datetime.date(2026, 11, 25))",
+ "publikasi_per_tahun": [
+  "(2025, 346)",
+  "(2026, 276)"
+ ],
+ "publikasi_per_domain": [
+  "('6300', 81)",
+  "('6301', 39)",
+  "('6302', 61)",
+  "('6303', 55)",
+  "('6304', 52)",
+  "('6305', 41)",
+  "('6306', 39)",
+  "('6307', 38)",
+  "('6308', 40)",
+  "('6309', 41)",
+  "('6310', 40)",
+  "('6311', 32)",
+  "('6371', 34)",
+  "('6372', 29)"
+ ],
+ "entri": 44649,
+ "entri_per_tipe": [
+  "('tabel', 24931)",
+  "('isi', 11773)",
+  "('gambar', 5219)",
+  "('lampiran', 2726)"
+ ],
+ "entri_per_sumber": [
+  "('daftar', 30911)",
+  "('keduanya', 11329)",
+  "('badan', 2409)"
+ ],
+ "halaman_pdf": "(Decimal('39694'), Decimal('34682'), Decimal('5012'), Decimal('415'))",
+ "versi_data": 549,
+ "log": "(368, datetime.datetime(2026, 11, 3, 0, 1, 46), datetime.datetime(2026, 11, 27, 6, 8, 45))",
+ "kamus": {
+  "tipe": "dict",
+  "kelompok": 101,
+  "varian": 212,
+  "baris_berkas": 416
+ },
+ "data/publikasi_pdf": [
+  650,
+  6806084783
+ ],
+ "data/sampul": [
+  649,
+  76598362
+ ],
+ "data/ocr_cache": [
+  4000,
+  37200469
+ ],
+ "sampul_jenis": {
+  "resmi": 649,
+  "cadangan": 0
+ }
+}

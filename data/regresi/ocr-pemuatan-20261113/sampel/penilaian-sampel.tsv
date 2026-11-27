@@ -1,0 +1,31 @@
+no	publikasi	tipe	nomor	halaman	halaman_fisik	nilai	catatan	bukti
+01	PDRB Tapin LU 2020-2024	gambar	3.1		113	benar	"Grafik 3.1" di badan; judul Indonesia lengkap	01-F
+02	PDRB Tapin LU 2020-2024	gambar	3.2		121	benar		02-F
+03	PDRB Tapin LU 2021-2025	gambar	3.1		116	benar		03-F
+04	PDRB Tapin LU 2021-2025	gambar	3.2		124	benar		04-F
+05	Profil TK Tapin Agt 2024	isi		v	7	benar	Kata Pengantar, folio v	05-D, 05-F
+06	Profil TK Tapin Agt 2024	gambar	2.5		56	benar, judul bersampah ringan	judul kurang "2024" (baris kedua)	06-F
+07	PDRB Tabalong LU 2020-2024	isi		17		benar		07-D
+08	PDRB Tabalong LU 2020-2024	tabel		123		NOMOR HILANG	Tabel 4.9; "Table" dan "4.9" masuk ke tengah judul; halaman benar	08-D2
+09	Statistik Daerah Banjarbaru 2025	isi		13		benar, judul bersampah ringan	"Kesehatan Bab" (label Bab bertumpuk)	09-D
+10	Statistik Daerah Banjarbaru 2025	isi		11		benar, judul bersampah ringan	"Pendidikan Bab 6"	10-D
+11	PDRB Banjarbaru LU	isi		27		JUDUL BERAWALAN NOMOR TETANGGA	"2.2 2.3 Industri Pengolahan"; halaman benar	11-D
+12	PDRB Banjarbaru LU	gambar		87		NOMOR HILANG	"Gambar 3.1" tertinggal di judul; halaman benar	12-D30
+13	HST Dalam Angka 2026	isi		271		benar		13-D
+14	HST Dalam Angka 2026	tabel	11.1	269	287	benar		14-D, 14-F
+15	PDRB Tapin Pengeluaran	isi		13		benar, judul bersampah ringan	"21 ... Tanggar" (2.1 dan "/" salah baca OCR)	15-D2
+16	PDRB Tapin Pengeluaran	tabel	4.2	67	79	benar, judul bersampah ringan	awalan "Halaman Table Page"	16-D2, 16-F
+17	HST Dalam Angka 2026	gambar	2.1	22	51	benar		17-D31, 17-F
+18	HST Dalam Angka 2026	tabel	1.1.1	9	40	benar		17-D, 18-F
+19	HST Dalam Angka 2026	tabel	13.5	297	313	benar		19-D, 19-F
+20	PDRB Banjarbaru LU	isi		1		benar, judul bersampah ringan	"BAB |" (BAB I)	20-D
+21	HST Dalam Angka 2026	isi		207	233	benar	sampul BAB 6 Energi	21-D, 21-F
+22	PDRB Tabalong LU 2020-2024	isi		31		benar		22-D
+23	PDRB Tabalong LU 2020-2024	isi		83		benar		23-D2
+24	PDRB Tabalong LU 2020-2024	tabel		102		NOMOR HILANG	Tabel 3.3; halaman benar	24-D2
+25	PDRB Tabalong LU 2020-2024	isi		96		benar		25-D
+26	HST Dalam Angka 2026	gambar	1.1	8	39	benar		26-D, 26-F
+27	PDRB Banjarbaru LU	isi		23	43	benar	nomor bab 2.2 pindah ke entri 11	27-D, 27-F
+28	PDRB Tabalong LU 2020-2024	isi		115		benar		28-D30
+29	Profil TK Tapin Agt 2024	isi		93	109	HALAMAN FISIK MELESET 2	Daftar Isi menunjuk sampul (fisik 107); terpilih halaman isi pertama	29-D, 29-F
+30	HST Dalam Angka 2026	tabel	8.2.5	241	264	benar		30-D2, 30-F

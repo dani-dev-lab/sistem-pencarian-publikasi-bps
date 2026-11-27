@@ -18,6 +18,24 @@ class LogPencarian(db.Model):
     keyword_ternormalisasi = db.Column(db.String(255))
     jumlah_hasil = db.Column(db.Integer, nullable=False, default=0)
     skor_tertinggi = db.Column(db.Float)
+
+    # Waktu pencarian per kueri nyata petugas. ukur_kinerja.py hanya mengukur
+    # kueri uji; kolom ini menjawab apakah pencarian melambat di pemakaian
+    # sebenarnya setelah data 13 kabupaten/kota masuk. Baris lama kosong.
+    durasi_ms = db.Column(db.Float)
+
+    # Kode wilayah filter yang AKTIF saat kueri ini dicari ("6301"), dipilih
+    # lewat dropdown maupun dipasang otomatis dari nama wilayah di kueri.
+    # Kosong = semua wilayah. Baris sebelum 10 Nov 2026 kosong. Kolomnya
+    # ditambahkan ke database lama oleh app/models/skema.py.
+    wilayah_filter = db.Column(db.CHAR(4))
+
+    # Kotak centang "Sertakan publikasi Kecamatan Dalam Angka" (19 Nov 2026):
+    # 1 = dicentang, 0 = tersedia tapi tidak dicentang, NULL = tidak tersedia
+    # (database tanpa publikasi kecamatan) atau baris lama. Bahan evaluasi
+    # tim PST: seberapa sering petugas memakai rincian per desa. jumlah_hasil
+    # dan skor_tertinggi tetap hanya dari hasil utama.
+    sertakan_kecamatan = db.Column(db.Boolean)
     waktu_pencarian = db.Column(
         db.DateTime,
         nullable=False,
@@ -27,3 +45,4 @@ class LogPencarian(db.Model):
 
     def __repr__(self):
         return f"<LogPencarian {self.keyword!r} n={self.jumlah_hasil}>"
+

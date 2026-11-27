@@ -1,0 +1,3 @@
+BEDA /hasil?q=banyaknya+akomodasi+kabupaten+kota: kartu publikasi yang dibersihkan berubah ['cc314c14']
+BEDA /hasil?q=jumlah+hotel+kabupaten+kota+2024: kartu publikasi yang dibersihkan berubah ['cc314c14']
+28 URL, 2 berbeda; masalah 0

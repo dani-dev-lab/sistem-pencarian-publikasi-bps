@@ -1,0 +1,71 @@
+Cadangan database uji: 8.8 MB, 6 tabel; produksi 6 tabel
+Database uji: db_pencarian_bps_uji | produksi (hanya dibaca): db_pencarian_bps | domain uji: 6305
+
+=== U. PENGAMAN DATABASE UJI ===
+  [LULUS] U1 KonfigurasiUji yang menunjuk nama produksi ditolak (SystemExit)  -- DITOLAK True
+  [LULUS] U2 baris pertama perbarui.py = database uji  -- Database tujuan: db_pencarian_bps_uji @ localhost:3306 (UJI - bukan produksi)
+  [LULUS] U3 ringkasan ke pembaruan_terakhir-uji.json, berkas produksi tidak dibuat  -- exit 0, 1 d
+
+(--hanya CR: bagian lain dilewati)
+
+=== C. OCR ===
+  [LULUS] C1 4 publikasi OCR: entri dari cache identik, halaman_ocr terisi  -- {'182e2e58': (174, 43), '25f03922': (181, 43), '47c94280': (99, 34), 'f338cd99': (99, 44)}
+  [LULUS] C2a --lokal --paksa --tanpa-ocr: ditolak, exit 1, pesan akibat + cara benar, semua publikasi OCR disebut  -- exit 1, 1 d, 4/4 publikasi OCR
+    | Database tujuan: db_pencarian_bps_uji @ localhost:3306 (UJI - bukan produksi)
+    | Log run ini: data/log_pembaruan\20261117-135421.log
+    |   TIDAK DIJALANKAN: --paksa dan --tanpa-ocr tidak boleh dipakai bersamaan.
+    |   --paksa membaca ulang SEMUA publikasi. Dengan --tanpa-ocr, halaman tanpa
+    |   lapisan teks dilewati, sehingga rincian tabel 4 publikasi hasil OCR di
+    |   bawah ini akan HILANG dari database (sebagian menjadi 0 bagian):
+    |     - [6305] Produk Domestik Regional Bruto Kabupaten Tapin Menurut Lapangan Usaha  (174 halaman OCR)
+    |     - [6305] Produk Domestik Regional Bruto Kabupaten Tapin Menurut Lapangan Usaha  (181 halaman OCR)
+    |     - [6305] Profil Tenaga Kerja Kabupaten Tapin Agustus 2024 (99 halaman OCR)
+    |     - [6305] Produk Domestik Regional Bruto Kabupaten Tapin Menurut Pengeluaran 202 (99 halaman OCR)
+    |   Database tidak diubah.
+    |   Yang benar:
+    |   - Membaca ulang semua PDF: pakai --paksa TANPA --tanpa-ocr, misalnya
+    |         perbarui-data.bat --lokal --paksa
+    |     Hasil OCR diambil dari cache data\ocr_cache; EasyOCR tidak perlu
+    |     terpasang selama cache-nya utuh.
+    |   - Tidak memakai OCR: pakai --tanpa-ocr TANPA --paksa. Publikasi yang
+    |     tidak berubah tidak dibaca ulang, jadi hasil OCR-nya tetap.
+    |   Lihat PANDUAN.md bagian 4, "Pilihan tambahan untuk tim IT".
+    | Selesai 2026-11-17 13:54:21, kode keluar 1. Log: data/log_pembaruan\20261117-135421.log
+  [LULUS] C2a database uji tidak berubah (CHECKSUM TABLE)
+  [LULUS] C2b online --paksa --tanpa-ocr: ditolak sebelum jaringan (0 permintaan), database uji tidak berubah  -- exit 1, 0 permintaan
+  [LULUS] C2c domain aktif tanpa publikasi OCR: --paksa --tanpa-ocr tetap jalan, exit 0  -- exit 0, status 'tidak_ada_baru'
+  [LULUS] C2 --tanpa-ocr: halaman dilewati, masuk 'perlu diperiksa', halaman_ocr kosong  -- exit 0, 144 d, alasan: ['174 halaman tanpa lapisan teks dilewati ', '181 halaman tanpa lapisan teks dilewati ']
+  [LULUS] C2 --tanpa-ocr: publikasi bertekst tidak berubah, publikasi OCR kehilangan entri OCR  -- {'182e2e58': (43, 41), '25f03922': (43, 41), '47c94280': (34, 0), 'f338cd99': (44, 0)}
+  [LULUS] C2 OCR dinyalakan lagi: kembali identik per kunci (cache dipakai ulang)  -- exit 0, 172 d
+  [LULUS] C3 cache kurang + EasyOCR tidak ada: 3 halaman dilewati, alasan tercatat, sisanya dari cache  -- {'halaman_tanpa_teks': 99, 'dari_cache': 96, 'di_ocr': 0, 'dilewati': 3, 'alasan_dilewati': 'EasyOCR tidak terpasang', 'rasio_tanpa_teks': 0.868}
+  [LULUS] C4 PDF berganti: cache halaman lama dibuang, _meta.json memakai sidik baru  -- C4 99 0 True
+  [LULUS] C5 PDF bertekst berhalaman kosong: tidak di-OCR, tidak meninggalkan folder cache  -- 1d00e98f: 4/118 halaman kosong
+  [LULUS] C6 aplikasi web melayani pencarian tanpa memuat easyocr/torch  -- C6 [200, 200] False False
+  [LULUS] C7 OCR sungguhan 1 halaman: cache dibuat, teks >= 95% sama dengan cache semula  -- 97 kata, sama 100.0%, 11.97 d
+
+=== R. ROUTE PDF & HALAMAN ADMIN (test_client, KonfigurasiUji) ===
+    | PDF_LOKAL 17 buruk []
+    | TOMBOL 31 ok 31 LAIN 10 alih 10
+    | HILANG 302 True
+    | TAK_ADA 404 404
+    | ADMIN sebagian 200 kurang []
+    | ADMIN sukses 200 kurang []
+    | ADMIN tidak_ada_baru 200 kurang []
+    | ADMIN gagal_jaringan 200 kurang []
+    | ADMIN gagal_lain 200 kurang []
+    | ADMIN gagal_periksa 200 kurang []
+    | ADMIN lama_sukses 200 kurang []
+    | ADMIN lama_tidak_ada 200 kurang []
+    | ADMIN tanpa_berkas 200 kurang [] 
+  [LULUS] R1 /pdf/<id> menyajikan berkas lokal untuk semua publikasi domain uji  -- PDF_LOKAL 17 buruk []
+  [LULUS] R2 tombol Buka PDF di /hasil -> berkas lokal tanpa redirect; PDF di luar salinan -> alih ke url_pdf  -- TOMBOL 31 ok 31 LAIN 10 alih 10
+  [LULUS] R3 berkas hilang -> cadangan redirect ke url_pdf
+  [LULUS] R4 id tak dikenal / path aneh -> 404
+  [LULUS] R5 /admin/perbarui (ringkasan -uji) merender semua status + format lama  -- [('sebagian', '200', '[]'), ('sukses', '200', '[]'), ('tidak_ada_baru', '200', '[]'), ('gagal_jaringan', '200', '[]'), ('gagal_lain', '200', '[]'), ('gagal_periksa', '200', '[]'), ('lama_sukses', '200', '[]'), ('lama_tidak_ada', '200', '[]'), ('tanpa_berkas', '200', '[]')]
+
+=== Z. PEMULIHAN DAN BUKTI ===
+  [LULUS] Z1 database uji dipulihkan, CHECKSUM TABLE sama dengan awal  -- []
+  [LULUS] Z2 produksi tidak berubah (CHECKSUM TABLE awal = akhir)  -- []
+  [LULUS] Z3 folder sementara dibersihkan
+
+=== TOTAL: 24 lulus, 0 gagal, 0 dilewati (362 detik) ===

@@ -1,0 +1,10 @@
+(a) publikasi produksi 307, uji 306; hanya di produksi ['a21060d6eea95b6226af0f7e'] (dibuktikan lewat (b)); berbeda per kunci: 0 []
+(b) baris publikasi bukan target: sebelum 24386, sesudah 24386; berubah per id: 0
+    baris publikasi target: sebelum 71, sesudah 146
+LULUS
+entri_dokumen 24532 2222020900
+publikasi 307 3121769376
+log_pencarian 113 1324397984
+kategori 14 1501779208
+versi_data 1 4002252207
+1	509	2026-11-17 01:58:20

@@ -1,0 +1,123 @@
+Database tujuan: db_pencarian_bps_uji @ localhost:3306 (UJI - bukan produksi)
+Log run ini: data/log_pembaruan\20261124-135745.log
+Pilihan: wilayah: Kab. Tanah Laut; jenis (kab/kota): Publikasi kabupaten/kota + Kecamatan Dalam Angka; tahun rilis 2024-2024
+Jaringan: SSID 'BPS - Pegawai', webapi.bps.go.id -> 203.123.60.70
+
+==========================================================================
+DOMAIN 6301 Kab. Tanah Laut
+==========================================================================
+  halaman 1/? ... OK (10 item)
+  halaman 2/37 ... OK (10 item)
+  halaman 3/37 ... OK (10 item)
+  halaman 4/37 ... OK (10 item)
+  halaman 5/37 ... OK (10 item)
+  halaman 6/37 ... OK (10 item)
+  halaman 7/37 ... OK (10 item)
+  halaman 8/37 ... OK (10 item)
+  berhenti di halaman 8/37: seluruh isinya dirilis sebelum 2024 (daftar API terurut terbaru)
+  80 publikasi dibaca dari daftar, 27 lolos filter tahun dan judul (0 dikecualikan menurut judul)
+  metadata tersimpan: 27 baru, 0 diperbarui
+  27 publikasi perlu dikerjakan
+  Statistik Potensi Desa Kabupaten Tanah Laut 2024     [belum pernah diekstrak, PDF hilang/rusak]
+      unduh 27.1 MB, 1,657 KB/detik
+      113 entri
+  Kecamatan Batu Ampar dalam Angka 2024                [belum pernah diekstrak, updt_date berubah, PDF hilang/rusak]
+      unduh 2.5 MB, 881 KB/detik
+      81 entri
+  Kecamatan Takisung dalam Angka 2024                  [belum pernah diekstrak, updt_date berubah, PDF hilang/rusak]
+      unduh 2.4 MB, 3,298 KB/detik
+      79 entri
+  Statistik Kesejahteraan Rakyat Kabupaten Tanah Laut  [belum pernah diekstrak, PDF hilang/rusak]
+      unduh 20.3 MB, 4,674 KB/detik
+      97 entri
+  Indikator Kesejahteraan Rakyat Kabupaten Tanah Laut  [belum pernah diekstrak, PDF hilang/rusak]
+      unduh 7.4 MB, 3,443 KB/detik
+      8 entri
+  Kecamatan Kurau dalam Angka 2024                     [belum pernah diekstrak, updt_date berubah, PDF hilang/rusak]
+      unduh 2.2 MB, 729 KB/detik
+      78 entri
+  Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tah [belum pernah diekstrak, updt_date berubah, PDF hilang/rusak]
+      unduh 11.8 MB, 3,065 KB/detik
+      378 entri
+  Kecamatan Panyipatan dalam Angka 2024                [belum pernah diekstrak, updt_date berubah, PDF hilang/rusak]
+      unduh 2.4 MB, 4,063 KB/detik
+      77 entri
+  Analisis Hasil Survei Kebutuhan Data BPS Kabupaten T [belum pernah diekstrak, updt_date berubah, PDF hilang/rusak]
+      unduh 4.2 MB, 4,198 KB/detik
+      87 entri
+  Kecamatan Bumi Makmur dalam Angka 2024               [belum pernah diekstrak, updt_date berubah, PDF hilang/rusak]
+      unduh 2.5 MB, 1,477 KB/detik
+      78 entri
+  Produk Domestik Regional Bruto Kabupaten Tanah Laut  [belum pernah diekstrak, updt_date berubah, PDF hilang/rusak]
+      unduh 9.9 MB, 5,190 KB/detik
+      63 entri
+  Kecamatan Jorong dalam Angka 2024                    [belum pernah diekstrak, updt_date berubah, PDF hilang/rusak]
+      unduh 2.3 MB, 317 KB/detik
+      78 entri
+  Produk Domestik Regional Bruto Kabupaten Tanah Laut  [belum pernah diekstrak, updt_date berubah, PDF hilang/rusak]
+      unduh 11.4 MB, 3,580 KB/detik
+      71 entri
+  Keadaan Angkatan Kerja di Kabupaten Tanah Laut Agust [belum pernah diekstrak, updt_date berubah, PDF hilang/rusak]
+      unduh 2.3 MB, 3,443 KB/detik
+      52 entri
+  Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tah [belum pernah diekstrak, PDF hilang/rusak]
+      unduh 12.9 MB, 4,645 KB/detik
+      199 entri
+  Tinjauan Perekonomian Kabupaten Tanah Laut 2024      [belum pernah diekstrak, PDF hilang/rusak]
+      unduh 12.7 MB, 5,173 KB/detik
+      46 entri
+  Kecamatan Bati-Bati dalam Angka 2024                 [belum pernah diekstrak, updt_date berubah, PDF hilang/rusak]
+      unduh 2.4 MB, 2,494 KB/detik
+      81 entri
+  Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tah [belum pernah diekstrak, updt_date berubah, PDF hilang/rusak]
+      unduh 13.9 MB, 2,007 KB/detik
+      423 entri
+  Kabupaten Tanah Laut dalam Angka 2024                [belum pernah diekstrak, updt_date berubah, PDF hilang/rusak]
+      unduh 14.1 MB, 3,299 KB/detik
+      297 entri
+  Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tah [belum pernah diekstrak, updt_date berubah, PDF hilang/rusak]
+      unduh 12.2 MB, 6,992 KB/detik
+      325 entri
+  Kecamatan Bajuin dalam Angka 2024                    [belum pernah diekstrak, updt_date berubah, PDF hilang/rusak]
+      unduh 2.2 MB, 3,978 KB/detik
+      76 entri
+  Statistik Daerah Kabupaten Tanah Laut 2024           [belum pernah diekstrak, updt_date berubah, PDF hilang/rusak]
+      unduh 9.7 MB, 7,669 KB/detik
+      53 entri
+  Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tah [belum pernah diekstrak, PDF hilang/rusak]
+      unduh 14.4 MB, 7,074 KB/detik
+      370 entri
+  Hasil Pencacahan Lengkap Sensus Pertanian 2023 - Tah [belum pernah diekstrak, updt_date berubah, PDF hilang/rusak]
+      unduh 10.9 MB, 5,206 KB/detik
+      272 entri
+  Kecamatan Tambang Ulang dalam Angka 2024             [belum pernah diekstrak, updt_date berubah, PDF hilang/rusak]
+      unduh 2.6 MB, 4,113 KB/detik
+      76 entri
+  Kecamatan Kintap dalam Angka 2024                    [belum pernah diekstrak, updt_date berubah, PDF hilang/rusak]
+      unduh 2.3 MB, 3,808 KB/detik
+      81 entri
+  Kecamatan Pelaihari dalam Angka 2024                 [belum pernah diekstrak, updt_date berubah, PDF hilang/rusak]
+      unduh 2.7 MB, 982 KB/detik
+      87 entri
+  sampul: 27 publikasi belum punya sampul resmi, dikerjakan
+  sampul: resmi 27, cadangan PDF 0, cadangan lama dipertahankan 0, gagal 0
+
+==========================================================================
+RINGKASAN PEMBARUAN
+==========================================================================
+  Status       : sukses
+  Entri dokumen: 44455 -> 48181 (+3726)
+  Waktu        : 765 detik (0.2 jam)
+  Per tahap    : ambil_metadata 14.8 d, unduh 76.9 d, ekstraksi 583.6 d, muat 4.5 d
+  Jaringan     : SSID 'BPS - Pegawai', webapi.bps.go.id -> 203.123.60.70
+  Unduhan      : 27 berkas, 221.7 MB, rata-rata 2818.0 KB/detik; putus 0x, percobaan ulang 0x, putaran ulang 0 (pulih 0), tetap gagal 0
+  Sampul       : resmi 27 (4.0 MB), cadangan PDF 0, cadangan lama dipertahankan 0, gagal 0, 58 detik
+
+  domain                            status          publikasi  diunduh diproses  gagal
+  6301 Kab. Tanah Laut              sukses                 66       27       27      0
+
+  Perlu diperiksa manual (2):
+    6301 Indikator Kesejahteraan Rakyat Kabupaten T 8/8 entri tanpa nomor halaman
+    6301 Statistik Daerah Kabupaten Tanah Laut 2024 19/53 entri tanpa nomor halaman
+
+Selesai 2026-11-24 14:10:29, kode keluar 0. Log: data/log_pembaruan\20261124-135745.log

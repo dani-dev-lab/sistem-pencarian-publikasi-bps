@@ -1,0 +1,6 @@
+'jumlah penduduk menurut desa' w=-: info=True api={'jenis': 'bagian', 'jumlah': 6016} (190 ms) | seksi bercentang=6016 | info saat dicentang=False | SAMA=True
+'penduduk' w=6301: info=True api={'jenis': 'bagian', 'jumlah': 88} (5 ms) | seksi bercentang=88 | info saat dicentang=False | SAMA=True
+'tanah laut' w=-: info=True api={'jenis': 'publikasi', 'jumlah': 22} (3 ms) | seksi bercentang=22 | info saat dicentang=False | SAMA=True
+'penduduk tala' w=-: info=True api={'jenis': 'bagian', 'jumlah': 88} (5 ms) | seksi bercentang=88 | info saat dicentang=False | SAMA=True
+'tpk' w=-: info=True api={'jenis': 'bagian', 'jumlah': 0} (10 ms) | seksi bercentang=0 | info saat dicentang=False | SAMA=True
+'penduduk' w=6300: info=True api={'jenis': 'bagian', 'jumlah': 0} (3 ms) | seksi bercentang=0 | info saat dicentang=False | SAMA=True

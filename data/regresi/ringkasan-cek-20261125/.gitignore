@@ -1,0 +1,6 @@
+# Besar dan bisa dibuat ulang (lihat laporan ringkasan-cek-20261125.md):
+# potret HTML 28 URL dan tangkapan halaman pencarian sebelum/sesudah (identik).
+potret-*.json
+layar-pencarian-sebelum/
+layar-pencarian-sesudah/
+style-HEAD.css

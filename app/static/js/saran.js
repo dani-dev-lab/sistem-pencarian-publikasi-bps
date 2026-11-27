@@ -118,7 +118,10 @@
       }
 
       var nomor = ++permintaan;
-      fetch("/api/saran?q=" + encodeURIComponent(q))
+      // Kotak centang kecamatan (18 Nov 2026): saran dari publikasi Kecamatan
+      // Dalam Angka hanya kalau dicentang.
+      var kec = document.querySelector("input[name=kec]:checked") ? "&kec=1" : "";
+      fetch("/api/saran?q=" + encodeURIComponent(q) + kec)
         .then(function (r) {
           if (!r.ok) throw new Error("status " + r.status);
           return r.json();

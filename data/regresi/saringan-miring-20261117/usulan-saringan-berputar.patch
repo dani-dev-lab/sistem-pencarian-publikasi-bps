@@ -1,0 +1,66 @@
+diff --git a/app/services/ekstraksi_pdf.py b/app/services/ekstraksi_pdf.py
+index 727c39b..84ce4ac 100644
+--- a/app/services/ekstraksi_pdf.py
++++ b/app/services/ekstraksi_pdf.py
+@@ -60,17 +60,24 @@ RE_KOP_KOLOM = re.compile(
+ # --------------------------------------------------------------------------
+ 
+ def _bukan_watermark(obj):
+-    """Watermark BPS dicetak miring 45 derajat, teks asli tidak.
++    """Watermark BPS dicetak DIPUTAR 45 derajat, teks asli tidak.
+ 
+     Dibedakan lewat matriks transformasi karakter, BUKAN lewat pola teks.
+     Teks normal punya matrix (1, 0, 0, 1, ...); watermark (0.707, 0.707, ...).
+     Inilah yang menyelesaikan masalah "Pertaniano" dan "kKategori" di spike:
+     huruf watermark dibuang sebelum kata terbentuk, bukan sesudahnya.
++
++    Yang dibuang hanya karakter BERPUTAR (m[1] != 0): watermark dan teks
++    vertikal. Teks miring sintetis (shear: m[1] = 0, m[2] != 0) adalah teks asli
++    dan dipertahankan (17 Nov 2026). Sebelumnya ikut dibuang, sehingga nomor
++    halaman miring di Daftar Tabel Tabalong DA 2025 hilang. Pindai 307 PDF: 0
++    karakter berputar tanpa shear, dan 0 watermark berbentuk shear. Lihat
++    data/regresi/saringan-miring-20261117.md.
+     """
+     m = obj.get("matrix")
+     if m is None:
+         return True
+-    return abs(m[1]) < 0.01 and abs(m[2]) < 0.01
++    return abs(m[1]) < 0.01
+ 
+ 
+ def _kata_halaman(halaman):
+diff --git a/tests/uji_pipeline.py b/tests/uji_pipeline.py
+index 545ccf8..cde09be 100644
+--- a/tests/uji_pipeline.py
++++ b/tests/uji_pipeline.py
+@@ -727,8 +727,18 @@ bk = E._batas_kanan(halaman_tl, "tabel")
+ cetak("kolom-judul-nomor-baris-sendiri", E._parse_baris(halaman_tl, "tabel", "x", bk),
+       [("4.1.1", "Jumlah Sekolah Dasar di Kabupaten", "93"), ("4.1.2", "Jumlah Guru", "96"),
+        ("4.1.3", "Jumlah Murid", "99")])
++# Saringan watermark (17 Nov 2026): yang dibuang hanya karakter BERPUTAR (watermark
++# 45 derajat, teks vertikal). Miring sintetis (shear, Tabalong DA 2025) = teks asli.
++saring = [(nama, E._bukan_watermark({"text": "9", "matrix": m}), harap) for nama, m, harap in (
++    ("tegak", (10, 0, 0, 10, 300, 500), True),
++    ("miring", (10, 0, 0.875, 10, 300, 500), True),
++    ("watermark-45", (7.07, 7.07, -7.07, 7.07, 100, 300), False),
++    ("vertikal", (0, 10, -10, 0, 50, 400), False),
++    ("tanpa-matriks", None, True))]
++print("I saringan-berputar", "OK" if all(d == h for _, d, h in saring)
++      else "SALAH " + str([(n, d) for n, d, h in saring if d != h]))
+ # B: layout biasa (nomor di baris TERAKHIR) tidak boleh tersentuh.
+-cetak("B-layout-biasa-aman", E._parse_baris([
++cetak("B-layout-biasa-aman",E._parse_baris([
+     baris(w("BAB", 90), w("I", 115), w("PENDAHULUAN", 124), hal("1")),
+     baris(w("Penduduk", 124), w("Usia", 180), w("Kerja", 215), w("dan", 250)),
+     baris(w("Angkatan", 124), w("Kerja", 180), hal("5"))], "isi", "x", 400),
+@@ -741,8 +751,8 @@ def bagian_i():
+     print("\n=== I. PARSER DAFTAR (pola C, A2, A1, A', B) ===", flush=True)
+     kode, keluar, err = jalan_py(KODE_BAGIAN_I)
+     hasil = re.findall(r"^I (\S+) (OK|SALAH.*)$", keluar, re.M)
+-    cek(f"I1 {len(hasil)} kasus sintetis parser Daftar", len(hasil) == 10 and all(h == "OK" for _, h in hasil),
+-        [f"{n}: {h}" for n, h in hasil if h != "OK"] or (err[-300:] if len(hasil) != 10 else "10/10"))
++    cek(f"I1 {len(hasil)} kasus sintetis parser Daftar", len(hasil) == 11 and all(h == "OK" for _, h in hasil),
++        [f"{n}: {h}" for n, h in hasil if h != "OK"] or (err[-300:] if len(hasil) != 11 else "11/11"))
+ 
+ 
+ def bagian_s():

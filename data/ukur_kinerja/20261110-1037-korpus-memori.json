@@ -1,0 +1,184 @@
+{
+  "label": "korpus-memori",
+  "diukur_pada": "2026-11-10T10:37:07",
+  "lingkungan": {
+    "komputer": "DESKTOP-69VFRLH",
+    "os": "Windows-11-10.0.26300-SP0",
+    "prosesor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+    "python": "3.14.6"
+  },
+  "data": {
+    "publikasi": 306,
+    "entri": 23461
+  },
+  "ulang": 20,
+  "ambil_korpus": {
+    "median_ms": 320.9,
+    "p95_ms": 367.3,
+    "min_ms": 305.0,
+    "maks_ms": 387.4
+  },
+  "per_kueri": [
+    {
+      "median_ms": 16.5,
+      "p95_ms": 17.2,
+      "min_ms": 16.1,
+      "maks_ms": 18.7,
+      "kueri": "statistik ekspor impor",
+      "dinilai": 392,
+      "hasil": 20,
+      "publikasi": 7
+    },
+    {
+      "median_ms": 12.9,
+      "p95_ms": 13.5,
+      "min_ms": 12.5,
+      "maks_ms": 13.7,
+      "kueri": "negara tujuan ekspor",
+      "dinilai": 302,
+      "hasil": 38,
+      "publikasi": 3
+    },
+    {
+      "median_ms": 163.8,
+      "p95_ms": 164.7,
+      "min_ms": 162.6,
+      "maks_ms": 165.0,
+      "kueri": "banyaknya akomodasi kabupaten kota",
+      "dinilai": 12533,
+      "hasil": 30,
+      "publikasi": 20
+    },
+    {
+      "median_ms": 189.5,
+      "p95_ms": 190.8,
+      "min_ms": 187.4,
+      "maks_ms": 192.1,
+      "kueri": "jumlah hotel kabupaten kota 2024",
+      "dinilai": 13740,
+      "hasil": 36,
+      "publikasi": 20
+    },
+    {
+      "median_ms": 7.5,
+      "p95_ms": 8.1,
+      "min_ms": 7.1,
+      "maks_ms": 8.2,
+      "kueri": "tingkat penghunian kamar",
+      "dinilai": 37,
+      "hasil": 23,
+      "publikasi": 2
+    },
+    {
+      "median_ms": 7.4,
+      "p95_ms": 7.9,
+      "min_ms": 7.0,
+      "maks_ms": 7.9,
+      "kueri": "tpk",
+      "dinilai": 37,
+      "hasil": 23,
+      "publikasi": 2
+    },
+    {
+      "median_ms": 59.5,
+      "p95_ms": 59.8,
+      "min_ms": 58.7,
+      "maks_ms": 59.9,
+      "kueri": "penduduk miskin",
+      "dinilai": 4197,
+      "hasil": 40,
+      "publikasi": 11
+    },
+    {
+      "median_ms": 183.4,
+      "p95_ms": 189.2,
+      "min_ms": 181.2,
+      "maks_ms": 233.0,
+      "kueri": "population by regency",
+      "dinilai": 12753,
+      "hasil": 40,
+      "publikasi": 20
+    },
+    {
+      "median_ms": 11.0,
+      "p95_ms": 11.5,
+      "min_ms": 10.7,
+      "maks_ms": 11.5,
+      "kueri": "ekspor batubara",
+      "dinilai": 214,
+      "hasil": 11,
+      "publikasi": 0
+    },
+    {
+      "median_ms": 186.7,
+      "p95_ms": 190.0,
+      "min_ms": 184.8,
+      "maks_ms": 191.2,
+      "kueri": "jumlah penduduk menurut kecamatan",
+      "dinilai": 14260,
+      "hasil": 40,
+      "publikasi": 11
+    },
+    {
+      "median_ms": 79.4,
+      "p95_ms": 80.2,
+      "min_ms": 78.2,
+      "maks_ms": 80.2,
+      "kueri": "penduduk tanah laut",
+      "dinilai": 5445,
+      "hasil": 40,
+      "publikasi": 20
+    },
+    {
+      "median_ms": 28.0,
+      "p95_ms": 28.5,
+      "min_ms": 27.7,
+      "maks_ms": 28.5,
+      "kueri": "luas panen padi kotabaru",
+      "dinilai": 1736,
+      "hasil": 22,
+      "publikasi": 4
+    }
+  ],
+  "rata_rata_median_ms": 78.8,
+  "rata_rata_p95_ms": 80.1,
+  "berkas": {
+    "json_bytes": {
+      "domain_kalsel.json": 1620,
+      "frekuensi_kata.json": 60215,
+      "kamus_sinonim.json": 6442,
+      "pembaruan_terakhir.json": 21163,
+      "pemeriksaan_domain.json": 23294,
+      "wilayah.json": 3075
+    },
+    "json_total_bytes": 115809,
+    "pdf_jumlah": 306,
+    "pdf_total_bytes": 3194279003
+  },
+  "tabel_mysql": {
+    "entri_dokumen": {
+      "data_bytes": 9453568,
+      "indeks_bytes": 4227072
+    },
+    "kategori": {
+      "data_bytes": 16384,
+      "indeks_bytes": 16384
+    },
+    "log_pencarian": {
+      "data_bytes": 16384,
+      "indeks_bytes": 16384
+    },
+    "publikasi": {
+      "data_bytes": 1540096,
+      "indeks_bytes": 49152
+    },
+    "publikasi_kategori": {
+      "data_bytes": 16384,
+      "indeks_bytes": 16384
+    },
+    "versi_data": {
+      "data_bytes": 16384,
+      "indeks_bytes": 0
+    }
+  }
+}

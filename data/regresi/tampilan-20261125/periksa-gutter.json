@@ -1,0 +1,74 @@
+{
+ "1280": {
+  "A_sama_halaman_pendek_vs_panjang": {
+   "gulir": [
+    false,
+    true
+   ],
+   "gutter": [
+    0,
+    10
+   ],
+   "beda": {}
+  },
+  "B_beranda_admin_vs_log": {
+   "gulir": [
+    false,
+    true
+   ],
+   "gutter": [
+    0,
+    10
+   ],
+   "beda": {}
+  },
+  "C_beranda_vs_hasil": {
+   "gulir": [
+    false,
+    true
+   ],
+   "gutter": [
+    0,
+    10
+   ],
+   "beda": {}
+  }
+ },
+ "375": {
+  "A_sama_halaman_pendek_vs_panjang": {
+   "gulir": [
+    false,
+    true
+   ],
+   "gutter": [
+    0,
+    10
+   ],
+   "beda": {}
+  },
+  "B_beranda_admin_vs_log": {
+   "gulir": [
+    false,
+    true
+   ],
+   "gutter": [
+    0,
+    10
+   ],
+   "beda": {}
+  },
+  "C_beranda_vs_hasil": {
+   "gulir": [
+    false,
+    true
+   ],
+   "gutter": [
+    0,
+    10
+   ],
+   "beda": {}
+  }
+ },
+ "tanpa_pergeseran": true,
+ "skenario_sah": true
+}

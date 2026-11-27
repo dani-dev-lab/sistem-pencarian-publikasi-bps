@@ -1,0 +1,44 @@
+Database sumber daftar: db_pencarian_bps_uji (UJI, hanya dibaca)
+Folder sampul: C:\Users\Dani\AppData\Local\Temp\claude\b70c7cfe058bdffd\7a0bac1d-86df-4f70-8731-f36038e021fa\scratchpad\uji-sampul\folder
+618 publikasi; sudah punya berkas (dilewati) 0; dikerjakan 618 (tanpa url_cover 0); perkiraan 14 menit
+[1/618] 6300 09436841 Direktori Usaha Pertanian Lainnya (DUTL) Pro 6 KB
+[2/618] 6300 11487263 Tinjauan Produk Domestik Regional Bruto Kabu 6 KB
+[3/618] 6300 11487a61 Laporan Perekonomian Provinsi Kalimantan Sel 6 KB
+[4/618] 6300 172b31da Produk Domestik Regional Bruto Kabupaten/Kot 6 KB
+[5/618] 6300 18e4b6e4 Ringkasan Eksekutif Luas Panen dan Produksi  6 KB
+[6/618] 6300 193ca993 Keadaan Angkatan Kerja Provinsi Kalimantan S 6 KB
+[7/618] 6300 19b4856c Statistik Potensi Desa Provinsi Kalimantan S 6 KB
+[8/618] 6300 1a254bc9 Produk Domestik Regional Bruto Provinsi Kali 6 KB
+[9/618] 6300 1bc84df2 Indeks Pembangunan Manusia Provinsi Kalimant 6 KB
+[10/618] 6300 1c688dd3 Gambaran Ekonomi Makro Provinsi Kalimantan S 6 KB
+[11/618] 6300 1e41ba97 Direktori Perusahaan Pertanian (DPP) Provins 6 KB
+[12/618] 6300 2223fbff Indikator Tujuan Pembangunan Berkelanjutan ( 6 KB
+[13/618] 6300 22aa7968 Direktori Perusahaan Akomodasi Provinsi Kali 6 KB
+[14/618] 6300 267958a5 Laporan Perekonomian Provinsi Kalimantan Sel 6 KB
+[15/618] 6300 26d401fd Statistik Kesejahteraan Rakyat Provinsi Kali 6 KB
+[16/618] 6300 27202412 Statistik Pemotongan Ternak Provinsi Kaliman 6 KB
+[17/618] 6300 2ddab8a8 Keadaan Angkatan Kerja Provinsi Kalimantan S 6 KB
+[18/618] 6300 3212257d Analisis Hasil Survei Kebutuhan Data BPS Pro 6 KB
+[19/618] 6300 335ac15d Luas Panen dan Produksi Padi Provinsi Kalima 6 KB
+[20/618] 6300 3619db35 Statistik Keuangan Pemerintah Daerah Kabupat 6 KB
+[21/618] 6300 38778154 Indikator Pasar Tenaga Kerja Provinsi Kalima 6 KB
+[22/618] 6300 3d61cea5 Luas Panen dan Produksi Padi Provinsi Kalima 6 KB
+[23/618] 6300 40fe4a27 Nilai Tukar Petani Provinsi Kalimantan Selat 6 KB
+[24/618] 6300 49c5df1b Gambaran Ekonomi Makro Provinsi Kalimantan S 6 KB
+[25/618] 6300 579f5146 Statistik Pemotongan Ternak Provinsi Kaliman 6 KB
+[26/618] 6300 6062f26c Statistik Politik dan Keamanan Provinsi Kali 6 KB
+[27/618] 6300 6867ebfd Statistik Daerah Provinsi Kalimantan Selatan 6 KB
+[28/618] 6300 6a0ad2d4 Statistik Perhubungan Provinsi Kalimantan Se 6 KB
+[29/618] 6300 6fc864b9 Gambaran Ekonomi Makro Provinsi Kalimantan S 6 KB
+[30/618] 6300 70d54ffe Statistik Harga Konsumen Komoditas Terpilih  6 KB
+[31/618] 6300 760824ef Profil Industri Mikro dan Kecil Provinsi Kal 6 KB
+[32/618] 6300 7ab5836f Master File Desa Provinsi Kalimantan Selatan 6 KB
+[33/618] 6300 7d1c21c1 Gambaran Ekonomi Makro Provinsi Kalimantan S 6 KB
+[34/618] 6300 7ec81cb7 Indeks Harga Konsumen Provinsi Kalimantan Se 6 KB
+[35/618] 6300 8367dad5 Indeks Pembangunan Manusia Provinsi Kalimant 6 KB
+[36/618] 6300 83f521a7 Produk Domestik Regional Bruto Kabupaten/Kot 6 KB
+[37/618] 6300 83fff1db Keadaan Angkatan Kerja Provinsi Kalimantan S 6 KB
+[38/618] 6300 856e507e Gambaran Ekonomi Makro Provinsi Kalimantan S 6 KB
+[39/618] 6300 87781992 Statistik Harga Konsumen Komoditas Terpilih  6 KB
+[40/618] 6300 8b097d58 Gambaran Ekonomi Makro Provinsi Kalimantan S 6 KB
+TERPUTUS (disimulasikan) sesudah 40 permintaan

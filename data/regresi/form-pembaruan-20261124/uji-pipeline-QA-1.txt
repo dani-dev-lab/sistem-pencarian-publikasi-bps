@@ -1,0 +1,72 @@
+Cadangan database uji: 15.9 MB, 6 tabel; produksi 6 tabel
+Database uji: db_pencarian_bps_uji | produksi (hanya dibaca): db_pencarian_bps | domain uji: 6305
+
+=== U. PENGAMAN DATABASE UJI ===
+  [LULUS] U1 KonfigurasiUji yang menunjuk nama produksi ditolak (SystemExit)  -- DITOLAK True
+  [LULUS] U2 baris pertama perbarui.py = database uji  -- Database tujuan: db_pencarian_bps_uji @ localhost:3306 (UJI - bukan produksi)
+  [LULUS] U4 tanpa BPS: url_cover/url_pdf database uji semuanya ke server tiruan; alamat luar diblokir proxy mati (tidak sampai ke BPS); server tiruan tetap terjangkau  -- URL luar di DB 0; LUAR DIBLOKIR | TIRUAN 200 image/jpeg
+  [LULUS] U3 ringkasan ke pembaruan_terakhir-uji.json, berkas produksi tidak dibuat  -- exit 0, 15 d
+
+(--hanya QA: bagian lain dilewati)
+
+=== Q. PILIHAN PENARIKAN (wilayah / jenis / tahun / cek dulu) ===
+  [LULUS] Q0 tanpa pilihan, tanpa perubahan: 2 wilayah dibaca, 0 PDF, 0 sampul, status tidak_ada_baru; ringkasan mencatat pilihan bawaan  -- exit 0, tidak_ada_baru, pilihan {'wilayah': ['6300', '6305'], 'nama_wilayah': ['Provinsi Kalimantan Selatan', 'Kab. Tapin'], 'jenis': ['kabkota', 'kecamatan'], 'tahun_dari': 2025, 'tahun_sampai': 2026, 'bawaan': True}
+  [LULUS] Q1 kode lama benar-benar versi HEAD (tanpa --cek-dulu) dan bekerja: 1 baru + 1 direvisi  -- exit 0, {'status': 'sukses', 'diproses': 2, 'diunduh': 2, 'baru': ['qqqqrrrrsssstttt6300baru'], 'domain': [('6300', 'sukses', 1, 1, 0, 0, 0), ('6305', 'sukses', 1, 1, 0, 0, 0)]}
+  [LULUS] Q1 tanpa pilihan = kode sebelumnya: permintaan daftar+PDF sama PERSIS (urutan), database sama per kunci, ringkasan inti sama  -- permintaan 15/15, beda DB []
+  [LULUS] Q1 keluaran layar sama (angka/waktu dan baris sampul diabaikan)  -- []
+  [LULUS] Q1 satu-satunya beda yang DISENGAJA: sampul publikasi direvisi ikut diunduh ulang (keputusan 24 Nov)  -- lama ['qqqqrrrrsssstttt6300baru'], baru ['34232029fdd831e30af08728', 'qqqqrrrrsssstttt6300baru'], kunci baru ['pilihan']
+  [LULUS] Q2a --wilayah 6305 --jenis kecamatan: hanya Kecamatan Dalam Angka yang direvisi diproses; publikasi kab/kota dan provinsi tidak disentuh (metadata pun tidak); daftar 6300 tidak diminta  -- exit 0, pdf ['9a372c014595658158e170b9'], daftar ['6305']
+  [LULUS] Q2a publikasi di luar pilihan jenis tidak dilaporkan 'tidak lagi di daftar'; ringkasan mencatat pilihan  -- {'wilayah': ['6305'], 'nama_wilayah': ['Kab. Tapin'], 'jenis': ['kecamatan'], 'tahun_dari': 2025, 'tahun_sampai': 2026, 'bawaan': False}
+  [LULUS] Q2b --jenis kabkota: hanya publikasi kab/kota yang direvisi; tidak_di_daftar kosong  -- exit 0, pdf ['1d00e98fc8211bf401d37078']
+  [LULUS] Q2c --wilayah 6300 --tahun-min 2025 --tahun-maks 2025: hanya rilis 2025 diproses, rilis 2026 tidak disentuh; tidak_di_daftar kosong  -- exit 0, pdf ['b28314d9b49b5d9a6e0b8f96'], tidak_di_daftar 0
+  [LULUS] Q2d tahun tanpa publikasi (2024): 0 lolos BUKAN kegagalan selama database juga tidak punya publikasi 2024; data provinsi tidak berubah  -- exit 0, tidak_ada_baru, None
+  [LULUS] Q2e lalu tanpa pilihan: sisa revisi (provinsi 2026) diproses  -- exit 0, pdf ['70d54ffed4ab46df969baefd']
+  [LULUS] Q2 jeda antar-permintaan ke WebAPI/PDF/sampul >= ~1 detik di semua run berpilihan  -- [1.02, 1.0, 1.0, 1.0]
+  [LULUS] Q2f --lokal --paksa --wilayah 6305 --jenis kecamatan: tepat 24 publikasi kecamatan dibaca ulang, kab/kota dan provinsi tidak; 0 permintaan jaringan  -- exit 0, diproses 24, permintaan 0
+  [LULUS] Q3 pilihan tidak sah di perbarui.py: semua exit 1 + DITOLAK, 0 permintaan, database dan ringkasan tidak berubah  -- 11 ditolak
+  [LULUS] Q4 formulir: 9 kiriman tidak sah ditolak server (HTTP 400 + pesan), tidak ada proses dimulai  -- 9
+  [LULUS] Q4 bawaan formulir = tanpa argumen (perintah sama dengan tombol lama); POST tanpa formulir = bawaan  -- ['C:\\Users\\Dani\\AppData\\Local\\Temp\\uji_pipeline_bps\\uji\\scripts\\perbarui.py', '--db-uji']
+  [LULUS] Q4 pilihan tahun = tahun_min_pilihan .. tahun berjalan (tahun yang belum tiba tidak ada)  -- ['2020', '2021', '2022', '...', '2025', '2026']
+  [LULUS] Q4 'Cek dulu' dari formulir: jalur perbarui.py yang sama, pilihan sampai ke proses, hasil tampil, formulir terisi pilihan yang sama  -- {'cek_kode': 0, 'cek_baris_pilihan': ['Pilihan: wilayah: Kab. Tapin; jenis (kab/kota): Kecamatan Dalam Angka; tahun rilis 2025-2026'], 'formulir_terisi': ['6305', 'kecamatan']}
+  [LULUS] Q4 cek dari formulir: hanya daftar 6305 diminta, 0 PDF/sampul; database dan ringkasan pembaruan tidak berubah
+  [LULUS] Q5 --cek-dulu: baru 1, direvisi 1, baca ulang 1, sisanya tidak berubah; unduh 3 PDF  -- exit 0, {'di_daftar': 42, 'baru': 1, 'direvisi': 1, 'baca_ulang': 1, 'tetap': 39, 'unduh': 3, 'mb_unduh': 3.5}
+  [LULUS] Q5 --cek-dulu --jenis kabkota: kecamatan yang direvisi tidak dihitung  -- 0
+  [LULUS] Q5 --cek-dulu tidak mengunduh (0 PDF, 0 sampul, berkas baru tidak ada), database dan ringkasan pembaruan tidak berubah  -- 10 permintaan
+  [LULUS] Q5 peringatan penarikan besar (>= 50 publikasi / >= 1 GB / >= 1 jam) + catatan PDF lama (< 2025); kecil tanpa peringatan  -- PK True 3 2 False 1
+
+  [LULUS] Q6 saat terkunci: cek dan pembaruan berpilihan berhenti (exit 2), 0 permintaan  -- [2, 2]
+  [GAGAL] Q7 .bat --wilayah 6305,6300 --jenis kecamatan --cek-dulu: pilihan sampai utuh, penutup 'CEK SELESAI'  -- ['Pilihan: wilayah: semua wilayah aktif; jenis (kab/kota): Kecamatan Dalam Angka; tahun rilis 2025-2026', 'PEMBARUAN SELESAI.']
+  [LULUS] Q7 .bat pilihan tidak sah: DITOLAK -> PEMBARUAN GAGAL (bukan 'pembaruan lain sedang berjalan')
+
+=== A. SAMPUL PUBLIKASI ===
+  [LULUS] A1 sampul ada: 39 sampul resmi dari server tiruan, byte identik  -- exit 3, 114 d, {'resmi': 39, 'cadangan': 1, 'cadangan_lama': 0, 'gagal': 1, 'diperbarui': 0, 'lama_dipertahankan': 0, 'byte': 249171, 'detik': 41.9}
+  [LULUS] A1 cadangan PDF: unduhan 400 -> <id>.cadangan.jpg lebar 500 dari halaman 1, tanpa <id>.jpg  -- (500, 352)
+  [LULUS] A1 sampul gagal (unduhan 400, PDF tidak ada): tanpa berkas, dicatat; status domain hanya dipengaruhi unduhan PDF, bukan sampul  -- status sebagian, gagal ['8f46a945e36141a21806452b']
+  [LULUS] A1 satu permintaan sampul per publikasi (400 tidak diulang), jeda >= ~1 detik  -- 41 permintaan, jeda minimum 1.00 d
+  [LULUS] A1 token sampul tidak tercetak di keluaran (pesan galat memuat f=***)
+    |   sampul: 41 publikasi belum punya sampul resmi, dikerjakan
+    |     sampul Booklet Survei Angkatan Kerja Nasional Kabupat cadangan (400 Client Error: Bad Request for url: http://127.0.0.1:5981/cover.php?f=***)
+    |     sampul Keadaan Angkatan Kerja di Kabupaten Tapin Agus gagal (400 Client Error: Bad Request for url: http://127.0.0.1:5981/cover.php?f=***; PDF lokal ti)
+    |   sampul: resmi 39, cadangan PDF 1, cadangan lama dipertahankan 0, gagal 1
+    |   Sampul       : resmi 39 (0.2 MB), cadangan PDF 1, cadangan lama dipertahankan 0, gagal 1, 42 detik
+  [LULUS] A2 run berikutnya: hanya 2 yang belum punya sampul resmi diminta; cadangan diganti resmi  -- exit 0, permintaan 2, {'resmi': 2, 'cadangan': 0, 'cadangan_lama': 0, 'gagal': 0, 'diperbarui': 0, 'lama_dipertahankan': 0, 'byte': 12778, 'detik': 2.1}
+  [LULUS] A3 --lokal: 0 permintaan, publikasi tanpa berkas mendapat cadangan PDF  -- 0 permintaan, {'resmi': 0, 'cadangan': 1, 'cadangan_lama': 0, 'gagal': 0, 'diperbarui': 0, 'lama_dipertahankan': 0, 'byte': 0, 'detik': 0.2}
+  [LULUS] A4 sampul ada: 16 kartu publikasi bergambar lewat route lokal, width/height 500x709, alt 'Sampul <judul>', lazy; gambar = berkas  -- 16 kartu
+  [LULUS] A4 sampul tidak ada: kartu tanpa <img>, tanpa kelas/pembungkus sampul (markup lama); /sampul -> 404  -- {'img': False, 'kelas': False, 'div': 0}
+  [LULUS] A4 kartu tabel/gambar/lampiran/bab tidak pernah bersampul; id tidak sah -> 404  -- 50 kartu entri, id jahat 404
+  [LULUS] A5 sepanjang uji tidak ada URL luar di database uji (url_cover/url_pdf)
+  [LULUS] A6 revisi berhasil: PDF diunduh ulang, sampul resmi DITIMPA sampul baru (byte identik), tanpa sisa .part  -- exit 0, {'resmi': 1, 'cadangan': 0, 'cadangan_lama': 0, 'gagal': 0, 'diperbarui': 1, 'lama_dipertahankan': 0, 'byte': 12778, 'detik': 2.1}
+  [LULUS] A6 publikasi yang tidak direvisi tidak diunduh ulang sampulnya (berkasnya tidak tersentuh)  -- 2 permintaan sampul, harap 2
+    |   sampul: 1 publikasi belum punya sampul resmi, dikerjakan
+    |   sampul: 1 publikasi direvisi BPS, sampulnya diunduh ulang
+    |   sampul: resmi 1, cadangan PDF 0, cadangan lama dipertahankan 0, gagal 0; revisi: diperbarui 1, sampul lama dipertahankan 0
+    |   Sampul       : resmi 1 (0.0 MB), cadangan PDF 0, cadangan lama dipertahankan 0, gagal 0, 2 detik; revisi: diperbarui 1, lama dipertahankan 0
+  [LULUS] A7 revisi, unduhan sampul gagal (HTTP 400 / bukan gambar): sampul lama tetap dipakai (byte sama), dicatat lama_dipertahankan, PDF tetap diproses, status domain tidak gagal  -- [('400', True, 1, True, True, 'sukses'), ('html', True, 1, True, True, 'sukses')]
+
+=== Z. PEMULIHAN DAN BUKTI ===
+  [LULUS] Z1 database uji dipulihkan, CHECKSUM TABLE sama dengan awal  -- []
+  [LULUS] Z2 produksi tidak berubah (CHECKSUM TABLE awal = akhir)  -- []
+  [LULUS] Z3 folder sementara dibersihkan
+
+=== TOTAL: 46 lulus, 1 gagal, 0 dilewati (625 detik) ===
+  GAGAL: Q7 .bat --wilayah 6305,6300 --jenis kecamatan --cek-dulu: pilihan sampai utuh, penutup 'CEK SELESAI'

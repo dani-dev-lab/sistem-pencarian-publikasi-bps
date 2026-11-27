@@ -1,0 +1,3 @@
+db_pencarian_bps.entri_dokumen	2222020900
+db_pencarian_bps.publikasi	3121769376
+db_pencarian_bps.versi_data	4002252207

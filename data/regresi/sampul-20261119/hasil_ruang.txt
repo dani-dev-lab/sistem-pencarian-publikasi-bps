@@ -1,0 +1,12 @@
+== normal
+  360 20 sampul, 7 permintaan ditahan (belum dimuat): OK, ruang sudah dipesan
+ 1366 20 sampul, 9 permintaan ditahan (belum dimuat): OK, ruang sudah dipesan
+kode 0
+== RUSAK=tanpa-atribut (harus MASALAH)
+  360 20 sampul, 7 permintaan ditahan (belum dimuat): MASALAH [[64, 2, 0, 0, 0], [64, 2, 0, 0, 0]]
+ 1366 20 sampul, 9 permintaan ditahan (belum dimuat): MASALAH [[96, 2, 0, 0, 0], [96, 2, 0, 0, 0]]
+kode 1
+== RUSAK=lebar (harus MASALAH)
+  360 20 sampul, 7 permintaan ditahan (belum dimuat): MASALAH [[120, 169.546875, 500, 710, 0], [120, 120, 500, 500, 0]]
+ 1366 20 sampul, 9 permintaan ditahan (belum dimuat): MASALAH [[120, 169.546875, 500, 710, 0], [120, 120, 500, 500, 0]]
+kode 1

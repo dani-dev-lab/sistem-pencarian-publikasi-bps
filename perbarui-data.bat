@@ -7,12 +7,18 @@ echo ==========================================================
 echo   Perbarui data publikasi dari WebAPI BPS
 echo ==========================================================
 echo.
-echo   Butuh koneksi ke jaringan "BPS - Pegawai".
-echo   Jaringan "BPS - Tamu" memblokir WebAPI BPS.
+echo   Butuh koneksi internet ke webapi.bps.go.id.
 echo.
-echo   Kalau tidak ada publikasi baru, proses selesai dalam ~2 menit.
-echo   Kalau ada publikasi baru, tiap publikasi butuh ~20-60 detik
-echo   (unduh PDF + membaca strukturnya).
+echo   Pembaruan rutin 14 wilayah: sekitar 2 menit (diukur 16 Nov 2026:
+echo   107 detik dengan 1 publikasi baru). Daftar tiap wilayah diperiksa
+echo   dengan jeda 1 detik per halaman. Tiap publikasi yang perlu diproses
+echo   menambah beberapa detik sampai beberapa menit, tergantung ukuran
+echo   PDF-nya (unduh + membaca strukturnya). Penarikan wilayah baru bisa
+echo   berjam-jam: biarkan jendela ini terbuka, laptop tersambung listrik,
+echo   dan layar laptop jangan ditutup.
+echo.
+echo   Seluruh keluaran juga disimpan ke data\log_pembaruan\ (nama berkas
+echo   tercetak di baris pertama), dan ringkasannya ke data\pembaruan_terakhir.json.
 echo.
 
 if not exist "venv\Scripts\python.exe" (
@@ -37,7 +43,8 @@ if not exist ".env" (
 call "venv\Scripts\activate.bat"
 
 echo Memeriksa koneksi MySQL ...
-python -c "from app import create_app; from app.models import db; import sqlalchemy as sa; app=create_app(); ctx=app.app_context(); ctx.push(); db.session.execute(sa.text('SELECT 1'))"
+rem --db-uji: periksa database uji (KonfigurasiUji), bukan produksi.
+python -c "import sys; from app import create_app; from app.config import Config, KonfigurasiUji; from app.models import db; import sqlalchemy as sa; app=create_app(KonfigurasiUji if '--db-uji' in sys.argv[1:] else Config); ctx=app.app_context(); ctx.push(); db.session.execute(sa.text('SELECT 1')); print('  database:', db.engine.url.database)" %*
 if errorlevel 1 (
     echo.
     echo [GAGAL] Tidak bisa melanjutkan.
@@ -52,24 +59,42 @@ if errorlevel 1 (
 )
 echo MySQL aktif.
 echo.
-echo Memulai. Tahap pertama memeriksa 65+ halaman daftar publikasi di WebAPI
-echo dengan jeda 1 detik per halaman - baris "halaman N/65 ... OK" akan muncul
-echo satu per satu selama sekitar 2 menit. Itu normal, bukan macet.
+echo Memulai. Tiap wilayah diawali pemeriksaan halaman daftar publikasi di
+echo WebAPI dengan jeda 1 detik per halaman - baris "halaman 3/24 ... OK"
+echo muncul satu per satu. Itu normal, bukan macet.
 echo.
 
 python scripts\perbarui.py %*
+rem Kode keluar disimpan dulu: perintah find di bawah mengubah errorlevel.
+set "KODE=%errorlevel%"
+set "CEK="
+rem find.exe Windows dengan jalur lengkap: find lain di PATH (mis. dari Git)
+rem tidak mengenal /i dan diam-diam gagal.
+echo.%* | "%SystemRoot%\System32\find.exe" /i "--cek-dulu" >nul && set "CEK=1"
 
 echo.
-if errorlevel 2 (
+if %KODE% GEQ 3 (
+    echo ==========================================================
+    echo   PEMBARUAN SELESAI SEBAGIAN - sebagian wilayah/publikasi gagal.
+    echo ==========================================================
+    echo   Yang berhasil sudah bisa dicari. Yang gagal tetap memakai data
+    echo   lamanya dan dicoba lagi pada pembaruan berikutnya. Baca rincian di atas.
+) else if %KODE% EQU 2 (
     echo ==========================================================
     echo   TIDAK DIJALANKAN: pembaruan lain sedang berjalan.
     echo ==========================================================
     echo   Kemungkinan pengelola sedang menjalankannya dari halaman admin
     echo   di browser. Tunggu sampai selesai, lalu coba lagi kalau perlu.
-) else if errorlevel 1 (
+) else if %KODE% EQU 1 (
     echo ==========================================================
     echo   PEMBARUAN GAGAL - baca pesan di atas.
     echo ==========================================================
+) else if defined CEK (
+    echo ==========================================================
+    echo   CEK SELESAI - tidak ada PDF yang diunduh, database tidak diubah.
+    echo ==========================================================
+    echo   Kalau angkanya sesuai, jalankan lagi dengan pilihan yang sama
+    echo   TANPA --cek-dulu untuk memulai penarikan.
 ) else (
     echo ==========================================================
     echo   PEMBARUAN SELESAI.

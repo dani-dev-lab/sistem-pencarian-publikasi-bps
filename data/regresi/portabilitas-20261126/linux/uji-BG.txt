@@ -1,0 +1,21 @@
+Cadangan database uji: 16.0 MB, 6 tabel; produksi 6 tabel
+Database uji: db_pencarian_bps_uji | produksi (hanya dibaca): db_pencarian_bps | domain uji: 6305
+
+=== U. PENGAMAN DATABASE UJI ===
+  [LULUS] U1 KonfigurasiUji yang menunjuk nama produksi ditolak (SystemExit)  -- DITOLAK True
+  [LULUS] U2 baris pertama perbarui.py = database uji  -- Database tujuan: db_pencarian_bps_uji @ 127.0.0.1:3307 (UJI - bukan produksi)
+  [LULUS] U4 tanpa BPS: url_cover/url_pdf database uji semuanya ke server tiruan; alamat luar diblokir proxy mati (tidak sampai ke BPS); server tiruan tetap terjangkau  -- URL luar di DB 0; LUAR DIBLOKIR | TIRUAN 200 image/jpeg
+  [LULUS] U3 ringkasan ke pembaruan_terakhir-uji.json, berkas produksi tidak dibuat  -- exit 0, 8 d
+
+=== N. KAMUS SALINAN DITERAPKAN KE DATABASE UJI ===
+  [LULUS] N1 kamus salinan diterapkan: hanya teks_ternormalisasi yang berubah, penerapan kedua mengubah 0  -- entri diubah 0, publikasi diubah 0, 0 publikasi terkena, domain uji: []
+
+(--hanya BG: bagian lain dilewati)
+
+=== B. PUBLIKASI BARU & updt_date BERUBAH ===
+  [LULUS] B1 publikasi baru: masuk, entri terisi, teks ternormalisasi terisi  -- exit 0, entri 74/74
+  [LULUS] B1 tanpa entri NULL normalisasi
+  [GAGAL] B2 updt_date berubah: diunduh ulang + diproses  -- diunduh 4, diproses 2026-12-30
+  [LULUS] B3 updt_date kosong dari API: bukan perubahan, nilai lama dipertahankan  -- proses 0, api 2026-12-30
+
+=== G. UNDUHAN GAGAL (kelas bug 'publikasi tertinggal') ===

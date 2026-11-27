@@ -1,0 +1,34 @@
+== produksi TANPA membuang sampul (harus berbeda hanya di halaman berkartu publikasi)
+  BEDA /hasil?q=statistik+ekspor+impor
+  BEDA /hasil?q=negara+tujuan+ekspor
+  BEDA /hasil?q=banyaknya+akomodasi+kabupaten+kota
+  BEDA /hasil?q=jumlah+hotel+kabupaten+kota+2024
+  BEDA /hasil?q=tingkat+penghunian+kamar
+  BEDA /hasil?q=tpk
+  BEDA /hasil?q=penduduk+miskin
+  BEDA /hasil?q=population+by+regency
+  BEDA /hasil?q=jumlah+penduduk+menurut+kecamatan
+  BEDA /hasil?q=penduduk+tanah+laut
+  BEDA /hasil?q=penduduk+tanah+laut&w=
+  BEDA /hasil?q=penduduk+miskin+tala&w=
+  BEDA /hasil?q=inflasi+bjm&w=
+  BEDA /hasil?q=tanah+laut&w=
+  BEDA /hasil?q=penduduk&w=6301
+  BEDA /hasil?q=banyaknya+akomodasi+kabupaten+kota&w=6372
+  BEDA /hasil?q=population+by+regency&w=6300
+  BERBEDA 17 dari 28
+== produksi: --buang-sampul
+SAMPUL dibuang dari 132 kartu publikasi
+IDENTIK 28/28
+kode 0
+== uji: --buang-sampul
+SAMPUL dibuang dari 132 kartu publikasi
+IDENTIK 28/28
+kode 0
+== salinan: --buang-sampul
+SAMPUL dibuang dari 132 kartu publikasi
+IDENTIK 28/28
+kode 0
+kartu publikasi total 132 | bersampul 132
+halaman tak berubah 11 -> kartu publikasi di dalamnya: 0
+halaman berubah yang TANPA kartu publikasi: []

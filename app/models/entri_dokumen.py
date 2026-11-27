@@ -41,6 +41,12 @@ class EntriDokumen(db.Model):
     # Inilah yang berguna untuk membuka PDF langsung di halaman itu.
     halaman_fisik = db.Column(db.Integer)
 
+    # True = halaman_fisik di atas PERKIRAAN dari selisih halaman cetak entri
+    # tetangga, bukan hasil baca PDF (app/services/perkiraan_halaman.py,
+    # 16 Nov 2026). Ditampilkan "±hal. N".
+    halaman_fisik_perkiraan = db.Column(db.Boolean, nullable=False, default=False,
+                                        server_default="0")
+
     # Asal entri: 'daftar' (halaman daftar depan), 'badan' (keterangan di badan
     # dokumen), atau 'keduanya'. Dipakai untuk menilai mutu tiap jalur.
     sumber = db.Column(db.Enum(*SUMBER_ENTRI, name="sumber_entri"),

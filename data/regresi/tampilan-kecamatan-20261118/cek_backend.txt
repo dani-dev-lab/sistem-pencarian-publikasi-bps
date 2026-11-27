@@ -1,0 +1,21 @@
+daftar 6301: (('bajuin', 'Bajuin'), ('batibati', 'Bati-Bati'), ('batuampar', 'Batu Ampar'), ('bumimakmur', 'Bumi Makmur')) ... 11
+daftar 6372: (('banjarbaruselatan', 'Banjarbaru Selatan'), ('banjarbaruutara', 'Banjarbaru Utara'), ('cempaka', 'Cempaka'), ('landasanulin', 'Landasan Ulin'), ('lianganggang', 'Liang Anggang'))
+'jumlah penduduk menurut desa' w=- kc=None: kunci lama identik=True, kec None tanpa centang=True, filter=None, kc_sah=None, jumlah=6016, tampil=20, pub=0, pesan=None, 184 ms
+      Mataraman | Kab. Banjar | Jumlah Penduduk Menurut Desa/Kelurahan | 93.9
+      Takisung | Kab. Tanah Laut | Jumlah Penduduk Menurut Desa/Kelurahan dan | 92.2
+'penduduk' w=6301 kc=None: kunci lama identik=True, kec None tanpa centang=True, filter=6301, kc_sah=None, jumlah=88, tampil=20, pub=0, pesan=None, 3 ms
+      Pelaihari | Kab. Tanah Laut | 3 Penduduk/Population | 91.6
+      Kurau | Kab. Tanah Laut | 3 Penduduk/Population | 91.6
+'penduduk' w=6301 kc=pelaihari: kunci lama identik=True, kec None tanpa centang=True, filter=6301, kc_sah=pelaihari, jumlah=8, tampil=8, pub=0, pesan=None, 2 ms
+      Pelaihari | Kab. Tanah Laut | 3 Penduduk/Population | 91.6
+      Pelaihari | Kab. Tanah Laut | 3 Penduduk | 91.6
+'tanah laut' w=- kc=None: kunci lama identik=True, kec None tanpa centang=True, filter=6301, kc_sah=None, jumlah=22, tampil=0, pub=22, pesan=None, 1 ms
+      Bajuin | Kab. Tanah Laut | Kecamatan Bajuin Dalam Angka 2026 | None
+      Bati-Bati | Kab. Tanah Laut | Kecamatan Bati-Bati Dalam Angka 2026 | None
+'penduduk' w=6300 kc=None: kunci lama identik=True, kec None tanpa centang=True, filter=6300, kc_sah=None, jumlah=0, tampil=0, pub=0, pesan=None, 1 ms
+'penduduk' w=6302 kc=pelaihari: kunci lama identik=True, kec None tanpa centang=True, filter=6302, kc_sah=None, jumlah=91, tampil=20, pub=0, pesan=Pilihan kecamatan diabaikan: pilih kabupaten/kota yang memiliki kecamatan itu., 3 ms
+      Hampang | Kab. Kotabaru | 3. Penduduk | 91.6
+      Sampanahan | Kab. Kotabaru | 3. Penduduk | 91.6
+'sekolah' w=- kc=x: kunci lama identik=True, kec None tanpa centang=True, filter=None, kc_sah=None, jumlah=983, tampil=20, pub=0, pesan=Pilihan kecamatan diabaikan: pilih kabupaten/kota yang memiliki kecamatan itu., 20 ms
+      Sungai Tabuk | Kab. Banjar | Jumlah Sekolah Menurut Tingkat Pendidikan | 79.7
+      Simpang Empat | Kab. Banjar | Jumlah Sekolah Menurut Tingkat Pendidikan | 79.7

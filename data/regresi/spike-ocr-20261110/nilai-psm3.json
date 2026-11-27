@@ -1,0 +1,1797 @@
+{
+ "aafda0cf-p9#0": {
+  "halaman": "aafda0cf-p9",
+  "jenis": "judul",
+  "teks": "DAFTAR ISI/CONTENTS",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "aafda0cf-p9#1": {
+  "halaman": "aafda0cf-p9",
+  "jenis": "judul",
+  "teks": "Kabupaten Hulu Sungai Tengah Dalam Angka 2026",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "aafda0cf-p9#2": {
+  "halaman": "aafda0cf-p9",
+  "jenis": "entri",
+  "teks": "Kata Pengantar/Preface",
+  "hal": "vii",
+  "tess": {
+   "kemiripan": 95.5,
+   "kata": 66.7,
+   "kata_hal": 66.7,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "aafda0cf-p9#3": {
+  "halaman": "aafda0cf-p9",
+  "jenis": "entri",
+  "teks": "Daftar Tabel/List of Tables",
+  "hal": "xi",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 96.3,
+   "kata": 60.0,
+   "kata_hal": 80.0,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "aafda0cf-p9#4": {
+  "halaman": "aafda0cf-p9",
+  "jenis": "entri",
+  "teks": "Daftar Gambar/List of Figures",
+  "hal": "xxxiii",
+  "tess": {
+   "kemiripan": 93.1,
+   "kata": 80.0,
+   "kata_hal": 100.0,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 93.1,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "aafda0cf-p9#5": {
+  "halaman": "aafda0cf-p9",
+  "jenis": "entri",
+  "teks": "Penjelasan Umum/Explanatory Notes",
+  "hal": "xxxv",
+  "tess": {
+   "kemiripan": 87.9,
+   "kata": 50.0,
+   "kata_hal": 50.0,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "aafda0cf-p9#6": {
+  "halaman": "aafda0cf-p9",
+  "jenis": "entri",
+  "teks": "Statistik Kunci/Key Statistics",
+  "hal": "1",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 96.7,
+   "kata": 50.0,
+   "kata_hal": 50.0,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "aafda0cf-p9#7": {
+  "halaman": "aafda0cf-p9",
+  "jenis": "entri",
+  "teks": "Geografi dan Iklim/Geography and Climate",
+  "nomor": "1.",
+  "hal": "3",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "aafda0cf-p10#0": {
+  "halaman": "aafda0cf-p10",
+  "jenis": "judul",
+  "teks": "DAFTAR TABEL/LIST OF TABLES",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 96.3,
+   "kata": 80.0,
+   "kata_hal": 80.0
+  }
+ },
+ "aafda0cf-p10#1": {
+  "halaman": "aafda0cf-p10",
+  "jenis": "judul",
+  "teks": "GEOGRAFI DAN IKLIM/GEOGRAPHY AND CLIMATE",
+  "nomor": "1.",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true
+  },
+  "easy": {
+   "kemiripan": 97.5,
+   "kata": 66.7,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true
+  }
+ },
+ "aafda0cf-p10#2": {
+  "halaman": "aafda0cf-p10",
+  "jenis": "judul",
+  "teks": "KEADAAN GEOGRAFI",
+  "nomor": "1.1",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true
+  }
+ },
+ "aafda0cf-p10#3": {
+  "halaman": "aafda0cf-p10",
+  "jenis": "entri",
+  "teks": "Luas Daerah dan Jumlah Pulau Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025",
+  "nomor": "1.1.1",
+  "hal": "9",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": false,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 85.7,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "aafda0cf-p10#4": {
+  "halaman": "aafda0cf-p10",
+  "jenis": "entri",
+  "teks": "Total Area and Number of Islands by District in Hulu Sungai Tengah Regency, 2025",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 98.8,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "aafda0cf-p10#5": {
+  "halaman": "aafda0cf-p10",
+  "jenis": "entri",
+  "teks": "Jarak ke Ibukota Kabupaten Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025",
+  "nomor": "1.1.2",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": true
+  },
+  "easy": {
+   "kemiripan": 85.4,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true
+  }
+ },
+ "aafda0cf-p20#0": {
+  "halaman": "aafda0cf-p20",
+  "jenis": "judul",
+  "teks": "KEMISKINAN DAN PEMBANGUNAN MANUSIA",
+  "nomor": "4.5",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": true
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true
+  }
+ },
+ "aafda0cf-p20#1": {
+  "halaman": "aafda0cf-p20",
+  "jenis": "judul",
+  "teks": "POVERTY AND HUMAN DEVELOPMENT",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "aafda0cf-p20#2": {
+  "halaman": "aafda0cf-p20",
+  "jenis": "entri",
+  "teks": "Garis Kemiskinan, Jumlah, dan Persentase Penduduk Miskin di Kabupaten Hulu Sungai Tengah, 2011-2025",
+  "nomor": "4.5.1",
+  "hal": "137",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": false,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 85.9,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "aafda0cf-p20#3": {
+  "halaman": "aafda0cf-p20",
+  "jenis": "entri",
+  "teks": "Poverty Line, Number, and Percentage of Poor People in Hulu Sungai Tengah Regency, 2011-2025",
+  "tess": {
+   "kemiripan": 97.8,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 96.7,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "aafda0cf-p20#4": {
+  "halaman": "aafda0cf-p20",
+  "jenis": "entri",
+  "teks": "Indeks Kedalaman Kemiskinan dan Indeks Keparahan Kemiskinan di Kabupaten Hulu Sungai Tengah, 2011-2025",
+  "nomor": "4.5.2",
+  "hal": "138",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": false,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 88.2,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "aafda0cf-p20#5": {
+  "halaman": "aafda0cf-p20",
+  "jenis": "entri",
+  "teks": "Indeks Pembangunan Manusia (IPM) dan Indikatornya Kabupaten Hulu Sungai Tengah, 2011-2025",
+  "nomor": "4.5.3",
+  "hal": "139",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": false,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 85.4,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "aafda0cf-p31#0": {
+  "halaman": "aafda0cf-p31",
+  "jenis": "judul",
+  "teks": "DAFTAR GAMBAR/LIST OF FIGURES",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 96.6,
+   "kata": 80.0,
+   "kata_hal": 80.0
+  }
+ },
+ "aafda0cf-p31#1": {
+  "halaman": "aafda0cf-p31",
+  "jenis": "entri",
+  "teks": "Peta Wilayah Kabupaten Hulu Sungai Tengah",
+  "nomor": "1.1",
+  "hal": "8",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": false,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "aafda0cf-p31#2": {
+  "halaman": "aafda0cf-p31",
+  "jenis": "entri",
+  "teks": "Jumlah Desa/Kelurahan Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025",
+  "nomor": "2.1",
+  "hal": "22",
+  "tess": {
+   "kemiripan": 94.8,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": false,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 88.3,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "aafda0cf-p31#3": {
+  "halaman": "aafda0cf-p31",
+  "jenis": "entri",
+  "teks": "Persentase Penduduk Miskin di Kabupaten Hulu Sungai Tengah, 2016-2025",
+  "nomor": "4.1",
+  "hal": "71",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": false,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 88.4,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "aafda0cf-p31#4": {
+  "halaman": "aafda0cf-p31",
+  "jenis": "entri",
+  "teks": "Jumlah Wisatawan Menurut Bulan di Kabupaten Hulu Sungai Tengah, 2025",
+  "nomor": "7.1",
+  "tess": {
+   "kemiripan": 94.1,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": false
+  },
+  "easy": {
+   "kemiripan": 86.8,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true
+  }
+ },
+ "aafda0cf-p40#0": {
+  "halaman": "aafda0cf-p40",
+  "jenis": "judul",
+  "teks": "KEADAAN GEOGRAFI",
+  "nomor": "1.1",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true
+  }
+ },
+ "aafda0cf-p40#1": {
+  "halaman": "aafda0cf-p40",
+  "jenis": "keterangan",
+  "teks": "Luas Daerah dan Jumlah Pulau Menurut Kecamatan di Kabupaten Hulu Sungai Tengah, 2025",
+  "nomor": "1.1.1",
+  "tess": {
+   "kemiripan": 78.6,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true
+  },
+  "easy": {
+   "kemiripan": 71.4,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true
+  }
+ },
+ "aafda0cf-p40#2": {
+  "halaman": "aafda0cf-p40",
+  "jenis": "keterangan",
+  "teks": "Total Area and Number of Islands by District in Hulu Sungai Tengah Regency, 2025",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 97.5,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "aafda0cf-p40#3": {
+  "halaman": "aafda0cf-p40",
+  "jenis": "sel",
+  "teks": "Haruyan Haruyan 104,81",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "aafda0cf-p40#4": {
+  "halaman": "aafda0cf-p40",
+  "jenis": "sel",
+  "teks": "Batu Benawa Pagat 58,16",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 56.5,
+   "kata": 60.0,
+   "kata_hal": 100.0
+  }
+ },
+ "aafda0cf-p40#5": {
+  "halaman": "aafda0cf-p40",
+  "jenis": "sel",
+  "teks": "Hantakan Hantakan 227,57",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "aafda0cf-p40#6": {
+  "halaman": "aafda0cf-p40",
+  "jenis": "sel",
+  "teks": "Batang Alai Selatan Birayang 80,51",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 79.4,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "aafda0cf-p40#7": {
+  "halaman": "aafda0cf-p40",
+  "jenis": "sel",
+  "teks": "Batang Alai Timur Tandilang 565,24",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "aafda0cf-p40#8": {
+  "halaman": "aafda0cf-p40",
+  "jenis": "sel",
+  "teks": "Barabai Barabai Timur 41,98",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "aafda0cf-p150#0": {
+  "halaman": "aafda0cf-p150",
+  "jenis": "keterangan",
+  "teks": "Lanjutan Tabel/Continued Table 4.3.1",
+  "nomor": "4.3.1",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true
+  },
+  "easy": {
+   "kemiripan": 97.2,
+   "kata": 71.4,
+   "kata_hal": 71.4,
+   "nomor_ok": true,
+   "nomor_ada": true
+  }
+ },
+ "aafda0cf-p150#1": {
+  "halaman": "aafda0cf-p150",
+  "jenis": "sel",
+  "teks": "Jenis Tindak Pidana",
+  "tess": {
+   "kemiripan": 26.3,
+   "kata": 0.0,
+   "kata_hal": 0.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "aafda0cf-p150#2": {
+  "halaman": "aafda0cf-p150",
+  "jenis": "sel",
+  "teks": "Penipuan 2",
+  "tess": {
+   "kemiripan": 80.0,
+   "kata": 50.0,
+   "kata_hal": 50.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "aafda0cf-p150#3": {
+  "halaman": "aafda0cf-p150",
+  "jenis": "sel",
+  "teks": "Penganiayaan Ringan (ANIRING) 1 1",
+  "tess": {
+   "kemiripan": 81.8,
+   "kata": 80.0,
+   "kata_hal": 80.0
+  },
+  "easy": {
+   "kemiripan": 97.0,
+   "kata": 80.0,
+   "kata_hal": 100.0
+  }
+ },
+ "aafda0cf-p150#4": {
+  "halaman": "aafda0cf-p150",
+  "jenis": "sel",
+  "teks": "Bawa Sajam/Lahgun Sajam 16 16",
+  "tess": {
+   "kemiripan": 75.9,
+   "kata": 66.7,
+   "kata_hal": 66.7
+  },
+  "easy": {
+   "kemiripan": 93.1,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "aafda0cf-p150#5": {
+  "halaman": "aafda0cf-p150",
+  "jenis": "sel",
+  "teks": "Kekerasan Dalam Rumah Tangga (KDRT)",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "aafda0cf-p150#6": {
+  "halaman": "aafda0cf-p150",
+  "jenis": "sel",
+  "teks": "Penemuan Mayat 11 11",
+  "tess": {
+   "kemiripan": 70.0,
+   "kata": 50.0,
+   "kata_hal": 50.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "aafda0cf-p150#7": {
+  "halaman": "aafda0cf-p150",
+  "jenis": "sel",
+  "teks": "Setrum Ikan Bukan Ilegal Fishing",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 96.9,
+   "kata": 80.0,
+   "kata_hal": 80.0
+  }
+ },
+ "aafda0cf-p150#8": {
+  "halaman": "aafda0cf-p150",
+  "jenis": "sel",
+  "teks": "Percobaan Pencurian dengan Kekerasan",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "f338cd99-p10#0": {
+  "halaman": "f338cd99-p10",
+  "jenis": "entri",
+  "teks": "Perbandingan Pengeluaran Konsumsi Rumah Tangga Terhadap PMTB Kabupaten Tapin, 2021-2025",
+  "nomor": "4.2",
+  "hal": "67",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": false,
+   "hal_ok": false,
+   "hal_ada": false
+  },
+  "easy": {
+   "kemiripan": 98.9,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "f338cd99-p10#1": {
+  "halaman": "f338cd99-p10",
+  "jenis": "entri",
+  "teks": "Ratio of Household Final Consumption Expenditure to GFCF of Tapin Regency, 2021-2025",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 98.8,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "f338cd99-p10#2": {
+  "halaman": "f338cd99-p10",
+  "jenis": "entri",
+  "teks": "Proporsi Total Pengeluaran Konsumsi Terhadap PDRB Kabupaten Tapin, 2021-2025",
+  "nomor": "4.3",
+  "hal": "68",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": false,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "f338cd99-p11#0": {
+  "halaman": "f338cd99-p11",
+  "jenis": "judul",
+  "teks": "DAFTAR LAMPIRAN",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "f338cd99-p11#1": {
+  "halaman": "f338cd99-p11",
+  "jenis": "judul",
+  "teks": "LIST OF APPENDICES",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "f338cd99-p11#2": {
+  "halaman": "f338cd99-p11",
+  "jenis": "entri",
+  "teks": "Produk Domestik Regional Bruto Atas Dasar Harga Berlaku Kabupaten Tapin (miliar rupiah), 2021-2025",
+  "nomor": "1",
+  "hal": "81",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": false,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 98.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": false,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "f338cd99-p11#3": {
+  "halaman": "f338cd99-p11",
+  "jenis": "entri",
+  "teks": "Produk Domestik Regional Bruto Atas Dasar Harga Konstan (2010=100) Kabupaten Tapin (miliar rupiah), 2021-2025",
+  "nomor": "2",
+  "hal": "82",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": false,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 97.2,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": false,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "f338cd99-p11#4": {
+  "halaman": "f338cd99-p11",
+  "jenis": "entri",
+  "teks": "Distribusi Produk Domestik Regional Bruto Atas Dasar Harga Berlaku Kabupaten Tapin (persen), 2021-2025",
+  "nomor": "3",
+  "hal": "83",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": false,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 96.1,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "f338cd99-p11#5": {
+  "halaman": "f338cd99-p11",
+  "jenis": "entri",
+  "teks": "Distribusi Produk Domestik Regional Bruto Atas Dasar Harga Konstan (2010=100) Kabupaten Tapin (persen), 2021-2025",
+  "nomor": "4",
+  "hal": "84",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": false,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 99.1,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": false,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "47c94280-p11#0": {
+  "halaman": "47c94280-p11",
+  "jenis": "judul",
+  "teks": "Daftar Tabel",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "47c94280-p11#1": {
+  "halaman": "47c94280-p11",
+  "jenis": "entri",
+  "teks": "Rasio Jumlah Penduduk yang Bekerja Terhadap Jumlah Penduduk Usia Kerja, Agustus 2024",
+  "nomor": "2.1",
+  "hal": "60",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": false,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "47c94280-p11#2": {
+  "halaman": "47c94280-p11",
+  "jenis": "entri",
+  "teks": "Persentase Penduduk yang Bekerja Menurut Jam Kerja dan Jenis Kelamin, Agustus 2024",
+  "nomor": "2.2",
+  "hal": "81",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "47c94280-p13#0": {
+  "halaman": "47c94280-p13",
+  "jenis": "judul",
+  "teks": "Daftar Gambar",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "47c94280-p13#1": {
+  "halaman": "47c94280-p13",
+  "jenis": "entri",
+  "teks": "Persentase Penduduk Usia Kerja Menurut Jenis Kelamin, Agustus 2023 dan 2024",
+  "nomor": "2.1",
+  "hal": "30",
+  "tess": {
+   "kemiripan": 96.0,
+   "kata": 90.9,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": true,
+   "hal_ok": false,
+   "hal_ada": false
+  },
+  "easy": {
+   "kemiripan": 98.7,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "47c94280-p13#2": {
+  "halaman": "47c94280-p13",
+  "jenis": "entri",
+  "teks": "Persentase Penduduk Usia Kerja Menurut Klasifikasi Wilayah, Agustus 2023 dan 2024",
+  "nomor": "2.2",
+  "hal": "32",
+  "tess": {
+   "kemiripan": 97.5,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": true,
+   "hal_ok": false,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 98.8,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "47c94280-p13#3": {
+  "halaman": "47c94280-p13",
+  "jenis": "entri",
+  "teks": "Persentase Angkatan Kerja (AK) dan Bukan Angkatan Kerja (BAK) Menurut Jenis Kelamin, Agustus 2024",
+  "nomor": "2.3",
+  "hal": "36",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": true,
+   "hal_ok": false,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 99.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "47c94280-p13#4": {
+  "halaman": "47c94280-p13",
+  "jenis": "entri",
+  "teks": "Persentase Penduduk Usia Kerja Berdasarkan Jenis Kelamin, Agustus 2024",
+  "nomor": "2.4",
+  "hal": "38",
+  "tess": {
+   "kemiripan": 90.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": true,
+   "hal_ok": false,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 98.6,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "8db55ef6-p9#0": {
+  "halaman": "8db55ef6-p9",
+  "jenis": "judul",
+  "teks": "Daftar Isi",
+  "tess": {
+   "kemiripan": 80.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "8db55ef6-p9#1": {
+  "halaman": "8db55ef6-p9",
+  "jenis": "judul",
+  "teks": "Statistik Daerah Kota Banjarbaru 2025",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "8db55ef6-p9#2": {
+  "halaman": "8db55ef6-p9",
+  "jenis": "entri",
+  "teks": "Kata Pengantar",
+  "hal": "v",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "hal_ok": false,
+   "hal_ada": false
+  }
+ },
+ "8db55ef6-p9#3": {
+  "halaman": "8db55ef6-p9",
+  "jenis": "entri",
+  "teks": "Geografi dan Iklim",
+  "nomor": "1",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true
+  }
+ },
+ "8db55ef6-p9#4": {
+  "halaman": "8db55ef6-p9",
+  "jenis": "entri",
+  "teks": "Pemerintahan",
+  "nomor": "2",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true
+  }
+ },
+ "8db55ef6-p9#5": {
+  "halaman": "8db55ef6-p9",
+  "jenis": "entri",
+  "teks": "Kependudukan",
+  "nomor": "3",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true
+  }
+ },
+ "8db55ef6-p9#6": {
+  "halaman": "8db55ef6-p9",
+  "jenis": "entri",
+  "teks": "Ketenagakerjaan",
+  "nomor": "4",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true
+  }
+ },
+ "8db55ef6-p13#0": {
+  "halaman": "8db55ef6-p13",
+  "jenis": "judul",
+  "teks": "BAB 2",
+  "tess": {
+   "kemiripan": 40.0,
+   "kata": 0.0,
+   "kata_hal": 50.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "8db55ef6-p13#1": {
+  "halaman": "8db55ef6-p13",
+  "jenis": "judul",
+  "teks": "Pemerintahan",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "8db55ef6-p13#2": {
+  "halaman": "8db55ef6-p13",
+  "jenis": "prosa",
+  "teks": "Kota Banjarbaru dipimpin Hj. Erna Lisa Halaby sejak 2025, memiliki 30 anggota DPRD,",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 85.5,
+   "kata": 38.5,
+   "kata_hal": 92.3
+  }
+ },
+ "8db55ef6-p13#3": {
+  "halaman": "8db55ef6-p13",
+  "jenis": "prosa",
+  "teks": "Sejak diresmikan menjadi Kota Banjarbaru, kepemimpinan daerah dipegang oleh Walikota Drs.",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 55.1,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "8db55ef6-p13#4": {
+  "halaman": "8db55ef6-p13",
+  "jenis": "prosa",
+  "teks": "periode 2010-2016. Setelah itu selama periode",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "8db55ef6-p13#5": {
+  "halaman": "8db55ef6-p13",
+  "jenis": "keterangan",
+  "teks": "Jumlah Anggota DPRD Berdasarkan Jenis Kelamin Kota Banjarbaru Tahun 2024",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 56.9,
+   "kata": 40.0,
+   "kata_hal": 100.0
+  }
+ },
+ "a818fdde-p11#0": {
+  "halaman": "a818fdde-p11",
+  "jenis": "judul",
+  "teks": "DAFTAR TABEL",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "a818fdde-p11#1": {
+  "halaman": "a818fdde-p11",
+  "jenis": "entri",
+  "teks": "Perbandingan Perubahan Konsep dan Metode Penghitungan PDRB",
+  "nomor": "1.1",
+  "hal": "10",
+  "tess": {
+   "kemiripan": 93.1,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": false,
+   "hal_ada": false
+  },
+  "easy": {
+   "kemiripan": 93.1,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "a818fdde-p11#2": {
+  "halaman": "a818fdde-p11",
+  "jenis": "entri",
+  "teks": "Perbandingan Perubahan Klasifikasi PDRB Menurut Lapangan Usaha Tahun Dasar 2000 dan 2010",
+  "nomor": "1.2",
+  "hal": "11",
+  "tess": {
+   "kemiripan": 77.3,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": false,
+   "hal_ada": false
+  },
+  "easy": {
+   "kemiripan": 77.3,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "a818fdde-p11#3": {
+  "halaman": "a818fdde-p11",
+  "jenis": "entri",
+  "teks": "Perbandingan Perubahan Klasifikasi PDRB Menurut Pengeluaran Tahun Dasar 2000 dan 2010",
+  "nomor": "1.3",
+  "hal": "12",
+  "tess": {
+   "kemiripan": 80.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": false,
+   "hal_ada": false
+  },
+  "easy": {
+   "kemiripan": 80.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "a818fdde-p11#4": {
+  "halaman": "a818fdde-p11",
+  "jenis": "entri",
+  "teks": "Laju Pertumbuhan PDRB Kota Banjarbaru (Persen), 2021-2025",
+  "nomor": "3.1",
+  "hal": "90",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 96.5,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "a818fdde-p11#5": {
+  "halaman": "a818fdde-p11",
+  "jenis": "entri",
+  "teks": "PDRB Per Kapita Kota Banjarbaru Menurut Lapangan Usaha, 2021-2025",
+  "nomor": "3.2",
+  "hal": "92",
+  "tess": {
+   "kemiripan": 93.8,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 92.3,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "182e2e58-p40#0": {
+  "halaman": "182e2e58-p40",
+  "jenis": "judul",
+  "teks": "PDRB Kabupaten Tapin Menurut Lapangan Usaha 2020-2024",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "182e2e58-p40#1": {
+  "halaman": "182e2e58-p40",
+  "jenis": "judul",
+  "teks": "Perikanan",
+  "nomor": "3.",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": true
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": true
+  }
+ },
+ "182e2e58-p40#2": {
+  "halaman": "182e2e58-p40",
+  "jenis": "prosa",
+  "teks": "Subkategori ini meliputi semua kegiatan penangkapan, pembenihan, dan budidaya segala jenis ikan dan biota air lainnya",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 37.6,
+   "kata": 68.8,
+   "kata_hal": 100.0
+  }
+ },
+ "182e2e58-p40#3": {
+  "halaman": "182e2e58-p40",
+  "jenis": "prosa",
+  "teks": "This subcategory covers all fishing activities, seeding, and cultivation of all kinds of fish",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 69.9,
+   "kata": 85.7,
+   "kata_hal": 100.0
+  }
+ },
+ "786645b6-p11#0": {
+  "halaman": "786645b6-p11",
+  "jenis": "judul",
+  "teks": "DAFTAR TABEL",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "786645b6-p11#1": {
+  "halaman": "786645b6-p11",
+  "jenis": "entri",
+  "teks": "Perbandingan Perubahan Konsep dan Metode Perhitungan PDRB",
+  "nomor": "1.1",
+  "hal": "10",
+  "tess": {
+   "kemiripan": 93.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 87.7,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": false,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "786645b6-p11#2": {
+  "halaman": "786645b6-p11",
+  "jenis": "entri",
+  "teks": "Perbandingan Perubahan Klasifikasi PDRB Menurut Lapangan Usaha Tahun Dasar 2000 dan 2010",
+  "nomor": "1.2",
+  "hal": "12",
+  "tess": {
+   "kemiripan": 72.7,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": false,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 70.5,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "786645b6-p11#3": {
+  "halaman": "786645b6-p11",
+  "jenis": "entri",
+  "teks": "Perbandingan Perubahan Klasifikasi PDRB Menurut Pengeluaran Tahun Dasar 2000 dan 2010",
+  "nomor": "1.3",
+  "hal": "13",
+  "tess": {
+   "kemiripan": 67.1,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 69.4,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "786645b6-p11#4": {
+  "halaman": "786645b6-p11",
+  "jenis": "entri",
+  "teks": "Peranan PDRB Kabupaten Tabalong Atas Dasar Harga Berlaku Menurut Lapangan Usaha (Persen), 2020-2024",
+  "nomor": "3.1",
+  "hal": "95",
+  "tess": {
+   "kemiripan": 73.7,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 73.7,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "786645b6-p11#5": {
+  "halaman": "786645b6-p11",
+  "jenis": "entri",
+  "teks": "Laju Pertumbuhan Riil PDRB Kabupaten Tabalong Atas Dasar Harga Konstan 2010 Menurut Lapangan Usaha (Persen), 2020-2024",
+  "nomor": "3.2",
+  "hal": "100",
+  "tess": {
+   "kemiripan": 76.3,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  },
+  "easy": {
+   "kemiripan": 76.3,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true,
+   "hal_ok": true,
+   "hal_ada": true
+  }
+ },
+ "786645b6-p40#0": {
+  "halaman": "786645b6-p40",
+  "jenis": "judul",
+  "teks": "Produk Domestik Regional Bruto Kabupaten Tabalong Menurut Lapangan Usaha 2020-2024",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  }
+ },
+ "786645b6-p40#1": {
+  "halaman": "786645b6-p40",
+  "jenis": "judul",
+  "teks": "Tanaman Perkebunan",
+  "nomor": "2.1.1.3",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": false,
+   "nomor_ada": true
+  },
+  "easy": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0,
+   "nomor_ok": true,
+   "nomor_ada": true
+  }
+ },
+ "786645b6-p40#2": {
+  "halaman": "786645b6-p40",
+  "jenis": "prosa",
+  "teks": "Subkategori Tanaman Perkebunan terdiri dari tanaman perkebunan semusim dan tanaman perkebunan tahunan",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 53.5,
+   "kata": 75.0,
+   "kata_hal": 100.0
+  }
+ },
+ "786645b6-p40#3": {
+  "halaman": "786645b6-p40",
+  "jenis": "prosa",
+  "teks": "Plantation Crops subcategory consists of plantations of seasonal and annual plantation crops",
+  "tess": {
+   "kemiripan": 100.0,
+   "kata": 100.0,
+   "kata_hal": 100.0
+  },
+  "easy": {
+   "kemiripan": 35.9,
+   "kata": 75.0,
+   "kata_hal": 100.0
+  }
+ }
+}

@@ -20,11 +20,7 @@ from app.services.normalisasi_data import jalankan as _jalankan
 
 
 def jalankan():
-    """Versi terminal: laporan rinci dicetak ke layar.
-
-    Tetap bernama `jalankan` karena scripts/muat_ke_database.py mengimpornya
-    dengan nama ini di akhir pemuatan.
-    """
+    """Versi terminal: laporan rinci dicetak ke layar."""
     return _jalankan(cetak=print)
 
 

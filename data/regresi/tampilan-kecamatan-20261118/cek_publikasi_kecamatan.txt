@@ -1,0 +1,31 @@
+{'q': 'penduduk', 'w': '6301', 'kec': '1'}: 14 kartu (ringkas 14), kecamatan 10
+     Kecamatan Pelaihari Dalam Angka 2026 | Kec. Pelaihari
+     Kecamatan Kurau Dalam Angka 2026 | Kec. Kurau
+     Kecamatan Panyipatan Dalam Angka 2026 | Kec. Panyipatan
+{'q': 'penduduk', 'w': '6301'}: 4 kartu (ringkas 4), kecamatan 0
+     Indikator Kesejahteraan Rakyat Kabupaten Tanah Laut 2025 | None
+     Keadaan Angkatan Kerja di Kabupaten Tanah Laut Agustus 2025 | None
+     Keadaan Angkatan Kerja di Kabupaten Tanah Laut Agustus 2024 | None
+{'q': 'Kecamatan Kintap Dalam Angka 2026', 'w': '6301', 'kec': '1', 'kc': 'kintap'}: 4 kartu (ringkas 4), kecamatan 2
+     Kecamatan Kintap Dalam Angka 2026 | Kec. Kintap
+     Kecamatan Kintap Dalam Angka 2025 | Kec. Kintap
+     Kabupaten Tanah Laut Dalam Angka 2026 | None
+{'q': 'Kecamatan Kintap Dalam Angka 2026', 'w': '6301', 'kc': 'kintap'}: 4 kartu (ringkas 4), kecamatan 2
+     Kecamatan Kintap Dalam Angka 2026 | Kec. Kintap
+     Kecamatan Kintap Dalam Angka 2025 | Kec. Kintap
+     Kabupaten Tanah Laut Dalam Angka 2026 | None
+{'q': 'Kecamatan Kintap Dalam Angka 2026', 'w': '6301', 'kec': '1'}: 12 kartu (ringkas 12), kecamatan 10
+     Kecamatan Kintap Dalam Angka 2026 | Kec. Kintap
+     Kecamatan Kintap Dalam Angka 2025 | Kec. Kintap
+     Kecamatan Kurau Dalam Angka 2026 | Kec. Kurau
+{'q': 'Kecamatan Kintap Dalam Angka 2026', 'kec': '1'}: 30 kartu (ringkas 30), kecamatan 10
+     Kecamatan Kintap Dalam Angka 2026 | Kec. Kintap
+     Kecamatan Kintap Dalam Angka 2025 | Kec. Kintap
+     Kecamatan Tanta Dalam Angka 2026 | Kec. Tanta
+{'q': 'Kecamatan Kintap Dalam Angka 2026', 'w': '6301'}: 2 kartu (ringkas 2), kecamatan 0
+     Kabupaten Tanah Laut Dalam Angka 2026 | None
+     Kabupaten Tanah Laut Dalam Angka 2025 | None
+{'q': 'Kecamatan Kintap Dalam Angka 2026'}: 20 kartu (ringkas 20), kecamatan 0
+     Kota Banjarmasin Dalam Angka 2026 | None
+     Kabupaten Tapin Dalam Angka 2026 | None
+     Kota Banjarbaru Dalam Angka 2026 | None

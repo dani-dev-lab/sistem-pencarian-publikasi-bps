@@ -1,0 +1,7 @@
+pola V5: <article class="kartu kartu-pub(?: ada-sampul)?">(.*?)</article>
+tanpa sampul (potret DB uji siang): 780 kartu, 132 kartu PUBLIKASI (0 bersampul), 648 kartu tabel/gambar/lampiran/bab; dikenali pola 132, kartu non-publikasi ikut 0 -> OK
+dengan sampul (potret DB uji sore): 780 kartu, 132 kartu PUBLIKASI (132 bersampul), 648 kartu tabel/gambar/lampiran/bab; dikenali pola 132, kartu non-publikasi ikut 0 -> OK
+jebakan cocok: 0/8 []; dua bentuk sah dikenali: 2/2
+LULUS
+pola lama <article class="kartu kartu-pub">: potret-uji-tombol.json 132 dari 132
+pola lama <article class="kartu kartu-pub">: potret-uji-sampul.json 0 dari 132

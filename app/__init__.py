@@ -48,12 +48,53 @@ def create_app(config_class: type[Config] = Config) -> Flask:
 
     db.init_app(app)
     app.add_template_filter(_sorot, "sorot")
+    from app.services import sampul
+    app.add_template_global(sampul.info, "info_sampul")
 
+    from app.config import menit_sesi_admin, teks_os
+    # Petunjuk di halaman (26 Nov 2026): "perbarui-data.bat" di Windows,
+    # "./perbarui-data.sh" di Linux.
+    app.add_template_global(teks_os, "teks_os")
     from app.routes.admin import bp as bp_admin
+    from app.routes.admin import konteks_menu, periksa_sesi
     from app.routes.pencarian import bp as bp_pencarian
 
     app.register_blueprint(bp_pencarian)
     app.register_blueprint(bp_admin, url_prefix="/admin")
+
+    # Sesi admin (25 Nov 2026): kedaluwarsa sesudah tidak aktif, diperiksa di
+    # SEMUA halaman (menu admin ada di kop tiap halaman). Didaftarkan sebelum
+    # pastikan_kolom supaya urutannya: sesi dulu, lalu penjaga blueprint admin.
+    app.before_request(periksa_sesi)
+    app.context_processor(konteks_menu)
+    menit, sah = menit_sesi_admin(config_class.SESI_ADMIN_MENIT_TEKS)
+    if not sah:
+        print(f"PERINGATAN: SESI_ADMIN_MENIT di .env tidak sah "
+              f"({config_class.SESI_ADMIN_MENIT_TEKS!r}); dipakai bawaan {menit} menit.",
+              flush=True)
+
+    # Reverse proxy (25 Nov 2026): dengan JUMLAH_PROXY = N > 0, alamat pengguna
+    # (request.remote_addr, dipakai penguncian login) diambil dari entri ke-N
+    # dari kanan di X-Forwarded-For. Hanya isi kalau memang ada proxy: tanpa
+    # proxy, header itu bisa dipalsukan pengguna untuk lolos dari penguncian.
+    from app.config import jumlah_proxy
+    n_proxy, sah = jumlah_proxy(config_class.JUMLAH_PROXY_TEKS)
+    if not sah:
+        print(f"PERINGATAN: JUMLAH_PROXY di .env tidak sah "
+              f"({config_class.JUMLAH_PROXY_TEKS!r}); dipakai 0 (tanpa proxy).", flush=True)
+    app.config["JUMLAH_PROXY"] = n_proxy
+    if n_proxy:
+        from werkzeug.middleware.proxy_fix import ProxyFix
+        app.wsgi_app = ProxyFix(app.wsgi_app, x_for=n_proxy)
+
+    # Kolom tambahan (log_pencarian.wilayah_filter, publikasi.halaman_ocr)
+    # untuk database lama. Di awal request, bukan di sini: create_app() juga
+    # dipanggil skrip dan pemeriksa .bat sebelum koneksi MySQL dipastikan.
+    from app.models.skema import pastikan_kolom
+
+    @app.before_request
+    def _pastikan_kolom_tambahan():
+        pastikan_kolom()
 
     return app
     

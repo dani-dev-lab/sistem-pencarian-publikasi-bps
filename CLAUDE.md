@@ -18,6 +18,393 @@ Mahasiswa Politeknik Negeri Banjarmasin.
   infrastruktur BPS diserahkan ke instansi. Bekal untuk itu (login admin,
   server produksi, .bat, PANDUAN.md) ada di bagian "Persiapan serah terima".
 - **Platform**: web app, Python + Flask. MySQL (via Laragon) sebagai database.
+- **Cakupan kab/kota (keputusan 9 Nov 2026)**: publikasi "Kecamatan ... Dalam
+  Angka" TIDAK ditarik. Alasannya permintaan tim PST: cakupannya 13
+  kabupaten/kota, tidak sampai data per kecamatan/desa.
+  - Ini PENGATURAN, bukan aturan di kode: daftar pola regex
+    `kecualikan_judul` di `data/wilayah.json`, dibaca
+    `wilayah.pola_judul_dikecualikan()` dan diterapkan di `perbarui.py`
+    sesudah filter tahun.
+  - Untuk menarik lagi, ubah `aktif` menjadi false; tidak perlu mengubah kode.
+  - Publikasi yang sudah ada di database tidak dihapus oleh pengecualian ini.
+  - Format daftar Kecamatan Dalam Angka ("nomor sebaris", C2) tetap
+    diperbaiki, karena format yang sama ada di 6 publikasi provinsi.
+  - **17 Nov 2026: keputusan memasukkan kecamatan (312 publikasi), DATABASE
+    UJI DULU.** Jadwal (diperbarui 24 Nov 2026): presentasi SUDAH 23 Nov
+    2026; **pembekuan diundur ke Jumat 27 Nov 2026** karena fitur formulir
+    pilihan penarikan dari masukan mentor (lihat di bawah).
+    - `perbarui.py --db-uji --kecamatan`: memproses HANYA publikasi yang cocok
+      `kecualikan_judul` (kebalikan saringan); publikasi lain di database uji
+      tidak disentuh. `--kecamatan` tanpa `--db-uji` DITOLAK, juga bersama
+      `--lokal`/`--paksa`/`--hanya-periksa`. Produksi (tombol admin, .bat)
+      tetap mengecualikan kecamatan karena `aktif` tetap true.
+    - `--hanya-unduh` (dengan `--kecamatan`): metadata + PDF, tanpa
+      ekstraksi. Di mode `--kecamatan`, PDF utuh yang belum pernah diproses
+      tidak diunduh ulang dan updt_date-nya dicatat diproses.
+    - `tarik-kecamatan-uji.bat` (lanjut unduh + ekstrak, `--tanpa-ocr`,
+      3 percobaan) dan `periksa-kecamatan-uji.bat`
+      (`scripts/kemajuan_kecamatan.py`, hanya membaca database uji).
+    - Unduhan 17 Nov dari kantor ±5 MB/detik. Sampel 22 PDF Tanah Laut:
+      ±140 halaman, berlapis teks, 0 perlu OCR.
+    - **18 Nov 2026** (`data/regresi/kecamatan-mutu-20261118.md`):
+      - cache OCR sesudah mati lampu: 0 berkas rusak; 7 HST 2026 dimuat ke
+        database uji lewat `muat_ocr_terarah.py --sasaran uji` (41-46 entri,
+        mutu OCR belum disampel); 18 target OCR lain masih 0 entri;
+      - **sampel 30 entri bertekst: 20/30 benar seluruhnya (di bawah
+        27/30), pekerjaan dihentikan**; cacat terpusat di Tanah Laut 2025
+        (nomor Daftar berspasi "1. 1"), Banjar 2026 (halaman Daftar
+        berselang titik "3..3"), Balangan 2025 (blok tanpa nomor);
+      - ukur memori/waktu pencarian belum dijalankan.
+    - **Perbaikan parser Daftar 18 Nov 2026** (`data/regresi/kecamatan-parser-20261118.md`;
+      commit per pola: `7481e19` pola 2, `390f3d4` pola 3; pola 1 `4d5c7c5`
+      DIBATALKAN lewat revert).
+      - Pola 2/3 DIPERTAHANKAN: nomor halaman bercampur titik leader
+        ("3..5.", "....4..2..") -> `_rapikan_nomor_halaman` di
+        `_baca_daftar`. Syaratnya leader menimpa kata itu (x1 >= x0 - 0,5),
+        atau kata diawali >= 3 karakter leader. Uji kering 38 publikasi:
+        0 kunci hilang, halaman cetak 1.197 -> 2.067.
+      - **Pola 1 DIBATALKAN (keputusan pemilik project 18 Nov 2026).**
+        Penggabungan "2.1." + "1" (Tanah Laut 2025) menambah ±576 halaman
+        cetak, tetapi membuat 27 tombol PDF meleset satu halaman. Sebabnya
+        **utang teknis: penomoran Daftar ≠ badan di Tanah Laut 2025** (bab
+        2.1/4.4; contoh Jorong: Daftar "4.4.6 Agama", badan "Tabel 4.4.6"
+        = Nikah), sehingga penggabungan per kunci memasangkan judul tabel A
+        dengan tombol tabel B. Tabel Tanah Laut 2025 tetap dari jalur badan:
+        tombol benar, tanpa halaman cetak. Bukti di `banding-pola1.txt`.
+        **Jangan dikerjakan ulang tanpa menangani dulu pasangan daftar+badan
+        yang halamannya tidak konsisten.**
+      - **Regresi penuh 18 Nov 2026 (database uji, sesudah OCR 26/26):**
+        - 306 publikasi produksi: 5 berubah, 0 kunci hilang, semuanya
+          membaik (Daftar Isi/Lampiran). TERBUKTI dari pola 2/3: dengan
+          `_rapikan_nomor_halaman` dimatikan, hasilnya identik dengan awal.
+        - Kecamatan: 25 berubah, 0 kunci hilang. IPM HSU kering = produksi.
+        - Database uji: 618 publikasi, 44.455 entri, 34 publikasi OCR.
+        - Sampel OCR kecamatan 9/10 (tombol 10/10). `uji_pipeline.py`
+          penuh: 94 lulus.
+        - (Sejak 19 Nov 2026 sudah dimuat ke produksi, lihat di bawah.)
+    - **Kinerja dengan kecamatan (18 Nov 2026,
+      `data/regresi/kinerja-kecamatan-20261118.md`):**
+      - memori korpus 80 -> 144 MB; muat ulang 458 -> 860 ms;
+      - kecamatan ikut dicari: rata-rata 87 -> 143 ms, terlambat 210 -> 413 ms
+        (> 300 ms).
+      - Solusi terbukti lewat simulasi: korpus dipisah, sehingga tanpa centang
+        waktunya = produksi dan hasil 12/12 identik.
+      - Rancangan tampilan: `data/regresi/rancangan-tampilan-kecamatan-20261118.md`
+        (DISETUJUI 18 Nov tanpa deteksi nama kecamatan dari kueri; deteksi
+        = saran pengembangan sesudah presentasi).
+    - **Tampilan kecamatan, hari 1 (18 Nov 2026), BELUM di-push:**
+      `data/regresi/tampilan-kecamatan-20261118.md`.
+      - Bagian 1-7 sudah di-commit, masing-masing lulus:
+        - kolom `publikasi.kecamatan` (dari `pola_kecamatan` di wilayah.json);
+        - korpus dipisah (`*_kec`);
+        - `/api/saran` dengan `kec=1`;
+        - backend `kec`/`kc`/`semua_kec`;
+        - kotak centang + dropdown;
+        - seksi hasil;
+        - kotak info + `/api/kecamatan/jumlah`.
+      - **Tanpa publikasi kecamatan di database, widget tidak dirender**
+        (produksi sekarang byte-identik, potret 28/28).
+      - Jaminan identik: `tests/potret_tampilan.py` + `uji_pipeline.py`
+        bagian V. Pembandingnya salinan sementara tanpa kecamatan: 23/23
+        halaman, waktu setara.
+      - **Urutan korpus kini eksplisit** (`tahun_terbit, publikasi.id,
+        entri.id`). Tanpa ORDER BY, seri skor mengikuti rencana MySQL, yang
+        berbeda antara produksi dan salinannya.
+      - **Jebakan alat:** potret wajib `PYTHONHASHSEED=0`; tanpa itu 4/28
+        halaman berbeda antarproses.
+      - **Pemecah seri `/api/saran` DIPUTUSKAN: edisi terbaru dulu**
+        (`e1bd82e`, `tanggal_rilis DESC, publikasi.id, entri.id`). Filesort +
+        LIMIT tanpa pemecah seri tidak stabil. Dibanding sebelumnya, 3/5 awalan
+        berganti ke edisi lebih baru.
+      - **`jalankan-aplikasi-uji.bat [port]`** (bawaan 5001, tidak membaca PORT
+        di .env) = `run.py --db-uji`: aplikasi dengan DATABASE UJI, log mati.
+        Untuk mencoba tampilan kecamatan di browser; layar kecil lewat F12 +
+        Ctrl+Shift+M. Diuji lewat waitress: 7 URL HTTP 200.
+      - **PERHATIAN:** aplikasi produksi yang dijalankan dengan kode ini
+        menambahkan kolom `publikasi.kecamatan` ke produksi (pastikan_kolom
+        di awal request, 0 baris terisi) dan memakai urutan korpus/saran yang
+        baru. Tampilan hasil identik (potret salinan 28/28), kecuali label
+        edisi saran.
+      - **18 Nov 2026 malam (sudah di-push):**
+        - label "Kec." sejajar label wilayah; beranda tidak menyempit
+          (`c46ee23`, 36/36);
+        - saran kembar kec=1 diperbaiki (`66cb6ba`, paging sampai 8 judul;
+          tanpa kec tetap satu halaman);
+        - `log_pencarian.sertakan_kecamatan` (`be19514`: 1/0/NULL);
+        - PANDUAN bagian 1, 8, 9 (`3936359`).
+      - **KECAMATAN DIMUAT KE PRODUKSI, Kamis 19 Nov 2026, 08.02-08.20**
+        (`data/regresi/muat-kecamatan-20261119.md`), semua bukti cocok:
+        - disalin dari database uji (satu transaksi): 312 publikasi,
+          19.955 entri, isi = uji baris demi baris; 5 publikasi pola 2+3
+          ikut dimuat (= uji); per id lainnya identik dengan cadangan
+          `cadangan-bps/db_pencarian_bps-20261119-sebelum-kecamatan.sql`;
+        - `kecualikan_judul` kecamatan `aktif: false`; `--kecamatan` kini
+          tidak berguna;
+        - potret produksi tanpa centang sebelum = sesudah (28/28,
+          widget dibuang); tombol PDF 15/15; kinerja setara (bergantian);
+        - pembaruan rutin sesudahnya: 1 publikasi BPS baru (Profil TK
+          Provinsi Feb 2026), 0 kecamatan diunduh ulang.
+        - Produksi: 620 publikasi (312 kecamatan), 44.548 entri,
+          versi_data 530.
+        - Sebelumnya, seksi Publikasi diperbaiki (`3db1e8b`): ikut membaca
+          publikasi kecamatan kalau dicentang; uji V5.
+        - **DIPUTUSKAN 19 Nov (pemilik project): aturan dipertahankan.**
+          Publikasi kecamatan, termasuk yang DIPILIH, hanya tampil di seksi
+          Publikasi kalau cocok dengan kata kunci, konsisten dengan filter
+          kabupaten. Contoh Martapura Timur + "penduduk" tidak tampil
+          (abstrak tidak menyebut penduduk), dan tabelnya tetap ada di seksi
+          kecamatan. Dicatat untuk petugas di PANDUAN bagian 1.
+      - **RENCANA muat kecamatan ke produksi DISETUJUI 18 Nov malam,
+        dikerjakan KAMIS 19 Nov pagi:**
+        `data/regresi/rencana-muat-kecamatan-20261119.md`. Keputusannya:
+        salin dari database uji; `kecualikan_judul.aktif` = false saat
+        pemuatan; 5 publikasi produksi pola 2+3 dimuat di langkah terpisah.
+        - Usulnya: salin baris dari database uji (satu transaksi), dan
+          `kecualikan_judul.aktif` jadi `false`.
+        - 86 publikasi kecamatan ber-`updt_date_diproses` kosong = API juga
+          kosong (bukan perubahan, tidak diunduh ulang).
+      - **Cek browser pemilik project (19 Nov): kotak centang rusak, lalu
+        DIPERBAIKI** (`e8bfb74`, `data/regresi/tampilan-kecamatan-20261118/responsif/LAPORAN.md`).
+        - Penyebab: `.kotak-cari input` ikut mengenai kotak centang (melebar
+          333-365 px di desktop, 0 px di <= 412 px), teks label terpecah dua
+          item flex, dan beranda memusatkan teks.
+        - Hasil: Playwright 9 lebar x 4 halaman = 36/36 (kode lama 0/36).
+          Venv alat terpisah: `C:/Users/Dani/alat-playwright`, memakai Chrome
+          terpasang.
+        - Jebakan alat: ukur lebar ELEMEN kotak (bukan hanya jarak tepi) dan
+          kotak HURUF node teks (bukan kotak elemen span).
+      - Utang teknis lain: folio romawi Balangan, nomor salah cetak Banjar
+        2026, perkiraan kepala bab.
+- **19 Nov 2026 siang, dua pekerjaan kecil (di-push):**
+  - **Kode HTML di judul/abstrak** (`10303bb`, `data/regresi/kode-html-20261119/`):
+    - `normalisasi_data.bersihkan_html` (`html.unescape`, U+00A0 -> spasi) dipakai
+      saat menarik (`simpan_metadata`) dan oleh `scripts/bersihkan_kode_html.py
+      (--db-uji | --produksi) [--coba]` untuk data lama;
+    - produksi: 26 publikasi (25 abstrak, 1 judul), versi_data 530 -> 531;
+    - cadangan `cadangan-bps/db_pencarian_bps-20261119-sebelum-kode-html.sql`.
+  - **Tombol "Kembali ke atas"** di `base.html` + `js/ke-atas.js`
+    (`data/regresi/tombol-atas-20261119/`):
+    - di <= 960 px kartu/kotak info/pita diberi ruang kanan 38 px, supaya tombol
+      tidak menimpa isi;
+    - potret 28 URL: `potret_tampilan.py banding --buang-tombol-atas` membuang blok
+      tombol PERSIS (wajib 1x per halaman HTML). Potret yang dibuat sebelum 19 Nov
+      siang hanya bisa dibandingkan lewat opsi ini.
+- **Sampul publikasi (19 Nov 2026 sore, `data/regresi/sampul-20261119.md`):**
+  - `data/sampul/<id>.jpg` = sampul resmi WebAPI (`url_cover`, `cover.php?f=<token>`,
+    token bisa kedaluwarsa); `<id>.cadangan.jpg` = halaman 1 PDF kalau unduhan gagal.
+    Di-gitignore; skema DB tidak berubah.
+  - `perbarui.py`: langkah sampul di akhir tiap wilayah (jeda 1 detik); `--lokal`
+    hanya cadangan. Data lama: `scripts/isi_sampul.py --produksi` (hari yang sama
+    dengan pembaruan terakhir).
+  - Produksi 19 Nov 15.01: 620 resmi, 72,5 MB, 0 cadangan, 0 gagal, 15,4 menit.
+  - Tampilan hanya di kartu PUBLIKASI, lewat route `/sampul/<id>`. Kartu tanpa
+    berkas = markup lama. Potret lama dibandingkan dengan `--buang-sampul`.
+  - **`uji_pipeline.py` tidak boleh menghubungi BPS:** URL database uji diarahkan
+    ke tiruan di awal, proxy mati untuk alamat luar, `DIR_SAMPUL` salinan (U4/A5).
+    Bagian A = sampul.
+- **Formulir pilihan penarikan di /admin/perbarui (24 Nov 2026, masukan mentor),
+  BARU di database uji, BELUM di-push.** Laporan:
+  `data/regresi/form-pembaruan-20261124.md`.
+  - Aturan satu tempat: `app/services/pilihan_pembaruan.py` (wilayah aktif,
+    jenis `kabkota`/`kecamatan` lewat `pola_kecamatan`, tahun rilis
+    `tahun_min_pilihan` di wilayah.json .. tahun berjalan). Formulir ->
+    `Pilihan.argumen()` -> `perbarui.py --wilayah/--jenis/--tahun-min/--tahun-maks`
+    (jalur sama dengan .bat). Bagian yang sama dengan bawaan TIDAK ditulis jadi
+    argumen; formulir bawaan = perintah lama persis.
+  - `--cek-dulu`: hanya daftar WebAPI + baca DB, tanpa pastikan_skema, hasil
+    `data/cek_pembaruan(-uji).json`; tetap memegang kunci.
+  - Dengan jenis/tahun bukan bawaan, data lama juga disaring (`cocok_pilihan`):
+    rencana (`susun_rencana(pilih=)`, juga --paksa/--lokal), sampul,
+    "tidak lagi di daftar", dan penjaga "0 lolos padahal DB berisi".
+  - Sampul ikut revisi: `sampul.perbarui` untuk publikasi yang PDF-nya diunduh
+    ulang karena updt_date berubah (bukan belum_pernah). Satu-satunya beda
+    perilaku tanpa argumen dibanding kode lama (uji Q1).
+  - Argumen salah di perbarui.py kini exit 1 (dulu argparse 2 = "pembaruan
+    lain berjalan" bagi .bat). `--tahun-min` < tahun_min_pilihan kini ditolak.
+  - Uji: `uji_pipeline.py` bagian Q (pilihan; Q1 membandingkan dengan kode
+    commit TETAP `4c57072` = sebelum formulir, lewat junction `uji_lama/data`;
+    dulu `HEAD`, yang rusak begitu fitur di-commit) dan A6-A7 (sampul revisi).
+    Run penuh `--kamus-head` (sebelum commit fitur): 140 lulus, 0 gagal.
+  - **Kamus `p0` ("persentase penduduk miskin", istilah resmi BPS, arahan
+    mentor) di-commit 24 Nov.** Produksi sudah diterapkan (diperiksa hanya
+    membaca: 0 teks berbeda dari kamus sekarang); database uji belum (47
+    publikasi, 67 entri + 1 teks publikasi berbeda).
+  - **uji_pipeline bagian N** (selalu jalan, sebelum potret s0): kamus salinan
+    diterapkan ke database uji (`normalisasi_data.jalankan`), sehingga
+    ekspektasi P2/C2/O1 = isi dengan kamus yang sama dengan pipeline. P2b
+    memastikan publikasi domain uji yang terkena kamus baru berteks BARU.
+    `--kamus-head` (kamus versi HEAD di salinan) kini hanya opsi.
+    Run penuh tanpa opsi, kamus sekarang: **142 lulus, 0 gagal, 3.123 detik**.
+  - **Tarik kecil sungguhan ke DATABASE UJI (24 Nov sore, "BPS - Pegawai"):**
+    `--wilayah 6301 --tahun-min 2024 --tahun-maks 2024`. Cek dulu 27 baru
+    ~212 MB ~9 menit; tarik 27/27, 0 gagal, 221,7 MB, 765 detik, 0 OCR,
+    3.726 entri. Produksi CHECKSUM sama; folder PDF/sampul hanya +27/+27.
+    Sampel 25: 12 benar seluruhnya, 0 nilai salah (2025-2026 pembanding 15/25).
+    **Sensus Pertanian 2023 Tahap II** (6 publikasi, hanya rilis 2024):
+    keterangan "Tabel <judul>" / "<nomor> ..." / "Table" tidak dikenali, 1.240
+    tabel tanpa tombol PDF (saran, belum dikerjakan). Laporan:
+    `data/regresi/tarik-kecil-20261124/penilaian-sampel.md`.
+  - **Kartu ringkasan hasil cek / pembaruan (25 Nov 2026), BELUM di-push.**
+    Laporan `data/regresi/ringkasan-cek-20261125.md`. Aturan di
+    `app/services/ringkasan_pembaruan.py` (fungsi murni): status abu-abu
+    (0 diproses) > merah (unduhan x 1,2 > sisa disk; Mulai `disabled` DAN
+    ditolak server 409 untuk pilihan sama) > kuning (> 30 menit / > 1 GB) >
+    hijau. Ambang di wilayah.json `ambang_penarikan` (tanpa cadangan di kode;
+    juga dipakai `perbarui.py --cek-dulu`, dulu >= 50 publikasi/1000 MB/1 jam).
+    1 GB = 1024 MB. Rincian per wilayah di `<details>`. Uji: bagian J
+    (diuji dengan cacat tertanam: J2/J3 gagal). Halaman pencarian: HTML 28/28,
+    piksel 12/12 identik. Run penuh: 152 lulus, 0 gagal, 3.485 detik.
+  - **Tampilan 25 Nov 2026 (masukan pemilik project), BELUM di-push.** Laporan
+    `data/regresi/tampilan-20261125.md`.
+    - Kartu PUBLIKASI diperbesar (sampul 220 px; ponsel: sampul di atas judul,
+      maks. 240 px); kartu entri tidak berubah ukuran di desktop.
+    - Tombol "↑ Ke atas": muncul > 400 px. >= 1181 px kapsul di margin;
+      <= 1180 px kotak 52x56; ruang kanan dicadangkan di <= 960 px (kartu,
+      info, pita, kaki, `main` admin `body.halaman-admin`).
+    - Scrollbar: `scrollbar-gutter: stable` (tata letak tidak bergeser antara
+      halaman pendek dan panjang), lintasan transparan, pegangan
+      rgba(0,0,0,.25) tipis (`scrollbar-width: thin` + `::-webkit-scrollbar`).
+      Diuji `periksa_gutter.py`; **jebakan alat:** Playwright headless memasang
+      `--hide-scrollbars` secara bawaan, jadi uji scrollbar wajib
+      `ignore_default_args=["--hide-scrollbars"]` (tanpa itu lulus palsu).
+    - **DESAIN FINAL 25 Nov malam:** kop SATU baris di SEMUA halaman, tanpa
+      baris menu (`menu.js` dihapus). Kanan kop: `.tombol-kop` (garis putih
+      tipis, transparan, 44 px, ikon garis SVG dari `templates/_ikon.html`).
+      Pencarian: "Halaman Admin" ke /admin/, gembok tertutup/terbuka, status di
+      aria-label, <= 480 px "Admin". Admin: "Kembali ke Pencarian" + "Keluar",
+      <= 480 px ikon saja (aria-label). Navigasi admin lewat kartu beranda
+      admin (ikon SVG) + "← Beranda admin" di SEMUA subhalaman. Uji X1 + X7.
+    - Sesi: `SESI_ADMIN_MENIT` (.env, angka 1-1440, tidak sah/kosong = 120 +
+      PERINGATAN, bukan SystemExit) di `config.menit_sesi_admin`; diperiksa
+      `admin.periksa_sesi` sebagai app.before_request (semua halaman kecuali
+      static), waktu diperbarui tiap permintaan; session tanpa `admin_aktif` =
+      kedaluwarsa (potongan uji lama ikut memasangnya).
+    - Penguncian: 5 sandi salah per `remote_addr` -> 429 selama 5 menit, di
+      memori proses (`_PERCOBAAN`, kunci thread); jam lewat `admin._sekarang`
+      (diganti di uji).
+    - `JUMLAH_PROXY` (.env, 0-10, kosong/tidak sah = 0 + PERINGATAN):
+      > 0 -> `ProxyFix(x_for=N)` di create_app, penguncian memakai alamat
+      X-Forwarded-For. JANGAN diisi tanpa proxy (alamat bisa dipalsukan).
+      Uji X6.
+    - `next`: GET = path + query; POST tanpa login = halaman asal (Referer).
+    - Tombol seragam `.tombol-utama` / `.tombol-kedua` (+ `.tombol-kecil`),
+      min. 44 px, cincin fokus kuning; `<details class="lipat">` bergaya tombol.
+    - Uji: `uji_pipeline` bagian X (menu, login+tujuan, sesi, env, kunci).
+      `potret_tampilan.py banding --isi` = banding ISI `<main>` saja.
+      Pemeriksa Playwright `data/regresi/tampilan-20261125/periksa_tampilan.py`:
+      0 tindih tombol ke atas di 4.338 posisi, 0 sentuh < 44 px. Run penuh terakhir (26 Nov sore, portabilitas) 184 lulus.
+    - **Jebakan alat:** pemeriksa tindih harus memotong kotak elemen dengan
+      wadah bergulir (`overflow` bukan visible); tanpa itu tombol tabel log yang
+      terpotong dilaporkan tertimpa.
+  - **Revisi kecil sebelum pembekuan (26 Nov 2026), BELUM di-push.** Laporan:
+    bagian terakhir `data/regresi/tampilan-20261125.md`.
+    - Kartu beranda admin dari data: Perbarui Data = tanggal `selesai_pada`
+      `pembaruan_terakhir(-uji).json` ("25 Nov", "(gagal)" kalau gagal) +
+      jumlah publikasi di DB, "belum pernah" tanpa berkas; Ganti Kata Sandi =
+      `teks_lama_sesi(SESI_ADMIN_MENIT)` ("2 jam"). Ikon kecil di judul,
+      tinggi kartu sama (`grid-auto-rows: 1fr`).
+    - Login: pesan "Sisa N percobaan sebelum login dikunci 5 menit". Terkunci
+      = `data-sisa` (detik, dihitung SERVER) + `js/login-kunci.js` (mm:ss,
+      habis -> aktif tanpa muat ulang, "Silakan coba lagi.", fokus ke sandi).
+      aria-live polite berubah SEKALI (di akhir); hitung mundur aria-hidden.
+      Tanpa JS: teks "X menit Y detik" + `<noscript>` meta refresh tepat saat
+      habis (GET, `next` terjaga). Penguncian tetap ditegakkan server (429).
+    - Uji: X8 (kartu), X9 (pesan, sisa 300/278, meta refresh, paksa = 429);
+      Playwright `periksa_kunci.py` + `server_kunci.py PORT DETIK
+      [tanpa-riwayat]` (penguncian pendek HANYA di proses alat), 9/9; cacat
+      tertanam di JS tertangkap.
+    - **Jebakan alat:** Playwright dengan `java_script_enabled=False` macet di
+      `evaluate`/`add_style_tag`; potret tanpa JS langsung `screenshot`.
+    - **PANDUAN bagian 12 "Saran pengembangan"** (A pencarian, B pembacaan
+      PDF, C tampilan/pengelolaan): salah ketik satu kata ("inflsi" = 0
+      kartu, "inflasi" 152 di DB uji), embeddings sesudah kamus, isi sel
+      tabel, deteksi nama kecamatan, pengecualian Sastrawi ("menikah" ->
+      "meni"); cacat judul 2,5-2,9%, Sensus Pertanian 2023 Tahap II (1.240
+      tabel tanpa tombol), kembar/tanpa halaman, `--gpu` di perbarui.py;
+      filter tahun, kartu edisi berulang (Kintap 3x dari tiga edisi MFD),
+      jadwal Task Scheduler (.bat tanpa `pause`), log per kelompok + klik
+      `/pdf/<id>` (seksi kecamatan belum dihitung di `_catat_log`), penguncian
+      persisten di DB.
+  - **Kembali ke pencarian terakhir + "Log Pencarian" (26 Nov 2026 siang),
+    BELUM di-push.** Laporan: bagian terakhir `data/regresi/tampilan-20261125.md`.
+    - Aturan di `app/services/alamat_kembali.py`: `alamat_aman` hanya path
+      relatif "/..." (bukan "//", "\", skema, host, fragmen, kendali, > 1000
+      karakter) dengan path PERSIS "/" atau "/hasil".
+    - Kop pencarian: "Halaman Admin" = `/admin/?dari=<full_path>`
+      (`konteks_menu`, hanya endpoint pencarian/hasil). Admin
+      `simpan_alamat_kembali` (before_request SEBELUM wajib_login) menyimpan
+      di session `kembali_pencarian`; `dari` tidak sah = alamat dibuang.
+      `_bersihkan_sesi` mempertahankannya di login dan ganti sandi; Keluar
+      tidak membuangnya.
+    - "Kembali ke Pencarian" = `/kembali` (pencarian, tanpa login): penanda
+      SEKALI PAKAI `dari_admin_sekali` = alamat, lalu redirect. Halaman yang
+      full_path-nya sama -> `g.dari_admin`: `_catat_log` dilewati, body
+      `data-pulihkan-gulir`. **Bukan parameter URL**: `_url_dengan` menyalin
+      semua `request.args` ke tautan hasil, jadi penanda di URL akan
+      menular.
+    - `js/gulir-kembali.js` (halaman non-admin): simpan pageYOffset per
+      path+query di sessionStorage saat pagehide/klik Halaman Admin; pulihkan
+      hanya bila `data-pulihkan-gulir`, ulang saat tinggi halaman berubah 3
+      detik pertama (ResizeObserver) dan saat load, berhenti bila petugas
+      menggulir.
+    - Judul "Review Log Pencarian" -> "Log Pencarian" (kartu, halaman,
+      PANDUAN). Kartu admin kini sejajar (judul satu baris).
+    - Uji: X10 (alur, log +0, 16 alamat berbahaya, session diubah langsung);
+      X1/X7 mengikuti href `?dari=` (url_for membiarkan "/" dan "?" di
+      nilai query). Playwright `periksa_kembali.py` + `server_kunci.py PORT
+      300 catat-log` (log hidup ke DB UJI; baris alat dihapus), 11/11.
+  - **Portabilitas Windows + Linux (26 Nov 2026 sore), BELUM di-push.**
+    Laporan `data/regresi/portabilitas-20261126.md` (tabel audit + yang
+    belum bisa dipastikan tanpa Linux). Perilaku Windows tidak berubah.
+    - `config.teks_os(teks)`: pesan ditulis bentuk Windows; di Windows
+      dikembalikan apa adanya, di Linux `venv/bin/python`, `./perbarui-data.sh`,
+      "/" (pesan .env, perbarui.py, isi_cache_ocr, flash admin, perbarui.html
+      lewat global Jinja `teks_os`).
+    - Cek PID non-Windows (3 salinan: perbarui, pembaruan, isi_cache_ocr):
+      `PermissionError` = proses milik pengguna lain = HIDUP (dulu dianggap
+      mati -> dua pembaruan bisa jalan bersamaan di Linux).
+    - `*.sh` padanan tiap `.bat` (bash, `set -euo pipefail`, ASCII, LF,
+      100755, shellcheck 0 temuan); jeda akhir hanya kalau stdin terminal;
+      kode keluar = kode perbarui.py/run.py. **.bat selalu berakhir kode 0**
+      (diukur), sengaja tidak diubah. `.gitattributes`: `*.sh eol=lf`,
+      `*.bat eol=crlf` (indeks .bat LF; CRLF di sini hanya karena
+      core.autocrlf=true).
+    - `scripts/periksa_sidik.py [--db-uji]`: hanya membaca; sidik PDF + cache
+      OCR vs database sesudah memindahkan folder (produksi: 622/622, 34/34).
+    - Paket serah terima: `data/serah_terima/` + `*.sql` di-gitignore;
+      `db_pencarian_bps-20261126.sql` (16 MB) dipulihkan ke DB sementara 6/6
+      sama. tar Windows (bsdtar) -> GNU tar: 1.574 berkas, 0 sidik beda.
+    - `versi_data` ber-collation `utf8mb4_0900_ai_ci` = MySQL 8 saja (bukan
+      MariaDB). `cryptography` kini eksplisit di requirements (PyMySQL +
+      caching_sha2_password; sudah terpasang lewat pdfminer.six).
+    - uji_pipeline: cabang Linux (p.kill, symlink, st_dev), W7-W14 + Q7b
+      menjalankan .sh sungguhan (Windows: bash Git for Windows, BUKAN WSL),
+      bagian Y (teks_os, cek PID tiruan, periksa_sidik).
+    - PANDUAN 7.4 "Memindahkan aplikasi ke server". **27 Nov 2026: Linux
+      TERUJI di Ubuntu 22.04.5 (Python 3.12.16, MySQL 8.0.33)**, uji terpisah
+      oleh pemilik project dari dump 20261126 (`portabilitas-20261126/linux/`):
+      I S V F H N L C O B E T K R J X Y lulus; A lulus kecuali A1; B2 artefak
+      urutan (OB lulus); P D W Q + G tidak selesai (batas waktu). Potret 28
+      URL Linux vs Windows dari dump yang sama: IDENTIK 28/28 (penuh + --isi,
+      berkas byte-identik). apt/systemd/tar di Linux belum diuji.
+  - **PEMBEKUAN v1.0.0 (27 Nov 2026).** Merge `revisi-pst` -> `main`
+    (`--no-ff`, "Serah terima v1.0.0") + tag beranotasi `v1.0.0`; push oleh
+    pemilik project. Laporan `data/regresi/pengukuran-akhir-20261127.md`:
+    - uji akhir pada `bd5b63d`: 184 lulus, 0 gagal; CHECKSUM produksi sama;
+    - produksi 622 publikasi / 44.649 entri / versi_data 549;
+    - paket `data/serah_terima/` (gitignored): dump 20261127 (pulih 6/6),
+      manifest sha256 5.298 berkas, `periksa-sidik-20261127.txt`,
+      `BACA-DULU.txt`.
+    - `CHANGELOG.md` baru. SECRET_KEY dan API key sudah diganti pemilik
+      project.
+    - Perubahan kode sesudah v1.0.0 = versi baru; uji penuh lagi.
+  - `.bat` memanggil `%SystemRoot%\System32\find.exe` dengan jalur lengkap:
+    `find` Git di PATH tidak mengenal `/i`.
+  - **Jebakan alat:** heredoc di Bash tool memakan backslash (`\\n`, `\` di
+    akhir baris). Suntingan berisi backslash pakai Edit/Write, bukan heredoc.
+  - Tangkapan layar: Chrome merender sampul JPEG tidak deterministik (beda
+    <= 9/255) dan fokus autofocus kadang belum terpasang; potret pembanding
+    menyembunyikan isi gambar (opacity 0) dan melepas fokus.
 
 ## Sumber data
 - **BPS WebAPI**: `https://webapi.bps.go.id/v1/api/list/model/publication/lang/ind/domain/6300/page/{page}/key/{key}/`
@@ -25,6 +412,40 @@ Mahasiswa Politeknik Negeri Banjarmasin.
 - Pagination: 10 publikasi per halaman, total ~648 publikasi (~65 halaman) untuk semua tahun.
 - Field penting: `pub_id`, `title`, `abstract`, `rl_date`, `pdf` (link unduh), `cover`, `subject_csa`.
 - PDF publikasi diunduh dari field `pdf`, lalu diekstrak strukturnya.
+
+### Perilaku unduhan dan daftar WebAPI (diuji 9 Nov 2026)
+- **Daftar API terurut dari rl_date terbaru.** Dibuktikan di 14 domain dan
+  5.246 publikasi: 0 rl_date naik dalam urutan API, 0 publikasi jendela yang
+  terlewat. Pemeriksanya (`sumber_bps.cek_urutan`) diuji dengan urutan yang
+  diacak dan menangkapnya.
+  - Karena itu pembaruan berhenti begitu satu halaman penuh di luar jendela
+    tahun (`DAFTAR_TERURUT_TERBARU = True`): ±82 dari ±530 halaman.
+  - `--hanya-periksa` tetap menarik SEMUA halaman dan mencetak buktinya
+    setiap kali. Kalau "terlewat" > 0, matikan.
+- **URL PDF bertoken dan berganti.** URL dari metadata 5 Nov ditolak HTTP 400
+  pada 9 Nov, sedangkan URL segar diterima. Jangan memakai `url_pdf` lama dari
+  database untuk mengunduh.
+- **Server PDF tidak mendukung Range.** Permintaan sebagian dijawab 200
+  berkas penuh, tanpa `Accept-Ranges` maupun `Content-Length` (chunked).
+  Unduhan yang putus tidak bisa dilanjutkan.
+- **Unduhan putus acak** ("Response ended prematurely"), juga dari Wi-Fi
+  rumah: 1 dari 2 percobaan pada uji 9 Nov. Kecepatan yang berhasil
+  ±5.360 KB/detik (14,75 MB dalam 3 detik). Pengamannya:
+  - `unduh_pdf`: 4 percobaan, jeda 5/15/45 detik, selalu dari nol. HTTP 4xx
+    langsung berhenti karena URL kedaluwarsa.
+  - `perbarui.putaran_ulang`: di akhir tiap domain, yang tetap gagal dicoba
+    sekali lagi dengan URL segar (daftar domain ditarik ulang).
+- **Ringkasan pembaruan** (`data/pembaruan_terakhir.json`, untuk revisi 3)
+  kini memuat:
+  - durasi per tahap;
+  - statistik unduhan per domain dan total: byte, detik transfer, KB/detik,
+    putus, percobaan ulang, putaran ulang, pulih;
+  - `jaringan_dipakai`: SSID dan IP webapi.bps.go.id.
+- **Keluaran tiap run disalin ke `data/log_pembaruan/<waktu>.log`**
+  (di-gitignore).
+- **Selama `perbarui.py` berjalan, Windows dicegah tidur**
+  (`SetThreadExecutionState`). Ini tidak mencegah tidur karena layar laptop
+  ditutup.
 
 ## Kewajiban dari Term of Use BPS (WAJIB dipatuhi)
 1. UI harus menampilkan notice: **"Layanan ini menggunakan API Badan Pusat Statistik (BPS)"**
@@ -120,11 +541,14 @@ Parser ada di `app/services/ekstraksi_pdf.py`, berbasis KOORDINAT KATA
   dihitung sebagai kegagalan.
 - Waktu proses ~400 detik untuk seluruh korpus.
 
-Empat format daftar yang ditangani satu parser (jangan dipecah jadi parser terpisah):
+Format daftar yang ditangani satu parser (jangan dipecah jadi parser terpisah):
 1. label + nomor satu baris ("Tabel 1 Judul ..... 7")
 2. dua kolom, label dan nomor beda baris (PDRB)
 3. nomor halaman di baris pertama, judul menyambung ke bawah
 4. tanpa kata label, nomor berdiri sendiri di kolom kiri ("Dalam Angka")
+5. tanpa kata label, nomor SEBARIS dengan judul ("1.1 Luas Daerah ... 10";
+   Podes, Kesra, IPM, KAK, Gambaran Ekonomi Makro, dll.) - ditambahkan
+   9 Nov 2026 (C2, `_mode_nomor_sebaris`)
 
 Watermark dibuang lewat **matriks transformasi karakter** (miring 45 derajat),
 bukan regex teks — itu sebabnya "Pertaniano" tidak lagi muncul.
@@ -143,6 +567,27 @@ Angka ini diturunkan dari sebaran skor **hanya 8 kueri uji**, dan sebagian kueri
 itu dikarang sendiri — BUKAN kueri nyata dari petugas PST. Ambang final
 ditentukan ulang setelah uji coba petugas (minggu 9-10) dan setelah
 `log_pencarian` terisi kueri sungguhan. Jangan perlakukan 75/50 sebagai final.
+
+**Validasi 17 Nov 2026: ambang TIDAK diubah (disetujui pemilik project), tetap
+"sementara, perlu kata kunci asli petugas".** Laporan:
+`data/regresi/validasi-ambang-20261117.md`.
+- Data: 18 kata kunci topik dari log dan kueri uji. Log baru berisi uji
+  pengembang dan pemilik project, belum kata kunci petugas.
+- Ketepatan: pita 75-80 = 45/50 (90%), pita 70-75 = 69/89 (78%). Hasil
+  yang salah menumpuk di kata kunci UMUM ("jumlah hotel kabupaten kota
+  2024" 0/6), jadi menurunkan ambang ke 70 tidak cukup terbukti.
+- **Yang lebih berpengaruh daripada ambang (dicatat, BELUM dikerjakan):**
+  - **Kamus sinonim:**
+    - "konsumsi listrik" tidak menemukan satu pun dari 34 tabel listrik, karena
+      judulnya memakai "listrik terjual" / "kWh";
+    - "jumlah menginap hotel" sebagian besar di bawah 70, karena judulnya
+      memakai "wisatawan menginap" / "tamu";
+    - "inap": "pasien rawat inap" ikut cocok dengan "menginap" karena kata
+      dasarnya sama.
+  - **Tokenisasi "P 1":** banyak judul menulis "P 1" terpisah, sehingga
+    kueri "p1" hanya mencapai >=50 di 10 dari 57 tabel yang relevan.
+  - **Penalti panjang:** judul tabel lengkap (TPK, luas panen) jatuh ke
+    70-75, di bawah judul bab yang pendek.
 
 ### Riwayat kalibrasi (penting untuk laporan TA)
 Angka-angka di atas diturunkan dari pengujian, bukan ditebak:
@@ -166,6 +611,52 @@ Angka-angka di atas diturunkan dari pengujian, bukan ditebak:
 4. Setelah perbaikan: puncak skor turun dari 100 ke kisaran 87-90, kejenuhan
    hilang, top-1 kedelapan kueri uji tetap benar, waktu ~70 ms per kueri
    (4.219 entri, jauh di bawah batas 300 ms).
+5. **Sesudah 13 kab/kota masuk (10 Nov 2026; 306 publikasi, 23.461 entri):**
+   - Rata-rata median 430 ms, terlambat 539 ms. Ini **melewati 300 ms**.
+     Data 79 publikasi dalam sesi yang sama: 116 ms.
+   - ±70% waktunya adalah mengambil SELURUH korpus dari MySQL di setiap
+     kueri (308 ms). Kueri yang hanya menilai 37 entri pun 355 ms.
+   - Usulan: simpan korpus di memori proses dan buat ulang sesudah
+     pembaruan data. Lihat `data/regresi/tarik-13-domain-20261110.md`.
+6. **Korpus di memori proses (10 Nov 2026)**, di `mesin_pencari.korpus()`.
+   Laporan: `data/regresi/korpus-memori-20261110.md`.
+   - Korpus (entri + publikasi, token, judul publikasi ternormalisasi)
+     dimuat sekali.
+   - Korpus dimuat ulang kalau penanda `versi_data` berubah atau objek
+     kamus berganti (`muat_ulang_kamus` dari halaman admin).
+   - **Penanda versi** = tabel satu baris `versi_data`:
+     - dinaikkan setiap penulis data DI TRANSAKSI YANG SAMA:
+       `simpan_metadata`, `simpan_entri`, `normalisasi_data.jalankan`
+       ("Terapkan ke data");
+     - dibaca tiap pencarian lewat satu SELECT berkunci primer;
+     - berlaku lintas proses (.bat, admin, skrip).
+     - `CREATE TABLE` memaksa commit di MySQL, jadi `pastikan_tabel()`
+       dipanggil SEBELUM transaksi penulis, tidak di tengahnya.
+   - **Aman untuk banyak thread:** korpus baru disiapkan penuh lalu
+     referensinya ditukar sekaligus. Objek `Korpus` tidak pernah diubah.
+   - **Hasil identik** dengan versi lama untuk 12 kueri uji: seluruh medan,
+     urutan, dan jumlah.
+   - Angka waktu, waktu muat ulang, dan memori: lihat laporan.
+7. **Filter wilayah (10 Nov 2026)**, di `app/services/pencarian_wilayah.py`.
+   Laporan: `data/regresi/filter-wilayah-20261110.md`.
+   - Dropdown (`?w=6301`) atau deteksi nama/singkatan wilayah dari kueri,
+     dicocokkan per KATA UTUH (`wilayah.deteksi`). Hasil deteksi ditandai
+     pita "dipasang otomatis" yang bisa dibatalkan (`abaikan`).
+   - Parameter `wo` menandai wilayah yang dipasang otomatis. `w == wo`
+     berarti petugas tidak memilihnya, jadi deteksi diulang.
+   - Kata wilayah yang menjadi filter TIDAK ikut dinilai. Alasannya BUKAN
+     "judul tabel kab/kota jarang menyebut wilayahnya": 75,6% tabel justru
+     menyebutnya. Alasannya:
+     - singkatan tidak pernah tercetak di judul;
+     - hasilnya konsisten, apa pun cara wilayah dipilih;
+     - di dalam filter, kata wilayah tidak membedakan relevansi.
+   - Entri provinsi yang cocok dengan kueri tanpa kata wilayah tampil
+     terpisah ("Juga ada di publikasi provinsi", maksimal 10).
+   - "Semua wilayah" + kueri tanpa nama wilayah = jalur lama, hasilnya
+     identik.
+   - `log_pencarian.wilayah_filter` (CHAR(4), nullable) ditambahkan ke DB
+     lama oleh `pastikan_kolom()` di awal request.
+   - Waktu: tanpa filter +1 ms; dengan filter paling lambat 59 ms.
 
 ## Utang teknis: 764 entri terlalu panjang
 Ekstraksi kadang menggabungkan BEBERAPA judul tabel menjadi SATU entri. Median
@@ -241,11 +732,174 @@ warna secara TERPISAH, lalu terima keterangan kalau **font/ukuran berbeda ATAU
 warna berbeda** dari teks badan. Karena syarat ini superset dari aturan lama
 (yang hanya memeriksa font/ukuran), tidak ada keterangan yang tadinya diterima
 bisa jadi tertolak. Itulah sebabnya penambahan lampiran + warna menghasilkan
-**0 publikasi berkurang**. Pertahankan sifat superset ini kalau jalur badan
-diubah lagi.
+**0 publikasi berkurang**.
 
-Dedup memakai kunci `(tipe, nomor)` per publikasi; kalau judulnya berbeda,
-versi dari BADAN yang dipakai karena versi daftar kadang terpotong.
+**Bunyi aturan sejak 7 Nov 2026: superset terhadap KETERANGAN ASLI;
+tangkapan dari halaman Daftar boleh dibuang asalkan tidak ada
+`(publikasi, tipe, nomor)` yang hilang.** Pertahankan sifat ini kalau jalur
+badan diubah lagi. Pengecualian ini diputuskan pemilik project setelah
+penyelidikan B (`data/regresi/penyelidikan-B-20261106.md`). Alasannya:
+aturan superset ada supaya keterangan asli tidak hilang, sedangkan baris di
+halaman DAFTAR bukan keterangan asli. Baris daftar yang dicetak tebal atau
+berwarna lolos aturan gaya, dan akibatnya:
+- 13 `halaman_fisik` menunjuk halaman Daftar;
+- 43 judul membawa nomor halaman daftar ("... 2021−2024 26").
+
+**Pengecualian kedua, sejak 9 Nov 2026: teks yang TIDAK TERLIHAT pembaca
+bukan keterangan asli.** Diputuskan pemilik project setelah C2
+(`data/regresi/C2-nomor-sebaris-20261109.md`, `tak-terlihat-20261109.md`).
+- Kasusnya: tiga KAK (Feb 2025, Feb 2026, Agt 2025) menyimpan salinan
+  keterangan 5 pt berwarna PUTIH di bawah judul tabel. Di dua di antaranya
+  nomornya beda dari yang terlihat (sisa edisi sebelumnya). Jalur badan
+  dulu menerimanya, sehingga entri menunjuk tabel yang salah.
+- Aturannya: `ekstrak_badan` menolak keterangan bila ukuran labelnya
+  **< 0,7 × ukuran teks badan halaman** (ukuran gaya dominan), hanya kalau
+  halaman itu punya minimal 20 kata berukuran dominan.
+- Ambangnya RELATIF, bukan angka mati, atas syarat pemilik project:
+  - Lampiran IHK yang dicetak 6 pt di halaman berbadan 6 pt (rasio 1,0)
+    adalah keterangan asli dan terlihat;
+  - publikasi kab/kota berhuruf kecil tidak boleh terpotong.
+- Angka 0,7 jatuh di celah data: keterangan asli terkecil berasio 0,772,
+  salinan tersembunyi paling besar 0,63.
+- Syarat 20 kata ada karena halaman pembatas Lampiran yang berisi 5 kata
+  dekoratif 37 pt tidak punya "ukuran badan". Folio 7 pt di halaman itu
+  (rasio 0,19) tidak ikut terbuang.
+- Bukti 9 Nov 2026: semua yang terbuang (322, di 79 PDF + 6 sampel kab/kota)
+  diperiksa satu per satu. Hasilnya: semuanya berwarna putih, tidak ada yang
+  digambar di atas bidang berwarna, dan render pikselnya kosong. **0
+  keterangan terlihat terbuang.**
+- Jebakan alat yang terjadi saat pembuktian, dan jangan diulang: salinan
+  tersembunyi di KAK Feb 2025 berteks PERSIS sama dengan keterangan
+  terlihatnya. Pemeriksa yang mencari baris menurut teks saja menemukan
+  baris 12 pt di atasnya dan melaporkan 108 "terlihat". Cocokkan menurut
+  teks DAN ukuran.
+
+Halaman Daftar kini dilewati `ekstrak_badan` lewat `_halaman_daftar()`,
+pemeriksaan yang sama dengan `lengkapi_halaman_fisik`. Perubahan ini
+dipasangkan dengan perbaikan `_baca_daftar` (heading yang sama yang diulang
+di halaman lanjutan tidak lagi mengakhiri daftar). Dengan begitu entri yang
+dulu hanya didapat dari halaman Daftar kembali lewat jalur daftar.
+
+### Halaman Daftar = heading DAFTAR atau lanjutan langsungnya (7 Nov 2026)
+`_halaman_daftar(teks_baris, lanjutan_daftar)` dipakai `ekstrak_badan` dan
+`lengkapi_halaman_fisik`. Halaman dianggap halaman Daftar kalau:
+- punya heading DAFTAR di 6 baris teratas, termasuk heading yang terbelah
+  dua baris ("DAFTAR" / "GAMBAR", hanya di Statistik Daerah 2025), ATAU
+- dot leader > 3 DAN halaman fisik sebelumnya juga halaman Daftar.
+  Halaman tanpa teks memutus rangkaian. Ambang ">3" tidak diubah.
+
+Dulu dot leader > 3 di mana saja sudah cukup. Akibatnya halaman pembuka bab
+Dalam Angka (daftar isi mini ber-dot-leader) ikut dilewati, sehingga judul
+babnya tidak pernah terbaca. Di 79 publikasi, 76 halaman berganti status:
+- pembuka bab Dalam Angka 2025/2026, Kata Pengantar, Statistik Kunci;
+- halaman konsep Sakernas;
+- kuesioner lampiran Podes.
+
+Regresi: **0 entri berubah** (halaman-halaman itu tidak memuat keterangan
+"Tabel N"); dampaknya baru muncul lewat halaman fisik entri isi.
+
+Yang diketahui TIDAK tertangani:
+- Daftar Isi tanpa heading sama sekali (Gambaran Ekonomi Makro, `6fc864b9`
+  hal. 9) tidak dianggap halaman Daftar. Saat ini tidak berdampak, karena
+  halaman itu tidak memuat label "Tabel N" dan publikasinya tidak punya
+  entri isi.
+- `cari_heading` (jalur daftar) BELUM mengenali heading terbelah, sehingga
+  Daftar Gambar/Lampiran Statistik Daerah 2025 tidak dibaca jalur daftar
+  (gambarnya tetap masuk lewat jalur badan).
+- ~~Lanjutan Daftar ber-leader "……" (elipsis U+2026) tidak terhitung~~
+  **DIPERBAIKI 10 Nov 2026:** `_jumlah_dot_leader` kini menghitung deret
+  ≥3 "…" selain ".....". Syarat lanjutan dan ambang >3 tetap.
+  - Regresi 306 PDF: 0 kunci hilang; 39 `halaman_fisik` berubah, dan
+    semuanya dulu menunjuk halaman Daftar (dibuktikan per entri).
+  - 23 kini menunjuk keterangan bernomor persis; 16 kosong karena di luar
+    halaman Daftar tidak ada keterangannya (sumber keduanya -> daftar).
+
+### Halaman fisik entri `isi` (7 Nov 2026)
+`lengkapi_halaman_isi()` mencari judul bab/subbab di badan dokumen. Kondisinya:
+- teksnya SAMA UTUH dengan judul entri setelah dinormalisasi, boleh gabungan
+  1-3 baris;
+- baris pertamanya bergaya beda dari badan, memakai aturan `_beda_dari_badan`
+  yang sama dengan jalur badan;
+- cadangan: judul tanpa nomor bab.
+
+Kalau kecocokannya lebih dari satu (kop berjalan), yang dipilih adalah yang
+pertama di atau sesudah halaman entri isi sebelumnya. Baris halaman diambil
+dari pemindaian `ekstrak_badan` (parameter `baris_halaman`), jadi PDF tidak
+dibaca ulang; waktu ekstraksi tidak bertambah terukur.
+
+Hasil di 79 publikasi:
+- **916 dari 1.562 entri isi (59%)** terisi.
+- Regresi: hanya `halaman_fisik` entri isi yang berubah; 0 kunci hilang,
+  0 sumber berubah.
+- Sampel acak 40 (seed 20261107) dibaca satu per satu: **39 benar,
+  1 meleset 2 halaman**. Pada yang meleset, terpilih sampul bab, sedangkan
+  Daftar Isi menunjuk halaman isi pertama sesudahnya.
+- Penyebab utama tidak terisi:
+  - judul dwibahasa "Indonesia/ Inggris" di Daftar Isi yang di badan
+    tercetak di dua kolom terpisah (PDRB Lapangan Usaha: 0/52 dan 2/51);
+  - entri halaman depan yang ada di halaman Daftar sendiri.
+
+### Dalam Angka: label bertumpuk dan kepala seksi (9 Nov 2026)
+Penyelidikan lengkapnya ada di `data/regresi/penyelidikan-C-20261107.md`.
+Masing-masing langkah punya laporan, baseline, dan TSV perubahan sendiri.
+- **C1(a) label bertumpuk.** Keterangan Dalam Angka menumpuk "Tabel" /
+  "1.1.1" / "Table" di kolom kiri, sejajar dengan judul. Penanda
+  "tabel 1.1.1" karena itu tidak pernah satu baris.
+  - `_penanda_bertumpuk` di `lengkapi_halaman_fisik` mengenalinya.
+  - Hasil: +637 `halaman_fisik` (Dalam Angka 2025/2026 hampir semua
+    tabelnya); sampel 30: 30 benar.
+  - Inilah penyebab "631 Dalam Angka tanpa halaman_fisik" yang lama,
+    BUKAN halaman pembuka bab.
+- **C3 kepala seksi.** Padanan Inggris kepala seksi tercetak di kolom judul
+  Daftar Tabel lalu menempel ke entri pertama seksi.
+  - Sekarang dibuang di mode tanpa-label: baris kapital semua saat buffer
+    entri kosong.
+  - Hasil: 62 awalan dibuang di Dalam Angka 2025/2026, 0 kunci bernomor
+    hilang, publikasi lain identik.
+- **C2 format daftar kelima "nomor sebaris"** (`_mode_nomor_sebaris`,
+  `_parse_baris_nomor_sebaris`).
+  - Dikurung seketat mode tanpa-label: tidak boleh ada baris berlabel,
+    minimal 3 baris bernomor sejajar kolom judul, minimal 3 baris berakhir
+    nomor halaman. Syarat terakhir mencegah halaman badan berisi daftar
+    prosa bernomor ikut terbaca.
+  - Entri dibuka dan ditutup oleh baris bernomor, bukan oleh nomor halaman,
+    karena sebagian publikasi mencetak nomor halaman dua kali.
+  - Hasil: 18 publikasi; 424 blok gabungan diganti 341 entri bernomor
+    berhalaman; 781 halaman cetak didapat; 0 kunci bernomor hilang.
+  - Dimuat SESUDAH penolakan keterangan tak terlihat. Tanpa itu, di dua KAK
+    halaman fisik akan menempel ke judul yang salah.
+  - Laporan: `data/regresi/C2-nomor-sebaris-20261109.md`.
+  - Cacat kecil yang diketahui:
+    - angka indeks di ujung judul terbaca sebagai halaman (GEM tabel 41);
+    - nomor "13" yang terbelah di Daftar Air Bersih;
+    - judul seksi di akhir halaman (Kecamatan Dalam Angka).
+- **C1(b), keterangan bertumpuk sebagai entri BARU di jalur badan:
+  DITUNDA (keputusan 9 Nov 2026), saran pengembangan.** Rinciannya di
+  `data/regresi/C1b-perkiraan-20261109.md`.
+  - **KOREKSI 10 Nov 2026:** alasan "Dalam Angka tidak punya Daftar Gambar"
+    di bawah ini SALAH. Dalam Angka punya Daftar Gambar di hal. 27-49, dan
+    terlewat karena `BATAS_HALAMAN_CARI = 25`. Lihat
+    `data/regresi/batas-heading-20261110.md`. **Sejak 12 Nov 2026 Daftar
+    Gambar itu terbaca** (+464 gambar bernomor,
+    `batas-heading-20261112.md`), jadi manfaat C1(b) di bawah ini jauh lebih
+    kecil daripada perkiraan semula.
+  - Manfaat: sekitar 55 grafik Dalam Angka provinsi ("Gambar" / "1.1" /
+    "Figure" di halaman infografis bab) ditambah sekitar 5 per Dalam Angka
+    kab/kota. Semuanya kini tidak terindeks, karena Dalam Angka tidak punya
+    Daftar Gambar.
+  - Risiko sedang-tinggi: aturan judul terpanjang bisa mengganti ratusan
+    judul tabel Dalam Angka yang kini bersih dengan rekonstruksi badan.
+  - Perkiraan waktu: 4-5 jam.
+  - Cara meredam bila dikerjakan: versi "hanya menambah kunci yang belum
+    ada", tanpa menyentuh entri yang sudah dikenal Daftar. Paling hemat
+    dikerjakan bersamaan dengan ekstraksi ulang sesudah penarikan 13 domain.
+
+Dedup memakai kunci `(tipe, nomor)` per publikasi. Kalau judulnya berbeda,
+yang dipakai judul yang LEBIH PANJANG (`_gabung`: versi badan menggantikan
+versi daftar hanya bila lebih panjang), bukan selalu versi badan. Alasan
+awalnya: versi daftar kadang terpotong. Efek sampingnya: versi yang membawa
+sampah (nomor halaman, kop tabel) juga lebih panjang, jadi aturan ini ikut
+memenangkannya.
 
 Kolom `sumber` bernilai 'daftar' | 'badan' | 'keduanya'.
 
@@ -255,9 +909,72 @@ dilewati karena selisih halaman cetak vs fisik terbukti tidak konsisten (5 dari
 publikasi). Sekarang akurat tanpa tebakan karena halaman fisik dicatat langsung
 saat ekstraksi.
 
-## Prinsip verifikasi (dipelajari dari dua kesalahan nyata)
+### Halaman fisik PERKIRAAN (16 Nov 2026, dimuat ke produksi 16 Nov)
+Laporan: `data/regresi/perkiraan-halaman-20261116.md`. Diminta pemilik
+project sesudah uji coba aplikasi 14 Nov.
+- **Sasaran:** tabel/gambar/lampiran berhalaman cetak tanpa `halaman_fisik`
+  (2.118), dimuat ke produksi 16 Nov.
+- **Perluasan ke entri ISI (16 Nov sore; aturan disetujui, DIMUAT ke
+  produksi 16 Nov).**
+  - Cadangan `cadangan-bps/db_pencarian_bps-20261116-sebelum-perkiraan-isi.sql`;
+    pemulihannya diuji (6/6 tabel sama).
+  - Per id: 1.798 isi NULL -> angka, 22.575 identik; per isi baris = database
+    uji; `versi_data` 354 -> 355.
+  - Produksi kini: halaman PDF 20.940/24.373 (85,9%); perkiraan 2.834.
+  - Laporan:
+  `data/regresi/perkiraan-halaman-isi-20261116.md`.
+  - Isi HANYA memakai jangkar tabel/gambar/lampiran. Ini SENGAJA bukan
+    "setipe dulu": halaman fisik isi (dari teks judul) bergeser +2 di PDRB
+    (sampul bab) dan +1 di Booklet Sakernas.
+  - Bukti dari folio di halaman perkiraan: jangkar non-isi 91% tepat,
+    cadangan jangkar isi 61%, "isi dulu" 78%.
+  - Leave-one-out isi bias, karena kuncinya halaman fisik isi itu sendiri;
+    jangan dipakai untuk memilih aturan.
+  - Hasil:
+    - 1.798 isi terisi; per id hanya NULL -> angka; 1.036 perkiraan lama tetap;
+    - sampel manual 48/50;
+    - 12 kueri identik kecuali halaman.
+  - Jangkar isi tetap dipakai untuk TABEL/gambar/lampiran (aturan lama), dan
+    sampel Podes membenarkannya.
+- **Aturan:** `app/services/perkiraan_halaman.py`, fungsi murni.
+  - Perkiraan = halaman cetak + selisih (fisik - cetak) jangkar tetangga.
+  - Jangkar = entri berhalaman cetak angka dengan halaman fisik ASLI.
+    Perkiraan tidak pernah jadi jangkar.
+  - Jangkar setipe didahulukan.
+  - Jangkar yang selisihnya tidak sama dengan tetangganya dibuang.
+  - Diisi hanya kalau: ada jangkar di halaman cetak sama, ATAU jangkar
+    bawah dan atas sepakat, ATAU di tepi dengan jangkar <= 10 halaman.
+- **Kolom:** `entri_dokumen.halaman_fisik_perkiraan` (TINYINT(1), default 0,
+  lewat `skema.pastikan_kolom`).
+  - Tidak ada nilai asli yang diganti.
+  - UI: "Buka PDF ±hal. N" dengan tooltip.
+  - Kolom korpus ditaruh di AKHIR baris `_ambil_korpus` supaya indeks lama
+    (teks [6], domain [11]) tetap.
+- **Dua jalan masuk, satu fungsi:**
+  - `pipeline_data.simpan_entri` (pemuatan, transaksi yang sama);
+  - `scripts/isi_perkiraan_halaman.py (--db-uji | --produksi) [--coba]`
+    (data lama). Tujuan wajib disebut; menghormati `pembaruan.lock`;
+    idempoten.
+- **Hasil di database uji:**
+  - 1.036 terisi (tabel 823, gambar 86, lampiran 127).
+  - Per id: hanya `halaman_fisik` NULL -> angka; 23.337 baris lain identik.
+  - 12 kueri uji identik kecuali kolom halaman fisik.
+- **Akurasi:**
+  - Leave-one-out 97,7%.
+  - Sampel manual: 29/30 (sampel 1, aturan berlaku) dan 27/30 (sampel 2)
+    = 56/60. Yang meleset paling jauh 3 halaman.
+  - Tiga dari empat kegagalan sampel berasal dari halaman cetak yang salah di
+    Daftar sumbernya, yang tidak bisa dilihat leave-one-out.
+- **Jebakan alat saat membandingkan kueri:** `sorot` berurutan acak antarproses
+  (set + sort menurut panjang). Bandingkan sebagai himpunan.
+- **Harga aturan setipe:** jangkar setipe yang sudah salah pasang ('keduanya'
+  bergeser satu nomor, PDRB Kab/Kota Provinsi) mengalahkan jangkar lain yang
+  benar (tabel 3.7 meleset 3). Secara keseluruhan tetap lebih baik:
+  meleset >= 10 halaman 107 -> 61.
+
+## Prinsip verifikasi (dipelajari dari tiga kesalahan nyata)
 **Alat verifikasi juga bisa salah, dan salahnya LEBIH BERBAHAYA daripada bug
-biasa - karena kita mempercayainya dan berhenti memeriksa.** Sudah dua kali
+biasa - karena kita mempercayainya dan berhenti memeriksa.** Sudah tiga kali
 hampir menyesatkan kesimpulan di project ini:
 
 1. **Audit heuristik melaporkan 0% deteksi palsu, padahal 2,5%.** Heuristiknya
@@ -270,6 +987,13 @@ hampir menyesatkan kesimpulan di project ini:
    benar-benar memicu kecocokan, yaitu keterangan di awal baris pada halaman
    yang sama. Hasilnya ~30% sampel tampak salah padahal semuanya benar; nyaris
    membatalkan perbaikan yang sudah bekerja.
+3. **Pembanding menurut POSISI melaporkan 260 entri berubah, padahal 33**
+   (simulasi pembuangan kepala seksi Dalam Angka, 7 Nov 2026). Satu entri
+   sampah tanpa nomor hilang, lalu semua pasangan sesudahnya bergeser.
+   Dibandingkan menurut kunci `(tipe, nomor)`: 0 kunci hilang, 31 awalan
+   dibuang. Pembanding hasil ekstraksi harus memasangkan entri menurut kunci,
+   bukan urutan - `scripts/potret_db.py banding` juga membandingkan menurut
+   posisi, jadi selisihnya setelah penyisipan entri bukan hitungan perubahan.
 
 Aturan yang berlaku:
 - **Verifikasi harus menampilkan bukti yang BENAR-BENAR DIPAKAI mengambil
@@ -280,21 +1004,184 @@ Aturan yang berlaku:
   curigai alatnya dulu sebelum menyimpulkan tentang kodenya.
 
 ## Keterbatasan yang diketahui (sudah diverifikasi, bukan bug)
+- **4 judul tercemar sisa perbaikan daftar (7 Nov 2026), DITUNDA.** Rincian
+  di `data/regresi/perbaikan-daftar-20261107.md`:
+  - Pasar Tenaga Kerja Agt 2024 Gambar 8 ("... 2024 38"): tahun dan nomor
+    halaman menempel ke dot leader dalam satu kata.
+  - TPB 2024 Gambar 26 ("... 6") dan Gambar 38 ("... 7"): folio halaman
+    Daftar terserap ke entri terakhir halaman itu.
+  - Statistik Daerah 2026 Gambar 14.1: menyerap judul Gambar 15.1 yang
+    tercetak sebelum labelnya.
+
+  Dua di antaranya (Gambar 8 dan 14.1) punya versi badan yang BERSIH, tapi
+  kalah oleh **aturan judul terpanjang** di `_gabung` (lihat catatan dedup di
+  bagian "Ekstraksi badan dokumen"). Aturan itu sengaja tidak diubah:
+  mengubahnya menyentuh semua entri 'keduanya', jadi perlu regresi penuh
+  tersendiri.
+- **Dicatat 9 Nov 2026, belum dikejar:**
+  - **Potongan baris Inggris tanpa nomor** menjadi entri sendiri di
+    Dalam Angka (misalnya "Government-Approved Foreign Investment by
+    Regency/Municipality ..."). Penyebabnya entri yang kehilangan nomor
+    halamannya. C3 membuang sebagian (4 prov, 5 sampel kab/kota), sisanya
+    tetap ada. Keputusan pemilik project: dicatat saja.
+  - **Bug awalan penanda, DIPERBAIKI 9 Nov 2026.** Penanda "tabel 3.1" dulu
+    ikut cocok dengan "Tabel 3.12", "Gambar 23", dan folio berjalan
+    "Lampiran 137". Sekarang `_pola_penanda` berhenti di batas nomor.
+    Hasilnya 8 `halaman_fisik` berubah dan semuanya dibuktikan per entri
+    (`data/regresi/awalan-penanda-20261109.md`).
+  - **Halaman cetak Daftar Tabel 6302 (Kotabaru Dalam Angka 2026) =
+    KESALAHAN SUMBER, tidak dikejar.** Diperiksa sampai tingkat karakter
+    PDF: nomor halaman yang tercetak di Daftar tidak monoton. Bab 6 tertulis
+    198-201, bab 7 mundur ke 182 (semua tabelnya), bab 8 ke 191-193, bab 12
+    240-251 sesudah 11.1 = 260. Folio sebenarnya naik terus (7.1 = 210).
+    `halaman_fisik` dari C1(a) tetap benar.
+  - **Dalam Angka 2026 tabel 10.3.1** menyerap judul 10.3.2 (sudah
+    sebelum C3).
+  - **KAK Agt 2024 (`2ddab8a8`): judul Daftar Tabel terpotong di depan,
+    DITUNDA (9 Nov 2026).** Di Daftar-nya, baris pertama judul tercetak DI
+    ATAS baris nomor ("Persentase Penduduk Usia Kerja ..." / "Tabel" /
+    "15 Jumlah Jam Kerja ..."). Akibatnya, dengan jalur nomor-sebaris (C2),
+    baris itu menempel ke entri SEBELUMNYA dan entri ini kehilangan awal
+    judulnya (5 entri). Usulan perbaikan: baris kolom judul sebelum baris
+    "Tabel" tunggal dianggap awal entri berikutnya.
+- **Luas Panen dan Produksi Padi Provinsi, dua edisi (`3d61cea5`,
+  `335ac15d`): nomor dan halaman cetak lampiran Daftar TERTUKAR (16 Nov 2026),
+  DITUNDA.**
+  - ±140 lampiran: "nomor" 55 sebenarnya halaman cetak 55 (fisik 83 = +28),
+    sedangkan kolom halaman berisi 141.
+  - Ditemukan saat merancang perkiraan halaman fisik. Saringan jangkar
+    menahannya.
+  - Keputusan pemilik project: dicatat sebagai utang teknis, jangan
+    diperbaiki sekarang.
+- **PDRB Kotabaru LU, dua edisi: halaman Daftar Lampiran = KESALAHAN SUMBER
+  (16 Nov 2026).** Daftar mencetak 121-127, folio badan 123-129. Halaman fisik
+  perkiraan menunjuk folio yang tercantum, jadi tabelnya 2 halaman sesudahnya.
+  Polanya sama dengan Daftar Tabel Kotabaru Dalam Angka 2026.
+- **Podes Kotabaru Tabel 1.2 "Lokasi Desa Terhadap Kawasan Hutan"** tercantum
+  di Daftar, tetapi tidak dicetak di badan (16 Nov 2026).
+- **Parser Daftar DIPERBAIKI 16 Nov 2026 (pola C, A2, A1, A', B), BARU di
+  database uji, BELUM di produksi, BELUM di-push.**
+  - Laporan: `data/regresi/parser-daftar-isi-20261116.md`.
+  - Regresi 306 PDF: 0 kunci bernomor hilang. Sampel: pola B 30/30, lainnya
+    27/30 (3 membaik, masih cacat lama), 0 memburuk.
+  - Pola A' (batas margin kanan) adalah mekanisme keempat yang ditemukan
+    saat merancang.
+  - **Utang teknis sisa perbaikan ini (keputusan pemilik project 16 Nov:
+    dicatat, tidak dikejar):**
+    - **GEM: entri romawi atau satu digit sedikit di luar kolom nomor
+      halaman** masih tergabung ("Kata Pengantar v Daftar Isi", "1. PDRB 1
+      2. Inflasi"; IPM "Daftar Tabel ix Daftar Gambar xi 1. ..."). A'
+      menurunkan batas ke kolom yang sejajar <= 4 pt; angka-angka ini 5 pt
+      ke kiri.
+    - **Folio halaman Daftar di BARIS SENDIRI menempel ke judul** ("... 2025
+      xiv", Kesra). A1 hanya menangani folio yang sebaris.
+    - **Lanjutan judul (pola B) di awal halaman Daftar berikutnya** belum
+      ditempel ke entri terakhir halaman sebelumnya, karena `_parse_baris`
+      bekerja per halaman.
+    - **Indikator Pekerjaan Layak Provinsi 2025** (6 entri berawalan potongan
+      judul sebelumnya) tidak tersentuh B; layoutnya tidak memenuhi syarat
+      indentasi menggantung.
+  - Catatan pemeriksaan sebelum perbaikan:
+- **Tebakan kolom judul, nomor halaman di baris sendiri (17 Nov 2026),
+  DIMUAT ke produksi 17 Nov** (pemuatan terarah 1 publikasi,
+  `data/regresi/kolom-judul-20261117/muat_kolom_terarah.py`). Laporan:
+  `data/regresi/kolom-judul-20261117.md`.
+  - Cadangan: `cadangan-bps/db_pencarian_bps-20261117-sebelum-kolom-judul.sql`;
+    pemulihannya diuji (6/6 tabel sama).
+  - Bukti:
+    - 306 publikasi produksi = database uji per kunci;
+    - 24.386 baris publikasi lain identik per id;
+    - di `publikasi` hanya baris Tabalong 2025 yang berubah;
+    - `versi_data` 508 -> 509;
+    - `log_pencarian` dan `kategori` CHECKSUM sama.
+  - Produksi: 24.457 -> 24.532 entri.
+  - IPM HSU (`a21060d6`, hanya ada di produksi) diekstrak kering dengan kode
+    baru: identik, jadi tidak dimuat ulang.
+  - Kasus: Tabalong DA 2025 (`34b2075e`). Baris ".......... 93" menyeret
+    tebakan `x_judul` ke kolom dot leader, halaman Daftar ke-4 menghasilkan
+    0 entri, dan 11 halaman Daftar Tabel tidak terbaca (hanya 25 tabel).
+  - `_mode_tanpa_label` kini mengabaikan baris "leader + nomor saja"
+    (`_hanya_leader_nomor`); cadangannya x0 baris lain.
+  - Regresi 306 publikasi: hanya Tabalong 2025 berubah, 0 kunci hilang,
+    +71 tabel (25 -> 100). Sampel 30: nomor dan halaman fisik 30/30, judul
+    + halaman cetak 25/30.
+  - **Sisa, sengaja TIDAK diubah:** `_bukan_watermark` juga membuang teks
+    MIRING sintetis (`m[2]` ≠ 0, `m[1]` = 0). Di Tabalong 2025, 11 nomor
+    halaman miring ikut terbuang, sehingga 6 tabel tergabung ke tabel
+    sebelumnya.
+  - **Usulan "buang hanya bila `m[1]` ≠ 0" DIKERJAKAN 17 Nov 2026 lalu
+    DIBATALKAN (utang teknis).** Laporan:
+    `data/regresi/saringan-miring-20261117.md`; patch di
+    `saringan-miring-20261117/usulan-saringan-berputar.patch`.
+    - Regresi 306 publikasi di database uji: 11 publikasi berubah (semuanya
+      bermiring), 0 kunci hilang, +12 kunci (6 tabel Tabalong 2025 kembali,
+      13/13 benar), top-1 12 kueri sama.
+    - Dibatalkan karena syarat "tanpa memburuk" gagal: sampel 30 = 24 benar,
+      3 cacat ringan, **3 memburuk**, dan 2 lampiran lain memburuk di luar
+      sampel.
+    - Penyebab yang memburuk, perlu ditangani dulu kalau dikerjakan ulang:
+      - teks miring yang digambar dua kali di posisi sama terbaca berhuruf
+        ganda (Banjar DA 2026 4.1.3: "NNuummbbeerr", halaman cetak hilang);
+      - kata miring seragam di semua judul lampiran ("Relative Standard
+        Error") mencukupkan `MIN_KATA_JUDUL` di `lengkapi_halaman_fisik`,
+        sehingga di IKR Banjarmasin (penomoran lampiran badan ≠ Daftar,
+        kesalahan sumber) lampiran 8-10 menunjuk tabel lain.
+    - Temuan yang tetap berlaku:
+      - **spasi miring** bisa membuat kata menempel ("Tabel4.2"): di IKR
+        Banjarmasin, 6 tabel/gambar tergabung ke entri sebelumnya karena itu;
+      - kata miring ikut menentukan **gaya dominan**; di Sakernas Tanah Bumbu
+        hal. 93/143 saringan lama membuat salinan keterangan putih 5 pt
+        dominan, sehingga tabel 25 dan 65 memakai keterangan tersembunyi
+        (tabel 65 menunjuk hal. 143, yang terlihatnya Tabel 67).
+    - Database uji dipulihkan dari dump (6/6 CHECKSUM sama, potret sama byte
+      demi byte).
+  - Bab 5-6 Tabalong 2025: halaman di Daftar satu lebih kecil dari folio
+    (kesalahan sumber).
+- **Dua cacat Daftar Isi (diperiksa 16 Nov 2026, sebelum perbaikan).**
+  Rincian: `data/regresi/perkiraan-halaman-isi-20261116.md`.
+  - **A. Folio halaman Daftar sebaris dengan entri terakhir.**
+    - Contoh: "...35 vii". Kata paling kanan "vii" menjadi halaman, dan 35
+      masuk ke judul.
+    - 9 entri isi di 9 publikasi, semuanya dibaca dan benar cacat
+      (PDRB Pengeluaran, IPM, Booklet, 4 GEM; di GEM satu entri menelan
+      2-3 subbab).
+    - Pasangannya: kop "Page" halaman lanjutan menempel, sehingga
+      "Page BAB 3 … 39 3.1 …" tergabung di 6 PDRB Pengeluaran edisi 2026.
+  - **B. Nomor halaman di baris PERTAMA (format ke-3), tidak dikenali.**
+    - Baris lanjutan menempel ke awal entri berikutnya ("Inventory 3.7
+      Perkembangan Ekspor").
+    - Sistematis di 9 publikasi, 116 entri: PDRB Kotabaru (3), Tanah Bumbu
+      (3), HSS LU (2), Indikator Pekerjaan Layak.
+    - Halaman cetaknya BENAR; yang rusak hanya judulnya.
+  - **Kop "Halaman" sebagai entri sendiri.**
+    - 98 tabel/gambar/lampiran di 24 publikasi, tanpa nomor dan tanpa
+      halaman cetak; kebanyakan di Statistik Kesra kab/kota.
+    - Kartunya tampil "Nomor —" / "Halaman —". Kemungkinan inilah "Nomor —"
+      dari uji coba 14 Nov (belum dicocokkan dengan kuerinya).
 - **8 kelompok `(publikasi, tipe, nomor)` kembar** di `entri_dokumen`. SEMUANYA
   berasal dari jalur `daftar` - nomor tabel yang bertabrakan di sumbernya atau
   salah baca parser pada daftar. Jumlahnya persis sama (8) sebelum maupun
   sesudah ekstraksi badan ditambahkan, jadi BUKAN akibat kegagalan dedup;
   dedup daftar-vs-badan bekerja. Diputuskan tidak dikejar sekarang.
-- **Halaman admin SENGAJA tidak ditautkan dari UI utama.** Tidak ada tombol
-  "Admin" di header - UI ini untuk petugas PST, dan tombol admin di tiap
-  halaman mengganggu serta berisiko terklik. Halamannya tetap ada dan
-  berfungsi, diakses lewat URL langsung:
+- **Halaman admin TERPISAH tetapi DITAUTKAN dari halaman pencarian lewat
+  tombol "Halaman Admin" (keputusan 25 Nov 2026; aplikasi HANYA dipakai
+  Tim PST di web internal BPS).** Ini MENGGANTI keputusan lama "halaman admin
+  sengaja tidak ditautkan", dan juga versi sore 25 Nov "menu admin di kop
+  semua halaman" (dibatalkan pemilik project hari yang sama).
+  - Halaman pencarian: kop SATU baris, identitas + tombol "Halaman Admin" ke
+    /admin/ (belum login -> login -> /admin/; ikon gembok tertutup/terbuka;
+    tanpa Keluar, tanpa menu admin).
+  - /admin/*: kop SATU baris, hanya "← Kembali ke Pencarian" + "Keluar".
+    Fitur admin lewat kartu di beranda admin; "← Beranda admin" di tiap
+    subhalaman. (Baris menu admin versi malam 25 Nov juga dibatalkan.)
+  - Penjaga `before_request` blueprint admin tetap; pencarian tanpa login.
+  Rincian di "Tampilan 25 Nov 2026" (bagian atas). Daftar URL admin:
 
   | Halaman | URL |
   |---|---|
   | Beranda admin | `http://localhost:5000/admin/` |
   | Kelola kamus sinonim | `http://localhost:5000/admin/kamus` |
-  | Review log pencarian | `http://localhost:5000/admin/log` |
+  | Log pencarian | `http://localhost:5000/admin/log` |
   | Periksa normalisasi kueri | `http://localhost:5000/admin/log/periksa?q=<kueri>` |
 
   | Masuk / keluar | `/admin/login` (GET+POST) / `/admin/logout` (POST) |
@@ -308,21 +1195,179 @@ Aturan yang berlaku:
   fungsi yang sama dengan `scripts/isi_normalisasi.py`.
 - **Autentikasi admin = satu kata sandi bersama**, bukan akun per orang
   (tabel `petugas` di ERD tetap tidak dipakai). Lihat bagian "Persiapan
-  serah terima" di bawah. Tidak ditautkannya halaman admin dari UI BUKAN
-  pengamanan - pengamanannya adalah login itu.
+  serah terima" di bawah. Pengamanannya adalah login itu (ditambah sesi
+  kedaluwarsa dan penguncian sejak 25 Nov 2026), bukan tersembunyinya tautan.
 - **Sekitar 2,5-2,9% entri dari jalur `badan` cacat ringan.** Pemeriksaan manual 40
   entri acak menemukan 1 yang tercampur teks badan ("...di Jawa Barat 8.
   Pemberian atribut"). Diterima apa adanya. Catatan: audit heuristik otomatis
   sempat melaporkan 0% untuk kasus serupa - untuk menilai mutu jalur ini,
   PERIKSA SAMPEL ACAK SECARA MANUAL, jangan hanya mengandalkan heuristik.
-- **3 × Master File Desa: 0 entri.** Publikasi ini memang tidak punya halaman
-  DAFTAR konvensional, hanya halaman navigasi bergaya grid. Perilaku benar.
+- **Master File Desa: semua entri jalur badan, tanpa nomor halaman cetak.**
+  Publikasi ini tidak punya halaman DAFTAR konvensional, hanya halaman
+  navigasi bergaya grid.
+  - Dulu (Agustus) hasilnya 0 entri. Sejak ekstraksi badan, tiap edisi
+    334-336 entri, semuanya punya `halaman_fisik`.
+  - Peringatan "336/336 entri tanpa nomor halaman" di ringkasan pembaruan
+    adalah PERINGATAN PALSU: tombol PDF tetap menuju halaman yang tepat.
+- **Publikasi tanpa lapisan teks (perlu OCR), ditemukan 10 Nov 2026:**
+  - **5 publikasi kab/kota menghasilkan 0 entri:**
+    - HST Dalam Angka 2026 dan PDRB Tapin Pengeluaran: huruf diubah menjadi
+      kurva vektor;
+    - Profil TK Tapin dan Statistik Daerah Banjarbaru 2025: teks
+      dirasterkan menjadi potongan gambar;
+    - PDRB Banjarbaru LU: gambar satu halaman penuh.
+  - Tiga lainnya sebagian besar halamannya tanpa teks: PDRB Tapin LU dua
+    edisi (91%) dan PDRB Tabalong (64%).
+  - Satu-satunya teks di PDF-PDF ini adalah watermark. Ini bukan cacat
+    parser; publikasinya tetap ditemukan lewat judul dan abstrak.
+  - Rincian di `data/regresi/tarik-13-domain-20261110.md`.
+- **Target utama spike OCR (revisi 4, sesudah filter wilayah):** delapan
+  publikasi tanpa lapisan teks di atas. Lima menghasilkan 0 entri (HST Dalam
+  Angka 2026, PDRB Tapin Pengeluaran, Profil TK Tapin, Statistik Daerah
+  Banjarbaru 2025, PDRB Banjarbaru LU); tiga sebagian besar halamannya tanpa
+  teks (PDRB Tapin LU dua edisi, PDRB Tabalong). Bentuknya ada dua:
+  - huruf diubah menjadi kurva vektor;
+  - teks dirasterkan menjadi gambar.
+
+  Pendekatan OCR harus menangani keduanya, misalnya dengan merender halaman
+  lalu meng-OCR hasil rendernya.
+  - **Spike 10 Nov 2026** (`data/regresi/spike-ocr-20261110.md`), 16 halaman,
+    93 butir acuan dibaca manual. Belum dipasang ke pipeline.
+    - Kata terbaca: Tesseract 95,8%, EasyOCR 98,2%.
+    - Nomor entri: Tesseract 29/44 (kolom nomor di kiri hilang), EasyOCR
+      39/44. Halaman: 31/36 vs 35/36.
+    - Waktu: 2,1 vs 16 detik per halaman (CPU). Ukuran: ±183 MB (portabel,
+      tanpa admin) vs 1,1 GB.
+    - Usulan berikutnya: uji HST Dalam Angka 2026 penuh lewat kotak kata
+      ke parser koordinat.
+  - **HST Dalam Angka 2026 penuh, Tesseract (10 Nov 2026)**
+    (`data/regresi/ocr-hst-tesseract-20261110.md`).
+    - Parser produksi tidak diubah, tidak ke MySQL.
+    - Hasil: 0 -> 153 entri (HST 2025 bertekst: 157).
+    - Sampel manual 30: nomor 8/28, halaman 19/30, fisik 7/7, judul +
+      halaman benar 15/30.
+    - Nomor kolom kiri tetap hilang di tingkat OCR.
+    - Cache OCR di `data/ocr_cache/` (gitignore).
+    - Alat dan venv di `C:/Users/Dani/alat-ocr/`.
+  - **Uji psm Daftar Tabel HST:** nomor kolom kiri terbaca psm 3 56/139,
+    psm 6 22/139, psm 4 106/139.
+  - **EasyOCR HST penuh (12 Nov 2026)** (`data/regresi/ocr-hst-easyocr-20261112.md`).
+    - 78 menit untuk 320 halaman (14,6 detik per halaman, CPU).
+    - 30 tabel yang SAMA dinilai manual. "Benar seluruhnya": Tesseract
+      psm 3 3/30, psm 4 12/30, **EasyOCR 27/30**.
+    - **Keputusan pemilik project: pakai EasyOCR.** Rancangan pemasangan ke
+      pipeline menunggu persetujuan (OCR opsional, dependensi terpisah, cache
+      per halaman, penanda publikasi hasil OCR).
+    - Lisensi bobot model (`craft_mlt_25k.pth`, `latin_g2.pth`) TIDAK
+      dinyatakan di repo CRAFT (kode MIT), repo EasyOCR (kode Apache-2.0),
+      maupun di model hub JaidedAI. Terms JaidedAI hanya mengatur layanan
+      web mereka. Dicatat sebagai hal terbuka di PANDUAN.md bagian 7.
+  - **OCR di pipeline (12 Nov 2026, rancangan disetujui; BELUM dimuat ke
+    DB):** `app/services/ocr.py`.
+    - **Opsional.** EasyOCR, torch, dan numpy hanya diimpor di dalam fungsi
+      OCR. Server web terbukti tidak memuatnya: working set 174 MB sebelum
+      dan sesudah pemasangan, tanpa DLL torch/opencv.
+    - Dependensi di `requirements-ocr.txt` (torch CPU). Pemasangannya ke venv
+      proyek tidak mengubah versi paket lama (pip freeze 37 → 58 paket,
+      0 berubah).
+    - Halaman OCR masuk ke parser lewat `ekstrak_lengkap(penyiap_pdf=...)`
+      sebagai `HalamanOCR` (antarmuka halaman pdfplumber). Parser lain tidak
+      berubah.
+    - **Syarat dua tingkat:**
+      - halaman: karakter non-watermark < 20;
+      - **publikasi: >= 50% halamannya seperti itu** (`AMBANG_PUBLIKASI`).
+    - **Kenapa syarat publikasi wajib:** PDF bertekst juga punya halaman
+      kosong, sampul, dan pembatas bab di bawah 20 karakter (median korpus
+      10,7%, 4.390 halaman). Versi pertama tanpa syarat ini meng-OCR halaman
+      kosong itu (±25 detik per halaman) - ketahuan di regresi 6 PDF
+      bertekst.
+    - Diukur di 306 PDF: kedelapan target >= 69,6%, berikutnya 44,4%.
+      Kasus batas: PDRB HST Pengeluaran (44,4%) dan LU (41,5%) punya
+      halaman prosa/grafik berkurva, tetapi Daftar-nya bertekst (52/82
+      entri), sehingga tidak di-OCR.
+    - **Cache:** `data/ocr_cache/<domain>/<pub_id>/<hal>-easyocr.json` +
+      `_meta.json` (sidik PDF; PDF berganti = cache lama dibuang).
+    - **Penanda di DB:** `publikasi.halaman_ocr` = jumlah halaman OCR,
+      ditambahkan oleh `app/models/skema.py`.
+    - Saklar `perbarui.py --tanpa-ocr` (untuk tim IT): OCR dan cache-nya
+      tidak dipakai; halaman dilewati dan dicatat, publikasi masuk "perlu
+      diperiksa".
+    - **Pengaman `--paksa` + `--tanpa-ocr` (17 Nov 2026):** ditolak (exit 1,
+      ringkasan tahap "pemeriksaan pilihan") kalau ada publikasi domain aktif
+      dengan `halaman_ocr` > 0, sebelum jaringan dan sebelum database
+      ditulis (`publikasi_ocr_terancam`). Tanpa pengaman, entri OCR diganti
+      hasil kosong. Uji C2a-c; C2 kini menguji `--tanpa-ocr` lewat
+      `diekstrak_pada=NULL` tanpa `--paksa`.
+      - Celah yang diketahui: `--tanpa-ocr` TANPA `--paksa` tetap membaca
+        ulang publikasi OCR yang PDF-nya berubah (sidik/updt_date), dan
+        sesudah itu `halaman_ocr` kosong sehingga pengaman tidak lagi
+        mengenalinya.
+    - OCR massal dipisah dari pemuatan: `scripts/isi_cache_ocr.py
+      data/ocr_target.txt`. Hanya mengisi cache, tanpa DB, bisa dilanjutkan,
+      ada log dan kunci proses.
+    - Uji: pipeline pada HST = 163 entri, identik dengan keluaran yang
+      dinilai 27/30; `--tanpa-ocr` = 0 entri, 320 halaman tercatat
+      dilewati.
+  - **Uji ujung ke ujung di database uji (13 Nov 2026)**
+    (`data/regresi/ocr-pemuatan-20261113.md`). **Dimuat ke produksi 13 Nov
+    2026** lewat `muat_ocr_terarah.py` (8 publikasi saja): identik dengan DB
+    uji, 0 perubahan di luar target, 23.948 -> 24.373 entri, versi_data
+    345 -> 353. Cadangan sebelum muat di `C:/Users/Dani/cadangan-bps/`.
+    - `--paksa` + OCR: hanya 8 target berubah, 0 di luar target.
+      +425 entri (HST 163, Banjarbaru LU 74, Tabalong 1 -> 87, ...).
+    - `--tanpa-ocr`: identik per kunci dengan produksi di 306 publikasi.
+    - Sampel manual 30: 25 dapat ditemukan dengan benar (19 benar
+      seluruhnya, 6 judul bersampah ringan), 3 nomor hilang, 1 judul
+      berawalan nomor tetangga, 1 halaman fisik meleset 2.
+    - **Pengecualian superset ketiga (keputusan pemilik project):**
+      62 entri dua PDRB Tapin LU berubah HANYA `halaman_fisik`/`sumber`.
+      Judul, nomor, dan halaman cetak tetap, 0 hilang. 19 di antaranya
+      dulu menunjuk halaman Daftar Tabel (fisik 12), karena halaman badan
+      tanpa teks; kini menunjuk keterangan "Tabel N" yang dibaca OCR
+      (55/55 terbukti).
+    - **Utang teknis, parser sengaja TIDAK diubah:** PDRB Tabalong LU
+      37/37 entri tabel/gambar/lampiran tanpa nomor ("Table 4.9" masuk
+      ke tengah judul), 1/86 punya `halaman_fisik`, lampiran berupa blok
+      gabungan; PDRB Banjarbaru LU 15/29 tanpa nomor.
+      PDRB Tapin Pengeluaran: judul Tabel 4.2 menyerap awal 4.3, 4.3 tanpa
+      nomor, "3.11" terbaca "3.71".
+    - Pemuatan produksi dirancang terarah ke 8 publikasi saja
+      (`muat_ocr_terarah.py` di folder laporan), bukan `--paksa` ke seluruh
+      produksi. Uji cobanya di database uji identik dengan run penuh.
+- **Batas heading Daftar, DIPERBAIKI 12 Nov 2026**
+  (`data/regresi/batas-heading-20261112.md`). Dulu `cari_heading` hanya
+  mencari di `BATAS_HALAMAN_CARI = 25` halaman pertama, sehingga 24 Daftar
+  Gambar Dalam Angka (hal. 27-49) tidak pernah dibaca.
+  - **Aturan sekarang:** 25 halaman pertama, ditambah perpanjangan selama
+    blok halaman Daftar belum putus. Lihat `_status_halaman_depan`; halaman
+    kosong di sela blok paling banyak 2 berturut-turut.
+  - **Regresi 306 PDF:** hanya 30 publikasi berubah; 0 kunci hilang;
+    +487 entri; 17 gambar Tanah Laut badan → keduanya.
+  - **Sampel 30 gambar baru: 30/30 benar** (nomor, judul, halaman cetak,
+    halaman fisik).
+  - **Utang teknis, sengaja TIDAK ditambal (keputusan pemilik project):**
+    - **23 entri sampah tanpa nomor** dari Daftar yang baru terbaca:
+      - 6 lampiran KAK tergabung, duplikat lampiran 1/2 dari jalur badan
+        (nomor "1"/"2" berdiri sendiri di kolom kiri);
+      - ±13 potongan baris bahasa Inggris;
+      - 4 kop berjalan halaman Daftar ("KABUPATEN HULU SUNGAI UTARA DALAM
+        ANGKA 2026 xxxi").
+    - **3 nomor gambar dicetak dua kali DI SUMBER:** Barito Kuala 2025/2026
+      Gambar 1.2, Tanah Bumbu 2026 Gambar 4.1. Kembaran kedua mendapat
+      `halaman_fisik` kembaran pertama (penanda nomor yang sama). Contohnya
+      Curah Hujan Barito Kuala menunjuk hal. 57, seharusnya 58.
 - **5 publikasi hanya punya Daftar Isi** (Direktori Perusahaan Akomodasi,
   Direktori Perusahaan Konstruksi, Direktori Perusahaan Industri Manufaktur,
   Statistik Daerah, Buklet Survei Angkatan Kerja). Memang tidak ada daftar
   tabel/gambar/lampiran di dokumennya.
 - **15 dari 348 entri "Dalam Angka 2025" tanpa nomor halaman** (edisi 2026 hanya
   4 dari 335). Sisa dari daftar tiga kolom dwibahasa yang paling rumit di korpus.
+- **`subject_csa` dari API kini selalu `[]` (sejak ~Nov 2026).** Tarikan 5 Nov
+  2026: 0 dari 79 publikasi terisi (tarikan Sep 2026: 31 dari 75). Akibatnya
+  `publikasi_kategori` kosong dan 14 baris `kategori` tidak punya kaitan.
+  Diputuskan DIBIARKAN KOSONG, tidak dipulihkan dari riwayat Git - aplikasi
+  tidak memakai kategori sama sekali. Baris "kaitan kategori ... OK" di laporan
+  `muat_ke_database.py` hanya berarti 0 = 0, bukan bukti datanya utuh.
 - **Tidak ada pengujian otomatis.** `tests/test_ekstraksi_pdf.py` dan
   `tests/test_mesin_pencari.py` hanya stub berisi docstring dari scaffolding
   awal - `pytest` mengumpulkan 0 item. Seluruh verifikasi selama project
@@ -330,6 +1375,106 @@ Aturan yang berlaku:
   sekali jalan), bukan lewat suite yang bisa diulang. Diputuskan tidak
   dikerjakan sekarang; kalau ada yang mengubah parser atau scoring, jalankan
   ulang pemeriksaan manual yang dicatat di bagian-bagian terkait.
+- **`tests/uji_pipeline.py` disesuaikan dengan struktur sekarang (13-14 Nov
+  2026, SELESAI).** Bukan pytest; skrip berkode keluar 0 lulus / 1 gagal /
+  2 lingkungan belum siap.
+  - Hanya menulis `db_pencarian_bps_uji`:
+    - perbarui.py selalu `--db-uji`;
+    - potongan kode wajib `create_app(KonfigurasiUji)`;
+    - database uji di-mysqldump di awal, lalu dihapus dan dibuat ulang dari
+      dump itu di akhir (hanya untuk nama `*_uji`, dibuktikan CHECKSUM);
+    - produksi hanya dibaca: CHECKSUM TABLE awal = akhir.
+  - Domain uji 6305 Tapin (hardlink PDF + salinan cache OCR). WebAPI tiruan
+    di 127.0.0.1 dibangun dari database uji; tidak ada akses ke BPS.
+  - mysql/mysqldump dari `MYSQL_BIN` di .env atau PATH
+    (`config.program_mysql`); tanpa keduanya, kode keluar 2.
+  - Sudah: U (pengaman), P, L, C (OCR; C7 dilewati kalau EasyOCR tidak
+    terpasang), H (batas heading), O, B, G, E, T, Z (pemulihan + bukti).
+    M (migrasi) dihapus. Run 13 Nov: 50 lulus, 0 gagal, 24 menit
+    (`data/regresi/uji-pipeline-20261113.txt`).
+  - D (domain tiruan 6399), K, R, W juga sudah diporting dan lulus lewat
+    `--hanya DKRW` + `--hanya R` (`uji-pipeline-20261113-dkrw.txt`). W1
+    menjalankan tombol admin sungguhan, aman karena KonfigurasiUji -> --db-uji.
+  - `--hanya <huruf>` menjalankan sebagian bagian (U dan Z selalu jalan); tim
+    IT menjalankan tanpa argumen.
+  - **Run PENUH tanpa argumen, 14 Nov 2026: 78 lulus, 0 gagal, 0 dilewati,
+    kode keluar 0, 2.250 detik** (`data/regresi/uji-pipeline-20261114.txt`).
+    Z1 database uji dipulihkan (CHECKSUM sama), Z2 produksi tidak berubah.
+  - Ditambahkan sesudah run penuh itu (14 Nov), diuji lewat `--hanya`:
+    - D0: semua wilayah aktif belum diperiksa -> berhenti di awal, exit 1,
+      0 permintaan ke server tiruan, CHECKSUM database uji sama;
+    - R5: 9 skenario ringkasan (tambah `gagal_periksa`), dan teks lama
+      "BPS - Pegawai/Tamu" tidak boleh tampil.
+    - Log: `uji-pipeline-20261114-dr.txt`, `uji-pipeline-20261114-rw.txt`.
+    - Run penuh BELUM diulang sesudah penambahan ini.
+  - **Bagian F (perkiraan halaman fisik, 16 Nov 2026)**, dijalankan sebelum
+    potret s0:
+    - F1: 9 kasus sintetis aturan;
+    - F2: perkiraan dikosongkan lalu diisi skrip = identik per kunci;
+      halaman fisik asli tidak berubah;
+    - F3: idempoten;
+    - F4: tanpa tujuan ditolak;
+    - F5: kunci pembaruan dihormati.
+
+    P2 sekaligus membuktikan `simpan_entri` = skrip. `potret()` kini memuat
+    `halaman_fisik_perkiraan`. `--hanya FP`: 17 lulus, 0 gagal, 209 detik
+    (`uji-pipeline-20261116-fp.txt`). Run penuh belum diulang.
+- **Tombol pembaruan admin dan `perbarui-data.bat` mengikuti KonfigurasiUji
+  (13 Nov 2026).** Aplikasi dengan KonfigurasiUji menjalankan perbarui.py
+  `--db-uji` dan membaca `pembaruan_terakhir-uji.json`; konfigurasi biasa
+  tidak berubah. `perbarui-data.bat --db-uji` memeriksa koneksi database uji.
+- **Database uji terpisah (12 Nov 2026).** Uji yang bisa mengubah data
+  atau skema TIDAK boleh ke produksi `db_pencarian_bps`. Termasuk request
+  test_client, karena `skema.pastikan_kolom()` berjalan di awal request.
+  - `create_app(KonfigurasiUji)` memakai `db_pencarian_bps_uji`: nama di
+    `DATABASE_URL` + `_uji`, server yang sama (`url_database_uji()` di
+    `app/config.py`). Log pencarian tetap mati di konfigurasi ini; untuk
+    menguji log, buat subclass dengan `CATAT_LOG_PENCARIAN = True`.
+  - Pengaman `periksa_database_uji()` (dipanggil `periksa_konfigurasi()`):
+    konfigurasi uji yang bernama database sama dengan produksi ditolak
+    dengan SystemExit, termasuk subclass yang menimpa URL-nya.
+  - Salinan dibuat `scripts/siapkan_db_uji.py` (mysqldump dialirkan
+    langsung, lalu jumlah baris + CHECKSUM TABLE per tabel dibandingkan).
+    Skrip ini tidak pernah menghapus atau menimpa: kalau database uji sudah
+    ada, ia berhenti. Menyegarkan = hapus manual dulu (dengan izin pemilik
+    project). Salinan TIDAK ikut diperbarui; isinya keadaan saat dibuat.
+  - `perbarui.py` mencetak database tujuan di baris pertama keluarannya
+    (juga di log run). `--db-uji` menulis ke database uji, dan ringkasannya
+    ke `data/pembaruan_terakhir-uji.json`, bukan ke ringkasan yang dibaca
+    `/admin/perbarui`. Berkas kunci tetap sama, jadi run uji dan run
+    produksi tidak bisa berjalan bersamaan. PDF dan cache OCR tetap folder
+    bersama.
+- **Bug `_catat_log` (hasil tingkat publikasi tercatat 0 / skor NULL)
+  SUDAH DIPERBAIKI di `d29ec34` (5 Nov 2026).** Diperiksa ulang 12 Nov di
+  database uji: 12 jalur pencarian, `jumlah_hasil` di log = jumlah kartu
+  yang tampil, 12/12. Jalurnya meliputi dropdown, deteksi otomatis,
+  `abaikan`, kueri nama wilayah saja, dan provinsi.
+  - Yang tersisa hanya **8 baris log lama dari 3 Nov** (id 1-21: `mfd`,
+    `master file desa`, `p0`/`P0`). Sengaja TIDAK diubah.
+  - `p0` memang 0 hasil saat itu: tabelnya (Kab. Banjar Dalam Angka) baru
+    masuk 10 Nov.
+  - `/admin/log` mengambil nilai terbaik per kueri, jadi kelompok itu
+    tetap tampil "gagal" sampai kuerinya dicari lagi.
+- **`/admin/log`: kriteria gagal disamakan dengan beranda admin
+  (12 Nov 2026).** Gagal = hasil 0 ATAU skor terbaik di bawah ambang.
+  - Syarat "skor kosong" dibuang. Alasannya: kueri yang hanya berisi nama
+    wilayah ("tanah laut", 17 hasil) memang dicatat tanpa skor, dan dulu
+    ikut terdaftar sebagai gagal.
+  - Diuji di database uji: hanya kelompok itu yang keluar dari daftar;
+    `?semua=1` identik; checksum `log_pencarian` tidak berubah.
+- **Deteksi wilayah: "banjar" juga nama suku.** "penduduk suku banjar"
+  memasang filter Kab. Banjar; petugas membatalkannya lewat pita. Provinsi
+  tidak dideteksi dari kueri, hanya bisa dipilih lewat dropdown.
+- **Singkatan wilayah DIKONFIRMASI tim IT BPS Kalsel (16 Nov 2026).**
+  - Daftar di `data/wilayah.json` benar: tala, batola, hss, hst, hsu, tanbu,
+    bjm, bjb.
+  - Kabupaten/kota tanpa singkatan memang tidak punya singkatan resmi; JANGAN
+    ditambah tanpa dasar.
+  - `singkatan_status` = "dikonfirmasi" untuk 13 kab/kota (provinsi null).
+    Medan ini hanya catatan dan tidak dibaca kode.
+  - Singkatan baru boleh ditambahkan kalau nanti diperlukan; deteksi
+    memakainya tanpa restart (cache menurut mtime).
+  - Diuji lewat `uji_pipeline.py` bagian S.
 - Judul publikasi dwibahasa menyimpan teks Indonesia DAN Inggris apa adanya.
   Ini disengaja — petugas bisa saja mencari dengan istilah Inggris, dan fuzzy
   matching yang akan menanganinya. Jangan dibuang saat preprocessing.
@@ -340,6 +1485,140 @@ dijalankan orang yang tidak pernah melihat kodenya. Dokumen operasionalnya
 untuk tim IT ada di `PANDUAN.md` (bahasa awam, tanpa asumsi tahu Python).
 Kata sandi admin dan isi `.env` DISERAHKAN TERPISAH - tidak ditulis di
 PANDUAN.md maupun di Git.
+
+### Titik berhenti sekarang (16 Nov 2026, sore)
+- **Parser Daftar baru DIMUAT ke produksi 16 Nov 2026, 13.48-14.16**
+  (disetujui pemilik project). Caranya pemuatan terarah 138 publikasi yang
+  berubah (`data/regresi/parser-daftar-isi-20261116/muat_parser_terarah.py`).
+  - **Cadangan:** `cadangan-bps/db_pencarian_bps-20261116-sebelum-parser.sql`;
+    pemulihannya diuji (6/6 tabel sama).
+  - **`--coba` pertama GAGAL karena alat:** potret `mysql --batch` menulis
+    `\` sebagai `\\` (judul "PAG E \*"), sehingga satu publikasi disangka
+    berbeda. Pembaca potret diperbaiki (escape dibalik), lalu `--coba`
+    lulus. Tidak ada yang ditulis sebelum itu.
+  - **Muat:** 138 publikasi, masing-masing dibandingkan dengan database uji
+    SEBELUM ditulis; 0 berhenti; 1.676 detik.
+  - **Bukti** (`bukti_pemuatan.py`):
+    - 306 publikasi produksi = database uji per kunci (0 beda);
+    - 13.692 baris 168 publikasi lain identik per id;
+    - publikasi yang diekstrak ulang = persis 138 target;
+    - `versi_data` 355 -> 493;
+    - `log_pencarian` dan `kategori` CHECKSUM sama.
+  - **Produksi sekarang:** 24.415 entri; halaman PDF 21.071 (86,3%), asli
+    18.206 dan perkiraan 2.865 (isi 1.829); tanpa nomor halaman sama sekali
+    200 (dulu 317). PANDUAN bagian 11 sudah disesuaikan.
+- **Catatan sebelum pemuatan (perbaikan parser):**
+  - Commit: `c0ca28a` C, `a7a62ce` A2, `3b2d835` A1, `3107579` A', `b109b5e`
+    B, `89ff6fa` uji bagian I. Satu commit per pola, supaya bisa dibatalkan
+    sendiri-sendiri.
+  - `uji_pipeline.py` penuh tanpa argumen sesudah perbaikan: **88 lulus,
+    0 gagal, 0 dilewati**, 2.235 detik (`data/regresi/uji-pipeline-20261116.txt`;
+    termasuk I1 9/9, Z1, Z2).
+  - **Database uji sudah berisi hasil parser baru** (run penuh 10.39-11.54).
+    Produksi masih hasil parser lama, dan id-nya berbeda dari database uji.
+  - **PERHATIAN:** aplikasi dan `perbarui.py` dijalankan dari folder ini.
+    Pembaruan data produksi sebelum keputusan akan memakai parser baru untuk
+    publikasi yang diproses ulang.
+  - Pemuatan ke produksi kalau disetujui:
+    - `perbarui.py --lokal --paksa` (±75 menit), sesudah cadangan dan uji
+      pulih;
+    - lalu `isi_perkiraan_halaman.py --produksi` (perkiraan untuk entri yang
+      berubah sudah dihitung ulang oleh `simpan_entri`; skrip untuk
+      memastikan);
+    - bukti: perbandingan per kunci dengan database uji.
+- **Halaman fisik perkiraan DIMUAT ke produksi, 16 Nov 2026** (disetujui
+  pemilik project). PANDUAN diperbarui dan semuanya di-push.
+  - **Cadangan:** `C:/Users/Dani/cadangan-bps/db_pencarian_bps-20261116-sebelum-perkiraan.sql`
+    (perintah PANDUAN bagian 7). Dipulihkan ke database sementara: 6/6 tabel
+    sama baris + CHECKSUM, lalu database sementaranya dihapus.
+  - **Jebakan alat:** pembanding pertama melaporkan "SAMA" palsu, karena nama
+    tabel dari `mysql` membawa `\r`, setiap kueri galat, dan dua string kosong
+    dianggap sama. Saring `\r` dan pastikan nilai yang dibandingkan berupa
+    angka.
+  - **Id produksi ≠ id database uji** (uji pernah dimuat ulang). Isinya identik
+    tanpa id (24.373 baris, 29 baris kembar persis), jadi kecocokan dengan uji
+    dibuktikan per isi baris, dan perubahan dibuktikan per id di produksi.
+  - **Hasil:**
+    - 1.036 baris berubah, semuanya NULL -> angka dengan penanda 1;
+      23.337 identik;
+    - per isi baris = database uji (0 beda);
+    - `versi_data` 353 -> 354; `publikasi` dan `log_pencarian` CHECKSUM sama.
+  - **Uji tombol:** 3 kueri lewat test_client dengan konfigurasi produksi dan
+    log dimatikan; 6 tombol "±hal." menuju tabel yang benar, `/pdf` HTTP 200.
+  - **Angka produksi sekarang:**
+    - halaman PDF 19.142/24.373 (78,5%): asli 18.106, perkiraan 1.036;
+    - tanpa halaman PDF 5.231, termasuk 1.357 tabel/gambar/lampiran.
+- **"Nomor —" dari uji coba 14 Nov:** kartu ISI sudah tidak menampilkannya
+  sejak `ffa4c26`. Pemilik project mencari ulang contoh kuerinya; dugaan:
+  tabel/lampiran tanpa nomor DAN tanpa halaman cetak.
+
+Titik berhenti sebelumnya (14 Nov 2026), semuanya sudah di-commit di `revisi-pst`:
+- **PANDUAN.md ditulis ulang untuk keadaan multi-wilayah** (11 bagian;
+  README disamakan). Bagian barunya: filter wilayah, pemasangan pertama dua
+  jalur, pilihan `perbarui.py`, mengelola wilayah, database uji dan cara
+  menguji, pemecahan masalah (DNS), lisensi model OCR sebagai 7.3.
+  - Angka di PANDUAN dihitung dari produksi 14 Nov: 306 publikasi, 24.373
+    entri, 18.106 punya `halaman_fisik` (74%), 317 tanpa halaman cetak maupun
+    fisik, 18 publikasi hanya punya entri isi, 8 publikasi OCR (1.192
+    halaman).
+  - Yang tidak bisa diukur dari rumah ditulis "belum diukur ulang": lama
+    pembaruan rutin online 14 wilayah tanpa publikasi baru. Teks yang sama
+    kini di halaman admin dan `perbarui-data.bat` (dulu "±2 menit per
+    wilayah", angka yang tidak pernah diukur).
+- **`perbarui.py` berhenti di awal kalau SEMUA wilayah aktif terhalang**
+  (database kosong, belum ada `pemeriksaan_domain.json`): satu pesan yang
+  menunjuk ke `--hanya-periksa`, sebelum jaringan disentuh, kode keluar 1,
+  ringkasan dengan tahap "pemeriksaan wilayah". Dulu juga keluar 1, tetapi lewat
+  satu blok DILEWATI per wilayah. Halaman admin kini menampilkan `r.pesan`.
+- **Teks jaringan di halaman admin** tidak lagi menyebut "BPS - Pegawai /
+  Tamu"; isinya penjelasan DNS (lihat "Catatan lingkungan").
+- **Jalur A (pulihkan cadangan) diuji 14 Nov** ke database sementara
+  `db_pencarian_bps_jalur_a_uji`, yang lalu dihapus; produksi hanya dibaca
+  (CHECKSUM awal = akhir).
+  - Cadangan segar dari perintah `mysqldump` PANDUAN bagian 7 -> CREATE
+    DATABASE -> pulihkan: 6 tabel SAMA dengan produksi (baris + CHECKSUM).
+  - Cadangan 13 Nov 13:59 (sebelum muat OCR): pulih tanpa galat; `kategori`,
+    `log_pencarian`, `publikasi_kategori` sama; `entri_dokumen` 23.948 vs
+    24.373, `publikasi`, `versi_data` beda. Itu memang selisih muatan OCR.
+  - Dua temuan, sudah diperbaiki di PANDUAN: `mysql` tidak ada di PATH
+    (ditambah langkah `set PATH=...`), dan `-p` menunggu sandi diketik
+    (di sesi tanpa konsol perintahnya macet; diuji tanpa `-p`, sandi root
+    Laragon kosong).
+  - Menyalin folder PDF + cache OCR ke komputer lain BELUM diuji.
+- **Jebakan serah terima: sidik PDF = (ukuran, mtime).** `sidik_pdf` dan
+  `ocr._sidik` sama-sama memakainya. Kalau folder PDF disalin dengan cara
+  yang mengubah tanggal ubah (ZIP, unduhan awan), pembaruan berikutnya
+  menganggap semua PDF berganti: ekstraksi ulang 306 PDF, dan cache OCR
+  dibuang (`halaman_tanpa_teks` menghapus berkas halaman kalau sidik beda).
+  Tidak ada mode "periksa saja". Sudah ditulis sebagai peringatan di PANDUAN.
+- **Jalur B (dari nol) belum diuji ujung ke ujung** - butuh jaringan ke BPS.
+- Masih terbuka: uji coba petugas PST + ambang skor, lisensi model OCR.
+  - Konfirmasi singkatan wilayah SELESAI 16 Nov 2026.
+  - Run penuh `uji_pipeline.py` sesudah D0/R5 SELESAI 16 Nov 2026 (88 lulus).
+  - **Lama pembaruan rutin 14 wilayah DIUKUR 16 Nov 2026, 15.20**, dari
+    kantor (log `data/log_pembaruan/20261116-152001.log`):
+    - 107 detik dengan 1 publikasi baru (IPM HSU, 1,5 MB, 42 entri);
+    - per tahap: ambil_metadata 89,2 d, unduh 0,5, ekstraksi 2,4, muat 0,9;
+    - tiap wilayah berhenti di halaman 4-7 (daftar terurut terbaru).
+    - Angkanya dimasukkan ke PANDUAN bagian 4, halaman admin, dan
+      `perbarui-data.bat` (17 Nov).
+
+### Bukti di balik isi PANDUAN.md
+- **Pemecahan masalah jaringan** (PANDUAN bagian 10): lihat "Catatan
+  lingkungan".
+- **Penarikan besar sebaiknya dijadwalkan dini hari**, misalnya mulai
+  sesudah 01:00. Bukti dari penarikan 13 kab/kota (9-10 Nov 2026), dengan
+  koneksi tunggal yang sama:
+  - pukul 20:30-00:00: 38-75 KB/detik per berkas, 3,35 jam untuk 732 MB;
+  - sesudah 01:00: 7-10 MB/detik.
+
+  Pembaruan rutin (beberapa publikasi baru per bulan) tidak terpengaruh
+  berarti. Unduhan paralel sengaja TIDAK dibuat (keputusan 10 Nov 2026):
+  - manfaatnya belum terbukti;
+  - menambah beban ke server BPS di jam sibuk (Term of Use).
+- **Korpus pencarian di memori.** Sesudah pembaruan data atau "Terapkan ke
+  data", pencarian pertama sedikit lebih lambat karena korpus dimuat ulang.
+  Ini normal, dan aplikasi tidak perlu di-restart.
 
 ### Konfigurasi wajib - aplikasi menolak jalan kalau kurang
 `app/config.py:periksa_konfigurasi()` dipanggil di awal `create_app()` dan
@@ -367,10 +1646,14 @@ traceback, baik dari `run.py`, dari script, maupun dari `.bat`.
 - Penjaga dipasang sebagai `@bp.before_request` di blueprint admin, bukan
   dekorator per-route, supaya route baru otomatis ikut terlindungi.
   Pengecualian hanya endpoint `admin.login`.
-- Session Flask, kunci `admin_masuk`. `_tujuan_aman()` hanya mengizinkan
-  `next` yang diawali `/admin` (mencegah open redirect).
-- Tombol "Keluar" dirender di `base.html` HANYA kalau session admin aktif DAN
-  path diawali `/admin` - halaman pencarian tidak pernah memperlihatkannya.
+- Session Flask, kunci `admin_masuk` + `admin_aktif` (detik epoch, 25 Nov
+  2026). `_tujuan_aman()` mengizinkan path LOKAL apa pun (bukan `//`, `\`,
+  skema, atau login/logout); selain itu beranda admin (mencegah open
+  redirect).
+- **Sejak 25 Nov 2026:** halaman pencarian punya tombol "Halaman Admin"
+  (tanpa Keluar); halaman admin hanya "Kembali ke Pencarian" + Keluar, fitur
+  lewat kartu beranda admin. Sesi kedaluwarsa dan penguncian: lihat "Tampilan 25 Nov 2026" di
+  bagian atas.
 - Halaman pencarian (`/`, `/hasil`, `/api/saran`, `/pdf/<id>`) TIDAK butuh
   login. Diverifikasi dengan test_client dan lewat waitress sungguhan.
 
@@ -518,9 +1801,36 @@ kelompok "banyaknya" lalu Terapkan mengubah persis 105 entri (semua yang
 memuat token "hotel"); menghapus varian lalu Terapkan lagi mengembalikan
 database ke keadaan awal byte-per-byte.
 
+Waktu, diukur ulang 14 Nov 2026 di database uji (24.373 entri, proses baru
+tiap kali):
+- kamus tidak mengubah apa pun: 2,2-2,3 detik (panggilan kedua di proses
+  yang sama 1,7 detik, stemmer sudah hangat);
+- seluruh `teks_ternormalisasi` dikosongkan dulu, jadi 24.372 entri ditulis
+  ulang: 8,8 detik.
+- CHECKSUM `entri_dokumen`, `publikasi`, `log_pencarian` sesudahnya sama
+  dengan sebelum; hanya `versi_data` yang naik.
+
 ## Catatan lingkungan
-- WebAPI BPS hanya bisa diakses dari jaringan "BPS - Pegawai".
-  Jaringan "BPS - Tamu" memblokir (DNS mengarah ke 10.0.11.232, koneksi ditolak).
+- **Masalah DNS kantor (awal Nov 2026, TERATASI 9 Nov 2026).**
+  - Gejala: pembaruan data gagal dengan "connection reset" ke WebAPI, padahal
+    situs BPS terbuka di browser.
+  - Penyebab: DNS internal kantor mengarahkan webapi.bps.go.id ke
+    vs.bps.go.id → 10.0.11.232, dan koneksi ke alamat itu ditolak. IP publik
+    yang benar 203.123.60.70. WebAPI-nya sendiri tidak diblokir: 7 Nov 2026,
+    dari Wi-Fi rumah dengan DNS publik, curl langsung HTTP 200 dalam 0,49
+    detik tanpa hosts file.
+  - Teratasi: 9 Nov 2026, dari Wi-Fi "BPS - Pegawai", webapi.bps.go.id
+    mengarah ke 203.123.60.70; curl dan Python requests sama-sama HTTP 200.
+    Kemungkinan diperbaiki tim IT (belum dikonfirmasi). Hosts file tidak
+    pernah dipakai.
+- Penarikan 13 domain nanti boleh dari jaringan kantor.
+- Kalau gejalanya muncul lagi: cek dengan `Resolve-DnsName webapi.bps.go.id`
+  (PowerShell). Kalau hasilnya 10.0.11.232, masalah DNS-nya kambuh. Solusi
+  sementara: baris hosts file `203.123.60.70 webapi.bps.go.id`. **Jangan ubah
+  hosts file tanpa izin pemilik project.** Cara ini sudah ditulis di
+  `PANDUAN.md` bagian 10 (14 Nov 2026).
+- Catatan lama: dulu tercatat bahwa jaringan "BPS - Pegawai" bisa mengakses
+  WebAPI dan "BPS - Tamu" tidak.
 
 ## Skema database (ERD rancangan sendiri — bebas disesuaikan dengan temuan data)
 - **publikasi**: id (pub_id dari BPS), judul, abstrak, tahun_terbit, tanggal_rilis, url_pdf, url_cover, updated_at

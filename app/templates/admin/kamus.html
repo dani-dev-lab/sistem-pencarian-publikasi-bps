@@ -2,7 +2,7 @@
 {% block judul %}Kamus Sinonim &mdash; Admin{% endblock %}
 
 {% block konten %}
-<p class="tautan-balik"><a href="{{ url_for('admin.beranda') }}">&larr; Admin</a></p>
+<p class="tautan-balik"><a class="tombol-kedua tombol-kecil" href="{{ url_for('admin.beranda') }}">&larr; Beranda admin</a></p>
 <h1 class="judul-admin">Kamus Sinonim <span class="ringan">{{ total }} kelompok</span></h1>
 
 {% with pesan = get_flashed_messages(with_categories=true) %}

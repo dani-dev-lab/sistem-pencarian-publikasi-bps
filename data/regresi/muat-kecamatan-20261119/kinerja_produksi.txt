@@ -1,0 +1,16 @@
+Database  : db_pencarian_bps
+Data      : 619 publikasi, 44497 entri
+RATA-RATA                                 122ms    134ms
+TERLAMBAT                                 297ms    335ms
+TERLAMBAT (filter wilayah)                 86ms     96ms
+Hasil -> data/ukur_kinerja/20261119-0811-produksi-sesudah-kecamatan.json
+database db_pencarian_bps: 307 publikasi, 24542 entri
+muat ulang korpus: median 1716 ms, maks 1818 ms (5x)
+memori ditahan 144.1 MB, puncak saat membangun 158.5 MB
+putaran 1 salinan   rata-rata median  120.5 ms, terlambat  292.7 ms
+putaran 1 produksi  rata-rata median  110.9 ms, terlambat  295.2 ms
+putaran 2 salinan   rata-rata median  123.9 ms, terlambat  302.0 ms
+putaran 2 produksi  rata-rata median  121.7 ms, terlambat  295.7 ms
+putaran 3 salinan   rata-rata median  121.9 ms, terlambat  294.3 ms
+putaran 3 produksi  rata-rata median  144.3 ms, terlambat  340.7 ms
+TERCEPAT: produksi 110.9 ms, salinan sebelum muat 120.5 ms, selisih -7.9%

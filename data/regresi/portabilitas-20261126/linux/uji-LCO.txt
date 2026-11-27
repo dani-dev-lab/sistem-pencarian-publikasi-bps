@@ -1,0 +1,54 @@
+Cadangan database uji: 16.0 MB, 6 tabel; produksi 6 tabel
+Database uji: db_pencarian_bps_uji | produksi (hanya dibaca): db_pencarian_bps | domain uji: 6305
+
+=== U. PENGAMAN DATABASE UJI ===
+  [LULUS] U1 KonfigurasiUji yang menunjuk nama produksi ditolak (SystemExit)  -- DITOLAK True
+  [LULUS] U2 baris pertama perbarui.py = database uji  -- Database tujuan: db_pencarian_bps_uji @ 127.0.0.1:3307 (UJI - bukan produksi)
+  [LULUS] U4 tanpa BPS: url_cover/url_pdf database uji semuanya ke server tiruan; alamat luar diblokir proxy mati (tidak sampai ke BPS); server tiruan tetap terjangkau  -- URL luar di DB 0; LUAR DIBLOKIR | TIRUAN 200 image/jpeg
+  [LULUS] U3 ringkasan ke pembaruan_terakhir-uji.json, berkas produksi tidak dibuat  -- exit 0, 8 d
+
+=== N. KAMUS SALINAN DITERAPKAN KE DATABASE UJI ===
+  [LULUS] N1 kamus salinan diterapkan: hanya teks_ternormalisasi yang berubah, penerapan kedua mengubah 0  -- entri diubah 0, publikasi diubah 0, 0 publikasi terkena, domain uji: []
+
+(--hanya LCO: bagian lain dilewati)
+
+=== L. MODE LOKAL (tanpa jaringan) ===
+    |   Jaringan     : SSID None, webapi.bps.go.id -> None
+    |   Unduhan      : 0 berkas, 0.0 MB, rata-rata None KB/detik; putus 0x, percobaan ulang 0x, putaran ulang 0 (pulih 0), tetap gagal 0
+    |   Sampul       : resmi 0 (0.0 MB), cadangan PDF 0, cadangan lama dipertahankan 0, gagal 0, 0 detik
+    |   domain                            status          publikasi  diunduh diproses  gagal
+    |   6305 Kab. Tapin                   tidak_ada_baru         41        0        0      0
+    | Selesai 2026-11-26 08:11:06, kode keluar 0. Log: data/log_pembaruan/20261126-081105.log
+  [LULUS] L1 --lokal: tidak ada kerja, 2 'menunggu pembaruan online'  -- exit 0, tidak_ada_baru, menunggu 2
+  [LULUS] L2 --lokal: nol permintaan ke server (tiruan maupun BPS)  -- 0
+
+=== C. OCR ===
+  [LULUS] C1 16 publikasi OCR: entri dari cache identik, halaman_ocr terisi  -- {'0150218e': (78, 57), '0df22890': (81, 58), '182e2e58': (174, 43), '24ae3f0b': (79, 57), '25f03922': (181, 43), '2f5c1bca': (79, 54), '47c94280': (99, 34), '84ca1f32': (78, 58), '8bb11354': (80, 59), 'ba4b6cd4': (82, 56), 'c4a0fdd8': (81, 54), 'db297c77': (80, 55), 'dc8b3a71': (82, 57), 'dd9c2563': (80, 57), 'ec956b0e': (82, 61), 'f338cd99': (99, 44)}
+  [LULUS] C2a --lokal --paksa --tanpa-ocr: ditolak, exit 1, pesan akibat + cara benar, semua publikasi OCR disebut  -- exit 1, 1 d, 16/16 publikasi OCR
+    |     - [6305 182e2e58] Produk Domestik Regional Bruto Kabupaten Tapin Menurut Lapangan Usaha 2020-2024 (174 halaman OCR)
+    |     - [6305 24ae3f0b] Kecamatan Tapin Tengah Dalam Angka 2025 (79 halaman OCR)
+    |     - [6305 25f03922] Produk Domestik Regional Bruto Kabupaten Tapin Menurut Lapangan Usaha 2021-2025 (181 halaman OCR)
+    |     - [6305 2f5c1bca] Kecamatan Piani Dalam Angka 2025 (79 halaman OCR)
+    |     - [6305 47c94280] Profil Tenaga Kerja Kabupaten Tapin Agustus 2024 (99 halaman OCR)
+    |     - [6305 84ca1f32] Kecamatan Lokpaikat Dalam Angka 2025 (78 halaman OCR)
+    |     - [6305 8bb11354] Kecamatan Binuang Dalam Angka 2025 (80 halaman OCR)
+    |     - [6305 ba4b6cd4] Kecamatan Tapin Utara Dalam Angka 2025 (82 halaman OCR)
+    |     - [6305 c4a0fdd8] Kecamatan Bakarangan Dalam Angka 2025 (81 halaman OCR)
+    |     - [6305 db297c77] Kecamatan Tapin Selatan Dalam Angka 2025 (80 halaman OCR)
+    |     - [6305 dc8b3a71] Kecamatan Bungur Dalam Angka 2025 (82 halaman OCR)
+    |     - [6305 dd9c2563] Kecamatan Hatungun Dalam Angka 2025 (80 halaman OCR)
+    |     - [6305 ec956b0e] Kecamatan Candi Laras Utara Dalam Angka 2025 (82 halaman OCR)
+    |     - [6305 f338cd99] Produk Domestik Regional Bruto Kabupaten Tapin Menurut Pengeluaran 2021-2025 (99 halaman OCR)
+    |   Database tidak diubah.
+    |   Yang benar:
+    |   - Membaca ulang semua PDF: pakai --paksa TANPA --tanpa-ocr, misalnya
+    |         ./perbarui-data.sh --lokal --paksa
+    |     Hasil OCR diambil dari cache data/ocr_cache; EasyOCR tidak perlu
+    |     terpasang selama cache-nya utuh.
+    |   - Tidak memakai OCR: pakai --tanpa-ocr TANPA --paksa. Publikasi yang
+    |     tidak berubah tidak dibaca ulang, jadi hasil OCR-nya tetap.
+    |   Lihat PANDUAN.md bagian 4, "Pilihan tambahan untuk tim IT".
+    | Selesai 2026-11-26 08:11:06, kode keluar 1. Log: data/log_pembaruan/20261126-081106.log
+  [LULUS] C2a database uji tidak berubah (CHECKSUM TABLE)
+  [LULUS] C2b online --paksa --tanpa-ocr: ditolak sebelum jaringan (0 permintaan), database uji tidak berubah  -- exit 1, 0 permintaan
+  [LULUS] C2c domain aktif tanpa publikasi OCR: --paksa --tanpa-ocr tetap jalan, exit 0  -- exit 0, status 'tidak_ada_baru'

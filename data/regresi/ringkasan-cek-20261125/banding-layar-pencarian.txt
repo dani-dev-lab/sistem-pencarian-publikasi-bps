@@ -1,0 +1,13 @@
+SAMA  0375-beranda-kab.png  (375, 900)
+SAMA  0375-beranda.png  (375, 900)
+SAMA  0375-hasil-kec.png  (375, 20582)
+SAMA  0375-hasil-kosong.png  (375, 900)
+SAMA  0375-hasil-wilayah.png  (375, 12582)
+SAMA  0375-hasil.png  (375, 13955)
+SAMA  1280-beranda-kab.png  (1280, 900)
+SAMA  1280-beranda.png  (1280, 900)
+SAMA  1280-hasil-kec.png  (1280, 15619)
+SAMA  1280-hasil-kosong.png  (1280, 900)
+SAMA  1280-hasil-wilayah.png  (1280, 9476)
+SAMA  1280-hasil.png  (1280, 10549)
+12 sama, 0 derau <= 4/255, 0 beda

@@ -4,6 +4,8 @@
 # Data unduhan (besar, dapat diambil ulang dari WebAPI BPS)
 data/publikasi_pdf/
 !data/publikasi_pdf/.gitkeep
+# Sampul publikasi (diunduh sekali dari WebAPI BPS; cadangan dari halaman 1 PDF)
+data/sampul/
 data/sampel_pdf/*.pdf
 *.db
 *.sqlite3
@@ -30,3 +32,21 @@ Thumbs.db
 # Jejak pembaruan data (kunci PID + ringkasan hasil terakhir)
 data/pembaruan.lock
 data/pembaruan_terakhir.json
+data/pembaruan_terakhir-uji.json
+data/cek_pembaruan.json
+data/cek_pembaruan-uji.json
+data/log_pembaruan/
+data/pemeriksaan_domain.json
+
+# Cache OCR per halaman (spike revisi 4); dibuat ulang dari PDF, besar.
+data/ocr_cache/
+# Log pengisian cache OCR (scripts/isi_cache_ocr.py).
+data/log_ocr/
+
+# Potret DB per kunci (7-8 MB per berkas, isinya bisa dibuat ulang dari DB)
+data/regresi/*/potret/
+
+# Paket serah terima (26 Nov 2026): cadangan database dan salinan data untuk
+# pemasangan di server lain. Berisi log pencarian petugas; JANGAN masuk Git.
+data/serah_terima/
+*.sql

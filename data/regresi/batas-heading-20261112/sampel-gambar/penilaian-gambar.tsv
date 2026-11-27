@@ -1,0 +1,31 @@
+urut	pid	nomor	halaman	halaman_fisik	nomor_ok	judul_ok	halaman_ok	fisik_ok	catatan
+1	37bba38b	6.2	301	351	ya	ya	ya	ya	
+2	dda5fe8f	5.2	152	208	ya	ya	ya	ya	
+3	959d9fd4	2.1	33	89	ya	ya	ya	ya	
+4	37bba38b	5.2	213	263	ya	ya	ya	ya	
+5	6ecd697e	1.2	9	57	ya	ya	ya	ya	
+6	ec41153f	2.1	29	61	ya	ya	ya	ya	
+7	dc342b31	4.2	171	227	ya	ya	ya	ya	
+8	fe5c76b4	6.2	260	294	ya	ya	ya	ya	
+9	42732c61	8.1	388	438	ya	ya	ya	ya	
+10	aea0c697	5.3	216	264	ya	ya	ya	ya	
+11	2529585e	10.2	414	466	ya	ya	ya	ya	
+12	dc342b31	11.2	702	758	ya	ya	ya	ya	
+13	42732c61	5.1	255	303	ya	ya	ya	ya	
+14	6ecd697e	9.2	350	398	ya	ya	ya	ya	halaman cetak terpotong di pita Daftar; folio halaman fisik = 350 = nilai parser
+15	5dfc08f3	7.1	204	240	ya	ya	ya	ya	
+16	34b2075e	11.1	263	299	ya	ya	ya	ya	
+17	dda5fe8f	6.2	229	285	ya	ya	ya	ya	
+18	78ed1b32	6.2	227	283	ya	ya	ya	ya	
+19	959d9fd4	12.1	722	778	ya	ya	ya	ya	
+20	37bba38b	6.1	300	350	ya	ya	ya	ya	
+21	37bba38b	13.2	398	448	ya	ya	ya	ya	
+22	78ed1b32	12.1	298	354	ya	ya	ya	ya	
+23	6ecd697e	8.3	334	382	ya	ya	ya	ya	
+24	6ecd697e	9.3	351	399	ya	ya	ya	ya	
+25	10295752	7.2	173	258	ya	ya	ya	ya	SUMBER tidak konsisten: Daftar menulis 173, folio halaman fisik 222; parser benar membaca 173; fisik benar
+26	959d9fd4	6.1	524	580	ya	ya	ya	ya	
+27	4eef35cf	12.2	473	527	ya	ya	ya	ya	
+28	2529585e	4.1	101	153	ya	ya	ya	ya	halaman cetak terpotong di pita Daftar; folio halaman fisik = 101 = nilai parser
+29	959d9fd4	8.1	561	617	ya	ya	ya	ya	
+30	b99360b3	8.1	221	257	ya	ya	ya	ya	

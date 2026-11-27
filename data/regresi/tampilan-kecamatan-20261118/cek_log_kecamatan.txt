@@ -1,0 +1,2 @@
+db_pencarian_bps_uji [('penduduk', '6301', 51, 0), ('penduduk', '6301', 51, 1), ('tpk', '6301', 10, 1)] | CHECKSUM sama sesudah dihapus: True
+db_pencarian_bps_salinan_uji [('penduduk', '6301', 51, None), ('penduduk', '6301', 51, None), ('tpk', '6301', 10, None)] | CHECKSUM sama sesudah dihapus: True

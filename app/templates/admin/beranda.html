@@ -1,29 +1,42 @@
 {% extends "base.html" %}
+{% from "_ikon.html" import ikon %}
 {% block judul %}Admin &mdash; Pencarian Publikasi BPS{% endblock %}
 
 {% block konten %}
 <h1 class="judul-admin">Administrasi</h1>
 
+{# Navigasi antarfitur admin lewat kartu ini (25 Nov 2026: kop admin tanpa
+   baris menu). Ikon garis SVG satu warna dari _ikon.html. #}
 <div class="kartu-admin">
   <a href="{{ url_for('admin.kamus') }}">
-    <h2>Kamus Sinonim</h2>
+    <h2>{{ ikon("buku") }} Kamus Sinonim</h2>
     <p class="angka">{{ jumlah_kelompok }}</p>
     <p class="ket">kelompok kanonik &middot; {{ jumlah_varian }} kata</p>
   </a>
   <a href="{{ url_for('admin.log') }}">
-    <h2>Review Log Pencarian</h2>
+    <h2>{{ ikon("daftar") }} Log Pencarian</h2>
     <p class="angka">{{ jumlah_lemah }}</p>
     <p class="ket">kueri lemah dari {{ jumlah_log }} pencarian</p>
   </a>
+  {# 26 Nov 2026: angka besar = tanggal pembaruan terakhir dan lama sesi,
+     dihitung route dari data (bukan ikon besar yang dobel dengan ikon judul). #}
   <a href="{{ url_for('admin.perbarui') }}">
-    <h2>Perbarui Data</h2>
-    <p class="angka">{% if pembaruan_berjalan %}&#9203;{% else %}&#8635;{% endif %}</p>
-    <p class="ket">{% if pembaruan_berjalan %}sedang berjalan{% else %}ambil publikasi baru dari BPS{% endif %}</p>
+    <h2>{{ ikon("segarkan") }} Perbarui Data</h2>
+    {% if pembaruan_berjalan %}
+    <p class="angka">Berjalan</p>
+    <p class="ket">pembaruan sedang berjalan &middot; {{ jumlah_publikasi }} publikasi</p>
+    {% elif tanggal_pembaruan %}
+    <p class="angka">{{ tanggal_pembaruan }}</p>
+    <p class="ket">pembaruan terakhir{% if pembaruan_gagal %} (gagal){% endif %} &middot; {{ jumlah_publikasi }} publikasi</p>
+    {% else %}
+    <p class="angka angka-teks">belum pernah</p>
+    <p class="ket">belum ada pembaruan tercatat &middot; {{ jumlah_publikasi }} publikasi</p>
+    {% endif %}
   </a>
   <a href="{{ url_for('admin.ganti_sandi') }}">
-    <h2>Ganti Kata Sandi</h2>
-    <p class="angka">&#128273;</p>
-    <p class="ket">satu sandi bersama untuk semua pengelola</p>
+    <h2>{{ ikon("kunci") }} Ganti Kata Sandi</h2>
+    <p class="angka">{{ lama_sesi }}</p>
+    <p class="ket">sesi otomatis berakhir bila tidak aktif</p>
   </a>
 </div>
 {% endblock %}

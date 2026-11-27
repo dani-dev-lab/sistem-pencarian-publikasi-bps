@@ -13,12 +13,15 @@ Dipanggil dari dua tempat: scripts/isi_normalisasi.py (terminal) dan tombol
 supaya route admin tidak perlu mengimpor berkas dari folder scripts/.
 """
 
+import html
 import time
 from collections import Counter
 
 import sqlalchemy as sa
 
+from app.config import teks_os
 from app.models import EntriDokumen, Publikasi, db
+from app.services import versi_data
 from app.services.preprocessing import kamus_default, normalisasi, stem_kata
 
 UKURAN_BATCH = 500
@@ -43,18 +46,35 @@ def _pastikan_kolom():
     return False
 
 
-def _isi_publikasi():
-    """Normalkan judul + abstrak tiap publikasi.
+def bersihkan_html(teks):
+    """Kode HTML di metadata BPS -> karakter biasa ("Kintap&nbsp;selama" ->
+    "Kintap selama", "&amp;" -> "&"). Spasi tak-putus jadi spasi biasa, supaya
+    pemisah kata saat dicocokkan sama dengan spasi lain (19 Nov 2026: 25
+    abstrak memuat "&nbsp;", yang dulu tampil mentah dan ikut dicocokkan
+    sebagai kata "nbsp"). None tetap None."""
+    if teks is None:
+        return None
+    return html.unescape(teks).replace(" ", " ")
+
+
+def teks_publikasi(judul, abstrak):
+    """Teks ternormalisasi satu publikasi: judul + abstrak.
 
     Keduanya digabung supaya istilah yang HANYA muncul di abstrak (misalnya
-    nama instansi sumber data) tetap bisa dicari.
+    nama instansi sumber data) tetap bisa dicari. Satu fungsi untuk pipeline
+    pembaruan maupun tombol "Terapkan ke data", supaya hasilnya tidak berbeda.
     """
+    return normalisasi(f"{judul or ''} {abstrak or ''}")
+
+
+def _isi_publikasi():
+    """Normalkan judul + abstrak seluruh publikasi."""
     diubah = 0
     tanpa_abstrak = 0
     for p in Publikasi.query.all():
         if not p.abstrak:
             tanpa_abstrak += 1
-        baru = normalisasi(f"{p.judul or ''} {p.abstrak or ''}")
+        baru = teks_publikasi(p.judul, p.abstrak)
         if p.teks_ternormalisasi != baru:
             p.teks_ternormalisasi = baru
             diubah += 1
@@ -79,10 +99,11 @@ def jalankan(cetak=_diam):
     """
     if _pastikan_kolom():
         cetak("kolom publikasi.teks_ternormalisasi ditambahkan")
+    versi_data.pastikan_tabel()     # DDL sebelum transaksi, lihat versi_data.py
     kamus = kamus_default()
     total = EntriDokumen.query.count()
     if not total:
-        cetak("Tabel entri_dokumen kosong - jalankan muat_ke_database.py dulu.")
+        cetak(teks_os("Tabel entri_dokumen kosong - jalankan perbarui-data.bat dulu."))
         return None
 
     cetak(f"Menormalkan {total} entri (kamus: {len(kamus)} pemetaan varian)")
@@ -117,6 +138,7 @@ def jalankan(cetak=_diam):
             cetak(f"  {i}/{total} ...", flush=True)
 
     pub_diubah, pub_tanpa_abstrak = _isi_publikasi()
+    versi_data.naikkan()            # korpus pencarian di memori perlu dimuat ulang
     db.session.commit()
 
     # -------------------------- Verifikasi --------------------------

@@ -1,0 +1,7 @@
+/hasil?q=jumlah+penduduk+menurut+desa&kec=1 200 | Dari publikasi Kecamatan Dalam Angka | Rincian per desa/kelurahan: 6016 bagian cocok, 20 teratas ditampilkan. | kartu: 20 | label: ['Kec. Mataraman', 'Kec. Takisung', 'Kec. Aranio'] | semua: True | pesan: False
+/hasil?q=penduduk&w=6301&kc=pelaihari 200 | Dari publikasi Kecamatan Dalam Angka | Rincian per desa/kelurahan di Kecamatan Pelaihari: 8 bagian cocok. | kartu: 8 | label: ['Kec. Pelaihari', 'Kec. Pelaihari', 'Kec. Pelaihari'] | semua: False | pesan: False
+/hasil?q=tanah+laut&kec=1 200 | Publikasi Kecamatan Dalam Angka Kab. Tanah Laut |  | kartu: 22 | label: ['Kec. Bajuin', 'Kec. Bati-Bati', 'Kec. Batu Ampar'] | semua: False | pesan: False
+/hasil?q=sekolah&w=6301&kec=1&semua_kec=1 200 | Dari publikasi Kecamatan Dalam Angka | Rincian per desa/kelurahan di kecamatan-kecamatan Kab. Tanah Laut: 43 bagian cocok. | kartu: 43 | label: ['Kec. Takisung', 'Kec. Bati-Bati', 'Kec. Kurau'] | semua: False | pesan: False
+/hasil?q=penduduk&w=6300&kec=1 200 | Dari publikasi Kecamatan Dalam Angka |  | kartu: 0 | label: [] | semua: False | pesan: False
+/hasil?q=xqzv&kec=1 200 | Dari publikasi Kecamatan Dalam Angka | Rincian per desa/kelurahan: 0 bagian cocok. | kartu: 0 | label: [] | semua: False | pesan: False
+/hasil?q=penduduk&w=6301 200 | TANPA seksi kecamatan

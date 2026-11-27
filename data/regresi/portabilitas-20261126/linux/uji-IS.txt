@@ -1,0 +1,27 @@
+Cadangan database uji: 16.0 MB, 6 tabel; produksi 6 tabel
+Database uji: db_pencarian_bps_uji | produksi (hanya dibaca): db_pencarian_bps | domain uji: 6305
+
+=== U. PENGAMAN DATABASE UJI ===
+  [LULUS] U1 KonfigurasiUji yang menunjuk nama produksi ditolak (SystemExit)  -- DITOLAK True
+  [LULUS] U2 baris pertama perbarui.py = database uji  -- Database tujuan: db_pencarian_bps_uji @ 127.0.0.1:3307 (UJI - bukan produksi)
+  [LULUS] U4 tanpa BPS: url_cover/url_pdf database uji semuanya ke server tiruan; alamat luar diblokir proxy mati (tidak sampai ke BPS); server tiruan tetap terjangkau  -- URL luar di DB 0; LUAR DIBLOKIR | TIRUAN 200 image/jpeg
+  [LULUS] U3 ringkasan ke pembaruan_terakhir-uji.json, berkas produksi tidak dibuat  -- exit 0, 8 d
+
+=== N. KAMUS SALINAN DITERAPKAN KE DATABASE UJI ===
+  [LULUS] N1 kamus salinan diterapkan: hanya teks_ternormalisasi yang berubah, penerapan kedua mengubah 0  -- entri diubah 0, publikasi diubah 0, 0 publikasi terkena, domain uji: []
+
+(--hanya IS: bagian lain dilewati)
+
+=== I. PARSER DAFTAR (pola C, A2, A1, A', B, kecamatan K2-K3) ===
+  [LULUS] I1 13 kasus sintetis parser Daftar  -- 13/13
+
+=== S. DETEKSI WILAYAH DARI KUERI ===
+  [LULUS] S1 deteksi wilayah: 19 kasus (8 singkatan dari wilayah.json)  -- 19 OK
+  [LULUS] S2 singkatan_status 13 kab/kota = dikonfirmasi (tim IT BPS Kalsel, 16 Nov 2026)  -- ['dikonfirmasi']
+
+=== Z. PEMULIHAN DAN BUKTI ===
+  [LULUS] Z1 database uji dipulihkan, CHECKSUM TABLE sama dengan awal  -- []
+  [LULUS] Z2 produksi tidak berubah (CHECKSUM TABLE awal = akhir)  -- []
+  [LULUS] Z3 folder sementara dibersihkan
+
+=== TOTAL: 11 lulus, 0 gagal, 0 dilewati (20 detik) ===

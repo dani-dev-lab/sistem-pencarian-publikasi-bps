@@ -17,6 +17,8 @@
   --ungu: #553c9a;
   --ungu-muda: #ede7f6;
   --merah: #b02a2a;
+  /* Warna bilah kop situs resmi BPS Provinsi Kalimantan Selatan. */
+  --kop-bps: #002B6A;
 }
 
 * { box-sizing: border-box; }
@@ -33,21 +35,93 @@ body {
   flex-direction: column;
 }
 
-/* ---------------------------- kop halaman ---------------------------- */
+/* ---------------------------- kop halaman ----------------------------
+   Meniru kop situs resmi BPS Kalsel: bilah #002B6A, logo setinggi 48 px,
+   nama instansi dua baris putih kapital miring tebal. Sticky supaya
+   identitas dan nama aplikasi selalu terlihat saat menggulir hasil. */
 .kop {
-  background: var(--biru);
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--kop-bps);
   color: #fff;
-  padding: 16px 24px 18px;
 }
-.kop-judul { color: #fff; font-size: 19px; font-weight: 700; text-decoration: none; }
-.kop-sub { display: block; font-size: 13px; opacity: .85; margin-top: 2px; }
+.kop-baris {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  padding: 10px 24px;
+}
+.kop-identitas {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  text-decoration: none;
+  min-width: 0;
+}
+/* Logo tidak persegi (661x512): tinggi dikunci, lebar mengikuti. */
+.kop-logo { height: 48px; width: auto; flex: none; }
+.kop-instansi {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+  line-height: 1.2;
+  letter-spacing: .01em;
+}
+.kop-identitas:focus-visible { outline: 2px solid #fff; outline-offset: 4px; border-radius: 2px; }
+
+/* Kop SATU baris di semua halaman (desain final 25 Nov 2026). Di kanan:
+   tombol bergaris tipis putih, latar transparan, teks putih, tinggi 44 px,
+   ikon garis SVG. Halaman pencarian: "Halaman Admin"; halaman admin:
+   "Kembali ke Pencarian" + "Keluar". Baris tidak pernah dipecah: di layar
+   sempit logo dan huruf instansi mengecil dan teks instansi boleh membungkus
+   di kolomnya sendiri. */
+.kop-baris { flex-wrap: nowrap; }
+.kop-identitas { flex: 1 1 auto; }
+.kop-instansi { min-width: 0; }
+.kop-tombol { flex: none; margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.kop-keluar { margin: 0; display: flex; }
+.tombol-kop {
+  display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+  min-height: 44px; min-width: 44px; padding: 0 14px;
+  font: inherit; font-size: 14px; font-weight: 600; line-height: 1; color: #fff;
+  background: transparent; border: 1px solid rgba(255, 255, 255, .5); border-radius: 6px;
+  text-decoration: none; white-space: nowrap; cursor: pointer;
+}
+.tombol-kop:hover { background: rgba(255, 255, 255, .12); border-color: rgba(255, 255, 255, .8); }
+.tombol-kop:focus-visible { outline: 3px solid #f2a900; outline-offset: 2px; }
+.tombol-kop .ikon { flex: none; }
+
+@media (max-width: 640px) {
+  .kop-baris { padding: 10px 14px; gap: 8px; }
+  .kop-instansi { font-size: 14px; }
+}
+/* <= 480 px: logo dan huruf mengecil. Pencarian: ikon + "Admin"; admin: ikon
+   saja (nama tombol tetap dari aria-label untuk pembaca layar). */
+@media (max-width: 480px) {
+  .kop-baris { gap: 6px; }
+  .kop-logo { height: 40px; }
+  .kop-identitas { gap: 8px; }
+  .kop-instansi { font-size: 11px; letter-spacing: 0; }
+  .kop-tombol { gap: 6px; }
+  .tombol-kop { padding: 0 10px; font-size: 13px; gap: 5px; }
+  .tombol-admin .label-panjang { display: none; }
+  .kop-admin .tombol-kop { padding: 0; width: 44px; }
+  .kop-admin .tombol-kop .label-kop { display: none; }
+}
 
 /* Kolom pencarian sengaja TIDAK di dalam kop - diberi ruang putih di bawahnya
    supaya tidak menggantung di perbatasan warna. */
 main { flex: 1; width: 100%; max-width: 1180px; margin: 0 auto; padding: 28px 20px 64px; }
 
 /* -------------------------- kotak pencarian -------------------------- */
-.kotak-cari { display: flex; gap: 8px; max-width: 660px; margin: 0 0 22px; }
+.kotak-cari { display: flex; gap: 8px; max-width: 760px; margin: 0 0 22px; }
 .pusat .kotak-cari { margin: 0 auto; }
 .kotak-cari input {
   flex: 1;
@@ -71,12 +145,113 @@ main { flex: 1; width: 100%; max-width: 1180px; margin: 0 auto; padding: 28px 20
 }
 .kotak-cari button:hover { background: var(--biru-tua); }
 
+/* Dropdown wilayah di samping kotak cari. Lebarnya dibatasi supaya nama
+   terpanjang ("Kab. Hulu Sungai Selatan") muat tanpa memakan kotak cari. */
+.pilih-wilayah {
+  flex: 0 0 auto;
+  width: 210px;
+  padding: 0 10px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--teks);
+  background: #fff;
+  border: 2px solid var(--garis);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.pilih-wilayah:focus { outline: none; border-color: var(--biru); }
+/* Wilayah yang dipasang otomatis: senada dengan pita di bawah form. */
+.pilih-wilayah.otomatis { border-color: #e2b65c; background: var(--kuning-muda); }
+
+/* Kecamatan (18 Nov 2026): dropdown kecamatan lebih sempit, kotak centang di
+   baris sendiri di bawah kotak cari. Hanya dirender kalau database berisi
+   publikasi Kecamatan Dalam Angka. */
+.kotak-cari:has(.centang-kecamatan) { flex-wrap: wrap; }
+.pilih-kecamatan { width: 170px; }
+.pilih-kecamatan:disabled { opacity: .55; cursor: default; }
+/* Kotak centang selalu tepat di kiri tulisan, rata kiri di baris sendiri
+   (19 Nov 2026). Selektornya sengaja lebih spesifik daripada
+   ".kotak-cari input": aturan kotak kata kunci itu (flex: 1, padding,
+   border, min-width: 0) dulu ikut mengenai kotak centang, sehingga di
+   desktop kotaknya melebar dan mendorong tulisan ke kanan jauh, dan di
+   layar sempit menyusut sampai hilang. Seluruh label (min 44px) adalah
+   area sentuh. */
+.kotak-cari .centang-kecamatan {
+  flex: 1 1 100%;
+  order: 10;                      /* selalu baris terakhir form */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;               /* beranda (.pusat) memusatkan teks */
+  gap: 8px;
+  min-height: 44px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--teks);
+  cursor: pointer;
+}
+.kotak-cari .centang-kecamatan input[type="checkbox"] {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  accent-color: var(--biru);
+  cursor: pointer;
+}
+.kotak-cari .centang-kecamatan .teks-centang { flex: 0 1 auto; min-width: 0; }
+.centang-kecamatan .ket { color: var(--abu, #667); }
+/* "Kec. X" = label tersendiri, sejajar dengan label wilayah (gaya
+   .label-wilayah yang sama), bukan bersarang di dalamnya (19 Nov 2026). */
+.lokasi .label-kecamatan { color: var(--teks); }
+.info-kecamatan { display: flex; align-items: center; justify-content: space-between; gap: 12px;
+                  margin: 0 0 18px; padding: 10px 14px; border: 1px solid var(--garis);
+                  border-radius: 6px; background: #f6f9fc; font-size: 14px; }
+.info-kecamatan[hidden] { display: none; }
+.tombol-kecamatan { white-space: nowrap; font-weight: 600; }
+
+/* Layar kecil: kotak cari selebar layar, dropdown + tombol di baris kedua. */
+@media (max-width: 640px) {
+  .kotak-cari { flex-wrap: wrap; }
+  .kotak-cari > input[type="search"], .kotak-cari > .saran-pembungkus { flex: 1 1 100%; }
+  .pilih-wilayah { flex: 1 1 0; width: auto; min-width: 0; padding: 10px; }
+  .beranda .kotak-cari button, .kotak-cari button { padding-left: 20px; padding-right: 20px; }
+  /* Dropdown kecamatan (kalau muncul): baris sendiri selebar form, di bawah
+     wilayah + tombol Cari, di atas kotak centang. */
+  .kotak-cari .pilih-kecamatan { flex: 1 1 100%; order: 5; min-height: 44px; }
+  main { padding-left: 14px; padding-right: 14px; }
+  .pusat h1 { font-size: 23px; }
+}
+
+/* Pita "dipasang otomatis" di bawah form hasil. */
+.pita-wilayah {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  max-width: 760px;
+  margin: -10px 0 18px;
+  padding: 8px 12px;
+  font-size: 14px;
+  background: var(--kuning-muda);
+  border: 1px solid #f0d78c;
+  border-left: 4px solid var(--kuning);
+  border-radius: 5px;
+}
+.pita-label {
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+  color: #fff; background: var(--kuning); padding: 2px 7px; border-radius: 3px;
+}
+.pita-teks { flex: 1 1 260px; }
+.pita-batal { white-space: nowrap; }
+.pita-info { background: #f4f6f9; border-color: var(--garis); border-left-color: var(--redup); }
+
 /* ---------------------------- halaman awal ----------------------------
    Halaman ini tujuannya satu: mengetik dan mencari. Kontennya dipusatkan
    secara vertikal supaya tidak menumpuk di atas dan menyisakan rongga besar. */
-.beranda .kop { padding: 11px 24px 12px; }
-.beranda .kop-judul { font-size: 17px; }
-.beranda .kop-sub { font-size: 12px; }
 
 .beranda main {
   display: flex;
@@ -86,16 +261,26 @@ main { flex: 1; width: 100%; max-width: 1180px; margin: 0 auto; padding: 28px 20
   padding-bottom: 40px;
 }
 
-.pusat { text-align: center; width: 100%; max-width: 680px; }
+/* 760px: kotak cari + dropdown wilayah + tombol muat tanpa memotong contoh kueri. */
+.pusat { text-align: center; width: 100%; max-width: 760px; }
 .pusat h1 { font-size: 28px; margin: 0 0 10px; }
 
 /* Baris yang terlalu lebar sulit dibaca. */
 .keterangan { color: var(--redup); max-width: 460px; margin: 0 auto 26px; }
+/* Di halaman admin keterangan rata kiri seperti isi lainnya (25 Nov 2026). */
+.halaman-admin .keterangan { max-width: 720px; margin: 0 0 16px; }
 .peringatan { color: var(--kuning); font-weight: 600; }
 
 /* Kolom pencarian adalah elemen paling menonjol di halaman ini. */
 .beranda .kotak-cari input { padding: 15px 18px; font-size: 17px; }
 .beranda .kotak-cari button { padding: 15px 30px; font-size: 17px; }
+/* Dropdown kecamatan tampil (wilayah kab/kota terpilih): kolom kata kunci
+   tetap selebar form di baris pertama, wilayah + kecamatan + Cari di baris
+   kedua - dulu kolom kata kunci menyempit (19 Nov 2026). Tanpa dropdown
+   kecamatan, tata letak beranda tidak berubah. */
+.beranda .kotak-cari:has(.pilih-kecamatan:not([hidden])) > input[type="search"],
+.beranda .kotak-cari:has(.pilih-kecamatan:not([hidden])) > .saran-pembungkus { flex: 1 1 100%; }
+.beranda .kotak-cari:has(.pilih-kecamatan:not([hidden])) .pilih-wilayah { flex: 1 1 0; width: auto; min-width: 0; }
 
 .contoh-kueri {
   margin-top: 18px;
@@ -143,6 +328,8 @@ body:not(.beranda) main { max-width: 880px; }
 }
 .seksi-ditemukan { color: var(--hijau); }
 .seksi-saran { color: var(--kuning); }
+.seksi-provinsi { color: var(--biru-tua); }
+.ket-seksi { margin: -6px 0 12px; font-size: 13px; color: var(--redup); }
 
 /* Jarak antar kelompok; seksi pertama tidak perlu jarak atas. */
 section + section .seksi { margin-top: 34px; }
@@ -168,10 +355,52 @@ section + section .seksi { margin-top: 34px; }
 .kartu:last-child { margin-bottom: 0; }
 
 .kartu-pub { border-left-color: var(--biru-tua); background: #f7fafd; }
+.kartu-pub:last-child { margin-bottom: 0; }
 .kartu-tabel { border-left-color: var(--hijau); }
 .kartu-gambar { border-left-color: var(--kuning); }
 .kartu-lampiran { border-left-color: var(--ungu); }
 .kartu-isi { border-left-color: var(--redup); }
+
+/* Sampul publikasi (19 Nov 2026), hanya di kartu PUBLIKASI yang berkas
+   sampulnya ada: sampul di kiri, judul dan keterangan di kanan. Lebar tetap,
+   tinggi mengikuti rasio asli (atribut width/height = ukuran asli, jadi ruang
+   sudah dipesan sebelum gambar dimuat). Di ponsel sampul mengecil. */
+.kartu.ada-sampul { display: flex; align-items: flex-start; gap: 22px; }
+.ada-sampul .sampul {
+  flex: 0 0 auto;
+  width: 220px;
+  height: auto;
+  border: 1px solid var(--garis);
+  border-radius: 3px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(16, 34, 56, .12);
+}
+.ada-sampul .kartu-badan { flex: 1 1 auto; min-width: 0; }
+
+/* Kartu PUBLIKASI diperbesar (25 Nov 2026), meniru daftar publikasi situs
+   BPS: sampul ±220 px, judul dan teks lebih besar, jarak lebih lega. Kartu
+   tabel/bab/gambar/lampiran tidak berubah ukurannya. */
+.kartu-pub { padding: 18px 20px; margin-bottom: 14px; }
+.kartu-pub .kartu-judul { font-size: 19px; line-height: 1.35; margin-bottom: 10px; }
+.kartu-pub .lokasi { margin-bottom: 10px; }
+.kartu-pub .lokasi span { font-size: 13px; padding: 3px 9px; }
+.kartu-pub .cuplikan { font-size: 15px; line-height: 1.6; margin-bottom: 14px;
+                       -webkit-line-clamp: 5; line-clamp: 5; }
+.kartu-pub .skor { font-size: 13px; }
+.kartu-pub .tombol-pdf { display: inline-flex; align-items: center; min-height: 44px;
+                         padding: 0 18px; font-size: 14px; border-radius: 6px; }
+@media (max-width: 760px) {
+  .ada-sampul .sampul { width: 160px; }
+}
+/* Ponsel: sampul di atas judul, selebar kartu tetapi tidak lebih dari 240 px. */
+@media (max-width: 640px) {
+  .kartu.ada-sampul { flex-direction: column; gap: 14px; }
+  .ada-sampul .sampul { width: 100%; max-width: 240px; }
+  .ada-sampul .kartu-badan { width: 100%; }
+  .kartu-pub { padding: 14px 14px 16px; }
+  .kartu-pub .kartu-judul { font-size: 17px; }
+  .kartu-pub .cuplikan { font-size: 14px; }
+}
 
 .kartu-judul { margin: 0 0 8px; font-size: 15px; line-height: 1.38; }
 
@@ -192,6 +421,9 @@ section + section .seksi { margin-top: 34px; }
 .tipe-lampiran { background: var(--ungu-muda);   color: var(--ungu); }
 .tipe-isi      { background: #eceff3; color: #46505c; }
 .lokasi .kosong { background: #f2f4f7; color: #7b8592; font-weight: 500; }
+/* Asal publikasi. Bergaris, bukan blok berwarna, supaya tidak bersaing dengan
+   label tipe dan lokasi - yang utama tetap "di bagian mana". */
+.lokasi .label-wilayah { background: #fff; color: #3d4955; border: 1px solid #c3ccd6; font-weight: 600; }
 
 /* Dibatasi 3 baris supaya tinggi kartu lebih seragam antar kolom. */
 .cuplikan {
@@ -274,7 +506,7 @@ mark { background: #fff2a8; color: inherit; padding: 0 1px; border-radius: 2px; 
 .judul-admin .ringan { font-size: 14px; font-weight: 400; }
 .ringan { color: var(--redup); font-weight: 400; }
 .mono { font-family: Consolas, monospace; font-size: 12px; }
-.tautan-balik { margin: 0 0 8px; font-size: 13px; }
+.tautan-balik { margin: 0 0 12px; }
 .catatan-admin { margin-top: 28px; font-size: 13px; color: var(--kuning); }
 .catatan-admin code { font-family: Consolas, monospace; font-size: 12px; }
 
@@ -283,12 +515,6 @@ mark { background: #fff2a8; color: inherit; padding: 0 1px; border-radius: 2px; 
   background: #fff8e1; border: 1px solid #f0d78c; border-left: 4px solid var(--kuning);
   color: #5c3d00; padding: 10px 12px; border-radius: 5px; font-size: 14px; margin: 12px 0;
 }
-.tombol-utama {
-  padding: 10px 20px; background: var(--biru); color: #fff; border: none;
-  border-radius: 4px; cursor: pointer; font-size: 14px; font-weight: 600;
-}
-.tombol-utama:hover { background: var(--biru-tua); }
-.tombol-utama:disabled { background: #9aa7b8; cursor: not-allowed; }
 .log-pembaruan {
   background: #1e2430; color: #d6dbe4; font-family: Consolas, monospace;
   font-size: 12px; line-height: 1.4; padding: 10px 12px; border-radius: 6px;
@@ -299,20 +525,23 @@ mark { background: #fff2a8; color: inherit; padding: 0 1px; border-radius: 2px; 
 .langkah-pembaruan { font-size: 14px; padding-left: 20px; }
 .langkah-pembaruan li { margin: 4px 0; }
 
+/* Keempat kartu sama tinggi, juga bila terbagi ke dua baris (26 Nov 2026). */
 .kartu-admin {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 14px; margin-top: 18px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  grid-auto-rows: 1fr; gap: 14px; margin-top: 18px;
 }
 .kartu-admin a {
   display: block; padding: 18px; text-decoration: none; color: inherit;
   border: 1px solid var(--garis); border-left: 4px solid var(--biru); border-radius: 6px;
 }
 .kartu-admin a:hover { background: var(--biru-muda); }
-.kartu-admin h2 { margin: 0; font-size: 15px; color: var(--biru); }
+.kartu-admin h2 { margin: 0; font-size: 15px; color: var(--biru); display: flex; align-items: center; gap: 8px; }
 .kartu-admin .angka { margin: 6px 0 2px; font-size: 30px; font-weight: 700; }
+.kartu-admin .angka-teks { font-size: 24px; }
 .kartu-admin .ket { margin: 0; font-size: 13px; color: var(--redup); }
 
 .kabar { padding: 9px 12px; border-radius: 5px; font-size: 14px; }
+.kabar .ikon { vertical-align: -3px; }
 .kabar-sukses { background: var(--hijau-muda); color: var(--hijau); }
 .kabar-gagal { background: #fdeaea; color: var(--merah); }
 
@@ -323,28 +552,30 @@ mark { background: #fff2a8; color: inherit; padding: 0 1px; border-radius: 2px; 
 .form-terapkan { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .form-terapkan span:first-child { flex: 1; min-width: 240px; }
 .form-terapkan button {
-  padding: 8px 16px; background: var(--hijau); color: #fff; white-space: nowrap;
-  border: none; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: 600;
+  min-height: 44px; padding: 0 18px; background: var(--hijau); color: #fff; white-space: nowrap;
+  border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600;
 }
 .form-terapkan button:hover { opacity: .9; }
-.kop-keluar { float: right; margin-top: 2px; }
-.kop-keluar button {
-  padding: 5px 12px; background: transparent; color: #fff;
-  border: 1px solid rgba(255,255,255,.6); border-radius: 4px;
-  cursor: pointer; font-size: 13px;
-}
-.kop-keluar button:hover { background: rgba(255,255,255,.15); }
 
 .lipat { margin: 12px 0; }
 .lipat summary { cursor: pointer; font-weight: 600; font-size: 14px; color: var(--biru); }
 .form-admin { display: grid; gap: 8px; margin-top: 10px; max-width: 460px; }
 .form-admin label { font-size: 13px; display: grid; gap: 3px; }
 .form-admin input { padding: 7px 9px; border: 1px solid var(--garis); border-radius: 4px; }
-.form-admin button, .form-sebaris button {
-  padding: 7px 14px; background: var(--biru); color: #fff;
-  border: none; border-radius: 4px; cursor: pointer; font-size: 13px;
+.form-admin button, .form-sebaris button, .kotak-cari.kecil button {
+  min-height: 44px; padding: 0 18px; background: var(--biru); color: #fff;
+  border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600;
 }
 .form-admin button { justify-self: start; }
+.form-admin button:disabled, .form-admin input:disabled { opacity: .55; cursor: not-allowed; }
+/* Login terkunci (26 Nov 2026): hitung mundur mm:ss dan teks khusus pembaca layar. */
+.kotak-kunci p { margin: 0; }
+.kotak-kunci .hitung-mundur { margin-top: 6px; font-size: 15px; }
+.kotak-kunci .sisa-waktu { font-variant-numeric: tabular-nums; font-size: 18px; }
+.hanya-pembaca-layar {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
 
 .kelompok-sinonim {
   border: 1px solid var(--garis); border-radius: 6px;
@@ -353,20 +584,21 @@ mark { background: #fff2a8; color: inherit; padding: 0 1px; border-radius: 2px; 
 .kelompok-sinonim h3 { margin: 0 0 6px; font-size: 15px; }
 .varian-daftar { margin: 0 0 8px; display: flex; flex-wrap: wrap; gap: 5px; }
 .varian {
-  display: inline-flex; align-items: center; gap: 3px;
+  display: inline-flex; align-items: center; gap: 0; min-height: 44px;
   background: var(--biru-muda); color: var(--biru);
-  padding: 2px 4px 2px 8px; border-radius: 4px; font-size: 13px;
+  padding: 0 0 0 12px; border-radius: 6px; font-size: 14px;
 }
-.varian-kanonik { background: var(--biru); color: #fff; padding-right: 8px; font-weight: 600; }
+.varian-kanonik { background: var(--biru); color: #fff; padding-right: 12px; font-weight: 600; }
 .sebaris { display: inline; }
 .varian button {
   border: none; background: none; cursor: pointer; color: inherit;
-  opacity: .5; font-size: 14px; line-height: 1; padding: 0 2px;
+  opacity: .6; font-size: 18px; line-height: 1; padding: 0; min-width: 44px; min-height: 44px;
+  border-radius: 6px;
 }
 .varian button:hover { opacity: 1; color: var(--merah); }
 .form-sebaris { display: flex; gap: 6px; }
 .form-sebaris input {
-  flex: 1; padding: 6px 9px; border: 1px solid var(--garis);
+  flex: 1; min-width: 0; padding: 6px 9px; border: 1px solid var(--garis);
   border-radius: 4px; font-size: 13px;
 }
 
@@ -379,7 +611,6 @@ mark { background: #fff2a8; color: inherit; padding: 0 1px; border-radius: 2px; 
 }
 .tabel-log .ka { text-align: right; }
 .baris-nol { background: #fffaf5; }
-.tautan-kecil { font-size: 12px; margin-right: 6px; }
 
 .hasil-periksa {
   border: 1px solid var(--garis); border-radius: 6px; padding: 14px; margin-top: 14px;
@@ -390,3 +621,209 @@ code.besar { font-size: 15px; background: #eef2f7; padding: 4px 8px; border-radi
 /* ------------------------------- footer ------------------------------- */
 .kaki { border-top: 1px solid var(--garis); padding: 16px 24px; text-align: center; }
 .notice { margin: 0; font-size: 13px; color: var(--redup); }
+
+/* ------------------------- tombol "Ke atas" -------------------------
+   (19 Nov 2026; diperbesar 25 Nov 2026) Berlabel "↑ Ke atas", warna kop BPS
+   dengan tepi putih dan bayangan supaya terlihat di atas latar apa pun.
+   Disembunyikan atribut hidden sampai halaman digulir > 400 px (ke-atas.js);
+   tanpa JavaScript tetap tersembunyi.
+   - Layar >= 1181 px: kapsul di margin kosong kanan. Isi halaman maksimal
+     880 px di tengah, jadi kapsul tidak pernah di atas isi.
+   - Layar <= 1180 px: kotak ringkas 52x56 px (panah di atas tulisan) di
+     pojok kanan bawah; sisi kanan kartu, kotak info, pita, kaki, dan <main>
+     halaman admin diberi ruang kosong selebar tombol, jadi tombol tidak
+     pernah di atas tombol lain (diuji Playwright, lihat
+     data/regresi/tampilan-20261125.md). */
+.ke-atas {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 48px;
+  padding: 0 18px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  background: var(--kop-bps);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(0, 22, 60, .38);
+  cursor: pointer;
+}
+.ke-atas-panah { font-size: 19px; line-height: 1; }
+.ke-atas[hidden] { display: none; }
+.ke-atas:hover { background: var(--biru-tua); }
+.ke-atas:focus-visible { outline: 3px solid #f2a900; outline-offset: 2px; }
+@media (max-width: 1180px) {
+  .ke-atas {
+    right: 4px; bottom: 12px; width: 52px; height: 56px; min-height: 0; padding: 0;
+    flex-direction: column; gap: 1px; border-radius: 12px; font-size: 11px;
+  }
+  .ke-atas-panah { font-size: 20px; }
+}
+/* Di atas 960 px isi (maks. 880 px) sudah berjarak dari tepi layar, jadi ruang
+   cadangan hanya perlu di layar yang lebih sempit. */
+@media (max-width: 960px) {
+  .kartu { padding-right: 46px; }
+  .info-kecamatan, .pita-wilayah, .kosong-total, .lebih { padding-right: 46px; }
+  .kaki .notice { padding: 0 56px; }
+  body.halaman-admin main { padding-right: 66px; }
+}
+
+/* ------------------------------ scroll bar ------------------------------
+   (25 Nov 2026; desain final) Tipis, TIDAK dihilangkan: tetap terlihat dan
+   bisa diseret. Lintasan transparan, pegangan abu-abu semi-transparan.
+   scrollbar-gutter: stable memesan ruang scrollbar juga di halaman pendek,
+   jadi kop, judul, dan kartu tidak bergeser antara halaman pendek dan
+   panjang. Firefox/Chrome baru: scrollbar-width/scrollbar-color (tanpa warna
+   hover; standar CSS belum punya); Chrome/Edge lama: ::-webkit-scrollbar
+   (pegangan lebih gelap saat hover). */
+html {
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, .25) transparent;
+}
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, .25); border-radius: 6px; border: 2px solid transparent; background-clip: padding-box; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0, 0, 0, .45); border: 2px solid transparent; background-clip: padding-box; }
+.log-pembaruan { scrollbar-color: rgba(255, 255, 255, .3) transparent; }
+
+/* ------------------------------- tombol -------------------------------
+   (25 Nov 2026) Satu gaya tombol untuk seluruh aplikasi: tinggi sentuh
+   minimal 44 px, sudut 6 px, cincin fokus kuning yang terlihat saat
+   dipakai dengan papan ketik. .tombol-utama = isi biru; .tombol-kedua =
+   garis biru. Dipakai untuk tautan yang berfungsi sebagai tombol. */
+.tombol, .tombol-utama, .tombol-kedua {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  min-height: 44px; padding: 0 18px; font: inherit; font-size: 14px; font-weight: 600;
+  line-height: 1.2; border-radius: 6px; text-decoration: none; cursor: pointer;
+  text-align: center;
+}
+.tombol-utama { background: var(--biru); color: #fff; border: 1px solid var(--biru); }
+.tombol-utama:hover { background: var(--biru-tua); border-color: var(--biru-tua); }
+.tombol-utama:disabled { background: #9aa7b8; border-color: #9aa7b8; cursor: not-allowed; }
+.tombol-kedua { background: #fff; color: var(--biru); border: 1px solid var(--biru); }
+.tombol-kedua:hover { background: var(--biru-muda); }
+.tombol-kecil { min-height: 44px; padding: 0 12px; font-size: 13px; }
+a:focus-visible, button:focus-visible, summary:focus-visible, select:focus-visible,
+input[type="checkbox"]:focus-visible { outline: 3px solid #f2a900; outline-offset: 2px; }
+.baris-tombol { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0 0 12px; }
+.tabel-log .sel-tombol { flex-wrap: nowrap; margin: 0; }
+
+/* Lipatan <details> di admin tampil sebagai tombol (panah berputar). */
+.lipat > summary {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px;
+  border: 1px solid var(--biru); border-radius: 6px; background: #fff; color: var(--biru);
+  font-size: 14px; font-weight: 600; cursor: pointer; list-style: none;
+}
+.lipat > summary::-webkit-details-marker { display: none; }
+.lipat > summary::before { content: "\25B8"; font-size: 12px; transition: transform .15s; }
+.lipat[open] > summary::before { transform: rotate(90deg); }
+.lipat > summary:hover { background: var(--biru-muda); }
+@media (prefers-reduced-motion: reduce) {
+  .lipat > summary::before { transition: none; }
+}
+
+/* -------------------- formulir pilihan penarikan --------------------
+   (24 Nov 2026) /admin/perbarui. Semua pemilih diawali kelas khusus halaman
+   ini (.form-pembaruan, .hasil-cek), jadi halaman pencarian tidak tersentuh. */
+.form-pembaruan {
+  border: 1px solid var(--garis); border-radius: 6px; padding: 14px 16px; margin: 16px 0;
+  background: #fbfcfe;
+}
+.form-pembaruan .judul-form-pembaruan,
+.hasil-cek .judul-hasil-cek { font-size: 17px; margin: 0 0 10px; }
+.form-pembaruan .kelompok-pilihan {
+  border: 1px solid var(--garis-tipis); border-radius: 5px; margin: 0 0 12px;
+  padding: 8px 12px 10px; background: #fff; min-width: 0;
+}
+.form-pembaruan legend { font-weight: 600; font-size: 14px; padding: 0 4px; }
+.form-pembaruan .pilihan-centang {
+  display: flex; align-items: flex-start; gap: 8px; font-size: 14px;
+  padding: 4px 0; cursor: pointer;
+}
+.form-pembaruan .pilihan-centang input { margin: 3px 0 0; flex: none; width: 16px; height: 16px; }
+.form-pembaruan .pilihan-provinsi { font-weight: 600; }
+.form-pembaruan .kisi-wilayah {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  column-gap: 16px; margin-top: 2px;
+}
+.form-pembaruan .aksi-centang { margin: 2px 0 6px; display: flex; gap: 8px; flex-wrap: wrap; }
+.form-pembaruan .tidak-berlaku { opacity: .55; }
+.form-pembaruan .baris-tahun { display: flex; gap: 16px; flex-wrap: wrap; font-size: 14px; }
+.form-pembaruan .baris-tahun select {
+  margin-left: 6px; padding: 5px 8px; font-size: 14px;
+  border: 1px solid var(--garis); border-radius: 4px; background: #fff;
+}
+.form-pembaruan .keterangan-pilihan { font-size: 13px; margin: 6px 0 0; }
+.form-pembaruan .tombol-pembaruan { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+.form-pembaruan .daftar-galat { margin: 6px 0 0; padding-left: 20px; }
+.hasil-cek {
+  border: 1px solid var(--garis); border-left: 4px solid var(--biru); border-radius: 6px;
+  padding: 12px 16px; margin: 16px 0;
+}
+/* Tabel admin yang bisa lebih lebar dari layar ponsel bergulir di kotaknya
+   sendiri. Hanya dipakai di admin/perbarui.html. */
+.gulir-tabel { overflow-x: auto; }
+.hasil-cek .tabel-cek tfoot th { background: #f7f9fc; }
+.hasil-cek .daftar-peringatan { margin: 4px 0 6px; padding-left: 20px; }
+@media (max-width: 640px) {
+  .form-pembaruan .tombol-pembaruan button { flex: 1 1 140px; }
+}
+
+/* -------------------- kartu ringkasan cek / pembaruan --------------------
+   (25 Nov 2026) /admin/perbarui: status berwarna, satu kalimat, empat angka.
+   Semua pemilih diawali .panel-ringkasan (hanya admin/perbarui.html), jadi
+   halaman pencarian tidak tersentuh. 4 angka sebaris; <= 640 px jadi 2x2. */
+.panel-ringkasan {
+  border: 1px solid var(--garis); border-left: 6px solid var(--redup); border-radius: 6px;
+  padding: 12px 16px 14px; margin: 12px 0; background: #f6f7f9;
+}
+.panel-ringkasan.warna-hijau { border-left-color: var(--hijau); background: var(--hijau-muda); }
+.panel-ringkasan.warna-kuning { border-left-color: #c98a00; background: var(--kuning-muda); }
+.panel-ringkasan.warna-merah { border-left-color: var(--merah); background: #fdeaea; }
+.panel-ringkasan.warna-abu { border-left-color: #7b8794; background: #f1f3f5; }
+.panel-ringkasan .status-ringkasan {
+  display: flex; align-items: center; gap: 8px; margin: 0; font-size: 17px; font-weight: 700;
+}
+.panel-ringkasan .titik-status {
+  flex: none; width: 12px; height: 12px; border-radius: 50%; background: #7b8794;
+}
+.panel-ringkasan.warna-hijau .status-ringkasan { color: var(--hijau); }
+.panel-ringkasan.warna-hijau .titik-status { background: var(--hijau); }
+.panel-ringkasan.warna-kuning .status-ringkasan { color: #6b4500; }
+.panel-ringkasan.warna-kuning .titik-status { background: #c98a00; }
+.panel-ringkasan.warna-merah .status-ringkasan { color: var(--merah); }
+.panel-ringkasan.warna-merah .titik-status { background: var(--merah); }
+.panel-ringkasan.warna-abu .status-ringkasan { color: #3e4852; }
+.panel-ringkasan .kalimat-ringkasan { margin: 6px 0 12px; font-size: 15px; }
+.panel-ringkasan .angka-ringkasan {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 0;
+}
+.panel-ringkasan .kotak-angka {
+  background: #fff; border: 1px solid var(--garis-tipis); border-radius: 6px;
+  padding: 10px 12px; min-width: 0; margin: 0;
+}
+.panel-ringkasan .kotak-angka dt { font-size: 13px; color: var(--redup); margin: 0; }
+.panel-ringkasan .kotak-angka dd { margin: 0; }
+.panel-ringkasan .nilai-angka {
+  display: block; font-size: 26px; font-weight: 700; line-height: 1.2;
+  color: var(--teks); overflow-wrap: anywhere;
+}
+.panel-ringkasan .satuan-angka { font-size: 14px; font-weight: 600; color: var(--redup); }
+.panel-ringkasan .ket-angka { display: block; font-size: 12px; color: var(--redup); }
+.alasan-mulai { margin: 10px 0 0; }
+/* Ruang kanan untuk tombol "Ke atas" di halaman admin dicadangkan sekali di
+   <main> (body.halaman-admin, 25 Nov 2026), tidak per kotak. */
+@media (max-width: 640px) {
+  .panel-ringkasan { padding-left: 12px; padding-right: 12px; }
+  .panel-ringkasan .angka-ringkasan { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .panel-ringkasan .kotak-angka { padding: 8px 10px; }
+  .panel-ringkasan .nilai-angka { font-size: 20px; }
+}

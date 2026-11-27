@@ -1,0 +1,29 @@
+{
+ "database": "db_pencarian_bps_uji",
+ "tabel": {
+  "entri_dokumen": [
+   44455,
+   2102756663
+  ],
+  "kategori": [
+   14,
+   1501779208
+  ],
+  "log_pencarian": [
+   67,
+   368958617
+  ],
+  "publikasi": [
+   618,
+   2150173525
+  ],
+  "publikasi_kategori": [
+   0,
+   0
+  ],
+  "versi_data": [
+   1,
+   4145286106
+  ]
+ }
+}

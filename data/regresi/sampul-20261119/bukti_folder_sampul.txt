@@ -1,0 +1,8 @@
+== selama uji penuh (bagian G)
+A: 620 berkas, 72,473,485 byte (72.5 MB), .cadangan.jpg 0, lain-lain 0, waktu ubah 15:01:13-15:16:33
+B: 620 berkas, 72,473,485 byte (72.5 MB), .cadangan.jpg 0, lain-lain 0, waktu ubah 15:01:13-15:16:33
+IDENTIK (nama, ukuran, waktu ubah, SHA-256)
+== sesudah --hanya VA
+A: 620 berkas, 72,473,485 byte (72.5 MB), .cadangan.jpg 0, lain-lain 0, waktu ubah 15:01:13-15:16:33
+B: 620 berkas, 72,473,485 byte (72.5 MB), .cadangan.jpg 0, lain-lain 0, waktu ubah 15:01:13-15:16:33
+IDENTIK (nama, ukuran, waktu ubah, SHA-256)

@@ -7,20 +7,55 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   {% block kepala %}{% endblock %}
 </head>
-<body class="{% block kelas_body %}{% endblock %}">
-  <header class="kop">
-    <a class="kop-judul" href="{{ url_for('pencarian.halaman_pencarian') }}">
-      Pencarian Publikasi BPS
-    </a>
-    <span class="kop-sub">Provinsi Kalimantan Selatan &mdash; Pelayanan Statistik Terpadu</span>
-    {# Halaman admin SENGAJA tidak ditautkan di sini. UI ini untuk petugas PST;
-       /admin/ diakses lewat URL langsung. Lihat CLAUDE.md. Tombol Keluar hanya
-       muncul di dalam /admin/ setelah login - tidak pernah di halaman pencarian. #}
-    {% if session.get('admin_masuk') and request.path.startswith('/admin') %}
-    <form method="post" action="{{ url_for('admin.logout') }}" class="kop-keluar">
-      <button type="submit">Keluar</button>
-    </form>
-    {% endif %}
+<body class="{% block kelas_body %}{% endblock %}{% if request.blueprint == 'admin' %} halaman-admin{% endif %}"
+      {%- if g.dari_admin %} data-pulihkan-gulir{% endif %}>
+  {# Identitas visual mengikuti kop situs resmi BPS Provinsi Kalimantan Selatan
+     (logo + dua baris nama instansi, bilah #002B6A). Hanya tampilannya yang
+     diambil: tidak ada skrip, stylesheet, atau menu dari situs BPS, dan
+     logonya berkas lokal, jadi aplikasi tetap jalan tanpa internet. Aplikasi
+     ini hanya dipakai Tim PST di web internal BPS. #}
+  {# Kop (desain final 25 Nov 2026): SATU baris di semua halaman. Identitas di
+     kiri; di kanan tombol bergaris tipis dengan ikon garis SVG (_ikon.html).
+     - Halaman pencarian: "Halaman Admin" ke /admin/ (gembok tertutup = belum
+       masuk, terbuka = sudah masuk; status di aria-label). Belum login ->
+       login -> /admin/.
+     - Halaman admin: "Kembali ke Pencarian" dan (saat masuk) "Keluar".
+     - Sejak 26 Nov 2026 "Halaman Admin" membawa alamat halaman pencarian/
+       hasil (?dari=), dan "Kembali ke Pencarian" (/kembali) kembali ke sana
+       tanpa menulis log; posisi gulir dipulihkan gulir-kembali.js
+       (app/services/alamat_kembali.py).
+       Navigasi antarfitur lewat kartu di beranda admin dan tombol
+       "← Beranda admin" di tiap subhalaman.
+     Aplikasi hanya dipakai Tim PST di web internal BPS. #}
+  {% from "_ikon.html" import ikon %}
+  {% set halaman_admin = request.blueprint == 'admin' %}
+  <header class="kop{% if halaman_admin %} kop-admin{% else %} kop-pencarian{% endif %}">
+    <div class="kop-baris">
+      <a class="kop-identitas" href="{{ url_for('pencarian.halaman_pencarian') }}">
+        <img class="kop-logo" src="{{ url_for('static', filename='img/logo-bps.png') }}"
+             width="62" height="48" alt="Logo BPS">
+        <span class="kop-instansi">
+          <span>Badan Pusat Statistik</span>
+          <span>Provinsi Kalimantan Selatan</span>
+        </span>
+      </a>
+      <div class="kop-tombol">
+      {% if halaman_admin %}
+        <a class="tombol-kop" href="{{ url_kembali_pencarian }}" aria-label="Kembali ke Pencarian">
+          {{ ikon("panah-kiri") }}<span class="label-kop">Kembali ke Pencarian</span></a>
+        {% if admin_masuk %}
+        <form method="post" action="{{ url_for('admin.logout') }}" class="kop-keluar">
+          <button type="submit" class="tombol-kop" aria-label="Keluar">
+            {{ ikon("keluar") }}<span class="label-kop">Keluar</span></button>
+        </form>
+        {% endif %}
+      {% else %}
+        <a class="tombol-kop tombol-admin" href="{{ url_halaman_admin }}"
+           aria-label="Halaman Admin ({% if admin_masuk %}sudah masuk{% else %}belum masuk, perlu kata sandi{% endif %})">
+          {{ ikon("gembok-buka" if admin_masuk else "gembok-tutup") }}<span class="label-kop"><span class="label-panjang">Halaman </span>Admin</span></a>
+      {% endif %}
+      </div>
+    </div>
   </header>
 
   <main>
@@ -31,6 +66,12 @@
     <!-- WAJIB sesuai Term of Use WebAPI BPS. Teksnya tidak boleh diubah. -->
     <p class="notice">Layanan ini menggunakan API Badan Pusat Statistik (BPS)</p>
   </footer>
+
+  <button type="button" class="ke-atas" aria-label="Kembali ke atas" hidden>
+    <span class="ke-atas-panah" aria-hidden="true">&uarr;</span> <span class="ke-atas-teks">Ke atas</span>
+  </button>
+  <script src="{{ url_for('static', filename='js/ke-atas.js') }}" defer></script>
+  {% if not halaman_admin %}<script src="{{ url_for('static', filename='js/gulir-kembali.js') }}" defer></script>{% endif %}
 
   <!-- Peningkatan opsional. Kolom pencarian tetap berfungsi tanpa berkas ini. -->
   <script src="{{ url_for('static', filename='js/saran.js') }}" defer></script>

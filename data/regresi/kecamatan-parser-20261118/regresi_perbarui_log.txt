@@ -1,0 +1,1425 @@
+Database tujuan: db_pencarian_bps_uji @ localhost:3306 (UJI - bukan produksi)
+Log run ini: data/log_pembaruan\20261118-101518.log
+
+==========================================================================
+DOMAIN 6300 Provinsi Kalimantan Selatan
+==========================================================================
+  79 publikasi perlu dikerjakan
+  Direktori Usaha Pertanian Lainnya (DUTL) Provinsi Ka [--paksa]
+      38 entri
+  Tinjauan Produk Domestik Regional Bruto Kabupaten/Ko [--paksa]
+      121 entri
+  Laporan Perekonomian Provinsi Kalimantan Selatan 202 [--paksa]
+      70 entri
+  Produk Domestik Regional Bruto Kabupaten/Kota di Pro [--paksa]
+      104 entri
+  Ringkasan Eksekutif Luas Panen dan Produksi Padi di  [--paksa]
+      32 entri
+  Keadaan Angkatan Kerja Provinsi Kalimantan Selatan F [--paksa]
+      110 entri
+  Statistik Potensi Desa Provinsi Kalimantan Selatan 2 [--paksa]
+      85 entri
+  Produk Domestik Regional Bruto Provinsi Kalimantan S [--paksa]
+      73 entri
+  Indeks Pembangunan Manusia Provinsi Kalimantan Selat [--paksa]
+      40 entri
+  Gambaran Ekonomi Makro Provinsi Kalimantan Selatan T [--paksa]
+      71 entri
+  Direktori Perusahaan Pertanian (DPP) Provinsi Kalima [--paksa]
+      30 entri
+  Indikator Tujuan Pembangunan Berkelanjutan (TPB) Pro [--paksa]
+      43 entri
+  Direktori Perusahaan Akomodasi Provinsi Kalimantan S [--paksa]
+      24 entri
+  Laporan Perekonomian Provinsi Kalimantan Selatan 202 [--paksa]
+      73 entri
+  Statistik Kesejahteraan Rakyat Provinsi Kalimantan S [--paksa]
+      218 entri
+  Statistik Pemotongan Ternak Provinsi Kalimantan Sela [--paksa]
+      42 entri
+  Keadaan Angkatan Kerja Provinsi Kalimantan Selatan A [--paksa]
+      73 entri
+  Analisis Hasil Survei Kebutuhan Data BPS Provinsi Ka [--paksa]
+      85 entri
+  Luas Panen dan Produksi Padi Provinsi Kalimantan Sel [--paksa]
+      258 entri
+  Statistik Keuangan Pemerintah Daerah Kabupaten/Kota  [--paksa]
+      12 entri
+  Indikator Pasar Tenaga Kerja Provinsi Kalimantan Sel [--paksa]
+      83 entri
+  Luas Panen dan Produksi Padi Provinsi Kalimantan Sel [--paksa]
+      256 entri
+  Nilai Tukar Petani Provinsi Kalimantan Selatan 2024  [--paksa]
+      42 entri
+  Gambaran Ekonomi Makro Provinsi Kalimantan Selatan T [--paksa]
+      69 entri
+  Statistik Pemotongan Ternak Provinsi Kalimantan Sela [--paksa]
+      36 entri
+  Statistik Politik dan Keamanan Provinsi Kalimantan S [--paksa]
+      47 entri
+  Statistik Daerah Provinsi Kalimantan Selatan 2025    [--paksa]
+      51 entri
+  Statistik Perhubungan Provinsi Kalimantan Selatan 20 [--paksa]
+      97 entri
+  Gambaran Ekonomi Makro Provinsi Kalimantan Selatan T [--paksa]
+      55 entri
+  Statistik Harga Konsumen Komoditas Terpilih Provinsi [--paksa]
+      38 entri
+  Profil Industri Mikro dan Kecil Provinsi Kalimantan  [--paksa]
+      55 entri
+  Master File Desa Provinsi Kalimantan Selatan Semeste [--paksa]
+      336 entri
+  Gambaran Ekonomi Makro Provinsi Kalimantan Selatan T [--paksa]
+      71 entri
+  Indeks Harga Konsumen Provinsi Kalimantan Selatan 20 [--paksa]
+      36 entri
+  Indeks Pembangunan Manusia Provinsi Kalimantan Selat [--paksa]
+      39 entri
+  Produk Domestik Regional Bruto Kabupaten/Kota Provin [--paksa]
+      91 entri
+  Keadaan Angkatan Kerja Provinsi Kalimantan Selatan F [--paksa]
+      114 entri
+  Gambaran Ekonomi Makro Provinsi Kalimantan Selatan T [--paksa]
+      69 entri
+  Statistik Harga Konsumen Komoditas Terpilih Provinsi [--paksa]
+      24 entri
+  Gambaran Ekonomi Makro Provinsi Kalimantan Selatan T [--paksa]
+      69 entri
+  Provinsi Kalimantan Selatan Dalam Angka 2026         [--paksa]
+      370 entri
+  Statistik Keuangan Pemerintah Daerah Kabupaten/Kota  [--paksa]
+      25 entri
+  Statistik Air Bersih Provinsi Kalimantan Selatan 202 [--paksa]
+      42 entri
+  Direktori Perusahaan Konstruksi Provinsi Kalimantan  [--paksa]
+      26 entri
+  Analisis Isu Terkini Provinsi Kalimantan Selatan 202 [--paksa]
+      50 entri
+  Direktori Perusahaan Industri Manufaktur Menengah da [--paksa]
+      16 entri
+  Gambaran Ekonomi Makro Provinsi Kalimantan Selatan T [--paksa]
+      66 entri
+  Indikator Pasar Tenaga Kerja Provinsi Kalimantan Sel [--paksa]
+      102 entri
+  Indikator Pekerjaan Layak Provinsi Kalimantan Selata [--paksa]
+      208 entri
+  Statistik Harga Produsen Gabah di Provinsi Kalimanta [--paksa]
+      38 entri
+  Statistik Perhotelan Provinsi Kalimantan Selatan 202 [--paksa]
+      54 entri
+  Indeks Harga Konsumen Provinsi Kalimantan Selatan 20 [--paksa]
+      24 entri
+  Keadaan Angkatan Kerja Provinsi Kalimantan Selatan A [--paksa]
+      152 entri
+  Profil Tenaga Kerja Provinsi Kalimantan Selatan Febr [--paksa]
+      46 entri
+  Buklet Indikator Industri Manufaktur Menengah dan Be [--paksa]
+      23 entri
+  Indikator Kesejahteraan Rakyat Provinsi Kalimantan S [--paksa]
+      132 entri
+  Buklet Perkembangan Industri Mikro dan Kecil Triwula [--paksa]
+      23 entri
+  Profil Industri Mikro dan Kecil Provinsi Kalimantan  [--paksa]
+      50 entri
+  Statistik Perhotelan Provinsi Kalimantan Selatan 202 [--paksa]
+      49 entri
+  Master File Desa Provinsi Kalimantan Selatan Semeste [--paksa]
+      336 entri
+  Statistik Daerah Provinsi Kalimantan Selatan 2026    [--paksa]
+      55 entri
+  Master File Desa Provinsi Kalimantan Selatan Semeste [--paksa]
+      334 entri
+  Produk Domestik Regional Bruto Provinsi Kalimantan S [--paksa]
+      73 entri
+  Produk Domestik Regional Bruto Kabupaten/Kota Provin [--paksa]
+      101 entri
+  Direktori Perusahaan Pertanian (DPP) Provinsi Kalima [--paksa]
+      30 entri
+  Nilai Tukar Petani Provinsi Kalimantan Selatan 2025  [--paksa]
+      47 entri
+  Buklet Statistik Industri Manufaktur Menengah dan Be [--paksa]
+      15 entri
+  Provinsi Kalimantan Selatan Dalam Angka 2025         [--paksa]
+      375 entri
+  Statistik Perhubungan Provinsi Kalimantan Selatan 20 [--paksa]
+      85 entri
+  Tinjauan Produk Domestik Regional Bruto Kabupaten/Ko [--paksa]
+      117 entri
+  Statistik Konstruksi Provinsi Kalimantan Selatan 202 [--paksa]
+      41 entri
+  Statistik Ekspor Impor Provinsi Kalimantan Selatan 2 [--paksa]
+      64 entri
+  Produk Domestik Regional Bruto Provinsi Kalimantan S [--paksa]
+      77 entri
+  Produk Domestik Regional Bruto Provinsi Kalimantan S [--paksa]
+      75 entri
+  Produk Domestik Regional Bruto Kabupaten/Kota di Pro [--paksa]
+      106 entri
+  Buklet Perkembangan Industri Mikro dan Kecil Triwula [--paksa]
+      23 entri
+  Indikator Tujuan Pembangunan Berkelanjutan (TPB) Pro [--paksa]
+      43 entri
+  Statistik Ekspor Impor Provinsi Kalimantan Selatan 2 [--paksa]
+      58 entri
+  Buklet Survei Angkatan Kerja Provinsi Kalimantan Sel [--paksa]
+      20 entri
+
+==========================================================================
+DOMAIN 6301 Kab. Tanah Laut
+==========================================================================
+  39 publikasi perlu dikerjakan
+  Produk Domestik Regional Bruto Kabupaten Tanah Laut  [--paksa]
+      55 entri
+  Kecamatan Pelaihari Dalam Angka 2026                 [--paksa]
+      60 entri
+  Statistik Daerah Kabupaten Tanah Laut 2026           [--paksa]
+      66 entri
+  Kecamatan Kurau Dalam Angka 2026                     [--paksa]
+      59 entri
+  Kecamatan Kintap Dalam Angka 2025                    [--paksa]
+      84 entri
+  Keadaan Angkatan Kerja di Kabupaten Tanah Laut Agust [--paksa]
+      54 entri
+  Statistik Potensi Desa Kabupaten Tanah Laut 2025     [--paksa]
+      81 entri
+  Indikator Kesejahteraan Rakyat Kabupaten Tanah Laut  [--paksa]
+      6 entri
+  Keadaan Angkatan Kerja di Kabupaten Tanah Laut Agust [--paksa]
+      64 entri
+  Produk Domestik Regional Bruto Kabupaten Tanah Laut  [--paksa]
+      71 entri
+  Kecamatan Jorong Dalam Angka 2025                    [--paksa]
+      81 entri
+  Kecamatan Bumi Makmur Dalam Angka 2026               [--paksa]
+      68 entri
+  Kabupaten Tanah Laut Dalam Angka 2026                [--paksa]
+      300 entri
+  Kecamatan Takisung Dalam Angka 2025                  [--paksa]
+      83 entri
+  Kecamatan Kintap Dalam Angka 2026                    [--paksa]
+      60 entri
+  Kecamatan Bati-Bati Dalam Angka 2026                 [--paksa]
+      65 entri
+  Statistik Daerah Kabupaten Tanah Laut 2025           [--paksa]
+      66 entri
+  Analisis Hasil Survei Kebutuhan Data BPS Kabupaten T [--paksa]
+      89 entri
+  Kecamatan Jorong Dalam Angka 2026                    [--paksa]
+      60 entri
+  Kecamatan Pelaihari Dalam Angka 2025                 [--paksa]
+      95 entri
+  Kecamatan Panyipatan Dalam Angka 2025                [--paksa]
+      81 entri
+  Kecamatan Bajuin Dalam Angka 2026                    [--paksa]
+      67 entri
+  Produk Domestik Regional Bruto Kabupaten Tanah Laut  [--paksa]
+      63 entri
+  Booklet Survei Angkatan Kerja Nasional Kabupaten Tan [--paksa]
+      16 entri
+  Kabupaten Tanah Laut Dalam Angka 2025                [--paksa]
+      299 entri
+  Kecamatan Bati-Bati Dalam Angka 2025                 [--paksa]
+      84 entri
+  Kecamatan Batu Ampar Dalam Angka 2025                [--paksa]
+      87 entri
+  Kecamatan Kurau Dalam Angka 2025                     [--paksa]
+      82 entri
+  Produk Domestik Regional Bruto Kabupaten Tanah Laut  [--paksa]
+      71 entri
+  Kecamatan Panyipatan Dalam Angka 2026                [--paksa]
+      60 entri
+  Kecamatan Tambang Ulang Dalam Angka 2025             [--paksa]
+      79 entri
+  Kecamatan Takisung Dalam Angka 2026                  [--paksa]
+      59 entri
+  Kecamatan Tambang Ulang Dalam Angka 2026             [--paksa]
+      67 entri
+  Statistik Kesejahteraan Rakyat Kabupaten Tanah Laut  [--paksa]
+      90 entri
+  Booklet Survei Angkatan Kerja Nasional Kabupaten Tan [--paksa]
+      17 entri
+  Kecamatan Batu Ampar Dalam Angka 2026                [--paksa]
+      59 entri
+  Kecamatan Bumi Makmur Dalam Angka 2025               [--paksa]
+      82 entri
+  Analisis Isu Terkini Kabupaten Tanah Laut 2025       [--paksa]
+      30 entri
+  Kecamatan Bajuin Dalam Angka 2025                    [--paksa]
+      81 entri
+
+==========================================================================
+DOMAIN 6302 Kab. Kotabaru
+==========================================================================
+  61 publikasi perlu dikerjakan
+  Kecamatan Hampang Dalam Angka 2026                   [--paksa]
+      40 entri
+  Kecamatan Sampanahan Dalam Angka 2026                [--paksa]
+      40 entri
+  Kecamatan Kelumpang Hulu Dalam Angka 2025            [--paksa]
+      42 entri
+  Kecamatan Pulau Laut Sigam Dalam Angka 2026          [--paksa]
+      40 entri
+  Kecamatan Pulau Sembilan Dalam Angka 2026            [--paksa]
+      40 entri
+  Kecamatan Kelumpang Utara Dalam Angka 2025           [--paksa]
+      42 entri
+  Kecamatan Pulau Laut Selatan Dalam Angka 2025        [--paksa]
+      42 entri
+  Kecamatan Kelumpang Tengah Dalam Angka 2026          [--paksa]
+      40 entri
+  Buklet Survei Angkatan Kerja Nasional Kabupaten Kota [--paksa]
+      12 entri
+  Kecamatan Pulau Laut Timur Dalam Angka 2026          [--paksa]
+      40 entri
+  Kecamatan Pamukan Barat Dalam Angka 2026             [--paksa]
+      39 entri
+  Produk Domestik Regional Bruto Kabupaten Kotabaru Me [--paksa]
+      86 entri
+  Keadaan Angkatan Kerja di Kabupaten Kotabaru Agustus [--paksa]
+      50 entri
+  Kecamatan Kelumpang Barat Dalam Angka 2025           [--paksa]
+      42 entri
+  Kecamatan Pamukan Barat Dalam Angka 2025             [--paksa]
+      42 entri
+  Produk Domestik Regional Bruto Kabupaten Kotabaru Me [--paksa]
+      66 entri
+  Produk Domestik Regional Bruto Kabupaten Kotabaru Me [--paksa]
+      85 entri
+  Kecamatan Kelumpang Selatan Dalam Angka 2026         [--paksa]
+      40 entri
+  Keadaan Angkatan Kerja di Kabupaten Kotabaru Agustus [--paksa]
+      81 entri
+  Kecamatan Sampanahan Dalam Angka 2025                [--paksa]
+      42 entri
+  BADAS (Big Data dan Analisis Statistik) Daerah di Ka [--paksa]
+      15 entri
+  Indikator Kesejahteraan Rakyat Kabupaten Kotabaru 20 [--paksa]
+      82 entri
+  Kabupaten Kotabaru Dalam Angka 2025                  [--paksa]
+      146 entri
+  Kecamatan Pulau Laut Barat Dalam Angka 2026          [--paksa]
+      40 entri
+  Statistik Potensi Desa Kabupaten Kotabaru 2025       [--paksa]
+      83 entri
+  Booklet Survei Angkatan Kerja Nasional Kabupaten Kot [--paksa]
+      17 entri
+  Kecamatan Kelumpang Hilir Dalam Angka 2026           [--paksa]
+      40 entri
+  Kecamatan Kelumpang Selatan Dalam Angka 2025         [--paksa]
+      42 entri
+  Kecamatan Pulau Laut Tanjung Selayar Dalam Angka 202 [--paksa]
+      40 entri
+  Kecamatan Kelumpang Hilir Dalam Angka 2025           [--paksa]
+      42 entri
+  Kecamatan Kelumpang Hulu Dalam Angka 2026            [--paksa]
+      40 entri
+  Kecamatan Pamukan Selatan Dalam Angka 2025           [--paksa]
+      42 entri
+  Statistik Daerah Kabupaten Kotabaru 2025             [--paksa]
+      68 entri
+  Kecamatan Sungai Durian Dalam Angka 2025             [--paksa]
+      42 entri
+  Kecamatan Pulau Laut Kepulauan Dalam Angka 2025      [--paksa]
+      42 entri
+  Kecamatan Pulau Laut Selatan Dalam Angka 2026        [--paksa]
+      40 entri
+  Kecamatan Pulau Sebuku Dalam Angka 2026              [--paksa]
+      40 entri
+  Kecamatan Kelumpang Tengah Dalam Angka 2025          [--paksa]
+      42 entri
+  Analisis Hasil Survei Kebutuhan Data BPS Kabupaten K [--paksa]
+      84 entri
+  Kecamatan Pulau Laut Utara Dalam Angka 2026          [--paksa]
+      40 entri
+  Statistik Kesejahteraan Rakyat Kabupaten Kotabaru 20 [--paksa]
+      87 entri
+  Kecamatan Pamukan Utara Dalam Angka 2025             [--paksa]
+      44 entri
+  Kecamatan Hampang Dalam Angka 2025                   [--paksa]
+      42 entri
+  Kecamatan Pulau Laut Utara Dalam Angka 2025          [--paksa]
+      42 entri
+  Kabupaten Kotabaru Dalam Angka 2026                  [--paksa]
+      150 entri
+  Kecamatan Pulau Laut Tengah Dalam Angka 2025         [--paksa]
+      42 entri
+  Kecamatan Pulau Sebuku Dalam Angka 2025              [--paksa]
+      42 entri
+  Kecamatan Pamukan Utara Dalam Angka 2026             [--paksa]
+      40 entri
+  Kecamatan Sungai Durian Dalam Angka 2026             [--paksa]
+      40 entri
+  Kecamatan Kelumpang Barat Dalam Angka 2026           [--paksa]
+      40 entri
+  Kecamatan Pulau Laut Sigam Dalam Angka 2025          [--paksa]
+      42 entri
+  Produk Domestik Regional Bruto Kabupaten Kotabaru Me [--paksa]
+      53 entri
+  Kecamatan Pulau Laut Kepulauan Dalam Angka 2026      [--paksa]
+      40 entri
+  Kecamatan Pulau Laut Tengah Dalam Angka 2026         [--paksa]
+      40 entri
+  Kecamatan Pulau Laut Tanjung Selayar Dalam Angka 202 [--paksa]
+      42 entri
+  Indeks Harga Konsumen Kabupaten Kotabaru 2024        [--paksa]
+      26 entri
+  Kecamatan Kelumpang Utara Dalam Angka 2026           [--paksa]
+      40 entri
+  Kecamatan Pulau Sembilan Dalam Angka 2025            [--paksa]
+      41 entri
+  Kecamatan Pamukan Selatan Dalam Angka 2026           [--paksa]
+      40 entri
+  Kecamatan Pulau Laut Timur Dalam Angka 2025          [--paksa]
+      42 entri
+  Kecamatan Pulau Laut Barat Dalam Angka 2025          [--paksa]
+      42 entri
+
+==========================================================================
+DOMAIN 6303 Kab. Banjar
+==========================================================================
+  55 publikasi perlu dikerjakan
+  Kecamatan Aluh-Aluh Dalam Angka 2025                 [--paksa]
+      87 entri
+  Kecamatan Simpang Empat Dalam Angka 2025             [--paksa]
+      64 entri
+      halaman tanpa teks 101: cache OCR 101, di-OCR 0, dilewati 0
+  Kecamatan Sambung Makmur Dalam Angka 2025            [--paksa]
+      91 entri
+  Kecamatan Kertak Hanyar Dalam Angka 2025             [--paksa]
+      86 entri
+  Kecamatan Astambul Dalam Angka 2026                  [--paksa]
+      76 entri
+  Kecamatan Sungai Pinang Dalam Angka 2026             [--paksa]
+      79 entri
+  Kecamatan Kertak Hanyar Dalam Angka 2026             [--paksa]
+      81 entri
+  Kecamatan Pengaron Dalam Angka 2025                  [--paksa]
+      90 entri
+  Kecamatan Aranio Dalam Angka 2025                    [--paksa]
+      91 entri
+  Keadaan Angkatan Kerja di Kabupaten Banjar Agustus 2 [--paksa]
+      150 entri
+  Analisis Hasil Survei Kebutuhan Data BPS Kabupaten B [--paksa]
+      80 entri
+  Produk Domestik Regional Bruto Kabupaten Banjar Menu [--paksa]
+      54 entri
+  Kecamatan Martapura Dalam Angka 2025                 [--paksa]
+      88 entri
+  Kecamatan Beruntung Baru Dalam Angka 2026            [--paksa]
+      83 entri
+  Kecamatan Astambul Dalam Angka 2025                  [--paksa]
+      86 entri
+  Kecamatan Cintapuri Darussalam Dalam Angka 2026      [--paksa]
+      73 entri
+  Statistik Kesejahteraan Rakyat Kabupaten Banjar 2025 [--paksa]
+      89 entri
+  Kecamatan Gambut Dalam Angka 2026                    [--paksa]
+      68 entri
+  Kecamatan Beruntung Baru Dalam Angka 2025            [--paksa]
+      87 entri
+  Statistik Daerah Kabupaten Banjar Tahun 2025         [--paksa]
+      24 entri
+  Kecamatan Pengaron Dalam Angka 2026                  [--paksa]
+      78 entri
+  Kecamatan Gambut Dalam Angka 2025                    [--paksa]
+      82 entri
+  Kecamatan Mataraman Dalam Angka 2025                 [--paksa]
+      73 entri
+      halaman tanpa teks 111: cache OCR 111, di-OCR 0, dilewati 0
+  Kecamatan Martapura Barat Dalam Angka 2026           [--paksa]
+      81 entri
+  Kecamatan Sambung Makmur Dalam Angka 2026            [--paksa]
+      79 entri
+  Kecamatan Martapura Timur Dalam Angka 2025           [--paksa]
+      99 entri
+  Kecamatan Sungai Pinang Dalam Angka 2025             [--paksa]
+      91 entri
+  Kecamatan Sungai Tabuk Dalam Angka 2025              [--paksa]
+      87 entri
+  Kecamatan Telaga Bauntung Dalam Angka 2025           [--paksa]
+      83 entri
+  Kecamatan Sungai Tabuk Dalam Angka 2026              [--paksa]
+      72 entri
+  Kecamatan Martapura Timur Dalam Angka 2026           [--paksa]
+      80 entri
+  Kecamatan Aranio Dalam Angka 2026                    [--paksa]
+      78 entri
+  Kecamatan Mataraman Dalam Angka 2026                 [--paksa]
+      76 entri
+  KEADAAN ANGKATAN KERJA DI KABUPATEN BANJAR           [--paksa]
+      98 entri
+  Kabupaten Banjar Dalam Angka 2025                    [--paksa]
+      244 entri
+  Booklet Survei Angkatan Kerja Nasional Kabupaten Ban [--paksa]
+      17 entri
+  Kecamatan Aluh-Aluh Dalam Angka 2026                 [--paksa]
+      98 entri
+  Produk Domestik Regional Bruto Kabupaten Banjar Menu [--paksa]
+      78 entri
+  Indikator Kesejahteraan Rakyat Kabupaten Banjar 2025 [--paksa]
+      47 entri
+  Booklet Survei Angkatan Kerja Nasional Kabupaten Ban [--paksa]
+      16 entri
+  Kecamatan Paramasan Dalam Angka 2026                 [--paksa]
+      75 entri
+  Kecamatan Martapura Barat Dalam Angka 2025           [--paksa]
+      90 entri
+  Kecamatan Tatah Makmur Dalam Angka 2025              [--paksa]
+      56 entri
+      halaman tanpa teks 100: cache OCR 100, di-OCR 0, dilewati 0
+  Produk Domestik Regional Bruto Kabupaten Banjar Menu [--paksa]
+      60 entri
+  Kecamatan Telaga Bauntung Dalam Angka 2026           [--paksa]
+      71 entri
+  Kecamatan Karang Intan Dalam Angka 2026              [--paksa]
+      84 entri
+  Kecamatan Tatah Makmur Dalam Angka 2026              [--paksa]
+      71 entri
+  Statistik Potensi Desa Kabupaten Banjar 2025         [--paksa]
+      83 entri
+  Kecamatan Simpang Empat Dalam Angka 2026             [--paksa]
+      75 entri
+  Kecamatan Martapura Dalam Angka 2026                 [--paksa]
+      74 entri
+  Kecamatan Karang Intan Dalam Angka 2025              [--paksa]
+      98 entri
+  Produk Domestik Regional Bruto Kabupaten Banjar Menu [--paksa]
+      60 entri
+  Kecamatan Cintapuri Darussalam Dalam Angka 2025      [--paksa]
+      84 entri
+  Kecamatan Paramasan Dalam Angka 2025                 [--paksa]
+      87 entri
+  Kabupaten Banjar Dalam Angka 2026                    [--paksa]
+      237 entri
+
+==========================================================================
+DOMAIN 6304 Kab. Barito Kuala
+==========================================================================
+  52 publikasi perlu dikerjakan
+  Produk Domestik Regional Bruto Kabupaten Barito Kual [--paksa]
+      73 entri
+  Kecamatan Kuripan Dalam Angka 2025                   [--paksa]
+      61 entri
+  Analisis Isu Terkini Kabupaten Barito Kuala 2025     [--paksa]
+      32 entri
+  Kecamatan Alalak Dalam Angka 2026                    [--paksa]
+      62 entri
+  Kecamatan Bakumpai Dalam Angka 2025                  [--paksa]
+      61 entri
+  Indikator Kesejahteraan Rakyat Kabupaten Barito Kual [--paksa]
+      73 entri
+  Kecamatan Marabahan Dalam Angka 2025                 [--paksa]
+      60 entri
+  Kecamatan Tamban Dalam Angka 2026                    [--paksa]
+      61 entri
+  Kecamatan Belawang Dalam Angka 2026                  [--paksa]
+      61 entri
+  Kecamatan Anjir Muara Dalam Angka 2026               [--paksa]
+      61 entri
+  Produk Domestik Regional Bruto Kabupaten Barito Kual [--paksa]
+      55 entri
+  Statistik Daerah Kabupaten Barito Kuala 2025         [--paksa]
+      22 entri
+  Kecamatan Belawang Dalam Angka 2025                  [--paksa]
+      61 entri
+  Statistik Kesejahteraan Rakyat Kabupaten Barito Kual [--paksa]
+      98 entri
+  Kecamatan Kuripan Dalam Angka 2026                   [--paksa]
+      61 entri
+  Kecamatan Bakumpai Dalam Angka 2026                  [--paksa]
+      61 entri
+  Kecamatan Cerbon Dalam Angka 2025                    [--paksa]
+      61 entri
+  Kecamatan Marabahan Dalam Angka 2026                 [--paksa]
+      61 entri
+  Kecamatan Tabunganen Dalam Angka 2026                [--paksa]
+      58 entri
+  Keadaan Angkatan Kerja di Kabupaten Barito Kuala Agu [--paksa]
+      87 entri
+  Kabupaten Barito Kuala Dalam Angka 2026              [--paksa]
+      238 entri
+  Keadaan Angkatan Kerja di Kabupaten Barito Kuala Agu [--paksa]
+      139 entri
+  Kecamatan Wanaraya Dalam Angka 2026                  [--paksa]
+      61 entri
+  Kecamatan Tabukan Dalam Angka 2025                   [--paksa]
+      61 entri
+  Kecamatan Rantau Badauh Dalam Angka 2025             [--paksa]
+      61 entri
+  Analisis Hasil Survei Kebutuhan Data BPS Kabupaten B [--paksa]
+      70 entri
+  Kecamatan Anjir Pasar Dalam Angka 2026               [--paksa]
+      61 entri
+  Kecamatan Mandastana Dalam Angka 2026                [--paksa]
+      61 entri
+  Produk Domestik Regional Bruto Kabupaten Barito Kual [--paksa]
+      55 entri
+  Kecamatan Tabunganen Dalam Angka 2025                [--paksa]
+      61 entri
+  Statistik Potensi Desa Kabupaten Barito Kuala 2025   [--paksa]
+      83 entri
+  Booklet Survei Angkatan Kerja Nasional Kabupaten Bar [--paksa]
+      17 entri
+  Kecamatan Alalak Dalam Angka 2025                    [--paksa]
+      62 entri
+  Kecamatan Anjir Pasar Dalam Angka 2025               [--paksa]
+      61 entri
+  Kecamatan Anjir Muara Dalam Angka 2025               [--paksa]
+      61 entri
+  Kecamatan Jejangkit Dalam Angka 2026                 [--paksa]
+      61 entri
+  Kecamatan Mekarsari Dalam Angka 2026                 [--paksa]
+      61 entri
+  Kecamatan Cerbon Dalam Angka 2026                    [--paksa]
+      61 entri
+  Kecamatan Tabukan Dalam Angka 2026                   [--paksa]
+      61 entri
+  Booklet Survei Angkatan Kerja Nasional Kabupaten Bar [--paksa]
+      16 entri
+  Produk Domestik Regional Bruto Kabupaten Barito Kual [--paksa]
+      73 entri
+  Kabupaten Barito Kuala Dalam Angka 2025              [--paksa]
+      232 entri
+  Kecamatan Mekarsari Dalam Angka 2025                 [--paksa]
+      61 entri
+  Kecamatan Barambai Dalam Angka 2025                  [--paksa]
+      61 entri
+  Kecamatan Wanaraya Dalam Angka 2025                  [--paksa]
+      61 entri
+  Statistik Daerah Kabupaten Barito Kuala 2026         [--paksa]
+      22 entri
+  Kecamatan Jejangkit Dalam Angka 2025                 [--paksa]
+      61 entri
+  Kecamatan Mandastana Dalam Angka 2025                [--paksa]
+      61 entri
+  Kecamatan Rantau Badauh Dalam Angka 2026             [--paksa]
+      61 entri
+  Kecamatan Tamban Dalam Angka 2025                    [--paksa]
+      61 entri
+  Statistik Politik dan Keamanan Kabupaten Barito Kual [--paksa]
+      44 entri
+  Kecamatan Barambai Dalam Angka 2026                  [--paksa]
+      61 entri
+
+==========================================================================
+DOMAIN 6305 Kab. Tapin
+==========================================================================
+  41 publikasi perlu dikerjakan
+  Kecamatan Salam Babaris Dalam Angka 2025             [--paksa]
+      57 entri
+      halaman tanpa teks 78: cache OCR 78, di-OCR 0, dilewati 0
+  Booklet Survei Angkatan Kerja Nasional Kabupaten Tap [--paksa]
+      16 entri
+  Kecamatan Candi Laras Selatan Dalam Angka 2025       [--paksa]
+      58 entri
+      halaman tanpa teks 81: cache OCR 81, di-OCR 0, dilewati 0
+  Produk Domestik Regional Bruto Kabupaten Tapin Menur [--paksa]
+      43 entri
+      halaman tanpa teks 174: cache OCR 174, di-OCR 0, dilewati 0
+  Profil Tenaga Kerja Kabupaten Tapin Agustus 2025     [--paksa]
+      37 entri
+  Kabupaten Tapin Dalam Angka 2026                     [--paksa]
+      293 entri
+  Kecamatan Piani Dalam Angka 2026                     [--paksa]
+      49 entri
+  Kecamatan Tapin Tengah Dalam Angka 2025              [--paksa]
+      57 entri
+      halaman tanpa teks 79: cache OCR 79, di-OCR 0, dilewati 0
+  Produk Domestik Regional Bruto Kabupaten Tapin Menur [--paksa]
+      43 entri
+      halaman tanpa teks 181: cache OCR 181, di-OCR 0, dilewati 0
+  Kecamatan Piani Dalam Angka 2025                     [--paksa]
+      54 entri
+      halaman tanpa teks 79: cache OCR 79, di-OCR 0, dilewati 0
+  Booklet Survei Angkatan Kerja Nasional Kabupaten Tap [--paksa]
+      17 entri
+  Indikator Kesejahteraan Rakyat Kabupaten Tapin 2025  [--paksa]
+      112 entri
+  Kabupaten Tapin Dalam Angka 2025                     [--paksa]
+      298 entri
+  Profil Tenaga Kerja Kabupaten Tapin Agustus 2024     [--paksa]
+      34 entri
+      halaman tanpa teks 99: cache OCR 99, di-OCR 0, dilewati 0
+  Analisis Hasil Survei Kebutuhan Data BPS Kabupaten T [--paksa]
+      74 entri
+  Kecamatan Tapin Tengah Dalam Angka 2026              [--paksa]
+      51 entri
+  Kecamatan Binuang Dalam Angka 2026                   [--paksa]
+      50 entri
+  Kecamatan Tapin Selatan Dalam Angka 2026             [--paksa]
+      53 entri
+  Kecamatan Lokpaikat Dalam Angka 2025                 [--paksa]
+      58 entri
+      halaman tanpa teks 78: cache OCR 78, di-OCR 0, dilewati 0
+  Kecamatan Binuang Dalam Angka 2025                   [--paksa]
+      59 entri
+      halaman tanpa teks 80: cache OCR 80, di-OCR 0, dilewati 0
+  Kecamatan Lokpaikat Dalam Angka 2026                 [--paksa]
+      54 entri
+  Keadaan Angkatan Kerja di Kabupaten Tapin Agustus 20 [--paksa]
+      61 entri
+  Keadaan Angkatan Kerja di Kabupaten Tapin Agustus 20 [--paksa]
+      99 entri
+  Kecamatan Tapin Utara Dalam Angka 2026               [--paksa]
+      53 entri
+  Kecamatan Candi Laras Utara Dalam Angka 2026         [--paksa]
+      49 entri
+  Produk Domestik Regional Bruto Kabupaten Tapin Menur [--paksa]
+      61 entri
+  Statistik Potensi Desa Kabupaten Tapin 2025          [--paksa]
+      83 entri
+  Kecamatan Tapin Utara Dalam Angka 2025               [--paksa]
+      56 entri
+      halaman tanpa teks 82: cache OCR 82, di-OCR 0, dilewati 0
+  Kecamatan Bakarangan Dalam Angka 2025                [--paksa]
+      54 entri
+      halaman tanpa teks 81: cache OCR 81, di-OCR 0, dilewati 0
+  Kecamatan Candi Laras Selatan Dalam Angka 2026       [--paksa]
+      49 entri
+  Kecamatan Bungur Dalam Angka 2026                    [--paksa]
+      54 entri
+  Kecamatan Hatungun Dalam Angka 2026                  [--paksa]
+      49 entri
+  Statistik Daerah Kabupaten Tapin 2025                [--paksa]
+      22 entri
+  Kecamatan Salam Babaris Dalam Angka 2026             [--paksa]
+      52 entri
+  Kecamatan Tapin Selatan Dalam Angka 2025             [--paksa]
+      55 entri
+      halaman tanpa teks 80: cache OCR 80, di-OCR 0, dilewati 0
+  Kecamatan Bungur Dalam Angka 2025                    [--paksa]
+      57 entri
+      halaman tanpa teks 82: cache OCR 82, di-OCR 0, dilewati 0
+  Kecamatan Hatungun Dalam Angka 2025                  [--paksa]
+      57 entri
+      halaman tanpa teks 80: cache OCR 80, di-OCR 0, dilewati 0
+  Kecamatan Candi Laras Utara Dalam Angka 2025         [--paksa]
+      61 entri
+      halaman tanpa teks 82: cache OCR 82, di-OCR 0, dilewati 0
+  Statistik Kesejahteraan Rakyat Kabupaten Tapin 2025  [--paksa]
+      89 entri
+  Produk Domestik Regional Bruto Kabupaten Tapin Menur [--paksa]
+      44 entri
+      halaman tanpa teks 99: cache OCR 99, di-OCR 0, dilewati 0
+  Kecamatan Bakarangan Dalam Angka 2026                [--paksa]
+      52 entri
+
+==========================================================================
+DOMAIN 6306 Kab. Hulu Sungai Selatan
+==========================================================================
+  39 publikasi perlu dikerjakan
+  Kecamatan Kalumpang Dalam Angka 2025                 [--paksa]
+      63 entri
+  Keadaan Angkatan Kerja di Kabupaten Hulu Sungai Sela [--paksa]
+      52 entri
+  Kecamatan Simpur Dalam Angka 2025                    [--paksa]
+      65 entri
+  Kabupaten Hulu Sungai Selatan Dalam Angka 2026       [--paksa]
+      210 entri
+  Kecamatan Sungai Raya Dalam Angka 2025               [--paksa]
+      64 entri
+  Kabupaten Hulu Sungai Selatan Dalam Angka 2025       [--paksa]
+      244 entri
+  Produk Domestik Regional Bruto Kabupaten Hulu Sungai [--paksa]
+      77 entri
+  Kecamatan Angkinang Dalam Angka 2026                 [--paksa]
+      63 entri
+  Kecamatan Sungai Raya Dalam Angka 2026               [--paksa]
+      63 entri
+  Kecamatan Kalumpang Dalam Angka 2026                 [--paksa]
+      62 entri
+  Kecamatan Padang Batung Dalam Angka 2026             [--paksa]
+      63 entri
+  Statistik Potensi Desa Kabupaten Hulu Sungai Selatan [--paksa]
+      83 entri
+  Kecamatan Daha Selatan Dalam Angka 2025              [--paksa]
+      68 entri
+  Kecamatan Padang Batung Dalam Angka 2025             [--paksa]
+      64 entri
+  Kecamatan Daha Selatan Dalam Angka 2026              [--paksa]
+      64 entri
+  Kecamatan Angkinang Dalam Angka 2025                 [--paksa]
+      65 entri
+  Produk Domestik Regional Bruto Kabupaten Hulu Sungai [--paksa]
+      58 entri
+  Kecamatan Simpur Dalam Angka 2026                    [--paksa]
+      63 entri
+  Kecamatan Daha Barat Dalam Angka 2026                [--paksa]
+      62 entri
+  Booklet Survei Angkatan Kerja Nasional Kabupaten Hul [--paksa]
+      16 entri
+  Kecamatan Loksado Dalam Angka 2025                   [--paksa]
+      66 entri
+  Kecamatan Kandangan Dalam Angka 2025                 [--paksa]
+      65 entri
+  Booklet Survei Angkatan Kerja Nasional Kabupaten Hul [--paksa]
+      17 entri
+  Indikator Kesejahteraan Rakyat Kabupaten Hulu Sungai [--paksa]
+      97 entri
+  Analisis Hasil Survei Kebutuhan Data BPS Kabupaten H [--paksa]
+      75 entri
+  Statistik Daerah Kabupaten Hulu Sungai Selatan 2025  [--paksa]
+      32 entri
+  Produk Domestik Regional Bruto Kabupaten Hulu Sungai [--paksa]
+      45 entri
+  Kecamatan Loksado Dalam Angka 2026                   [--paksa]
+      63 entri
+  Kecamatan Daha Utara Dalam Angka 2025                [--paksa]
+      70 entri
+  Kecamatan Daha Barat Dalam Angka 2025                [--paksa]
+      67 entri
+  Kecamatan Telaga Langsat Dalam Angka 2026            [--paksa]
+      62 entri
+  Kecamatan Kandangan Dalam Angka 2026                 [--paksa]
+      64 entri
+  Indikator Pasar Tenaga Kerja Kabupaten Hulu Sungai S [--paksa]
+      72 entri
+  Kecamatan Telaga Langsat Dalam Angka 2025            [--paksa]
+      63 entri
+  Statistik Kesejahteraan Rakyat Kabupaten Hulu Sungai [--paksa]
+      87 entri
+  Statistik Daerah Kabupaten Hulu Sungai Selatan 2026  [--paksa]
+      32 entri
+  Kecamatan Daha Utara Dalam Angka 2026                [--paksa]
+      63 entri
+  Produk Domestik Regional Bruto Kabupaten Hulu Sungai [--paksa]
+      54 entri
+  Indikator Pasar Tenaga Kerja Kabupaten Hulu Sungai S [--paksa]
+      71 entri
+
+==========================================================================
+DOMAIN 6307 Kab. Hulu Sungai Tengah
+==========================================================================
+  38 publikasi perlu dikerjakan
+  Analisis Hasil Survei Kebutuhan Data BPS Kabupaten H [--paksa]
+      77 entri
+  Kecamatan Labuan Amas Utara Dalam Angka 2026         [--paksa]
+      42 entri
+      halaman tanpa teks 104: cache OCR 104, di-OCR 0, dilewati 0
+  Produk Domestik Regional Bruto Kabupaten Hulu Sungai [--paksa]
+      82 entri
+  Kecamatan Labuan Amas Selatan Dalam Angka 2025       [--paksa]
+      48 entri
+  Produk Domestik Regional Bruto Kabupaten Hulu Sungai [--paksa]
+      54 entri
+  Kecamatan Pandawan Dalam Angka 2025                  [--paksa]
+      48 entri
+  Produk Domestik Regional Bruto Kabupaten Hulu Sungai [--paksa]
+      83 entri
+  Kecamatan Barabai Dalam Angka 2026                   [--paksa]
+      46 entri
+      halaman tanpa teks 104: cache OCR 104, di-OCR 0, dilewati 0
+  Kecamatan Barabai Dalam Angka 2025                   [--paksa]
+      49 entri
+  Indikator Kesejahteraan Rakyat Kabupaten Hulu Sungai [--paksa]
+      133 entri
+  Kecamatan Labuan Amas Selatan Dalam Angka 2026       [--paksa]
+      46 entri
+      halaman tanpa teks 104: cache OCR 104, di-OCR 0, dilewati 0
+  Kecamatan Limpasu Dalam Angka 2026                   [--paksa]
+      45 entri
+      halaman tanpa teks 104: cache OCR 104, di-OCR 0, dilewati 0
+  Kecamatan Haruyan Dalam Angka 2025                   [--paksa]
+      49 entri
+  Produk Domestik Regional Bruto Kabupaten Hulu Sungai [--paksa]
+      105 entri
+  Kecamatan Labuan Amas Utara Dalam Angka 2025         [--paksa]
+      48 entri
+  Kecamatan Hantakan Dalam Angka 2025                  [--paksa]
+      49 entri
+  Kecamatan Batu Benawa Dalam Angka 2025               [--paksa]
+      48 entri
+  Keadaan Angkatan Kerja Di Kabupaten Hulu Sungai Teng [--paksa]
+      57 entri
+  Statistik Potensi Desa Kabupaten Hulu Sungai Tengah  [--paksa]
+      80 entri
+  Kecamatan Batang Alai Selatan Dalam Angka 2025       [--paksa]
+      48 entri
+  Kecamatan Pandawan Dalam Angka 2026                  [--paksa]
+      45 entri
+      halaman tanpa teks 104: cache OCR 104, di-OCR 0, dilewati 0
+  Kecamatan Haruyan Dalam Angka 2026                   [--paksa]
+      49 entri
+  Kecamatan Limpasu Dalam Angka 2025                   [--paksa]
+      49 entri
+  Kecamatan Batang Alai Timur Dalam Angka 2025         [--paksa]
+      48 entri
+  Kecamatan Batang Alai Timur Dalam Angka 2026         [--paksa]
+      41 entri
+      halaman tanpa teks 104: cache OCR 104, di-OCR 0, dilewati 0
+  Indeks Harga Konsumen Kabupaten Hulu Sungai Tengah 2 [--paksa]
+      32 entri
+  Kabupaten Hulu Sungai Tengah Dalam Angka 2026        [--paksa]
+      163 entri
+      halaman tanpa teks 320: cache OCR 320, di-OCR 0, dilewati 0
+  Kecamatan Hantakan Dalam Angka 2026                  [--paksa]
+      45 entri
+      halaman tanpa teks 104: cache OCR 104, di-OCR 0, dilewati 0
+  Kecamatan Batang Alai Utara Dalam Angka 2026         [--paksa]
+      43 entri
+      halaman tanpa teks 104: cache OCR 104, di-OCR 0, dilewati 0
+  Statistik Daerah Kabupaten Hulu Sungai Tengah 2025   [--paksa]
+      52 entri
+  Kabupaten Hulu Sungai Tengah Dalam Angka 2025        [--paksa]
+      162 entri
+  Kecamatan Batu Benawa Dalam Angka 2026               [--paksa]
+      46 entri
+      halaman tanpa teks 104: cache OCR 104, di-OCR 0, dilewati 0
+  Statistik Kesejahteraan Rakyat Kabupaten Hulu Sungai [--paksa]
+      87 entri
+  Booklet Survei Angkatan Kerja Nasional Kabupaten Hul [--paksa]
+      16 entri
+  Kecamatan Batang Alai Utara Dalam Angka 2025         [--paksa]
+      49 entri
+  Kecamatan Batang Alai Selatan Dalam Angka 2026       [--paksa]
+      41 entri
+      halaman tanpa teks 104: cache OCR 104, di-OCR 0, dilewati 0
+  Booklet Survei Angkatan Kerja Nasional Kabupaten Hul [--paksa]
+      17 entri
+  Keadaan Angkatan Kerja di Kabupaten Hulu Sungai Teng [--paksa]
+      149 entri
+
+==========================================================================
+DOMAIN 6308 Kab. Hulu Sungai Utara
+==========================================================================
+  39 publikasi perlu dikerjakan
+  Produk Domestik Regional Bruto Kabupaten Hulu Sungai [--paksa]
+      71 entri
+  Kecamatan Amuntai Utara Dalam Angka 2026             [--paksa]
+      78 entri
+  Booklet Survei Angkatan Kerja Nasional Kabupaten Hul [--paksa]
+      16 entri
+  Kecamatan Amuntai Tengah Dalam Angka 2026            [--paksa]
+      76 entri
+  Kecamatan Banjang Dalam Angka 2026                   [--paksa]
+      76 entri
+  Analisis Survei Kebutuhan Data BPS Kabupaten Hulu Su [--paksa]
+      95 entri
+  Statistik Politik dan Keamanan Kabupaten Hulu Sungai [--paksa]
+      39 entri
+  BOOKISTRA (Booklet Data Indikator Strategis) Kabupat [--paksa]
+      4 entri
+  Kecamatan Paminggir Dalam Angka 2026                 [--paksa]
+      78 entri
+  Kecamatan Paminggir Dalam Angka 2025                 [--paksa]
+      73 entri
+  Indikator Kesejahteraan Rakyat Kabupaten Hulu Sungai [--paksa]
+      98 entri
+  Kecamatan Babirik Dalam Angka 2025                   [--paksa]
+      75 entri
+  Statistik Daerah Kabupaten Hulu Sungai Utara 2025    [--paksa]
+      45 entri
+  Kecamatan Sungai Pandan Dalam Angka 2025             [--paksa]
+      72 entri
+  Statistik Kesejahteraan Rakyat Kabupaten Hulu Sungai [--paksa]
+      87 entri
+  Kecamatan Babirik Dalam Angka 2026                   [--paksa]
+      76 entri
+  Kecamatan Danau Panggang Dalam Angka 2026            [--paksa]
+      76 entri
+  Produk Domestik Regional Bruto Kabupaten Hulu Sungai [--paksa]
+      62 entri
+  Kecamatan Amuntai Utara Dalam Angka 2025             [--paksa]
+      72 entri
+  Indeks Pembangunan Manusia Kabupaten Hulu Sungai Uta [--paksa]
+      42 entri
+  Produk Domestik Regional Bruto Kabupaten Hulu Sungai [--paksa]
+      54 entri
+  Kecamatan Sungai Tabukan Dalam Angka 2025            [--paksa]
+      73 entri
+  Kecamatan Amuntai Selatan Dalam Angka 2025           [--paksa]
+      73 entri
+  Kabupaten Hulu Sungai Utara Dalam Angka 2026         [--paksa]
+      199 entri
+  Produk Domestik Regional Bruto Kabupaten Hulu Sungai [--paksa]
+      61 entri
+  Kecamatan Amuntai Tengah Dalam Angka 2025            [--paksa]
+      73 entri
+  Kecamatan Sungai Pandan Dalam Angka 2026             [--paksa]
+      74 entri
+  Indikator Pasar Tenaga Kerja Kabupaten Hulu Sungai U [--paksa]
+      47 entri
+  Kecamatan Amuntai Selatan Dalam Angka 2026           [--paksa]
+      78 entri
+  Keadaan Angkatan Kerja di Kabupaten Hulu Sungai Utar [--paksa]
+      99 entri
+  Keadaan Angkatan Kerja di Kabupaten Hulu Sungai Utar [--paksa]
+      56 entri
+  Kecamatan Haur Gading Dalam Angka 2026               [--paksa]
+      74 entri
+  Booklet Survei Angkatan Kerja Nasional Kabupaten Hul [--paksa]
+      17 entri
+  Kecamatan Danau Panggang Dalam Angka 2025            [--paksa]
+      73 entri
+  Kecamatan Banjang Dalam Angka 2025                   [--paksa]
+      72 entri
+  Kecamatan Haur Gading Dalam Angka 2025               [--paksa]
+      72 entri
+  Kabupaten Hulu Sungai Utara Dalam Angka 2025         [--paksa]
+      194 entri
+  Kecamatan Sungai Tabukan Dalam Angka 2026            [--paksa]
+      75 entri
+  Statistik Potensi Desa Kabupaten Hulu Sungai Utara 2 [--paksa]
+      83 entri
+
+==========================================================================
+DOMAIN 6309 Kab. Tabalong
+==========================================================================
+  41 publikasi perlu dikerjakan
+  Kecamatan Tanjung Dalam Angka 2026                   [--paksa]
+      59 entri
+  Kecamatan Banua Lawas Dalam Angka 2025               [--paksa]
+      59 entri
+  Kecamatan Upau Dalam Angka 2026                      [--paksa]
+      60 entri
+  Kabupaten Tabalong Dalam Angka 2026                  [--paksa]
+      147 entri
+  Kecamatan Upau Dalam Angka 2025                      [--paksa]
+      59 entri
+  Kecamatan Pugaan Dalam Angka 2025                    [--paksa]
+      59 entri
+  Kecamatan Haruai Dalam Angka 2026                    [--paksa]
+      61 entri
+  Booklet Survei Angkatan Kerja Nasional Kabupaten Tab [--paksa]
+      19 entri
+  Kecamatan Muara Uya Dalam Angka 2025                 [--paksa]
+      59 entri
+  Kabupaten Tabalong Dalam Angka 2025                  [--paksa]
+      146 entri
+  Keadaan Angkatan Kerja di Kabupaten Tabalong Agustus [--paksa]
+      59 entri
+  Kecamatan Jaro Dalam Angka 2026                      [--paksa]
+      61 entri
+  Kecamatan Jaro Dalam Angka 2025                      [--paksa]
+      59 entri
+  Produk Domestik Regional Bruto Kabupaten Tabalong Me [--paksa]
+      90 entri
+  Produk Domestik Regional Bruto Kabupaten Tabalong Me [--paksa]
+      53 entri
+  Kecamatan Muara Harus Dalam Angka 2026               [--paksa]
+      56 entri
+  Kecamatan Bintang Ara Dalam Angka 2025               [--paksa]
+      59 entri
+  Inflasi Tanjung 2024                                 [--paksa]
+      47 entri
+  Kecamatan Tanta Dalam Angka 2025                     [--paksa]
+      59 entri
+  Kecamatan Pugaan Dalam Angka 2026                    [--paksa]
+      46 entri
+  Analisis Hasil Survei Kebutuhan Data BPS Kabupaten T [--paksa]
+      82 entri
+  Produk Domestik Regional Bruto Kabupaten Tabalong Me [--paksa]
+      87 entri
+      halaman tanpa teks 117: cache OCR 117, di-OCR 0, dilewati 0
+  Statistik Kesejahteraan Rakyat Kabupaten Tabalong 20 [--paksa]
+      89 entri
+  Kecamatan Haruai Dalam Angka 2025                    [--paksa]
+      59 entri
+  Kecamatan Tanta Dalam Angka 2026                     [--paksa]
+      59 entri
+  Kecamatan Muara Harus Dalam Angka 2025               [--paksa]
+      59 entri
+  Kecamatan Murung Pudak Dalam Angka 2026              [--paksa]
+      58 entri
+  Kecamatan Kelua Dalam Angka 2026                     [--paksa]
+      60 entri
+  Booklet Survei Angkatan Kerja Nasional Kabupaten Tab [--paksa]
+      16 entri
+  Kecamatan Banua Lawas Dalam Angka 2026               [--paksa]
+      56 entri
+  Inflasi Tanjung 2025                                 [--paksa]
+      46 entri
+  Kecamatan Murung Pudak Dalam Angka 2025              [--paksa]
+      59 entri
+  Kecamatan Kelua Dalam Angka 2025                     [--paksa]
+      59 entri
+  Kecamatan Muara Uya Dalam Angka 2026                 [--paksa]
+      61 entri
+  Kecamatan Bintang Ara Dalam Angka 2026               [--paksa]
+      57 entri
+  Indikator Kesejahteraan Rakyat Kabupaten Tabalong 20 [--paksa]
+      107 entri
+  Kecamatan Tanjung Dalam Angka 2025                   [--paksa]
+      59 entri
+  Statistik Potensi Desa Kabupaten Tabalong 2025       [--paksa]
+      83 entri
+  Keadaan Angkatan Kerja di Kabupaten Tabalong Agustus [--paksa]
+      152 entri
+  Statistik Daerah Kabupaten Tabalong 2025             [--paksa]
+      16 entri
+  Produk Domestik Regional Bruto Kabupaten Tabalong Me [--paksa]
+      51 entri
+
+==========================================================================
+DOMAIN 6310 Kab. Tanah Bumbu
+==========================================================================
+  40 publikasi perlu dikerjakan
+  Kecamatan Angsana Dalam Angka 2025                   [--paksa]
+      62 entri
+  Kecamatan Mantewe Dalam Angka 2025                   [--paksa]
+      62 entri
+  Statistik Daerah Kabupaten Tanah Bumbu 2025          [--paksa]
+      4 entri
+  Kabupaten Tanah Bumbu Dalam Angka 2025               [--paksa]
+      117 entri
+  Kecamatan Karang Bintang Dalam Angka 2026            [--paksa]
+      59 entri
+  Kecamatan Angsana Dalam Angka 2026                   [--paksa]
+      58 entri
+  Booklet Sakernas Agustus BPS Kabupaten Tanah Bumbu T [--paksa]
+      17 entri
+  Kecamatan Sungai Loban Dalam Angka 2025              [--paksa]
+      63 entri
+  Kecamatan Simpang Empat Dalam Angka 2025             [--paksa]
+      63 entri
+  Kecamatan Kusan Hulu Dalam Angka 2026                [--paksa]
+      59 entri
+  Statistik Potensi Desa Kabupaten Tanah Bumbu 2025    [--paksa]
+      83 entri
+  Keadaan Angkatan Kerja di Kabupaten Tanah Bumbu Agus [--paksa]
+      101 entri
+  Analisis Hasil Survei Kebutuhan Data BPS Kabupaten T [--paksa]
+      71 entri
+  Kecamatan Satui Dalam Angka 2026                     [--paksa]
+      60 entri
+  Statistik Pertanian Terkini Kabupaten Tanah Bumbu Ta [--paksa]
+      25 entri
+  Kecamatan Batu Licin Dalam Angka 2026                [--paksa]
+      60 entri
+  Kecamatan Kusan Hilir Dalam Angka 2025               [--paksa]
+      46 entri
+  Kecamatan Kusan Tengah Dalam Angka 2025              [--paksa]
+      61 entri
+  Kecamatan Sungai Loban Dalam Angka 2026              [--paksa]
+      60 entri
+  Kecamatan Kuranji Dalam Angka 2025                   [--paksa]
+      63 entri
+  Kecamatan Kuranji Dalam Angka 2026                   [--paksa]
+      59 entri
+  Produk Domestik Regional Bruto Kabupaten Tanah Bumbu [--paksa]
+      70 entri
+  Kecamatan Kusan Hulu Dalam Angka 2025                [--paksa]
+      45 entri
+  Kecamatan Karang Bintang Dalam Angka 2025            [--paksa]
+      60 entri
+  Kecamatan Kusan Tengah Dalam Angka 2026              [--paksa]
+      61 entri
+  Kecamatan Batu Licin Dalam Angka 2025                [--paksa]
+      62 entri
+  Kecamatan Teluk Kepayang Dalam Angka 2025            [--paksa]
+      65 entri
+  Kecamatan Kusan Hilir Dalam Angka 2026               [--paksa]
+      60 entri
+  Kecamatan Simpang Empat Dalam Angka 2026             [--paksa]
+      60 entri
+  Kecamatan Teluk Kepayang Dalam Angka 2026            [--paksa]
+      59 entri
+  Produk Domestik Regional Bruto Kabupaten Tanah Bumbu [--paksa]
+      87 entri
+  Produk Domestik Regional Bruto Kabupaten Tanah Bumbu [--paksa]
+      54 entri
+  Produk Domestik Regional Bruto Kabupaten Tanah Bumbu [--paksa]
+      76 entri
+  Kecamatan Mantewe Dalam Angka 2026                   [--paksa]
+      62 entri
+  Statistik Kesejahteraan Rakyat Kabupaten Tanah Bumbu [--paksa]
+      86 entri
+  Indikator Kesejahteraan Rakyat Kabupaten Tanah Bumbu [--paksa]
+      72 entri
+  Booklet Sakernas Agustus BPS Kabupaten Tanah Bumbu T [--paksa]
+      16 entri
+  Keadaan Angkatan Kerja di Kabupaten Tanah Bumbu Agus [--paksa]
+      57 entri
+  Kecamatan Satui Dalam Angka 2025                     [--paksa]
+      61 entri
+  Kabupaten Tanah Bumbu Dalam Angka 2026               [--paksa]
+      139 entri
+
+==========================================================================
+DOMAIN 6311 Kab. Balangan
+==========================================================================
+  32 publikasi perlu dikerjakan
+  Statistik Daerah Kabupaten Balangan 2025             [--paksa]
+      25 entri
+  Indeks Pembangunan Manusia Kabupaten Balangan 2025   [--paksa]
+      75 entri
+  Statistik Kesejahteraan Rakyat Kabupaten Balangan 20 [--paksa]
+      87 entri
+  Kabupaten Balangan Dalam Angka 2025                  [--paksa]
+      121 entri
+  Produk Domestik Regional Bruto Kabupaten Balangan Me [--paksa]
+      41 entri
+  Booklet Survei Angkatan Kerja Nasional Kabupaten Bal [--paksa]
+      15 entri
+  Kecamatan Paringin Selatan Dalam Angka 2026          [--paksa]
+      58 entri
+  Kecamatan Awayan Dalam Angka 2025                    [--paksa]
+      61 entri
+  Kecamatan Batu Mandi Dalam Angka 2025                [--paksa]
+      63 entri
+  Kecamatan Tebing Tinggi Dalam Angka 2025             [--paksa]
+      50 entri
+  Kecamatan Halong Dalam Angka 2025                    [--paksa]
+      58 entri
+      halaman tanpa teks 98: cache OCR 98, di-OCR 0, dilewati 0
+  Kecamatan Awayan Dalam Angka 2026                    [--paksa]
+      58 entri
+  Booklet Survei Angkatan Kerja Nasional Kabupaten Bal [--paksa]
+      16 entri
+  Kecamatan Paringin Dalam Angka 2026                  [--paksa]
+      58 entri
+  Produk Domestik Regional Bruto Kabupaten Balangan Me [--paksa]
+      88 entri
+  Kecamatan Paringin Selatan Dalam Angka 2025          [--paksa]
+      59 entri
+  Keadaan Angkatan Kerja di Kabupaten Balangan Agustus [--paksa]
+      52 entri
+  Kecamatan Juai Dalam Angka 2026                      [--paksa]
+      58 entri
+  Kecamatan Paringin Dalam Angka 2025                  [--paksa]
+      58 entri
+  Indikator Kesejahteraan Rakyat Kabupaten Balangan 20 [--paksa]
+      89 entri
+  Statistik Potensi Desa Kabupaten Balangan            [--paksa]
+      83 entri
+  Kecamatan Batu Mandi Dalam Angka 2026                [--paksa]
+      58 entri
+  Kecamatan Lampihong Dalam Angka 2026                 [--paksa]
+      58 entri
+  Produk Domestik Regional Bruto Kabupaten Balangan Me [--paksa]
+      88 entri
+  Keadaan Angkatan Kerja di Kabupaten Balangan Agustus [--paksa]
+      89 entri
+  Kecamatan Halong Dalam Angka 2026                    [--paksa]
+      53 entri
+  Kecamatan Juai Dalam Angka 2025                      [--paksa]
+      55 entri
+  Kabupaten Balangan Dalam Angka 2026                  [--paksa]
+      127 entri
+  Produk Domestik Regional Bruto Kabupaten Balangan Me [--paksa]
+      58 entri
+  Kecamatan Lampihong Dalam Angka 2025                 [--paksa]
+      55 entri
+  Analisis Hasil Survei Kebutuhan Data BPS Kabupaten B [--paksa]
+      84 entri
+  Kecamatan Tebing Tinggi Dalam Angka 2026             [--paksa]
+      54 entri
+
+==========================================================================
+DOMAIN 6371 Kota Banjarmasin
+==========================================================================
+  33 publikasi perlu dikerjakan
+  Indikator Ekonomi Kota Banjarmasin 2024              [--paksa]
+      64 entri
+  Kecamatan Banjarmasin Tengah Dalam Angka 2026        [--paksa]
+      93 entri
+  Kecamatan Banjarmasin Utara Dalam Angka 2026         [--paksa]
+      90 entri
+  Kota Banjarmasin Dalam Angka 2025                    [--paksa]
+      255 entri
+  Analisis Hasil Survei Kebutuhan Data BPS Kota Banjar [--paksa]
+      75 entri
+  Keadaan Angkatan Kerja Kota Banjarmasin Agustus 2024 [--paksa]
+      55 entri
+  Kecamatan Banjarmasin Utara Dalam Angka 2025         [--paksa]
+      95 entri
+  Kota Banjarmasin Dalam Angka 2026                    [--paksa]
+      284 entri
+  Direktori Perusahaan/Usaha Jasa Akomodasi Kota Banja [--paksa]
+      13 entri
+  Kecamatan Banjarmasin Timur Dalam Angka 2026         [--paksa]
+      96 entri
+  Produk Domestik Regional Bruto Kota Banjarmasin Menu [--paksa]
+      72 entri
+  Statistik Potensi Kelurahan Kota Banjarmasin 2025    [--paksa]
+      89 entri
+  Indeks Pembangunan Manusia Kota Banjarmasin 2020-202 [--paksa]
+      74 entri
+  Kecamatan Banjarmasin Selatan Dalam Angka 2025       [--paksa]
+      99 entri
+  Keadaan Angkatan Kerja Kota Banjarmasin Agustus 2025 [--paksa]
+      63 entri
+  Kecamatan Banjarmasin Barat Dalam Angka 2026         [--paksa]
+      91 entri
+  Profil Tenaga Kerja Kota Banjarmasin 2025            [--paksa]
+      41 entri
+  Statistik Perhubungan Kota Banjarmasin 2024          [--paksa]
+      54 entri
+  Produk Domestik Regional Bruto Kota Banjarmasin Menu [--paksa]
+      72 entri
+  Kecamatan Banjarmasin Timur Dalam Angka 2025         [--paksa]
+      99 entri
+  Booklet Survei Angkatan Kerja Nasional Kota Banjarma [--paksa]
+      16 entri
+  Produk Domestik Regional Bruto Kota Banjarmasin Menu [--paksa]
+      60 entri
+  Kecamatan Banjarmasin Selatan Dalam Angka 2026       [--paksa]
+      96 entri
+  Statistik Kesejahteraan Rakyat Kota Banjarmasin 2025 [--paksa]
+      89 entri
+  Kecamatan Banjarmasin Barat Dalam Angka 2025         [--paksa]
+      95 entri
+  Produk Domestik Regional Bruto Kota Banjarmasin Menu [--paksa]
+      50 entri
+  Booklet Survei Angkatan Kerja Nasional Kota Banjarma [--paksa]
+      15 entri
+  Profil Tenaga Kerja Kota Banjarmasin 2024            [--paksa]
+      44 entri
+  Indikator Kesejahteraan Rakyat Kota Banjarmasin 2025 [--paksa]
+      93 entri
+  Indeks Harga Konsumen Kota Banjarmasin 2024          [--paksa]
+      31 entri
+  Direktori Perusahaan Industri Manufaktur Menengah da [--paksa]
+      30 entri
+  Statistik Daerah Kota Banjarmasin 2025               [--paksa]
+      101 entri
+  Kecamatan Banjarmasin Tengah Dalam Angka 2025        [--paksa]
+      95 entri
+
+==========================================================================
+DOMAIN 6372 Kota Banjarbaru
+==========================================================================
+  29 publikasi perlu dikerjakan
+  Kota Banjarbaru Dalam Angka 2025                     [--paksa]
+      270 entri
+  Produk Domestik Regional Bruto Kota Banjarbaru Menur [--paksa]
+      76 entri
+  Indikator Kesejahteraan Rakyat Kota Banjarbaru 2025  [--paksa]
+      131 entri
+  Kecamatan Landasan Ulin Dalam Angka 2026             [--paksa]
+      130 entri
+  Ringkasan Eksekutif Kemiskinan Kota Banjarbaru 2025  [--paksa]
+      14 entri
+  Kecamatan Cempaka Dalam Angka 2025                   [--paksa]
+      131 entri
+  Kecamatan Banjarbaru Utara Dalam Angka 2025          [--paksa]
+      131 entri
+  Kecamatan Landasan Ulin Dalam Angka 2025             [--paksa]
+      132 entri
+  Kecamatan Banjar Baru Selatan Dalam Angka 2025       [--paksa]
+      132 entri
+  Booklet Survei Angkatan Kerja Nasional Kota Banjarba [--paksa]
+      17 entri
+  Kecamatan Cempaka Dalam Angka 2026                   [--paksa]
+      130 entri
+  Kota Banjarbaru Dalam Angka 2026                     [--paksa]
+      308 entri
+  Statistik Daerah Kota Banjarbaru 2025                [--paksa]
+      20 entri
+      halaman tanpa teks 63: cache OCR 63, di-OCR 0, dilewati 0
+  Profil Tenaga Kerja Kota Banjarbaru Tahun 2024       [--paksa]
+      32 entri
+  Analisis Hasil Survei Kebutuhan Data BPS Kota Banjar [--paksa]
+      90 entri
+  Kecamatan Banjarbaru Selatan Dalam Angka 2026        [--paksa]
+      130 entri
+  Produk Domestik Regional Bruto Kota Banjarbaru Menur [--paksa]
+      74 entri
+      halaman tanpa teks 139: cache OCR 139, di-OCR 0, dilewati 0
+  Keadaan Angkatan Kerja di Kota Banjarbaru Agustus 20 [--paksa]
+      100 entri
+  Kecamatan Liang Anggang Dalam Angka 2026             [--paksa]
+      130 entri
+  Booklet Survei Angkatan Kerja Nasional Kota Banjarba [--paksa]
+      16 entri
+  Statistik Kesejahteraan Rakyat Kota Banjarbaru 2025  [--paksa]
+      94 entri
+  Produk Domestik Regional Bruto Kota Banjarbaru Menur [--paksa]
+      88 entri
+  Kecamatan Liang Anggang Dalam Angka 2025             [--paksa]
+      132 entri
+  Kecamatan Banjarbaru Utara Dalam Angka 2026          [--paksa]
+      130 entri
+  Produk Domestik Regional Bruto Kota Banjarbaru Menur [--paksa]
+      54 entri
+  Keadaan Angkatan Kerja di Kota Banjarbaru Agustus 20 [--paksa]
+      57 entri
+  Buklet Indikator Strategis Kota Banjarbaru Tahun 202 [--paksa]
+      21 entri
+  Statistik Potensi Kelurahan Kota Banjarbaru 2025     [--paksa]
+      79 entri
+  Ringkasan Eksekutif Kinerja Ekonomi Kota Banjarbaru  [--paksa]
+      4 entri
+
+==========================================================================
+RINGKASAN PEMBARUAN
+==========================================================================
+  Status       : sukses
+  Entri dokumen: 44360 -> 44455 (+95)
+  Waktu        : 6734 detik (1.9 jam)
+  Per tahap    : ambil_metadata 0.0 d, unduh 0.0 d, ekstraksi 6694.9 d, muat 28.7 d
+  Jaringan     : SSID None, webapi.bps.go.id -> None
+  Unduhan      : 0 berkas, 0.0 MB, rata-rata None KB/detik; putus 0x, percobaan ulang 0x, putaran ulang 0 (pulih 0), tetap gagal 0
+
+  domain                            status          publikasi  diunduh diproses  gagal
+  6300 Provinsi Kalimantan Selatan  sukses                 79        0       79      0
+  6301 Kab. Tanah Laut              sukses                 39        0       39      0
+  6302 Kab. Kotabaru                sukses                 61        0       61      0
+  6303 Kab. Banjar                  sukses                 55        0       55      0
+  6304 Kab. Barito Kuala            sukses                 52        0       52      0
+  6305 Kab. Tapin                   sukses                 41        0       41      0
+  6306 Kab. Hulu Sungai Selatan     sukses                 39        0       39      0
+  6307 Kab. Hulu Sungai Tengah      sukses                 38        0       38      0
+  6308 Kab. Hulu Sungai Utara       sukses                 39        0       39      0
+  6309 Kab. Tabalong                sukses                 41        0       41      0
+  6310 Kab. Tanah Bumbu             sukses                 40        0       40      0
+  6311 Kab. Balangan                sukses                 32        0       32      0
+  6371 Kota Banjarmasin             sukses                 33        0       33      0
+  6372 Kota Banjarbaru              sukses                 29        0       29      0
+
+  Perlu diperiksa manual (53):
+    6300 Direktori Perusahaan Akomodasi Provinsi Ka hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+    6300 Statistik Daerah Provinsi Kalimantan Selat 26/51 entri tanpa nomor halaman
+    6300 Master File Desa Provinsi Kalimantan Selat 336/336 entri tanpa nomor halaman
+    6300 Direktori Perusahaan Industri Manufaktur M hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+    6300 Indeks Harga Konsumen Provinsi Kalimantan  16/24 entri tanpa nomor halaman
+    6300 Master File Desa Provinsi Kalimantan Selat 336/336 entri tanpa nomor halaman
+    6300 Master File Desa Provinsi Kalimantan Selat 334/334 entri tanpa nomor halaman
+    6300 Statistik Konstruksi Provinsi Kalimantan S 11/41 entri tanpa nomor halaman
+    6301 Kecamatan Kintap Dalam Angka 2025          59/84 entri tanpa nomor halaman
+    6301 Indikator Kesejahteraan Rakyat Kabupaten T 6/6 entri tanpa nomor halaman
+    6301 Kecamatan Jorong Dalam Angka 2025          56/81 entri tanpa nomor halaman
+    6301 Kecamatan Takisung Dalam Angka 2025        58/83 entri tanpa nomor halaman
+    6301 Kecamatan Pelaihari Dalam Angka 2025       70/95 entri tanpa nomor halaman
+    6301 Kecamatan Panyipatan Dalam Angka 2025      55/81 entri tanpa nomor halaman
+    6301 Kecamatan Bati-Bati Dalam Angka 2025       59/84 entri tanpa nomor halaman
+    6301 Kecamatan Batu Ampar Dalam Angka 2025      62/87 entri tanpa nomor halaman
+    6301 Kecamatan Kurau Dalam Angka 2025           57/82 entri tanpa nomor halaman
+    6301 Kecamatan Tambang Ulang Dalam Angka 2025   54/79 entri tanpa nomor halaman
+    6301 Kecamatan Bumi Makmur Dalam Angka 2025     57/82 entri tanpa nomor halaman
+    6301 Kecamatan Bajuin Dalam Angka 2025          56/81 entri tanpa nomor halaman
+    6302 Buklet Survei Angkatan Kerja Nasional Kabu hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+    6303 Kecamatan Simpang Empat Dalam Angka 2025   22/64 entri tanpa nomor halaman
+    6303 Statistik Daerah Kabupaten Banjar Tahun 20 hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+    6303 Kecamatan Mataraman Dalam Angka 2025       26/73 entri tanpa nomor halaman
+    6303 Kecamatan Aluh-Aluh Dalam Angka 2026       27/98 entri tanpa nomor halaman
+    6303 Kecamatan Tatah Makmur Dalam Angka 2025    16/56 entri tanpa nomor halaman
+    6303 Produk Domestik Regional Bruto Kabupaten B 16/60 entri tanpa nomor halaman
+    6303 Produk Domestik Regional Bruto Kabupaten B 16/60 entri tanpa nomor halaman
+    6304 Statistik Daerah Kabupaten Barito Kuala 20 hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+    6304 Statistik Daerah Kabupaten Barito Kuala 20 hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+    6305 Statistik Daerah Kabupaten Tapin 2025      hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+    6306 Statistik Daerah Kabupaten Hulu Sungai Sel 9/32 entri tanpa nomor halaman
+    6306 Statistik Daerah Kabupaten Hulu Sungai Sel 9/32 entri tanpa nomor halaman
+    6307 Statistik Daerah Kabupaten Hulu Sungai Ten 52/52 entri tanpa nomor halaman
+    6307 Booklet Survei Angkatan Kerja Nasional Kab hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+    6308 BOOKISTRA (Booklet Data Indikator Strategi hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+    6308 Statistik Daerah Kabupaten Hulu Sungai Uta 22/45 entri tanpa nomor halaman
+    6309 Booklet Survei Angkatan Kerja Nasional Kab hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+    6309 Statistik Daerah Kabupaten Tabalong 2025   6/16 entri tanpa nomor halaman
+    6310 Statistik Daerah Kabupaten Tanah Bumbu 202 4/4 entri tanpa nomor halaman
+    6310 Kecamatan Kusan Hilir Dalam Angka 2025     heading isi ada tapi 0 entri
+    6310 Kecamatan Kusan Hulu Dalam Angka 2025      heading isi ada tapi 0 entri
+    6311 Statistik Daerah Kabupaten Balangan 2025   hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+    6311 Booklet Survei Angkatan Kerja Nasional Kab hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+    6311 Booklet Survei Angkatan Kerja Nasional Kab hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+    6311 Keadaan Angkatan Kerja di Kabupaten Balang 74/89 entri tanpa nomor halaman
+    6371 Direktori Perusahaan/Usaha Jasa Akomodasi  hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+    6371 Booklet Survei Angkatan Kerja Nasional Kot hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+    6371 Booklet Survei Angkatan Kerja Nasional Kot hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+    6372 Ringkasan Eksekutif Kemiskinan Kota Banjar 5/14 entri tanpa nomor halaman
+    6372 Statistik Daerah Kota Banjarbaru 2025      hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+    6372 Buklet Indikator Strategis Kota Banjarbaru 11/21 entri tanpa nomor halaman
+    6372 Ringkasan Eksekutif Kinerja Ekonomi Kota B hanya Daftar Isi, tidak ada tabel/gambar/lampiran
+
+Selesai 2026-11-18 12:07:32, kode keluar 0. Log: data/log_pembaruan\20261118-101518.log
