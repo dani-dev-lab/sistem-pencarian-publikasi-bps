@@ -1,6 +1,6 @@
 import os, json, glob, time, sys
 sys.path.insert(0, '.')
-target=[l.split()[0] for l in open('data/ocr_target_kecamatan.txt',encoding='utf-8') if l.strip() and not l.startswith('#')]
+target=[l.split()[0] for l in open('data/regresi/kecamatan-mutu-20261118/ocr_target_kecamatan.txt',encoding='utf-8') if l.strip() and not l.startswith('#')]
 sekarang=time.time()
 for i,pid in enumerate(target,1):
     pdfs=glob.glob(f'data/publikasi_pdf/*/{pid}.pdf')

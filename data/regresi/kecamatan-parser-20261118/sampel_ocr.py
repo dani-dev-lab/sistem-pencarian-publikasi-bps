@@ -8,7 +8,7 @@ import pypdfium2 as pdfium
 from PIL import Image
 potret = json.load(open(sys.argv[1], encoding="utf-8")); keluar = sys.argv[2]
 n = int(sys.argv[3]) if len(sys.argv) > 3 else 10; seed = int(sys.argv[4]) if len(sys.argv) > 4 else 20261118
-target = [l.split()[0] for l in open("data/ocr_target_kecamatan.txt", encoding="utf-8") if l.strip() and not l.startswith("#")]
+target = [l.split()[0] for l in open("data/regresi/kecamatan-mutu-20261118/ocr_target_kecamatan.txt", encoding="utf-8") if l.strip() and not l.startswith("#")]
 populasi = [(p, e) for p in target for e in potret.get(p, [])]
 print(f"populasi {len(populasi)} entri di {len(target)} publikasi OCR; seed {seed}")
 SK = 2.0

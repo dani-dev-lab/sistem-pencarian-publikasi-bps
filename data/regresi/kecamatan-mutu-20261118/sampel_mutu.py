@@ -16,7 +16,7 @@ from app.services.ekstraksi_pdf import _bukan_watermark
 
 n = int(sys.argv[1]) if len(sys.argv) > 1 else 30
 seed = int(sys.argv[2]) if len(sys.argv) > 2 else 20261118
-target = {l.split()[0] for l in open("data/ocr_target_kecamatan.txt", encoding="utf-8") if l.strip() and not l.startswith("#")}
+target = {l.split()[0] for l in open("data/regresi/kecamatan-mutu-20261118/ocr_target_kecamatan.txt", encoding="utf-8") if l.strip() and not l.startswith("#")}
 eng = create_engine(KonfigurasiUji.SQLALCHEMY_DATABASE_URI)
 with eng.connect() as c:
     baris = c.execute(text("select e.id, p.id, p.domain, p.judul, e.tipe, e.nomor, e.judul, e.halaman, e.halaman_fisik, "

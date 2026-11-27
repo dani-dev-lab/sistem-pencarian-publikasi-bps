@@ -47,7 +47,7 @@ def ringkas(daftar):
     return kunci, tanpa
 
 if sys.argv[1] == "daftar":
-    target = {l.split()[0] for l in open("data/ocr_target_kecamatan.txt", encoding="utf-8") if l.strip() and not l.startswith("#")}
+    target = {l.split()[0] for l in open("data/regresi/kecamatan-mutu-20261118/ocr_target_kecamatan.txt", encoding="utf-8") if l.strip() and not l.startswith("#")}
     with mesin().connect() as c:
         rows = c.execute(text("select id, domain, judul from publikasi where judul like 'Kecamatan%' and "
                               "((domain='6301' and judul like '%2025') or (domain='6303' and judul like '%2026') "
