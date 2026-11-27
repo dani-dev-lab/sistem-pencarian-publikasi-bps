@@ -387,6 +387,17 @@ Mahasiswa Politeknik Negeri Banjarmasin.
       urutan (OB lulus); P D W Q + G tidak selesai (batas waktu). Potret 28
       URL Linux vs Windows dari dump yang sama: IDENTIK 28/28 (penuh + --isi,
       berkas byte-identik). apt/systemd/tar di Linux belum diuji.
+  - **PEMBEKUAN v1.0.0 (27 Nov 2026).** Merge `revisi-pst` -> `main`
+    (`--no-ff`, "Serah terima v1.0.0") + tag beranotasi `v1.0.0`; push oleh
+    pemilik project. Laporan `data/regresi/pengukuran-akhir-20261127.md`:
+    - uji akhir pada `bd5b63d`: 184 lulus, 0 gagal; CHECKSUM produksi sama;
+    - produksi 622 publikasi / 44.649 entri / versi_data 549;
+    - paket `data/serah_terima/` (gitignored): dump 20261127 (pulih 6/6),
+      manifest sha256 5.298 berkas, `periksa-sidik-20261127.txt`,
+      `BACA-DULU.txt`.
+    - `CHANGELOG.md` baru. SECRET_KEY dan API key sudah diganti pemilik
+      project.
+    - Perubahan kode sesudah v1.0.0 = versi baru; uji penuh lagi.
   - `.bat` memanggil `%SystemRoot%\System32\find.exe` dengan jalur lengkap:
     `find` Git di PATH tidak mengenal `/i`.
   - **Jebakan alat:** heredoc di Bash tool memakan backslash (`\\n`, `\` di

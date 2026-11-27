@@ -8,10 +8,16 @@ Provinsi Kalimantan Selatan. Petugas mengetik kata kunci; sistem menunjukkan
 publikasi mana DAN bagian mana (tabel, gambar, lampiran, bab) yang memuat
 data tersebut, lengkap dengan tombol membuka PDF di halaman yang tepat.
 
-Cakupan: publikasi Provinsi Kalimantan Selatan dan 13 kabupaten/kota yang
-dirilis 2 tahun terakhir, dengan filter wilayah di halaman pencarian.
-Keadaan data 17 November 2026: 307 publikasi dan 24.532 bagian terindeks;
-86% bagian itu bisa dibuka langsung di halaman PDF-nya.
+**Versi 1.0.0 (serah terima, 27 November 2026)** — ringkasan perubahan dan
+utang teknis yang masih terbuka: [CHANGELOG.md](CHANGELOG.md).
+
+Cakupan: publikasi Provinsi Kalimantan Selatan, 13 kabupaten/kota, dan
+"Kecamatan … Dalam Angka" yang dirilis 2025–2026, dengan filter wilayah dan
+pilihan kecamatan di halaman pencarian. Keadaan data 27 November 2026:
+
+- 622 publikasi, 312 di antaranya kecamatan;
+- 44.649 bagian terindeks;
+- 88,9% bagian bisa dibuka langsung di halaman PDF-nya.
 
 - **Panduan operasional** (pemasangan, menjalankan, memperbarui data,
   mengelola kamus dan wilayah, OCR, cara menguji, pemecahan masalah,
@@ -40,9 +46,14 @@ copy .env.example .env      # lalu isi semua nilainya - lihat PANDUAN.md bagian 
 
 Lalu isi datanya, dengan salah satu dari dua jalur di PANDUAN.md bagian 2:
 
-- **dari berkas serah terima** (disarankan): pulihkan cadangan database, salin
-  folder PDF dan cache OCR tanpa ZIP (tanggal ubah berkas harus tetap; cara
-  yang aman ada di PANDUAN.md bagian 2);
+- **dari berkas serah terima** (disarankan):
+  - pulihkan cadangan database;
+  - salin folder PDF, sampul, dan cache OCR tanpa ZIP (tanggal ubah berkas
+    harus tetap);
+  - periksa dengan `scripts/periksa_sidik.py`.
+
+  Paket serah terima `data/serah_terima/` (tidak masuk Git) memuat
+  `BACA-DULU.txt`; caranya ada di PANDUAN.md bagian 2 dan 7.4;
 - **dari nol** (butuh internet ke WebAPI BPS, beberapa jam):
 
   ```
@@ -55,8 +66,9 @@ Sesudah itu `jalankan-aplikasi.bat` membuka `http://localhost:5000/`.
 Mode pengembangan (debugger + auto-reload, jangan di jaringan kantor):
 `venv\Scripts\python.exe run.py --dev`
 
-Di Linux (teruji di Ubuntu 22.04, Python 3.12, MySQL 8.0): `python3 -m venv venv`, `venv/bin/pip install -r
-requirements.txt`, lalu `./perbarui-data.sh` dan `./jalankan-aplikasi.sh`.
+Di Linux (teruji di Ubuntu 22.04, Python 3.12, MySQL 8.0): `python3 -m venv
+venv`, `venv/bin/pip install -r requirements.txt`, lalu `./perbarui-data.sh`
+dan `./jalankan-aplikasi.sh`.
 Pemasangan di server Windows atau Linux, termasuk layanan systemd dan paket
 serah terima: PANDUAN.md bagian 7.4.
 
